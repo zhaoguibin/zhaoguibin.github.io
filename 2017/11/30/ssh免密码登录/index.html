@@ -88,10 +88,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh免密码登录">
 <meta property="og:url" content="http://yoursite.com/2017/11/30/ssh免密码登录/index.html">
-<meta property="og:site_name" content="Zhaoguibin">
+<meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="ssh 无密码登录要使用公钥与私钥。linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。 有机器A(192.168.3.7)，B(192.168.3.3)。现想A通过ssh免密码登录到B。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-30T13:49:59.000Z">
+<meta property="og:updated_time" content="2017-12-01T11:15:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh免密码登录">
 <meta name="twitter:description" content="ssh 无密码登录要使用公钥与私钥。linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。 有机器A(192.168.3.7)，B(192.168.3.3)。现想A通过ssh免密码登录到B。">
@@ -130,7 +130,7 @@
 
 
 
-  <title>ssh免密码登录 | Zhaoguibin</title>
+  <title>ssh免密码登录 | zhaoguibin</title>
   
 
 
@@ -160,12 +160,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Zhaoguibin</span>
+        <span class="site-title">zhaoguibin</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">笔记</p>
       
   </div>
 
@@ -290,7 +290,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhaoguibin">
+      <meta itemprop="name" content="zhaoguibin">
     </span>
 
     
@@ -357,7 +357,7 @@
 <p>由于还没有免密码登录的，所以要输入密码。</p>
 <p>3.B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys 命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@B ~]$ cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">[root@B ~]$ chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
 <p>authorized_keys的权限要是600。</p>
-<p>4.A机登录B机。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@A ~]$ ssh 192.168.3.3</span><br><span class="line">The authenticity of host &apos;192.168.3.3 (192.168.3.3)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is 00:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added &apos;192.168.3.3&apos; (RSA) to the list of known hosts.</span><br><span class="line">Last login: Fri Nov 30 21:03:18 2017 from root</span><br><span class="line">[root@B ~]$</span><br></pre></td></tr></table></figure></p>
+<p>4.A机登录B机。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@A ~]$ ssh 192.168.3.3</span><br><span class="line">The authenticity of host &apos;192.168.3.3 (192.168.3.3)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is 00:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added &apos;192.168.3.3&apos; (RSA) to the list of known hosts.</span><br><span class="line">Last login: Thu Nov 30 21:03:18 2017 from root</span><br><span class="line">[root@B ~]$</span><br></pre></td></tr></table></figure></p>
 <p>第一次登录是时要你输入yes。</p>
 <p>现在A机可以无密码登录B机了。</p>
 <p>小结：登录的机子可有私钥，被登录的机子要有登录机子的公钥。这个公钥/私钥对一般在私钥宿主机产生。上面是用rsa算法的公钥/私钥对，当然也可以用dsa(对应的文件是id_dsa，id_dsa.pub)</p>
@@ -404,6 +404,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/01/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -465,7 +469,7 @@
                 alt="zhaoguibin" />
             
               <p class="site-author-name" itemprop="name">zhaoguibin</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">个人平时问题记录</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -475,7 +479,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -488,7 +492,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -698,7 +702,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {

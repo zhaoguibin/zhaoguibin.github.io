@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[hexo相关优化]]></title>
+    <url>%2F2017%2F12%2F01%2Fhexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[local search安装 hexo-generator-search 在站点的根目录下执行以下命令：1$ npm install hexo-generator-search --save 安装 hexo-generator-searchdb 在站点的根目录下执行以下命令：1$ npm install hexo-generator-searchdb --save 启用搜索 编辑 站点配置文件，新增以下内容到任意位置：12345search: path: search.xml field: post format: html limit: 10000]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2017%2F12%2F01%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[由于手残执行了 rm -rf / 所以从头开始……]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[ssh免密码登录]]></title>
+    <url>%2F2017%2F11%2F30%2Fssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[ssh 无密码登录要使用公钥与私钥。linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。 有机器A(192.168.3.7)，B(192.168.3.3)。现想A通过ssh免密码登录到B。 1.在A机下生成公钥/私钥对。1[root@A ~]$ ssh-keygen -t rsa -P &apos;&apos; -P表示密码，-P ‘’ 就表示空密码，也可以不用-P参数，这样就要三车回车，用-P就一次回车。它在/home/root下生成.ssh目录，.ssh下有id_rsa和id_rsa.pub。 2.把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。123[root@A ~]$ scp ~/.ssh/id_rsa.pub root@192.168.3.3:/home/root/id_rsa.pubroot@192.168.3.3&apos;s password:id_rsa.pub 100% 223 0.2KB/s 00:00 由于还没有免密码登录的，所以要输入密码。 3.B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys 命令如下：12[root@B ~]$ cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys[root@B ~]$ chmod 600 ~/.ssh/authorized_keys authorized_keys的权限要是600。 4.A机登录B机。1234567[root@A ~]$ ssh 192.168.3.3The authenticity of host &apos;192.168.3.3 (192.168.3.3)&apos; can&apos;t be established.RSA key fingerprint is 00:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b.Are you sure you want to continue connecting (yes/no)? yesWarning: Permanently added &apos;192.168.3.3&apos; (RSA) to the list of known hosts.Last login: Thu Nov 30 21:03:18 2017 from root[root@B ~]$ 第一次登录是时要你输入yes。 现在A机可以无密码登录B机了。 小结：登录的机子可有私钥，被登录的机子要有登录机子的公钥。这个公钥/私钥对一般在私钥宿主机产生。上面是用rsa算法的公钥/私钥对，当然也可以用dsa(对应的文件是id_dsa，id_dsa.pub) 想让A，B机无密码互登录，那B机以上面同样的方式配置即可。 转载自：http://chenlb.iteye.com/blog/211809]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[lsyncd实时同步工具安装]]></title>
+    <url>%2F2017%2F11%2F30%2Flsyncd%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[有2种方法可以安装 1.yum安装，前提是安装了epel更新源。使用命令：1yum install -y lsyncd 2.github下载，地址为：https://github.com/axkibe/lsyncd 安装lua软件包以及依赖软件1yum install -y lua lua-devel cmake rsync 解压下载的压缩包1unzip lsyncd-master.zip -d /usr/src/ 进入目录1cd /usr/src/lsyncd-master/ 使用cmake编译，如果没有安装cmake,可以yum安装一下1cmake -DCMAKE_INSTALL_PREFIX=/usr/local/lsyncd 1make &amp;&amp; make install 进入安装目录1cd /usr/local/lsyncd/ 创建配置文件目录和日志目录1mkdir etc var 进入配置文件目录1cd etc/ 编译配置文件1vim lsyncd.conf 1234567891011121314151617181920212223242526272829303132333435settings &#123; --pid文件 logfile = &quot;/usr/local/lsyncd/var/lsyncd.log&quot;, --状态文件 statusFile = &quot;/usr/local/lsyncd/var/lsyncd.status&quot;, --同步模式，意思就是有更新就同步 inotifyMode = &quot;CloseWrite or Modify&quot;, --最大8个进程 maxProcesses = 8,&#125;sync &#123; default.rsync, source = &quot;/www&quot;, target = &quot;root@192.168.10.50:/www&quot;, maxDelays = 5, delay = 30, -- init = true, rsync = &#123; binary = &quot;/usr/bin/rsync&quot;, archive = true, compress = true, bwlimit = 2000 -- rsh = &quot;/usr/bin/ssh -p 22 -o StrictHostKeyChecking=no&quot; &#125; &#125; 在远端被同步的服务器上开启ssh无密码登录，请注意用户身份：（用root还是最吼的！！！） 链接：ssh免密码登录 最后启动1/usr/local/lsyncd/bin/lsyncd -log Exec /usr/local/lsyncd/etc/lsyncd.conf 关闭12 ps -aux | grep lsyncdkill id 编译启动脚本1vim /etc/init.d/lsyncd 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201202203204205#!/bin/bash## chkconfig: - 85 15# description: Lightweight inotify based sync daemon## processname: lsyncd# config: /usr/local/lsyncd/etc/lsyncd.conf# config: /etc/sysconfig/lsyncd# pidfile: /var/run/lsyncd.pid# Source function library. /etc/init.d/functions# Source networking configuration.. /etc/sysconfig/network# Check that networking is up.[ &quot;$NETWORKING&quot; = &quot;no&quot; ] &amp;&amp; exit 0LSYNCD_OPTIONS=&quot;-pidfile /var/run/lsyncd.pid /usr/local/lsyncd/etc/lsyncd.conf&quot;if [ -e /etc/sysconfig/lsyncd ]; then . /etc/sysconfig/lsyncdfiRETVAL=0prog=&quot;lsyncd&quot;thelock=/var/lock/subsys/lsyncdstart() &#123;[ -f /usr/local/lsyncd/etc/lsyncd.conf ] || exit 6 echo -n $&quot;Starting $prog: &quot; if [ $UID -ne 0 ]; then RETVAL=1 failure else daemon $&#123;LSYNCD_USER:+--user $&#123;LSYNCD_USER&#125;&#125; /usr/local/lsyncd/bin/lsyncd $LSYNCD_OPTIONS RETVAL=$? [ $RETVAL -eq 0 ] &amp;&amp; touch $thelock fi; echo return $RETVAL&#125;stop() &#123; echo -n $&quot;Stopping $prog: &quot; if [ $UID -ne 0 ]; then RETVAL=1 failure else killproc lsyncd RETVAL=$? [ $RETVAL -eq 0 ] &amp;&amp; rm -f $thelock fi; echo return $RETVAL&#125;reload()&#123; echo -n $&quot;Reloading $prog: &quot; killproc lsyncd -HUP RETVAL=$? echo return $RETVAL&#125;restart()&#123; stop start&#125;condrestart()&#123; [ -e $thelock ] &amp;&amp; restart return 0&#125;case &quot;$1&quot; in start) start ;; stop) stop ;; restart) restart ;; reload) reload ;; condrestart) condrestart ;; status) status lsyncd RETVAL=$? ;; *) echo $&quot;Usage: $0 &#123;start|stop|status|restart|condrestart|reload&#125;&quot; RETVAL=1esacexit $RETVAL 设置权限1chmod 755 /etc/init.d/lsyncd 添加到开机自启动文件中1echo &quot;/etc/init.d/lsyncd start&quot; &gt;&gt; /etc/rc.local]]></content>
+      <tags>
+        <tag>lsyncd</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+</search>

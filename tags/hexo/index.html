@@ -17,6 +17,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
 
 
 
@@ -56,10 +60,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5.1.3">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
@@ -79,13 +83,16 @@
 
 
 
+<meta name="description" content="个人平时问题记录">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Zhaoguibin">
-<meta property="og:url" content="http://yoursite.com/tags/lsyncd-linux/index.html">
-<meta property="og:site_name" content="Zhaoguibin">
+<meta property="og:title" content="zhaoguibin">
+<meta property="og:url" content="http://yoursite.com/tags/hexo/index.html">
+<meta property="og:site_name" content="zhaoguibin">
+<meta property="og:description" content="个人平时问题记录">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhaoguibin">
+<meta name="twitter:title" content="zhaoguibin">
+<meta name="twitter:description" content="个人平时问题记录">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/lsyncd-linux/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/hexo/"/>
 
 
 
 
 
-  <title>标签: lsyncd linux | Zhaoguibin</title>
+  <title>标签: hexo | zhaoguibin</title>
   
 
 
@@ -151,12 +158,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Zhaoguibin</span>
+        <span class="site-title">zhaoguibin</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">笔记</p>
       
   </div>
 
@@ -265,7 +272,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>lsyncd linux<small>标签</small>
+        <h1>hexo<small>标签</small>
         </h1>
       </div>
 
@@ -277,9 +284,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/11/30/lsyncd实时同步工具安装/" itemprop="url">
+            <a class="post-title-link" href="/2017/12/01/hexo相关优化/" itemprop="url">
               
-                <span itemprop="name">lsyncd实时同步工具安装</span>
+                <span itemprop="name">hexo相关优化</span>
               
             </a>
         
@@ -287,9 +294,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-30T20:24:03+08:00"
-              content="2017-11-30" >
-          11-30
+              datetime="2017-12-01T19:57:59+08:00"
+              content="2017-12-01" >
+          12-01
         </time>
       </div>
 
@@ -343,7 +350,7 @@
                 alt="zhaoguibin" />
             
               <p class="site-author-name" itemprop="name">zhaoguibin</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">个人平时问题记录</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -353,7 +360,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -365,10 +372,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -572,7 +579,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -898,6 +905,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
