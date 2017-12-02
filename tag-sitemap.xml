@@ -9,13 +9,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/linux/</loc>
-        <lastmod>2017-12-01T11:15:34.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/ssh/</loc>
         <lastmod>2017-12-01T11:15:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,6 +18,83 @@
     <url>
         <loc>http://yoursite.com/tags/hexo/</loc>
         <lastmod>2017-12-01T12:12:12.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/LNMP/</loc>
+        <lastmod>2017-12-02T03:35:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/virtualbox/</loc>
+        <lastmod>2017-12-02T03:57:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/vim/</loc>
+        <lastmod>2017-12-02T04:01:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/golang/</loc>
+        <lastmod>2017-12-02T06:34:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/ubuntu/</loc>
+        <lastmod>2017-12-02T06:52:20.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/firewalld/</loc>
+        <lastmod>2017-12-02T06:55:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/linux/</loc>
+        <lastmod>2017-12-02T06:58:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/samba/</loc>
+        <lastmod>2017-12-02T07:01:34.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/centos/</loc>
+        <lastmod>2017-12-02T07:08:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/nginx/</loc>
+        <lastmod>2017-12-02T07:08:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/mysql/</loc>
+        <lastmod>2017-12-02T07:14:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

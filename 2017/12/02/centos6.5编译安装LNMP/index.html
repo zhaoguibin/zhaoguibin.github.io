@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux,LNMP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、环境准备1、操作系统安装：CentOS 6.5 64位最小化安装。2、配置好IP、DNS、网关、主机名3、配置防火墙，开启80、3306端口123/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT/etc/rc.d/init.d/iptables save/etc">
+<meta name="keywords" content="linux,LNMP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos6.5编译安装LNMP">
+<meta property="og:url" content="http://yoursite.com/2017/12/02/centos6.5编译安装LNMP/index.html">
+<meta property="og:site_name" content="zhaoguibin">
+<meta property="og:description" content="一、环境准备1、操作系统安装：CentOS 6.5 64位最小化安装。2、配置好IP、DNS、网关、主机名3、配置防火墙，开启80、3306端口123/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT/etc/rc.d/init.d/iptables save/etc/init.d/iptables restart 这样就搞定了，查看效果12/e">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-02T03:35:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="centos6.5编译安装LNMP">
+<meta name="twitter:description" content="一、环境准备1、操作系统安装：CentOS 6.5 64位最小化安装。2、配置好IP、DNS、网关、主机名3、配置防火墙，开启80、3306端口123/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT/etc/rc.d/init.d/iptables save/etc/init.d/iptables restart 这样就搞定了，查看效果12/e">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/02/centos6.5编译安装LNMP/"/>
+
+
+
+
+
+  <title>centos6.5编译安装LNMP | zhaoguibin</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhaoguibin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">笔记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/centos6.5编译安装LNMP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">centos6.5编译安装LNMP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T11:01:15+08:00">
+                2017-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="1、操作系统安装：CentOS-6-5-64位最小化安装。"><a href="#1、操作系统安装：CentOS-6-5-64位最小化安装。" class="headerlink" title="1、操作系统安装：CentOS 6.5 64位最小化安装。"></a>1、操作系统安装：CentOS 6.5 64位最小化安装。</h3><h3 id="2、配置好IP、DNS、网关、主机名"><a href="#2、配置好IP、DNS、网关、主机名" class="headerlink" title="2、配置好IP、DNS、网关、主机名"></a>2、配置好IP、DNS、网关、主机名</h3><h3 id="3、配置防火墙，开启80、3306端口"><a href="#3、配置防火墙，开启80、3306端口" class="headerlink" title="3、配置防火墙，开启80、3306端口"></a>3、配置防火墙，开启80、3306端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line">/etc/rc.d/init.d/iptables save</span><br><span class="line">/etc/init.d/iptables restart</span><br></pre></td></tr></table></figure>
+<p>这样就搞定了，查看效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables status</span><br><span class="line">/etc/init.d/iptables restart #最后重启防火墙使配置生效</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><strong>PS</strong>：</p>
+<p>Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#开启端口</span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">#重启防火墙</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure></p>
+<p>命令含义：<br><br>–zone #作用域<br><br>–add-port=80/tcp #添加端口，格式为：端口/通讯协议<br><br>–permanent #永久生效，没有此参数重启后失效<br></p>
+<h3 id="4、关闭SELinux"><a href="#4、关闭SELinux" class="headerlink" title="4、关闭SELinux"></a>4、关闭SELinux</h3><p>查看selinux状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sestatus -v</span><br><span class="line">SELinux status: disabled  //禁用selinux</span><br><span class="line">getenforce</span><br><span class="line">Disabled  //禁用selinux</span><br><span class="line">getenforce</span><br><span class="line">Enforcing //启动</span><br></pre></td></tr></table></figure></p>
+<p>关闭selinux方法：<br>setenforce 0 #设置SELinux 成为permissive模式<br>setenforce 1 #设置SELinux 成为enforcing模式<br>第二种方法：<br>vim /etc/selinux/config 编辑文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># This file controls the state of SELinux on the system.</span><br><span class="line"># SELINUX= can take one of these three values:</span><br><span class="line"># enforcing - SELinux security policy is enforced.</span><br><span class="line">#permissive - SELinux prints warnings instead of enforcing.</span><br><span class="line">#disabled - No SELinux policy is loaded.</span><br><span class="line">SELINUX=enforcing</span><br><span class="line"># SELINUXTYPE= can take one of these two values:</span><br><span class="line"># targeted - Targeted processes are protected,</span><br><span class="line"># mls - Multi Level Security protection.</span><br></pre></td></tr></table></figure></p>
+<p>将SELINUX=enforceing 改为 SELINUX=disabled 重启机器就ok了</p>
+<h2 id="二、系统约定"><a href="#二、系统约定" class="headerlink" title="二、系统约定"></a>二、系统约定</h2><p>硬盘分区：50G(/boot 200M /swap 8192M /)+100G(/opt)<br><br>软件源代码包存放位置：/opt/local/src<br><br>源码包编译安装位置：/opt/local/软件名<br><br>数据库数据文件存储路径/opt/local/mysql/var<br></p>
+<h2 id="三、软件包下载"><a href="#三、软件包下载" class="headerlink" title="三、软件包下载"></a>三、软件包下载</h2><p><li>下载nginx（目前稳定版）：<a href="http://nginx.org/download/nginx-1.4.4.tar.gz" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.4.4.tar.gz</a></li></p>
+<p><li>下载pcre （支持nginx伪静态）：ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.34.tar.gz</li></p>
+<p><li>下载MySQL：<a href="http://cdn.mysql.com/Downloads/MySQL-5.5/mysql-5.5.35.tar.gz" target="_blank" rel="noopener">http://cdn.mysql.com/Downloads/MySQL-5.5/mysql-5.5.35.tar.gz</a></li></p>
+<p><li>下载php：<a href="http://cn2.php.net/distributions/php-5.5.7.tar.gz" target="_blank" rel="noopener">http://cn2.php.net/distributions/php-5.5.7.tar.gz</a></li></p>
+<p><li>下载cmake（MySQL编译工具）：<a href="http://www.cmake.org/files/v2.8/cmake-2.8.12.1.tar.gz" target="_blank" rel="noopener">http://www.cmake.org/files/v2.8/cmake-2.8.12.1.tar.gz</a></li></p>
+<p><li>下载libmcrypt（PHPlibmcrypt模块）：<a href="http://nchc.dl.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz" target="_blank" rel="noopener">http://nchc.dl.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz</a></li></p>
+<p><li>下载GD库安装包（php页面图片验证码支持）：<a href="https://phpsqq.googlecode.com/files/gd-2.0.36RC1.tar.gz" target="_blank" rel="noopener">https://phpsqq.googlecode.com/files/gd-2.0.36RC1.tar.gz</a></li></p>
+<p>将以上软件包上传到/opt/local/src目录</p>
+<h2 id="四、安装编译工具及库文件"><a href="#四、安装编译工具及库文件" class="headerlink" title="四、安装编译工具及库文件"></a>四、安装编译工具及库文件</h2><p>使用CentOS yum命令一键安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison</span><br></pre></td></tr></table></figure></p>
+<h2 id="五、软件安装篇"><a href="#五、软件安装篇" class="headerlink" title="五、软件安装篇"></a>五、软件安装篇</h2><h3 id="1、安装cmake"><a href="#1、安装cmake" class="headerlink" title="1、安装cmake"></a>1、安装cmake</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/local/src</span><br><span class="line">tar zxvf cmake-2.8.8.tar.gz</span><br><span class="line">cd cmake-2.8.8</span><br><span class="line">./configure --prefix=/opt/local/cmake</span><br><span class="line">make #编译</span><br><span class="line">make install #安装</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile 在path路径中增加cmake执行文件路径</span><br><span class="line">export PATH=$PATH:/opt/local/cmake/bin</span><br><span class="line">source /etc/profile使配置立即生效</span><br></pre></td></tr></table></figure>
+<h3 id="2、安装pcre"><a href="#2、安装pcre" class="headerlink" title="2、安装pcre"></a>2、安装pcre</h3><p><strong>PS</strong>：Pcre版本不能太高，8最好，要不编译不能通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/local/src</span><br><span class="line">mkdir /usr/local/pcre #创建安装目录</span><br><span class="line">tar zxvf pcre-8.34.tar.gz</span><br><span class="line">cd pcre-8.34</span><br><span class="line">./configure --prefix=/opt/local/pcre #配置</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<h3 id="3、安装libmcrypt"><a href="#3、安装libmcrypt" class="headerlink" title="3、安装libmcrypt"></a>3、安装libmcrypt</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/local/src</span><br><span class="line">tar zxvf libmcrypt-2.5.8.tar.gz #解压</span><br><span class="line">cd libmcrypt-2.5.8 #进入目录</span><br><span class="line">./configure #配置</span><br><span class="line">make #编译</span><br><span class="line">make install #安装</span><br></pre></td></tr></table></figure>
+<h3 id="4、安装gd库"><a href="#4、安装gd库" class="headerlink" title="4、安装gd库"></a>4、安装gd库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/local/src</span><br><span class="line">tar zxvf gd-2.0.36RC1.tar.gz</span><br><span class="line">cd gd-2.0.36RC1</span><br><span class="line">./configure --enable-m4_pattern_allow --prefix=/opt/local/gd --with-jpeg=/usr/lib --with-png=/usr/lib --with-xpm=/usr/lib --with-freetype=/usr/lib --with-fontconfig=/usr/lib #配置</span><br><span class="line">make #编译</span><br><span class="line">make install #安装</span><br></pre></td></tr></table></figure>
+<h3 id="5、安装Mysql"><a href="#5、安装Mysql" class="headerlink" title="5、安装Mysql"></a>5、安装Mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql #添加mysql组</span><br><span class="line">useradd -g mysql mysql -s /bin/false #创建用户mysql并加入到mysql组，不允许mysql用户直接登录系统</span><br><span class="line">mkdir -p /opt/data/mysql/var #创建MySQL数据库存放目录</span><br><span class="line">chown -R mysql:mysql /opt/data/mysql/var #设置MySQL数据库目录权限</span><br><span class="line">cd /opt/local/src</span><br><span class="line">tar zxvf mysql-5.5.35.tar.gz #解压</span><br><span class="line">cd mysql-5.5.35</span><br><span class="line"> cmake . -DCMAKE_INSTALL_PREFIX=/opt/local/mysql -DMYSQL_DATADIR=/opt/data/mysql/var -DSYSCONFDIR=/etc #配置</span><br><span class="line">make #编译</span><br><span class="line">make install #安装</span><br><span class="line"></span><br><span class="line">cd /opt/local/mysql</span><br><span class="line">cp ./support-files/my-huge.cnf /etc/my.cnf #拷贝配置文件（注意：如果/etc目录下面默认有一个my.cnf，直接覆盖即可）</span><br><span class="line">vi /etc/my.cnf #编辑配置文件,在 [mysqld] 部分增加</span><br><span class="line">datadir = /opt/data/mysql/var #添加MySQL数据库路径</span><br><span class="line"></span><br><span class="line">./scripts/mysql_install_db --user=mysql #生成mysql系统数据库</span><br><span class="line"></span><br><span class="line">cp ./support-files/mysql.server /etc/rc.d/init.d/mysqld #把Mysql加入系统启动</span><br><span class="line">chmod 755 /etc/init.d/mysqld #增加执行权限</span><br><span class="line">chkconfig mysqld on #加入开机启动</span><br><span class="line">vi /etc/rc.d/init.d/mysqld #编辑</span><br><span class="line">basedir = /opt/local/mysql #MySQL程序安装路径</span><br><span class="line">datadir = /opt/local/mysql/var #MySQl数据库存放目录</span><br><span class="line">service mysqld start #启动</span><br><span class="line">vi /etc/profile #把mysql服务加入系统环境变量：在最后添加下面这一行</span><br><span class="line">export PATH=$PATH:/opt/local/cmake/bin:/opt/local/mysql/bin</span><br><span class="line">source /etc/profile #使配置立即生效</span><br><span class="line">mkdir /var/lib/mysql #创建目录</span><br><span class="line">ln -s /tmp/mysql.sock /var/lib/mysql/mysql.sock #添加软链接</span><br><span class="line">mysql_secure_installation #设置Mysql密码，根据提示按Y 回车输入2次密码</span><br><span class="line">#执行mysql_secure_installation时可能会报错</span><br><span class="line">#ERROR 2002 (HY000): Can&apos;t connect to local MySQL server through socket &apos;/tmp/mysql.sock&apos; (2)</span><br><span class="line">#这时检查 /etc/my.cnf里面</span><br><span class="line">#[mysqld]</span><br><span class="line">#socket=/tmp/mysql.sock是否设置正确，这里把这里的目录修改成和报错一样的就可以</span><br><span class="line">/opt/local/mysql/bin/mysqladmin -u root -p password &quot;123456&quot; #或者直接修改密码</span><br></pre></td></tr></table></figure>
+<p>到此，mysql安装完成！</p>
+<h3 id="6、安装-nginx"><a href="#6、安装-nginx" class="headerlink" title="6、安装 nginx"></a>6、安装 nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/local/src</span><br><span class="line">groupadd www #添加www组</span><br><span class="line">useradd -g www www -s /bin/false #创建nginx运行账户www并加入到www组，不允许www用户直接登录系统</span><br><span class="line">tar zxvf nginx-1.4.4.tar.gz</span><br><span class="line">cd nginx-1.4.4</span><br><span class="line">./configure --prefix=/opt/local/nginx --without-http_memcached_module --user=www --group=www --with-http_stub_status_module --with-openssl=/usr/ --with-pcre=/opt/local/src/pcre-8.36</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">/opt/local/nginx/sbin/nginx #启动nginx</span><br></pre></td></tr></table></figure>
+<p><strong>注意:–with-pcre=/opt/local/src/pcre-8.64指向的是源码包解压的路径，而不是安装的路径，否则会报错</strong></p>
+<h4 id="设置nginx开启启动"><a href="#设置nginx开启启动" class="headerlink" title="设置nginx开启启动"></a>设置nginx开启启动<br></h4><p>vi /etc/rc.d/init.d/nginx #编辑启动文件添加下面内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># nginx Startup script for the Nginx HTTP Server</span><br><span class="line"># it is v.0.0.2 version.</span><br><span class="line"># chkconfig: - 85 15</span><br><span class="line"># description: Nginx is a high-performance web and proxy server.</span><br><span class="line"># It has a lot of features, but it&apos;s not for everyone.</span><br><span class="line"># processname: nginx</span><br><span class="line"># pidfile: /var/run/nginx.pid</span><br><span class="line"># config: /usr/local/nginx/conf/nginx.conf</span><br><span class="line">nginxd=/opt/local/nginx/sbin/nginx</span><br><span class="line">nginx_config=/opt/local/nginx/conf/nginx.conf</span><br><span class="line">nginx_pid=/opt/local/nginx/logs/nginx.pid</span><br><span class="line">RETVAL=0</span><br><span class="line">prog=&quot;nginx&quot;</span><br><span class="line"># Source function library.</span><br><span class="line">. /etc/rc.d/init.d/functions</span><br><span class="line"># Source networking configuration.</span><br><span class="line">. /etc/sysconfig/network</span><br><span class="line"># Check that networking is up.</span><br><span class="line">[ $&#123;NETWORKING&#125; = &quot;no&quot; ] &amp;&amp; exit 0</span><br><span class="line">[ -x $nginxd ] || exit 0</span><br><span class="line"># Start nginx daemons functions.</span><br><span class="line">start() &#123;</span><br><span class="line">if [ -e $nginx_pid ];then</span><br><span class="line">echo &quot;nginx already running....&quot;</span><br><span class="line">exit 1</span><br><span class="line">fi</span><br><span class="line">echo -n $&quot;Starting $prog: &quot;</span><br><span class="line">daemon $nginxd -c $&#123;nginx_config&#125;</span><br><span class="line">RETVAL=$?</span><br><span class="line">echo</span><br><span class="line">[ $RETVAL = 0 ] &amp;&amp; touch /var/lock/subsys/nginx</span><br><span class="line">return $RETVAL</span><br><span class="line">&#125;</span><br><span class="line"># Stop nginx daemons functions.</span><br><span class="line">stop() &#123;</span><br><span class="line">echo -n $&quot;Stopping $prog: &quot;</span><br><span class="line">killproc $nginxd</span><br><span class="line">RETVAL=$?</span><br><span class="line">echo</span><br><span class="line">[ $RETVAL = 0 ] &amp;&amp; rm -f /var/lock/subsys/nginx /usr/local/nginx/logs/nginx.pid</span><br><span class="line">&#125;</span><br><span class="line">reload() &#123;</span><br><span class="line">echo -n $&quot;Reloading $prog: &quot;</span><br><span class="line">#kill -HUP `cat $&#123;nginx_pid&#125;`</span><br><span class="line">killproc $nginxd -HUP</span><br><span class="line">RETVAL=$?</span><br><span class="line">echo</span><br><span class="line">&#125;</span><br><span class="line"># See how we were called.</span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">start)</span><br><span class="line">start</span><br><span class="line">;;</span><br><span class="line">stop)</span><br><span class="line">stop</span><br><span class="line">;;</span><br><span class="line">reload)</span><br><span class="line">reload</span><br><span class="line">;;</span><br><span class="line">restart)</span><br><span class="line">stop</span><br><span class="line">start</span><br><span class="line">;;</span><br><span class="line">status)</span><br><span class="line">status $prog</span><br><span class="line">RETVAL=$?</span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line">echo $&quot;Usage: $prog &#123;start|stop|restart|reload|status|help&#125;&quot;</span><br><span class="line">exit 1</span><br><span class="line">esac</span><br><span class="line">exit $RETVAL</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:wq! #保存退出</span><br><span class="line"></span><br><span class="line">chmod 775 /etc/rc.d/init.d/nginx #赋予文件执行权限</span><br><span class="line">chkconfig nginx on #设置开机启动</span><br><span class="line">/etc/rc.d/init.d/nginx restart #重新启动Nginx</span><br><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
+<h3 id="7、安装php"><a href="#7、安装php" class="headerlink" title="7、安装php"></a>7、安装php</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/local/src</span><br><span class="line">tar -zvxf php-5.5.7.tar.gz</span><br><span class="line">cd php-5.5.7.</span><br><span class="line">./configure --prefix=/opt/local/php --with-config-file-path=/opt/local/php/etc --with-mysql=/opt/local/mysql --with-mysql-sock=/tmp/mysql.sock --with-gd --with-iconv --with-zlib --enable-xml --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --enable-mbregex --enable-fpm --enable-mbstring --enable-ftp --enable-gd-native-ttf --with-openssl --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --without-pear --with-gettext --enable-session --with-mcrypt --with-curl --with-jpeg-dir --with-freetype-dir</span><br><span class="line">make #编译</span><br><span class="line">make install #安装</span><br><span class="line">cp php.ini-production /opt/local/php/etc/php.ini #复制php配置文件到安装目录</span><br><span class="line">rm -rf /etc/php.ini #删除系统自带配置文件</span><br><span class="line">ln -s /opt/local/php/etc/php.ini /etc/php.ini #添加软链接</span><br><span class="line">cp /opt/local/php/etc/php-fpm.conf.default /opt/local/php/etc/php-fpm.conf #拷贝模板文件为php-fpm配置文件</span><br><span class="line">vi /opt/local/php/etc/php-fpm.conf #编辑</span><br><span class="line">user = www #设置php-fpm运行账号为www</span><br><span class="line">group = www #设置php-fpm运行组为www</span><br><span class="line">pid = run/php-fpm.pid #取消前面的分号</span><br></pre></td></tr></table></figure>
+<h4 id="设置-php-fpm开机启动"><a href="#设置-php-fpm开机启动" class="headerlink" title="设置 php-fpm开机启动"></a>设置 php-fpm开机启动</h4><figure class="highlight plain"><figcaption><span>/opt/local/src/php-5.5.7/sapi/fpm/init.d.php-fpm</span><a href="/etc/rc.d/init.d/php-fpm">#拷贝php-fpm到启动目录</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /etc/rc.d/init.d/php-fpm #添加执行权限</span><br><span class="line">chkconfig php-fpm on #设置开机启动</span><br></pre></td></tr></table></figure>
+<p>vi /opt/local/php/etc/php.ini #编辑配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">修改为：disable_functions= passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_alter,ini_restore,dl,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server,escapeshellcmd,dll,popen,disk_free_space,checkdnsrr,checkdnsrr,getservbyname,getservbyport,disk_total_space,posix_ctermid,posix_get_last_error,posix_getcwd, posix_getegid,posix_geteuid,posix_getgid, posix_getgrgid,posix_getgrnam,posix_getgroups,posix_getlogin,posix_getpgid,posix_getpgrp,posix_getpid, posix_getppid,posix_getpwnam,posix_getpwuid, posix_getrlimit, posix_getsid,posix_getuid,posix_isatty, posix_kill,posix_mkfifo,posix_setegid,posix_seteuid,posix_setgid, posix_setpgid,posix_setsid,posix_setuid,posix_strerror,posix_times,posix_ttyname,posix_uname</span><br><span class="line">#列出PHP可以禁用的函数，如果某些程序需要用到这个函数，可以删除，取消禁用</span><br><span class="line">找到：;date.timezone =</span><br><span class="line">修改为：date.timezone = PRC #设置时区</span><br><span class="line">找到：expose_php = On</span><br><span class="line">修改为：expose_php = OFF #禁止显示php版本的信息</span><br><span class="line">找到：short_open_tag = Off</span><br><span class="line">修改为：short_open_tag = ON #支持php短标签</span><br></pre></td></tr></table></figure></p>
+<h3 id="8、配置nginx支持php"><a href="#8、配置nginx支持php" class="headerlink" title="8、配置nginx支持php"></a>8、配置nginx支持php</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">vi /opt/local/nginx/conf/nginx.conf</span><br><span class="line">修改/opt/local/nginx/conf/nginx.conf 配置文件,需做如下修改</span><br><span class="line">user www www; #首行user去掉注释,修改Nginx运行组为www www；必须与/opt/local/php/etc/php-fpm.conf中的user,group配置相同，否则php运行出错</span><br><span class="line">user www www;</span><br><span class="line">worker_processes 1;</span><br><span class="line">events &#123;</span><br><span class="line">worker_connections 1024;</span><br><span class="line">&#125;</span><br><span class="line">http &#123;</span><br><span class="line">include mime.types;</span><br><span class="line">default_type application/octet-stream;</span><br><span class="line">sendfile on;</span><br><span class="line">keepalive_timeout 65;</span><br><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line">server_name localhost;</span><br><span class="line">location / &#123;</span><br><span class="line">root html;</span><br><span class="line">index index.php index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">root html;</span><br><span class="line">fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">/etc/init.d/nginx restart #重启nginx</span><br></pre></td></tr></table></figure>
+<h2 id="六、测试篇"><a href="#六、测试篇" class="headerlink" title="六、测试篇"></a>六、测试篇</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/local/nginx/html/ #进入nginx默认网站根目录</span><br><span class="line">rm -rf /opt/local/nginx/html/* #删除默认测试页</span><br><span class="line">vi index.php #新建index.php文件</span><br><span class="line">&lt;?php</span><br><span class="line">phpinfo();</span><br><span class="line">?&gt;</span><br><span class="line">:wq! #保存退出</span><br><span class="line">chown www.www /opt/local/nginx/html/ -R #设置目录所有者</span><br><span class="line">chmod 700 /opt/local/nginx/html/ -R #设置目录权限</span><br></pre></td></tr></table></figure>
+<h2 id="七、其它说明"><a href="#七、其它说明" class="headerlink" title="七、其它说明"></a>七、其它说明</h2><h3 id="服务器相关操作命令"><a href="#服务器相关操作命令" class="headerlink" title="服务器相关操作命令"></a>服务器相关操作命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart #重启nginx</span><br><span class="line">service mysqld restart #重启mysql</span><br><span class="line">/usr/local/php/sbin/php-fpm #启动php-fpm</span><br><span class="line">/etc/rc.d/init.d/php-fpm restart #重启php-fpm</span><br><span class="line">/etc/rc.d/init.d/php-fpm stop #停止php-fpm</span><br><span class="line">/etc/rc.d/init.d/php-fpm start #启动php-fpm</span><br><span class="line">nginx默认站点目录是：/opt/local/nginx/html/</span><br><span class="line">权限设置：chown www.www /opt/local/nginx/html/ -R</span><br><span class="line">MySQL数据库目录是：/opt/local/mysql/var</span><br><span class="line">权限设置：chown mysql.mysql -R /opt/local/mysql/var</span><br><span class="line">重启nginx</span><br><span class="line">cd /lnmp/nginx/sbin</span><br><span class="line">  ./nginx -s reload</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/LNMP/" rel="tag"># LNMP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/01/hexo相关优化/" rel="next" title="hexo相关优化">
+                <i class="fa fa-chevron-left"></i> hexo相关优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/02/用户及用户组管理/" rel="prev" title="用户及用户组管理">
+                用户及用户组管理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/astronaut.jpg"
+                alt="zhaoguibin" />
+            
+              <p class="site-author-name" itemprop="name">zhaoguibin</p>
+              <p class="site-description motion-element" itemprop="description">个人平时问题记录</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、环境准备"><span class="nav-number">1.</span> <span class="nav-text">一、环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、操作系统安装：CentOS-6-5-64位最小化安装。"><span class="nav-number">1.1.</span> <span class="nav-text">1、操作系统安装：CentOS 6.5 64位最小化安装。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、配置好IP、DNS、网关、主机名"><span class="nav-number">1.2.</span> <span class="nav-text">2、配置好IP、DNS、网关、主机名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、配置防火墙，开启80、3306端口"><span class="nav-number">1.3.</span> <span class="nav-text">3、配置防火墙，开启80、3306端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、关闭SELinux"><span class="nav-number">1.4.</span> <span class="nav-text">4、关闭SELinux</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、系统约定"><span class="nav-number">2.</span> <span class="nav-text">二、系统约定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、软件包下载"><span class="nav-number">3.</span> <span class="nav-text">三、软件包下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、安装编译工具及库文件"><span class="nav-number">4.</span> <span class="nav-text">四、安装编译工具及库文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、软件安装篇"><span class="nav-number">5.</span> <span class="nav-text">五、软件安装篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、安装cmake"><span class="nav-number">5.1.</span> <span class="nav-text">1、安装cmake</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、安装pcre"><span class="nav-number">5.2.</span> <span class="nav-text">2、安装pcre</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、安装libmcrypt"><span class="nav-number">5.3.</span> <span class="nav-text">3、安装libmcrypt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、安装gd库"><span class="nav-number">5.4.</span> <span class="nav-text">4、安装gd库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、安装Mysql"><span class="nav-number">5.5.</span> <span class="nav-text">5、安装Mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、安装-nginx"><span class="nav-number">5.6.</span> <span class="nav-text">6、安装 nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置nginx开启启动"><span class="nav-number">5.6.1.</span> <span class="nav-text">设置nginx开启启动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、安装php"><span class="nav-number">5.7.</span> <span class="nav-text">7、安装php</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置-php-fpm开机启动"><span class="nav-number">5.7.1.</span> <span class="nav-text">设置 php-fpm开机启动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、配置nginx支持php"><span class="nav-number">5.8.</span> <span class="nav-text">8、配置nginx支持php</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、测试篇"><span class="nav-number">6.</span> <span class="nav-text">六、测试篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、其它说明"><span class="nav-number">7.</span> <span class="nav-text">七、其它说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器相关操作命令"><span class="nav-number">7.1.</span> <span class="nav-text">服务器相关操作命令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaoguibin</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
