@@ -1,6 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[linux下php扩展mysqli的支持]]></title>
+    <url>%2F2017%2F12%2F03%2Flinux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81%2F</url>
+    <content type="text"><![CDATA[mysqli是优化后的mysql，具体的优点baidu下就ok了 12cd php-5.2.8 在这下面有个ext文件夹里有mysqlicd ext/mysqli linux下将源码文件编译应该都有configure吧，可这里没有，在我们已经安装php后，php5这个文件夹里的命令目录bin里有一个文件叫phpize，用它就可以生成configure文件啦，继续1/usr/local/php5/bin/phpize 这里回车运行，执行完后就出了configure文件，12345./configure --prefix=/opt/local/mysqli --with-php-config=/opt/local/php/bin/php-config --with-mysqli=/opt/local/mysql/bin/mysql_config直接回车，不出问题就继续。。makemake testmake install (不出错就会显示Installing shared extensions: /usr/local/php5/lib/php/extensions/no-debug-non-zts-20041030/) 现在mysqli.so文件就出来啦。。 直接在php.ini里把这个文件加载就OK啦。。 12extension_dir=”/usr/local/php5/ext”extension=mysqli.so 把上面第一行找到修改成这个,然后再把第二行加入。。wq保存退出。 把mysqli.so这个文件cp到/usr/local/php5/ext下 重启apache.]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在安装mysqli的时候，出现error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory]]></title>
+    <url>%2F2017%2F12%2F03%2F%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory%2F</url>
+    <content type="text"><![CDATA[直接修改源码，把找不到的那个头文件的路径修改为绝对路径，编译通过了，也能正常使用1234567# pwd/home/neo/tools/php-5.5.28/ext/mysqli# vim mysqli_api.c把第36行的#include &quot;ext/mysqlnd/mysql_float_to_double.h&quot;修改为#include &quot;/home/neo/tools/php-5.5.28/ext/mysqlnd/mysql_float_to_double.h&quot;]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[网络连接以及下载]]></title>
+    <url>%2F2017%2F12%2F03%2F%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728wget 指定本定文件夹和保存为特定名称1. 在shell 中执行以下命令wget -P /root/test &quot;http://www.baidu.com/index.html&quot;会把 index.html 文件保存到 &quot;/root/test&quot; 目录下.2. 执行wget -O &quot;baidu.html&quot; &quot;http://www.baidu.com/index.html&quot;会把 index.hmtl 保存到当前目录, 命令为 &quot;baidu.html&quot;.3. 执行wget -P /root/test -O &quot;baidu.html&quot; &quot;http://www.baidu.com/index.html&quot;的结果和 2 相同, 并不会保存到 &quot;/root/test&quot; 目录下.在linux命令下如何访问一个url？1.elinks - lynx-like替代角色模式WWW的浏览器例如： elinks --dump http://www.baidu.com2.wget 这个会将访问的首页下载到本地[root@el5-mq2 ~]# wget http://www.baidu.com--2011-10-17 16:30:10-- http://www.baidu.com/Resolving www.baidu.com... 119.75.218.45, 119.75.217.56Connecting to www.baidu.com|119.75.218.45|:80... connected.HTTP request sent, awaiting response... 200 OKLength: 8403 (8.2K) [text/html]Saving to: `index.html&apos;100%[==========================================================================================&gt;] 8,403 --.-K/s in 0.01s2011-10-17 16:30:10 (648 KB/s) - `index.html&apos; saved [8403/8403]3.curl会显示出源码curl http://www.baidu.com/index.html4.lynx（这个以前在群里面见有人讨论过，但是没有尝试过，想用的话还需要下载软件）lynx http://www.baidu.com]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用crontab，让linux定时执行shell脚本]]></title>
+    <url>%2F2017%2F12%2F03%2F%E4%BD%BF%E7%94%A8crontab%EF%BC%8C%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行入门# crontab –e这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行：0 0 * * * /home/linrui/XXXXXXXX.sh这将会在每天凌晨运行 指定的.sh文件Cron 各项的描述以下是 crontab 文件的格式：&#123;minute&#125; &#123;hour&#125; &#123;day-of-month&#125; &#123;month&#125; &#123;day-of-week&#125; &#123;full-path-to-shell-script&#125;o minute: 区间为 0 – 59o hour: 区间为0 – 23o day-of-month: 区间为0 – 31o month: 区间为1 – 12. 1 是1月. 12是12月.o Day-of-week: 区间为0 – 7. 周日可以是0或7.Crontab 示例1、在 凌晨00:01运行1 0 * * * /home/linrui/XXXX.sh2、每个工作日23:59都进行备份作业。59 11 * * 1,2,3,4,5 /home/linrui/XXXX.sh或者如下写法：59 11 * * 1-5 /home/linrui/XXXX.sh3、每分钟运行一次命令*/1 * * * * /home/linrui/XXXX.sh4、每个月的1号 14:10 运行10 14 1 * * /home/linrui/XXXX.shCrontab命令的选项以下是 crontab 的有效选项:crontab –e : 修改 crontab 文件. 如果文件不存在会自动创建。crontab –l : 显示 crontab 文件。crontab -r : 删除 crontab 文件。crontab -ir : 删除 crontab 文件前提醒用户。]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>crontab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[迁移数据库：直接复制数据表文件到数据库]]></title>
+    <url>%2F2017%2F12%2F03%2F%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[123把目的数据库里面的 *.err 文件，ib_logfile 文件删除备注：经测试，源mysql的安装目录及数据文件目录 可以与 目标Mysql的安装目录及数据文件目录 不一致。此时，只需要拷贝所需移动的dbname及&apos;mysql&apos;和&apos;ibdata1&apos;，即可。]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[查看linux中某个端口（port）是否被占用]]></title>
+    <url>%2F2017%2F12%2F03%2F%E6%9F%A5%E7%9C%8Blinux%E4%B8%AD%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%EF%BC%88port%EF%BC%89%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[1.使用lsof lsof -i:端口号查看某个端口是否被占用 2.使用netstat 使用netstat -anp|grep 80]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[编辑-自定义命令]]></title>
+    <url>%2F2017%2F12%2F03%2F%E7%BC%96%E8%BE%91-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[123vim ~/.bashrcexample:alias codedir=&apos;cd /opt/local/www/project&apos;]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[yum-y-install与yum-install有什么不同]]></title>
+    <url>%2F2017%2F12%2F03%2Fyum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%2F</url>
+    <content type="text"><![CDATA[12345yum -y install 包名（支持*） ：自动选择y，全自动yum install 包名（支持*） ：手动选择y or nyum remove 包名（不支持*）rpm -ivh 包名（支持*）：安装rpm包rpm -e 包名（不支持*）：卸载rpm包]]></content>
+      <tags>
+        <tag>centos</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[windows下用navicat远程链接虚拟机Linux下MySQL数据库]]></title>
+    <url>%2F2017%2F12%2F03%2Fwindows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BALinux%E4%B8%8BMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[手动增加可以远程访问数据库的用户。 方法一、本地登入mysql，更改 “mysql” 数据库里的 “user” 表里的 “host” 项，将”localhost”改为”%”12345mysql -u root -proot mysql&gt;use mysql; mysql&gt;update user set host = &apos;%&apos; where user = &apos;root&apos;; mysql&gt;flush privileges; mysql&gt;select host, user from user; 方法二、直接授权(推荐) 从任何主机上使用root用户，密码：youpassword（你的root密码）连接到mysql服务器：123mysql -u root -prootmysql&gt;GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;youpassword&apos; WITH GRANT OPTION;mysql&gt;flush privileges;]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ss服务端安装libsodium支持chacha20]]></title>
+    <url>%2F2017%2F12%2F03%2Fss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20%2F</url>
+    <content type="text"><![CDATA[ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported. centos：1234567yum -y groupinstall &quot;Development Tools&quot;wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; cd libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make installecho /usr/local/lib &gt;/etc/ld.so.conf.d/usr_local_lib.confldconfigubuntu/debian：apt-get install build-essentialwget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; cd libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make installldconfig如果曾经安装过旧版本，亦可重复用以上步骤更新到最新版，仅1.0.4或以上版本支持chacha20-ietf]]></content>
+      <tags>
+        <tag>ss</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ssh远程登录命令简单实例]]></title>
+    <url>%2F2017%2F12%2F03%2Fssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122ssh命令用于远程登录上Linux主机。常用格式：ssh [-l login_name] [-p port] [user@]hostname更详细的可以用ssh -h查看。举例不指定用户：ssh 192.168.0.11指定用户：ssh -l root 192.168.0.11ssh root@192.168.0.11如果修改过ssh登录端口的可以：ssh -p 12333 192.168.0.11ssh -l root -p 12333 216.230.230.114ssh -p 12333 root@216.230.230.114另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。编辑配置文件：vim /etc/ssh/sshd_config找到#Port 22，去掉注释，修改成一个五位的端口：Port 12333找到#PermitRootLogin yes，去掉注释，修改为：PermitRootLogin no重启sshd服务：service sshd restart]]></content>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[php-fpm设置socket方式连接FastCGI]]></title>
+    <url>%2F2017%2F12%2F03%2Fphp-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5FastCGI%2F</url>
+    <content type="text"><![CDATA[nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。 socket方式不会走到tcp层，tcp方式则会走到ip层。因此，理论上说socket连接方式效率会更好一点。TCP和unix domain socket方式对比 TCP是使用TCP端口连接127.0.0.1:9000 Socket是使用unix domain socket连接套接字/dev/shm/php-fpm.sock 修改php-fpm.conf配置1234#listen = 127.0.0.1:9000listen=/dev/shm/php-fpm.sock #/dev/shm/为内存文件系统，注意 确保可读写listen.owner=apache #注意自己的用户和组listen.group=apache 修改nginx.conf配置123#fastcgi_pass 127.0.0.1:9000;#将相应的如上内容修改如下fastcgi_pass unix:/dev/shm/php-fpm.sock; 重启nginx和php-fpm12service nginx restart/usr/local/nginx/sbin/nginx -s reload]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PDO-MYSQL-make-pdo-mysql-lo-Error-1]]></title>
+    <url>%2F2017%2F12%2F03%2FPDO-MYSQL-make-pdo-mysql-lo-Error-1%2F</url>
+    <content type="text"><![CDATA[编译安装PDO_MYSQL拓展模块，总是提示 1234567In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directoryIn file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’make: *** [pdo_mysql.lo] Error 1 这是因为这是因为在编译时需要 MySQL 的头的文件。而它按默认搜索找不到头文件的位置，所以才出现这个问题。通过软连接把MySQL头文件对应到/usr/local/include/下就好比如你的MySQL安装文件位于/usr/local/mysql，那么就执行以下命令： 1ln -s /usr/local/mysql/include/* /usr/local/include/]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[NGINX-启动-warn-conflicting-server-name-“xxx-com”-on-0-0-0-0-80-ignored原因分析]]></title>
+    <url>%2F2017%2F12%2F03%2FNGINX-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-%E2%80%9Cxxx-com%E2%80%9D-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[报错如下：1nginx: [warn] conflicting server name “www.xxx.com” on 0.0.0.0:80, ignored 域名重复配置所致]]></content>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[nginx配置location总结及rewrite规则写法]]></title>
+    <url>%2F2017%2F12%2F03%2Fnginx%E9%85%8D%E7%BD%AElocation%E6%80%BB%E7%BB%93%E5%8F%8Arewrite%E8%A7%84%E5%88%99%E5%86%99%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[location正则写法一个示例： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455location = / &#123; # 精确匹配 / ，主机名后面不能带任何字符串 [ configuration A ]&#125;location / &#123; # 因为所有的地址都以 / 开头，所以这条规则将匹配到所有请求 # 但是正则和最长字符串会优先匹配 [ configuration B ]&#125;location /documents/ &#123; # 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索 # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条 [ configuration C ]&#125;location ~ /documents/Abc &#123; # 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索 # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条 [ configuration CC ]&#125;location ^~ /images/ &#123; # 匹配任何以 /images/ 开头的地址，匹配符合以后，停止往下搜索正则，采用这一条。 [ configuration D ]&#125;location ~* \.(gif|jpg|jpeg)$ &#123; # 匹配所有以 gif,jpg或jpeg 结尾的请求 # 然而，所有请求 /images/ 下的图片会被 config D 处理，因为 ^~ 到达不了这一条正则 [ configuration E ]&#125;location /images/ &#123; # 字符匹配到 /images/，继续往下，会发现 ^~ 存在 [ configuration F ]&#125;location /images/abc &#123; # 最长字符匹配到 /images/abc，继续往下，会发现 ^~ 存在 # F与G的放置顺序是没有关系的 [ configuration G ]&#125;location ~ /images/abc/ &#123; # 只有去掉 config D 才有效：先最长匹配 config G 开头的地址，继续往下搜索，匹配到这一条正则，采用 [ configuration H ]&#125;1location ~* /js/.*/\.js已=开头表示精确匹配如 A 中只匹配根目录结尾的请求，后面不能带任何字符串。^~ 开头表示uri以某个常规字符串开头，不是正则匹配~ 开头表示区分大小写的正则匹配;~* 开头表示不区分大小写的正则匹配/ 通用匹配, 如果没有其它匹配,任何请求都会匹配到顺序 no优先级： (location =) &gt; (location 完整路径) &gt; (location ^~ 路径) &gt; (location ~,~* 正则顺序) &gt; (location 部分起始路径) &gt; (/) 上面的匹配结果 按照上面的location写法，以下的匹配示例成立： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201202203204205206207208209210211212213214215216217218219220221222223224225226227228229230231232233234235236237238239240241242243244245246247248249250251252253254255256257258259260261262263264265266267268269270271272273274275276277278279280281282283284285286287288289290291292293294295296297298299300301302303304305306307308309310311312313314315316317318319320321322323324325326327328329330331332333334335336337338339340341342343344345346347348349350351352353354355356357358359360361362363364365366367368369370371372373374375376377378379380381382383384385386387388389390391392393394395396397398399400401402403404405406407408/ -&gt; config A精确完全匹配，即使/index.html也匹配不了/downloads/download.html -&gt; config B匹配B以后，往下没有任何匹配，采用B/images/1.gif -&gt; configuration D匹配到F，往下匹配到D，停止往下/images/abc/def -&gt; config D最长匹配到G，往下匹配D，停止往下你可以看到 任何以/images/开头的都会匹配到D并停止，FG写在这里是没有任何意义的，H是永远轮不到的，这里只是为了说明匹配顺序/documents/document.html -&gt; config C匹配到C，往下没有任何匹配，采用C/documents/1.jpg -&gt; configuration E匹配到C，往下正则匹配到E/documents/Abc.jpg -&gt; config CC最长匹配到C，往下正则顺序匹配到CC，不会往下到E实际使用建议所以实际使用中，个人觉得至少有三个匹配规则定义，如下：#直接匹配网站根，通过域名访问网站首页比较频繁，使用这个会加速处理，官网如是说。#这里是直接转发给后端应用服务器了，也可以是一个静态首页# 第一个必选规则location = / &#123; proxy_pass http://tomcat:8080/index&#125;# 第二个必选规则是处理静态文件请求，这是nginx作为http服务器的强项# 有两种配置模式，目录匹配或后缀匹配,任选其一或搭配使用location ^~ /static/ &#123; root /webroot/static/;&#125;location ~* \.(gif|jpg|jpeg|png|css|js|ico)$ &#123; root /webroot/res/;&#125;#第三个规则就是通用规则，用来转发动态请求到后端应用服务器#非静态文件请求就默认是动态请求，自己根据实际把握#毕竟目前的一些框架的流行，带.php,.jsp后缀的情况很少了location / &#123; proxy_pass http://tomcat:8080/&#125;http://tengine.taobao.org/book/chapter_02.htmlhttp://nginx.org/en/docs/http/ngx_http_rewrite_module.htmlRewrite规则rewrite功能就是，使用nginx提供的全局变量或自己设置的变量，结合正则表达式和标志位实现url重写以及重定向。rewrite只能放在server&#123;&#125;,location&#123;&#125;,if&#123;&#125;中，并且只能对域名后边的除去传递的参数外的字符串起作用，例如 http://seanlook.com/a/we/index.php?id=1&amp;u=str 只对/a/we/index.php重写。语法rewrite regex replacement [flag];如果相对域名或参数字符串起作用，可以使用全局变量匹配，也可以使用proxy_pass反向代理。表明看rewrite和location功能有点像，都能实现跳转，主要区别在于rewrite是在同一域名内更改获取资源的路径，而location是对一类路径做控制访问或反向代理，可以proxy_pass到其他机器。很多情况下rewrite也会写在location里，它们的执行顺序是：执行server块的rewrite指令执行location匹配执行选定的location中的rewrite指令如果其中某步URI被重写，则重新循环执行1-3，直到找到真实存在的文件；循环超过10次，则返回500 Internal Server Error错误。flag标志位last : 相当于Apache的[L]标记，表示完成rewritebreak : 停止执行当前虚拟主机的后续rewrite指令集redirect : 返回302临时重定向，地址栏会显示跳转后的地址permanent : 返回301永久重定向，地址栏会显示跳转后的地址因为301和302不能简单的只返回状态码，还必须有重定向的URL，这就是return指令无法返回301,302的原因了。这里 last 和 break 区别有点难以理解：last一般写在server和if中，而break一般使用在location中last不终止重写后的url匹配，即新的url会再从server走一遍匹配流程，而break终止重写后的匹配break和last都能组织继续执行后面的rewrite指令if指令与全局变量if判断指令语法为if(condition)&#123;...&#125;，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false直接比较变量和内容时，使用=或!=~正则表达式匹配，~*不区分大小写的匹配，!~区分大小写的不匹配-f和!-f用来判断是否存在文件-d和!-d用来判断是否存在目录-e和!-e用来判断是否存在文件或目录-x和!-x用来判断文件是否可执行例如：if ($http_user_agent ~ MSIE) &#123; rewrite ^(.*)$ /msie/$1 break;&#125; //如果UA包含&quot;MSIE&quot;，rewrite请求到/msid/目录下if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123; set $id $1; &#125; //如果cookie匹配正则，设置变量$id等于正则引用部分if ($request_method = POST) &#123; return 405;&#125; //如果提交方法为POST，则返回状态405（Method not allowed）。return不能返回301,302if ($slow) &#123; limit_rate 10k;&#125; //限速，$slow可以通过 set 指令设置if (!-f $request_filename)&#123; break; proxy_pass http://127.0.0.1;&#125; //如果请求的文件名不存在，则反向代理到localhost 。这里的break也是停止rewrite检查if ($args ~ post=140)&#123; rewrite ^ http://example.com/ permanent;&#125; //如果query string中包含&quot;post=140&quot;，永久重定向到example.comlocation ~* \.(gif|jpg|png|swf|flv)$ &#123; valid_referers none blocked www.jefflei.com www.leizhenfang.com; if ($invalid_referer) &#123; return 404; &#125; //防盗链&#125;全局变量下面是可以用作if判断的全局变量$args ： #这个变量等于请求行中的参数，同$query_string$content_length ： 请求头中的Content-length字段。$content_type ： 请求头中的Content-Type字段。$document_root ： 当前请求在root指令中指定的值。$host ： 请求主机头字段，否则为服务器名称。$http_user_agent ： 客户端agent信息$http_cookie ： 客户端cookie信息$limit_rate ： 这个变量可以限制连接速率。$request_method ： 客户端请求的动作，通常为GET或POST。$remote_addr ： 客户端的IP地址。$remote_port ： 客户端的端口。$remote_user ： 已经经过Auth Basic Module验证的用户名。$request_filename ： 当前请求的文件路径，由root或alias指令与URI请求生成。$scheme ： HTTP方法（如http，https）。$server_protocol ： 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。$server_name ： 服务器名称。$server_port ： 请求到达服务器的端口号。$request_uri ： 包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。$uri ： 不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。$document_uri ： 与$uri相同。例：http://localhost:88/test1/test2/test.php$host：localhost$server_port：88$request_uri：http://localhost:88/test1/test2/test.php$document_uri：/test1/test2/test.php$document_root：/var/www/html$request_filename：/var/www/html/test1/test2/test.php常用正则. ： 匹配除换行符以外的任意字符? ： 重复0次或1次+ ： 重复1次或更多次* ： 重复0次或更多次\d ：匹配数字^ ： 匹配字符串的开始$ ： 匹配字符串的介绍&#123;n&#125; ： 重复n次&#123;n,&#125; ： 重复n次或更多次[c] ： 匹配单个字符c[a-z] ： 匹配a-z小写字母的任意一个小括号()之间匹配的内容，可以在后面通过$1来引用，$2表示的是前面第二个()里的内容。正则里面容易让人困惑的是\转义特殊字符。rewrite实例例1：http &#123; # 定义image日志格式 log_format imagelog &apos;[$time_local] &apos; $image_file &apos; &apos; $image_type &apos; &apos; $body_bytes_sent &apos; &apos; $status; # 开启重写日志 rewrite_log on; server &#123; root /home/www; location / &#123; # 重写规则信息 error_log logs/rewrite.log notice; # 注意这里要用‘’单引号引起来，避免&#123;&#125; rewrite &apos;^/images/([a-z]&#123;2&#125;)/([a-z0-9]&#123;5&#125;)/(.*)\.(png|jpg|gif)$&apos; /data?file=$3.$4; # 注意不能在上面这条规则后面加上“last”参数，否则下面的set指令不会执行 set $image_file $3; set $image_type $4; &#125; location /data &#123; # 指定针对图片的日志格式，来分析图片类型和大小 access_log logs/images.log mian; root /data/images; # 应用前面定义的变量。判断首先文件在不在，不在再判断目录在不在，如果还不在就跳转到最后一个url里 try_files /$arg_file /image404.html; &#125; location = /image404.html &#123; # 图片不存在返回特定的信息 return 404 &quot;image not found\n&quot;; &#125;&#125;对形如/images/ef/uh7b3/test.png的请求，重写到/data?file=test.png，于是匹配到location /data，先看/data/images/test.png文件存不存在，如果存在则正常响应，如果不存在则重写tryfiles到新的image404 location，直接返回404状态码。例2：rewrite ^/images/(.*)_(\d+)x(\d+)\.(png|jpg|gif)$ /resizer/$1.$4?width=$2&amp;height=$3? last;对形如/images/bla_500x400.jpg的文件请求，重写到/resizer/bla.jpg?width=500&amp;height=400地址，并会继续尝试匹配location。一．正则表达式匹配，其中：* ~ 为区分大小写匹配* ~* 为不区分大小写匹配* !~和!~*分别为区分大小写不匹配及不区分大小写不匹配二．文件及目录匹配，其中：* -f和!-f用来判断是否存在文件* -d和!-d用来判断是否存在目录* -e和!-e用来判断是否存在文件或目录* -x和!-x用来判断文件是否可执行三．rewrite指令的最后一项参数为flag标记，flag标记有：1.last 相当于apache里面的[L]标记，表示rewrite。2.break本条规则匹配完成后，终止匹配，不再匹配后面的规则。3.redirect 返回302临时重定向，浏览器地址会显示跳转后的URL地址。4.permanent 返回301永久重定向，浏览器地址会显示跳转后的URL地址。使用last和break实现URI重写，浏览器地址栏不变。而且两者有细微差别，使用alias指令必须用last标记;使用proxy_pass指令时，需要使用break标记。Last标记在本条rewrite规则执行完毕后，会对其所在server&#123;......&#125;标签重新发起请求，而break标记则在本条规则匹配完成后，终止匹配。例如：如果我们将类似URL/photo/123456 重定向到/path/to/photo/12/1234/123456.pngrewrite &quot;/photo/([0-9]&#123;2&#125;)([0-9]&#123;2&#125;)([0-9]&#123;2&#125;)&quot;/path/to/photo/$1/$1$2/$1$2$3.png ;四．NginxRewrite 规则相关指令1.break指令使用环境：server,location,if;该指令的作用是完成当前的规则集，不再处理rewrite指令。2.if指令使用环境：server,location该指令用于检查一个条件是否符合，如果条件符合，则执行大括号内的语句。If指令不支持嵌套，不支持多个条件&amp;&amp;和||处理。3.return指令语法：returncode ;使用环境：server,location,if;该指令用于结束规则的执行并返回状态码给客户端。示例：如果访问的URL以&quot;.sh&quot;或&quot;.bash&quot;结尾，则返回403状态码location ~ .*\.(sh|bash)?$&#123;return 403;&#125;4.rewrite 指令语法：rewriteregex replacement flag使用环境：server,location,if该指令根据表达式来重定向URI，或者修改字符串。指令根据配置文件中的顺序来执行。注意重写表达式只对相对路径有效。如果你想配对主机名，你应该使用if语句，示例如下：if( $host ~* www\.(.*) )&#123;set $host_without_www $1;rewrite ^(.*)$ http://$host_without_www$1permanent;&#125;5.Set指令语法：setvariable value ; 默认值:none; 使用环境：server,location,if;该指令用于定义一个变量，并给变量赋值。变量的值可以为文本、变量以及文本变量的联合。示例：set$varname &quot;hello world&quot;;6.Uninitialized_variable_warn指令语法：uninitialized_variable_warnon|off使用环境：http,server,location,if该指令用于开启和关闭未初始化变量的警告信息，默认值为开启。五．Nginx的Rewrite规则编写实例1.当访问的文件和目录不存在时，重定向到某个php文件if( !-e $request_filename )&#123;rewrite ^/(.*)$ index.php last;&#125;2.目录对换 /123456/xxxx ====&gt; /xxxx?id=123456rewrite ^/(\d+)/(.+)/ /$2?id=$1 last;3.如果客户端使用的是IE浏览器，则重定向到/ie目录下if( $http_user_agent ~ MSIE)&#123;rewrite ^(.*)$ /ie/$1 break;&#125;4.禁止访问多个目录location ~ ^/(cron|templates)/&#123;deny all;break;&#125;5.禁止访问以/data开头的文件location ~ ^/data&#123;deny all;&#125;6.禁止访问以.sh,.flv,.mp3为文件后缀名的文件location ~ .*\.(sh|flv|mp3)$&#123;return 403;&#125;7.设置某些类型文件的浏览器缓存时间location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$&#123;expires 30d;&#125;location ~ .*\.(js|css)$&#123;expires 1h;&#125;8.给favicon.ico和robots.txt设置过期时间;这里为favicon.ico为99天,robots.txt为7天并不记录404错误日志location ~(favicon.ico) &#123;log_not_found off;expires 99d;break;&#125;location ~(robots.txt) &#123;log_not_found off;expires 7d;break;&#125;9.设定某个文件的过期时间;这里为600秒，并不记录访问日志location ^~ /html/scripts/loadhead_1.js &#123;access_log off;root /opt/lampp/htdocs/web;expires 600;break;&#125;10.文件反盗链并设置过期时间这里的return412 为自定义的http状态码，默认为403，方便找出正确的盗链的请求“rewrite ^/ http://img.linuxidc.net/leech.gif;”显示一张防盗链图片“access_log off;”不记录访问日志，减轻压力“expires 3d”所有文件3天的浏览器缓存location ~*^.+\.(jpg|jpeg|gif|png|swf|rar|zip|css|js)$ &#123;valid_referers none blocked *.linuxidc.com*.linuxidc.net localhost 208.97.167.194;if ($invalid_referer) &#123;rewrite ^/ http://img.linuxidc.net/leech.gif;return 412;break;&#125;access_log off;root /opt/lampp/htdocs/web;expires 3d;break;&#125;11.只允许固定ip访问网站，并加上密码root /opt/htdocs/www;allow 208.97.167.194;allow 222.33.1.2;allow 231.152.49.4;deny all;auth_basic “C1G_ADMIN”;auth_basic_user_file htpasswd;12将多级目录下的文件转成一个文件，增强seo效果/job-123-456-789.html 指向/job/123/456/789.htmlrewrite^/job-([0-9]+)-([0-9]+)-([0-9]+)\.html$ /job/$1/$2/jobshow_$3.html last;13.文件和目录不存在的时候重定向：if (!-e $request_filename) &#123;proxy_pass http://127.0.0.1;&#125;14.将根目录下某个文件夹指向2级目录如/shanghaijob/ 指向 /area/shanghai/如果你将last改成permanent，那么浏览器地址栏显是/location/shanghai/rewrite ^/([0-9a-z]+)job/(.*)$ /area/$1/$2last;上面例子有个问题是访问/shanghai时将不会匹配rewrite ^/([0-9a-z]+)job$ /area/$1/ last;rewrite ^/([0-9a-z]+)job/(.*)$ /area/$1/$2last;这样/shanghai 也可以访问了，但页面中的相对链接无法使用，如./list_1.html真实地址是/area/shanghia/list_1.html会变成/list_1.html,导至无法访问。那我加上自动跳转也是不行咯(-d $request_filename)它有个条件是必需为真实目录，而我的rewrite不是的，所以没有效果if (-d $request_filename)&#123;rewrite ^/(.*)([^/])$ http://$host/$1$2/permanent;&#125;知道原因后就好办了，让我手动跳转吧rewrite ^/([0-9a-z]+)job$ /$1job/permanent;rewrite ^/([0-9a-z]+)job/(.*)$ /area/$1/$2last;15.域名跳转server&#123;listen 80;server_name jump.linuxidc.com;index index.html index.htm index.php;root /opt/lampp/htdocs/www;rewrite ^/ http://www.linuxidc.com/;access_log off;&#125;16.多域名转向server_name www.linuxidc.comwww.linuxidc.net;index index.html index.htm index.php;root /opt/lampp/htdocs;if ($host ~ &quot;linuxidc\.net&quot;) &#123;rewrite ^(.*) http://www.linuxidc.com$1permanent;&#125;六．nginx全局变量arg_PARAMETER #这个变量包含GET请求中，如果有变量PARAMETER时的值。args #这个变量等于请求行中(GET请求)的参数，如：foo=123&amp;bar=blahblah;binary_remote_addr #二进制的客户地址。body_bytes_sent #响应时送出的body字节数数量。即使连接中断，这个数据也是精确的。content_length #请求头中的Content-length字段。content_type #请求头中的Content-Type字段。cookie_COOKIE #cookie COOKIE变量的值document_root #当前请求在root指令中指定的值。document_uri #与uri相同。host #请求主机头字段，否则为服务器名称。hostname #Set to themachine’s hostname as returned by gethostnamehttp_HEADERis_args #如果有args参数，这个变量等于”?”，否则等于”&quot;，空值。http_user_agent #客户端agent信息http_cookie #客户端cookie信息limit_rate #这个变量可以限制连接速率。query_string #与args相同。request_body_file #客户端请求主体信息的临时文件名。request_method #客户端请求的动作，通常为GET或POST。remote_addr #客户端的IP地址。remote_port #客户端的端口。remote_user #已经经过Auth Basic Module验证的用户名。request_completion #如果请求结束，设置为OK. 当请求未结束或如果该请求不是请求链串的最后一个时，为空(Empty)。request_method #GET或POSTrequest_filename #当前请求的文件路径，由root或alias指令与URI请求生成。request_uri #包含请求参数的原始URI，不包含主机名，如：”/foo/bar.php?arg=baz”。不能修改。scheme #HTTP方法（如http，https）。server_protocol #请求使用的协议，通常是HTTP/1.0或HTTP/1.1。server_addr #服务器地址，在完成一次系统调用后可以确定这个值。server_name #服务器名称。server_port #请求到达服务器的端口号。七．Apache和Nginx规则的对应关系Apache的RewriteCond对应Nginx的ifApache的RewriteRule对应Nginx的rewriteApache的[R]对应Nginx的redirectApache的[P]对应Nginx的lastApache的[R,L]对应Nginx的redirectApache的[P,L]对应Nginx的lastApache的[PT,L]对应Nginx的last例如：允许指定的域名访问本站，其他的域名一律转向www.linuxidc.net Apache:RewriteCond %&#123;HTTP_HOST&#125; !^(.*?)\.aaa\.com$[NC]RewriteCond %&#123;HTTP_HOST&#125; !^localhost$RewriteCond %&#123;HTTP_HOST&#125;!^192\.168\.0\.(.*?)$RewriteRule ^/(.*)$ http://www.linuxidc.net[R,L] Nginx:if( $host ~* ^(.*)\.aaa\.com$ )&#123;set $allowHost ‘1’;&#125;if( $host ~* ^localhost )&#123;set $allowHost ‘1’;&#125;if( $host ~* ^192\.168\.1\.(.*?)$ )&#123;set $allowHost ‘1’;&#125;if( $allowHost !~ ‘1’ )&#123;rewrite ^/(.*)$ http://www.linuxidc.netredirect ;]]></content>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[nginx-php-fpm出现502-bad-gateway错误解决方法]]></title>
+    <url>%2F2017%2F12%2F03%2Fnginx-php-fpm%E5%87%BA%E7%8E%B0502-bad-gateway%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[1.或者php-cgi端口和nginx配置不一致，这是比较低级的错误 2.php-fpm没有启动,到php-fpm所在目录启动 3.php-fpm配置文件user和group配置和Nginx不一致 4.在centos7中user和group修改在/opt/local/php/etc/php-fpm.d/www.conf里面]]></content>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[nginx-fastcgi-param解释]]></title>
+    <url>%2F2017%2F12%2F03%2Fnginx-fastcgi-param%E8%A7%A3%E9%87%8A%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;#脚本文件请求的路径fastcgi_param QUERY_STRING $query_string; #请求的参数;如?app=123fastcgi_param REQUEST_METHOD $request_method; #请求的动作(GET,POST)fastcgi_param CONTENT_TYPE $content_type; #请求头中的Content-Type字段fastcgi_param CONTENT_LENGTH $content_length; #请求头中的Content-length字段。fastcgi_param SCRIPT_NAME $fastcgi_script_name; #脚本名称fastcgi_param REQUEST_URI $request_uri; #请求的地址不带参数fastcgi_param DOCUMENT_URI $document_uri; #与$uri相同。fastcgi_param DOCUMENT_ROOT $document_root; #网站的根目录。在server配置中root指令中指定的值fastcgi_param SERVER_PROTOCOL $server_protocol; #请求使用的协议，通常是HTTP/1.0或HTTP/1.1。fastcgi_param GATEWAY_INTERFACE CGI/1.1; #cgi 版本fastcgi_param SERVER_SOFTWARE nginx/$nginx_version; #nginx 版本号，可修改、隐藏fastcgi_param REMOTE_ADDR $remote_addr; #客户端IPfastcgi_param REMOTE_PORT $remote_port; #客户端端口fastcgi_param SERVER_ADDR $server_addr; #服务器IP地址fastcgi_param SERVER_PORT $server_port; #服务器端口fastcgi_param SERVER_NAME $server_name; #服务器名，域名在server配置中指定的server_name#fastcgi_param PATH_INFO $path_info; #可自定义变量#PHP only, required if PHP was built with --enable-force-cgi-redirect#fastcgi_param REDIRECT_STATUS 200;在php可打印出上面的服务环境变量如：echo $_SERVER[&apos;REMOTE_ADDR&apos;]]]></content>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[nginx-alert-kill-646-1-failed-3-No-such-process-解决方法]]></title>
+    <url>%2F2017%2F12%2F03%2Fnginx-alert-kill-646-1-failed-3-No-such-process-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[1234./nginx -s reloadnginx: [alert] kill(1708, 1) failed (3: No such process)/opt/local/nginx/sbin/nginx -c /opt/local/nginx/conf/nginx.conf/opt/local/nginx/sbin/nginx -s reload PS:假设你的nginx的目录是：/usr/opt/nginx/sbin/nginx 假设nginx的配置目录是： /usr/opt/nginx/conf/nginx.conf 重启的方法是：/usr/opt/nginx/sbin/nginx -c /usr/opt/nginx/conf/nginx.conf 参数-c 指定了配置文件的路径，如果不指定该参数，则nginx会默认加载其按照目录的conf目录下的nginx.conf. 平滑重启： 1、检查修改后的配置文件是否正确： /usr/opt/nginx/sbin/nginx -t -c /usr/opt/nginx/conf/nginx.conf 2、kill -HUP Nginx主进程号。示例如下： 1kill -HUP cat/usr/local/webserver/nginx/logs/nginx.pid 主要参数介绍如下：-c 为Nginx 指定一个配置文件，来代替缺省的。-t 不运行，而仅仅测试配置文件。]]></content>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL-ERROR-Table-mysql-user-doesn-t-exist]]></title>
+    <url>%2F2017%2F12%2F03%2FMySQL-ERROR-Table-mysql-user-doesn-t-exist%2F</url>
+    <content type="text"><![CDATA[1、现象描述[root@HKBO scripts]# service mysqld startStarting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED]查看错误日志1234567891011[root@HKBO scripts]# tail /var/log/mysqld.logInnoDB: Apply batch completed2014-12-08 11:01:37 15721 [Note] InnoDB: 128 rollback segment(s) are active.2014-12-08 11:01:37 15721 [Note] InnoDB: Waiting for purge to start2014-12-08 11:01:37 15721 [Note] InnoDB: 5.6.12 started; log sequence number 16006072014-12-08 11:01:37 15721 [Note] Server hostname (bind-address): &apos;*&apos;; port: 33062014-12-08 11:01:37 15721 [Note] IPv6 is available.2014-12-08 11:01:37 15721 [Note] - &apos;::&apos; resolves to &apos;::&apos;;2014-12-08 11:01:37 15721 [Note] Server socket created on IP: &apos;::&apos;.2014-12-08 11:01:37 15721 [ERROR] Fatal error: Can&apos;t open and lock privilege tables: Table &apos;mysql.user&apos; doesn&apos;t exist141208 11:01:37 mysqld_safe mysqld from pid file /var/lib/mysql/HKBO.pid ended 2、解决办法 查看当前的my.cnf配置文件1more /etc/my.cnf |grep -v ^# 12345678[mysqld]datadir=/var/lib/mysqlsocket=/var/lib/mysql/mysql.sockuser=mysqlold_passwords=1[mysqld_safe]log-error=/var/log/mysqld.logpid-file=/var/run/mysqld/mysqld.pid 由于编译安装时指定的路径为/opt/data以及mysql_install_db时指定的datadir也为/opt/data,而my.cnf为缺省的路径因此修改datadir至正确路径后，问题解决12345vi /etc/my.cnfmore /etc/my.cnf |grep datadirdatadir=/opt/dataservice mysqld startStarting MySQL.[ OK ]]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux开机执行命令]]></title>
+    <url>%2F2017%2F12%2F03%2FLinux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[1、把需要执行的命令写到一个bash脚本里面： #!/bin/sh （此括号内为需要执行的命令） 保存为一个文件，比如123.sh，放在oracle的主目录里面。给这个文件加上可执行属性：chmod 775 123.sh然后，在/etc/rc.d/rc.local里面加上这句就可以了：1234567/123.sh延时执行例子：(sleep 60sh /goexcel.sh)&amp;延时60秒执行]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux-查看进程和删除进程]]></title>
+    <url>%2F2017%2F12%2F03%2FLinux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[在 LINUX 命令平台输入 1-2 个字符后按 Tab 键会自动补全后面的部分(前提是要有这个东西，例如在装了 tomcat 的前提下, 输入 tomcat 的 to 按 tab)。 ps 命令用于查看当前正在运行的进程。grep 是搜索例如： ps -ef | grep java表示查看所有进程里 CMD 是 java 的进程信息ps -aux | grep java-aux 显示所有状态ps kill 命令用于终止进程例如： kill -9 [PID]-9 表示强迫进程立即停止通常用 ps 查看进程 PID ，用 kill 命令终止进程网上关于这两块的内容 PS ps 简介ps 命令就是最根本相应情况下也是相当强大地进程查看命令.运用该命令可以确定有哪些进程正在运行和运行地状态、 进程 是否结束、进程有没有僵死、哪些进程占用了过多地资源等等.总之大部分信息均为可以通过执行该命令得到地. ps 命令及其参数ps 命令最经常使用地还是用于监控后台进程地工作情况,因为后台进程是不和屏幕键盘这些标准输入/输出设备进行通信地,所以如果需要检测其情况,便可以运用 ps 命令了.该命令语法格式如下：ps [选项]-e 显示所有进程,环境变量-f 全格式-h 不显示标题-l 长格式-w 宽输出a显示终端上地所有进程,包括其他用户地进程r只显示正在运行地进程x显示没有控制终端地进程O[+|-] k1 [,[+|-] k2 [,…]] 根据 SHORT KEYS、k1、k2 中快捷键指定地多级排序顺序显示进程列表.对于 ps 地不同格式都存在着默认地顺序指定.这些默认顺序可以被用户地指定所覆盖.在这里面“+”字符是可选地,“-” 字符是倒转指定键地方向.pids 只列出进程标识符,之间运用逗号分隔.该进程列表必须在命令行参数地最后一个选项后面紧接着给出,中间不能插入 空格.比如：ps -f1,4,5.以下介绍长命令行选项,这些选项都运用“–”开头：–sort X[+|-] key [,[+|-] key [,…]] 从 SORT KEYS 段中选一个多字母键.“+”字符是可选地,因为默认地方向就是按 数字升序或者词典顺序.比如： ps -jax -sort=uid,-ppid,+pid.–help 显示帮助信息.–version 显示该命令地版本信息.在前面地选项说明中提到了排序键,接下来对排序键作进一步说明.需要注意地是排序中运用地值是 ps 运用地内部值,并非 仅用于某些输出格式地伪值.排序键列表见表 4-3.表 4-3 排序键列表ccmd可执行地简单名称Ccmdline完整命令行fflags长模式标志gpgrp进程地组 IDGtpgid控制 tty 进程组 IDjcutime累计用户时间Jcstime累计系统时间kutime用户时间Kstime系统时间mmin_flt次要页错]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux-Source命令及脚本的执行方式解析]]></title>
+    <url>%2F2017%2F12%2F03%2FLinux-Source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[当我修改了/etc/profile文件，我想让它立刻生效，而不用重新登录；这时就想到用source命令，如:source /etc/profile对source进行了学习，并且用它与sh 执行脚本进行了对比，现在总结一下。 source命令：source命令也称为“点命令”，也就是一个点符号（.）,是bash的内部命令。功能：使Shell读入指定的Shell程序文件并依次执行文件中的所有语句source命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。用法：source filename 或 . filenamesource命令(从 C Shell 而来)是bash shell的内置命令;点命令(.)，就是个点符号(从Bourne Shell而来)是source的另一名称。source filename 与 sh filename 及./filename执行脚本的区别在那里呢？1.当shell脚本具有可执行权限时，用sh filename与./filename执行脚本是没有区别得。./filename是因为当前目录没有在PATH中，所有”.”是用来表示当前目录的。2.sh filename 重新建立一个子shell，在子shell中执行脚本里面的语句，该子shell继承父shell的环境变量，但子shell新建的、改变的变量不会被带回父shell，除非使用export。3.source filename：这个命令其实只是简单地读取脚本里面的语句依次在当前shell里面执行，没有建立新的子shell。那么脚本里面所有新建、改变变量的语句都会保存在当前shell里面。举例说明：1.新建一个test.sh脚本，内容为:A=12.然后使其可执行chmod +x test.sh3.运行sh test.sh后，echo $A，显示为空，因为A=1并未传回给当前shell4.运行./test.sh后，也是一样的效果5.运行source test.sh 或者 . test.sh，然后echo $A，则会显示1，说明A=1的变量在当前shell中]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Centos中安装PHP的PDO-MySQL扩展]]></title>
+    <url>%2F2017%2F12%2F03%2FCentos%E4%B8%AD%E5%AE%89%E8%A3%85PHP%E7%9A%84PDO-MySQL%E6%89%A9%E5%B1%95%2F</url>
+    <content type="text"><![CDATA[1、下载 文件 或者 进入 在PHP源码包中进入ext/pdo_mysqlhttp://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz 2、解压文件1tar zxvf PDO_MYSQL-1.0.2.tgz 3、配置和编译文件12345cd PDO_MYSQL-1.0.2/usr/local/php/bin/phpize./configure –with-php-config=/usr/local/php/bin/php-config –with-pdo-mysql=/usr/local/mysqlmakemake install 注： 我的PHP安装在 ： /usr/local/php/ mysql 安装在 ： /usr/local/mysql 编译的时候注意你自己的安装目录在哪里3、安装到PHP配置下 把这个记住，然后打开 php.ini文件，并添加一行1extension=pdo_mysql.so]]></content>
+      <tags>
+        <tag>centos</tag>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Centos-6-5-更改系统时间]]></title>
+    <url>%2F2017%2F12%2F03%2FCentos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%2F</url>
+    <content type="text"><![CDATA[12345678910111213date 时间窗口date -s &apos;2015-02-02 10:10:00&apos; 更改年月日小时分秒date -s 10:00:02 只更改时间 不更改年月clock -w 写入系统时间hwclock 同步bios 时间service ntpdate start 开启网络时间同步systemctl start ntpdate.service 开启网络时间同步 Red Hat 7chkconfig --leves 2345 ntpdate on 开机启动reboot 重启报错or type Contril-D to contime:输入系统密码-根据报错修复fsck -y /dev/mapper/VolGroup-lv_rootfsck -y /dev/sda1reboot 重启是否正常]]></content>
+      <tags>
+        <tag>centos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS-6-4-php-fpm-添加service-添加平滑启动-重启]]></title>
+    <url>%2F2017%2F12%2F03%2FCentOS-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF%2F</url>
+    <content type="text"><![CDATA[nginx通过FastCGI运行PHP比Apache包含PHP环境有明显的优势,最近有消息称,PHP5.4将很有可能把PHP-FPM补丁包含在内核里,nginx服务器平台上运行PHP将更加轻松,下面我们就来看一篇php-fpm平滑启动并配置服务例子。 我的php是源码安装的。php-fpm在PHP 5.3.2以后的版本不支持以前的php-fpm (start|restart|stop|reload) ，那么如果将php-fpm配置成服务，并添加平滑启动/重启。配置php-fpm.conf（vi /usr/local/php54/etc/php-fpm.conf）,将pid（;pid = run/php-fpm.pid）前的;去掉。因为编译安装php的，所以会在php目录生成很多二进制文件，找到init.d.php-fpm，拷贝到init.d下。 1cp /usr/local/src/php54/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm 设置权限，并添加服务 12chmod +x /etc/init.d/php-fpmchkconfig --add php-fpm 以后可以使用如下命令管理php-fpm了1234service php-fpm startservice php-fpm stopservice php-fpm restartservice php-fpm reload]]></content>
+      <tags>
+        <tag>php-fpm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mysql双主同步]]></title>
     <url>%2F2017%2F12%2F02%2FMysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5%2F</url>
     <content type="text"><![CDATA[平台：centos7,mysql5.6.34 解决数据库瓶颈问题两台服务器可以同时读写数据库A B两台服务器A和B需要拥有一个同名的数据库同步账号设置首先要在两台服务器上各新增加一个可登陆的账号。 A端501mysql&gt;grant replication slave,file on *.* to &apos;sync_user&apos;@&apos;192.168.10.58&apos; identified by &apos;123456&apos;; B端581mysql&gt;grant replication slave,file on *.* to &apos;sync_user&apos;@&apos;192.168.10.50&apos; identified by &apos;123456&apos;; 修改my.cnf主配置文件1vim /etc/my.cnf 在 [mysqld] 添加12345678910111213[mysqld]A端log-bin=mysql-bin #启动二进制日志系统server-id=1 #本机数据库ID标示为主，另一为2binlog-do-db=test #二进制需同步的数据库名binlog-ignore-db=mysql #避免同步用户数据库配置replicate-do-db=test #同步数据库的名称replicate-ignore-db=mysql #屏蔽对mysql数据库的同步log-slave-updatesslave-skip-errors=allsync_binlog=1auto_increment_increment=2auto_increment_offset=1 #B端配置2 123456789101112B端log-bin=mysql-bin #启动二进制日志系统server-id=2 #本机数据库ID标示为主，另一为1binlog-do-db=test #二进制需同步的数据库名binlog-ignore-db=mysql #避免同步用户数据库配置replicate-do-db=test #同步数据库的名称replicate-ignore-db=mysql #屏蔽对mysql数据库的同步log-slave-updatesslave-skip-errors=allsync_binlog=1auto_increment_increment=2auto_increment_offset=2 #A端配置1 1234mysql -u root -pmysql&gt;flush tables with read lock; #锁定表格service mysqld restartmysql&gt;show master status\G ＃查看主服务器同步状态 A端是这样的1234567mysql&gt; show master status\G*************************** 1. row *************************** File: mysql-bin.000001 Position: 106 Binlog_Do_DB: testBinlog_Ignore_DB: mysql1 row in set (0.00 sec) B端是这样的1234567mysql&gt; show master status\G*************************** 1. row *************************** File: mysql-bin.000002 Position: 106 Binlog_Do_DB: testBinlog_Ignore_DB: mysql1 row in set (0.00 sec) 设定同步服务器ip 用户名与口令和日志文件名与show master status\G 输出结果一致。1234A端：mysql&gt;change master to master_host=&apos;192.168.10.58&apos;, master_user=&apos;sync_user&apos;, master_password=&apos;123456&apos;, master_log_file=&apos;mysql-bin.000002&apos;, master_log_pos=106;B端：mysql&gt;change master to master_host=&apos;192.168.10.50&apos;, master_user=&apos;sync_user&apos;, master_password=&apos;123456&apos;, master_log_file=&apos;mysql-bin.000001&apos;, master_log_pos=106; 123start slave; 两段互为辅助show slave status\G 验证配置unlock tables; 解锁验证 Master_host 指的是 主服务器的地址。 Master_user 指的是主服务器上用来复制的用户。 从服务器会用此账号来登录主服务。进行复制。 Master_log_file 就是前面提到的， 主服务器上的日志文件名. Read_Master_log_pos 就是前面提到的主服务器的日志记录位置， 从服务器根据这两个条件来选择复制的文件和位置。 Slave_IO_Running 指的就是从服务器上负责读取主服务器的线程工作状态。 从服务器用这个专门的线程链接到主服务器上，并把日志拷贝回来。 Slave_SQL_Running 指的就是专门执行sql的线程。 它负责把复制回来的Relaylog执行到自己的数据库中。 这两个参数必须都为Yes 才表明复制在正常工作。此时你在A或者B端对test数据库里的内容进行修改，另一端会同步你的更改]]></content>
@@ -129,8 +333,8 @@
     <url>%2F2017%2F12%2F02%2Fcentos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
     <content type="text"><![CDATA[CentOS7的yum源中默认好像是没有mysql的。为了解决这个问题，我们要先下载mysql的repo源。 1.下载mysql的repo源1$ wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm 安装mysql-community-release-el7-5.noarch.rpm包1$ sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm 安装这个包后，会获得两个mysql的yum repo源：/etc/yum.repos.d/mysql-community.repo，/etc/yum.repos.d/mysql-community-source.repo。 安装mysql1$ sudo yum install mysql-server 根据步骤安装就可以了，不过安装完成后，没有密码，需要重置密码。 重置密码 重置密码前，首先要登录1$ mysql -u root 登录时有可能报这样的错：ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (2)，原因是/var/lib/mysql的访问权限问题。下面的命令把/var/lib/mysql的拥有者改为当前用户：1$ sudo chown -R root:root /var/lib/mysql 然后，重启服务：1$ service mysqld restart 接下来登录重置密码：1234$ mysql -u rootmysql &gt; use mysql;mysql &gt; update user set password=password(&apos;123456&apos;) where user=&apos;root&apos;;mysql &gt; exit;]]></content>
       <tags>
-        <tag>mysql</tag>
         <tag>centos</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>

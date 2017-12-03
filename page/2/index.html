@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/mysql-日志文件mysql-bin文件清除方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/ssh远程登录命令简单实例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -299,7 +299,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/02/mysql-日志文件mysql-bin文件清除方法/" itemprop="url">mysql-日志文件mysql-bin文件清除方法</a></h1>
+                <a class="post-title-link" href="/2017/12/03/ssh远程登录命令简单实例/" itemprop="url">ssh远程登录命令简单实例</a></h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T14:35:37+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T17:19:18+08:00">
+                2017-12-03
               </time>
             
 
@@ -350,11 +350,130 @@
 
       
         
-          <p>默认情况下mysql会一直保留mysql-bin文件，这样到一定时候，磁盘可能会被撑满，这时候是否可以删除这些文件呢，是否可以安全删除，是个问题。</p>
-<p>首先要说明一下，这些文件都是mysql的日志文件，如果不做主从复制的话，基本上是没用的，虽然没用，但是不建议使用rm命令删除，这样有可能会不安全，正确的方法是通过mysql的命令去删除。</p>
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ssh命令用于远程登录上Linux主机。</span><br><span class="line">常用格式：ssh [-l login_name] [-p port] [user@]hostname</span><br><span class="line">更详细的可以用ssh -h查看。</span><br><span class="line">举例</span><br><span class="line">不指定用户：</span><br><span class="line">ssh 192.168.0.11</span><br><span class="line">指定用户：</span><br><span class="line">ssh -l root 192.168.0.11</span><br><span class="line">ssh root@192.168.0.11</span><br><span class="line">如果修改过ssh登录端口的可以：</span><br><span class="line">ssh -p 12333 192.168.0.11</span><br><span class="line">ssh -l root -p 12333 216.230.230.114</span><br><span class="line">ssh -p 12333 root@216.230.230.114</span><br><span class="line">另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。</span><br><span class="line">编辑配置文件：</span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">找到#Port 22，去掉注释，修改成一个五位的端口：</span><br><span class="line">Port 12333</span><br><span class="line">找到#PermitRootLogin yes，去掉注释，修改为：</span><br><span class="line">PermitRootLogin no</span><br><span class="line">重启sshd服务：</span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/php-fpm设置socket方式连接FastCGI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/03/php-fpm设置socket方式连接FastCGI/" itemprop="url">php-fpm设置socket方式连接FastCGI</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T17:16:17+08:00">
+                2017-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/02/mysql-日志文件mysql-bin文件清除方法/#more" rel="contents">
+            <a class="btn" href="/2017/12/03/php-fpm设置socket方式连接FastCGI/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -405,7 +524,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/安装golang/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/PDO-MYSQL-make-pdo-mysql-lo-Error-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -424,7 +543,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/02/安装golang/" itemprop="url">安装golang</a></h1>
+                <a class="post-title-link" href="/2017/12/03/PDO-MYSQL-make-pdo-mysql-lo-Error-1/" itemprop="url">PDO-MYSQL-make-pdo-mysql-lo-Error-1</a></h1>
         
 
         <div class="post-meta">
@@ -436,8 +555,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T14:31:45+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T17:13:16+08:00">
+                2017-12-03
               </time>
             
 
@@ -475,11 +594,255 @@
 
       
         
-          <p>到官方<a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a></p>
-<p>或者 <a href="https://www.golangtc.com/download" target="_blank" rel="noopener">https://www.golangtc.com/download</a><br>下载安装包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.golangtc.com/static/go/1.9/go1.9.linux-amd64.tar.gz</span><br><span class="line">tar zxvf go1.9.linux-amd64.tar.gz -C /usr/local</span><br></pre></td></tr></table></figure></p>
+          
+            <p>编译安装PDO_MYSQL拓展模块，总是提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory</span><br><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’</span><br><span class="line">make: *** [pdo_mysql.lo] Error 1</span><br></pre></td></tr></table></figure>
+<p>这是因为这是因为在编译时需要 MySQL 的头的文件。而它按默认搜索找不到头文件的位置，所以才出现这个问题。通过软连接把MySQL头文件对应到/usr/local/include/下就好<br>比如你的MySQL安装文件位于/usr/local/mysql，那么就执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/mysql/include/* /usr/local/include/</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/NGINX-启动-warn-conflicting-server-name-“xxx-com”-on-0-0-0-0-80-ignored原因分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/03/NGINX-启动-warn-conflicting-server-name-“xxx-com”-on-0-0-0-0-80-ignored原因分析/" itemprop="url">NGINX-启动-warn-conflicting-server-name-“xxx-com”-on-0-0-0-0-80-ignored原因分析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T17:10:19+08:00">
+                2017-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>报错如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx: [warn] conflicting server name “www.xxx.com” on 0.0.0.0:80, ignored</span><br></pre></td></tr></table></figure></p>
+<p>域名重复配置所致</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/nginx配置location总结及rewrite规则写法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/03/nginx配置location总结及rewrite规则写法/" itemprop="url">nginx配置location总结及rewrite规则写法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T17:07:09+08:00">
+                2017-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>location正则写法<br>一个示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">location  = / &#123;</span><br><span class="line">  # 精确匹配 / ，主机名后面不能带任何字符串</span><br><span class="line">  [ configuration A ]</span><br><span class="line">&#125;</span><br><span class="line">location  / &#123;</span><br><span class="line">  # 因为所有的地址都以 / 开头，所以这条规则将匹配到所有请求</span><br><span class="line">  # 但是正则和最长字符串会优先匹配</span><br><span class="line">  [ configuration B ]</span><br><span class="line">&#125;</span><br><span class="line">location /documents/ &#123;</span><br><span class="line">  # 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索</span><br><span class="line">  # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条</span><br><span class="line">  [ configuration C ]</span><br><span class="line">&#125;</span><br><span class="line">location ~ /documents/Abc &#123;</span><br><span class="line">  # 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索</span><br><span class="line">  # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条</span><br><span class="line">  [ configuration CC ]</span><br><span class="line">&#125;</span><br><span class="line">location ^~ /images/ &#123;</span><br><span class="line">  # 匹配任何以 /images/ 开头的地址，匹配符合以后，停止往下搜索正则，采用这一条。</span><br><span class="line">  [ configuration D ]</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg)$ &#123;</span><br><span class="line">  # 匹配所有以 gif,jpg或jpeg 结尾的请求</span><br><span class="line">  # 然而，所有请求 /images/ 下的图片会被 config D 处理，因为 ^~ 到达不了这一条正则</span><br><span class="line">  [ configuration E ]</span><br><span class="line">&#125;</span><br><span class="line">location /images/ &#123;</span><br><span class="line">  # 字符匹配到 /images/，继续往下，会发现 ^~ 存在</span><br><span class="line">  [ configuration F ]</span><br><span class="line">&#125;</span><br><span class="line">location /images/abc &#123;</span><br><span class="line">  # 最长字符匹配到 /images/abc，继续往下，会发现 ^~ 存在</span><br><span class="line">  # F与G的放置顺序是没有关系的</span><br><span class="line">  [ configuration G ]</span><br><span class="line">&#125;</span><br><span class="line">location ~ /images/abc/ &#123;</span><br><span class="line">  # 只有去掉 config D 才有效：先最长匹配 config G 开头的地址，继续往下搜索，匹配到这一条正则，采用</span><br><span class="line">    [ configuration H ]</span><br><span class="line">&#125;</span><br><span class="line">1</span><br><span class="line">location ~* /js/.*/\.js</span><br><span class="line">已=开头表示精确匹配</span><br><span class="line"></span><br><span class="line">如 A 中只匹配根目录结尾的请求，后面不能带任何字符串。</span><br><span class="line"></span><br><span class="line">^~ 开头表示uri以某个常规字符串开头，不是正则匹配</span><br><span class="line"></span><br><span class="line">~ 开头表示区分大小写的正则匹配;</span><br><span class="line"></span><br><span class="line">~* 开头表示不区分大小写的正则匹配</span><br><span class="line"></span><br><span class="line">/ 通用匹配, 如果没有其它匹配,任何请求都会匹配到</span><br><span class="line">顺序 no优先级： (location =) &gt; (location 完整路径) &gt; (location ^~ 路径) &gt; (location ~,~* 正则顺序) &gt; (location 部分起始路径) &gt; (/)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/02/安装golang/#more" rel="contents">
+            <a class="btn" href="/2017/12/03/nginx配置location总结及rewrite规则写法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -530,7 +893,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/安装CentOS7文字界面版后，无法联网，用yum安装软件提示-cannot-find-a-valid-baseurl-for-repobase7x86-64-的解决方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/nginx-php-fpm出现502-bad-gateway错误解决方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -549,7 +912,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/02/安装CentOS7文字界面版后，无法联网，用yum安装软件提示-cannot-find-a-valid-baseurl-for-repobase7x86-64-的解决方法/" itemprop="url">安装CentOS7文字界面版后，无法联网，用yum安装软件提示-cannot-find-a-valid-baseurl-for-repobase7x86-64-的解决方法</a></h1>
+                <a class="post-title-link" href="/2017/12/03/nginx-php-fpm出现502-bad-gateway错误解决方法/" itemprop="url">nginx-php-fpm出现502-bad-gateway错误解决方法</a></h1>
         
 
         <div class="post-meta">
@@ -561,8 +924,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T14:27:37+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T17:05:56+08:00">
+                2017-12-03
               </time>
             
 
@@ -601,15 +964,10 @@
       
         
           
-            <p>无法联网的明显表现会有：</p>
-<p>　　1、yum install出现 Error: cannot find a valid baseurl or repo:base</p>
-<p>　　2、ping host会提示unknown host</p>
-<p>方法一、</p>
-<p>　　1、打开 vi /etc/sysconfig/network-scripts/ifcfg-eth0（每个机子都可能不一样，但格式会是“ifcfg-eth数字”），把ONBOOT=no，改为ONBOOT=yes</p>
-<p>　　2、重启网络：service network restart</p>
-<p>方法二、</p>
-<p>　　1、打开 vi /etc/resolv.conf，增加 nameserver 8.8.8.8</p>
-<p>　　2、重启网络: service network restart</p>
+            <p>1.或者php-cgi端口和nginx配置不一致，这是比较低级的错误</p>
+<p>2.php-fpm没有启动,到php-fpm所在目录启动</p>
+<p>3.php-fpm配置文件user和group配置和Nginx不一致</p>
+<p>4.在centos7中user和group修改在/opt/local/php/etc/php-fpm.d/www.conf里面</p>
 
           
         
@@ -658,7 +1016,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/ubuntu配置全局代理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/nginx-fastcgi-param解释/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -677,7 +1035,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/02/ubuntu配置全局代理/" itemprop="url">ubuntu配置全局代理</a></h1>
+                <a class="post-title-link" href="/2017/12/03/nginx-fastcgi-param解释/" itemprop="url">nginx-fastcgi-param解释</a></h1>
         
 
         <div class="post-meta">
@@ -689,8 +1047,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T14:02:18+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T17:03:17+08:00">
+                2017-12-03
               </time>
             
 
@@ -728,13 +1086,130 @@
 
       
         
-          <p><strong>PS:使用 polipo 前需要先安装 shadowsocks</strong></p>
-<p>启动shawdowsocks服务后，发现并不能翻墙上网，这是因为shawdowsocks是socks 5代理，需要客户端配合才能翻墙。</p>
-<p>为了让整个系统都走shawdowsocks通道，需要配置全局代理，可以通过polipo实现。</p>
-<p>首先是安装polipo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install polipo</span><br></pre></td></tr></table></figure></p>
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;#脚本文件请求的路径</span><br><span class="line">fastcgi_param QUERY_STRING $query_string;                        #请求的参数;如?app=123</span><br><span class="line">fastcgi_param REQUEST_METHOD $request_method;                    #请求的动作(GET,POST)</span><br><span class="line">fastcgi_param CONTENT_TYPE $content_type;                        #请求头中的Content-Type字段</span><br><span class="line">fastcgi_param CONTENT_LENGTH $content_length;                    #请求头中的Content-length字段。</span><br><span class="line">fastcgi_param SCRIPT_NAME $fastcgi_script_name;                  #脚本名称</span><br><span class="line">fastcgi_param REQUEST_URI $request_uri;                          #请求的地址不带参数</span><br><span class="line">fastcgi_param DOCUMENT_URI $document_uri;                        #与$uri相同。</span><br><span class="line">fastcgi_param DOCUMENT_ROOT $document_root;                      #网站的根目录。在server配置中root指令中指定的值</span><br><span class="line">fastcgi_param SERVER_PROTOCOL $server_protocol;                  #请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span><br><span class="line">fastcgi_param GATEWAY_INTERFACE CGI/1.1;                         #cgi 版本</span><br><span class="line">fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;              #nginx 版本号，可修改、隐藏</span><br><span class="line">fastcgi_param REMOTE_ADDR $remote_addr;                          #客户端IP</span><br><span class="line">fastcgi_param REMOTE_PORT $remote_port;                          #客户端端口</span><br><span class="line">fastcgi_param SERVER_ADDR $server_addr;                          #服务器IP地址</span><br><span class="line">fastcgi_param SERVER_PORT $server_port;                          #服务器端口</span><br><span class="line">fastcgi_param SERVER_NAME $server_name;                          #服务器名，域名在server配置中指定的server_name</span><br><span class="line">#fastcgi_param PATH_INFO $path_info;                             #可自定义变量</span><br><span class="line">#PHP only, required if PHP was built with --enable-force-cgi-redirect</span><br><span class="line">#fastcgi_param REDIRECT_STATUS 200;</span><br><span class="line">在php可打印出上面的服务环境变量</span><br><span class="line">如：echo $_SERVER[&apos;REMOTE_ADDR&apos;]</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/nginx-alert-kill-646-1-failed-3-No-such-process-解决方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/03/nginx-alert-kill-646-1-failed-3-No-such-process-解决方法/" itemprop="url">nginx-alert-kill-646-1-failed-3-No-such-process-解决方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T17:00:05+08:00">
+                2017-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br><span class="line">nginx: [alert] kill(1708, 1) failed (3: No such process)</span><br><span class="line">/opt/local/nginx/sbin/nginx -c /opt/local/nginx/conf/nginx.conf</span><br><span class="line">/opt/local/nginx/sbin/nginx -s reload</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/02/ubuntu配置全局代理/#more" rel="contents">
+            <a class="btn" href="/2017/12/03/nginx-alert-kill-646-1-failed-3-No-such-process-解决方法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -785,7 +1260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/Ubuntu-手动挂载U盘/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/MySQL-ERROR-Table-mysql-user-doesn-t-exist/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -804,7 +1279,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/02/Ubuntu-手动挂载U盘/" itemprop="url">Ubuntu-手动挂载U盘</a></h1>
+                <a class="post-title-link" href="/2017/12/03/MySQL-ERROR-Table-mysql-user-doesn-t-exist/" itemprop="url">MySQL-ERROR-Table-mysql-user-doesn-t-exist</a></h1>
         
 
         <div class="post-meta">
@@ -816,8 +1291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T13:50:19+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T16:55:56+08:00">
+                2017-12-03
               </time>
             
 
@@ -855,12 +1330,10 @@
 
       
         
-          <p>1.在插入U盘前和插入U盘后，都输入同一个命令，检查多了哪个盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/partitions</span><br></pre></td></tr></table></figure></p>
-<p>这里我发现多了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8       16    7827424 sdb</span><br><span class="line">8       17    7825423 sdb1</span><br></pre></td></tr></table></figure></p>
-<p>sdb是统称，所以新插入的U盘就是/dev/sdb1<br>
+          <p>1、现象描述<br>[root@HKBO scripts]# service mysqld start<br>Starting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED]<br>查看错误日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@HKBO scripts]# tail /var/log/mysqld.log</span><br><span class="line">InnoDB: Apply batch completed</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: 128 rollback segment(s) are active.</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: Waiting for purge to start</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: 5.6.12 started; log sequence number 1600607</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] Server hostname (bind-address): &apos;*&apos;; port: 3306</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] IPv6 is available.</span><br><span class="line">2014-12-08 11:01:37 15721 [Note]   - &apos;::&apos; resolves to &apos;::&apos;;</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] Server socket created on IP: &apos;::&apos;.</span><br><span class="line">2014-12-08 11:01:37 15721 [ERROR] Fatal error: Can&apos;t open and lock privilege tables: Table &apos;mysql.user&apos; doesn&apos;t exist</span><br><span class="line">141208 11:01:37 mysqld_safe mysqld from pid file /var/lib/mysql/HKBO.pid ended</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/02/Ubuntu-手动挂载U盘/#more" rel="contents">
+            <a class="btn" href="/2017/12/03/MySQL-ERROR-Table-mysql-user-doesn-t-exist/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -911,7 +1384,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/centos7下使用yum安装mysql数据库/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/Linux开机执行命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -930,7 +1403,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/02/centos7下使用yum安装mysql数据库/" itemprop="url">centos7下使用yum安装mysql数据库</a></h1>
+                <a class="post-title-link" href="/2017/12/03/Linux开机执行命令/" itemprop="url">Linux开机执行命令</a></h1>
         
 
         <div class="post-meta">
@@ -942,138 +1415,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T12:24:47+08:00">
-                2017-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>CentOS7的yum源中默认好像是没有mysql的。为了解决这个问题，我们要先下载mysql的repo源。</p>
-<p>1.下载mysql的repo源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>安装mysql-community-release-el7-5.noarch.rpm包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>安装这个包后，会获得两个mysql的yum repo源：/etc/yum.repos.d/mysql-community.repo，/etc/yum.repos.d/mysql-community-source.repo。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/02/centos7下使用yum安装mysql数据库/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/主从复制时报错：ERROR-1794-HY000-Slave/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/02/主从复制时报错：ERROR-1794-HY000-Slave/" itemprop="url">主从复制时报错：ERROR-1794-HY000-Slave……</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T12:22:19+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T16:47:37+08:00">
+                2017-12-03
               </time>
             
 
@@ -1112,386 +1455,8 @@
       
         
           
-            <p>centos 6.5</p>
-<p>mysql5.7</p>
-<p>在从库作stop slave时报：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error:</span><br><span class="line">ERROR 1794 (HY000): Slave is not configured or failed to initialize properly. You must at least set --server-id to enable either a master or a slave. Additional error messages can be found in the MySQL error log.</span><br></pre></td></tr></table></figure></p>
-<p>经分析，需要：</p>
-<p>删除5张表，并重新导入脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use mysql</span><br><span class="line">drop table slave_master_info;</span><br><span class="line">drop table slave_relay_log_info;</span><br><span class="line">drop table slave_worker_info;</span><br><span class="line">drop table innodb_index_stats;</span><br><span class="line">drop table innodb_table_stats;</span><br><span class="line">source /usr/coolpad/mysql/share/mysql_system_tables.sql</span><br></pre></td></tr></table></figure></p>
-<p>(2)重新启动数据库</p>
-<p>注：这一步是必须的，否则无法正常配置双主架构。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/virtualbox下centos挂载共享文件夹/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/02/virtualbox下centos挂载共享文件夹/" itemprop="url">virtualbox下centos挂载共享文件夹</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T12:11:45+08:00">
-                2017-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>PS:要挂载共享文件，需要安装virtualbox增强功能(增强包)</strong><br><br>安装virtualbox增强功能(增强包)：<a href="" target="_blank">https://www.baidu.com</a></p>
-<p>设备—&gt;共享文件夹<br>宿主机 共享路径:E:\project, 共享文件夹名称project</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/share    //新建挂载点（mountpoint）</span><br><span class="line">mount -t vboxsf project  /mnt/share   // 挂载共享文件夹</span><br><span class="line">cd /mnt/share    进入共享文件夹</span><br></pre></td></tr></table></figure>
-<p>OK<br>实现 开机挂载:</p>
-<p>vi ~/.bashrc<br>在最后添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf sharing /mnt/share    挂载共享文件夹</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/文件权限管理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/02/文件权限管理/" itemprop="url">文件权限管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T12:02:17+08:00">
-                2017-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>三种基本权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">R   读       数值表示为4</span><br><span class="line">W   写       数值表示为2</span><br><span class="line">X   可执行   数值表示为1</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/%E6%9D%83%E9%99%90.png" alt="权限实例"></p>
-<p>如图所示，downloads文件夹的权限为 drwxr-xr-x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x一共十个字符，分成四段。</span><br><span class="line">第一个字符“d”表示目录；这个位置还可能会出现“l”链接；“-”表示普通文件</span><br><span class="line">第二三四个字符“rwx”表示当前所属用户的权限。    所以用数值表示为4+2+1=7</span><br><span class="line">第五六七个字符“r-x”表示当前所属组的权限。      所以用数值表示为4+1=5</span><br><span class="line">第八九十个字符“r-x”表示其他用户权限。         所以用数值表示为4+1=5</span><br><span class="line">所以操作此文件夹的权限用数值表示为755</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/Linux软件包管理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/02/Linux软件包管理/" itemprop="url">linux软件包管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T12:01:46+08:00">
-                2017-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>dpkg (Debian Package)管理工具，软件包名以.deb后缀。这种方法适合系统不能联网的情况下。</p>
-<p>比如安装demo命令的安装包，先将demo.deb传到Linux系统中。再使用如下命令安装。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i demo_1.5.3-1_i386.deb   安装软件</span><br><span class="line">sudo dpkg -r demo    卸载软件</span><br></pre></td></tr></table></figure>
-<p>注：将demo.deb传到Linux系统中，有多种方式。VMwareTool，使用挂载方式；使用winSCP工具等；</p>
-<p>APT（Advanced Packaging Tool）高级软件工具。这种方法适合系统能够连接互联网的情况。</p>
-<p>依然以demo为例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install demo     安装demo</span><br><span class="line">sudo apt-get remove demo      卸载demo</span><br><span class="line">sudo apt-get update           更新软件</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p>
-<p>将.rpm文件转为.deb文件</p>
-<p>.rpm为RedHat使用的软件格式。在Ubuntu下不能直接使用，所以需要转换一下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alien abc.rpm</span><br></pre></td></tr></table></figure></p>
+            <p>1、把需要执行的命令写到一个bash脚本里面：</p>
+<p>#!/bin/sh （此括号内为需要执行的命令） 保存为一个文件，比如123.sh，放在oracle的主目录里面。<br><br>给这个文件加上可执行属性：chmod 775 123.sh<br><br>然后，在/etc/rc.d/rc.local里面加上这句就可以了：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/123.sh</span><br><span class="line">延时执行</span><br><span class="line">例子：(</span><br><span class="line">sleep 60</span><br><span class="line">sh /goexcel.sh</span><br><span class="line">)&amp;</span><br><span class="line">延时60秒执行</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1531,7 +1496,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1581,7 +1546,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1594,7 +1559,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
