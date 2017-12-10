@@ -7,6 +7,30 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2017/12/02/yum%20%E5%AE%89%E8%A3%85%E6%8A%A5%20%E5%85%B3%E4%BA%8EPublic%20key%20for%20.rpm%20is%20not%20installed%20%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+        <lastmod>2017-12-09T03:29:38.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/Warning%20RPMDB%20altered%20outside%20of%20yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%20/</loc>
+        <lastmod>2017-12-09T03:26:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/09/centos7%20yum%E5%AE%89%E8%A3%85lnmp/</loc>
+        <lastmod>2017-12-09T03:24:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2017/12/03/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</loc>
         <lastmod>2017-12-03T09:50:04.000Z</lastmod>
         <changefreq>weekly</changefreq>

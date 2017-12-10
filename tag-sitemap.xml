@@ -100,13 +100,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/centos/</loc>
-        <lastmod>2017-12-03T09:29:37.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/crontab/</loc>
         <lastmod>2017-12-03T09:39:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -123,6 +116,27 @@
     <url>
         <loc>http://yoursite.com/tags/mysql/</loc>
         <lastmod>2017-12-03T09:50:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/centos/</loc>
+        <lastmod>2017-12-09T03:24:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/lnmp/</loc>
+        <lastmod>2017-12-09T03:24:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/yum/</loc>
+        <lastmod>2017-12-09T03:29:38.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
