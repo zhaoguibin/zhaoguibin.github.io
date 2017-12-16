@@ -72,13 +72,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/nginx/</loc>
-        <lastmod>2017-12-03T09:12:47.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/php/</loc>
         <lastmod>2017-12-03T09:18:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -114,20 +107,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/mysql/</loc>
-        <lastmod>2017-12-03T09:50:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/centos/</loc>
-        <lastmod>2017-12-14T13:31:31.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/yum/</loc>
         <lastmod>2017-12-14T13:31:31.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -137,6 +116,34 @@
     <url>
         <loc>http://yoursite.com/tags/lnmp/</loc>
         <lastmod>2017-12-14T13:31:31.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/centos/</loc>
+        <lastmod>2017-12-16T10:58:12.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/mysql/</loc>
+        <lastmod>2017-12-16T10:58:18.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/phpstorm/</loc>
+        <lastmod>2017-12-16T11:45:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/nginx/</loc>
+        <lastmod>2017-12-16T12:19:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
