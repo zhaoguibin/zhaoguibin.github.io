@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="1、现象描述[root@HKBO scripts]# service mysqld startStarting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED]查看错误日志1234567891011[r">
+<meta name="description" content="1、现象描述[root@centos65 scripts]# service mysqld startStarting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED]查看错误日志12345678910">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL-ERROR-Table-mysql-user-doesn-t-exist">
 <meta property="og:url" content="http://yoursite.com/2017/12/03/MySQL-ERROR-Table-mysql-user-doesn-t-exist/index.html">
 <meta property="og:site_name" content="zhaoguibin">
-<meta property="og:description" content="1、现象描述[root@HKBO scripts]# service mysqld startStarting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED]查看错误日志1234567891011[root@HKBO scripts]# tail /var/log/mysqld.">
+<meta property="og:description" content="1、现象描述[root@centos65 scripts]# service mysqld startStarting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED]查看错误日志1234567891011[root@centos65 scripts]# tail /var/log">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-03T08:57:55.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:35:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL-ERROR-Table-mysql-user-doesn-t-exist">
-<meta name="twitter:description" content="1、现象描述[root@HKBO scripts]# service mysqld startStarting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED]查看错误日志1234567891011[root@HKBO scripts]# tail /var/log/mysqld.">
+<meta name="twitter:description" content="1、现象描述[root@centos65 scripts]# service mysqld startStarting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED]查看错误日志1234567891011[root@centos65 scripts]# tail /var/log">
 
 
 
@@ -348,7 +348,7 @@
       
 
       
-        <p>1、现象描述<br>[root@HKBO scripts]# service mysqld start<br>Starting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED]<br>查看错误日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@HKBO scripts]# tail /var/log/mysqld.log</span><br><span class="line">InnoDB: Apply batch completed</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: 128 rollback segment(s) are active.</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: Waiting for purge to start</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: 5.6.12 started; log sequence number 1600607</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] Server hostname (bind-address): &apos;*&apos;; port: 3306</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] IPv6 is available.</span><br><span class="line">2014-12-08 11:01:37 15721 [Note]   - &apos;::&apos; resolves to &apos;::&apos;;</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] Server socket created on IP: &apos;::&apos;.</span><br><span class="line">2014-12-08 11:01:37 15721 [ERROR] Fatal error: Can&apos;t open and lock privilege tables: Table &apos;mysql.user&apos; doesn&apos;t exist</span><br><span class="line">141208 11:01:37 mysqld_safe mysqld from pid file /var/lib/mysql/HKBO.pid ended</span><br></pre></td></tr></table></figure></p>
+        <p>1、现象描述<br>[root@centos65 scripts]# service mysqld start<br>Starting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED]<br>查看错误日志<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@centos65 scripts]<span class="comment"># tail /var/log/mysqld.log</span></span><br><span class="line">InnoDB: Apply batch completed</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: 128 rollback segment(s) are active.</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: Waiting <span class="keyword">for</span> purge to start</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: 5.6.12 started; <span class="built_in">log</span> sequence number 1600607</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] Server hostname (<span class="built_in">bind</span>-address): <span class="string">'*'</span>; port: 3306</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] IPv6 is available.</span><br><span class="line">2014-12-08 11:01:37 15721 [Note]   - <span class="string">'::'</span> resolves to <span class="string">'::'</span>;</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] Server socket created on IP: <span class="string">'::'</span>.</span><br><span class="line">2014-12-08 11:01:37 15721 [ERROR] Fatal error: Can<span class="string">'t open and lock privilege tables: Table '</span>mysql.user<span class="string">' doesn'</span>t exist</span><br><span class="line">141208 11:01:37 mysqld_safe mysqld from pid file /var/lib/mysql/HKBO.pid ended</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>2、解决办法</p>
 <p>查看当前的my.cnf配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more /etc/my.cnf |grep -v ^#</span><br></pre></td></tr></table></figure></p>
@@ -468,7 +468,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -481,7 +481,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

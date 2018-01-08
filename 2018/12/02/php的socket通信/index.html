@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="php,socket," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="对TCP/IP、UDP、Socket编程这些词你不会很陌生吧？随着网络技术的发展，这些词充斥着我们的耳朵。那么我想问：  什么是TCP/IP、UDP？ Socket在哪里呢？ Socket是什么呢？ 你会使用它们吗？  什么是TCP/IP、UDP？TCP/IP（Transmission Control Protocol">
+<meta name="keywords" content="php,socket">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php的socket通信">
+<meta property="og:url" content="http://yoursite.com/2018/12/02/php的socket通信/index.html">
+<meta property="og:site_name" content="zhaoguibin">
+<meta property="og:description" content="对TCP/IP、UDP、Socket编程这些词你不会很陌生吧？随着网络技术的发展，这些词充斥着我们的耳朵。那么我想问：  什么是TCP/IP、UDP？ Socket在哪里呢？ Socket是什么呢？ 你会使用它们吗？  什么是TCP/IP、UDP？TCP/IP（Transmission Control Protocol/Internet Protocol）即传输控制协议/网间协议，是一个工业标准的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_3.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/server_start.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_port.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_server.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_client.png">
+<meta property="og:updated_time" content="2018-01-08T02:54:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php的socket通信">
+<meta name="twitter:description" content="对TCP/IP、UDP、Socket编程这些词你不会很陌生吧？随着网络技术的发展，这些词充斥着我们的耳朵。那么我想问：  什么是TCP/IP、UDP？ Socket在哪里呢？ Socket是什么呢？ 你会使用它们吗？  什么是TCP/IP、UDP？TCP/IP（Transmission Control Protocol/Internet Protocol）即传输控制协议/网间协议，是一个工业标准的">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/02/php的socket通信/"/>
+
+
+
+
+
+  <title>php的socket通信 | zhaoguibin</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhaoguibin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">笔记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/02/php的socket通信/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">php的socket通信</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-02T20:42:46+08:00">
+                2018-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对TCP/IP、UDP、Socket编程这些词你不会很陌生吧？随着网络技术的发展，这些词充斥着我们的耳朵。那么我想问：</p>
+<ol>
+<li>什么是TCP/IP、UDP？</li>
+<li>Socket在哪里呢？</li>
+<li>Socket是什么呢？</li>
+<li>你会使用它们吗？</li>
+</ol>
+<h5 id="什么是TCP-IP、UDP？"><a href="#什么是TCP-IP、UDP？" class="headerlink" title="什么是TCP/IP、UDP？"></a>什么是TCP/IP、UDP？</h5><p>TCP/IP（Transmission Control Protocol/Internet Protocol）即传输控制协议/网间协议，是一个工业标准的协议集，它是为广域网（WANs）设计的。<br><br>UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是属于TCP/IP协议族中的一种。<br>这里有一张图，表明了这些协议的关系。</p>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_1.jpg" alt="TCP/IP-UDP"></p>
+<p>TCP/IP协议族包括运输层、网络层、链路层。<br><a id="more"></a></p>
+<h5 id="Socket在哪里呢？"><a href="#Socket在哪里呢？" class="headerlink" title="Socket在哪里呢？"></a>Socket在哪里呢？</h5><p>在图1中，我们没有看到Socket的影子，那么它到底在哪里呢？还是用图来说话，一目了然。</p>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_2.jpg" alt="TCP/IP-UDP"></p>
+<p>原来Socket在这里。</p>
+<h5 id="Socket是什么呢？"><a href="#Socket是什么呢？" class="headerlink" title="Socket是什么呢？"></a>Socket是什么呢？</h5><p>Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。<br><br>你会使用它们吗？<br><br>　　前人已经给我们做了好多的事了，网络间的通信也就简单了许多，但毕竟还是有挺多工作要做的。以前听到Socket编程，觉得它是比较高深的编程知识，但是只要弄清Socket编程的工作原理，神秘的面纱也就揭开了。<br><br>　　一个生活中的场景。你要打电话给一个朋友，先拨号，朋友听到电话铃声后提起电话，这时你和你的朋友就建立起了连接，就可以讲话了。等交流结束，挂断电话结束此次交谈。 生活中的场景就解释了这工作原理，也许TCP/IP协议族就是诞生于生活中，这也不一定。</p>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_3.jpg" alt="TCP/IP-UDP"></p>
+<p>先从服务器端说起。服务器端先初始化Socket，然后与端口绑定(bind)，对端口进行监听(listen)，调用accept阻塞，等待客户端连接。在这时如果有个客户端初始化一个Socket，然后连接服务器(connect)，如果连接成功，这时客户端与服务器端的连接就建立了。客户端发送数据请求，服务器端接收请求并处理请求，然后把回应数据发送给客户端，客户端读取数据，最后关闭连接，一次交互结束。</p>
+<h5 id="socket相关函数："><a href="#socket相关函数：" class="headerlink" title="socket相关函数："></a>socket相关函数：</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">socket_accept() 接受一个Socket连接</span><br><span class="line">socket_bind() 把socket绑定在一个IP地址和端口上</span><br><span class="line">socket_clear_error() 清除socket的错误或者最后的错误代码</span><br><span class="line">socket_close() 关闭一个socket资源</span><br><span class="line">socket_connect() 开始一个socket连接</span><br><span class="line">socket_create_listen() 在指定端口打开一个socket监听</span><br><span class="line">socket_create_pair() 产生一对没有区别的socket到一个数组里</span><br><span class="line">socket_create() 产生一个socket，相当于产生一个socket的数据结构</span><br><span class="line">socket_get_option() 获取socket选项</span><br><span class="line">socket_getpeername() 获取远程类似主机的ip地址</span><br><span class="line">socket_getsockname() 获取本地socket的ip地址</span><br><span class="line">socket_iovec_add() 添加一个新的向量到一个分散/聚合的数组</span><br><span class="line">socket_iovec_alloc() 这个函数创建一个能够发送接收读写的iovec数据结构</span><br><span class="line">socket_iovec_delete() 删除一个已经分配的iovec</span><br><span class="line">socket_iovec_fetch() 返回指定的iovec资源的数据</span><br><span class="line">socket_iovec_free() 释放一个iovec资源</span><br><span class="line">socket_iovec_set() 设置iovec的数据新值</span><br><span class="line">socket_last_error() 获取当前socket的最后错误代码</span><br><span class="line">socket_listen() 监听由指定socket的所有连接</span><br><span class="line">socket_read() 读取指定长度的数据</span><br><span class="line">socket_readv() 读取从分散/聚合数组过来的数据</span><br><span class="line">socket_recv() 从socket里结束数据到缓存</span><br><span class="line">socket_recvfrom() 接受数据从指定的socket，如果没有指定则默认当前socket</span><br><span class="line">socket_recvmsg() 从iovec里接受消息</span><br><span class="line">socket_select() 多路选择</span><br><span class="line">socket_send() 这个函数发送数据到已连接的socket</span><br><span class="line">socket_sendmsg() 发送消息到socket</span><br><span class="line">socket_sendto() 发送消息到指定地址的socket</span><br><span class="line">socket_set_block() 在socket里设置为块模式</span><br><span class="line">socket_set_nonblock() socket里设置为非块模式</span><br><span class="line">socket_set_option() 设置socket选项</span><br><span class="line">socket_shutdown() 这个函数允许你关闭读、写、或者指定的socket</span><br><span class="line">socket_strerror() 返回指定错误号的详细错误</span><br><span class="line">socket_write() 写数据到socket缓存</span><br><span class="line">socket_writev() 写数据到分散/聚合数组</span><br></pre></td></tr></table></figure>
+<h5 id="案例一：socket通信演示"><a href="#案例一：socket通信演示" class="headerlink" title="案例一：socket通信演示"></a>案例一：socket通信演示</h5><p>服务器端：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//确保在连接客户端时不会超时</span></span><br><span class="line">set_time_limit(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">$ip = <span class="string">'127.0.0.1'</span>;</span><br><span class="line">$port = <span class="number">2018</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> +-------------------------------</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>通信整个过程</span></span><br><span class="line"><span class="comment"> +-------------------------------</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_create</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_bind</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_listen</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_accept</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_read</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_write</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_close</span></span><br><span class="line"><span class="comment"> +--------------------------------</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*----------------    以下操作都是手册上的    -------------------*/</span></span><br><span class="line"><span class="keyword">if</span>(($sock = socket_create(AF_INET,SOCK_STREAM,SOL_TCP)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"socket_create() 失败的原因是:"</span>.socket_strerror($sock).<span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(($ret = socket_bind($sock,$ip,$port)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"socket_bind() 失败的原因是:"</span>.socket_strerror($ret).<span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(($ret = socket_listen($sock,<span class="number">4</span>)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"socket_listen() 失败的原因是:"</span>.socket_strerror($ret).<span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (($msgsock = socket_accept($sock)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"socket_accept() failed: reason: "</span> . socket_strerror($msgsock) . <span class="string">"\n"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//发到客户端</span></span><br><span class="line">        $msg =<span class="string">"测试成功！\n"</span>;</span><br><span class="line">        socket_write($msgsock, $msg, strlen($msg));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"测试成功了啊\n"</span>;</span><br><span class="line">        $buf = socket_read($msgsock,<span class="number">8192</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        $talkback = <span class="string">"收到的信息:$buf\n"</span>;</span><br><span class="line">        <span class="keyword">echo</span> $talkback;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(++$count &gt;= <span class="number">5</span>)&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//echo $buf;</span></span><br><span class="line">    socket_close($msgsock);</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">while</span> (<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">socket_close($sock);</span><br></pre></td></tr></table></figure></p>
+<p>这是socket的服务端代码,然后在命令行运行</p>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/server_start.png" alt="php_socket"></p>
+<p>没有反映，对现在服务端的程序已经开始运行，端口已经开始监听了。运行netstat -nltp可以查看端口情况，我的是2018端口</p>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_port.png" alt="php_socket"></p>
+<p>端口已经处于LISTENING状态了。接下来我们只要运行客户端程序即可连接上。代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(E_ALL);</span><br><span class="line">set_time_limit(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2&gt;TCP/IP Connection&lt;/h2&gt;\n"</span>;</span><br><span class="line"></span><br><span class="line">$port = <span class="number">2018</span>;</span><br><span class="line">$ip = <span class="string">"127.0.0.1"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> +-------------------------------</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>连接整个过程</span></span><br><span class="line"><span class="comment"> +-------------------------------</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_create</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_connect</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_write</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_read</span></span><br><span class="line"><span class="comment"> *    <span class="doctag">@socket</span>_close</span></span><br><span class="line"><span class="comment"> +--------------------------------</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">$socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);</span><br><span class="line"><span class="keyword">if</span> ($socket &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"socket_create() failed: reason: "</span> . socket_strerror($socket) . <span class="string">"\n"</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"OK.\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"试图连接 '$ip' 端口 '$port'...\n"</span>;</span><br><span class="line">$result = socket_connect($socket, $ip, $port);</span><br><span class="line"><span class="keyword">if</span> ($result &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"socket_connect() failed.\nReason: ($result) "</span> . socket_strerror($result) . <span class="string">"\n"</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"连接OK\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$in = <span class="string">"Yo\r\n"</span>;</span><br><span class="line">$in .= <span class="string">"hello world\r\n"</span>;</span><br><span class="line">$out = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!socket_write($socket, $in, strlen($in))) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"socket_write() failed: reason: "</span> . socket_strerror($socket) . <span class="string">"\n"</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"发送到服务器信息成功！\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"发送的内容为: $in \n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>($out = socket_read($socket, <span class="number">8192</span>)) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"接收服务器回传信息成功！\n"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"接受的内容为:"</span>,$out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"关闭SOCKET...\n"</span>;</span><br><span class="line">socket_close($socket);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"关闭OK\n"</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_server.png" alt="php_socket"></p>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/php_socket/php_socket_client.png" alt="php_socket"></p>
+<p>至此客户端已经连接上服务端了。</p>
+<h5 id="案例二：代码详解"><a href="#案例二：代码详解" class="headerlink" title="案例二：代码详解"></a>案例二：代码详解</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 设置一些基本的变量</span></span><br><span class="line">$host = <span class="string">"192.168.1.99"</span>;</span><br><span class="line">$port = <span class="number">1234</span>;</span><br><span class="line"><span class="comment">// 设置超时时间</span></span><br><span class="line">set_time_limit(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// 创建一个Socket</span></span><br><span class="line">$socket = socket_create(AF_INET, SOCK_STREAM, <span class="number">0</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not createsocket\n"</span>);</span><br><span class="line"><span class="comment">//绑定Socket到端口</span></span><br><span class="line">$result = socket_bind($socket, $host, $port) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not bind tosocket\n"</span>);</span><br><span class="line"><span class="comment">// 开始监听链接</span></span><br><span class="line">$result = socket_listen($socket, <span class="number">3</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not set up socketlistener\n"</span>);</span><br><span class="line"><span class="comment">// accept incoming connections</span></span><br><span class="line"><span class="comment">// 另一个Socket来处理通信</span></span><br><span class="line">$spawn = socket_accept($socket) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not accept incomingconnection\n"</span>);</span><br><span class="line"><span class="comment">// 获得客户端的输入</span></span><br><span class="line">$input = socket_read($spawn, <span class="number">1024</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not read input\n"</span>);</span><br><span class="line"><span class="comment">// 清空输入字符串</span></span><br><span class="line">$input = trim($input);</span><br><span class="line"><span class="comment">//处理客户端输入并返回结果</span></span><br><span class="line">$output = strrev($input) . <span class="string">"\n"</span>;</span><br><span class="line">socket_write($spawn, $output, strlen ($output)) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not write</span></span><br><span class="line"><span class="string">output\n"</span>);</span><br><span class="line"><span class="comment">// 关闭sockets</span></span><br><span class="line">socket_close($spawn);</span><br><span class="line">socket_close($socket);</span><br></pre></td></tr></table></figure>
+<h6 id="下面是其每一步骤的详细说明"><a href="#下面是其每一步骤的详细说明" class="headerlink" title="下面是其每一步骤的详细说明:"></a>下面是其每一步骤的详细说明:</h6><p>1 . 第一步是建立两个变量来保存Socket运行的服务器的IP地址和端口.你可以设置为你自己的服务器和端口(这个端口可以是1到65535之间的数字),前提是这个端口未被使用.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置两个变量</span></span><br><span class="line">$host = <span class="string">"192.168.1.99"</span>;</span><br><span class="line">$port = <span class="number">1234</span>;</span><br></pre></td></tr></table></figure>
+<p>2 . 在服务器端可以使用set_time_out()函数来确保PHP在等待客户端连接时不会超时.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 超时时间</span></span><br><span class="line">set_time_limit(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>3 . 在前面的基础上,现在该使用socket_creat()函数创建一个Socket了—这个函数返回一个Socket句柄,这个句柄将用在以后所有的函数中.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建Socket</span></span><br><span class="line">$socket = socket_create(AF_INET, SOCK_STREAM, <span class="number">0</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not create</span></span><br><span class="line"><span class="string">socket\n"</span>);</span><br></pre></td></tr></table></figure>
+<p>第一个参数”AF_INET”用来指定域名;<br><br>第二个参数”SOCK_STREM”告诉函数将创建一个什么类型的Socket(在这个例子中是TCP类型)</p>
+<p>因此,如果你想创建一个UDP Socket的话,你可以使用如下的代码:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 绑定 socket to 指定地址和端口</span></span><br><span class="line">$result = socket_bind($socket, $host, $port) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not bind to</span></span><br><span class="line"><span class="string">socket\n"</span>);</span><br></pre></td></tr></table></figure>
+<p>4 . 一旦创建了一个Socket句柄,下一步就是指定或者绑定它到指定的地址和端口.这可以通过socket_bind()函数来完成.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 绑定 socket to 指定地址和端口</span></span><br><span class="line">$result = socket_bind($socket, $host, $port) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not bind to</span></span><br><span class="line"><span class="string">socket\n"</span>);</span><br></pre></td></tr></table></figure>
+<p>5 . 当Socket被创建好并绑定到一个端口后,就可以开始监听外部的连接了.PHP允许你由socket_listen()函数来开始一个监听,同时你可以指定一个数字(在这个例子中就是第二个参数:3)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开始监听连接</span></span><br><span class="line">$result = socket_listen($socket, <span class="number">3</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not set up socket</span></span><br><span class="line"><span class="string">listener\n"</span>);</span><br></pre></td></tr></table></figure>
+<p>6 . 到现在,你的服务器除了等待来自客户端的连接请求外基本上什么也没有做.一旦一个客户端的连接被收到,socket_accept()函数便开始起作用了,它接收连接请求并调用另一个子Socket来处理客户端–服务器间的信息.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接受请求链接</span></span><br><span class="line"><span class="comment">// 调用子socket 处理信息</span></span><br><span class="line">$spawn = socket_accept($socket) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not accept incoming</span></span><br><span class="line"><span class="string">connection\n"</span>);</span><br></pre></td></tr></table></figure>
+<p>这个子socket现在就可以被随后的客户端–服务器通信所用了.</p>
+<p>7 . 当一个连接被建立后,服务器就会等待客户端发送一些输入信息,这写信息可以由socket_read()函数来获得,并把它赋值给PHP的$input变量.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取客户端输入</span></span><br><span class="line">$input = socket_read($spawn, <span class="number">1024</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not read input\n"</span>);</span><br><span class="line">?&amp;gt;</span><br></pre></td></tr></table></figure>
+<p>socker_read的第而个参数用以指定读入的字节数,你可以通过它来限制从客户端获取数据的大小.</p>
+<p>注意:socket_read函数会一直读取壳户端数据,直到遇见\n,\t或者\0字符.PHP脚本把这写字符看做是输入的结束符.</p>
+<p>8 . 现在服务器必须处理这些由客户端发来是数据(在这个例子中的处理仅仅包含数据的输入和回传到客户端).这部分可以由socket_write()函数来完成(使得由通信socket发回一个数据流到客户端成为可能)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 处理客户端输入并返回数据</span></span><br><span class="line">$output = strrev($input) . <span class="string">"\n"</span>;</span><br><span class="line">socket_write($spawn, $output, strlen ($output)) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Could not write</span></span><br><span class="line"><span class="string">output\n"</span>);</span><br></pre></td></tr></table></figure>
+<p>9 . 一旦输出被返回到客户端,父/子socket都应通过socket_close()函数来终止</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关闭 sockets</span></span><br><span class="line">socket_close($spawn);</span><br><span class="line">socket_close($socket);</span><br></pre></td></tr></table></figure>
+<p>文章参考：<a href="http://www.cnblogs.com/thinksasa/archive/2013/02/26/2934206.html" target="_blank">http://www.cnblogs.com/thinksasa/archive/2013/02/26/2934206.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+            <a href="/tags/socket/" rel="tag"># socket</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/08/编译安装redis/" rel="next" title="编译安装redis">
+                <i class="fa fa-chevron-left"></i> 编译安装redis
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/02/CentOS7下安装Python3及Pip3并保留Python2/" rel="prev" title="CentOS7下安装Python3及Pip3并保留Python2">
+                CentOS7下安装Python3及Pip3并保留Python2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/astronaut.jpg"
+                alt="zhaoguibin" />
+            
+              <p class="site-author-name" itemprop="name">zhaoguibin</p>
+              <p class="site-description motion-element" itemprop="description">个人平时问题记录</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是TCP-IP、UDP？"><span class="nav-number">1.</span> <span class="nav-text">什么是TCP/IP、UDP？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Socket在哪里呢？"><span class="nav-number">2.</span> <span class="nav-text">Socket在哪里呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Socket是什么呢？"><span class="nav-number">3.</span> <span class="nav-text">Socket是什么呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#socket相关函数："><span class="nav-number">4.</span> <span class="nav-text">socket相关函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#案例一：socket通信演示"><span class="nav-number">5.</span> <span class="nav-text">案例一：socket通信演示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#案例二：代码详解"><span class="nav-number">6.</span> <span class="nav-text">案例二：代码详解</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#下面是其每一步骤的详细说明"><span class="nav-number">6.1.</span> <span class="nav-text">下面是其每一步骤的详细说明:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaoguibin</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

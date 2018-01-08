@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="MySQL数据库及表(仅MyISAM)支持符号链接(symbolic link)，即数据库或表可以存储在my.cnf中指定datadir之外的分区或目录。要支持符号链接，需要在配置中设置symbolic-links=1(较新的版本为默认开启) 假设my.cnf有设置data目录:1datadir=/data1/mysql/data/ 而在另一个分区目录下保存有数据数据库TestDB:1/data2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T07:11:10.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:37:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL使用Symbolic-Links以支持数据分区存储">
 <meta name="twitter:description" content="MySQL数据库及表(仅MyISAM)支持符号链接(symbolic link)，即数据库或表可以存储在my.cnf中指定datadir之外的分区或目录。要支持符号链接，需要在配置中设置symbolic-links=1(较新的版本为默认开启) 假设my.cnf有设置data目录:1datadir=/data1/mysql/data/ 而在另一个分区目录下保存有数据数据库TestDB:1/data2">
@@ -349,9 +349,9 @@
 
       
         <p>MySQL数据库及表(仅MyISAM)支持符号链接(symbolic link)，即数据库或表可以存储在my.cnf中指定datadir之外的分区或目录。<br>要支持符号链接，需要在配置中设置symbolic-links=1(较新的版本为默认开启)</p>
-<p>假设my.cnf有设置data目录:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datadir=/data1/mysql/data/</span><br></pre></td></tr></table></figure></p>
-<p>而在另一个分区目录下保存有数据数据库TestDB:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data2/mysql/data/TestDB</span><br></pre></td></tr></table></figure></p>
-<p>那么可以这样使得同一个MySQL实例能同时管理TestDB:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /data2/mysql/data/TestDB /data1/mysql/data/</span><br></pre></td></tr></table></figure></p>
+<p>假设my.cnf有设置data目录:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datadir=/data1/mysql/data/</span><br></pre></td></tr></table></figure></p>
+<p>而在另一个分区目录下保存有数据数据库TestDB:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data2/mysql/data/TestDB</span><br></pre></td></tr></table></figure></p>
+<p>那么可以这样使得同一个MySQL实例能同时管理TestDB:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /data2/mysql/data/TestDB /data1/mysql/data/</span><br></pre></td></tr></table></figure></p>
 <p>所有文件相关权限设置正确后，MySQL就可以管理TestDB了。<br>值得注意的是，TestDB最好只能为一个MySQL服务来操作，否则会出现意想不到的问题。使用symbolic link的一个好处是当一个磁盘或分区空间不够时，可以将数据存储到其他的磁盘或分区。</p>
 
       
@@ -467,7 +467,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -480,7 +480,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

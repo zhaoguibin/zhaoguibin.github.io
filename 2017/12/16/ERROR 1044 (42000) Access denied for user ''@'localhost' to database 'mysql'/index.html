@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="方法一：1.关闭mysql1# service mysqld stop 2.屏蔽权限1# mysqld_safe --skip-grant-table  屏幕出现： Starting demo from …..">
+<meta name="description" content="方法一：1.关闭mysql1service mysqld stop 2.屏蔽权限1mysqld_safe --skip-grant-table  屏幕出现： Starting demo from …..">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ERROR 1044 (42000) Access denied for user &#39;&#39;@&#39;localhost&#39; to database &#39;mysql&#39;">
 <meta property="og:url" content="http://yoursite.com/2017/12/16/ERROR 1044 (42000) Access denied for user ''@'localhost' to database 'mysql'/index.html">
 <meta property="og:site_name" content="zhaoguibin">
-<meta property="og:description" content="方法一：1.关闭mysql1# service mysqld stop 2.屏蔽权限1# mysqld_safe --skip-grant-table  屏幕出现： Starting demo from …..">
+<meta property="og:description" content="方法一：1.关闭mysql1service mysqld stop 2.屏蔽权限1mysqld_safe --skip-grant-table  屏幕出现： Starting demo from …..">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-16T10:58:18.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:30:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ERROR 1044 (42000) Access denied for user &#39;&#39;@&#39;localhost&#39; to database &#39;mysql&#39;">
-<meta name="twitter:description" content="方法一：1.关闭mysql1# service mysqld stop 2.屏蔽权限1# mysqld_safe --skip-grant-table  屏幕出现： Starting demo from …..">
+<meta name="twitter:description" content="方法一：1.关闭mysql1service mysqld stop 2.屏蔽权限1mysqld_safe --skip-grant-table  屏幕出现： Starting demo from …..">
 
 
 
@@ -348,16 +348,16 @@
       
 
       
-        <h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>1.关闭mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># service mysqld stop</span><br></pre></td></tr></table></figure></p>
-<p>2.屏蔽权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mysqld_safe --skip-grant-table</span><br></pre></td></tr></table></figure></p>
+        <h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>1.关闭mysql<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld stop</span><br></pre></td></tr></table></figure></p>
+<p>2.屏蔽权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld_safe --skip-grant-table</span><br></pre></td></tr></table></figure></p>
 <p> 屏幕出现： Starting demo from …..</p>
 <a id="more"></a>
-<p>3.新开起一个终端输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># mysql -u root mysql</span><br><span class="line">mysql&gt; UPDATE user SET Password=PASSWORD(&apos;newpassword&apos;) where USER=&apos;root&apos;;</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;//记得要这句话，否则如果关闭先前的终端，又会出现原来的错误</span><br><span class="line">mysql&gt;exit;</span><br></pre></td></tr></table></figure></p>
-<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>1.关闭mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># service mysqld stop</span><br></pre></td></tr></table></figure></p>
-<p>2.屏蔽权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mysqld_safe --skip-grant-table</span><br></pre></td></tr></table></figure></p>
+<p>3.新开起一个终端输入<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root mysql</span><br><span class="line">mysql&gt; UPDATE user SET Password=PASSWORD('newpassword') where USER='root';</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;//记得要这句话，否则如果关闭先前的终端，又会出现原来的错误</span><br><span class="line">mysql&gt;exit;</span><br></pre></td></tr></table></figure></p>
+<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>1.关闭mysql<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld stop</span><br></pre></td></tr></table></figure></p>
+<p>2.屏蔽权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld_safe --skip-grant-table</span><br></pre></td></tr></table></figure></p>
 <p>   屏幕出现： Starting demo from …..</p>
 <p>3.新开起一个终端输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># mysql -u root mysql</span><br><span class="line">mysql&gt; delete from user where USER=&apos;&apos;;</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;//记得要这句话，否则如果关闭先前的终端，又会出现原来的错误</span><br><span class="line">mysql&gt;exit;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root mysql</span><br><span class="line">mysql&gt; delete from user where USER='';</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;//记得要这句话，否则如果关闭先前的终端，又会出现原来的错误</span><br><span class="line">mysql&gt;exit;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -481,7 +481,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -494,7 +494,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

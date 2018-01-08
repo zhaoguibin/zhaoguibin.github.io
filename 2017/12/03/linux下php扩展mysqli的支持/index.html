@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="mysqli是优化后的mysql，具体的优点baidu下就ok了 12cd php-5.2.8   在这下面有个ext文件夹里有mysqlicd ext/mysqli linux下将源码文件编译应该都有configure吧，可这里没有，在我们已经安装php后，php5这个文件夹里的命令目录bin里有一个文件叫phpize，用它就可以生成configure文件啦，继续1/usr/local/php5">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-03T09:50:04.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:32:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下php扩展mysqli的支持">
 <meta name="twitter:description" content="mysqli是优化后的mysql，具体的优点baidu下就ok了 12cd php-5.2.8   在这下面有个ext文件夹里有mysqlicd ext/mysqli linux下将源码文件编译应该都有configure吧，可这里没有，在我们已经安装php后，php5这个文件夹里的命令目录bin里有一个文件叫phpize，用它就可以生成configure文件啦，继续1/usr/local/php5">
@@ -349,13 +349,13 @@
 
       
         <p>mysqli是优化后的mysql，具体的优点baidu下就ok了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd php-5.2.8   在这下面有个ext文件夹里有mysqli</span><br><span class="line">cd ext/mysqli</span><br></pre></td></tr></table></figure>
-<p>linux下将源码文件编译应该都有configure吧，可这里没有，在我们已经安装php后，php5这个文件夹里的命令目录bin里有一个文件叫phpize，用它就可以生成configure文件啦，继续<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/php5/bin/phpize</span><br></pre></td></tr></table></figure></p>
-<p>这里回车运行，执行完后就出了configure文件，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/opt/local/mysqli --with-php-config=/opt/local/php/bin/php-config --with-mysqli=/opt/local/mysql/bin/mysql_config</span><br><span class="line">直接回车，不出问题就继续。。</span><br><span class="line">make</span><br><span class="line">make test</span><br><span class="line">make install   (不出错就会显示Installing shared extensions: /usr/local/php5/lib/php/extensions/no-debug-non-zts-20041030/)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> php-5.2.8   在这下面有个ext文件夹里有mysqli</span><br><span class="line"><span class="built_in">cd</span> ext/mysqli</span><br></pre></td></tr></table></figure>
+<p>linux下将源码文件编译应该都有configure吧，可这里没有，在我们已经安装php后，php5这个文件夹里的命令目录bin里有一个文件叫phpize，用它就可以生成configure文件啦，继续<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/php5/bin/phpize</span><br></pre></td></tr></table></figure></p>
+<p>这里回车运行，执行完后就出了configure文件，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/opt/<span class="built_in">local</span>/mysqli --with-php-config=/opt/<span class="built_in">local</span>/php/bin/php-config --with-mysqli=/opt/<span class="built_in">local</span>/mysql/bin/mysql_config</span><br><span class="line">直接回车，不出问题就继续。。</span><br><span class="line">make</span><br><span class="line">make <span class="built_in">test</span></span><br><span class="line">make install   (不出错就会显示Installing shared extensions: /usr/<span class="built_in">local</span>/php5/lib/php/extensions/no-debug-non-zts-20041030/)</span><br></pre></td></tr></table></figure></p>
 <p>现在mysqli.so文件就出来啦。。</p>
 <p>直接在php.ini里把这个文件加载就OK啦。。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extension_dir=”/usr/local/php5/ext”</span><br><span class="line">extension=mysqli.so</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extension_dir=”/usr/<span class="built_in">local</span>/php5/ext”</span><br><span class="line">extension=mysqli.so</span><br></pre></td></tr></table></figure>
 <p>把上面第一行找到修改成这个,然后再把第二行加入。。wq保存退出。</p>
 <p>把mysqli.so这个文件cp到/usr/local/php5/ext下</p>
 <p>重启apache.</p>
@@ -475,7 +475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -488,7 +488,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

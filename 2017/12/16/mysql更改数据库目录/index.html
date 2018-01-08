@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="修改 my.cnf12datadir=/www/mysql/datasocket=/www/mysql/data/mysql.sock">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-16T10:55:04.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:35:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql更改数据库目录">
 <meta name="twitter:description" content="修改 my.cnf12datadir=/www/mysql/datasocket=/www/mysql/data/mysql.sock">
@@ -348,13 +348,13 @@
       
 
       
-        <p>修改 my.cnf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">datadir=/www/mysql/data</span><br><span class="line">socket=/www/mysql/data/mysql.sock</span><br></pre></td></tr></table></figure></p>
+        <p>修改 my.cnf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">datadir=/www/mysql/data</span><br><span class="line">socket=/www/mysql/data/mysql.sock</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>其实这里不需要复制/var/lib/mysql下的文件到新目录，修改完配置之后，mysql会自动复制/var/lib/mysql下的文件到新目录</p>
-<p>关闭SELinux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/selinux/config #编辑文件</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># This file controls the state of SELinux on the system.</span><br><span class="line"># SELINUX= can take one of these three values:</span><br><span class="line"># enforcing - SELinux security policy is enforced.</span><br><span class="line">#permissive - SELinux prints warnings instead of enforcing.</span><br><span class="line">#disabled - No SELinux policy is loaded.</span><br><span class="line">SELINUX=enforcing</span><br><span class="line"># SELINUXTYPE= can take one of these two values:</span><br><span class="line"># targeted - Targeted processes are protected,</span><br><span class="line"># mls - Multi Level Security protection.</span><br></pre></td></tr></table></figure>
+<p>关闭SELinux<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/selinux/config <span class="comment">#编辑文件</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file controls the state of SELinux on the system.</span></span><br><span class="line"><span class="comment"># SELINUX= can take one of these three values:</span></span><br><span class="line"><span class="comment"># enforcing - SELinux security policy is enforced.</span></span><br><span class="line"><span class="comment">#permissive - SELinux prints warnings instead of enforcing.</span></span><br><span class="line"><span class="comment">#disabled - No SELinux policy is loaded.</span></span><br><span class="line">SELINUX=enforcing</span><br><span class="line"><span class="comment"># SELINUXTYPE= can take one of these two values:</span></span><br><span class="line"><span class="comment"># targeted - Targeted processes are protected,</span></span><br><span class="line"><span class="comment"># mls - Multi Level Security protection.</span></span><br></pre></td></tr></table></figure>
 <p>将SELINUX=enforceing 改为 SELINUX=disabled 重启机器就ok了</p>
-<p>最后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /www/mysql/data/mysql.sock /var/lib/mysql/mysql.sock</span><br></pre></td></tr></table></figure></p>
+<p>最后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /www/mysql/data/mysql.sock /var/lib/mysql/mysql.sock</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -469,7 +469,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -482,7 +482,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="在用sudo apt-get update 更新时，终端提示:12“E: 无法获得锁 /var/lib/dpkg/lock - open (11: 资源暂时不可用)E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？” 解决办法如下： 1.终端输入 ps -aux ，列出进程。找到含有apt‘-get的进程，直接sudo kill PID。解决。 2.强制解锁,命令12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T06:47:34.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:10:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决问题E-无法获得锁-var-lib-dpkg-lock-open-11-资源暂时不可用-E-无法锁定管理目录">
 <meta name="twitter:description" content="在用sudo apt-get update 更新时，终端提示:12“E: 无法获得锁 /var/lib/dpkg/lock - open (11: 资源暂时不可用)E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？” 解决办法如下： 1.终端输入 ps -aux ，列出进程。找到含有apt‘-get的进程，直接sudo kill PID。解决。 2.强制解锁,命令12">
@@ -348,10 +348,10 @@
       
 
       
-        <p>在用sudo apt-get update 更新时，终端提示:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">“E: 无法获得锁 /var/lib/dpkg/lock - open (11: 资源暂时不可用)</span><br><span class="line">E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？”</span><br></pre></td></tr></table></figure></p>
+        <p>在用sudo apt-get update 更新时，终端提示:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">“E: 无法获得锁 /var/lib/dpkg/lock - open (11: 资源暂时不可用)</span><br><span class="line">E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？”</span><br></pre></td></tr></table></figure></p>
 <p>解决办法如下：</p>
 <p>1.终端输入 ps -aux ，列出进程。找到含有apt‘-get的进程，直接sudo kill PID。解决。</p>
-<p>2.强制解锁,命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/cache/apt/archives/lock</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure></p>
+<p>2.强制解锁,命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/cache/apt/archives/lock</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -466,7 +466,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -479,7 +479,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

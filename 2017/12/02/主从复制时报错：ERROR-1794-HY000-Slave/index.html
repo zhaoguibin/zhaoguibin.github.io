@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="centos 6.5 mysql5.7 在从库作stop slave时报：12error:ERROR 1794 (HY000): Slave is not configured or failed to initialize properly. You must at least set --server-id to enable either a master or a slave. Addit">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T04:23:32.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:15:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="主从复制时报错：ERROR-1794-HY000-Slave……">
 <meta name="twitter:description" content="centos 6.5 mysql5.7 在从库作stop slave时报：12error:ERROR 1794 (HY000): Slave is not configured or failed to initialize properly. You must at least set --server-id to enable either a master or a slave. Addit">
@@ -350,9 +350,9 @@
       
         <p>centos 6.5</p>
 <p>mysql5.7</p>
-<p>在从库作stop slave时报：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error:</span><br><span class="line">ERROR 1794 (HY000): Slave is not configured or failed to initialize properly. You must at least set --server-id to enable either a master or a slave. Additional error messages can be found in the MySQL error log.</span><br></pre></td></tr></table></figure></p>
+<p>在从库作stop slave时报：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error:</span><br><span class="line">ERROR 1794 (HY000): Slave is not configured or failed to initialize properly. You must at least <span class="built_in">set</span> --server-id to <span class="built_in">enable</span> either a master or a slave. Additional error messages can be found <span class="keyword">in</span> the MySQL error <span class="built_in">log</span>.</span><br></pre></td></tr></table></figure></p>
 <p>经分析，需要：</p>
-<p>删除5张表，并重新导入脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use mysql</span><br><span class="line">drop table slave_master_info;</span><br><span class="line">drop table slave_relay_log_info;</span><br><span class="line">drop table slave_worker_info;</span><br><span class="line">drop table innodb_index_stats;</span><br><span class="line">drop table innodb_table_stats;</span><br><span class="line">source /usr/coolpad/mysql/share/mysql_system_tables.sql</span><br></pre></td></tr></table></figure></p>
+<p>删除5张表，并重新导入脚本<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> slave_master_info;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> slave_relay_log_info;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> slave_worker_info;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> innodb_index_stats;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> innodb_table_stats;</span><br><span class="line">source /usr/coolpad/mysql/share/mysql_system_tables.sql</span><br></pre></td></tr></table></figure></p>
 <p>(2)重新启动数据库</p>
 <p>注：这一步是必须的，否则无法正常配置双主架构。</p>
 
@@ -471,7 +471,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -484,7 +484,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported. centos：1234567yum -y groupinstall &amp;quot">
+<meta name="description" content="ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported. centos：1234567yum -y groupinstall &quot;Dev">
 <meta name="keywords" content="ss">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ss服务端安装libsodium支持chacha20">
 <meta property="og:url" content="http://yoursite.com/2017/12/03/ss服务端安装libsodium支持chacha20/index.html">
 <meta property="og:site_name" content="zhaoguibin">
-<meta property="og:description" content="ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported. centos：1234567yum -y groupinstall &amp;quot;Development Tools&amp;quot;wget https://github.">
+<meta property="og:description" content="ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported. centos：1234567yum -y groupinstall &quot;Development Tools&quot;wget https://github.com/jedisc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-03T09:25:11.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:42:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ss服务端安装libsodium支持chacha20">
-<meta name="twitter:description" content="ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported. centos：1234567yum -y groupinstall &amp;quot;Development Tools&amp;quot;wget https://github.">
+<meta name="twitter:description" content="ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported. centos：1234567yum -y groupinstall &quot;Development Tools&quot;wget https://github.com/jedisc">
 
 
 
@@ -349,7 +349,7 @@
 
       
         <p>ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported.</p>
-<p>centos：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum -y groupinstall &quot;Development Tools&quot;</span><br><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; cd libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make install</span><br><span class="line">echo /usr/local/lib &gt;/etc/ld.so.conf.d/usr_local_lib.confldconfig</span><br><span class="line">ubuntu/debian：</span><br><span class="line">apt-get install build-essential</span><br><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; cd libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make installldconfig</span><br><span class="line">如果曾经安装过旧版本，亦可重复用以上步骤更新到最新版，仅1.0.4或以上版本支持chacha20-ietf</span><br></pre></td></tr></table></figure></p>
+<p>centos：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum -y groupinstall <span class="string">"Development Tools"</span></span><br><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; <span class="built_in">cd</span> libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make install</span><br><span class="line"><span class="built_in">echo</span> /usr/<span class="built_in">local</span>/lib &gt;/etc/ld.so.conf.d/usr_local_lib.confldconfig</span><br><span class="line">ubuntu/debian：</span><br><span class="line">apt-get install build-essential</span><br><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; <span class="built_in">cd</span> libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make installldconfig</span><br><span class="line">如果曾经安装过旧版本，亦可重复用以上步骤更新到最新版，仅1.0.4或以上版本支持chacha20-ietf</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -464,7 +464,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -477,7 +477,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

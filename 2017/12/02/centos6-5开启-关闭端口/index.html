@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="列出所有端口1netstat -ntlp 1、开启端口（以80端口为例） 方法一：123/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT   写入修改/etc/init.d/iptables save   保存修改service iptables restart    重启防火墙，修改生效 方法二：12vi /etc/sysconfig/ipt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T07:05:02.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:16:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos6-5开启-关闭端口">
 <meta name="twitter:description" content="列出所有端口1netstat -ntlp 1、开启端口（以80端口为例） 方法一：123/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT   写入修改/etc/init.d/iptables save   保存修改service iptables restart    重启防火墙，修改生效 方法二：12vi /etc/sysconfig/ipt">
@@ -348,15 +348,15 @@
       
 
       
-        <p>列出所有端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ntlp</span><br></pre></td></tr></table></figure></p>
+        <p>列出所有端口<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ntlp</span><br></pre></td></tr></table></figure></p>
 <p>1、开启端口（以80端口为例）</p>
-<p>方法一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT   写入修改</span><br><span class="line">/etc/init.d/iptables save   保存修改</span><br><span class="line">service iptables restart    重启防火墙，修改生效</span><br></pre></td></tr></table></figure></p>
-<p>方法二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/iptables  打开配置文件加入如下语句:</span><br><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT   重启防火墙，修改完成</span><br></pre></td></tr></table></figure></p>
+<p>方法一：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT   写入修改</span><br><span class="line">/etc/init.d/iptables save   保存修改</span><br><span class="line">service iptables restart    重启防火墙，修改生效</span><br></pre></td></tr></table></figure></p>
+<p>方法二：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/iptables  打开配置文件加入如下语句:</span><br><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT   重启防火墙，修改完成</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>2、关闭端口</p>
-<p>方法一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport 80 -j DROP   写入修改</span><br><span class="line">/etc/init.d/iptables save   保存修改</span><br><span class="line">service iptables restart    重启防火墙，修改生效</span><br></pre></td></tr></table></figure></p>
-<p>方法二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/iptables  打开配置文件加入如下语句:</span><br><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j DROP   重启防火墙，修改完成</span><br></pre></td></tr></table></figure></p>
-<p>3、查看端口状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables status</span><br></pre></td></tr></table></figure></p>
+<p>方法一：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport 80 -j DROP   写入修改</span><br><span class="line">/etc/init.d/iptables save   保存修改</span><br><span class="line">service iptables restart    重启防火墙，修改生效</span><br></pre></td></tr></table></figure></p>
+<p>方法二：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/iptables  打开配置文件加入如下语句:</span><br><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j DROP   重启防火墙，修改完成</span><br></pre></td></tr></table></figure></p>
+<p>3、查看端口状态<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables status</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -471,7 +471,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -484,7 +484,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

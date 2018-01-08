@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="dpkg (Debian Package)管理工具，软件包名以.deb后缀。这种方法适合系统不能联网的情况下。 比如安装demo命令的安装包，先将demo.deb传到Linux系统中。再使用如下命令安装。 12sudo dpkg -i demo_1.5.3-1_i386.deb   安装软件sudo dpkg -r demo    卸载软件 注：将demo.deb传到Linux系统中，有多种方式。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T04:04:44.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:32:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux软件包管理">
 <meta name="twitter:description" content="dpkg (Debian Package)管理工具，软件包名以.deb后缀。这种方法适合系统不能联网的情况下。 比如安装demo命令的安装包，先将demo.deb传到Linux系统中。再使用如下命令安装。 12sudo dpkg -i demo_1.5.3-1_i386.deb   安装软件sudo dpkg -r demo    卸载软件 注：将demo.deb传到Linux系统中，有多种方式。">
@@ -350,12 +350,12 @@
       
         <p>dpkg (Debian Package)管理工具，软件包名以.deb后缀。这种方法适合系统不能联网的情况下。</p>
 <p>比如安装demo命令的安装包，先将demo.deb传到Linux系统中。再使用如下命令安装。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i demo_1.5.3-1_i386.deb   安装软件</span><br><span class="line">sudo dpkg -r demo    卸载软件</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i demo_1.5.3-1_i386.deb   安装软件</span><br><span class="line">sudo dpkg -r demo    卸载软件</span><br></pre></td></tr></table></figure>
 <p>注：将demo.deb传到Linux系统中，有多种方式。VMwareTool，使用挂载方式；使用winSCP工具等；</p>
 <p>APT（Advanced Packaging Tool）高级软件工具。这种方法适合系统能够连接互联网的情况。</p>
-<p>依然以demo为例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install demo     安装demo</span><br><span class="line">sudo apt-get remove demo      卸载demo</span><br><span class="line">sudo apt-get update           更新软件</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p>
+<p>依然以demo为例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install demo     安装demo</span><br><span class="line">sudo apt-get remove demo      卸载demo</span><br><span class="line">sudo apt-get update           更新软件</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p>
 <p>将.rpm文件转为.deb文件</p>
-<p>.rpm为RedHat使用的软件格式。在Ubuntu下不能直接使用，所以需要转换一下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alien abc.rpm</span><br></pre></td></tr></table></figure></p>
+<p>.rpm为RedHat使用的软件格式。在Ubuntu下不能直接使用，所以需要转换一下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alien abc.rpm</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -470,7 +470,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -483,7 +483,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

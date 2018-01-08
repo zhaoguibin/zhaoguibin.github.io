@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="1234./nginx -s reloadnginx: [alert] kill(1708, 1) failed (3: No such process)/opt/local/nginx/sbin/nginx -c /opt/local/nginx/conf/nginx.conf/opt/local/nginx/sbin/nginx -s reload">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-03T09:02:42.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:40:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx-alert-kill-646-1-failed-3-No-such-process-解决方法">
 <meta name="twitter:description" content="1234./nginx -s reloadnginx: [alert] kill(1708, 1) failed (3: No such process)/opt/local/nginx/sbin/nginx -c /opt/local/nginx/conf/nginx.conf/opt/local/nginx/sbin/nginx -s reload">
@@ -348,10 +348,10 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br><span class="line">nginx: [alert] kill(1708, 1) failed (3: No such process)</span><br><span class="line">/opt/local/nginx/sbin/nginx -c /opt/local/nginx/conf/nginx.conf</span><br><span class="line">/opt/local/nginx/sbin/nginx -s reload</span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br><span class="line">nginx: [alert] <span class="built_in">kill</span>(1708, 1) failed (3: No such process)</span><br><span class="line">/opt/<span class="built_in">local</span>/nginx/sbin/nginx -c /opt/<span class="built_in">local</span>/nginx/conf/nginx.conf</span><br><span class="line">/opt/<span class="built_in">local</span>/nginx/sbin/nginx -s reload</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>PS:<br><br>假设你的nginx的目录是：/usr/opt/nginx/sbin/nginx <br><br>假设nginx的配置目录是： /usr/opt/nginx/conf/nginx.conf <br><br>重启的方法是：/usr/opt/nginx/sbin/nginx -c /usr/opt/nginx/conf/nginx.conf<br> 参数-c 指定了配置文件的路径，如果不指定该参数，则nginx会默认加载其按照目录的conf目录下的nginx.conf. 平滑重启： <br><br>1、检查修改后的配置文件是否正确： /usr/opt/nginx/sbin/nginx -t -c<br> /usr/opt/nginx/conf/nginx.conf <br><br>2、kill -HUP Nginx主进程号。示例如下：<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -HUP cat/usr/local/webserver/nginx/logs/nginx.pid</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -HUP cat/usr/<span class="built_in">local</span>/webserver/nginx/logs/nginx.pid</span><br></pre></td></tr></table></figure>
 <p>主要参数介绍如下：-c 为Nginx 指定一个配置文件，来代替缺省的。-t 不运行，而仅仅测试配置文件。</p>
 
       
@@ -467,7 +467,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -480,7 +480,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

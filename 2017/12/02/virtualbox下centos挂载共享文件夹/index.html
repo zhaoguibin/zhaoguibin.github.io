@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="PS:要挂载共享文件，需要安装virtualbox增强功能(增强包)安装virtualbox增强功能(增强包)：https://www.baidu.com 设备—&amp;gt;共享文件夹宿主机 共享路径:E:\project, 共享文件夹名称project 123mkdir /mnt/share    //新建挂载点（mountpoint）mount -t vboxsf project  /mnt/sh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T03:57:44.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:44:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="virtualbox下centos挂载共享文件夹">
 <meta name="twitter:description" content="PS:要挂载共享文件，需要安装virtualbox增强功能(增强包)安装virtualbox增强功能(增强包)：https://www.baidu.com 设备—&amp;gt;共享文件夹宿主机 共享路径:E:\project, 共享文件夹名称project 123mkdir /mnt/share    //新建挂载点（mountpoint）mount -t vboxsf project  /mnt/sh">
@@ -350,9 +350,9 @@
       
         <p><strong>PS:要挂载共享文件，需要安装virtualbox增强功能(增强包)</strong><br><br>安装virtualbox增强功能(增强包)：<a href="" target="_blank">https://www.baidu.com</a></p>
 <p>设备—&gt;共享文件夹<br>宿主机 共享路径:E:\project, 共享文件夹名称project</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/share    //新建挂载点（mountpoint）</span><br><span class="line">mount -t vboxsf project  /mnt/share   // 挂载共享文件夹</span><br><span class="line">cd /mnt/share    进入共享文件夹</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/share    //新建挂载点（mountpoint）</span><br><span class="line">mount -t vboxsf project  /mnt/share   // 挂载共享文件夹</span><br><span class="line"><span class="built_in">cd</span> /mnt/share    进入共享文件夹</span><br></pre></td></tr></table></figure>
 <p>OK<br>实现 开机挂载:</p>
-<p>vi ~/.bashrc<br>在最后添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf sharing /mnt/share    挂载共享文件夹</span><br></pre></td></tr></table></figure></p>
+<p>vi ~/.bashrc<br>在最后添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf sharing /mnt/share    挂载共享文件夹</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -469,7 +469,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -482,7 +482,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

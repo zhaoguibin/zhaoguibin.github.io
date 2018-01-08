@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD4.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD6.png">
-<meta property="og:updated_time" content="2017-12-02T03:47:40.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:14:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在linux系统中安装virtualbox增强功能(增强包)的详细步骤">
 <meta name="twitter:description" content="设置共享文件路径 点击虚拟机 设置–&amp;gt;选择 共享文件夹">
@@ -368,20 +368,20 @@
 <p>（图2 设置共享文件路径属性）</p>
 <p>安装VirtualBox增强工具</p>
 <p>先安装必备的包</p>
-<p>执行下面的命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc gcc-devel gcc-c++ gcc-c++-devel make kernel kernel-devel</span><br></pre></td></tr></table></figure></p>
-<p>安装完后，重启虚拟机：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown -r now</span><br></pre></td></tr></table></figure></p>
+<p>执行下面的命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc gcc-devel gcc-c++ gcc-c++-devel make kernel kernel-devel</span><br></pre></td></tr></table></figure></p>
+<p>安装完后，重启虚拟机：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown -r now</span><br></pre></td></tr></table></figure></p>
 <p>安装virtualBox增强工具</p>
 <p>点击 设置–&gt;点击 安装增强功能…</p>
-<p>点击菜单栏 设备 –&gt; 分配光驱 –&gt; 选择一个虚拟光盘，找到VirtualBox安装目录下的VBoxGuestAdditions.iso，加载此镜像。<br>启动Linux系统并用root身份登入系统<br>执行挂载命令，将虚拟光盘挂在到 /mnt/cdrom，如果没有cdrom目录，则先创建之。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br><span class="line">mount -t auto  /dev/cdrom /mnt/cdrom</span><br></pre></td></tr></table></figure></p>
-<p>复制脚本到/tmp目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /mnt/cdrom</span><br><span class="line">cp VBoxLinuxAdditions.run /tmp</span><br><span class="line">cd /tmp</span><br><span class="line">./VBoxLinuxAddtion.run</span><br></pre></td></tr></table></figure></p>
+<p>点击菜单栏 设备 –&gt; 分配光驱 –&gt; 选择一个虚拟光盘，找到VirtualBox安装目录下的VBoxGuestAdditions.iso，加载此镜像。<br>启动Linux系统并用root身份登入系统<br>执行挂载命令，将虚拟光盘挂在到 /mnt/cdrom，如果没有cdrom目录，则先创建之。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br><span class="line">mount -t auto  /dev/cdrom /mnt/cdrom</span><br></pre></td></tr></table></figure></p>
+<p>复制脚本到/tmp目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/cdrom</span><br><span class="line">cp VBoxLinuxAdditions.run /tmp</span><br><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line">./VBoxLinuxAddtion.run</span><br></pre></td></tr></table></figure></p>
 <p>得到输出内容</p>
 <p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD3.png" alt="无界面版安装完成显示信息"></p>
 <p>如果centos是server版本的话就显示</p>
 <p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD4.png" alt="如果centos是server版本的话就显示"></p>
 <p>即安装成功！</p>
 <p>挂载共享文件夹</p>
-<p>切换到root用户输入挂载命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t vboxsf shared_file /home/xingoo/shared</span><br></pre></td></tr></table></figure></p>
-<p>注意格式为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t vboxsf 共享文件夹名称（在设置页面设置的） 挂载的目录</span><br></pre></td></tr></table></figure></p>
+<p>切换到root用户输入挂载命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t vboxsf shared_file /home/xingoo/shared</span><br></pre></td></tr></table></figure></p>
+<p>注意格式为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t vboxsf 共享文件夹名称（在设置页面设置的） 挂载的目录</span><br></pre></td></tr></table></figure></p>
 <p>然后进入/home/xingoo/shared，就可以看到windows中的文件了</p>
 <p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD5.png" alt="共享文件夹"></p>
 <p>windows中的文件</p>
@@ -502,7 +502,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -515,7 +515,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

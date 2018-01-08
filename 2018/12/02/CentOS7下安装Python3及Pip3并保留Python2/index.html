@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="安装依赖环境1# yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 浏览器打">
+<meta name="description" content="安装依赖环境1yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 浏览器打开 ">
 <meta name="keywords" content="linux,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7下安装Python3及Pip3并保留Python2">
 <meta property="og:url" content="http://yoursite.com/2018/12/02/CentOS7下安装Python3及Pip3并保留Python2/index.html">
 <meta property="og:site_name" content="zhaoguibin">
-<meta property="og:description" content="安装依赖环境1# yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 浏览器打开 https://www.python.org/ftp/python/ 查看最">
+<meta property="og:description" content="安装依赖环境1yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 浏览器打开 https://www.python.org/ftp/python/ 查看最新的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-05T13:20:51.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:28:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7下安装Python3及Pip3并保留Python2">
-<meta name="twitter:description" content="安装依赖环境1# yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 浏览器打开 https://www.python.org/ftp/python/ 查看最">
+<meta name="twitter:description" content="安装依赖环境1yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 浏览器打开 https://www.python.org/ftp/python/ 查看最新的">
 
 
 
@@ -348,16 +348,17 @@
       
 
       
-        <h5 id="安装依赖环境"><a href="#安装依赖环境" class="headerlink" title="安装依赖环境"></a>安装依赖环境</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel</span><br></pre></td></tr></table></figure>
-<h5 id="浏览器打开-https-www-python-org-ftp-python-查看最新的Python版本，标记为3-A-B"><a href="#浏览器打开-https-www-python-org-ftp-python-查看最新的Python版本，标记为3-A-B" class="headerlink" title="浏览器打开 https://www.python.org/ftp/python/ 查看最新的Python版本，标记为3.A.B"></a>浏览器打开 <a href="https://www.python.org/ftp/python/" target="_blank" rel="noopener">https://www.python.org/ftp/python/</a> 查看最新的Python版本，标记为3.A.B</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># wget https://www.python.org/ftp/python/3.A.B/Python-3.A.B.tgz</span><br></pre></td></tr></table></figure>
+        <h5 id="安装依赖环境"><a href="#安装依赖环境" class="headerlink" title="安装依赖环境"></a>安装依赖环境</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel</span><br></pre></td></tr></table></figure>
+<h5 id="浏览器打开-https-www-python-org-ftp-python-查看最新的Python版本，标记为3-A-B"><a href="#浏览器打开-https-www-python-org-ftp-python-查看最新的Python版本，标记为3-A-B" class="headerlink" title="浏览器打开 https://www.python.org/ftp/python/ 查看最新的Python版本，标记为3.A.B"></a>浏览器打开 <a href="https://www.python.org/ftp/python/" target="_blank" rel="noopener">https://www.python.org/ftp/python/</a> 查看最新的Python版本，标记为3.A.B</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.A.B/Python-3.A.B.tgz</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h5 id="创建Python3的目录"><a href="#创建Python3的目录" class="headerlink" title="创建Python3的目录"></a>创建Python3的目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mkdir /usr/local/python3</span><br></pre></td></tr></table></figure>
-<h5 id="解压下载文件并切换目录"><a href="#解压下载文件并切换目录" class="headerlink" title="解压下载文件并切换目录"></a>解压下载文件并切换目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># tar -zxvf Python-3.A.B.tgz</span><br><span class="line"># cd Python-3.A.B</span><br></pre></td></tr></table></figure>
-<h5 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># ./configure --prefix=/usr/local/python3</span><br><span class="line"># make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-<h5 id="创建Python3的软链接"><a href="#创建Python3的软链接" class="headerlink" title="创建Python3的软链接"></a>创建Python3的软链接</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ln -s /usr/local/python3/bin/python3 /usr/bin/python3</span><br></pre></td></tr></table></figure>
-<h5 id="创建Pip3的软链接"><a href="#创建Pip3的软链接" class="headerlink" title="创建Pip3的软链接"></a>创建Pip3的软链接</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3</span><br></pre></td></tr></table></figure>
-<h5 id="测试命令-python3-和-pip3"><a href="#测试命令-python3-和-pip3" class="headerlink" title="测试命令 python3 和 pip3"></a>测试命令 python3 和 pip3</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># python3</span><br><span class="line"># pip3</span><br></pre></td></tr></table></figure>
-<h5 id="因为执行yum需要python2版本，所以我们还要修改yum的配置，执行："><a href="#因为执行yum需要python2版本，所以我们还要修改yum的配置，执行：" class="headerlink" title="因为执行yum需要python2版本，所以我们还要修改yum的配置，执行："></a>因为执行yum需要python2版本，所以我们还要修改yum的配置，执行：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/bin/yum</span><br><span class="line">把#! /usr/bin/python修改为#! /usr/bin/python2</span><br><span class="line"></span><br><span class="line">同理 vim /usr/libexec/urlgrabber-ext-down 文件里面的#! /usr/bin/python 也要修改为#! /usr/bin/python2</span><br></pre></td></tr></table></figure>
+<h5 id="创建Python3的目录"><a href="#创建Python3的目录" class="headerlink" title="创建Python3的目录"></a>创建Python3的目录</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/<span class="built_in">local</span>/python3</span><br></pre></td></tr></table></figure>
+<h5 id="解压下载文件并切换目录"><a href="#解压下载文件并切换目录" class="headerlink" title="解压下载文件并切换目录"></a>解压下载文件并切换目录</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf Python-3.A.B.tgz</span><br><span class="line"><span class="built_in">cd</span> Python-3.A.B</span><br></pre></td></tr></table></figure>
+<h5 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/python3</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h5 id="创建Python3的软链接"><a href="#创建Python3的软链接" class="headerlink" title="创建Python3的软链接"></a>创建Python3的软链接</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/<span class="built_in">local</span>/python3/bin/python3 /usr/bin/python3</span><br></pre></td></tr></table></figure>
+<h5 id="创建Pip3的软链接"><a href="#创建Pip3的软链接" class="headerlink" title="创建Pip3的软链接"></a>创建Pip3的软链接</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/<span class="built_in">local</span>/python3/bin/pip3 /usr/bin/pip3</span><br></pre></td></tr></table></figure>
+<h5 id="测试命令-python3-和-pip3"><a href="#测试命令-python3-和-pip3" class="headerlink" title="测试命令 python3 和 pip3"></a>测试命令 python3 和 pip3</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line">pip3</span><br></pre></td></tr></table></figure>
+<h5 id="因为执行yum需要python2版本，所以我们还要修改yum的配置，执行："><a href="#因为执行yum需要python2版本，所以我们还要修改yum的配置，执行：" class="headerlink" title="因为执行yum需要python2版本，所以我们还要修改yum的配置，执行："></a>因为执行yum需要python2版本，所以我们还要修改yum的配置，执行：</h5><p>vim /usr/bin/yum<br><br>把#! /usr/bin/python修改为#! /usr/bin/python2<br></p>
+<p>同理 vim /usr/libexec/urlgrabber-ext-down <br><br>文件里面的#! /usr/bin/python 也要修改为#! /usr/bin/python2</p>
 <p>安装保留了原python命令调用python2</p>
 <p>安装完成</p>
 
@@ -392,8 +393,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/05/php导出CSV/" rel="next" title="php导出CSV">
-                <i class="fa fa-chevron-left"></i> php导出CSV
+              <a href="/2018/12/02/php的socket通信/" rel="next" title="php的socket通信">
+                <i class="fa fa-chevron-left"></i> php的socket通信
               </a>
             
           </div>
@@ -481,7 +482,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -494,7 +495,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

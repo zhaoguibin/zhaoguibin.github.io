@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="到官方https://golang.org/dl/ 或者 https://www.golangtc.com/download下载安装包12wget https://www.golangtc.com/static/go/1.9/go1.9.linux-amd64.tar.gztar zxvf go1.9.linux-amd64.tar.gz -C /usr/local">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T06:34:42.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:08:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装golang">
 <meta name="twitter:description" content="到官方https://golang.org/dl/ 或者 https://www.golangtc.com/download下载安装包12wget https://www.golangtc.com/static/go/1.9/go1.9.linux-amd64.tar.gztar zxvf go1.9.linux-amd64.tar.gz -C /usr/local">
@@ -349,13 +349,13 @@
 
       
         <p>到官方<a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a></p>
-<p>或者 <a href="https://www.golangtc.com/download" target="_blank" rel="noopener">https://www.golangtc.com/download</a><br>下载安装包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.golangtc.com/static/go/1.9/go1.9.linux-amd64.tar.gz</span><br><span class="line">tar zxvf go1.9.linux-amd64.tar.gz -C /usr/local</span><br></pre></td></tr></table></figure></p>
+<p>或者 <a href="https://www.golangtc.com/download" target="_blank" rel="noopener">https://www.golangtc.com/download</a><br>下载安装包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.golangtc.com/static/go/1.9/go1.9.linux-amd64.tar.gz</span><br><span class="line">tar zxvf go1.9.linux-amd64.tar.gz -C /usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>新建GOPATH目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /www/golang</span><br><span class="line">vim /etc/profile</span><br><span class="line">export GOROOT=/usr/local/go</span><br><span class="line">export GOBIN=$GOROOT/bin</span><br><span class="line">export PATH=$PATH:$GOBIN</span><br><span class="line">export GOPATH=/www/golang</span><br></pre></td></tr></table></figure></p>
-<p>:wq保存<br>使其生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></p>
-<p>查看是否配置成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br><span class="line">go version go1.9 linux/amd64</span><br></pre></td></tr></table></figure></p>
+<p>新建GOPATH目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /www/golang</span><br><span class="line">vim /etc/profile</span><br><span class="line"><span class="built_in">export</span> GOROOT=/usr/<span class="built_in">local</span>/go</span><br><span class="line"><span class="built_in">export</span> GOBIN=<span class="variable">$GOROOT</span>/bin</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOBIN</span></span><br><span class="line"><span class="built_in">export</span> GOPATH=/www/golang</span><br></pre></td></tr></table></figure></p>
+<p>:wq保存<br>使其生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure></p>
+<p>查看是否配置成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br><span class="line">go version go1.9 linux/amd64</span><br></pre></td></tr></table></figure></p>
 <p>简单测试：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># cd /www/golang</span><br><span class="line"># vim hello.go</span><br><span class="line">package main</span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line">func main() &#123;</span><br><span class="line">    fmt.Println(&quot;Hello, world&quot;)</span><br><span class="line">&#125;</span><br><span class="line"># go run hello.go</span><br><span class="line">Hello, world</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /www/golang</span><br><span class="line">vim hello.go</span><br><span class="line">package main</span><br><span class="line">import <span class="string">"fmt"</span></span><br><span class="line">func <span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">    fmt.Println(<span class="string">"Hello, world"</span>)</span><br><span class="line">&#125;</span><br><span class="line">:wq</span><br><span class="line">go run hello.go</span><br><span class="line">Hello, world</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -472,7 +472,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -485,7 +485,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

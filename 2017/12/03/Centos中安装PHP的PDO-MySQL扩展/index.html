@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="1、下载 文件 或者 进入 在PHP源码包中进入ext/pdo_mysqlhttp://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz 2、解压文件1tar zxvf PDO_MYSQL-1.0.2.tgz">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-03T08:38:22.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:30:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos中安装PHP的PDO-MySQL扩展">
 <meta name="twitter:description" content="1、下载 文件 或者 进入 在PHP源码包中进入ext/pdo_mysqlhttp://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz 2、解压文件1tar zxvf PDO_MYSQL-1.0.2.tgz">
@@ -349,11 +349,11 @@
 
       
         <p>1、下载 文件 或者 进入 在PHP源码包中进入ext/pdo_mysql<br><a href="http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz" target="_blank" rel="noopener">http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz</a></p>
-<p>2、解压文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf PDO_MYSQL-1.0.2.tgz</span><br></pre></td></tr></table></figure></p>
+<p>2、解压文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf PDO_MYSQL-1.0.2.tgz</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>3、配置和编译文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd PDO_MYSQL-1.0.2</span><br><span class="line">/usr/local/php/bin/phpize</span><br><span class="line">./configure –with-php-config=/usr/local/php/bin/php-config –with-pdo-mysql=/usr/local/mysql</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
+<p>3、配置和编译文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> PDO_MYSQL-1.0.2</span><br><span class="line">/usr/<span class="built_in">local</span>/php/bin/phpize</span><br><span class="line">./configure –with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config –with-pdo-mysql=/usr/<span class="built_in">local</span>/mysql</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
 <p>注： 我的PHP安装在 ： /usr/local/php/ mysql 安装在 ： /usr/local/mysql 编译的时候注意你自己的安装目录在哪里<br>3、安装到PHP配置下</p>
-<p>把这个记住，然后打开 php.ini文件，<br>并添加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension=pdo_mysql.so</span><br></pre></td></tr></table></figure></p>
+<p>把这个记住，然后打开 php.ini文件，<br>并添加一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension=pdo_mysql.so</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -470,7 +470,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -483,7 +483,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

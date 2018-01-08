@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="1.在插入U盘前和插入U盘后，都输入同一个命令，检查多了哪个盘1cat /proc/partitions 这里我发现多了128       16    7827424 sdb8       17    7825423 sdb1 sdb是统称，所以新插入的U盘就是/dev/sdb1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T06:25:52.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:44:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu-手动挂载U盘">
 <meta name="twitter:description" content="1.在插入U盘前和插入U盘后，都输入同一个命令，检查多了哪个盘1cat /proc/partitions 这里我发现多了128       16    7827424 sdb8       17    7825423 sdb1 sdb是统称，所以新插入的U盘就是/dev/sdb1">
@@ -348,13 +348,13 @@
       
 
       
-        <p>1.在插入U盘前和插入U盘后，都输入同一个命令，检查多了哪个盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/partitions</span><br></pre></td></tr></table></figure></p>
-<p>这里我发现多了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8       16    7827424 sdb</span><br><span class="line">8       17    7825423 sdb1</span><br></pre></td></tr></table></figure></p>
-<p>sdb是统称，所以新插入的U盘就是/dev/sdb1<br><a id="more"></a><br>2.用命令检查新的U盘的文件系统格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@ www.linuxidc.com :/# fdisk -l /dev/sdb</span><br><span class="line">Disk /dev/sdb: 8015 MB, 8015282176 bytes</span><br><span class="line">247 heads, 62 sectors/track, 1022 cylinders, total 15654848 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk identifier: 0x0001fce0</span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sdb1   *          62    15650907     7825423    c  W95 FAT32 (LBA)</span><br></pre></td></tr></table></figure></p>
+        <p>1.在插入U盘前和插入U盘后，都输入同一个命令，检查多了哪个盘<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/partitions</span><br></pre></td></tr></table></figure></p>
+<p>这里我发现多了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8       16    7827424 sdb</span><br><span class="line">8       17    7825423 sdb1</span><br></pre></td></tr></table></figure></p>
+<p>sdb是统称，所以新插入的U盘就是/dev/sdb1<br><a id="more"></a><br>2.用命令检查新的U盘的文件系统格式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@ www.linuxidc.com :/<span class="comment"># fdisk -l /dev/sdb</span></span><br><span class="line">Disk /dev/sdb: 8015 MB, 8015282176 bytes</span><br><span class="line">247 heads, 62 sectors/track, 1022 cylinders, total 15654848 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk identifier: 0x0001fce0</span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sdb1   *          62    15650907     7825423    c  W95 FAT32 (LBA)</span><br></pre></td></tr></table></figure></p>
 <p>看到这里是FAT32格式。</p>
-<p>3.mount<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vfat /dev/sdb1 /media/usb</span><br></pre></td></tr></table></figure></p>
+<p>3.mount<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vfat /dev/sdb1 /media/usb</span><br></pre></td></tr></table></figure></p>
 <p>注意:<br>mount -t 按两次tab键会提示输入什么文件系统类型<br>/media/usb是我自己创建的目录</p>
-<p>4.umount<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /media/usb</span><br></pre></td></tr></table></figure></p>
+<p>4.umount<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /media/usb</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -469,7 +469,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -482,7 +482,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

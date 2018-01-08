@@ -7,184 +7,8 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/01/05/php%E5%AF%BC%E5%87%BACSV/</loc>
-        <lastmod>2018-01-05T13:26:30.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/12/02/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85Python3%E5%8F%8APip3%E5%B9%B6%E4%BF%9D%E7%95%99Python2/</loc>
-        <lastmod>2018-01-05T13:20:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/01/02/%E8%A7%A3%E5%86%B3configure%20error%20no%20acceptable%20C%20compiler%20found%20in%20$PATH/</loc>
-        <lastmod>2018-01-05T13:12:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/01/05/Laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99RuntimeException%20No%20application%20encryption%20key%20has%20been%20specified./</loc>
-        <lastmod>2018-01-05T13:08:44.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/01/05/%E2%80%9CDevice%20eth0%20does%20not%20seem%20to%20be%20present%E2%80%9D%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
-        <lastmod>2018-01-05T13:08:07.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/vim%E4%BD%BF%E7%94%A8/</loc>
-        <lastmod>2018-01-05T13:04:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/01/05/Laravel%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%EF%BC%9A%60Warning%20require(vendorautoload.php)%20failed%20to%20open%20stream%20No%20such%20file%20or%20dire/</loc>
-        <lastmod>2018-01-05T12:57:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/16/nginx%E9%85%8D%E7%BD%AEHTTPS/</loc>
-        <lastmod>2017-12-16T12:19:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</loc>
-        <lastmod>2017-12-16T11:45:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/16/ERROR%201044%20(42000)%20Access%20denied%20for%20user%20''@'localhost'%20to%20database%20'mysql'/</loc>
-        <lastmod>2017-12-16T10:58:18.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/16/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4MYSQL%20%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85MYSQL/</loc>
-        <lastmod>2017-12-16T10:58:12.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/16/Linux%E8%A7%A3%E5%86%B3Warning%20mysql_connect()%20Headers%20and%20client%20library%20minor%20version%20mismatch.%20%E8%AD%A6%E5%91%8A/</loc>
-        <lastmod>2017-12-16T10:57:56.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/16/mysql%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95/</loc>
-        <lastmod>2017-12-16T10:55:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/09/centos7%20yum%E5%AE%89%E8%A3%85lnmp/</loc>
-        <lastmod>2017-12-14T13:31:31.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/yum%20%E5%AE%89%E8%A3%85%E6%8A%A5%20%E5%85%B3%E4%BA%8EPublic%20key%20for%20.rpm%20is%20not%20installed%20%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
-        <lastmod>2017-12-09T03:29:38.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/Warning%20RPMDB%20altered%20outside%20of%20yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%20/</loc>
-        <lastmod>2017-12-09T03:26:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</loc>
-        <lastmod>2017-12-03T09:50:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory/</loc>
-        <lastmod>2017-12-03T09:44:57.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/</loc>
-        <lastmod>2017-12-03T09:41:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/%E4%BD%BF%E7%94%A8crontab%EF%BC%8C%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/</loc>
-        <lastmod>2017-12-03T09:39:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-        <lastmod>2017-12-03T09:36:32.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/%E6%9F%A5%E7%9C%8Blinux%E4%B8%AD%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%EF%BC%88port%EF%BC%89%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8/</loc>
-        <lastmod>2017-12-03T09:34:05.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/%E7%BC%96%E8%BE%91-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/</loc>
-        <lastmod>2017-12-03T09:31:50.000Z</lastmod>
+        <loc>http://yoursite.com/2018/01/08/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</loc>
+        <lastmod>2018-01-08T13:15:44.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -192,7 +16,15 @@
 
     <url>
         <loc>http://yoursite.com/2017/12/03/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</loc>
-        <lastmod>2017-12-03T09:29:37.000Z</lastmod>
+        <lastmod>2018-01-08T03:45:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/yum%20%E5%AE%89%E8%A3%85%E6%8A%A5%20%E5%85%B3%E4%BA%8EPublic%20key%20for%20.rpm%20is%20not%20installed%20%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+        <lastmod>2018-01-08T03:45:50.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -200,167 +32,7 @@
 
     <url>
         <loc>http://yoursite.com/2017/12/03/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BALinux%E4%B8%8BMySQL%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-        <lastmod>2017-12-03T09:27:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/</loc>
-        <lastmod>2017-12-03T09:25:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</loc>
-        <lastmod>2017-12-03T09:21:12.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5FastCGI/</loc>
-        <lastmod>2017-12-03T09:18:33.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/PDO-MYSQL-make-pdo-mysql-lo-Error-1/</loc>
-        <lastmod>2017-12-03T09:15:32.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/NGINX-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-%E2%80%9Cxxx-com%E2%80%9D-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</loc>
-        <lastmod>2017-12-03T09:12:47.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/nginx%E9%85%8D%E7%BD%AElocation%E6%80%BB%E7%BB%93%E5%8F%8Arewrite%E8%A7%84%E5%88%99%E5%86%99%E6%B3%95/</loc>
-        <lastmod>2017-12-03T09:10:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/nginx-php-fpm%E5%87%BA%E7%8E%B0502-bad-gateway%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
-        <lastmod>2017-12-03T09:06:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/nginx-fastcgi-param%E8%A7%A3%E9%87%8A/</loc>
-        <lastmod>2017-12-03T09:04:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/nginx-alert-kill-646-1-failed-3-No-such-process-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
-        <lastmod>2017-12-03T09:02:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/MySQL-ERROR-Table-mysql-user-doesn-t-exist/</loc>
-        <lastmod>2017-12-03T08:57:55.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/Linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</loc>
-        <lastmod>2017-12-03T08:49:48.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/Linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/</loc>
-        <lastmod>2017-12-03T08:47:12.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/Linux-Source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/</loc>
-        <lastmod>2017-12-03T08:41:40.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/Centos%E4%B8%AD%E5%AE%89%E8%A3%85PHP%E7%9A%84PDO-MySQL%E6%89%A9%E5%B1%95/</loc>
-        <lastmod>2017-12-03T08:38:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/Centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/</loc>
-        <lastmod>2017-12-03T08:35:32.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/03/CentOS-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF/</loc>
-        <lastmod>2017-12-03T08:30:31.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/Mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/</loc>
-        <lastmod>2017-12-02T07:14:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/MySQL%E4%BD%BF%E7%94%A8Symbolic-Links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</loc>
-        <lastmod>2017-12-02T07:11:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/</loc>
-        <lastmod>2017-12-02T07:08:50.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</loc>
-        <lastmod>2017-12-02T07:05:02.000Z</lastmod>
+        <lastmod>2018-01-08T03:45:37.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -368,135 +40,15 @@
 
     <url>
         <loc>http://yoursite.com/2017/12/02/Windows%E9%80%9A%E8%BF%87Samba%E8%AE%BF%E9%97%AELinux%E6%96%87%E4%BB%B6/</loc>
-        <lastmod>2017-12-02T07:01:34.000Z</lastmod>
+        <lastmod>2018-01-08T03:45:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://yoursite.com/2017/12/02/Samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</loc>
-        <lastmod>2017-12-02T06:58:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</loc>
-        <lastmod>2017-12-02T06:55:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/%E5%B0%86Ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/</loc>
-        <lastmod>2017-12-02T06:52:20.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98E-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%BE%97%E9%94%81-var-lib-dpkg-lock-open-11-%E8%B5%84%E6%BA%90%E6%9A%82%E6%97%B6%E4%B8%8D%E5%8F%AF%E7%94%A8-E-%E6%97%A0%E6%B3%95%E9%94%81%E5%AE%9A%E7%AE%A1%E7%90%86%E7%9B%AE%E5%BD%95/</loc>
-        <lastmod>2017-12-02T06:47:34.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</loc>
-        <lastmod>2017-12-02T06:44:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/ubuntu%E4%BF%AE%E6%94%B9su%E5%AF%86%E7%A0%81/</loc>
-        <lastmod>2017-12-02T06:41:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/mysql-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6mysql-bin%E6%96%87%E4%BB%B6%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/</loc>
-        <lastmod>2017-12-02T06:37:48.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/%E5%AE%89%E8%A3%85golang/</loc>
-        <lastmod>2017-12-02T06:34:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/%E5%AE%89%E8%A3%85CentOS7%E6%96%87%E5%AD%97%E7%95%8C%E9%9D%A2%E7%89%88%E5%90%8E%EF%BC%8C%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%EF%BC%8C%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA-cannot-find-a-valid-baseurl-for-repobase7x86-64-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
-        <lastmod>2017-12-02T06:29:46.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/Ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDU%E7%9B%98/</loc>
-        <lastmod>2017-12-02T06:25:52.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-        <lastmod>2017-12-02T04:27:40.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9AERROR-1794-HY000-Slave/</loc>
-        <lastmod>2017-12-02T04:23:32.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</loc>
-        <lastmod>2017-12-02T04:19:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/</loc>
-        <lastmod>2017-12-02T04:10:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</loc>
-        <lastmod>2017-12-02T04:07:56.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/02/Linux%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</loc>
-        <lastmod>2017-12-02T04:04:44.000Z</lastmod>
+        <loc>http://yoursite.com/2017/12/02/Warning%20RPMDB%20altered%20outside%20of%20yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%20/</loc>
+        <lastmod>2018-01-08T03:45:05.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -504,39 +56,31 @@
 
     <url>
         <loc>http://yoursite.com/2017/12/02/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</loc>
-        <lastmod>2017-12-02T03:57:44.000Z</lastmod>
+        <lastmod>2018-01-08T03:44:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://yoursite.com/2017/12/02/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD(%E5%A2%9E%E5%BC%BA%E5%8C%85)%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</loc>
-        <lastmod>2017-12-02T03:47:40.000Z</lastmod>
+        <loc>http://yoursite.com/2017/12/02/ubuntu%E4%BF%AE%E6%94%B9su%E5%AF%86%E7%A0%81/</loc>
+        <lastmod>2018-01-08T03:44:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://yoursite.com/2017/12/02/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LNMP/</loc>
-        <lastmod>2017-12-02T03:35:58.000Z</lastmod>
+        <loc>http://yoursite.com/2017/12/02/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</loc>
+        <lastmod>2018-01-08T03:44:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://yoursite.com/2017/12/01/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</loc>
-        <lastmod>2017-12-01T12:12:12.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/01/hello-world/</loc>
-        <lastmod>2017-12-01T11:55:38.000Z</lastmod>
+        <loc>http://yoursite.com/2017/12/02/Ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDU%E7%9B%98/</loc>
+        <lastmod>2018-01-08T03:44:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -544,7 +88,135 @@
 
     <url>
         <loc>http://yoursite.com/2017/11/30/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</loc>
-        <lastmod>2017-12-01T11:15:34.000Z</lastmod>
+        <lastmod>2018-01-08T03:43:41.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/</loc>
+        <lastmod>2018-01-08T03:42:27.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/Samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</loc>
+        <lastmod>2018-01-08T03:42:18.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</loc>
+        <lastmod>2018-01-08T03:42:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/01/05/php%E5%AF%BC%E5%87%BACSV/</loc>
+        <lastmod>2018-01-08T03:41:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5FastCGI/</loc>
+        <lastmod>2018-01-08T03:41:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/PDO-MYSQL-make-pdo-mysql-lo-Error-1/</loc>
+        <lastmod>2018-01-08T03:41:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/16/nginx%E9%85%8D%E7%BD%AEHTTPS/</loc>
+        <lastmod>2018-01-08T03:40:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/nginx-fastcgi-param%E8%A7%A3%E9%87%8A/</loc>
+        <lastmod>2018-01-08T03:40:23.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/nginx-alert-kill-646-1-failed-3-No-such-process-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+        <lastmod>2018-01-08T03:40:12.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/NGINX-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-%E2%80%9Cxxx-com%E2%80%9D-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</loc>
+        <lastmod>2018-01-08T03:39:59.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/Mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/</loc>
+        <lastmod>2018-01-08T03:39:51.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/MySQL%E4%BD%BF%E7%94%A8Symbolic-Links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</loc>
+        <lastmod>2018-01-08T03:37:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</loc>
+        <lastmod>2018-01-08T03:36:39.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/16/mysql%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95/</loc>
+        <lastmod>2018-01-08T03:35:32.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/MySQL-ERROR-Table-mysql-user-doesn-t-exist/</loc>
+        <lastmod>2018-01-08T03:35:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/mysql-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6mysql-bin%E6%96%87%E4%BB%B6%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/</loc>
+        <lastmod>2018-01-08T03:34:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -552,7 +224,343 @@
 
     <url>
         <loc>http://yoursite.com/2017/11/30/lsyncd%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/</loc>
-        <lastmod>2017-11-30T14:02:42.000Z</lastmod>
+        <lastmod>2018-01-08T03:33:52.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</loc>
+        <lastmod>2018-01-08T03:32:52.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/Linux%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</loc>
+        <lastmod>2018-01-08T03:32:31.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/Linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</loc>
+        <lastmod>2018-01-08T03:32:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/16/Linux%E8%A7%A3%E5%86%B3Warning%20mysql_connect()%20Headers%20and%20client%20library%20minor%20version%20mismatch.%20%E8%AD%A6%E5%91%8A/</loc>
+        <lastmod>2018-01-08T03:32:11.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/01/05/Laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99RuntimeException%20No%20application%20encryption%20key%20has%20been%20specified./</loc>
+        <lastmod>2018-01-08T03:31:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/01/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</loc>
+        <lastmod>2018-01-08T03:31:27.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/16/ERROR%201044%20(42000)%20Access%20denied%20for%20user%20''@'localhost'%20to%20database%20'mysql'/</loc>
+        <lastmod>2018-01-08T03:30:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/Centos%E4%B8%AD%E5%AE%89%E8%A3%85PHP%E7%9A%84PDO-MySQL%E6%89%A9%E5%B1%95/</loc>
+        <lastmod>2018-01-08T03:30:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/16/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4MYSQL%20%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85MYSQL/</loc>
+        <lastmod>2018-01-08T03:29:55.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+        <lastmod>2018-01-08T03:29:40.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/12/02/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85Python3%E5%8F%8APip3%E5%B9%B6%E4%BF%9D%E7%95%99Python2/</loc>
+        <lastmod>2018-01-08T03:28:23.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/</loc>
+        <lastmod>2018-01-08T03:26:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/09/centos7%20yum%E5%AE%89%E8%A3%85lnmp/</loc>
+        <lastmod>2018-01-08T03:24:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LNMP/</loc>
+        <lastmod>2018-01-08T03:24:01.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</loc>
+        <lastmod>2018-01-08T03:16:41.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/CentOS-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF/</loc>
+        <lastmod>2018-01-08T03:16:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9AERROR-1794-HY000-Slave/</loc>
+        <lastmod>2018-01-08T03:15:53.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD(%E5%A2%9E%E5%BC%BA%E5%8C%85)%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</loc>
+        <lastmod>2018-01-08T03:14:25.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory/</loc>
+        <lastmod>2018-01-08T03:12:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/</loc>
+        <lastmod>2018-01-08T03:11:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/01/02/%E8%A7%A3%E5%86%B3configure%20error%20no%20acceptable%20C%20compiler%20found%20in%20$PATH/</loc>
+        <lastmod>2018-01-08T03:10:59.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98E-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%BE%97%E9%94%81-var-lib-dpkg-lock-open-11-%E8%B5%84%E6%BA%90%E6%9A%82%E6%97%B6%E4%B8%8D%E5%8F%AF%E7%94%A8-E-%E6%97%A0%E6%B3%95%E9%94%81%E5%AE%9A%E7%AE%A1%E7%90%86%E7%9B%AE%E5%BD%95/</loc>
+        <lastmod>2018-01-08T03:10:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/%E5%B0%86Ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/</loc>
+        <lastmod>2018-01-08T03:10:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/%E7%BC%96%E8%BE%91-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/</loc>
+        <lastmod>2018-01-08T03:09:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/%E5%AE%89%E8%A3%85golang/</loc>
+        <lastmod>2018-01-08T03:08:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/12/02/php%E7%9A%84socket%E9%80%9A%E4%BF%A1/</loc>
+        <lastmod>2018-01-08T02:54:21.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/Centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/01/05/Laravel%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%EF%BC%9A%60Warning%20require(vendorautoload.php)%20failed%20to%20open%20stream%20No%20such%20file%20or%20dire/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/Linux-Source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/Linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/nginx-php-fpm%E5%87%BA%E7%8E%B0502-bad-gateway%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/nginx%E9%85%8D%E7%BD%AElocation%E6%80%BB%E7%BB%93%E5%8F%8Arewrite%E8%A7%84%E5%88%99%E5%86%99%E6%B3%95/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/vim%E4%BD%BF%E7%94%A8/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/01/05/%E2%80%9CDevice%20eth0%20does%20not%20seem%20to%20be%20present%E2%80%9D%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/%E4%BD%BF%E7%94%A8crontab%EF%BC%8C%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/%E5%AE%89%E8%A3%85CentOS7%E6%96%87%E5%AD%97%E7%95%8C%E9%9D%A2%E7%89%88%E5%90%8E%EF%BC%8C%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%EF%BC%8C%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA-cannot-find-a-valid-baseurl-for-repobase7x86-64-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/02/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/%E6%9F%A5%E7%9C%8Blinux%E4%B8%AD%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%EF%BC%88port%EF%BC%89%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/03/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+        <lastmod>2018-01-05T13:32:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

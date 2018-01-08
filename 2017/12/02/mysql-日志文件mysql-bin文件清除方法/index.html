@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="默认情况下mysql会一直保留mysql-bin文件，这样到一定时候，磁盘可能会被撑满，这时候是否可以删除这些文件呢，是否可以安全删除，是个问题。 首先要说明一下，这些文件都是mysql的日志文件，如果不做主从复制的话，基本上是没用的，虽然没用，但是不建议使用rm命令删除，这样有可能会不安全，正确的方法是通过mysql的命令去删除。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T06:37:48.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:34:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql-日志文件mysql-bin文件清除方法">
 <meta name="twitter:description" content="默认情况下mysql会一直保留mysql-bin文件，这样到一定时候，磁盘可能会被撑满，这时候是否可以删除这些文件呢，是否可以安全删除，是个问题。 首先要说明一下，这些文件都是mysql的日志文件，如果不做主从复制的话，基本上是没用的，虽然没用，但是不建议使用rm命令删除，这样有可能会不安全，正确的方法是通过mysql的命令去删除。">
@@ -351,10 +351,10 @@
         <p>默认情况下mysql会一直保留mysql-bin文件，这样到一定时候，磁盘可能会被撑满，这时候是否可以删除这些文件呢，是否可以安全删除，是个问题。</p>
 <p>首先要说明一下，这些文件都是mysql的日志文件，如果不做主从复制的话，基本上是没用的，虽然没用，但是不建议使用rm命令删除，这样有可能会不安全，正确的方法是通过mysql的命令去删除。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">Enter password:Welcome to the MySQL monitor.Commandsendwith;or \g.YourMySQL connection id is2819416Server version:5.5.24-0ubuntu0.12.04.1-log (Ubuntu)Copyright(c)2000,2011,Oracleand/or its affiliates.All rights reserved.Oracleis a registered trademark of OracleCorporationand/or its</span><br><span class="line">affiliates.Other names may be trademarks of their respective</span><br><span class="line">owners.Type&apos;help;&apos;or&apos;\h&apos;for help.Type&apos;\c&apos; to clear the current input statement.</span><br><span class="line">mysql&gt; reset master;Query OK,0 rows affected (3 min 37.65 sec)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">Enter password:Welcome to the MySQL monitor.Commandsendwith;or \g.YourMySQL connection id is2819416Server version:5.5.24-0ubuntu0.12.04.1-log (Ubuntu)Copyright(c)2000,2011,Oracleand/or its affiliates.All rights reserved.Oracleis a registered trademark of OracleCorporationand/or its</span><br><span class="line">affiliates.Other names may be trademarks of their respective</span><br><span class="line">owners.Type<span class="string">'help;'</span>or<span class="string">'\h'</span><span class="keyword">for</span> help.Type<span class="string">'\c'</span> to clear the current input statement.</span><br><span class="line">mysql&gt; reset master;Query OK,0 rows affected (3 min 37.65 sec)</span><br></pre></td></tr></table></figure>
 <p>其实关键的命令就是reset master;这个命令会清空mysql-bin文件。</p>
-<p>另外如果你的mysql服务器不需要做主从复制的话，建议通过修改my.cnf文件，来设置不生成这些文件，只要删除my.cnf中的下面一行就可以了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log-bin=mysql-bin</span><br></pre></td></tr></table></figure></p>
-<p>如果你需要复制，最好控制一下这些日志文件保留的天数，可以通过下面的配置设定日志文件保留的天数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expire_logs_days =7</span><br></pre></td></tr></table></figure></p>
+<p>另外如果你的mysql服务器不需要做主从复制的话，建议通过修改my.cnf文件，来设置不生成这些文件，只要删除my.cnf中的下面一行就可以了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">log</span>-bin=mysql-bin</span><br></pre></td></tr></table></figure></p>
+<p>如果你需要复制，最好控制一下这些日志文件保留的天数，可以通过下面的配置设定日志文件保留的天数：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expire_logs_days =7</span><br></pre></td></tr></table></figure></p>
 <p>表示保留7天的日志，这样老日志会自动被清理掉。</p>
 
       
@@ -470,7 +470,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -483,7 +483,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

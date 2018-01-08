@@ -92,7 +92,7 @@
 <meta property="og:description" content="nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/%E5%9B%BE%E7%89%872.png">
-<meta property="og:updated_time" content="2017-12-03T09:18:33.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:41:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php-fpm设置socket方式连接FastCGI">
 <meta name="twitter:description" content="nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。">
@@ -356,9 +356,9 @@
 <p>socket方式不会走到tcp层，tcp方式则会走到ip层。因此，理论上说socket连接方式效率会更好一点。<br>TCP和unix domain socket方式对比</p>
 <p>TCP是使用TCP端口连接127.0.0.1:9000</p>
 <p>Socket是使用unix domain socket连接套接字/dev/shm/php-fpm.sock</p>
-<p>修改php-fpm.conf配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#listen = 127.0.0.1:9000</span><br><span class="line">listen=/dev/shm/php-fpm.sock #/dev/shm/为内存文件系统，注意 确保可读写</span><br><span class="line">listen.owner=apache  #注意自己的用户和组</span><br><span class="line">listen.group=apache</span><br></pre></td></tr></table></figure></p>
-<p>修改nginx.conf配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#fastcgi_pass    127.0.0.1:9000;</span><br><span class="line">#将相应的如上内容修改如下</span><br><span class="line">fastcgi_pass     unix:/dev/shm/php-fpm.sock;</span><br></pre></td></tr></table></figure></p>
-<p>重启nginx和php-fpm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart</span><br><span class="line">/usr/local/nginx/sbin/nginx -s reload</span><br></pre></td></tr></table></figure></p>
+<p>修改php-fpm.conf配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#listen = 127.0.0.1:9000</span></span><br><span class="line">listen=/dev/shm/php-fpm.sock <span class="comment">#/dev/shm/为内存文件系统，注意 确保可读写</span></span><br><span class="line">listen.owner=apache  <span class="comment">#注意自己的用户和组</span></span><br><span class="line">listen.group=apache</span><br></pre></td></tr></table></figure></p>
+<p>修改nginx.conf配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#fastcgi_pass    127.0.0.1:9000;</span></span><br><span class="line"><span class="comment">#将相应的如上内容修改如下</span></span><br><span class="line">fastcgi_pass     unix:/dev/shm/php-fpm.sock;</span><br></pre></td></tr></table></figure></p>
+<p>重启nginx和php-fpm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart</span><br><span class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -s reload</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -473,7 +473,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -486,7 +486,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

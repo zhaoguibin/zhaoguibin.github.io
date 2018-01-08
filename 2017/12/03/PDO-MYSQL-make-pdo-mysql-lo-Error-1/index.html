@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="编译安装PDO_MYSQL拓展模块，总是提示 1234567In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directoryI">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-03T09:15:32.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PDO-MYSQL-make-pdo-mysql-lo-Error-1">
 <meta name="twitter:description" content="编译安装PDO_MYSQL拓展模块，总是提示 1234567In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directoryI">
@@ -349,9 +349,9 @@
 
       
         <p>编译安装PDO_MYSQL拓展模块，总是提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory</span><br><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’</span><br><span class="line">make: *** [pdo_mysql.lo] Error 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory</span><br><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’</span><br><span class="line">make: *** [pdo_mysql.lo] Error 1</span><br></pre></td></tr></table></figure>
 <p>这是因为这是因为在编译时需要 MySQL 的头的文件。而它按默认搜索找不到头文件的位置，所以才出现这个问题。通过软连接把MySQL头文件对应到/usr/local/include/下就好<br>比如你的MySQL安装文件位于/usr/local/mysql，那么就执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/mysql/include/* /usr/local/include/</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/<span class="built_in">local</span>/mysql/include/* /usr/<span class="built_in">local</span>/include/</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -466,7 +466,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -479,7 +479,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
