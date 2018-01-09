@@ -83,17 +83,17 @@
 
 
 
-<meta name="description" content="在virtualBox中克隆出新的CentOS虚拟机时，出现如下问题：1234# service network restartShutting down loopback insterface: [ OK ]Bringing up loopback insterface: [ OK ]Bringing up inte">
+<meta name="description" content="在virtualBox中克隆出新的CentOS虚拟机时，出现如下问题：1234service network restartShutting down loopback insterface: [ OK ]Bringing up loopback insterface: [ OK ]Bringing up interf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="虚拟机克隆centos出现“Device eth0 does not seem to be present”解决办法">
 <meta property="og:url" content="http://yoursite.com/2018/01/05/“Device eth0 does not seem to be present”解决办法/index.html">
 <meta property="og:site_name" content="zhaoguibin">
-<meta property="og:description" content="在virtualBox中克隆出新的CentOS虚拟机时，出现如下问题：1234# service network restartShutting down loopback insterface: [ OK ]Bringing up loopback insterface: [ OK ]Bringing up interface eth0: Device eth0 does not seem to">
+<meta property="og:description" content="在virtualBox中克隆出新的CentOS虚拟机时，出现如下问题：1234service network restartShutting down loopback insterface: [ OK ]Bringing up loopback insterface: [ OK ]Bringing up interface eth0: Device eth0 does not seem to b">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-05T13:32:57.000Z">
+<meta property="og:updated_time" content="2018-01-09T12:14:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟机克隆centos出现“Device eth0 does not seem to be present”解决办法">
-<meta name="twitter:description" content="在virtualBox中克隆出新的CentOS虚拟机时，出现如下问题：1234# service network restartShutting down loopback insterface: [ OK ]Bringing up loopback insterface: [ OK ]Bringing up interface eth0: Device eth0 does not seem to">
+<meta name="twitter:description" content="在virtualBox中克隆出新的CentOS虚拟机时，出现如下问题：1234service network restartShutting down loopback insterface: [ OK ]Bringing up loopback insterface: [ OK ]Bringing up interface eth0: Device eth0 does not seem to b">
 
 
 
@@ -347,12 +347,12 @@
       
 
       
-        <p>在virtualBox中克隆出新的CentOS虚拟机时，出现如下问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># service network restart</span><br><span class="line">Shutting down loopback insterface: [ OK ]</span><br><span class="line">Bringing up loopback insterface: [ OK ]</span><br><span class="line">Bringing up interface eth0: Device eth0 does not seem to be present,delaying initialization. [FAILED]</span><br></pre></td></tr></table></figure></p>
+        <p>在virtualBox中克隆出新的CentOS虚拟机时，出现如下问题：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br><span class="line">Shutting down loopback insterface: [ OK ]</span><br><span class="line">Bringing up loopback insterface: [ OK ]</span><br><span class="line">Bringing up interface eth0: Device eth0 does not seem to be present,delaying initialization. [FAILED]</span><br></pre></td></tr></table></figure></p>
 <p>用ifconfig查看发现缺少eth0，只有lo；用ifconfig -a查看发现多出了eth1的信息。</p>
 <a id="more"></a>
-<p>解决办法1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mv /etc/sysconfig/network-scripts/ifcfg-eth0  /etcsysconfig/network-scripts/ifcfg-eth1</span><br></pre></td></tr></table></figure></p>
+<p>解决办法1：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/sysconfig/network-scripts/ifcfg-eth0  /etcsysconfig/network-scripts/ifcfg-eth1</span><br></pre></td></tr></table></figure></p>
 <p>将eth0的mac地址改为eth1的mac地址，同时改变其DEVICE名称为eth1，再重启网络即可。</p>
-<p>解决办法2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># rm -rf /etc/udev/rules.d/70-persistent-net.rules</span><br><span class="line"># reboot</span><br></pre></td></tr></table></figure></p>
+<p>解决办法2：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/udev/rules.d/70-persistent-net.rules</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></p>
 <p>总之，只要保证/etc/sysconfig/network-scripts/ifcfg-eth0 与/etc/udev/rules.d/70-persistent-net.rules的信息一致即可，即网卡地址与网卡编号一致，这样service network restart 就可以配置成功。</p>
 
       
@@ -462,7 +462,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

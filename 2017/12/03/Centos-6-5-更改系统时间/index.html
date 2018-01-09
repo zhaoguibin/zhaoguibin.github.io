@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="12345678910111213date  时间窗口date -s &amp;apos;2015-02-02 10:10:00&amp;apos;  更改年月日小时分秒date -s 10:00:02  只更改时间 不更改年月clock -w 写入系统时间hwclock  同步bios 时间service ntpda">
+<meta name="description" content="12345678910111213date  时间窗口date -s &apos;2015-02-02 10:10:00&apos;  更改年月日小时分秒date -s 10:00:02  只更改时间 不更改年月clock -w 写入系统时间hwclock  同步bios 时间service ntpdate start">
 <meta name="keywords" content="centos">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos-6-5-更改系统时间">
 <meta property="og:url" content="http://yoursite.com/2017/12/03/Centos-6-5-更改系统时间/index.html">
 <meta property="og:site_name" content="zhaoguibin">
-<meta property="og:description" content="12345678910111213date  时间窗口date -s &amp;apos;2015-02-02 10:10:00&amp;apos;  更改年月日小时分秒date -s 10:00:02  只更改时间 不更改年月clock -w 写入系统时间hwclock  同步bios 时间service ntpdate start  开启网络时间同步systemctl start  ntpdate.servi">
+<meta property="og:description" content="12345678910111213date  时间窗口date -s &apos;2015-02-02 10:10:00&apos;  更改年月日小时分秒date -s 10:00:02  只更改时间 不更改年月clock -w 写入系统时间hwclock  同步bios 时间service ntpdate start  开启网络时间同步systemctl start  ntpdate.service 开启网络时间同">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-05T13:32:57.000Z">
+<meta property="og:updated_time" content="2018-01-09T12:16:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos-6-5-更改系统时间">
-<meta name="twitter:description" content="12345678910111213date  时间窗口date -s &amp;apos;2015-02-02 10:10:00&amp;apos;  更改年月日小时分秒date -s 10:00:02  只更改时间 不更改年月clock -w 写入系统时间hwclock  同步bios 时间service ntpdate start  开启网络时间同步systemctl start  ntpdate.servi">
+<meta name="twitter:description" content="12345678910111213date  时间窗口date -s &apos;2015-02-02 10:10:00&apos;  更改年月日小时分秒date -s 10:00:02  只更改时间 不更改年月clock -w 写入系统时间hwclock  同步bios 时间service ntpdate start  开启网络时间同步systemctl start  ntpdate.service 开启网络时间同">
 
 
 
@@ -348,7 +348,7 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">date  时间窗口</span><br><span class="line">date -s &apos;2015-02-02 10:10:00&apos;  更改年月日小时分秒</span><br><span class="line">date -s 10:00:02  只更改时间 不更改年月</span><br><span class="line">clock -w 写入系统时间</span><br><span class="line">hwclock  同步bios 时间</span><br><span class="line">service ntpdate start  开启网络时间同步</span><br><span class="line">systemctl start  ntpdate.service 开启网络时间同步 Red Hat 7</span><br><span class="line">chkconfig --leves 2345 ntpdate on  开机启动</span><br><span class="line">reboot 重启报错</span><br><span class="line">or type Contril-D to contime:输入系统密码-根据报错修复</span><br><span class="line">fsck -y /dev/mapper/VolGroup-lv_root</span><br><span class="line">fsck -y /dev/sda1</span><br><span class="line">reboot 重启是否正常</span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">date  时间窗口</span><br><span class="line">date -s <span class="string">'2015-02-02 10:10:00'</span>  更改年月日小时分秒</span><br><span class="line">date -s 10:00:02  只更改时间 不更改年月</span><br><span class="line">clock -w 写入系统时间</span><br><span class="line">hwclock  同步bios 时间</span><br><span class="line">service ntpdate start  开启网络时间同步</span><br><span class="line">systemctl start  ntpdate.service 开启网络时间同步 Red Hat 7</span><br><span class="line">chkconfig --leves 2345 ntpdate on  开机启动</span><br><span class="line">reboot 重启报错</span><br><span class="line">or <span class="built_in">type</span> Contril-D to contime:输入系统密码-根据报错修复</span><br><span class="line">fsck -y /dev/mapper/VolGroup-lv_root</span><br><span class="line">fsck -y /dev/sda1</span><br><span class="line">reboot 重启是否正常</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -463,7 +463,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

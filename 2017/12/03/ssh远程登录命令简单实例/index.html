@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="12345678910111213141516171819202122ssh命令用于远程登录上Linux主机。常用格式：ssh [-l login_name] [-p port] [user@]hostname更详细的可以用ssh -h查看。举例不指定用户：ssh 192.168.0.11指定用户：ssh -l root 192.168.0.11ssh root@192.168.0.11如果修改过">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-05T13:32:57.000Z">
+<meta property="og:updated_time" content="2018-01-09T12:17:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh远程登录命令简单实例">
 <meta name="twitter:description" content="12345678910111213141516171819202122ssh命令用于远程登录上Linux主机。常用格式：ssh [-l login_name] [-p port] [user@]hostname更详细的可以用ssh -h查看。举例不指定用户：ssh 192.168.0.11指定用户：ssh -l root 192.168.0.11ssh root@192.168.0.11如果修改过">
@@ -348,7 +348,7 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ssh命令用于远程登录上Linux主机。</span><br><span class="line">常用格式：ssh [-l login_name] [-p port] [user@]hostname</span><br><span class="line">更详细的可以用ssh -h查看。</span><br><span class="line">举例</span><br><span class="line">不指定用户：</span><br><span class="line">ssh 192.168.0.11</span><br><span class="line">指定用户：</span><br><span class="line">ssh -l root 192.168.0.11</span><br><span class="line">ssh root@192.168.0.11</span><br><span class="line">如果修改过ssh登录端口的可以：</span><br><span class="line">ssh -p 12333 192.168.0.11</span><br><span class="line">ssh -l root -p 12333 216.230.230.114</span><br><span class="line">ssh -p 12333 root@216.230.230.114</span><br><span class="line">另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。</span><br><span class="line">编辑配置文件：</span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">找到#Port 22，去掉注释，修改成一个五位的端口：</span><br><span class="line">Port 12333</span><br><span class="line">找到#PermitRootLogin yes，去掉注释，修改为：</span><br><span class="line">PermitRootLogin no</span><br><span class="line">重启sshd服务：</span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ssh命令用于远程登录上Linux主机。</span><br><span class="line">常用格式：ssh [-l login_name] [-p port] [user@]hostname</span><br><span class="line">更详细的可以用ssh -h查看。</span><br><span class="line">举例</span><br><span class="line">不指定用户：</span><br><span class="line">ssh 192.168.0.11</span><br><span class="line">指定用户：</span><br><span class="line">ssh -l root 192.168.0.11</span><br><span class="line">ssh root@192.168.0.11</span><br><span class="line">如果修改过ssh登录端口的可以：</span><br><span class="line">ssh -p 12333 192.168.0.11</span><br><span class="line">ssh -l root -p 12333 216.230.230.114</span><br><span class="line">ssh -p 12333 root@216.230.230.114</span><br><span class="line">另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。</span><br><span class="line">编辑配置文件：</span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">找到<span class="comment">#Port 22，去掉注释，修改成一个五位的端口：</span></span><br><span class="line">Port 12333</span><br><span class="line">找到<span class="comment">#PermitRootLogin yes，去掉注释，修改为：</span></span><br><span class="line">PermitRootLogin no</span><br><span class="line">重启sshd服务：</span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -463,7 +463,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
