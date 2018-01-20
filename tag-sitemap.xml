@@ -121,22 +121,8 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/php/</loc>
-        <lastmod>2018-01-09T12:13:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/socket/</loc>
         <lastmod>2018-01-09T12:13:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/mysql/</loc>
-        <lastmod>2018-01-09T12:15:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -170,15 +156,36 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/linux/</loc>
+        <loc>http://yoursite.com/tags/vim/</loc>
         <lastmod>2018-01-09T12:17:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/vim/</loc>
-        <lastmod>2018-01-09T12:17:57.000Z</lastmod>
+        <loc>http://yoursite.com/tags/git/</loc>
+        <lastmod>2018-01-20T06:33:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/linux/</loc>
+        <lastmod>2018-01-20T06:39:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/php/</loc>
+        <lastmod>2018-01-20T06:39:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/mysql/</loc>
+        <lastmod>2018-01-20T06:47:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
