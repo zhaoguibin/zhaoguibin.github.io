@@ -7,6 +7,30 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/02/09/%E8%A3%85%E5%AE%8CCentos7%E6%8F%90%E7%A4%BAInitial%20setup%20of%20CentOS%20Linux%207%20(core)/</loc>
+        <lastmod>2018-02-09T07:57:58.086Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/02/09/vboxadd.sh%20failed%20modprobe%20vboxguest%20failed./</loc>
+        <lastmod>2018-02-09T07:57:58.035Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/02/09/centOS7%E4%B8%8B%E5%AE%89%E8%A3%85GUI%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</loc>
+        <lastmod>2018-02-09T07:57:57.988Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/01/20/mysql%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95%E5%91%BD%E4%BB%A4/</loc>
         <lastmod>2018-01-20T06:47:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
