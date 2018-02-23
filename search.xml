@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Centos6.5安装git]]></title>
+    <url>%2F2018%2F02%2F23%2Fcentos6.5%E5%AE%89%E8%A3%85git%2F</url>
+    <content type="text"><![CDATA[1.安装编译git时需要的包123yum install curl-devel expat-devel gettext-devel openssl-devel zlib-develyum install gcc perl-ExtUtils-MakeMaker 2.删除已有的git1yum remove git 3.下载git源码 地址：https://www.kernel.org/pub/software/scm/git/ 选择要安装的版本123cd /opt/local/srcwget https://www.kernel.org/pub/software/scm/git/git-x.x.x.tar.gztar xzf git-x.x.x.tar.gz 4.编译安装12345cd git-x.x.xmake prefix=/usr/local/git allmake prefix=/usr/local/git installecho &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrcsource /etc/bashrc 5.检查一下版本号1git --version]]></content>
+      <tags>
+        <tag>centos</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[centOS7下安装GUI图形界面]]></title>
     <url>%2F2018%2F02%2F09%2FcentOS7%E4%B8%8B%E5%AE%89%E8%A3%85GUI%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%2F</url>
     <content type="text"><![CDATA[1 .在命令行下 输入下面的命令来安装Gnome包。1yum groupinstall "GNOME Desktop" "Graphical Administration Tools" 2.在命令行输入startx进入桌面1startx 3.如果想开机就进桌面，那就更新系统的运行级别。1ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target 4.重启机器。启动默认进入图形界面。1reboot]]></content>

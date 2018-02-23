@@ -135,13 +135,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/centos/</loc>
-        <lastmod>2018-01-09T12:16:15.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/nginx/</loc>
         <lastmod>2018-01-09T12:17:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -163,13 +156,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/git/</loc>
-        <lastmod>2018-01-20T06:33:16.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/php/</loc>
         <lastmod>2018-01-20T06:39:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -186,6 +172,20 @@
     <url>
         <loc>http://yoursite.com/tags/linux/</loc>
         <lastmod>2018-02-09T07:57:58.086Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/centos/</loc>
+        <lastmod>2018-02-23T09:25:35.744Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/git/</loc>
+        <lastmod>2018-02-23T09:25:35.744Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
