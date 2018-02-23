@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="1.安装编译git时需要的包123yum install curl-devel expat-devel gettext-devel openssl-devel zlib-develyum install  gcc perl-ExtUtils-MakeMaker 2.删除已有的git1yum remove git 3.下">
+<meta name="description" content="安装编译git时需要的包123yum install curl-devel expat-devel gettext-devel openssl-devel zlib-develyum install  gcc perl-ExtUtils-MakeMaker 删除已有的git1yum remove git 下载git源码">
 <meta name="keywords" content="centos,git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos6.5安装git">
 <meta property="og:url" content="http://yoursite.com/2018/02/23/centos6.5安装git/index.html">
 <meta property="og:site_name" content="zhaoguibin">
-<meta property="og:description" content="1.安装编译git时需要的包123yum install curl-devel expat-devel gettext-devel openssl-devel zlib-develyum install  gcc perl-ExtUtils-MakeMaker 2.删除已有的git1yum remove git 3.下载git源码 地址：https://www.kernel.org/pub/sof">
+<meta property="og:description" content="安装编译git时需要的包123yum install curl-devel expat-devel gettext-devel openssl-devel zlib-develyum install  gcc perl-ExtUtils-MakeMaker 删除已有的git1yum remove git 下载git源码地址：https://www.kernel.org/pub/software/s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-23T09:25:35.744Z">
+<meta property="og:updated_time" content="2018-02-23T09:37:49.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos6.5安装git">
-<meta name="twitter:description" content="1.安装编译git时需要的包123yum install curl-devel expat-devel gettext-devel openssl-devel zlib-develyum install  gcc perl-ExtUtils-MakeMaker 2.删除已有的git1yum remove git 3.下载git源码 地址：https://www.kernel.org/pub/sof">
+<meta name="twitter:description" content="安装编译git时需要的包123yum install curl-devel expat-devel gettext-devel openssl-devel zlib-develyum install  gcc perl-ExtUtils-MakeMaker 删除已有的git1yum remove git 下载git源码地址：https://www.kernel.org/pub/software/s">
 
 
 
@@ -348,11 +348,12 @@
       
 
       
-        <h6 id="1-安装编译git时需要的包"><a href="#1-安装编译git时需要的包" class="headerlink" title="1.安装编译git时需要的包"></a>1.安装编译git时需要的包</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
-<h6 id="2-删除已有的git"><a href="#2-删除已有的git" class="headerlink" title="2.删除已有的git"></a>2.删除已有的git</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove git</span><br></pre></td></tr></table></figure>
-<h6 id="3-下载git源码-地址：https-www-kernel-org-pub-software-scm-git-选择要安装的版本"><a href="#3-下载git源码-地址：https-www-kernel-org-pub-software-scm-git-选择要安装的版本" class="headerlink" title="3.下载git源码 地址：https://www.kernel.org/pub/software/scm/git/ 选择要安装的版本"></a>3.下载git源码 地址：<a href="https://www.kernel.org/pub/software/scm/git/" target="_blank" rel="noopener">https://www.kernel.org/pub/software/scm/git/</a> 选择要安装的版本</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/<span class="built_in">local</span>/src</span><br><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-x.x.x.tar.gz</span><br><span class="line">tar xzf git-x.x.x.tar.gz</span><br></pre></td></tr></table></figure>
-<h6 id="4-编译安装"><a href="#4-编译安装" class="headerlink" title="4.编译安装"></a>4.编译安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd git-x.x.x</span><br><span class="line">make prefix=/usr/local/git all</span><br><span class="line">make prefix=/usr/local/git install</span><br><span class="line">echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc</span><br><span class="line">source /etc/bashrc</span><br></pre></td></tr></table></figure>
-<h6 id="5-检查一下版本号"><a href="#5-检查一下版本号" class="headerlink" title="5.检查一下版本号"></a>5.检查一下版本号</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+        <h6 id="安装编译git时需要的包"><a href="#安装编译git时需要的包" class="headerlink" title="安装编译git时需要的包"></a>安装编译git时需要的包</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
+<h6 id="删除已有的git"><a href="#删除已有的git" class="headerlink" title="删除已有的git"></a>删除已有的git</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove git</span><br></pre></td></tr></table></figure>
+<h6 id="下载git源码"><a href="#下载git源码" class="headerlink" title="下载git源码"></a>下载git源码</h6><p>地址：<a href="https://www.kernel.org/pub/software/scm/git/" target="_blank" rel="noopener">https://www.kernel.org/pub/software/scm/git/</a> 选择要安装的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/<span class="built_in">local</span>/src</span><br><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-x.x.x.tar.gz</span><br><span class="line">tar xzf git-x.x.x.tar.gz</span><br></pre></td></tr></table></figure>
+<h6 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd git-x.x.x</span><br><span class="line">make prefix=/usr/local/git all</span><br><span class="line">make prefix=/usr/local/git install</span><br><span class="line">echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc</span><br><span class="line">source /etc/bashrc</span><br></pre></td></tr></table></figure>
+<h6 id="检查一下版本号"><a href="#检查一下版本号" class="headerlink" title="检查一下版本号"></a>检查一下版本号</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -522,7 +523,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-安装编译git时需要的包"><span class="nav-number">1.</span> <span class="nav-text">1.安装编译git时需要的包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-删除已有的git"><span class="nav-number">2.</span> <span class="nav-text">2.删除已有的git</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-下载git源码-地址：https-www-kernel-org-pub-software-scm-git-选择要安装的版本"><span class="nav-number">3.</span> <span class="nav-text">3.下载git源码 地址：https://www.kernel.org/pub/software/scm/git/ 选择要安装的版本</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-编译安装"><span class="nav-number">4.</span> <span class="nav-text">4.编译安装</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-检查一下版本号"><span class="nav-number">5.</span> <span class="nav-text">5.检查一下版本号</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#安装编译git时需要的包"><span class="nav-number">1.</span> <span class="nav-text">安装编译git时需要的包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#删除已有的git"><span class="nav-number">2.</span> <span class="nav-text">删除已有的git</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#下载git源码"><span class="nav-number">3.</span> <span class="nav-text">下载git源码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#编译安装"><span class="nav-number">4.</span> <span class="nav-text">编译安装</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#检查一下版本号"><span class="nav-number">5.</span> <span class="nav-text">检查一下版本号</span></a></li></ol></div>
             
 
           </div>
