@@ -177,15 +177,22 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/centos/</loc>
+        <loc>http://yoursite.com/tags/git/</loc>
         <lastmod>2018-02-23T09:37:49.077Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/git/</loc>
-        <lastmod>2018-02-23T09:37:49.077Z</lastmod>
+        <loc>http://yoursite.com/tags/centos/</loc>
+        <lastmod>2018-02-26T10:01:58.181Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/ftp/</loc>
+        <lastmod>2018-02-26T10:01:58.181Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
