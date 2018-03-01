@@ -135,13 +135,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/nginx/</loc>
-        <lastmod>2018-01-09T12:17:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/ssh/</loc>
         <lastmod>2018-01-09T12:17:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -184,15 +177,22 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/centos/</loc>
+        <loc>http://yoursite.com/tags/ftp/</loc>
         <lastmod>2018-02-26T10:01:58.181Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/ftp/</loc>
-        <lastmod>2018-02-26T10:01:58.181Z</lastmod>
+        <loc>http://yoursite.com/tags/centos/</loc>
+        <lastmod>2018-03-01T07:49:01.289Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/nginx/</loc>
+        <lastmod>2018-03-01T07:49:01.289Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
