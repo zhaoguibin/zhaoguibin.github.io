@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/03/02/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</loc>
+        <lastmod>2018-03-02T08:21:02.144Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/01/02/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85Python3%E5%8F%8APip3%E5%B9%B6%E4%BF%9D%E7%95%99Python2/</loc>
+        <lastmod>2018-03-02T08:18:17.766Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/03/01/Nginx%20%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/</loc>
         <lastmod>2018-03-01T07:49:01.289Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -185,14 +201,6 @@
     <url>
         <loc>http://yoursite.com/2018/01/02/php%E7%9A%84socket%E9%80%9A%E4%BF%A1/</loc>
         <lastmod>2018-01-09T12:13:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/01/02/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85Python3%E5%8F%8APip3%E5%B9%B6%E4%BF%9D%E7%95%99Python2/</loc>
-        <lastmod>2018-01-09T12:09:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
