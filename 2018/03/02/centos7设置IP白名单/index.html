@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="centos," />
 
 
 
@@ -83,16 +83,18 @@
 
 
 
-<meta name="description" content="个人平时问题记录">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhaoguibin">
-<meta property="og:url" content="http://yoursite.com/archives/page/8/index.html">
+<meta name="description" content="编辑iptables配置文件，将文件内容更改为如下，则具备了ip地址白名单功能 1vim /etc/sysconfig/iptables 12345678910111213141516171 *filter2 :INPUT ACCEPT [0:0]3 :FORWARD ACCEPT [0:0]4 :OUTPUT ACC">
+<meta name="keywords" content="centos">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos7设置IP白名单">
+<meta property="og:url" content="http://yoursite.com/2018/03/02/centos7设置IP白名单/index.html">
 <meta property="og:site_name" content="zhaoguibin">
-<meta property="og:description" content="个人平时问题记录">
+<meta property="og:description" content="编辑iptables配置文件，将文件内容更改为如下，则具备了ip地址白名单功能 1vim /etc/sysconfig/iptables 12345678910111213141516171 *filter2 :INPUT ACCEPT [0:0]3 :FORWARD ACCEPT [0:0]4 :OUTPUT ACCEPT [0:0]56 -N whitelist7 -A whitelist -">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-02T08:30:46.731Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhaoguibin">
-<meta name="twitter:description" content="个人平时问题记录">
+<meta name="twitter:title" content="centos7设置IP白名单">
+<meta name="twitter:description" content="编辑iptables配置文件，将文件内容更改为如下，则具备了ip地址白名单功能 1vim /etc/sysconfig/iptables 12345678910111213141516171 *filter2 :INPUT ACCEPT [0:0]3 :FORWARD ACCEPT [0:0]4 :OUTPUT ACCEPT [0:0]56 -N whitelist7 -A whitelist -">
 
 
 
@@ -122,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/page/8/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/02/centos7设置IP白名单/"/>
 
 
 
 
 
-  <title>归档 | zhaoguibin</title>
+  <title>centos7设置IP白名单 | zhaoguibin</title>
   
 
 
@@ -147,7 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -265,410 +267,154 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/centos7设置IP白名单/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h1 class="post-title" itemprop="name headline">centos7设置IP白名单</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T20:23:52+08:00">
+                2018-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        很好! 目前共计 86 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/02/Ubuntu-手动挂载U盘/" itemprop="url">
-              
-                <span itemprop="name">Ubuntu-手动挂载U盘</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T13:50:19+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/02/centos7下使用yum安装mysql数据库/" itemprop="url">
-              
-                <span itemprop="name">centos7下使用yum安装mysql数据库</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T12:24:47+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/02/主从复制时报错：ERROR-1794-HY000-Slave/" itemprop="url">
-              
-                <span itemprop="name">主从复制时报错：ERROR-1794-HY000-Slave……</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T12:22:19+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>编辑iptables配置文件，将文件内容更改为如下，则具备了ip地址白名单功能</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/iptables</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1 *filter</span><br><span class="line">2 :INPUT ACCEPT [0:0]</span><br><span class="line">3 :FORWARD ACCEPT [0:0]</span><br><span class="line">4 :OUTPUT ACCEPT [0:0]</span><br><span class="line">5</span><br><span class="line">6 -N whitelist</span><br><span class="line">7 -A whitelist -s 1.2.3.0/24 -j ACCEPT</span><br><span class="line">8 -A whitelist -s 4.5.6.7 -j ACCEPT</span><br><span class="line">9</span><br><span class="line">10 -A INPUT -m state --state RELATED,ESTABLISHED -j whitelist</span><br><span class="line">11 -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j whitelist</span><br><span class="line">12 -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j whitelist</span><br><span class="line">13 -A INPUT -p icmp -j ACCEPT</span><br><span class="line">14 -A INPUT -i lo -j ACCEPT</span><br><span class="line">15 -A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">16 -A FORWARD -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">17 COMMIT</span><br></pre></td></tr></table></figure>
+<p>6~8 行是添加白名单列表，可以是ip段或者单个ip地址</p>
+<p>10~12行 注意的是“-j whitelist”而不是“-j ACCEPT”，前者将该端口访问权限限制在白名单内，后者为不限制</p>
+<p>13行 任何ip地址都能ping通该主机，因为“-j ACCEPT”没有做相应限制</p>
+<p>配置完毕后，运行命令重启防火墙使规则生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart iptables.service</span><br></pre></td></tr></table></figure>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/02/virtualbox下centos挂载共享文件夹/" itemprop="url">
-              
-                <span itemprop="name">virtualbox下centos挂载共享文件夹</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T12:11:45+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/02/文件权限管理/" itemprop="url">
-              
-                <span itemprop="name">文件权限管理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T12:02:17+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/02/Linux软件包管理/" itemprop="url">
-              
-                <span itemprop="name">linux软件包管理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T12:01:46+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/02/vim使用/" itemprop="url">
-              
-                <span itemprop="name">vim使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T11:59:21+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/02/在linux系统中安装virtualbox增强功能(增强包)的详细步骤/" itemprop="url">
-              
-                <span itemprop="name">在linux系统中安装virtualbox增强功能(增强包)的详细步骤</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T11:39:18+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/02/yum 安装报 关于Public key for .rpm is not installed 的解决方法/" itemprop="url">
-              
-                <span itemprop="name">yum 安装报 关于Public key for .rpm is not installed 的解决方法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T11:27:39+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/02/Warning RPMDB altered outside of yum.的解决办法 /" itemprop="url">
-              
-                <span itemprop="name">Warning RPMDB altered outside of yum.的解决办法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T11:26:56+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/centos/" rel="tag"># centos</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/02/php下载文件简单实例/" rel="next" title="php下载文件简单实例">
+                <i class="fa fa-chevron-left"></i> php下载文件简单实例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/9/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -676,6 +422,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -887,6 +637,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -1261,26 +1015,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
