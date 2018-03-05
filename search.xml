@@ -457,7 +457,7 @@
   <entry>
     <title><![CDATA[CentOS-6-4-php-fpm-添加service-添加平滑启动-重启]]></title>
     <url>%2F2017%2F12%2F03%2FCentOS-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF%2F</url>
-    <content type="text"><![CDATA[nginx通过FastCGI运行PHP比Apache包含PHP环境有明显的优势,最近有消息称,PHP5.4将很有可能把PHP-FPM补丁包含在内核里,nginx服务器平台上运行PHP将更加轻松,下面我们就来看一篇php-fpm平滑启动并配置服务例子。 我的php是源码安装的。php-fpm在PHP 5.3.2以后的版本不支持以前的php-fpm (start|restart|stop|reload) ，那么如果将php-fpm配置成服务，并添加平滑启动/重启。配置php-fpm.conf（vi /usr/local/php54/etc/php-fpm.conf）,将pid（;pid = run/php-fpm.pid）前的;去掉。因为编译安装php的，所以会在php目录生成很多二进制文件，找到init.d.php-fpm，拷贝到init.d下。 1cp /usr/local/src/php54/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm 设置权限，并添加服务 12chmod +x /etc/init.d/php-fpmchkconfig --add php-fpm 以后可以使用如下命令管理php-fpm了1234service php-fpm startservice php-fpm stopservice php-fpm restartservice php-fpm reload]]></content>
+    <content type="text"><![CDATA[我的php是源码安装的。php-fpm在PHP 5.3.2以后的版本不支持以前的php-fpm (start|restart|stop|reload) ，那么如果将php-fpm配置成服务，并添加平滑启动/重启。配置php-fpm.conf（vi /usr/local/php54/etc/php-fpm.conf）,将pid（;pid = run/php-fpm.pid）前的;去掉。因为编译安装php的，所以会在php目录生成很多二进制文件，找到init.d.php-fpm，拷贝到init.d下。 1cp /usr/local/src/php54/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm 设置权限，并添加服务 12chmod +x /etc/init.d/php-fpmchkconfig --add php-fpm 以后可以使用如下命令管理php-fpm了1234service php-fpm startservice php-fpm stopservice php-fpm restartservice php-fpm reload]]></content>
       <tags>
         <tag>php-fpm</tag>
       </tags>

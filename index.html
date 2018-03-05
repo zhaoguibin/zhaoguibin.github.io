@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/centos7设置IP白名单/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/centos6.5编译安装LNMP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -299,7 +299,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/02/centos7设置IP白名单/" itemprop="url">centos7设置IP白名单</a></h1>
+                <a class="post-title-link" href="/2017/12/02/centos6.5编译安装LNMP/" itemprop="url">centos6.5编译安装LNMP</a></h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T20:23:52+08:00">
-                2018-03-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T11:01:15+08:00">
+                2017-12-02
               </time>
             
 
@@ -350,259 +350,270 @@
 
       
         
-          
-            <p>编辑iptables配置文件，将文件内容更改为如下，则具备了ip地址白名单功能</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/iptables</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1 *filter</span><br><span class="line">2 :INPUT ACCEPT [0:0]</span><br><span class="line">3 :FORWARD ACCEPT [0:0]</span><br><span class="line">4 :OUTPUT ACCEPT [0:0]</span><br><span class="line">5</span><br><span class="line">6 -N whitelist</span><br><span class="line">7 -A whitelist -s 1.2.3.0/24 -j ACCEPT</span><br><span class="line">8 -A whitelist -s 4.5.6.7 -j ACCEPT</span><br><span class="line">9</span><br><span class="line">10 -A INPUT -m state --state RELATED,ESTABLISHED -j whitelist</span><br><span class="line">11 -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j whitelist</span><br><span class="line">12 -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j whitelist</span><br><span class="line">13 -A INPUT -p icmp -j ACCEPT</span><br><span class="line">14 -A INPUT -i lo -j ACCEPT</span><br><span class="line">15 -A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">16 -A FORWARD -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">17 COMMIT</span><br></pre></td></tr></table></figure>
-<p>6~8 行是添加白名单列表，可以是ip段或者单个ip地址</p>
-<p>10~12行 注意的是“-j whitelist”而不是“-j ACCEPT”，前者将该端口访问权限限制在白名单内，后者为不限制</p>
-<p>13行 任何ip地址都能ping通该主机，因为“-j ACCEPT”没有做相应限制</p>
-<p>配置完毕后，运行命令重启防火墙使规则生效</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart iptables.service</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/php下载文件简单实例/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/02/php下载文件简单实例/" itemprop="url">php下载文件简单实例</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T20:16:49+08:00">
-                2018-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Spider</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">downloadImage</span><span class="params">($url, $path=<span class="string">'images/'</span>)</span></span></span><br><span class="line"><span class="function">          </span>&#123;</span><br><span class="line">                $ch = curl_init();</span><br><span class="line">                curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">                curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, <span class="number">30</span>);</span><br><span class="line">                $file = curl_exec($ch);</span><br><span class="line">                curl_close($ch);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">$this</span>-&gt;saveAsImage($url, $file, $path);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">saveAsImage</span><span class="params">($url, $file, $path)</span></span></span><br><span class="line"><span class="function">          </span>&#123;</span><br><span class="line">                $filename = pathinfo($url, PATHINFO_BASENAME);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(!file_exists($path))&#123;</span><br><span class="line">                   mkdir($path,<span class="number">0777</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                $resource = fopen($path . $filename, <span class="string">'a'</span>);</span><br><span class="line">                fwrite($resource, $file);</span><br><span class="line">                fclose($resource);</span><br><span class="line">          &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$str = file_get_contents(<span class="string">"http://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&amp;mkt=en-US"</span>);</span><br><span class="line">$arr = json_decode($str,<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">$img_url = <span class="string">'http://www.bing.com'</span>.$arr[<span class="string">'images'</span>][<span class="number">0</span>][<span class="string">'url'</span>];</span><br><span class="line">$img = <span class="keyword">new</span> Spider();</span><br><span class="line">$img-&gt;downloadImage($img_url);</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/Nginx 启用gzip压缩/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/01/Nginx 启用gzip压缩/" itemprop="url">Nginx 启用gzip压缩</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T19:58:19+08:00">
-                2018-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="网页压缩"><a href="#网页压缩" class="headerlink" title="网页压缩"></a>网页压缩</h5><p>　　网页压缩是一项由 WEB 服务器和浏览器之间共同遵守的协议，也就是说 WEB 服务器和浏览器都必须支持该技术，所幸的是现在流行的浏览器都是支持的，包括 IE、FireFox、Opera 等；服务器有 Apache 和 IIS 等。双方的协商过程如下：　　<br>　　首先浏览器请求某个 URL 地址，并在请求的头 (head) 中设置属性 accept-encoding 值为 gzip, deflate，表明浏览器支持 gzip 和 deflate 这两种压缩方式（事实上 deflate 也是使用 gzip 压缩协议，下面我们会介绍二者之间的区别）；</p>
-<p>　　WEB 服务器接收到请求后判断浏览器是否支持压缩，如果支持就传送压缩后的响应内容，否则传送不经过压缩的内容；<br>　　浏览器获取响应内容后，判断内容是否被压缩，如果是则解压缩，然后显示响应页面的内容。</p>
-<p>　　在实际的应用中我们发现压缩的比率往往在 3 到 10 倍，也就是本来 50k 大小的页面，采用压缩后实际传输的内容大小只有 5 至 15k 大小，这可以大大节省服务器的网络带宽，同时如果应用程序的响应足够快时，网站的速度瓶颈就转到了网络的传输速度上，因此内容压缩后就可以大大的提升页面的浏览速度。</p>
+          <h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="1、操作系统安装：CentOS-6-5-64位最小化安装。"><a href="#1、操作系统安装：CentOS-6-5-64位最小化安装。" class="headerlink" title="1、操作系统安装：CentOS 6.5 64位最小化安装。"></a>1、操作系统安装：CentOS 6.5 64位最小化安装。</h3><h3 id="2、配置好IP、DNS、网关、主机名"><a href="#2、配置好IP、DNS、网关、主机名" class="headerlink" title="2、配置好IP、DNS、网关、主机名"></a>2、配置好IP、DNS、网关、主机名</h3><h3 id="3、配置防火墙，开启80、3306端口"><a href="#3、配置防火墙，开启80、3306端口" class="headerlink" title="3、配置防火墙，开启80、3306端口"></a>3、配置防火墙，开启80、3306端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line">/etc/rc.d/init.d/iptables save</span><br><span class="line">/etc/init.d/iptables restart</span><br></pre></td></tr></table></figure>
+<p>这样就搞定了，查看效果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables status</span><br><span class="line">/etc/init.d/iptables restart <span class="comment">#最后重启防火墙使配置生效</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/01/Nginx 启用gzip压缩/#more" rel="contents">
+            <a class="btn" href="/2017/12/02/centos6.5编译安装LNMP/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/phpstorm中配置远程调试xdebug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/03/phpstorm中配置远程调试xdebug/" itemprop="url">phpstorm中配置远程调试xdebug</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T19:19:20+08:00">
+                2017-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这里说的是真正的远程调试，不是本地，本地不需要安装任何php程序！！！</p>
+<p>这里略去xdebug的安装，安装很简单可以下载源码包，动态编译进去！</p>
+<p>环境：</p>
+<p>　　Dev 服务器(IP:192.168.3.2)，安装phpstorm，用来做开发任务！</p>
+<p>　　Server服务器（IP:192.168.3.9），web服务器(php架构)，用来浏览网页用！</p>
+<p>这里的两台服务器在同一个网段下，可以互通！</p>
+<p>在Server服务器上的php.ini里配置xdebug如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[xdebug]</span><br><span class="line">zend_extension=xdebug.so</span><br><span class="line">xdebug.remote_enable=1</span><br><span class="line">xdebug.remote_handler=dbgp</span><br><span class="line">xdebug.remote_mode=req</span><br><span class="line">xdebug.remote_host=192.168.3.9</span><br><span class="line">xdebug.remote_port=9000</span><br><span class="line">xdebug.idekey=<span class="string">"PHPSTORM"</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/03/phpstorm中配置远程调试xdebug/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/09/centos7 yum安装lnmp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/09/centos7 yum安装lnmp/" itemprop="url">centos7 yum安装lnmp</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-09T01:23:45+08:00">
+                2017-12-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="PHP7"><a href="#PHP7" class="headerlink" title="PHP7"></a>PHP7</h2><h3 id="1-安装epel-release"><a href="#1-安装epel-release" class="headerlink" title="1.安装epel-release"></a>1.安装epel-release</h3><p>通过命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br></pre></td></tr></table></figure></p>
+<p>成功安装。</p>
+<h3 id="2-安装PHP7"><a href="#2-安装PHP7" class="headerlink" title="2.安装PHP7"></a>2.安装PHP7</h3><p>终端再次运行如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</span><br></pre></td></tr></table></figure></p>
+<p>成功获取PHP7的yum源，然后再执行：</p>
+<h3 id="php安装以及安装扩展"><a href="#php安装以及安装扩展" class="headerlink" title="php安装以及安装扩展"></a>php安装以及安装扩展</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php70w  php70w-devel php70w-fpm php70w-gd php70w-mysqli php70w-mbstring</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/09/centos7 yum安装lnmp/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -780,7 +791,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/23/centos6.5安装git/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/centos7编译安装nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -799,7 +810,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/23/centos6.5安装git/" itemprop="url">Centos6.5安装git</a></h1>
+                <a class="post-title-link" href="/2017/12/02/centos7编译安装nginx/" itemprop="url">centos7编译安装nginx</a></h1>
         
 
         <div class="post-meta">
@@ -811,8 +822,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-23T17:18:18+08:00">
-                2018-02-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T15:05:34+08:00">
+                2017-12-02
               </time>
             
 
@@ -850,15 +861,16 @@
 
       
         
-          
-            <h6 id="安装编译git时需要的包"><a href="#安装编译git时需要的包" class="headerlink" title="安装编译git时需要的包"></a>安装编译git时需要的包</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
-<h6 id="删除已有的git"><a href="#删除已有的git" class="headerlink" title="删除已有的git"></a>删除已有的git</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove git</span><br></pre></td></tr></table></figure>
-<h6 id="下载git源码"><a href="#下载git源码" class="headerlink" title="下载git源码"></a>下载git源码</h6><p>地址：<a href="https://www.kernel.org/pub/software/scm/git/" target="_blank" rel="noopener">https://www.kernel.org/pub/software/scm/git/</a> 选择要安装的版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/<span class="built_in">local</span>/src</span><br><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-x.x.x.tar.gz</span><br><span class="line">tar xzf git-x.x.x.tar.gz</span><br></pre></td></tr></table></figure>
-<h6 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd git-x.x.x</span><br><span class="line">make prefix=/usr/local/git all</span><br><span class="line">make prefix=/usr/local/git install</span><br><span class="line">echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc</span><br><span class="line">source /etc/bashrc</span><br></pre></td></tr></table></figure>
-<h6 id="检查一下版本号"><a href="#检查一下版本号" class="headerlink" title="检查一下版本号"></a>检查一下版本号</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-          
+          <p><strong>ps : nginx安装在/opt/local/nginx里</strong></p>
+<p>1.安装编译安装依赖的类库和包</p>
+<p>如果需要编译MySQL和PHP，就安装这些<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/02/centos7编译安装nginx/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -905,7 +917,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/centOS7下安装GUI图形界面/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/ERROR 1044 (42000) Access denied for user ''@'localhost' to database 'mysql'/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -924,7 +936,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/09/centOS7下安装GUI图形界面/" itemprop="url">centOS7下安装GUI图形界面</a></h1>
+                <a class="post-title-link" href="/2017/12/16/ERROR 1044 (42000) Access denied for user ''@'localhost' to database 'mysql'/" itemprop="url">ERROR 1044 (42000) Access denied for user ''@'localhost' to database 'mysql'</a></h1>
         
 
         <div class="post-meta">
@@ -936,8 +948,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T15:52:37+08:00">
-                2018-02-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-16T18:51:45+08:00">
+                2017-12-16
               </time>
             
 
@@ -975,13 +987,16 @@
 
       
         
-          
-            <h5 id="1-在命令行下-输入下面的命令来安装Gnome包。"><a href="#1-在命令行下-输入下面的命令来安装Gnome包。" class="headerlink" title="1 .在命令行下 输入下面的命令来安装Gnome包。"></a>1 .在命令行下 输入下面的命令来安装Gnome包。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall <span class="string">"GNOME Desktop"</span> <span class="string">"Graphical Administration Tools"</span></span><br></pre></td></tr></table></figure>
-<h5 id="2-在命令行输入startx进入桌面"><a href="#2-在命令行输入startx进入桌面" class="headerlink" title="2.在命令行输入startx进入桌面"></a>2.在命令行输入startx进入桌面</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startx</span><br></pre></td></tr></table></figure>
-<h6 id="3-如果想开机就进桌面，那就更新系统的运行级别。"><a href="#3-如果想开机就进桌面，那就更新系统的运行级别。" class="headerlink" title="3.如果想开机就进桌面，那就更新系统的运行级别。"></a>3.如果想开机就进桌面，那就更新系统的运行级别。</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target</span><br></pre></td></tr></table></figure>
-<h5 id="4-重启机器。启动默认进入图形界面。"><a href="#4-重启机器。启动默认进入图形界面。" class="headerlink" title="4.重启机器。启动默认进入图形界面。"></a>4.重启机器。启动默认进入图形界面。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-
-          
+          <h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>1.关闭mysql<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld stop</span><br></pre></td></tr></table></figure></p>
+<p>2.屏蔽权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld_safe --skip-grant-table</span><br></pre></td></tr></table></figure></p>
+<p> 屏幕出现： Starting demo from …..</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/16/ERROR 1044 (42000) Access denied for user ''@'localhost' to database 'mysql'/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1028,7 +1043,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/vboxadd.sh failed modprobe vboxguest failed./">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/lsyncd实时同步工具安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -1047,7 +1062,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/09/vboxadd.sh failed modprobe vboxguest failed./" itemprop="url">vboxadd.sh failed modprobe vboxguest failed.</a></h1>
+                <a class="post-title-link" href="/2017/11/30/lsyncd实时同步工具安装/" itemprop="url">lsyncd实时同步工具安装</a></h1>
         
 
         <div class="post-meta">
@@ -1059,8 +1074,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T15:48:15+08:00">
-                2018-02-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T20:24:03+08:00">
+                2017-11-30
               </time>
             
 
@@ -1098,19 +1113,16 @@
 
       
         
-          
-            <p>virtualbox安装增强功能报错：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vboxadd.sh failed modprobe vboxguest failed.</span><br></pre></td></tr></table></figure>
-<p>解决方法：<br></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install dkms binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers</span><br></pre></td></tr></table></figure>
-<p>then</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install kernel-devel</span><br></pre></td></tr></table></figure>
-<p>or</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install kernel-PAE-devel</span><br></pre></td></tr></table></figure>
-<p>Then</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re-run VBoxLinuxAdditions.run.</span><br></pre></td></tr></table></figure>
-
-          
+          <p>有2种方法可以安装</p>
+<p>1.yum安装，前提是安装了epel更新源。使用命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y lsyncd</span><br></pre></td></tr></table></figure></p>
+<p>2.github下载，地址为：<a href="https://github.com/axkibe/lsyncd" target="_blank" rel="noopener">https://github.com/axkibe/lsyncd</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/lsyncd实时同步工具安装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1157,7 +1169,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/装完Centos7提示Initial setup of CentOS Linux 7 (core)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/Mysql双主同步/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -1176,7 +1188,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/09/装完Centos7提示Initial setup of CentOS Linux 7 (core)/" itemprop="url">装完Centos7提示Initial setup of CentOS Linux 7 (core)</a></h1>
+                <a class="post-title-link" href="/2017/12/02/Mysql双主同步/" itemprop="url">Mysql双主同步</a></h1>
         
 
         <div class="post-meta">
@@ -1188,8 +1200,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T15:46:34+08:00">
-                2018-02-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T15:12:36+08:00">
+                2017-12-02
               </time>
             
 
@@ -1227,11 +1239,15 @@
 
       
         
-          
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Initial setup of CentOS Linux 7 (core)</span><br><span class="line"></span><br><span class="line">1) [x] Creat user 2) [!] License information</span><br><span class="line"></span><br><span class="line">(no user will be created) (license not accepted)</span><br><span class="line"></span><br><span class="line">Please make your choice from above [<span class="string">'q'</span> to quit | <span class="string">'c'</span> to <span class="built_in">continue</span> | <span class="string">'r'</span> to refresh]:</span><br></pre></td></tr></table></figure>
-<p>解决方法：<br>输入“1”，按Enter键<br><br>输入“2”，按Enter键<br><br>输入“q”，按Enter键<br><br>输入“yes”，按Enter键</p>
-
-          
+          <p><strong>平台：centos7,mysql5.6.34</strong></p>
+<p>解决数据库瓶颈问题<br>两台服务器可以同时读写数据库<br>A B两台服务器<br>A和B需要拥有一个同名的数据库<br>同步账号设置<br>首先要在两台服务器上各新增加一个可登陆的账号。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/02/Mysql双主同步/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1278,7 +1294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/mysql添加索引命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/mysql实现主从复制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -1297,7 +1313,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/20/mysql添加索引命令/" itemprop="url">mysql添加索引命令</a></h1>
+                <a class="post-title-link" href="/2017/12/02/mysql实现主从复制/" itemprop="url">mysql实现主从复制</a></h1>
         
 
         <div class="post-meta">
@@ -1309,8 +1325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T14:45:13+08:00">
-                2018-01-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T11:12:18+08:00">
+                2017-12-02
               </time>
             
 
@@ -1348,10 +1364,27 @@
 
       
         
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.PRIMARY  KEY（主键索引）</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  PRIMARY  KEY (`column`)</span><br><span class="line">2.UNIQUE(唯一索引)</span><br><span class="line">        mysql&gt;ALTER  TABLE  `table_name`  ADD  UNIQUE (`column` )</span><br><span class="line">3.INDEX(普通索引)</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  INDEX index_name (`column`)</span><br><span class="line">4.FULLTEXT(全文索引)</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  FULLTEXT (`column`)</span><br><span class="line">5.多列索引</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  INDEX index_name (`column1`,  `column2`,</span><br><span class="line">   `column3`)</span><br></pre></td></tr></table></figure>
-
-          
+          <p>准备工作：</p>
+<p>1.两个虚拟机：我这里用的是CentOS5.5，IP地址分别是192.168.1.101 和192.168.1.105；</p>
+<p>101做主服务器，105做从服务器（都已经安装相同版本的Mysql）；</p>
+<p>2.本机环境：Nginx+PHP+MySQL</p>
+<p>好了，现在开始吧，来看看这听起来高大上的主从复制是怎么回事。</p>
+<p>原理：mysql要做到主从复制，其实依靠的是二进制日志，即：假设主服务器叫A，从服务器叫B；主从复制就是</p>
+<p>B跟着A学，A做什么，B就做什么。那么B怎么同步A的动作呢？现在A有一个日志功能，把自己所做的增删改查的动作</p>
+<p>全都记录在日志中，B只需要拿到这份日志，照着日志上面的动作施加到自己身上就可以了。这样就实现了主从复制。</p>
+<p>扩展：MYSQL还有一种日志叫做：慢日志</p>
+<p>可以设置一个时间，那么所有执行时间超过这个时间的SQL都会被记录下来。这样就可以通过慢日志快速的找到网站中SQL的瓶颈来进行优化。</p>
+<p>实现步骤：</p>
+<p>1.首先修改mysql的配置文件，使其支持二进制日志功能。</p>
+<p>打开主服务器的mysql配置文件：my.conf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure></p>
+<p>加入如下三行代码：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/02/mysql实现主从复制/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1398,7 +1431,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/mysql查询出的数据插入另一个表/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/Nginx 启用gzip压缩/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -1417,7 +1450,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/20/mysql查询出的数据插入另一个表/" itemprop="url">mysql查询出的数据插入另一个表</a></h1>
+                <a class="post-title-link" href="/2018/03/01/Nginx 启用gzip压缩/" itemprop="url">Nginx 启用gzip压缩</a></h1>
         
 
         <div class="post-meta">
@@ -1429,8 +1462,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T14:43:37+08:00">
-                2018-01-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T19:58:19+08:00">
+                2018-03-01
               </time>
             
 
@@ -1468,10 +1501,16 @@
 
       
         
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">INSERT INTO 表名1(字段列表1)</span><br><span class="line">SELECT 字段列表2 FROM 表名2 WHERE 条件表达式;</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line"></span><br><span class="line">INSERT INTO 表名1(字段列表1)</span><br><span class="line">select * from (select 字段 from *) 临时表名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO 要插入数据的表 (字段1,字段2,....)</span><br><span class="line">SELECT * FROM (查询数据的sql语句) 临时表名</span><br><span class="line"></span><br><span class="line">2-例子：</span><br><span class="line"></span><br><span class="line">INSERT INTO purchaseandsale_export (`name`)</span><br><span class="line">SELECT * FROM (SELECT name FROM `worker`) temp</span><br></pre></td></tr></table></figure>
-
-          
+          <h5 id="网页压缩"><a href="#网页压缩" class="headerlink" title="网页压缩"></a>网页压缩</h5><p>　　网页压缩是一项由 WEB 服务器和浏览器之间共同遵守的协议，也就是说 WEB 服务器和浏览器都必须支持该技术，所幸的是现在流行的浏览器都是支持的，包括 IE、FireFox、Opera 等；服务器有 Apache 和 IIS 等。双方的协商过程如下：　　<br>　　首先浏览器请求某个 URL 地址，并在请求的头 (head) 中设置属性 accept-encoding 值为 gzip, deflate，表明浏览器支持 gzip 和 deflate 这两种压缩方式（事实上 deflate 也是使用 gzip 压缩协议，下面我们会介绍二者之间的区别）；</p>
+<p>　　WEB 服务器接收到请求后判断浏览器是否支持压缩，如果支持就传送压缩后的响应内容，否则传送不经过压缩的内容；<br>　　浏览器获取响应内容后，判断内容是否被压缩，如果是则解压缩，然后显示响应页面的内容。</p>
+<p>　　在实际的应用中我们发现压缩的比率往往在 3 到 10 倍，也就是本来 50k 大小的页面，采用压缩后实际传输的内容大小只有 5 至 15k 大小，这可以大大节省服务器的网络带宽，同时如果应用程序的响应足够快时，网站的速度瓶颈就转到了网络的传输速度上，因此内容压缩后就可以大大的提升页面的浏览速度。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/01/Nginx 启用gzip压缩/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
