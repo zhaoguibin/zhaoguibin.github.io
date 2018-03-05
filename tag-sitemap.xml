@@ -185,14 +185,14 @@
 
     <url>
         <loc>http://yoursite.com/tags/linux/</loc>
-        <lastmod>2018-03-05T02:10:24.623Z</lastmod>
+        <lastmod>2018-03-05T02:21:59.960Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/tags/LNMP/</loc>
-        <lastmod>2018-03-05T02:10:24.623Z</lastmod>
+        <lastmod>2018-03-05T02:21:59.960Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
