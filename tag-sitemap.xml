@@ -30,13 +30,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/LNMP/</loc>
-        <lastmod>2018-01-08T03:24:01.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/lnmp/</loc>
         <lastmod>2018-01-08T03:24:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -177,13 +170,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/linux/</loc>
-        <lastmod>2018-03-02T08:21:02.144Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/php/</loc>
         <lastmod>2018-03-02T08:21:02.144Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -193,6 +179,20 @@
     <url>
         <loc>http://yoursite.com/tags/centos/</loc>
         <lastmod>2018-03-02T08:30:46.731Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/linux/</loc>
+        <lastmod>2018-03-05T02:10:24.623Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/LNMP/</loc>
+        <lastmod>2018-03-05T02:10:24.623Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
