@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/04/15/PHP%20curl%20returns%20(35)%20SSL%20connect%20error/</loc>
+        <lastmod>2018-04-15T08:50:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2017/12/23/php%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/</loc>
         <lastmod>2018-03-18T08:54:44.000Z</lastmod>
         <changefreq>weekly</changefreq>

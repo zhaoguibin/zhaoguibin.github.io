@@ -163,13 +163,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/centos/</loc>
-        <lastmod>2018-03-05T02:59:23.071Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/git/</loc>
         <lastmod>2018-03-05T02:59:23.071Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -191,8 +184,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/tags/centos/</loc>
+        <lastmod>2018-04-15T08:50:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/php/</loc>
-        <lastmod>2018-03-18T08:54:44.000Z</lastmod>
+        <lastmod>2018-04-15T08:50:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/nss/</loc>
+        <lastmod>2018-04-15T08:50:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
