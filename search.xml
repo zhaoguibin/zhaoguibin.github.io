@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[netstat命令]]></title>
+    <url>%2F2018%2F05%2F01%2Fnetstat%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[1234netstat -anp | grep 端口号telnet 127.0.0.1 9501ps aft | grep tcp.phppstree -p 22727]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[正则^的用法]]></title>
+    <url>%2F2018%2F05%2F01%2F%E6%AD%A3%E5%88%99%5E%E7%9A%84%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[^在[]外面表示以[]里的字符为首^在[]里面表示不匹配[]里的字符]]></content>
+      <tags>
+        <tag>正则</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[yum update和yum upgrade区别]]></title>
+    <url>%2F2018%2F05%2F01%2Fyum%20%20update%E5%92%8Cyum%20%20upgrade%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[12345yum -y update#升级所有包同时也升级软件和系统内核yum -y upgrade#只升级所有包，不升级软件和系统内核]]></content>
+      <tags>
+        <tag>centos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS--su和sudo]]></title>
+    <url>%2F2018%2F05%2F01%2FCentOS--su%E5%92%8Csudo%2F</url>
+    <content type="text"><![CDATA[su命令1su - root 一旦在使用su命令登录root，用户获取了系统的绝对管理权限 只允许特定用户使用该su命令要做到这一点，编辑插入式验证模块为（PAM）配置文件/etc/pam.d/su 在文本编辑器中打开该文件，取消注释：1#auth required pam_wheel.so use_uid 将用户添加到名为wheel的特殊管理组1usermod -a -G wheel username sudo命令只有/etc/sudoers配置文件中列出的用户才可以使用该sudo命令，命令在用户的 shell中执行，而不是在rootshell中执行。这意味着root可以完全禁用shell。1sudo ls /root 每个使用该sudo命令的成功身份验证都会记录到/var/log/messages，并将的用户和发出的命令记录到文件/var/log/secure中。 /var/log/secure1cat /var/log/secure #查看记录 如果需要额外的日志记录，请使用该pam_tty_audit模块为指定用户启用TTY审计，方法是将以下行添加到/etc/pam.d/system-auth文件中：1session required pam_tty_audit.so disable=pattern enable=pattern 其中pattern表示逗号分隔的用户列表，以下配置将启用root用户的TTY审计，并禁用所有其他用户1session required pam_tty_audit.so disable=* enable=root 权限管理要赋予某人完全的管理权限： 用visudo命令编辑/etc/sudoers1gabe ALL =（ALL）ALL #允许gabe使用sudo执行任何命令 赋予部分管理权限1%users ALL=/sbin/mount /mnt/cdrom, /sbin/umount /mnt/cdrom #允许users组中的成员执行执行的挂载磁盘命令 不需要输入sudo密码执行一组命令12Cmnd_Alias SYS_BACKUP = /bin/su - root -c /usr/locale/sbin/sys_backup.sh,/mnt/cdrominsmsop1 ALL=(ALL) NOPASSWD: SYS_BACKUP 配置sudo记录密码的时间sudo将密码保存五分钟的超时时间。在此期间对该命令的任何后续使用都不会提示用户输入密码。添加下面的一行将修改时间1Defaults timestamp_timeout=value #value=0,每次sudo都需要输入密码 如果某个帐户遭到入侵，攻击者可以使用以下sudo管理权限打开一个新的shell：1sudo /bin/bash #绕过/etc/sudoers文件中指定的超时时间，并且永远不要求攻击者sudo再次输入密码]]></content>
+      <tags>
+        <tag>centos</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PHP curl returns (35) SSL connect error]]></title>
     <url>%2F2018%2F04%2F15%2FPHP%20curl%20returns%20(35)%20SSL%20connect%20error%2F</url>
     <content type="text"><![CDATA[用PHP cURL来获取https链接的页面，出现错误PHP curl returns (35) SSL connect error，找到一个方法，记录一下，以免忘记。 解决方法：1yum update nss Q:但是，什么是NSS呢？ A:curl模块的ssl 支持默认为NSS,网络安全服务（NSS） The Network Security Services (NSS) 再来个详细解释https://serverfault.com/questions/606135/curl-35-ssl-connect-error/642203#642203]]></content>

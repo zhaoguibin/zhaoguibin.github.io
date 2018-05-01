@@ -1165,7 +1165,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/PHP curl returns (35) SSL connect error/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/netstat命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -1184,7 +1184,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/PHP curl returns (35) SSL connect error/" itemprop="url">PHP curl returns (35) SSL connect error</a></h1>
+                <a class="post-title-link" href="/2018/05/01/netstat命令/" itemprop="url">netstat命令</a></h1>
         
 
         <div class="post-meta">
@@ -1196,8 +1196,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T16:35:47+08:00">
-                2018-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T16:19:27+08:00">
+                2018-05-01
               </time>
             
 
@@ -1236,12 +1236,7 @@
       
         
           
-            <p>用PHP cURL来获取https链接的页面，出现错误PHP curl returns (35) SSL connect error，<br>找到一个方法，记录一下，以免忘记。</p>
-<p>解决方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update nss</span><br></pre></td></tr></table></figure></p>
-<p>Q:但是，什么是NSS呢？</p>
-<p>A:curl模块的ssl 支持默认为NSS,网络安全服务（NSS）</p>
-<p><a href="http://www.linuxfromscratch.org/blfs/view/svn/postlfs/nss.html" target="_blank" rel="noopener">The Network Security Services (NSS)</a></p>
-<p>再来个详细解释<br><a href="https://serverfault.com/questions/606135/curl-35-ssl-connect-error/642203#642203" target="_blank" rel="noopener"><br>https://serverfault.com/questions/606135/curl-35-ssl-connect-error/642203#642203<br></a></p>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 端口号</span><br><span class="line">telnet 127.0.0.1 9501</span><br><span class="line">ps aft | grep tcp.php</span><br><span class="line">pstree -p 22727</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1290,7 +1285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/centos7设置IP白名单/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/正则^的用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -1309,7 +1304,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/02/centos7设置IP白名单/" itemprop="url">centos7设置IP白名单</a></h1>
+                <a class="post-title-link" href="/2018/05/01/正则^的用法/" itemprop="url">正则^的用法</a></h1>
         
 
         <div class="post-meta">
@@ -1321,8 +1316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T20:23:52+08:00">
-                2018-03-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T16:14:31+08:00">
+                2018-05-01
               </time>
             
 
@@ -1361,14 +1356,7 @@
       
         
           
-            <p>编辑iptables配置文件，将文件内容更改为如下，则具备了ip地址白名单功能</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/iptables</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1 *filter</span><br><span class="line">2 :INPUT ACCEPT [0:0]</span><br><span class="line">3 :FORWARD ACCEPT [0:0]</span><br><span class="line">4 :OUTPUT ACCEPT [0:0]</span><br><span class="line">5</span><br><span class="line">6 -N whitelist</span><br><span class="line">7 -A whitelist -s 1.2.3.0/24 -j ACCEPT</span><br><span class="line">8 -A whitelist -s 4.5.6.7 -j ACCEPT</span><br><span class="line">9</span><br><span class="line">10 -A INPUT -m state --state RELATED,ESTABLISHED -j whitelist</span><br><span class="line">11 -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j whitelist</span><br><span class="line">12 -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j whitelist</span><br><span class="line">13 -A INPUT -p icmp -j ACCEPT</span><br><span class="line">14 -A INPUT -i lo -j ACCEPT</span><br><span class="line">15 -A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">16 -A FORWARD -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">17 COMMIT</span><br></pre></td></tr></table></figure>
-<p>6~8 行是添加白名单列表，可以是ip段或者单个ip地址</p>
-<p>10~12行 注意的是“-j whitelist”而不是“-j ACCEPT”，前者将该端口访问权限限制在白名单内，后者为不限制</p>
-<p>13行 任何ip地址都能ping通该主机，因为“-j ACCEPT”没有做相应限制</p>
-<p>配置完毕后，运行命令重启防火墙使规则生效</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart iptables.service</span><br></pre></td></tr></table></figure>
+            <p>^在[]外面表示以[]里的字符为首<br>^在[]里面表示不匹配[]里的字符</p>
 
           
         
@@ -1417,7 +1405,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/php下载文件简单实例/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/yum  update和yum  upgrade区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -1436,7 +1424,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/02/php下载文件简单实例/" itemprop="url">php下载文件简单实例</a></h1>
+                <a class="post-title-link" href="/2018/05/01/yum  update和yum  upgrade区别/" itemprop="url">yum  update和yum  upgrade区别</a></h1>
         
 
         <div class="post-meta">
@@ -1448,8 +1436,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T20:16:49+08:00">
-                2018-03-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T16:10:19+08:00">
+                2018-05-01
               </time>
             
 
@@ -1488,7 +1476,7 @@
       
         
           
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Spider</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">downloadImage</span><span class="params">($url, $path=<span class="string">'images/'</span>)</span></span></span><br><span class="line"><span class="function">          </span>&#123;</span><br><span class="line">                $ch = curl_init();</span><br><span class="line">                curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">                curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, <span class="number">30</span>);</span><br><span class="line">                $file = curl_exec($ch);</span><br><span class="line">                curl_close($ch);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">$this</span>-&gt;saveAsImage($url, $file, $path);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">saveAsImage</span><span class="params">($url, $file, $path)</span></span></span><br><span class="line"><span class="function">          </span>&#123;</span><br><span class="line">                $filename = pathinfo($url, PATHINFO_BASENAME);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(!file_exists($path))&#123;</span><br><span class="line">                   mkdir($path,<span class="number">0777</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                $resource = fopen($path . $filename, <span class="string">'a'</span>);</span><br><span class="line">                fwrite($resource, $file);</span><br><span class="line">                fclose($resource);</span><br><span class="line">          &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$str = file_get_contents(<span class="string">"http://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&amp;mkt=en-US"</span>);</span><br><span class="line">$arr = json_decode($str,<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">$img_url = <span class="string">'http://www.bing.com'</span>.$arr[<span class="string">'images'</span>][<span class="number">0</span>][<span class="string">'url'</span>];</span><br><span class="line">$img = <span class="keyword">new</span> Spider();</span><br><span class="line">$img-&gt;downloadImage($img_url);</span><br></pre></td></tr></table></figure>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br><span class="line"><span class="comment">#升级所有包同时也升级软件和系统内核</span></span><br><span class="line"></span><br><span class="line">yum -y upgrade</span><br><span class="line"><span class="comment">#只升级所有包，不升级软件和系统内核</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1528,7 +1516,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1578,7 +1566,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">92</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1591,7 +1579,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
