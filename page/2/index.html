@@ -1366,26 +1366,15 @@
 
       
         
-          
-            <p>前几天修改数据库表，结果数据库就卡死了，通过命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show processlist</span><br></pre></td></tr></table></figure></p>
+          <p>前几天修改数据库表，结果数据库就卡死了，通过命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show processlist</span><br></pre></td></tr></table></figure></p>
 <p>发现 Waiting for table metadata lock状态的连接，幸好这个状态的连接不多，kill掉这些连接就可以了。</p>
-<p>通过google之后知道MySQL在进行一些alter table等DDL(Data Definition Language)操作时，如果该表上有未提交的事务的话就会出现 Waiting for table metadata lock而一旦出现metadata lock，该表上的后续操作都会被阻塞。</p>
-<h5 id="查看未提交事务"><a href="#查看未提交事务" class="headerlink" title="查看未提交事务"></a>查看未提交事务</h5><p>从 information_schema.innodb_trx 表中查看当前未提交的事务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select trx_state, trx_started, trx_mysql_thread_id, trx_query from information_schema.innodb_trx\G</span><br></pre></td></tr></table></figure></p>
-<p>（\G作为结束符时，MySQL Client会把结果以列模式展示，对于列比较长的表，展示更直观）</p>
-<p>字段意义：</p>
-<ul>
-<li>trx_state: 事务状态，一般为RUNNING</li>
-<li>trx_started: 事务执行的起始时间，若时间较长，则要分析该事务是否合理</li>
-<li>trx_mysql_thread_id: MySQL的线程ID，用于kill</li>
-<li>trx_query: 事务中的sql</li>
-</ul>
-<p>一般只要kill掉这些线程，DDL操作就不会Waiting for table metadata lock。</p>
-<h5 id="调整锁超时阈值"><a href="#调整锁超时阈值" class="headerlink" title="调整锁超时阈值"></a>调整锁超时阈值</h5><p>lock_wait_timeout 表示获取metadata lock的超时（单位为秒），允许的值范围为1到31536000（1年）。 默认值为31536000。详见 <a href="https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_lock_wait_timeout" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_lock_wait_timeout</a> 。默认值为一年！！！已哭瞎！将其调整为30分钟</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set session lock_wait_timeout = 1800;</span><br><span class="line">set global lock_wait_timeout = 1800;</span><br></pre></td></tr></table></figure>
-<p>好让出现该问题时快速故障（failfast）</p>
-<p><a href="https://blog.csdn.net/u013235478/article/details/68062939" target="_blank">借鉴与-https://blog.csdn.net/u013235478/article/details/68062939</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/30/解决MySQL出现 Waiting for table metadata lock 问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

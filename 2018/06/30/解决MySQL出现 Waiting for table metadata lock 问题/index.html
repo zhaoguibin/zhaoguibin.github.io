@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="前几天修改数据库表，结果数据库就卡死了，通过命令1show processlist 发现 Waiting for table metadata lock状态的连接，幸好这个状态的连接不多，kill掉这些连接就可以了。 通过google之后知道MySQL在进行一些alter table等DDL(Data Definiti">
+<meta name="description" content="前几天修改数据库表，结果数据库就卡死了，通过命令1show processlist 发现 Waiting for table metadata lock状态的连接，幸好这个状态的连接不多，kill掉这些连接就可以了。">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决MySQL出现 Waiting for table metadata lock 问题">
 <meta property="og:url" content="http://yoursite.com/2018/06/30/解决MySQL出现 Waiting for table metadata lock 问题/index.html">
 <meta property="og:site_name" content="zhaoguibin">
-<meta property="og:description" content="前几天修改数据库表，结果数据库就卡死了，通过命令1show processlist 发现 Waiting for table metadata lock状态的连接，幸好这个状态的连接不多，kill掉这些连接就可以了。 通过google之后知道MySQL在进行一些alter table等DDL(Data Definition Language)操作时，如果该表上有未提交的事务的话就会出现 Waiti">
+<meta property="og:description" content="前几天修改数据库表，结果数据库就卡死了，通过命令1show processlist 发现 Waiting for table metadata lock状态的连接，幸好这个状态的连接不多，kill掉这些连接就可以了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-30T04:55:01.000Z">
+<meta property="og:updated_time" content="2018-06-30T05:15:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决MySQL出现 Waiting for table metadata lock 问题">
-<meta name="twitter:description" content="前几天修改数据库表，结果数据库就卡死了，通过命令1show processlist 发现 Waiting for table metadata lock状态的连接，幸好这个状态的连接不多，kill掉这些连接就可以了。 通过google之后知道MySQL在进行一些alter table等DDL(Data Definition Language)操作时，如果该表上有未提交的事务的话就会出现 Waiti">
+<meta name="twitter:description" content="前几天修改数据库表，结果数据库就卡死了，通过命令1show processlist 发现 Waiting for table metadata lock状态的连接，幸好这个状态的连接不多，kill掉这些连接就可以了。">
 
 
 
@@ -350,6 +350,7 @@
       
         <p>前几天修改数据库表，结果数据库就卡死了，通过命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show processlist</span><br></pre></td></tr></table></figure></p>
 <p>发现 Waiting for table metadata lock状态的连接，幸好这个状态的连接不多，kill掉这些连接就可以了。</p>
+<a id="more"></a>
 <p>通过google之后知道MySQL在进行一些alter table等DDL(Data Definition Language)操作时，如果该表上有未提交的事务的话就会出现 Waiting for table metadata lock而一旦出现metadata lock，该表上的后续操作都会被阻塞。</p>
 <h5 id="查看未提交事务"><a href="#查看未提交事务" class="headerlink" title="查看未提交事务"></a>查看未提交事务</h5><p>从 information_schema.innodb_trx 表中查看当前未提交的事务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select trx_state, trx_started, trx_mysql_thread_id, trx_query from information_schema.innodb_trx\G</span><br></pre></td></tr></table></figure></p>
 <p>（\G作为结束符时，MySQL Client会把结果以列模式展示，对于列比较长的表，展示更直观）</p>
