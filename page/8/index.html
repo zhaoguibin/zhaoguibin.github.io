@@ -280,6 +280,130 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/CentOS-6-4-php-fpm-添加service-添加平滑启动-重启/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/03/CentOS-6-4-php-fpm-添加service-添加平滑启动-重启/" itemprop="url">CentOS-6-4-php-fpm-添加service-添加平滑启动-重启</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T16:28:16+08:00">
+                2017-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我的php是源码安装的。php-fpm在PHP 5.3.2以后的版本不支持以前的php-fpm (start|restart|stop|reload) ，那么如果将php-fpm配置成服务，并添加平滑启动/重启。<br>配置php-fpm.conf（vi /usr/local/php54/etc/php-fpm.conf）,将pid（;pid = run/php-fpm.pid）前的;去掉。<br>因为编译安装php的，所以会在php目录生成很多二进制文件，找到init.d.php-fpm，拷贝到init.d下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/<span class="built_in">local</span>/src/php54/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm</span><br></pre></td></tr></table></figure>
+<p>设置权限，并添加服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /etc/init.d/php-fpm</span><br><span class="line">chkconfig --add php-fpm</span><br></pre></td></tr></table></figure>
+<p>以后可以使用如下命令管理php-fpm了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service php-fpm start</span><br><span class="line">service php-fpm stop</span><br><span class="line">service php-fpm restart</span><br><span class="line">service php-fpm reload</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/MySQL使用Symbolic-Links以支持数据分区存储/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1399,131 +1523,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/安装golang/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/02/安装golang/" itemprop="url">安装golang</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T14:31:45+08:00">
-                2017-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>到官方<a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a></p>
-<p>或者 <a href="https://www.golangtc.com/download" target="_blank" rel="noopener">https://www.golangtc.com/download</a><br>下载安装包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.golangtc.com/static/go/1.9/go1.9.linux-amd64.tar.gz</span><br><span class="line">tar zxvf go1.9.linux-amd64.tar.gz -C /usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/02/安装golang/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1578,7 +1577,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-count">96</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

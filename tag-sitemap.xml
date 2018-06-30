@@ -170,13 +170,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/php/</loc>
-        <lastmod>2018-04-15T08:50:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/nss/</loc>
         <lastmod>2018-04-15T08:50:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -214,6 +207,13 @@
     <url>
         <loc>http://yoursite.com/tags/MySQL/</loc>
         <lastmod>2018-06-30T05:15:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/php/</loc>
+        <lastmod>2018-06-30T05:38:23.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
