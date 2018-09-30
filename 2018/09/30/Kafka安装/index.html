@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="kafka," />
 
 
 
@@ -83,16 +83,26 @@
 
 
 
-<meta name="description" content="个人平时问题记录">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhaoguibin">
-<meta property="og:url" content="http://yoursite.com/tags/php/page/2/index.html">
+<meta name="description" content="1.去kafka官网下载到最新的kafka安装包，选择下载二进制版本的tgz文件 2.环境需求：java运行环境 3.配置在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件 12345678910111213consumer.properites #消费者配置，这个配置文件用于配置于2.5节">
+<meta name="keywords" content="kafka">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka安装">
+<meta property="og:url" content="http://yoursite.com/2018/09/30/Kafka安装/index.html">
 <meta property="og:site_name" content="zhaoguibin">
-<meta property="og:description" content="个人平时问题记录">
+<meta property="og:description" content="1.去kafka官网下载到最新的kafka安装包，选择下载二进制版本的tgz文件 2.环境需求：java运行环境 3.配置在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件 12345678910111213consumer.properites #消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可producer.properties #">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%90%AF%E5%8A%A8zookeeper.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%90%AF%E5%8A%A8kafka.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAtopic.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E6%9F%A5%E7%9C%8B%E5%B7%B2%E7%BB%8F%E5%88%9B%E5%BB%BA%E7%9A%84topic.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E%E6%B6%88%E8%B4%B9topic%E4%B8%BAtest%E7%9A%84%E6%B6%88%E8%B4%B9%E8%80%85.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%B6%88%E6%81%AF%E7%94%9F%E4%BA%A7%E8%80%85.png">
+<meta property="og:image" content="https://github.com/zhaoguibin/hexo_blog_files/blob/master/kafka/%E7%BB%88%E7%AB%AF%E4%B8%AD%E5%B7%B2%E7%BB%8F%E6%89%93%E5%8D%B0%E5%87%BA%E4%BA%86%E6%88%91%E4%BB%AC%E5%88%9A%E6%89%8D%E5%8F%91%E9%80%81%E7%9A%84%E6%B6%88%E6%81%AF.png?raw=true">
+<meta property="og:updated_time" content="2018-09-30T07:37:39.704Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhaoguibin">
-<meta name="twitter:description" content="个人平时问题记录">
+<meta name="twitter:title" content="Kafka安装">
+<meta name="twitter:description" content="1.去kafka官网下载到最新的kafka安装包，选择下载二进制版本的tgz文件 2.环境需求：java运行环境 3.配置在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件 12345678910111213consumer.properites #消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可producer.properties #">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%90%AF%E5%8A%A8zookeeper.png">
 
 
 
@@ -122,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/php/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/30/Kafka安装/"/>
 
 
 
 
 
-  <title>标签: php | zhaoguibin</title>
+  <title>Kafka安装 | zhaoguibin</title>
   
 
 
@@ -147,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -265,86 +275,170 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>php<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/Kafka安装/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/12/03/php-fpm设置socket方式连接FastCGI/" itemprop="url">
-              
-                <span itemprop="name">php-fpm设置socket方式连接FastCGI</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Kafka安装</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-03T17:16:17+08:00"
-              content="2017-12-03" >
-          12-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T14:41:06+08:00">
+                2018-09-30
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/03/Centos中安装PHP的PDO-MySQL扩展/" itemprop="url">
-              
-                <span itemprop="name">Centos中安装PHP的PDO-MySQL扩展</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-03T16:36:45+08:00"
-              content="2017-12-03" >
-          12-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <p>1.去<a href="http://kafka.apache.org/downloads" target="_blank">kafka官网</a>下载到最新的kafka安装包，选择下载二进制版本的tgz文件</p>
+<p>2.环境需求：java运行环境</p>
+<p>3.配置<br>在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">consumer.properites <span class="comment">#消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可</span></span><br><span class="line"></span><br><span class="line">producer.properties <span class="comment">#生产者配置，这个配置文件用于配置于2.5节中开启的生产者，此处我们使用默认的即可</span></span><br><span class="line"></span><br><span class="line">server.properties <span class="comment">#kafka服务器的配置，此配置文件用来配置kafka服务器，目前仅介绍几个最基础的配置</span></span><br><span class="line"></span><br><span class="line">broker.id <span class="comment">#申明当前kafka服务器在集群中的唯一ID，需配置为integer,并且集群中的每一个kafka服务器的id都应是唯一的，我们这里采用默认配置即可</span></span><br><span class="line"></span><br><span class="line">listeners <span class="comment">#申明此kafka服务器需要监听的端口号，如果是在本机上跑虚拟机运行可以不用配置本项，默认会使用localhost的地址，如果是在远程服务器上运行则必须配置，例如：</span></span><br><span class="line">　　　　　<span class="comment">#listeners=PLAINTEXT:// 192.168.180.128:9092。并确保服务器的9092端口能够访问</span></span><br><span class="line"></span><br><span class="line">zookeeper.connect <span class="comment">#申明kafka所连接的zookeeper的地址 ，需配置为zookeeper的地址，由于本次使用的是kafka高版本中自带zookeeper，使用默认配置即可</span></span><br><span class="line">zookeeper.connect=localhost:2181</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>4.运行</p>
+<p>4.1 启动zookeeper<br>cd进入kafka解压目录，输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zookeeper-server-start.sh config/zookeeper.properties</span><br></pre></td></tr></table></figure></p>
+<p>启动zookeeper成功后会看到如下的输出</p>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%90%AF%E5%8A%A8zookeeper.png" alt="启动zookeeper"></p>
+<p>4.2. 启动kafka<br>cd进入kafka解压目录，输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-server-start.sh config/server.properties</span><br></pre></td></tr></table></figure></p>
+<p>启动kafka成功后会看到如下的输出<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%90%AF%E5%8A%A8kafka.png" alt="启动kafka"></p>
+<p>5.第一个消息<br>5.1 创建一个topic<br>Kafka通过topic对同一类的数据进行管理，同一类的数据使用同一个topic可以在处理数据时更加的便捷<br>在kafka解压目录打开终端，输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic beta</span><br></pre></td></tr></table></figure></p>
+<p>创建一个名为beta的topic<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAtopic.png" alt="创建一个topic"></p>
+<p>在创建topic后可以通过输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure></p>
+<p>来查看已经创建的topic<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E6%9F%A5%E7%9C%8B%E5%B7%B2%E7%BB%8F%E5%88%9B%E5%BB%BA%E7%9A%84topic.png" alt="查看已经创建的topic"></p>
+<p>5.2 创建一个消息消费者<br>在kafka解压目录打开终端，输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic beta --from-beginning</span><br></pre></td></tr></table></figure></p>
+<p>可以创建一个用于消费topic为beta的消费者<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E%E6%B6%88%E8%B4%B9topic%E4%B8%BAtest%E7%9A%84%E6%B6%88%E8%B4%B9%E8%80%85.png" alt="消费topic为beta的消费者"></p>
+<p>消费者创建完成之后，因为还没有发送任何数据，因此这里在执行后没有打印出任何数据不过别着急，不要关闭这个终端，打开一个新的终端，接下来我们创建第一个消息生产者</p>
+<p>5.3创建一个消息生产者</p>
+<p>在kafka解压目录打开一个新的终端，输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic beta</span><br></pre></td></tr></table></figure></p>
+<p>在执行完毕后会进入的编辑器页面<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%B6%88%E6%81%AF%E7%94%9F%E4%BA%A7%E8%80%85.png" alt="创建一个消息生产者"></p>
+<p>在发送完消息之后，可以回到我们的消息消费者终端中，可以看到，终端中已经打印出了我们刚才发送的消息</p>
+<p><img src="https://github.com/zhaoguibin/hexo_blog_files/blob/master/kafka/%E7%BB%88%E7%AB%AF%E4%B8%AD%E5%B7%B2%E7%BB%8F%E6%89%93%E5%8D%B0%E5%87%BA%E4%BA%86%E6%88%91%E4%BB%AC%E5%88%9A%E6%89%8D%E5%8F%91%E9%80%81%E7%9A%84%E6%B6%88%E6%81%AF.png?raw=true" alt="终端中已经打印出了我们刚才发送的消息"></p>
+<p><a href="https://www.cnblogs.com/hei12138/p/7805475.html" target="_blank">转载自：cnblogs–嘿123</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/kafka/" rel="tag"># kafka</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/30/Linux安装jdk/" rel="next" title="Linux安装jdk">
+                <i class="fa fa-chevron-left"></i> Linux安装jdk
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/php/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/tags/php/">1</a><span class="page-number current">2</span>
-  </nav>
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -352,6 +446,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -577,6 +675,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -951,26 +1053,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

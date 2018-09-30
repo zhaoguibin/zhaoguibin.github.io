@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Kafka安装]]></title>
+    <url>%2F2018%2F09%2F30%2FKafka%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[1.去kafka官网下载到最新的kafka安装包，选择下载二进制版本的tgz文件 2.环境需求：java运行环境 3.配置在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件 12345678910111213consumer.properites #消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可producer.properties #生产者配置，这个配置文件用于配置于2.5节中开启的生产者，此处我们使用默认的即可server.properties #kafka服务器的配置，此配置文件用来配置kafka服务器，目前仅介绍几个最基础的配置broker.id #申明当前kafka服务器在集群中的唯一ID，需配置为integer,并且集群中的每一个kafka服务器的id都应是唯一的，我们这里采用默认配置即可listeners #申明此kafka服务器需要监听的端口号，如果是在本机上跑虚拟机运行可以不用配置本项，默认会使用localhost的地址，如果是在远程服务器上运行则必须配置，例如： #listeners=PLAINTEXT:// 192.168.180.128:9092。并确保服务器的9092端口能够访问zookeeper.connect #申明kafka所连接的zookeeper的地址 ，需配置为zookeeper的地址，由于本次使用的是kafka高版本中自带zookeeper，使用默认配置即可zookeeper.connect=localhost:2181 4.运行 4.1 启动zookeepercd进入kafka解压目录，输入1bin/zookeeper-server-start.sh config/zookeeper.properties 启动zookeeper成功后会看到如下的输出 4.2. 启动kafkacd进入kafka解压目录，输入1bin/kafka-server-start.sh config/server.properties 启动kafka成功后会看到如下的输出 5.第一个消息5.1 创建一个topicKafka通过topic对同一类的数据进行管理，同一类的数据使用同一个topic可以在处理数据时更加的便捷在kafka解压目录打开终端，输入1bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic beta 创建一个名为beta的topic 在创建topic后可以通过输入1bin/kafka-topics.sh --list --zookeeper localhost:2181 来查看已经创建的topic 5.2 创建一个消息消费者在kafka解压目录打开终端，输入1bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic beta --from-beginning 可以创建一个用于消费topic为beta的消费者 消费者创建完成之后，因为还没有发送任何数据，因此这里在执行后没有打印出任何数据不过别着急，不要关闭这个终端，打开一个新的终端，接下来我们创建第一个消息生产者 5.3创建一个消息生产者 在kafka解压目录打开一个新的终端，输入1bin/kafka-console-producer.sh --broker-list localhost:9092 --topic beta 在执行完毕后会进入的编辑器页面 在发送完消息之后，可以回到我们的消息消费者终端中，可以看到，终端中已经打印出了我们刚才发送的消息 转载自：cnblogs–嘿123]]></content>
+      <tags>
+        <tag>kafka</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux安装jdk]]></title>
     <url>%2F2018%2F09%2F30%2FLinux%E5%AE%89%E8%A3%85jdk%2F</url>
     <content type="text"><![CDATA[到oracle官网下载二进制压缩文件 1.解压2.编辑/etc/profile，添加以下配置1234export JAVA_HOME=/opt/src/jdk1.8.0_171export JRE_HOME=/opt/src/jdk1.8.0_171/jreexport PATH=$PATH:/opt/src/jdk1.8.0_171/binexport CLASSPATH=./:/opt/src/jdk1.8.0_171/lib:/opt/src/jdk1.8.0_171/jre/lib 3.刷新配置1source /etc/profile 4.查看配置是否生效1java -version 5.出现以下信息就安装成功了123java version "1.8.0_171"Java(TM) SE Runtime Environment (build 1.8.0_171-b11)Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)]]></content>
