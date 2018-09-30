@@ -100,13 +100,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/virtualbox/</loc>
-        <lastmod>2018-03-05T02:59:21.129Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/ubuntu/</loc>
         <lastmod>2018-03-05T02:59:21.156Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -184,13 +177,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/linux/</loc>
-        <lastmod>2018-05-01T08:19:56.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/%E6%AD%A3%E5%88%99/</loc>
         <lastmod>2018-05-05T06:50:31.488Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -205,15 +191,43 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/mysql/</loc>
-        <lastmod>2018-06-30T05:45:26.000Z</lastmod>
+        <loc>http://yoursite.com/tags/SQLserver/</loc>
+        <lastmod>2018-07-21T06:25:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/SQLserver/</loc>
-        <lastmod>2018-07-21T06:25:45.000Z</lastmod>
+        <loc>http://yoursite.com/tags/virtualbox/</loc>
+        <lastmod>2018-09-30T02:40:48.423Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/linux/</loc>
+        <lastmod>2018-09-30T06:14:58.624Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/jdk/</loc>
+        <lastmod>2018-09-30T06:14:58.624Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/docker/</loc>
+        <lastmod>2018-09-30T06:14:58.696Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/mysql/</loc>
+        <lastmod>2018-09-30T06:20:01.985Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

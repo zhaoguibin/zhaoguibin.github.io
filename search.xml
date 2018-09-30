@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux安装jdk]]></title>
+    <url>%2F2018%2F09%2F30%2FLinux%E5%AE%89%E8%A3%85jdk%2F</url>
+    <content type="text"><![CDATA[到oracle官网下载二进制压缩文件 1.解压2.编辑/etc/profile，添加以下配置1234export JAVA_HOME=/opt/src/jdk1.8.0_171export JRE_HOME=/opt/src/jdk1.8.0_171/jreexport PATH=$PATH:/opt/src/jdk1.8.0_171/binexport CLASSPATH=./:/opt/src/jdk1.8.0_171/lib:/opt/src/jdk1.8.0_171/jre/lib 3.刷新配置1source /etc/profile 4.查看配置是否生效1java -version 5.出现以下信息就安装成功了123java version "1.8.0_171"Java(TM) SE Runtime Environment (build 1.8.0_171-b11)Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>jdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker保存对容器的修改]]></title>
+    <url>%2F2018%2F09%2F30%2Fdocker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9%2F</url>
+    <content type="text"><![CDATA[1docker commit 容器ID 要保存的镜像名称]]></content>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker 不能运行 systemctl]]></title>
+    <url>%2F2018%2F09%2F30%2Fdocker%20%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%20systemctl%2F</url>
+    <content type="text"><![CDATA[docker centos7运行systemctl start nginx 报错：1Failed to get D-BUS connection: Operation no permitted 解决方法： 在启动容器的时候添加上-d参数就可以了123docker run -itd --privileged -p 3306:3306 -v /opt/data/:/opt/mysql/data 镜像ID /usr/sbin/initdocker exec -it 容器ID /bin/bash]]></content>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SQL纵向变成横向，横向变成纵向]]></title>
+    <url>%2F2018%2F09%2F30%2FSQL%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%EF%BC%8C%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91%2F</url>
+    <content type="text"><![CDATA[纵向变成横向 Name Subject Result 张三 语文 73 张三 数学 83 张三 物理 93 李四 语文 74 李四 数学 84 李四 物理 94 转换成 姓名 语文 数学 物理 李四 74 84 94 张三 73 83 93 建表插入数据1234567891011121314CREATE TABLE students ( `Name` VARCHAR (50), `Subject` VARCHAR (50), `Result` INT (11));INSERT INTO studentsVALUES (&apos;张三&apos;, &apos;语文&apos;, &apos;73&apos;), (&apos;张三&apos;, &apos;数学&apos;, &apos;83&apos;), (&apos;张三&apos;, &apos;物理&apos;, &apos;93&apos;), (&apos;李四&apos;, &apos;语文&apos;, &apos;74&apos;), (&apos;李四&apos;, &apos;数学&apos;, &apos;84&apos;), (&apos;李四&apos;, &apos;物理&apos;, &apos;94&apos;); 转换语句这里的SUM也可以用MAX替代，都是取一条数据 123456789101112131415161718192021222324252627282930SELECT `Name` AS 姓名, SUM( CASE `Subject` WHEN &apos;语文&apos; THEN `Result` ELSE 0 END ) AS &apos;语文&apos;, SUM( CASE `Subject` WHEN &apos;数学&apos; THEN `Result` ELSE 0 END ) AS &apos;数学&apos;, SUM( CASE `Subject` WHEN &apos;物理&apos; THEN `Result` ELSE 0 END ) AS &apos;物理&apos;FROM studentsGROUP BY NAME 横向变成纵向 姓名 语文 数学 物理 李四 74 84 94 张三 73 83 93 转换成 Name Subject Result 张三 语文 73 张三 数学 83 张三 物理 93 李四 语文 74 李四 数学 84 李四 物理 94 建表插入数据12345678910111213141516CREATE TABLE students_1 ( `姓名` VARCHAR (50), `语文` VARCHAR (50), `数学` VARCHAR (50), `物理` VARCHAR (50));INSERT INTO `students_1` ( `姓名`, `语文`, `数学`, `物理`)VALUES (&apos;张三&apos;, &apos;73&apos;, &apos;83&apos;, &apos;93&apos;), (&apos;李四&apos;, &apos;74&apos;, &apos;84&apos;, &apos;94&apos;); 转换语句12345SELECT `姓名` AS &apos;Name&apos;, `语文` AS &apos;Subject&apos;, `语文` AS &apos;Result&apos; FROM students_1 UNIONSELECT `姓名` AS &apos;Name&apos;, `数学` AS &apos;Subject&apos;, `数学` AS &apos;Result&apos; FROM students_1 UNIONSELECT `姓名` AS &apos;Name&apos;, `物理` AS &apos;Subject&apos;, `物理` AS &apos;Result&apos; FROM students_1ORDER BY`Name` DESC 参考自：CSDN-会飞的鱼online]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL查询字段在哪个表]]></title>
+    <url>%2F2018%2F09%2F30%2FMySQL%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[查询pwd字段在哪个数据库哪个表1234567SELECT TABLE_SCHEMA, TABLE_NAMEFROM information_schema.`COLUMNS`WHERE COLUMN_NAME = &apos;pwd&apos; 查询pwd字段在ERP数据库的哪个表12345678SELECT TABLE_SCHEMA, TABLE_NAMEFROM information_schema.`COLUMNS`WHERE COLUMN_NAME = &apos;pwd&apos;AND TABLE_SCHEMA = &apos;ERP&apos;]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[卸载SQL Server 2017 出现警告26003]]></title>
     <url>%2F2018%2F07%2F21%2F%E5%8D%B8%E8%BD%BDSQL%20Server%202017%20%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003%2F</url>
     <content type="text"><![CDATA[卸载SQLserver出现以下问题，把解决方法记录下来，留着以后备用提示信息： 解决方法： 可以使用：WMIC（windows Management Instrumentation Command-line） 列出当前系统上安装的应用程序，最后使用MSIEXEC /X 将其卸载 打开 CMD(命令提示符)输入命令：123WMICProduct listmsiexec /x &#123;IdentifyingNumbe&#125;]]></content>
@@ -697,7 +738,7 @@
   <entry>
     <title><![CDATA[virtualbox下centos挂载共享文件夹]]></title>
     <url>%2F2017%2F12%2F02%2Fvirtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%2F</url>
-    <content type="text"><![CDATA[PS:要挂载共享文件，需要安装virtualbox增强功能(增强包)安装virtualbox增强功能(增强包)：https://www.baidu.com 设备—&gt;共享文件夹宿主机 共享路径:E:\project, 共享文件夹名称project 123mkdir /mnt/share //新建挂载点（mountpoint）mount -t vboxsf project /mnt/share // 挂载共享文件夹cd /mnt/share 进入共享文件夹 OK实现 开机挂载: vi ~/.bashrc在最后添加1mount -t vboxsf sharing /mnt/share 挂载共享文件夹]]></content>
+    <content type="text"><![CDATA[PS:要挂载共享文件，需要安装virtualbox增强功能(增强包)安装virtualbox增强功能(增强包)：安装virtualbox增强功能(增强包) 设备—&gt;共享文件夹宿主机 共享路径:E:\project, 共享文件夹名称project 123mkdir /mnt/share //新建挂载点（mountpoint）mount -t vboxsf project /mnt/share // 挂载共享文件夹cd /mnt/share 进入共享文件夹 OK实现 开机挂载: vi ~/.bashrc在最后添加1mount -t vboxsf sharing /mnt/share 挂载共享文件夹]]></content>
       <tags>
         <tag>linux</tag>
         <tag>virtualbox</tag>
