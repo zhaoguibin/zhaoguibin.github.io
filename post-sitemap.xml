@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2017/12/01/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</loc>
+        <lastmod>2018-11-09T01:54:39.190Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2017/12/16/nginx%E9%85%8D%E7%BD%AEHTTPS/</loc>
         <lastmod>2018-11-09T01:31:46.944Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -529,14 +537,6 @@
     <url>
         <loc>http://yoursite.com/2018/01/05/Laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99RuntimeException%20No%20application%20encryption%20key%20has%20been%20specified./</loc>
         <lastmod>2018-03-05T02:59:20.144Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/01/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</loc>
-        <lastmod>2018-03-05T02:59:20.092Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
