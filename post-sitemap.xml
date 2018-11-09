@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/11/09/Nginx%E4%BD%BF%E7%94%A8brotli/</loc>
+        <lastmod>2018-11-09T03:20:56.781Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/11/09/MySQL%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/</loc>
+        <lastmod>2018-11-09T02:53:57.976Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2017/12/01/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</loc>
         <lastmod>2018-11-09T01:54:39.190Z</lastmod>
         <changefreq>weekly</changefreq>
