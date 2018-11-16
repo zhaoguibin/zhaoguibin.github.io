@@ -7,8 +7,32 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/11/16/Linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDIP%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/</loc>
+        <lastmod>2018-11-16T11:45:39.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/11/16/centos%E4%BF%AE%E6%94%B9IP/</loc>
+        <lastmod>2018-11-16T11:45:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/11/09/Nginx%E4%BD%BF%E7%94%A8brotli/</loc>
-        <lastmod>2018-11-09T03:20:56.781Z</lastmod>
+        <lastmod>2018-11-16T11:45:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/12/16/nginx%E9%85%8D%E7%BD%AEHTTPS/</loc>
+        <lastmod>2018-11-16T11:25:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,14 +49,6 @@
     <url>
         <loc>http://yoursite.com/2017/12/01/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</loc>
         <lastmod>2018-11-09T01:54:39.190Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/12/16/nginx%E9%85%8D%E7%BD%AEHTTPS/</loc>
-        <lastmod>2018-11-09T01:31:46.944Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -156,13 +156,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/centos/</loc>
-        <lastmod>2018-05-01T08:11:44.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/%E6%AD%A3%E5%88%99/</loc>
         <lastmod>2018-05-05T06:50:31.488Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -186,13 +179,6 @@
     <url>
         <loc>http://yoursite.com/tags/virtualbox/</loc>
         <lastmod>2018-09-30T02:40:48.423Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/linux/</loc>
-        <lastmod>2018-09-30T06:14:58.624Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -234,7 +220,28 @@
 
     <url>
         <loc>http://yoursite.com/tags/nginx/</loc>
-        <lastmod>2018-11-09T03:20:56.781Z</lastmod>
+        <lastmod>2018-11-16T11:45:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/centos/</loc>
+        <lastmod>2018-11-16T11:45:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/linux/</loc>
+        <lastmod>2018-11-16T11:45:39.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/iptables/</loc>
+        <lastmod>2018-11-16T11:45:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

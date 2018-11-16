@@ -83,13 +83,13 @@
 
 
 
-<meta name="description" content="在nginx的conf目录下新增ssl目录，并进入。生成服务器端的私钥(key文件):1openssl genrsa -des3 -out server.key 2048  运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过op">
+<meta name="description" content="PS：设置HTTPS nginx需要添加ssl模块 –with-http_ssl_module在nginx的conf目录下新增ssl目录，并进入。生成服务器端的私钥(key文件):1openssl genrsa -des3 -out server.key 2048  运行时会提示输入密码,此密码用于加密key文件(参数">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx配置HTTPS">
 <meta property="og:url" content="http://yoursite.com/2017/12/16/nginx配置HTTPS/index.html">
 <meta property="og:site_name" content="zhaoguibin">
-<meta property="og:description" content="在nginx的conf目录下新增ssl目录，并进入。生成服务器端的私钥(key文件):1openssl genrsa -des3 -out server.key 2048  运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过openssl提供的命令或API)都需输入口令.如果觉得不方便,也可以去除这个口令,">
+<meta property="og:description" content="PS：设置HTTPS nginx需要添加ssl模块 –with-http_ssl_module在nginx的conf目录下新增ssl目录，并进入。生成服务器端的私钥(key文件):1openssl genrsa -des3 -out server.key 2048  运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/nginx_ssl/1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/nginx_ssl/2.png">
@@ -102,10 +102,10 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/nginx_ssl/7.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/nginx_ssl/8.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/nginx_ssl/9.png">
-<meta property="og:updated_time" content="2018-11-09T01:31:46.944Z">
+<meta property="og:updated_time" content="2018-11-16T11:25:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx配置HTTPS">
-<meta name="twitter:description" content="在nginx的conf目录下新增ssl目录，并进入。生成服务器端的私钥(key文件):1openssl genrsa -des3 -out server.key 2048  运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过openssl提供的命令或API)都需输入口令.如果觉得不方便,也可以去除这个口令,">
+<meta name="twitter:description" content="PS：设置HTTPS nginx需要添加ssl模块 –with-http_ssl_module在nginx的conf目录下新增ssl目录，并进入。生成服务器端的私钥(key文件):1openssl genrsa -des3 -out server.key 2048  运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/nginx_ssl/1.png">
 
 
@@ -360,7 +360,7 @@
       
 
       
-        <h6 id="在nginx的conf目录下新增ssl目录，并进入。"><a href="#在nginx的conf目录下新增ssl目录，并进入。" class="headerlink" title="在nginx的conf目录下新增ssl目录，并进入。"></a>在nginx的conf目录下新增ssl目录，并进入。<br></h6><h6 id="生成服务器端的私钥-key文件"><a href="#生成服务器端的私钥-key文件" class="headerlink" title="生成服务器端的私钥(key文件):"></a>生成服务器端的私钥(key文件):</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -des3 -out server.key 2048</span><br></pre></td></tr></table></figure>
+        <h6 id="PS：设置HTTPS-nginx需要添加ssl模块-–with-http-ssl-module"><a href="#PS：设置HTTPS-nginx需要添加ssl模块-–with-http-ssl-module" class="headerlink" title="PS：设置HTTPS nginx需要添加ssl模块 –with-http_ssl_module"></a>PS：设置HTTPS nginx需要添加ssl模块 –with-http_ssl_module</h6><h6 id="在nginx的conf目录下新增ssl目录，并进入。"><a href="#在nginx的conf目录下新增ssl目录，并进入。" class="headerlink" title="在nginx的conf目录下新增ssl目录，并进入。"></a>在nginx的conf目录下新增ssl目录，并进入。<br></h6><h6 id="生成服务器端的私钥-key文件"><a href="#生成服务器端的私钥-key文件" class="headerlink" title="生成服务器端的私钥(key文件):"></a>生成服务器端的私钥(key文件):</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -des3 -out server.key 2048</span><br></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/nginx_ssl/1.png" alt="nginx配置HTTPS"></p>
 <h6 id="运行时会提示输入密码-此密码用于加密key文件-参数des3便是指加密算法-当然也可以选用其他你认为安全的算法-以后每当需读取此文件-通过openssl提供的命令或API-都需输入口令-如果觉得不方便-也可以去除这个口令-但一定要采取其他的保护措施"><a href="#运行时会提示输入密码-此密码用于加密key文件-参数des3便是指加密算法-当然也可以选用其他你认为安全的算法-以后每当需读取此文件-通过openssl提供的命令或API-都需输入口令-如果觉得不方便-也可以去除这个口令-但一定要采取其他的保护措施" class="headerlink" title="运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过openssl提供的命令或API)都需输入口令.如果觉得不方便,也可以去除这个口令,但一定要采取其他的保护措施!"></a>运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过openssl提供的命令或API)都需输入口令.如果觉得不方便,也可以去除这个口令,但一定要采取其他的保护措施!</h6><p>去除key文件口令的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -<span class="keyword">in</span> server.key -out server.key</span><br></pre></td></tr></table></figure></p>
 <h6 id="用刚生成的服务器私钥，生成证书请求文件。"><a href="#用刚生成的服务器私钥，生成证书请求文件。" class="headerlink" title="用刚生成的服务器私钥，生成证书请求文件。"></a>用刚生成的服务器私钥，生成证书请求文件。</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure>
@@ -508,7 +508,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">107</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -521,7 +521,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -570,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#在nginx的conf目录下新增ssl目录，并进入。"><span class="nav-number">1.</span> <span class="nav-text">在nginx的conf目录下新增ssl目录，并进入。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#生成服务器端的私钥-key文件"><span class="nav-number">2.</span> <span class="nav-text">生成服务器端的私钥(key文件):</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#运行时会提示输入密码-此密码用于加密key文件-参数des3便是指加密算法-当然也可以选用其他你认为安全的算法-以后每当需读取此文件-通过openssl提供的命令或API-都需输入口令-如果觉得不方便-也可以去除这个口令-但一定要采取其他的保护措施"><span class="nav-number">3.</span> <span class="nav-text">运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过openssl提供的命令或API)都需输入口令.如果觉得不方便,也可以去除这个口令,但一定要采取其他的保护措施!</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#用刚生成的服务器私钥，生成证书请求文件。"><span class="nav-number">4.</span> <span class="nav-text">用刚生成的服务器私钥，生成证书请求文件。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#同样的命令生成生成客户端的私钥-key-文件-和证书请求文件Certificate-Signing-Request（CSR）"><span class="nav-number">5.</span> <span class="nav-text">同样的命令生成生成客户端的私钥(key 文件)和证书请求文件Certificate Signing Request（CSR）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#生成的CSR证书文件必须有CA的签名才可形成证书。这里制作自己的CA，-这时生成一个KEY文件ca-key-和根证书ca-crt。默认生成CA证书有效期是一个月，可以添加-days-365-设置有效期即为365天。"><span class="nav-number">6.</span> <span class="nav-text">生成的CSR证书文件必须有CA的签名才可形成证书。这里制作自己的CA， 这时生成一个KEY文件ca.key 和根证书ca.crt。默认生成CA证书有效期是一个月，可以添加-days 365,设置有效期即为365天。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#签署证书准备工作："><span class="nav-number">7.</span> <span class="nav-text">签署证书准备工作：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#用生成的CA的证书-ca-crt-为刚才生成的服务器请求文件server-csr生成对应CA签名后的crt文件。默认有效期是365天，命令后增加-days-3650，即设置有效期为3650天。"><span class="nav-number">8.</span> <span class="nav-text">用生成的CA的证书(ca.crt)为刚才生成的服务器请求文件server.csr生成对应CA签名后的crt文件。默认有效期是365天，命令后增加-days 3650，即设置有效期为3650天。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#用生成的CA的证书-ca-crt-为刚才生成的客户端请求文件client-csr生成对应CA签名后的crt文件。注意：可能直接运行会报以下错误，修改对应index-txt-attr文件unique-subject-no，重新运行即可。默认有效期是365天，命令后增加-days-1，即设置有效期为1天。"><span class="nav-number">9.</span> <span class="nav-text">用生成的CA的证书(ca.crt)为刚才生成的客户端请求文件client.csr生成对应CA签名后的crt文件。注意：可能直接运行会报以下错误，修改对应index.txt.attr文件unique_subject = no，重新运行即可。默认有效期是365天，命令后增加-days 1，即设置有效期为1天。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#这个certificate是BASE64形式的-要转成PKCS12才能装到IE-NETSCAPE上-转换如下："><span class="nav-number">10.</span> <span class="nav-text">这个certificate是BASE64形式的,要转成PKCS12才能装到IE,/NETSCAPE上.转换如下：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#配置nginx如下："><span class="nav-number">11.</span> <span class="nav-text">配置nginx如下：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#最后把client-pfx安装到客户端就可以了"><span class="nav-number">12.</span> <span class="nav-text">最后把client.pfx安装到客户端就可以了</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#PS：设置HTTPS-nginx需要添加ssl模块-–with-http-ssl-module"><span class="nav-number">1.</span> <span class="nav-text">PS：设置HTTPS nginx需要添加ssl模块 –with-http_ssl_module</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在nginx的conf目录下新增ssl目录，并进入。"><span class="nav-number">2.</span> <span class="nav-text">在nginx的conf目录下新增ssl目录，并进入。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#生成服务器端的私钥-key文件"><span class="nav-number">3.</span> <span class="nav-text">生成服务器端的私钥(key文件):</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#运行时会提示输入密码-此密码用于加密key文件-参数des3便是指加密算法-当然也可以选用其他你认为安全的算法-以后每当需读取此文件-通过openssl提供的命令或API-都需输入口令-如果觉得不方便-也可以去除这个口令-但一定要采取其他的保护措施"><span class="nav-number">4.</span> <span class="nav-text">运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过openssl提供的命令或API)都需输入口令.如果觉得不方便,也可以去除这个口令,但一定要采取其他的保护措施!</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#用刚生成的服务器私钥，生成证书请求文件。"><span class="nav-number">5.</span> <span class="nav-text">用刚生成的服务器私钥，生成证书请求文件。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#同样的命令生成生成客户端的私钥-key-文件-和证书请求文件Certificate-Signing-Request（CSR）"><span class="nav-number">6.</span> <span class="nav-text">同样的命令生成生成客户端的私钥(key 文件)和证书请求文件Certificate Signing Request（CSR）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#生成的CSR证书文件必须有CA的签名才可形成证书。这里制作自己的CA，-这时生成一个KEY文件ca-key-和根证书ca-crt。默认生成CA证书有效期是一个月，可以添加-days-365-设置有效期即为365天。"><span class="nav-number">7.</span> <span class="nav-text">生成的CSR证书文件必须有CA的签名才可形成证书。这里制作自己的CA， 这时生成一个KEY文件ca.key 和根证书ca.crt。默认生成CA证书有效期是一个月，可以添加-days 365,设置有效期即为365天。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#签署证书准备工作："><span class="nav-number">8.</span> <span class="nav-text">签署证书准备工作：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#用生成的CA的证书-ca-crt-为刚才生成的服务器请求文件server-csr生成对应CA签名后的crt文件。默认有效期是365天，命令后增加-days-3650，即设置有效期为3650天。"><span class="nav-number">9.</span> <span class="nav-text">用生成的CA的证书(ca.crt)为刚才生成的服务器请求文件server.csr生成对应CA签名后的crt文件。默认有效期是365天，命令后增加-days 3650，即设置有效期为3650天。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#用生成的CA的证书-ca-crt-为刚才生成的客户端请求文件client-csr生成对应CA签名后的crt文件。注意：可能直接运行会报以下错误，修改对应index-txt-attr文件unique-subject-no，重新运行即可。默认有效期是365天，命令后增加-days-1，即设置有效期为1天。"><span class="nav-number">10.</span> <span class="nav-text">用生成的CA的证书(ca.crt)为刚才生成的客户端请求文件client.csr生成对应CA签名后的crt文件。注意：可能直接运行会报以下错误，修改对应index.txt.attr文件unique_subject = no，重新运行即可。默认有效期是365天，命令后增加-days 1，即设置有效期为1天。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#这个certificate是BASE64形式的-要转成PKCS12才能装到IE-NETSCAPE上-转换如下："><span class="nav-number">11.</span> <span class="nav-text">这个certificate是BASE64形式的,要转成PKCS12才能装到IE,/NETSCAPE上.转换如下：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#配置nginx如下："><span class="nav-number">12.</span> <span class="nav-text">配置nginx如下：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#最后把client-pfx安装到客户端就可以了"><span class="nav-number">13.</span> <span class="nav-text">最后把client.pfx安装到客户端就可以了</span></a></li></ol></div>
             
 
           </div>
