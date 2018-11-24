@@ -163,13 +163,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/php/</loc>
-        <lastmod>2018-06-30T05:38:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/SQLserver/</loc>
         <lastmod>2018-07-21T06:25:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -233,15 +226,29 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/linux/</loc>
+        <loc>http://yoursite.com/tags/iptables/</loc>
         <lastmod>2018-11-16T11:45:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/iptables/</loc>
-        <lastmod>2018-11-16T11:45:39.000Z</lastmod>
+        <loc>http://yoursite.com/tags/linux/</loc>
+        <lastmod>2018-11-24T05:58:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/windows/</loc>
+        <lastmod>2018-11-24T05:58:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/php/</loc>
+        <lastmod>2018-11-24T05:59:16.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

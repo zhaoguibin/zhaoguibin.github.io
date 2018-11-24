@@ -1039,6 +1039,252 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/linux挂载windows下的共享文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/23/linux挂载windows下的共享文件/" itemprop="url">linux挂载windows下的共享文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T21:38:17+08:00">
+                2018-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="安装cifs-utils"><a href="#安装cifs-utils" class="headerlink" title="安装cifs-utils"></a>安装cifs-utils</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install cifs* -y</span><br></pre></td></tr></table></figure>
+<h5 id="这条命令只可以读取Windows共享文件，不能创建文件"><a href="#这条命令只可以读取Windows共享文件，不能创建文件" class="headerlink" title="这条命令只可以读取Windows共享文件，不能创建文件"></a>这条命令只可以读取Windows共享文件，不能创建文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user=Windows用户</span></span><br><span class="line"><span class="comment">#pass=Windows登录密码</span></span><br><span class="line"><span class="comment">#//192.168.10.64/APP Windows共享文件</span></span><br><span class="line"><span class="comment">#/opt/APP/ linux挂载目录</span></span><br><span class="line"></span><br><span class="line">mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq</span><br></pre></td></tr></table></figure>
+<h5 id="这条命令可以添加文件操作权限"><a href="#这条命令可以添加文件操作权限" class="headerlink" title="这条命令可以添加文件操作权限"></a>这条命令可以添加文件操作权限</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user=Windows用户</span></span><br><span class="line"><span class="comment">#pass=Windows登录密码</span></span><br><span class="line"><span class="comment">#//192.168.10.64/APP Windows共享文件</span></span><br><span class="line"><span class="comment">#/opt/APP/ linux挂载目录</span></span><br><span class="line"><span class="comment">#uid，gid，linux用户的id和用户组id，可以通过 id root 命令查看用户的id和用户组id</span></span><br><span class="line"><span class="comment">#rw,dir_mode=0777,file_mode=0777这些是设置文件夹权限，可以根据自己的需求设置权限</span></span><br><span class="line"></span><br><span class="line">mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq,rw,uid=0,gid=0,dir_mode=0777,file_mode=0777</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/php-fpm的关闭和重启/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/23/php-fpm的关闭和重启/" itemprop="url">php-fpm的关闭和重启</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T21:13:41+08:00">
+                2018-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h6 id="php-fpm-关闭："><a href="#php-fpm-关闭：" class="headerlink" title="php-fpm 关闭："></a>php-fpm 关闭：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -INT `cat /usr/<span class="built_in">local</span>/php/var/run/php-fpm.pid`</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall php-fpm</span><br></pre></td></tr></table></figure>
+<h6 id="php-fpm启动"><a href="#php-fpm启动" class="headerlink" title="php-fpm启动"></a>php-fpm启动</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/php/sbin/php-fpm</span><br></pre></td></tr></table></figure>
+<h6 id="php-fpm-重启"><a href="#php-fpm-重启" class="headerlink" title="php-fpm 重启"></a>php-fpm 重启</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -USR2 `cat /usr/<span class="built_in">local</span>/php/var/run/php-fpm.pid`</span><br></pre></td></tr></table></figure>
+<h6 id="查看php-fpm进程数"><a href="#查看php-fpm进程数" class="headerlink" title="查看php-fpm进程数"></a>查看php-fpm进程数</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep -c php-fpm</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/Linux下iptables屏蔽IP和端口号/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1274,259 +1520,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/Nginx使用brotli/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/09/Nginx使用brotli/" itemprop="url">Nginx使用brotli</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-09T20:17:14+08:00">
-                2018-11-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="首先下载brotli的nginx模块"><a href="#首先下载brotli的nginx模块" class="headerlink" title="首先下载brotli的nginx模块"></a>首先下载brotli的nginx模块</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/<span class="built_in">local</span>/src</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/google/ngx_brotli.git</span><br></pre></td></tr></table></figure>
-<h5 id="接着下载brotli源代码"><a href="#接着下载brotli源代码" class="headerlink" title="接着下载brotli源代码"></a>接着下载brotli源代码</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ngx_brotli</span><br><span class="line"><span class="built_in">cd</span> deps/brotli</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/google/brotli.git</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/09/Nginx使用brotli/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/MySQL保留两位小数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/09/MySQL保留两位小数/" itemprop="url">MySQL保留两位小数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-09T19:58:17+08:00">
-                2018-11-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h6 id="round-x-d-用于数据的四舍五入-round-x-其实就是round-x-0-也就是默认d为0；"><a href="#round-x-d-用于数据的四舍五入-round-x-其实就是round-x-0-也就是默认d为0；" class="headerlink" title="round(x,d) :用于数据的四舍五入,round(x)  ,其实就是round(x,0),也就是默认d为0；"></a>round(x,d) :用于数据的四舍五入,round(x)  ,其实就是round(x,0),也就是默认d为0；</h6><p>这里有个值得注意的地方是，d可以是负数，这时是指定小数点左边的d位整数位为0,同时小数位均为0；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(5000.56789,2),ROUND(5000,2),ROUND(0.56789,2),ROUND(115.56789,-1);</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/mysql%E5%B0%8F%E6%95%B0/round1.png" alt="mysql保留两位小数"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(5000.12345,2),ROUND(5000,2),ROUND(0.12345,2),ROUND(114.12345,-1);</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/mysql%E5%B0%8F%E6%95%B0/round2.png" alt="mysql保留两位小数"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/09/MySQL保留两位小数/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1581,7 +1574,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">107</span>
+                  <span class="site-state-item-count">109</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1594,7 +1587,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

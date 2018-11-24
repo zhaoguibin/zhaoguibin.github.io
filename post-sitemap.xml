@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/11/23/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/</loc>
+        <lastmod>2018-11-24T05:59:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/11/23/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</loc>
+        <lastmod>2018-11-24T05:58:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/11/16/Linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDIP%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/</loc>
         <lastmod>2018-11-16T11:45:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -215,7 +231,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/03/02/centos7%E8%AE%BE%E7%BD%AEIP%E7%99%BD%E5%90%8D%E5%8D%95/</loc>
+        <loc>http://yoursite.com/2018/02/23/centos6.5%E5%AE%89%E8%A3%85git/</loc>
         <lastmod>2018-03-05T02:59:23.071Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -223,7 +239,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/02/23/centos6.5%E5%AE%89%E8%A3%85git/</loc>
+        <loc>http://yoursite.com/2018/03/02/centos7%E8%AE%BE%E7%BD%AEIP%E7%99%BD%E5%90%8D%E5%8D%95/</loc>
         <lastmod>2018-03-05T02:59:23.071Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -327,7 +343,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2017/12/03/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/</loc>
+        <loc>http://yoursite.com/2017/12/02/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</loc>
         <lastmod>2018-03-05T02:59:22.012Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -335,7 +351,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2017/12/02/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</loc>
+        <loc>http://yoursite.com/2017/12/03/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/</loc>
         <lastmod>2018-03-05T02:59:22.012Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -407,7 +423,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2017/12/02/Windows%E9%80%9A%E8%BF%87Samba%E8%AE%BF%E9%97%AELinux%E6%96%87%E4%BB%B6/</loc>
+        <loc>http://yoursite.com/2017/12/02/Warning%20RPMDB%20altered%20outside%20of%20yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%20/</loc>
         <lastmod>2018-03-05T02:59:21.312Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -415,7 +431,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2017/12/02/Warning%20RPMDB%20altered%20outside%20of%20yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%20/</loc>
+        <loc>http://yoursite.com/2017/12/02/Windows%E9%80%9A%E8%BF%87Samba%E8%AE%BF%E9%97%AELinux%E6%96%87%E4%BB%B6/</loc>
         <lastmod>2018-03-05T02:59:21.312Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -431,7 +447,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2017/12/02/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</loc>
+        <loc>http://yoursite.com/2017/12/02/Ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDU%E7%9B%98/</loc>
         <lastmod>2018-03-05T02:59:21.077Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -439,7 +455,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2017/12/02/Ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDU%E7%9B%98/</loc>
+        <loc>http://yoursite.com/2017/12/02/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</loc>
         <lastmod>2018-03-05T02:59:21.077Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
