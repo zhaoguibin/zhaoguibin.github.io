@@ -58,13 +58,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/golang/</loc>
-        <lastmod>2018-03-05T02:59:19.659Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/gcc/</loc>
         <lastmod>2018-03-05T02:59:19.795Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -219,22 +212,8 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/centos/</loc>
-        <lastmod>2018-11-16T11:45:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/iptables/</loc>
         <lastmod>2018-11-16T11:45:39.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/linux/</loc>
-        <lastmod>2018-11-24T05:58:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -249,6 +228,34 @@
     <url>
         <loc>http://yoursite.com/tags/php/</loc>
         <lastmod>2018-11-24T05:59:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Virtualbox/</loc>
+        <lastmod>2019-01-26T02:53:23.777Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/centos/</loc>
+        <lastmod>2019-01-26T02:53:25.437Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/linux/</loc>
+        <lastmod>2019-01-26T02:53:25.437Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/golang/</loc>
+        <lastmod>2019-01-26T02:56:55.458Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

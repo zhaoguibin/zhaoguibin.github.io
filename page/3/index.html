@@ -280,6 +280,255 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/Linux下iptables屏蔽IP和端口号/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/16/Linux下iptables屏蔽IP和端口号/" itemprop="url">Linux下iptables屏蔽IP和端口号</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T19:47:29+08:00">
+                2018-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#封单个IP的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.10.66 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封IP段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.0.0/16 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封整个段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.0.0/8 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封几个段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.10.0/24 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#只封80端口：</span></span><br><span class="line">iptables -I INPUT -p tcp –dport 80 -s 192.168.0.0/24 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#解封：</span></span><br><span class="line">iptables -F</span><br><span class="line"></span><br><span class="line"><span class="comment">#清空：</span></span><br><span class="line">iptables -D INPUT 数字</span><br><span class="line"></span><br><span class="line"><span class="comment">#列出 INPUT链 所有的规则：</span></span><br><span class="line">iptables -L INPUT --line-numbers</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除某条规则，其中5代表序号（序号可用上面的命令查看）：</span></span><br><span class="line">iptables -D INPUT 5</span><br><span class="line"></span><br><span class="line"><span class="comment">#开放指定的端口：</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment">#禁止指定的端口：</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#拒绝所有的端口：</span></span><br><span class="line">iptables -A INPUT -j DROP</span><br></pre></td></tr></table></figure>
+<p>以上都是针对INPUT链的操作，即是外面来访问本机的方向，配置完之后 需要保存，否则iptables 重启之后以上设置就失效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables save</span><br></pre></td></tr></table></figure></p>
+<p>iptables 对应的配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/iptables</span><br></pre></td></tr></table></figure></p>
+<p>注意：iptables的规则匹配顺序上从上到下的，也就是说如果上下两条规则有冲突时，将会以上面的规则为准。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/centos修改IP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/16/centos修改IP/" itemprop="url">centos修改IP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T19:35:51+08:00">
+                2018-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="首先查看网络接口名称"><a href="#首先查看网络接口名称" class="headerlink" title="首先查看网络接口名称"></a>首先查看网络接口名称</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/b11c555acaa92bbf9363cfec3e321a30dc950319/centos%20%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9IP%E3%80%81%E6%B0%B8%E4%B9%85%E4%BF%AE%E6%94%B9IP.png" alt="修改IP地址"></p>
+<h5 id="临时修改IP"><a href="#临时修改IP" class="headerlink" title="临时修改IP"></a>临时修改IP</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth1 192.168.10.88</span><br></pre></td></tr></table></figure>
+<h5 id="永久修改IP"><a href="#永久修改IP" class="headerlink" title="永久修改IP"></a>永久修改IP</h5><h6 id="修改对应的网络接口配置文件，文件路径是"><a href="#修改对应的网络接口配置文件，文件路径是" class="headerlink" title="修改对应的网络接口配置文件，文件路径是"></a>修改对应的网络接口配置文件，文件路径是</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/network-scripts/</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称</span><br></pre></td></tr></table></figure>
+<h6 id="修改以下配置"><a href="#修改以下配置" class="headerlink" title="修改以下配置"></a>修改以下配置</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=static</span><br><span class="line"><span class="comment"># 以下配置有就修改，没有就添加</span></span><br><span class="line">IPADDR=192.168.10.88     <span class="comment">#静态IP</span></span><br><span class="line">GATEWAY=192.168.10.1     <span class="comment">#默认网关</span></span><br><span class="line">NETMASK=255.255.255.0    <span class="comment">#子网掩码</span></span><br></pre></td></tr></table></figure>
+<h6 id="修改DNS"><a href="#修改DNS" class="headerlink" title="修改DNS"></a>修改DNS</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br><span class="line">nameserver 1.1.1.1</span><br><span class="line">nameserver 8.8.8.8</span><br></pre></td></tr></table></figure>
+<h6 id="重启网络服务"><a href="#重启网络服务" class="headerlink" title="重启网络服务"></a>重启网络服务</h6>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/Nginx使用brotli/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1323,259 +1572,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/卸载SQL Server 2017 出现警告26003/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/21/卸载SQL Server 2017 出现警告26003/" itemprop="url">卸载SQL Server 2017 出现警告26003</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-21T14:19:45+08:00">
-                2018-07-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>卸载SQLserver出现以下问题，把解决方法记录下来，留着以后备用<br>提示信息：<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/%E5%8D%B8%E8%BD%BDSQL%20Server%202017%20%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003.png" alt="设置共享文件夹"></p>
-<p>解决方法：</p>
-<p>可以使用：WMIC（windows Management Instrumentation Command-line） 列出当前系统上安装的应用程序，最后使用MSIEXEC  /X 将其卸载</p>
-<p>打开 CMD(命令提示符)<br>输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">WMIC</span><br><span class="line">Product  list</span><br><span class="line">msiexec /x &#123;IdentifyingNumbe&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/30/php排序实现方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/30/php排序实现方法/" itemprop="url">php排序实现方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-30T13:31:00+08:00">
-                2018-06-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  直接插入排序,插入排序的思想是：当前插入位置之前的元素有序，</span></span><br><span class="line"><span class="comment"> *  若插入当前位置的元素比有序元素最后一个元素大，则什么也不做，</span></span><br><span class="line"><span class="comment"> *  否则在有序序列中找到插入的位置，并插入</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span><span class="params">($arr)</span> </span>&#123;</span><br><span class="line">  $len = count($arr);  </span><br><span class="line">  <span class="keyword">for</span>($i = <span class="number">1</span>; $i &lt; $len; $i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>($arr[$i<span class="number">-1</span>] &gt; $arr[i]) &#123;</span><br><span class="line">      <span class="keyword">for</span>($j = $i - <span class="number">1</span>;$j &gt;= <span class="number">0</span>; $j-- ) &#123;</span><br><span class="line">        $tmp = $arr[$j+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span>($tmp &lt; $arr[$j]) &#123;</span><br><span class="line">          $arr[$j+<span class="number">1</span>] = $arr[$j];</span><br><span class="line">          $arr[$j] = $tmp;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;          </span><br><span class="line">      &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">return</span> $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  冒泡排序,冒泡排序思想：进行 n-1 趟冒泡排序， 每趟两两比较调整最大值到数组（子数组）末尾</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span><span class="params">($arr)</span> </span>&#123;</span><br><span class="line">  $len = count($arr);</span><br><span class="line">  <span class="keyword">for</span>($i = <span class="number">1</span>; $i &lt; $len; $i++) &#123;</span><br><span class="line">    <span class="keyword">for</span>($j = <span class="number">0</span>; $j &lt; $len-$i; $j++) &#123;</span><br><span class="line">      <span class="keyword">if</span>($arr[$j] &gt; $arr[$j+<span class="number">1</span>]) &#123;</span><br><span class="line">        $tmp = $arr[$j+<span class="number">1</span>];</span><br><span class="line">        $arr[$j+<span class="number">1</span>] = $arr[$j];</span><br><span class="line">        $arr[$j] = $tmp;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/30/php排序实现方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1625,7 +1626,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">109</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1638,7 +1639,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1691,7 +1692,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

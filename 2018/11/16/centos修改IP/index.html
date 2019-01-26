@@ -92,7 +92,7 @@
 <meta property="og:description" content="首先查看网络接口名称1ifconfig  临时修改IP1ifconfig eth1 192.168.10.88 永久修改IP修改对应的网络接口配置文件，文件路径是1/etc/sysconfig/network-scripts/ 1vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称 修改以下配置12345BOOTPROTO=static# 以下配置有就修改">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/b11c555acaa92bbf9363cfec3e321a30dc950319/centos%20%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9IP%E3%80%81%E6%B0%B8%E4%B9%85%E4%BF%AE%E6%94%B9IP.png">
-<meta property="og:updated_time" content="2018-11-16T11:45:22.000Z">
+<meta property="og:updated_time" content="2019-01-26T02:53:25.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos修改IP">
 <meta name="twitter:description" content="首先查看网络接口名称1ifconfig  临时修改IP1ifconfig eth1 192.168.10.88 永久修改IP修改对应的网络接口配置文件，文件路径是1/etc/sysconfig/network-scripts/ 1vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称 修改以下配置12345BOOTPROTO=static# 以下配置有就修改">
@@ -356,6 +356,7 @@
 <h5 id="永久修改IP"><a href="#永久修改IP" class="headerlink" title="永久修改IP"></a>永久修改IP</h5><h6 id="修改对应的网络接口配置文件，文件路径是"><a href="#修改对应的网络接口配置文件，文件路径是" class="headerlink" title="修改对应的网络接口配置文件，文件路径是"></a>修改对应的网络接口配置文件，文件路径是</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/network-scripts/</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称</span><br></pre></td></tr></table></figure>
 <h6 id="修改以下配置"><a href="#修改以下配置" class="headerlink" title="修改以下配置"></a>修改以下配置</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=static</span><br><span class="line"><span class="comment"># 以下配置有就修改，没有就添加</span></span><br><span class="line">IPADDR=192.168.10.88     <span class="comment">#静态IP</span></span><br><span class="line">GATEWAY=192.168.10.1     <span class="comment">#默认网关</span></span><br><span class="line">NETMASK=255.255.255.0    <span class="comment">#子网掩码</span></span><br></pre></td></tr></table></figure>
+<h6 id="修改DNS"><a href="#修改DNS" class="headerlink" title="修改DNS"></a>修改DNS</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br><span class="line">nameserver 1.1.1.1</span><br><span class="line">nameserver 8.8.8.8</span><br></pre></td></tr></table></figure>
 <h6 id="重启网络服务"><a href="#重启网络服务" class="headerlink" title="重启网络服务"></a>重启网络服务</h6>
       
     </div>
@@ -481,7 +482,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">109</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -494,7 +495,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -543,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#首先查看网络接口名称"><span class="nav-number">1.</span> <span class="nav-text">首先查看网络接口名称</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#临时修改IP"><span class="nav-number">2.</span> <span class="nav-text">临时修改IP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#永久修改IP"><span class="nav-number">3.</span> <span class="nav-text">永久修改IP</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#修改对应的网络接口配置文件，文件路径是"><span class="nav-number">3.1.</span> <span class="nav-text">修改对应的网络接口配置文件，文件路径是</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#修改以下配置"><span class="nav-number">3.2.</span> <span class="nav-text">修改以下配置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#重启网络服务"><span class="nav-number">3.3.</span> <span class="nav-text">重启网络服务</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#首先查看网络接口名称"><span class="nav-number">1.</span> <span class="nav-text">首先查看网络接口名称</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#临时修改IP"><span class="nav-number">2.</span> <span class="nav-text">临时修改IP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#永久修改IP"><span class="nav-number">3.</span> <span class="nav-text">永久修改IP</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#修改对应的网络接口配置文件，文件路径是"><span class="nav-number">3.1.</span> <span class="nav-text">修改对应的网络接口配置文件，文件路径是</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#修改以下配置"><span class="nav-number">3.2.</span> <span class="nav-text">修改以下配置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#修改DNS"><span class="nav-number">3.3.</span> <span class="nav-text">修改DNS</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#重启网络服务"><span class="nav-number">3.4.</span> <span class="nav-text">重启网络服务</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -563,7 +564,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
