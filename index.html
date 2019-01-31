@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/phpstorm中配置远程调试xdebug/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/31/golang两个线程交替打印1-100的奇数偶数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -299,7 +299,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/03/phpstorm中配置远程调试xdebug/" itemprop="url">phpstorm中配置远程调试xdebug</a></h1>
+                <a class="post-title-link" href="/2019/01/31/golang两个线程交替打印1-100的奇数偶数/" itemprop="url">golang两个线程交替打印1-100的奇数偶数</a></h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T19:19:20+08:00">
-                2017-12-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-31T13:39:38+08:00">
+                2019-01-31
               </time>
             
 
@@ -350,17 +350,132 @@
 
       
         
-          <p>这里说的是真正的远程调试，不是本地，本地不需要安装任何php程序！！！</p>
-<p>这里略去xdebug的安装，安装很简单可以下载源码包，动态编译进去！</p>
-<p>环境：</p>
-<p>　　Dev 服务器(IP:192.168.3.2)，安装phpstorm，用来做开发任务！</p>
-<p>　　Server服务器（IP:192.168.3.9），web服务器(php架构)，用来浏览网页用！</p>
-<p>这里的两台服务器在同一个网段下，可以互通！</p>
-<p>在Server服务器上的php.ini里配置xdebug如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[xdebug]</span><br><span class="line">zend_extension=xdebug.so</span><br><span class="line">xdebug.remote_enable=1</span><br><span class="line">xdebug.remote_handler=dbgp</span><br><span class="line">xdebug.remote_mode=req</span><br><span class="line">xdebug.remote_host=192.168.3.9</span><br><span class="line">xdebug.remote_port=9000</span><br><span class="line">xdebug.idekey=<span class="string">"PHPSTORM"</span></span><br></pre></td></tr></table></figure>
+          
+            <p>启动两个线程, 一个输出 1,3,5,7…99, 另一个输出 2,4,6,8…100 最后 STDOUT 中按序输出 1,2,3,4,5…100</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pool = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//奇数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">oddNum</span><span class="params">(c <span class="keyword">chan</span> <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= pool; i++ &#123;</span><br><span class="line">		c &lt;- i</span><br><span class="line">		<span class="keyword">if</span> i%<span class="number">2</span> == <span class="number">1</span> &#123;</span><br><span class="line">			fmt.Println(i)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//偶数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">even</span><span class="params">(c <span class="keyword">chan</span> <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= pool; i++ &#123;</span><br><span class="line">		&lt;-c</span><br><span class="line">		<span class="keyword">if</span> i%<span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">			fmt.Println(i)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> oddNum(c)</span><br><span class="line">	<span class="keyword">go</span> even(c)</span><br><span class="line"></span><br><span class="line">	time.Sleep(time.Second * <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/26/golang抓取知乎图片/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/26/golang抓取知乎图片/" itemprop="url">golang抓取知乎图片</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-26T10:56:31+08:00">
+                2019-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h6 id="代码github地址"><a href="#代码github地址" class="headerlink" title="代码github地址"></a>代码github地址</h6><p> <a href="https://github.com/zhaoguibin/zhihu_pic" target="_blank">https://github.com/zhaoguibin/zhihu_pic</a></p>
+<h6 id="需要安装-gjson"><a href="#需要安装-gjson" class="headerlink" title="需要安装  gjson"></a>需要安装  <a href="https://github.com/tidwall/gjson" target="_blank">gjson</a></h6>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/03/phpstorm中配置远程调试xdebug/#more" rel="contents">
+            <a class="btn" href="/2019/01/26/golang抓取知乎图片/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -411,7 +526,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/09/centos7 yum安装lnmp/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/26/Virtualbox 共享文件夹 cannot create symlink error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -430,7 +545,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/09/centos7 yum安装lnmp/" itemprop="url">centos7 yum安装lnmp</a></h1>
+                <a class="post-title-link" href="/2019/01/26/Virtualbox 共享文件夹 cannot create symlink error/" itemprop="url">Virtualbox 共享文件夹 cannot create symlink error</a></h1>
         
 
         <div class="post-meta">
@@ -442,8 +557,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-09T01:23:45+08:00">
-                2017-12-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-26T10:29:46+08:00">
+                2019-01-26
               </time>
             
 
@@ -481,14 +596,629 @@
 
       
         
-          <h2 id="PHP7"><a href="#PHP7" class="headerlink" title="PHP7"></a>PHP7</h2><h3 id="1-安装epel-release"><a href="#1-安装epel-release" class="headerlink" title="1.安装epel-release"></a>1.安装epel-release</h3><p>通过命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br></pre></td></tr></table></figure></p>
-<p>成功安装。</p>
-<h3 id="2-安装PHP7"><a href="#2-安装PHP7" class="headerlink" title="2.安装PHP7"></a>2.安装PHP7</h3><p>终端再次运行如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</span><br></pre></td></tr></table></figure></p>
-<p>成功获取PHP7的yum源，然后再执行：</p>
-<h3 id="php安装以及安装扩展"><a href="#php安装以及安装扩展" class="headerlink" title="php安装以及安装扩展"></a>php安装以及安装扩展</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php70w  php70w-devel php70w-fpm php70w-gd php70w-mysqli php70w-mbstring</span><br></pre></td></tr></table></figure>
+          
+            <p>npm操作虚拟机共享文件夹里的文件时出现 <font color="red"><strong>npm Error: EROFS: read-only file system, symlink</strong></font>的报错信息。</p>
+<h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><p>原来VirtualBox从安全角度出发，限制了软链接的创建，需要打开相应的Feature。以下为详细步骤：</p>
+<h6 id="关闭-VirtualBox。"><a href="#关闭-VirtualBox。" class="headerlink" title="关闭 VirtualBox。"></a>关闭 VirtualBox。</h6><h6 id="将VirtualBox安装目录的路径加入系统环境变量PATH中。"><a href="#将VirtualBox安装目录的路径加入系统环境变量PATH中。" class="headerlink" title="将VirtualBox安装目录的路径加入系统环境变量PATH中。"></a>将VirtualBox安装目录的路径加入系统环境变量PATH中。</h6><h6 id="打开命令行窗口，执行如下命令："><a href="#打开命令行窗口，执行如下命令：" class="headerlink" title="打开命令行窗口，执行如下命令："></a>打开命令行窗口，执行如下命令：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VBoxManage setextradata YOURVMNAME VBoxInternal2/SharedFoldersEnableSymlinksCreate/YOURSHAREFOLDERNAME 1</span><br></pre></td></tr></table></figure>
+<p>其中：YOURVMNAME为虚拟机中linux系统的名称<br>YOURSHAREFOLDERNAME 为共享的目录名称</p>
+<h6 id="“以管理者身份运行”-VirtualBox-即可！"><a href="#“以管理者身份运行”-VirtualBox-即可！" class="headerlink" title="“以管理者身份运行” VirtualBox　即可！"></a>“以管理者身份运行” VirtualBox　即可！</h6>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/linux挂载windows下的共享文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/23/linux挂载windows下的共享文件/" itemprop="url">linux挂载windows下的共享文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T21:38:17+08:00">
+                2018-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="安装cifs-utils"><a href="#安装cifs-utils" class="headerlink" title="安装cifs-utils"></a>安装cifs-utils</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install cifs* -y</span><br></pre></td></tr></table></figure>
+<h5 id="这条命令只可以读取Windows共享文件，不能创建文件"><a href="#这条命令只可以读取Windows共享文件，不能创建文件" class="headerlink" title="这条命令只可以读取Windows共享文件，不能创建文件"></a>这条命令只可以读取Windows共享文件，不能创建文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user=Windows用户</span></span><br><span class="line"><span class="comment">#pass=Windows登录密码</span></span><br><span class="line"><span class="comment">#//192.168.10.64/APP Windows共享文件</span></span><br><span class="line"><span class="comment">#/opt/APP/ linux挂载目录</span></span><br><span class="line"></span><br><span class="line">mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq</span><br></pre></td></tr></table></figure>
+<h5 id="这条命令可以添加文件操作权限"><a href="#这条命令可以添加文件操作权限" class="headerlink" title="这条命令可以添加文件操作权限"></a>这条命令可以添加文件操作权限</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user=Windows用户</span></span><br><span class="line"><span class="comment">#pass=Windows登录密码</span></span><br><span class="line"><span class="comment">#//192.168.10.64/APP Windows共享文件</span></span><br><span class="line"><span class="comment">#/opt/APP/ linux挂载目录</span></span><br><span class="line"><span class="comment">#uid，gid，linux用户的id和用户组id，可以通过 id root 命令查看用户的id和用户组id</span></span><br><span class="line"><span class="comment">#rw,dir_mode=0777,file_mode=0777这些是设置文件夹权限，可以根据自己的需求设置权限</span></span><br><span class="line"></span><br><span class="line">mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq,rw,uid=0,gid=0,dir_mode=0777,file_mode=0777</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/php-fpm的关闭和重启/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/23/php-fpm的关闭和重启/" itemprop="url">php-fpm的关闭和重启</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T21:13:41+08:00">
+                2018-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h6 id="php-fpm-关闭："><a href="#php-fpm-关闭：" class="headerlink" title="php-fpm 关闭："></a>php-fpm 关闭：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -INT `cat /usr/<span class="built_in">local</span>/php/var/run/php-fpm.pid`</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall php-fpm</span><br></pre></td></tr></table></figure>
+<h6 id="php-fpm启动"><a href="#php-fpm启动" class="headerlink" title="php-fpm启动"></a>php-fpm启动</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/php/sbin/php-fpm</span><br></pre></td></tr></table></figure>
+<h6 id="php-fpm-重启"><a href="#php-fpm-重启" class="headerlink" title="php-fpm 重启"></a>php-fpm 重启</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -USR2 `cat /usr/<span class="built_in">local</span>/php/var/run/php-fpm.pid`</span><br></pre></td></tr></table></figure>
+<h6 id="查看php-fpm进程数"><a href="#查看php-fpm进程数" class="headerlink" title="查看php-fpm进程数"></a>查看php-fpm进程数</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep -c php-fpm</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/Linux下iptables屏蔽IP和端口号/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/16/Linux下iptables屏蔽IP和端口号/" itemprop="url">Linux下iptables屏蔽IP和端口号</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T19:47:29+08:00">
+                2018-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#封单个IP的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.10.66 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封IP段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.0.0/16 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封整个段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.0.0/8 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封几个段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.10.0/24 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#只封80端口：</span></span><br><span class="line">iptables -I INPUT -p tcp –dport 80 -s 192.168.0.0/24 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#解封：</span></span><br><span class="line">iptables -F</span><br><span class="line"></span><br><span class="line"><span class="comment">#清空：</span></span><br><span class="line">iptables -D INPUT 数字</span><br><span class="line"></span><br><span class="line"><span class="comment">#列出 INPUT链 所有的规则：</span></span><br><span class="line">iptables -L INPUT --line-numbers</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除某条规则，其中5代表序号（序号可用上面的命令查看）：</span></span><br><span class="line">iptables -D INPUT 5</span><br><span class="line"></span><br><span class="line"><span class="comment">#开放指定的端口：</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment">#禁止指定的端口：</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#拒绝所有的端口：</span></span><br><span class="line">iptables -A INPUT -j DROP</span><br></pre></td></tr></table></figure>
+<p>以上都是针对INPUT链的操作，即是外面来访问本机的方向，配置完之后 需要保存，否则iptables 重启之后以上设置就失效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables save</span><br></pre></td></tr></table></figure></p>
+<p>iptables 对应的配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/iptables</span><br></pre></td></tr></table></figure></p>
+<p>注意：iptables的规则匹配顺序上从上到下的，也就是说如果上下两条规则有冲突时，将会以上面的规则为准。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/centos修改IP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/16/centos修改IP/" itemprop="url">centos修改IP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T19:35:51+08:00">
+                2018-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="首先查看网络接口名称"><a href="#首先查看网络接口名称" class="headerlink" title="首先查看网络接口名称"></a>首先查看网络接口名称</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/b11c555acaa92bbf9363cfec3e321a30dc950319/centos%20%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9IP%E3%80%81%E6%B0%B8%E4%B9%85%E4%BF%AE%E6%94%B9IP.png" alt="修改IP地址"></p>
+<h5 id="临时修改IP"><a href="#临时修改IP" class="headerlink" title="临时修改IP"></a>临时修改IP</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth1 192.168.10.88</span><br></pre></td></tr></table></figure>
+<h5 id="永久修改IP"><a href="#永久修改IP" class="headerlink" title="永久修改IP"></a>永久修改IP</h5><h6 id="修改对应的网络接口配置文件，文件路径是"><a href="#修改对应的网络接口配置文件，文件路径是" class="headerlink" title="修改对应的网络接口配置文件，文件路径是"></a>修改对应的网络接口配置文件，文件路径是</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/network-scripts/</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称</span><br></pre></td></tr></table></figure>
+<h6 id="修改以下配置"><a href="#修改以下配置" class="headerlink" title="修改以下配置"></a>修改以下配置</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=static</span><br><span class="line"><span class="comment"># 以下配置有就修改，没有就添加</span></span><br><span class="line">IPADDR=192.168.10.88     <span class="comment">#静态IP</span></span><br><span class="line">GATEWAY=192.168.10.1     <span class="comment">#默认网关</span></span><br><span class="line">NETMASK=255.255.255.0    <span class="comment">#子网掩码</span></span><br></pre></td></tr></table></figure>
+<h6 id="修改DNS"><a href="#修改DNS" class="headerlink" title="修改DNS"></a>修改DNS</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br><span class="line">nameserver 1.1.1.1</span><br><span class="line">nameserver 8.8.8.8</span><br></pre></td></tr></table></figure>
+<h6 id="重启网络服务"><a href="#重启网络服务" class="headerlink" title="重启网络服务"></a>重启网络服务</h6>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/Nginx使用brotli/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/09/Nginx使用brotli/" itemprop="url">Nginx使用brotli</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-09T20:17:14+08:00">
+                2018-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="首先下载brotli的nginx模块"><a href="#首先下载brotli的nginx模块" class="headerlink" title="首先下载brotli的nginx模块"></a>首先下载brotli的nginx模块</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/<span class="built_in">local</span>/src</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/google/ngx_brotli.git</span><br></pre></td></tr></table></figure>
+<h5 id="接着下载brotli源代码"><a href="#接着下载brotli源代码" class="headerlink" title="接着下载brotli源代码"></a>接着下载brotli源代码</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ngx_brotli</span><br><span class="line"><span class="built_in">cd</span> deps/brotli</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/google/brotli.git</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/09/centos7 yum安装lnmp/#more" rel="contents">
+            <a class="btn" href="/2018/11/09/Nginx使用brotli/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -539,7 +1269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/26/CentOS7 搭建 FTP 文件服务/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/MySQL保留两位小数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -558,7 +1288,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/26/CentOS7 搭建 FTP 文件服务/" itemprop="url">CentOS7 搭建 FTP 文件服务</a></h1>
+                <a class="post-title-link" href="/2018/11/09/MySQL保留两位小数/" itemprop="url">MySQL保留两位小数</a></h1>
         
 
         <div class="post-meta">
@@ -570,8 +1300,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T17:48:08+08:00">
-                2018-02-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-09T19:58:17+08:00">
+                2018-11-09
               </time>
             
 
@@ -609,13 +1339,14 @@
 
       
         
-          <h5 id="安装并启动-FTP-服务"><a href="#安装并启动-FTP-服务" class="headerlink" title="安装并启动 FTP 服务"></a>安装并启动 FTP 服务</h5><h6 id="安装-VSFTPD"><a href="#安装-VSFTPD" class="headerlink" title="安装 VSFTPD"></a>安装 VSFTPD</h6><p>使用 yum 安装 vsftpd<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y vsftpd</span><br></pre></td></tr></table></figure></p>
-<h6 id="启动-VSFTPD"><a href="#启动-VSFTPD" class="headerlink" title="启动 VSFTPD"></a>启动 VSFTPD</h6><p>安装完成后，启动 FTP 服务：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd start</span><br></pre></td></tr></table></figure></p>
-<p>启动后，可以看到系统已经监听了 21 端口：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -nltp | grep 21</span><br></pre></td></tr></table></figure></p>
-<p>此时，访问 ftp://192.168.3.16 可浏览机器上的 /var/ftp目录了。</p>
+          <h6 id="round-x-d-用于数据的四舍五入-round-x-其实就是round-x-0-也就是默认d为0；"><a href="#round-x-d-用于数据的四舍五入-round-x-其实就是round-x-0-也就是默认d为0；" class="headerlink" title="round(x,d) :用于数据的四舍五入,round(x)  ,其实就是round(x,0),也就是默认d为0；"></a>round(x,d) :用于数据的四舍五入,round(x)  ,其实就是round(x,0),也就是默认d为0；</h6><p>这里有个值得注意的地方是，d可以是负数，这时是指定小数点左边的d位整数位为0,同时小数位均为0；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(5000.56789,2),ROUND(5000,2),ROUND(0.56789,2),ROUND(115.56789,-1);</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/mysql%E5%B0%8F%E6%95%B0/round1.png" alt="mysql保留两位小数"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(5000.12345,2),ROUND(5000,2),ROUND(0.12345,2),ROUND(114.12345,-1);</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/mysql%E5%B0%8F%E6%95%B0/round2.png" alt="mysql保留两位小数"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/02/26/CentOS7 搭建 FTP 文件服务/#more" rel="contents">
+            <a class="btn" href="/2018/11/09/MySQL保留两位小数/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -666,7 +1397,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/centos7编译安装nginx/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/Kafka安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -685,7 +1416,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/02/centos7编译安装nginx/" itemprop="url">centos7编译安装nginx</a></h1>
+                <a class="post-title-link" href="/2018/09/30/Kafka安装/" itemprop="url">Kafka安装</a></h1>
         
 
         <div class="post-meta">
@@ -697,8 +1428,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T15:05:34+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T14:41:06+08:00">
+                2018-09-30
               </time>
             
 
@@ -736,776 +1467,13 @@
 
       
         
-          <p><strong>ps : nginx安装在/opt/local/nginx里</strong></p>
-<p>1.安装编译安装依赖的类库和包</p>
-<p>如果需要编译MySQL和PHP，就安装这些<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison</span><br></pre></td></tr></table></figure></p>
+          <p>1.去<a href="http://kafka.apache.org/downloads" target="_blank">kafka官网</a>下载到最新的kafka安装包，选择下载二进制版本的tgz文件</p>
+<p>2.环境需求：java运行环境</p>
+<p>3.配置<br>在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">consumer.properites <span class="comment">#消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可</span></span><br><span class="line"></span><br><span class="line">producer.properties <span class="comment">#生产者配置，这个配置文件用于配置于2.5节中开启的生产者，此处我们使用默认的即可</span></span><br><span class="line"></span><br><span class="line">server.properties <span class="comment">#kafka服务器的配置，此配置文件用来配置kafka服务器，目前仅介绍几个最基础的配置</span></span><br><span class="line"></span><br><span class="line">broker.id <span class="comment">#申明当前kafka服务器在集群中的唯一ID，需配置为integer,并且集群中的每一个kafka服务器的id都应是唯一的，我们这里采用默认配置即可</span></span><br><span class="line"></span><br><span class="line">listeners <span class="comment">#申明此kafka服务器需要监听的端口号，如果是在本机上跑虚拟机运行可以不用配置本项，默认会使用localhost的地址，如果是在远程服务器上运行则必须配置，例如：</span></span><br><span class="line">　　　　　<span class="comment">#listeners=PLAINTEXT:// 192.168.180.128:9092。并确保服务器的9092端口能够访问</span></span><br><span class="line"></span><br><span class="line">zookeeper.connect <span class="comment">#申明kafka所连接的zookeeper的地址 ，需配置为zookeeper的地址，由于本次使用的是kafka高版本中自带zookeeper，使用默认配置即可</span></span><br><span class="line">zookeeper.connect=localhost:2181</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/02/centos7编译安装nginx/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/ERROR 1044 (42000) Access denied for user ''@'localhost' to database 'mysql'/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/16/ERROR 1044 (42000) Access denied for user ''@'localhost' to database 'mysql'/" itemprop="url">ERROR 1044 (42000) Access denied for user ''@'localhost' to database 'mysql'</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-16T18:51:45+08:00">
-                2017-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>1.关闭mysql<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld stop</span><br></pre></td></tr></table></figure></p>
-<p>2.屏蔽权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld_safe --skip-grant-table</span><br></pre></td></tr></table></figure></p>
-<p> 屏幕出现： Starting demo from …..</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/16/ERROR 1044 (42000) Access denied for user ''@'localhost' to database 'mysql'/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/lsyncd实时同步工具安装/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/30/lsyncd实时同步工具安装/" itemprop="url">lsyncd实时同步工具安装</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T20:24:03+08:00">
-                2017-11-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>有2种方法可以安装</p>
-<p>1.yum安装，前提是安装了epel更新源。使用命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y lsyncd</span><br></pre></td></tr></table></figure></p>
-<p>2.github下载，地址为：<a href="https://github.com/axkibe/lsyncd" target="_blank" rel="noopener">https://github.com/axkibe/lsyncd</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/30/lsyncd实时同步工具安装/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/Mysql双主同步/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/02/Mysql双主同步/" itemprop="url">Mysql双主同步</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T15:12:36+08:00">
-                2017-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>平台：centos7,mysql5.6.34</strong></p>
-<p>解决数据库瓶颈问题<br>两台服务器可以同时读写数据库<br>A B两台服务器<br>A和B需要拥有一个同名的数据库<br>同步账号设置<br>首先要在两台服务器上各新增加一个可登陆的账号。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/02/Mysql双主同步/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/mysql实现主从复制/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/02/mysql实现主从复制/" itemprop="url">mysql实现主从复制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T11:12:18+08:00">
-                2017-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>准备工作：</p>
-<p>1.两个虚拟机：我这里用的是CentOS5.5，IP地址分别是192.168.1.101 和192.168.1.105；</p>
-<p>101做主服务器，105做从服务器（都已经安装相同版本的Mysql）；</p>
-<p>2.本机环境：Nginx+PHP+MySQL</p>
-<p>好了，现在开始吧，来看看这听起来高大上的主从复制是怎么回事。</p>
-<p>原理：mysql要做到主从复制，其实依靠的是二进制日志，即：假设主服务器叫A，从服务器叫B；主从复制就是</p>
-<p>B跟着A学，A做什么，B就做什么。那么B怎么同步A的动作呢？现在A有一个日志功能，把自己所做的增删改查的动作</p>
-<p>全都记录在日志中，B只需要拿到这份日志，照着日志上面的动作施加到自己身上就可以了。这样就实现了主从复制。</p>
-<p>扩展：MYSQL还有一种日志叫做：慢日志</p>
-<p>可以设置一个时间，那么所有执行时间超过这个时间的SQL都会被记录下来。这样就可以通过慢日志快速的找到网站中SQL的瓶颈来进行优化。</p>
-<p>实现步骤：</p>
-<p>1.首先修改mysql的配置文件，使其支持二进制日志功能。</p>
-<p>打开主服务器的mysql配置文件：my.conf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure></p>
-<p>加入如下三行代码：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/02/mysql实现主从复制/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/Nginx 启用gzip压缩/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/01/Nginx 启用gzip压缩/" itemprop="url">Nginx 启用gzip压缩</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T19:58:19+08:00">
-                2018-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="网页压缩"><a href="#网页压缩" class="headerlink" title="网页压缩"></a>网页压缩</h5><p>　　网页压缩是一项由 WEB 服务器和浏览器之间共同遵守的协议，也就是说 WEB 服务器和浏览器都必须支持该技术，所幸的是现在流行的浏览器都是支持的，包括 IE、FireFox、Opera 等；服务器有 Apache 和 IIS 等。双方的协商过程如下：　　<br>　　首先浏览器请求某个 URL 地址，并在请求的头 (head) 中设置属性 accept-encoding 值为 gzip, deflate，表明浏览器支持 gzip 和 deflate 这两种压缩方式（事实上 deflate 也是使用 gzip 压缩协议，下面我们会介绍二者之间的区别）；</p>
-<p>　　WEB 服务器接收到请求后判断浏览器是否支持压缩，如果支持就传送压缩后的响应内容，否则传送不经过压缩的内容；<br>　　浏览器获取响应内容后，判断内容是否被压缩，如果是则解压缩，然后显示响应页面的内容。</p>
-<p>　　在实际的应用中我们发现压缩的比率往往在 3 到 10 倍，也就是本来 50k 大小的页面，采用压缩后实际传输的内容大小只有 5 至 15k 大小，这可以大大节省服务器的网络带宽，同时如果应用程序的响应足够快时，网站的速度瓶颈就转到了网络的传输速度上，因此内容压缩后就可以大大的提升页面的浏览速度。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/01/Nginx 启用gzip压缩/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/php-fpm设置socket方式连接FastCGI/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/03/php-fpm设置socket方式连接FastCGI/" itemprop="url">php-fpm设置socket方式连接FastCGI</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T17:16:17+08:00">
-                2017-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/03/php-fpm设置socket方式连接FastCGI/#more" rel="contents">
+            <a class="btn" href="/2018/09/30/Kafka安装/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1597,7 +1565,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">111</span>
+                  <span class="site-state-item-count">112</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

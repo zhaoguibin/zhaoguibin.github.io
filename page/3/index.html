@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/Linux下iptables屏蔽IP和端口号/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/netstat命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -299,7 +299,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/16/Linux下iptables屏蔽IP和端口号/" itemprop="url">Linux下iptables屏蔽IP和端口号</a></h1>
+                <a class="post-title-link" href="/2018/05/01/netstat命令/" itemprop="url">netstat命令</a></h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T19:47:29+08:00">
-                2018-11-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T16:19:27+08:00">
+                2018-05-01
               </time>
             
 
@@ -351,10 +351,7 @@
       
         
           
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#封单个IP的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.10.66 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封IP段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.0.0/16 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封整个段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.0.0/8 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封几个段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.10.0/24 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#只封80端口：</span></span><br><span class="line">iptables -I INPUT -p tcp –dport 80 -s 192.168.0.0/24 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#解封：</span></span><br><span class="line">iptables -F</span><br><span class="line"></span><br><span class="line"><span class="comment">#清空：</span></span><br><span class="line">iptables -D INPUT 数字</span><br><span class="line"></span><br><span class="line"><span class="comment">#列出 INPUT链 所有的规则：</span></span><br><span class="line">iptables -L INPUT --line-numbers</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除某条规则，其中5代表序号（序号可用上面的命令查看）：</span></span><br><span class="line">iptables -D INPUT 5</span><br><span class="line"></span><br><span class="line"><span class="comment">#开放指定的端口：</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment">#禁止指定的端口：</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#拒绝所有的端口：</span></span><br><span class="line">iptables -A INPUT -j DROP</span><br></pre></td></tr></table></figure>
-<p>以上都是针对INPUT链的操作，即是外面来访问本机的方向，配置完之后 需要保存，否则iptables 重启之后以上设置就失效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables save</span><br></pre></td></tr></table></figure></p>
-<p>iptables 对应的配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/iptables</span><br></pre></td></tr></table></figure></p>
-<p>注意：iptables的规则匹配顺序上从上到下的，也就是说如果上下两条规则有冲突时，将会以上面的规则为准。</p>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 端口号</span><br><span class="line">telnet 127.0.0.1 9501</span><br><span class="line">ps aft | grep tcp.php</span><br><span class="line">pstree -p 22727</span><br></pre></td></tr></table></figure>
 
           
         
@@ -403,7 +400,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/centos修改IP/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/正则^的用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -422,7 +419,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/16/centos修改IP/" itemprop="url">centos修改IP</a></h1>
+                <a class="post-title-link" href="/2018/05/01/正则^的用法/" itemprop="url">正则^的用法</a></h1>
         
 
         <div class="post-meta">
@@ -434,8 +431,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T19:35:51+08:00">
-                2018-11-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T16:14:31+08:00">
+                2018-05-01
               </time>
             
 
@@ -474,14 +471,8 @@
       
         
           
-            <h5 id="首先查看网络接口名称"><a href="#首先查看网络接口名称" class="headerlink" title="首先查看网络接口名称"></a>首先查看网络接口名称</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/b11c555acaa92bbf9363cfec3e321a30dc950319/centos%20%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9IP%E3%80%81%E6%B0%B8%E4%B9%85%E4%BF%AE%E6%94%B9IP.png" alt="修改IP地址"></p>
-<h5 id="临时修改IP"><a href="#临时修改IP" class="headerlink" title="临时修改IP"></a>临时修改IP</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth1 192.168.10.88</span><br></pre></td></tr></table></figure>
-<h5 id="永久修改IP"><a href="#永久修改IP" class="headerlink" title="永久修改IP"></a>永久修改IP</h5><h6 id="修改对应的网络接口配置文件，文件路径是"><a href="#修改对应的网络接口配置文件，文件路径是" class="headerlink" title="修改对应的网络接口配置文件，文件路径是"></a>修改对应的网络接口配置文件，文件路径是</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/network-scripts/</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称</span><br></pre></td></tr></table></figure>
-<h6 id="修改以下配置"><a href="#修改以下配置" class="headerlink" title="修改以下配置"></a>修改以下配置</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=static</span><br><span class="line"><span class="comment"># 以下配置有就修改，没有就添加</span></span><br><span class="line">IPADDR=192.168.10.88     <span class="comment">#静态IP</span></span><br><span class="line">GATEWAY=192.168.10.1     <span class="comment">#默认网关</span></span><br><span class="line">NETMASK=255.255.255.0    <span class="comment">#子网掩码</span></span><br></pre></td></tr></table></figure>
-<h6 id="修改DNS"><a href="#修改DNS" class="headerlink" title="修改DNS"></a>修改DNS</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br><span class="line">nameserver 1.1.1.1</span><br><span class="line">nameserver 8.8.8.8</span><br></pre></td></tr></table></figure>
-<h6 id="重启网络服务"><a href="#重启网络服务" class="headerlink" title="重启网络服务"></a>重启网络服务</h6>
+            <p>^在[]外面表示以[]里的字符为首<br>^在[]里面表示不匹配[]里的字符</p>
+
           
         
       
@@ -529,7 +520,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/Nginx使用brotli/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/yum  update和yum  upgrade区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -548,7 +539,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/09/Nginx使用brotli/" itemprop="url">Nginx使用brotli</a></h1>
+                <a class="post-title-link" href="/2018/05/01/yum  update和yum  upgrade区别/" itemprop="url">yum  update和yum  upgrade区别</a></h1>
         
 
         <div class="post-meta">
@@ -560,8 +551,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-09T20:17:14+08:00">
-                2018-11-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T16:10:19+08:00">
+                2018-05-01
               </time>
             
 
@@ -599,11 +590,133 @@
 
       
         
-          <h5 id="首先下载brotli的nginx模块"><a href="#首先下载brotli的nginx模块" class="headerlink" title="首先下载brotli的nginx模块"></a>首先下载brotli的nginx模块</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/<span class="built_in">local</span>/src</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/google/ngx_brotli.git</span><br></pre></td></tr></table></figure>
-<h5 id="接着下载brotli源代码"><a href="#接着下载brotli源代码" class="headerlink" title="接着下载brotli源代码"></a>接着下载brotli源代码</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ngx_brotli</span><br><span class="line"><span class="built_in">cd</span> deps/brotli</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/google/brotli.git</span><br></pre></td></tr></table></figure>
+          
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br><span class="line"><span class="comment">#升级所有包同时也升级软件和系统内核</span></span><br><span class="line"></span><br><span class="line">yum -y upgrade</span><br><span class="line"><span class="comment">#只升级所有包，不升级软件和系统内核</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/CentOS--su和sudo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/01/CentOS--su和sudo/" itemprop="url">CentOS--su和sudo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T15:55:18+08:00">
+                2018-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="su命令"><a href="#su命令" class="headerlink" title="su命令"></a>su命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - root</span><br></pre></td></tr></table></figure>
+<p>一旦在使用su命令登录root，用户获取了系统的绝对管理权限</p>
+<h6 id="只允许特定用户使用该su命令"><a href="#只允许特定用户使用该su命令" class="headerlink" title="只允许特定用户使用该su命令"></a>只允许特定用户使用该su命令</h6><p>要做到这一点，编辑插入式验证模块为（PAM）配置文件/etc/pam.d/su 在文本编辑器中打开该文件，取消注释：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#auth           required        pam_wheel.so use_uid</span></span><br></pre></td></tr></table></figure></p>
+<p>将用户添加到名为wheel的特殊管理组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -a -G wheel username</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/11/09/Nginx使用brotli/#more" rel="contents">
+            <a class="btn" href="/2018/05/01/CentOS--su和sudo/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -654,7 +767,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/MySQL保留两位小数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/PHP curl returns (35) SSL connect error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -673,7 +786,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/09/MySQL保留两位小数/" itemprop="url">MySQL保留两位小数</a></h1>
+                <a class="post-title-link" href="/2018/04/15/PHP curl returns (35) SSL connect error/" itemprop="url">PHP curl returns (35) SSL connect error</a></h1>
         
 
         <div class="post-meta">
@@ -685,8 +798,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-09T19:58:17+08:00">
-                2018-11-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T16:35:47+08:00">
+                2018-04-15
               </time>
             
 
@@ -724,14 +837,384 @@
 
       
         
-          <h6 id="round-x-d-用于数据的四舍五入-round-x-其实就是round-x-0-也就是默认d为0；"><a href="#round-x-d-用于数据的四舍五入-round-x-其实就是round-x-0-也就是默认d为0；" class="headerlink" title="round(x,d) :用于数据的四舍五入,round(x)  ,其实就是round(x,0),也就是默认d为0；"></a>round(x,d) :用于数据的四舍五入,round(x)  ,其实就是round(x,0),也就是默认d为0；</h6><p>这里有个值得注意的地方是，d可以是负数，这时是指定小数点左边的d位整数位为0,同时小数位均为0；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(5000.56789,2),ROUND(5000,2),ROUND(0.56789,2),ROUND(115.56789,-1);</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/mysql%E5%B0%8F%E6%95%B0/round1.png" alt="mysql保留两位小数"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(5000.12345,2),ROUND(5000,2),ROUND(0.12345,2),ROUND(114.12345,-1);</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/mysql%E5%B0%8F%E6%95%B0/round2.png" alt="mysql保留两位小数"></p>
+          
+            <p>用PHP cURL来获取https链接的页面，出现错误PHP curl returns (35) SSL connect error，<br>找到一个方法，记录一下，以免忘记。</p>
+<p>解决方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update nss</span><br></pre></td></tr></table></figure></p>
+<p>Q:但是，什么是NSS呢？</p>
+<p>A:curl模块的ssl 支持默认为NSS,网络安全服务（NSS）</p>
+<p><a href="http://www.linuxfromscratch.org/blfs/view/svn/postlfs/nss.html" target="_blank" rel="noopener">The Network Security Services (NSS)</a></p>
+<p>再来个详细解释<br><a href="https://serverfault.com/questions/606135/curl-35-ssl-connect-error/642203#642203" target="_blank" rel="noopener"><br>https://serverfault.com/questions/606135/curl-35-ssl-connect-error/642203#642203<br></a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/centos7设置IP白名单/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/02/centos7设置IP白名单/" itemprop="url">centos7设置IP白名单</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T20:23:52+08:00">
+                2018-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>编辑iptables配置文件，将文件内容更改为如下，则具备了ip地址白名单功能</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/iptables</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1 *filter</span><br><span class="line">2 :INPUT ACCEPT [0:0]</span><br><span class="line">3 :FORWARD ACCEPT [0:0]</span><br><span class="line">4 :OUTPUT ACCEPT [0:0]</span><br><span class="line">5</span><br><span class="line">6 -N whitelist</span><br><span class="line">7 -A whitelist -s 1.2.3.0/24 -j ACCEPT</span><br><span class="line">8 -A whitelist -s 4.5.6.7 -j ACCEPT</span><br><span class="line">9</span><br><span class="line">10 -A INPUT -m state --state RELATED,ESTABLISHED -j whitelist</span><br><span class="line">11 -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j whitelist</span><br><span class="line">12 -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j whitelist</span><br><span class="line">13 -A INPUT -p icmp -j ACCEPT</span><br><span class="line">14 -A INPUT -i lo -j ACCEPT</span><br><span class="line">15 -A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">16 -A FORWARD -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">17 COMMIT</span><br></pre></td></tr></table></figure>
+<p>6~8 行是添加白名单列表，可以是ip段或者单个ip地址</p>
+<p>10~12行 注意的是“-j whitelist”而不是“-j ACCEPT”，前者将该端口访问权限限制在白名单内，后者为不限制</p>
+<p>13行 任何ip地址都能ping通该主机，因为“-j ACCEPT”没有做相应限制</p>
+<p>配置完毕后，运行命令重启防火墙使规则生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart iptables.service</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/php下载文件简单实例/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/02/php下载文件简单实例/" itemprop="url">php下载文件简单实例</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T20:16:49+08:00">
+                2018-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Spider</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">downloadImage</span><span class="params">($url, $path=<span class="string">'images/'</span>)</span></span></span><br><span class="line"><span class="function">          </span>&#123;</span><br><span class="line">                $ch = curl_init();</span><br><span class="line">                curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">                curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, <span class="number">30</span>);</span><br><span class="line">                $file = curl_exec($ch);</span><br><span class="line">                curl_close($ch);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">$this</span>-&gt;saveAsImage($url, $file, $path);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">saveAsImage</span><span class="params">($url, $file, $path)</span></span></span><br><span class="line"><span class="function">          </span>&#123;</span><br><span class="line">                $filename = pathinfo($url, PATHINFO_BASENAME);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(!file_exists($path))&#123;</span><br><span class="line">                   mkdir($path,<span class="number">0777</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                $resource = fopen($path . $filename, <span class="string">'a'</span>);</span><br><span class="line">                fwrite($resource, $file);</span><br><span class="line">                fclose($resource);</span><br><span class="line">          &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$str = file_get_contents(<span class="string">"http://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&amp;mkt=en-US"</span>);</span><br><span class="line">$arr = json_decode($str,<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">$img_url = <span class="string">'http://www.bing.com'</span>.$arr[<span class="string">'images'</span>][<span class="number">0</span>][<span class="string">'url'</span>];</span><br><span class="line">$img = <span class="keyword">new</span> Spider();</span><br><span class="line">$img-&gt;downloadImage($img_url);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/Nginx 启用gzip压缩/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/01/Nginx 启用gzip压缩/" itemprop="url">Nginx 启用gzip压缩</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T19:58:19+08:00">
+                2018-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="网页压缩"><a href="#网页压缩" class="headerlink" title="网页压缩"></a>网页压缩</h5><p>　　网页压缩是一项由 WEB 服务器和浏览器之间共同遵守的协议，也就是说 WEB 服务器和浏览器都必须支持该技术，所幸的是现在流行的浏览器都是支持的，包括 IE、FireFox、Opera 等；服务器有 Apache 和 IIS 等。双方的协商过程如下：　　<br>　　首先浏览器请求某个 URL 地址，并在请求的头 (head) 中设置属性 accept-encoding 值为 gzip, deflate，表明浏览器支持 gzip 和 deflate 这两种压缩方式（事实上 deflate 也是使用 gzip 压缩协议，下面我们会介绍二者之间的区别）；</p>
+<p>　　WEB 服务器接收到请求后判断浏览器是否支持压缩，如果支持就传送压缩后的响应内容，否则传送不经过压缩的内容；<br>　　浏览器获取响应内容后，判断内容是否被压缩，如果是则解压缩，然后显示响应页面的内容。</p>
+<p>　　在实际的应用中我们发现压缩的比率往往在 3 到 10 倍，也就是本来 50k 大小的页面，采用压缩后实际传输的内容大小只有 5 至 15k 大小，这可以大大节省服务器的网络带宽，同时如果应用程序的响应足够快时，网站的速度瓶颈就转到了网络的传输速度上，因此内容压缩后就可以大大的提升页面的浏览速度。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/11/09/MySQL保留两位小数/#more" rel="contents">
+            <a class="btn" href="/2018/03/01/Nginx 启用gzip压缩/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -782,7 +1265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/Kafka安装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/26/CentOS7 搭建 FTP 文件服务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -801,7 +1284,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/30/Kafka安装/" itemprop="url">Kafka安装</a></h1>
+                <a class="post-title-link" href="/2018/02/26/CentOS7 搭建 FTP 文件服务/" itemprop="url">CentOS7 搭建 FTP 文件服务</a></h1>
         
 
         <div class="post-meta">
@@ -813,8 +1296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T14:41:06+08:00">
-                2018-09-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T17:48:08+08:00">
+                2018-02-26
               </time>
             
 
@@ -852,13 +1335,13 @@
 
       
         
-          <p>1.去<a href="http://kafka.apache.org/downloads" target="_blank">kafka官网</a>下载到最新的kafka安装包，选择下载二进制版本的tgz文件</p>
-<p>2.环境需求：java运行环境</p>
-<p>3.配置<br>在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">consumer.properites <span class="comment">#消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可</span></span><br><span class="line"></span><br><span class="line">producer.properties <span class="comment">#生产者配置，这个配置文件用于配置于2.5节中开启的生产者，此处我们使用默认的即可</span></span><br><span class="line"></span><br><span class="line">server.properties <span class="comment">#kafka服务器的配置，此配置文件用来配置kafka服务器，目前仅介绍几个最基础的配置</span></span><br><span class="line"></span><br><span class="line">broker.id <span class="comment">#申明当前kafka服务器在集群中的唯一ID，需配置为integer,并且集群中的每一个kafka服务器的id都应是唯一的，我们这里采用默认配置即可</span></span><br><span class="line"></span><br><span class="line">listeners <span class="comment">#申明此kafka服务器需要监听的端口号，如果是在本机上跑虚拟机运行可以不用配置本项，默认会使用localhost的地址，如果是在远程服务器上运行则必须配置，例如：</span></span><br><span class="line">　　　　　<span class="comment">#listeners=PLAINTEXT:// 192.168.180.128:9092。并确保服务器的9092端口能够访问</span></span><br><span class="line"></span><br><span class="line">zookeeper.connect <span class="comment">#申明kafka所连接的zookeeper的地址 ，需配置为zookeeper的地址，由于本次使用的是kafka高版本中自带zookeeper，使用默认配置即可</span></span><br><span class="line">zookeeper.connect=localhost:2181</span><br></pre></td></tr></table></figure>
+          <h5 id="安装并启动-FTP-服务"><a href="#安装并启动-FTP-服务" class="headerlink" title="安装并启动 FTP 服务"></a>安装并启动 FTP 服务</h5><h6 id="安装-VSFTPD"><a href="#安装-VSFTPD" class="headerlink" title="安装 VSFTPD"></a>安装 VSFTPD</h6><p>使用 yum 安装 vsftpd<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y vsftpd</span><br></pre></td></tr></table></figure></p>
+<h6 id="启动-VSFTPD"><a href="#启动-VSFTPD" class="headerlink" title="启动 VSFTPD"></a>启动 VSFTPD</h6><p>安装完成后，启动 FTP 服务：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd start</span><br></pre></td></tr></table></figure></p>
+<p>启动后，可以看到系统已经监听了 21 端口：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -nltp | grep 21</span><br></pre></td></tr></table></figure></p>
+<p>此时，访问 ftp://192.168.3.16 可浏览机器上的 /var/ftp目录了。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/30/Kafka安装/#more" rel="contents">
+            <a class="btn" href="/2018/02/26/CentOS7 搭建 FTP 文件服务/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -909,7 +1392,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/Linux安装jdk/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/23/centos6.5安装git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaoguibin">
@@ -928,7 +1411,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/30/Linux安装jdk/" itemprop="url">Linux安装jdk</a></h1>
+                <a class="post-title-link" href="/2018/02/23/centos6.5安装git/" itemprop="url">Centos6.5安装git</a></h1>
         
 
         <div class="post-meta">
@@ -940,8 +1423,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T13:46:57+08:00">
-                2018-09-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-23T17:18:18+08:00">
+                2018-02-23
               </time>
             
 
@@ -980,563 +1463,12 @@
       
         
           
-            <p>到<a href="https://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html" target="_blank">oracle官网</a>下载二进制压缩文件</p>
-<h4 id="1-解压"><a href="#1-解压" class="headerlink" title="1.解压"></a>1.解压</h4><h4 id="2-编辑-etc-profile，添加以下配置"><a href="#2-编辑-etc-profile，添加以下配置" class="headerlink" title="2.编辑/etc/profile，添加以下配置"></a>2.编辑/etc/profile，添加以下配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/opt/src/jdk1.8.0_171</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=/opt/src/jdk1.8.0_171/jre</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/opt/src/jdk1.8.0_171/bin</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=./:/opt/src/jdk1.8.0_171/lib:/opt/src/jdk1.8.0_171/jre/lib</span><br></pre></td></tr></table></figure>
-<h4 id="3-刷新配置"><a href="#3-刷新配置" class="headerlink" title="3.刷新配置"></a>3.刷新配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
-<h4 id="4-查看配置是否生效"><a href="#4-查看配置是否生效" class="headerlink" title="4.查看配置是否生效"></a>4.查看配置是否生效</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-<h4 id="5-出现以下信息就安装成功了"><a href="#5-出现以下信息就安装成功了" class="headerlink" title="5.出现以下信息就安装成功了"></a>5.出现以下信息就安装成功了</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java version <span class="string">"1.8.0_171"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_171-b11)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/docker保存对容器的修改/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/30/docker保存对容器的修改/" itemprop="url">docker保存对容器的修改</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T13:45:16+08:00">
-                2018-09-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器ID 要保存的镜像名称</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/docker 不能运行 systemctl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/30/docker 不能运行 systemctl/" itemprop="url">docker 不能运行 systemctl</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T13:39:07+08:00">
-                2018-09-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>docker centos7运行systemctl start nginx 报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to get D-BUS connection: Operation no permitted</span><br></pre></td></tr></table></figure></p>
-<p>解决方法：</p>
-<p>在启动容器的时候添加上-d参数就可以了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --privileged -p 3306:3306 -v /opt/data/:/opt/mysql/data 镜像ID /usr/sbin/init</span><br><span class="line"></span><br><span class="line">docker <span class="built_in">exec</span> -it 容器ID /bin/bash</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/SQL纵向变成横向，横向变成纵向/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/30/SQL纵向变成横向，横向变成纵向/" itemprop="url">SQL纵向变成横向，横向变成纵向</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T12:06:32+08:00">
-                2018-09-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="纵向变成横向"><a href="#纵向变成横向" class="headerlink" title="纵向变成横向"></a>纵向变成横向</h3><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Subject</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>张三</td>
-<td>语文</td>
-<td>73</td>
-</tr>
-<tr>
-<td>张三</td>
-<td>数学</td>
-<td>83</td>
-</tr>
-<tr>
-<td>张三</td>
-<td>物理</td>
-<td>93</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>语文</td>
-<td>74</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>数学</td>
-<td>84</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>物理</td>
-<td>94</td>
-</tr>
-</tbody>
-</table>
-<p>转换成</p>
-<table>
-<thead>
-<tr>
-<th>姓名</th>
-<th>语文</th>
-<th>数学</th>
-<th>物理</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>李四</td>
-<td>74</td>
-<td>84</td>
-<td>94</td>
-</tr>
-<tr>
-<td>张三</td>
-<td>73</td>
-<td>83</td>
-<td>93</td>
-</tr>
-</tbody>
-</table>
-<h4 id="建表插入数据"><a href="#建表插入数据" class="headerlink" title="建表插入数据"></a>建表插入数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE students (</span><br><span class="line">	`Name` VARCHAR (50),</span><br><span class="line">	`Subject` VARCHAR (50),</span><br><span class="line">	`Result` INT (11)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">INSERT INTO students</span><br><span class="line">VALUES</span><br><span class="line">	(&apos;张三&apos;, &apos;语文&apos;, &apos;73&apos;),</span><br><span class="line">	(&apos;张三&apos;, &apos;数学&apos;, &apos;83&apos;),</span><br><span class="line">	(&apos;张三&apos;, &apos;物理&apos;, &apos;93&apos;),</span><br><span class="line">	(&apos;李四&apos;, &apos;语文&apos;, &apos;74&apos;),</span><br><span class="line">	(&apos;李四&apos;, &apos;数学&apos;, &apos;84&apos;),</span><br><span class="line">	(&apos;李四&apos;, &apos;物理&apos;, &apos;94&apos;);</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/30/SQL纵向变成横向，横向变成纵向/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/MySQL查询字段在哪个表/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/30/MySQL查询字段在哪个表/" itemprop="url">MySQL查询字段在哪个表</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T10:01:03+08:00">
-                2018-09-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="查询pwd字段在哪个数据库哪个表"><a href="#查询pwd字段在哪个数据库哪个表" class="headerlink" title="查询pwd字段在哪个数据库哪个表"></a>查询pwd字段在哪个数据库哪个表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	TABLE_SCHEMA,</span><br><span class="line">	TABLE_NAME</span><br><span class="line">FROM</span><br><span class="line">	information_schema.`COLUMNS`</span><br><span class="line">WHERE</span><br><span class="line">	COLUMN_NAME = &apos;pwd&apos;</span><br></pre></td></tr></table></figure>
-<h4 id="查询pwd字段在ERP数据库的哪个表"><a href="#查询pwd字段在ERP数据库的哪个表" class="headerlink" title="查询pwd字段在ERP数据库的哪个表"></a>查询pwd字段在ERP数据库的哪个表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	TABLE_SCHEMA,</span><br><span class="line">	TABLE_NAME</span><br><span class="line">FROM</span><br><span class="line">	information_schema.`COLUMNS`</span><br><span class="line">WHERE</span><br><span class="line">	COLUMN_NAME = &apos;pwd&apos;</span><br><span class="line">AND TABLE_SCHEMA = &apos;ERP&apos;</span><br></pre></td></tr></table></figure>
+            <h6 id="安装编译git时需要的包"><a href="#安装编译git时需要的包" class="headerlink" title="安装编译git时需要的包"></a>安装编译git时需要的包</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
+<h6 id="删除已有的git"><a href="#删除已有的git" class="headerlink" title="删除已有的git"></a>删除已有的git</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove git</span><br></pre></td></tr></table></figure>
+<h6 id="下载git源码"><a href="#下载git源码" class="headerlink" title="下载git源码"></a>下载git源码</h6><p>地址：<a href="https://www.kernel.org/pub/software/scm/git/" target="_blank" rel="noopener">https://www.kernel.org/pub/software/scm/git/</a> 选择要安装的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/<span class="built_in">local</span>/src</span><br><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-x.x.x.tar.gz</span><br><span class="line">tar xzf git-x.x.x.tar.gz</span><br></pre></td></tr></table></figure>
+<h6 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd git-x.x.x</span><br><span class="line">make prefix=/usr/local/git all</span><br><span class="line">make prefix=/usr/local/git install</span><br><span class="line">echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc</span><br><span class="line">source /etc/bashrc</span><br></pre></td></tr></table></figure>
+<h6 id="检查一下版本号"><a href="#检查一下版本号" class="headerlink" title="检查一下版本号"></a>检查一下版本号</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1626,7 +1558,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">111</span>
+                  <span class="site-state-item-count">112</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
