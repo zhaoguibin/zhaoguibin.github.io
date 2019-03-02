@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[virtualbox安装增强功能报错]]></title>
+    <url>%2F2019%2F03%2F02%2Fvirtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99%2F</url>
+    <content type="text"><![CDATA[在virtualbox安装目录找到VBoxGuestAdditions.iso复制到虚拟机里面，可以放到任意一个目录###### 123sudo mkdir /media/GuestAdditionsISOsudo mount -o loop VBoxGuestAdditions.iso所在目录/VBoxGuestAdditions.iso /media/GuestAdditionsISO 这时候你会看到一条信息，the ISO has been mounted as READ-ONLY12cd /media/GuestAdditionsISO./VBoxLinuxAdditions.run 搞定愿答案]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>virtualbox</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[golang两个线程交替打印1-100的奇数偶数]]></title>
     <url>%2F2019%2F01%2F31%2Fgolang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0%2F</url>
     <content type="text"><![CDATA[启动两个线程, 一个输出 1,3,5,7…99, 另一个输出 2,4,6,8…100 最后 STDOUT 中按序输出 1,2,3,4,5…100 123456789101112131415161718192021222324252627282930313233343536373839package mainimport ( "fmt" "time")var pool = 100//奇数func oddNum(c chan int) &#123; for i := 1; i &lt;= pool; i++ &#123; c &lt;- i if i%2 == 1 &#123; fmt.Println(i) &#125; &#125;&#125;//偶数func even(c chan int) &#123; for i := 1; i &lt;= pool; i++ &#123; &lt;-c if i%2 == 0 &#123; fmt.Println(i) &#125; &#125;&#125;func main() &#123; c := make(chan int) go oddNum(c) go even(c) time.Sleep(time.Second * 1)&#125;]]></content>

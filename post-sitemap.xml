@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/03/02/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/</loc>
+        <lastmod>2019-03-02T06:20:56.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/01/02/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85Python3%E5%8F%8APip3%E5%B9%B6%E4%BF%9D%E7%95%99Python2/</loc>
         <lastmod>2019-01-31T05:46:47.584Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -791,7 +799,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/09/30/SQL%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%EF%BC%8C%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/</loc>
+        <loc>http://yoursite.com/2018/09/30/MySQL%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/</loc>
         <lastmod>2019-01-31T05:46:46.010Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -799,7 +807,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/09/30/MySQL%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/</loc>
+        <loc>http://yoursite.com/2018/09/30/SQL%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%EF%BC%8C%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/</loc>
         <lastmod>2019-01-31T05:46:46.010Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
