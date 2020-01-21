@@ -205,13 +205,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/php/</loc>
-        <lastmod>2019-01-31T05:46:47.482Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/centos/</loc>
         <lastmod>2019-01-31T05:46:47.522Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -221,13 +214,6 @@
     <url>
         <loc>http://yoursite.com/tags/nginx/</loc>
         <lastmod>2019-01-31T05:46:47.522Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/mysql/</loc>
-        <lastmod>2019-01-31T05:46:47.545Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -247,15 +233,29 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/linux/</loc>
+        <loc>http://yoursite.com/tags/virtualbox/</loc>
         <lastmod>2019-03-02T06:20:56.282Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/virtualbox/</loc>
-        <lastmod>2019-03-02T06:20:56.282Z</lastmod>
+        <loc>http://yoursite.com/tags/linux/</loc>
+        <lastmod>2020-01-21T10:20:27.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/php/</loc>
+        <lastmod>2020-01-21T10:20:27.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/mysql/</loc>
+        <lastmod>2020-01-21T10:20:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
