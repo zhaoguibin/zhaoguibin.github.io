@@ -280,6 +280,490 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/装完Centos7提示Initial setup of CentOS Linux 7 (core)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/09/装完Centos7提示Initial setup of CentOS Linux 7 (core)/" itemprop="url">装完Centos7提示Initial setup of CentOS Linux 7 (core)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T15:46:34+08:00">
+                2018-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Initial setup of CentOS Linux 7 (core)</span><br><span class="line"></span><br><span class="line">1) [x] Creat user 2) [!] License information</span><br><span class="line"></span><br><span class="line">(no user will be created) (license not accepted)</span><br><span class="line"></span><br><span class="line">Please make your choice from above [<span class="string">'q'</span> to quit | <span class="string">'c'</span> to <span class="built_in">continue</span> | <span class="string">'r'</span> to refresh]:</span><br></pre></td></tr></table></figure>
+<p>解决方法：<br>输入“1”，按Enter键<br><br>输入“2”，按Enter键<br><br>输入“q”，按Enter键<br><br>输入“yes”，按Enter键</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/mysql添加索引命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/20/mysql添加索引命令/" itemprop="url">mysql添加索引命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T14:45:13+08:00">
+                2018-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.PRIMARY  KEY（主键索引）</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  PRIMARY  KEY (`column`)</span><br><span class="line">2.UNIQUE(唯一索引)</span><br><span class="line">        mysql&gt;ALTER  TABLE  `table_name`  ADD  UNIQUE (`column` )</span><br><span class="line">3.INDEX(普通索引)</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  INDEX index_name (`column`)</span><br><span class="line">4.FULLTEXT(全文索引)</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  FULLTEXT (`column`)</span><br><span class="line">5.多列索引</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  INDEX index_name (`column1`,  `column2`,</span><br><span class="line">   `column3`)</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/mysql查询出的数据插入另一个表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/20/mysql查询出的数据插入另一个表/" itemprop="url">mysql查询出的数据插入另一个表</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T14:43:37+08:00">
+                2018-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">INSERT INTO 表名1(字段列表1)</span><br><span class="line">SELECT 字段列表2 FROM 表名2 WHERE 条件表达式;</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line"></span><br><span class="line">INSERT INTO 表名1(字段列表1)</span><br><span class="line">select * from (select 字段 from *) 临时表名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO 要插入数据的表 (字段1,字段2,....)</span><br><span class="line">SELECT * FROM (查询数据的sql语句) 临时表名</span><br><span class="line"></span><br><span class="line">2-例子：</span><br><span class="line"></span><br><span class="line">INSERT INTO purchaseandsale_export (`name`)</span><br><span class="line">SELECT * FROM (SELECT name FROM `worker`) temp</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/Mysqli statement execute error  Statement violates GTID consistency CREATE TABLE ... /">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/20/Mysqli statement execute error  Statement violates GTID consistency CREATE TABLE ... /" itemprop="url">Mysqli statement execute error  Statement violates GTID consistency CREATE TABLE ...</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T14:40:42+08:00">
+                2018-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>解决：</p>
+<p>  在my.cnf 中将<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gtid_mode = ON</span><br><span class="line">enforce_gtid_consistency = ON</span><br></pre></td></tr></table></figure></p>
+<p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gtid_mode = OFF</span><br><span class="line">enforce_gtid_consistency = OFF</span><br></pre></td></tr></table></figure></p>
+<p>要两个参数一起改,然后重启mysql，问题解决</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/linux安装pear/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1020,497 +1504,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/php导出CSV/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/05/php导出CSV/" itemprop="url">php导出CSV</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-05T21:22:14+08:00">
-                2018-01-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//导出的首行标题以及需要导出的字段</span></span><br><span class="line">$parm = <span class="keyword">array</span>(</span><br><span class="line">     <span class="string">"公司名称"</span>=&gt;<span class="string">'business_name'</span>,</span><br><span class="line">     <span class="string">'公司城市'</span>=&gt;<span class="string">'province'</span>,</span><br><span class="line">     <span class="string">'公司地址'</span>=&gt;<span class="string">'detail_addr_'</span></span><br><span class="line"> );</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 导出CSV文件</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> array $data        数据</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> array $header_data 首行数据</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> string $file_name  文件名称</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> string $body_data  需要导出的字段名</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">export_csv</span><span class="params">($data = [], $parm = [], $file_name = <span class="string">''</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  header(<span class="string">'Content-Type: application/vnd.ms-excel'</span>);</span><br><span class="line">  header(<span class="string">'Content-Disposition: attachment;filename='</span>.$file_name);</span><br><span class="line">  header(<span class="string">'Cache-Control: max-age=0'</span>);</span><br><span class="line">  $fp = fopen(<span class="string">'php://output'</span>, <span class="string">'a'</span>);</span><br><span class="line">  $header_data = array_keys($parm);</span><br><span class="line">  $body_data = array_values($parm);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!<span class="keyword">empty</span>($header_data)) &#123;</span><br><span class="line">   <span class="keyword">foreach</span> ($header_data <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line">       $header_data[$key] = iconv(<span class="string">'utf-8'</span>, <span class="string">'gbk'</span>, $value);</span><br><span class="line">   &#125;</span><br><span class="line">   fputcsv($fp, $header_data);</span><br><span class="line">  &#125;</span><br><span class="line">  $num = <span class="number">0</span>;</span><br><span class="line">  $limit = <span class="number">100000</span>;</span><br><span class="line">  <span class="comment">//逐行取出数据，不浪费内存</span></span><br><span class="line">  $count = count($data);</span><br><span class="line">  <span class="keyword">if</span> ($count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">   <span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; $count; $i++) &#123;</span><br><span class="line">       $num++;</span><br><span class="line">       <span class="comment">//刷新一下输出buffer，防止由于数据过多造成问题</span></span><br><span class="line">       <span class="keyword">if</span> ($limit == $num) &#123;</span><br><span class="line">           ob_flush();</span><br><span class="line">           flush();</span><br><span class="line">           $num = <span class="number">0</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       $row = [];</span><br><span class="line">       $export_data = $data[$i];</span><br><span class="line">       <span class="keyword">foreach</span> ($export_data <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line">           <span class="keyword">if</span>(!in_array($key,$body_data))&#123;</span><br><span class="line">               <span class="keyword">continue</span>;</span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               <span class="keyword">foreach</span>($body_data <span class="keyword">as</span> $key1=&gt;$value1)&#123;</span><br><span class="line">                   $row[$value1] = iconv(<span class="string">'utf-8'</span>, <span class="string">'gbk'</span>, $export_data[$value1]);</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       fputcsv($fp, $row);</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  fclose($fp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">export_csv_1</span><span class="params">($data = [], $header_data = [], $file_name = <span class="string">''</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  header(<span class="string">'Content-Type: application/octet-stream'</span>);</span><br><span class="line">  header(<span class="string">'Content-Disposition: attachment; filename='</span> . $file_name);</span><br><span class="line">  <span class="keyword">if</span> (!<span class="keyword">empty</span>($header_data)) &#123;</span><br><span class="line">   <span class="keyword">echo</span> iconv(<span class="string">'utf-8'</span>,<span class="string">'gbk//TRANSLIT'</span>,<span class="string">'"'</span>.implode(<span class="string">'","'</span>,$header_data).<span class="string">'"'</span>.<span class="string">"\n"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line">   $output = <span class="keyword">array</span>();</span><br><span class="line">   $output[] = $value[<span class="string">'id'</span>];</span><br><span class="line">   $output[] = $value[<span class="string">'name'</span>];</span><br><span class="line">   <span class="keyword">echo</span> iconv(<span class="string">'utf-8'</span>,<span class="string">'gbk//TRANSLIT'</span>,<span class="string">'"'</span>.implode(<span class="string">'","'</span>, $output).<span class="string">"\"\n"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/“Device eth0 does not seem to be present”解决办法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/05/“Device eth0 does not seem to be present”解决办法/" itemprop="url">虚拟机克隆centos出现“Device eth0 does not seem to be present”解决办法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-05T21:12:38+08:00">
-                2018-01-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在virtualBox中克隆出新的CentOS虚拟机时，出现如下问题：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br><span class="line">Shutting down loopback insterface: [ OK ]</span><br><span class="line">Bringing up loopback insterface: [ OK ]</span><br><span class="line">Bringing up interface eth0: Device eth0 does not seem to be present,delaying initialization. [FAILED]</span><br></pre></td></tr></table></figure></p>
-<p>用ifconfig查看发现缺少eth0，只有lo；用ifconfig -a查看发现多出了eth1的信息。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/05/“Device eth0 does not seem to be present”解决办法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/Laravel运行出错RuntimeException No application encryption key has been specified./">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/05/Laravel运行出错RuntimeException No application encryption key has been specified./" itemprop="url">Laravel运行出错RuntimeException No application encryption key has been specified.</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-05T20:58:37+08:00">
-                2018-01-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在项目根目录放置.env文件</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/05/Laravel运行出错RuntimeException No application encryption key has been specified./#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/Laravel访问出错错误信息：`Warning require(vendorautoload.php) failed to open stream No such file or dire/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/05/Laravel访问出错错误信息：`Warning require(vendorautoload.php) failed to open stream No such file or dire/" itemprop="url">Laravel访问出错错误信息：`Warning require(vendorautoload.php) failed to open stream No such file or dire</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-05T20:55:18+08:00">
-                2018-01-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Warning: require(/opt/project/erp_api/public/../vendor/autoload.php): failed to open stream: No such file or directory in /opt/project/erp_api/public/index.php on line 24</p>
-<p>Fatal error: require(): Failed opening required ‘/opt/project/erp_api/public/../vendor/autoload.php’ (include_path=’.:’) in /opt/project/erp_api/public/index.php on line 24</p>
-<p>原因：网站根目录下缺少vendor这个存放laraver依赖包的目录<br><br>解决方法：使用<code>composer install</code>进行安装<br><br>（没有安装过的情况下，以前安装过的话使用：<code>composer update</code>）</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1565,7 +1558,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">116</span>
+                  <span class="site-state-item-count">120</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1578,7 +1571,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

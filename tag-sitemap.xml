@@ -240,6 +240,13 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/tags/mysql/</loc>
+        <lastmod>2020-01-21T10:20:27.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/linux/</loc>
         <lastmod>2020-01-21T10:20:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -247,15 +254,15 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/php/</loc>
-        <lastmod>2020-01-21T10:20:27.000Z</lastmod>
+        <loc>http://yoursite.com/tags/surge/</loc>
+        <lastmod>2020-09-05T09:52:55.096Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/mysql/</loc>
-        <lastmod>2020-01-21T10:20:27.000Z</lastmod>
+        <loc>http://yoursite.com/tags/php/</loc>
+        <lastmod>2020-09-05T09:52:55.105Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
