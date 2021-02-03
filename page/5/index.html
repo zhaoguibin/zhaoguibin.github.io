@@ -280,6 +280,135 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/vboxadd.sh failed modprobe vboxguest failed./">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/09/vboxadd.sh failed modprobe vboxguest failed./" itemprop="url">vboxadd.sh failed modprobe vboxguest failed.</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T15:48:15+08:00">
+                2018-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>virtualbox安装增强功能报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vboxadd.sh failed modprobe vboxguest failed.</span><br></pre></td></tr></table></figure>
+<p>解决方法：<br></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install dkms binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers</span><br></pre></td></tr></table></figure>
+<p>then</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install kernel-devel</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install kernel-PAE-devel</span><br></pre></td></tr></table></figure>
+<p>Then</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re-run VBoxLinuxAdditions.run.</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/装完Centos7提示Initial setup of CentOS Linux 7 (core)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1368,147 +1497,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/编译安装redis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/08/编译安装redis/" itemprop="url">编译安装redis</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T20:53:37+08:00">
-                2018-01-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="一-安装Redis"><a href="#一-安装Redis" class="headerlink" title="一.安装Redis"></a>一.安装Redis</h5><p>(1) cd /usr/src 进入下载目录</p>
-<p>(1) yum install -y wget gcc make tcl 安装依赖</p>
-<p>(2) redis官网<a href="http://www.redis.io下载最新的源码包" target="_blank" rel="noopener">http://www.redis.io下载最新的源码包</a></p>
-<p>(3) tar -zxvf redis-3.2.2.tar.gz     解压</p>
-<p>(4) cd redis-3.2.2    进入redis目录</p>
-<p>(5) make  编辑</p>
-<p>(6) make test 测试</p>
-<p>测试过程报错</p>
-<p>[exception]: Executing test client: NOREPLICAS Not enough good slaves to write..<br>NOREPLICAS Not enough good slaves to write.<br>while executing</p>
-<p>这种情况下，可以修改当前目录文件tests/integration/replication-2.tcl，将after 1000改为after 10000以延长等待时间 重新测试</p>
-<p>(7)make install PREFIX=/usr/local/redis    PREFIX安装指定目录 否则安装到/usr/local/bin里面了</p>
-<p>(8)启动redis服务 ./redis-server ./redis-conf</p>
-<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/redis.png" alt="redis"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/08/编译安装redis/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1558,7 +1551,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">120</span>
+                  <span class="site-state-item-count">121</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1571,7 +1564,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1624,7 +1617,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

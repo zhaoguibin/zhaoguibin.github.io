@@ -280,6 +280,130 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/03/树莓派格式化硬盘并自动挂载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/astronaut.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/02/03/树莓派格式化硬盘并自动挂载/" itemprop="url">树莓派格式化硬盘并自动挂载</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-03T12:35:01+08:00">
+                2021-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="输入-fdisk-l查看你U盘的具体分区"><a href="#输入-fdisk-l查看你U盘的具体分区" class="headerlink" title="输入 fdisk -l查看你U盘的具体分区"></a>输入 fdisk -l查看你U盘的具体分区</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
+<h5 id="先取消树莓派自动挂载取消挂载"><a href="#先取消树莓派自动挂载取消挂载" class="headerlink" title="先取消树莓派自动挂载取消挂载"></a>先取消树莓派自动挂载取消挂载</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /dev/sdb1</span><br></pre></td></tr></table></figure>
+<h5 id="将-dev-sdb1分区格式化成ext4文件系统"><a href="#将-dev-sdb1分区格式化成ext4文件系统" class="headerlink" title="将/dev/sdb1分区格式化成ext4文件系统"></a>将/dev/sdb1分区格式化成ext4文件系统</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs.ext4 /dev/sdb1</span><br></pre></td></tr></table></figure>
+<h5 id="挂载硬盘"><a href="#挂载硬盘" class="headerlink" title="挂载硬盘"></a>挂载硬盘</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount /dev/sdb1  /data/hardDisk/linkEase/musics</span><br></pre></td></tr></table></figure>
+<h5 id="开机自动挂载硬盘"><a href="#开机自动挂载硬盘" class="headerlink" title="开机自动挂载硬盘"></a>开机自动挂载硬盘</h5><h6 id="查看硬盘UUID"><a href="#查看硬盘UUID" class="headerlink" title="查看硬盘UUID"></a>查看硬盘UUID</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l /dev/disk/by-uuid/</span><br></pre></td></tr></table></figure>
+<h6 id="通过UUID挂载硬盘"><a href="#通过UUID挂载硬盘" class="headerlink" title="通过UUID挂载硬盘"></a>通过UUID挂载硬盘</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#编辑/etc/fstab</span></span><br><span class="line">sudo vim /etc/fstab</span><br><span class="line"><span class="comment">#添加以下命令到/etc/fstab</span></span><br><span class="line">UUID=601788b2-96aa-4975-a6c2-7b90b128a7e5 /data/hardDisk/linkEase/musics ext4 defaults 0 0</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/RSA数据加密解密/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1361,136 +1485,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/26/golang抓取知乎图片/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/astronaut.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/26/golang抓取知乎图片/" itemprop="url">golang抓取知乎图片</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-26T10:56:31+08:00">
-                2019-01-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h6 id="代码github地址"><a href="#代码github地址" class="headerlink" title="代码github地址"></a>代码github地址</h6><p> <a href="https://github.com/zhaoguibin/zhihu_pic" target="_blank">https://github.com/zhaoguibin/zhihu_pic</a></p>
-<h6 id="需要安装-gjson"><a href="#需要安装-gjson" class="headerlink" title="需要安装  gjson"></a>需要安装  <a href="https://github.com/tidwall/gjson" target="_blank">gjson</a></h6>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/26/golang抓取知乎图片/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1540,7 +1539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">120</span>
+                  <span class="site-state-item-count">121</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1553,7 +1552,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1606,7 +1605,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
