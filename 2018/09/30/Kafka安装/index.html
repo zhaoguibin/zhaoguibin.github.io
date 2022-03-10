@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1.去kafka官网下载到最新的kafka安装包，选择下载二进制版本的tgz文件 2.环境需求：java运行环境 3.配置在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件 12345678910111213consumer.properites #消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可producer.properties #">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka安装">
+<meta property="og:url" content="http://example.com/2018/09/30/Kafka%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="zhaoguibin">
+<meta property="og:description" content="1.去kafka官网下载到最新的kafka安装包，选择下载二进制版本的tgz文件 2.环境需求：java运行环境 3.配置在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件 12345678910111213consumer.properites #消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可producer.properties #">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%90%AF%E5%8A%A8zookeeper.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%90%AF%E5%8A%A8kafka.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAtopic.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E6%9F%A5%E7%9C%8B%E5%B7%B2%E7%BB%8F%E5%88%9B%E5%BB%BA%E7%9A%84topic.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E%E6%B6%88%E8%B4%B9topic%E4%B8%BAtest%E7%9A%84%E6%B6%88%E8%B4%B9%E8%80%85.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%B6%88%E6%81%AF%E7%94%9F%E4%BA%A7%E8%80%85.png">
+<meta property="og:image" content="https://github.com/zhaoguibin/hexo_blog_files/blob/master/kafka/%E7%BB%88%E7%AB%AF%E4%B8%AD%E5%B7%B2%E7%BB%8F%E6%89%93%E5%8D%B0%E5%87%BA%E4%BA%86%E6%88%91%E4%BB%AC%E5%88%9A%E6%89%8D%E5%8F%91%E9%80%81%E7%9A%84%E6%B6%88%E6%81%AF.png?raw=true">
+<meta property="article:published_time" content="2018-09-30T06:41:06.000Z">
+<meta property="article:modified_time" content="2021-02-03T03:50:09.000Z">
+<meta property="article:author" content="zhaoguibin">
+<meta property="article:tag" content="kafka">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%90%AF%E5%8A%A8zookeeper.png">
+
+
+<link rel="canonical" href="http://example.com/2018/09/30/Kafka%E5%AE%89%E8%A3%85/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2018/09/30/Kafka%E5%AE%89%E8%A3%85/","path":"2018/09/30/Kafka安装/","title":"Kafka安装"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Kafka安装 | zhaoguibin</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">zhaoguibin</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhaoguibin"
+      src="/images/astronaut.jpg">
+  <p class="site-author-name" itemprop="name">zhaoguibin</p>
+  <div class="site-description" itemprop="description">个人平时问题记录</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhaoguibin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhaoguibin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhaoguibinx@gmail.com" title="E-Mail → mailto:zhaoguibinx@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/30/Kafka%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kafka安装 | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kafka安装
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-09-30 14:41:06" itemprop="dateCreated datePublished" datetime="2018-09-30T14:41:06+08:00">2018-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>1.去<a href="http://kafka.apache.org/downloads" target="_blank">kafka官网</a>下载到最新的kafka安装包，选择下载二进制版本的tgz文件</p>
+<p>2.环境需求：java运行环境</p>
+<p>3.配置<br>在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">consumer.properites <span class="comment">#消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可</span></span><br><span class="line"></span><br><span class="line">producer.properties <span class="comment">#生产者配置，这个配置文件用于配置于2.5节中开启的生产者，此处我们使用默认的即可</span></span><br><span class="line"></span><br><span class="line">server.properties <span class="comment">#kafka服务器的配置，此配置文件用来配置kafka服务器，目前仅介绍几个最基础的配置</span></span><br><span class="line"></span><br><span class="line">broker.id <span class="comment">#申明当前kafka服务器在集群中的唯一ID，需配置为integer,并且集群中的每一个kafka服务器的id都应是唯一的，我们这里采用默认配置即可</span></span><br><span class="line"></span><br><span class="line">listeners <span class="comment">#申明此kafka服务器需要监听的端口号，如果是在本机上跑虚拟机运行可以不用配置本项，默认会使用localhost的地址，如果是在远程服务器上运行则必须配置，例如：</span></span><br><span class="line">　　　　　<span class="comment">#listeners=PLAINTEXT:// 192.168.180.128:9092。并确保服务器的9092端口能够访问</span></span><br><span class="line"></span><br><span class="line">zookeeper.connect <span class="comment">#申明kafka所连接的zookeeper的地址 ，需配置为zookeeper的地址，由于本次使用的是kafka高版本中自带zookeeper，使用默认配置即可</span></span><br><span class="line">zookeeper.connect=localhost:2181</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>4.运行</p>
+<p>4.1 启动zookeeper<br>cd进入kafka解压目录，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zookeeper-server-start.sh config/zookeeper.properties</span><br></pre></td></tr></table></figure>
+<p>启动zookeeper成功后会看到如下的输出</p>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%90%AF%E5%8A%A8zookeeper.png" alt="启动zookeeper"></p>
+<p>4.2. 启动kafka<br>cd进入kafka解压目录，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-server-start.sh config/server.properties</span><br></pre></td></tr></table></figure>
+<p>启动kafka成功后会看到如下的输出<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%90%AF%E5%8A%A8kafka.png" alt="启动kafka"></p>
+<p>5.第一个消息<br>5.1 创建一个topic<br>Kafka通过topic对同一类的数据进行管理，同一类的数据使用同一个topic可以在处理数据时更加的便捷<br>在kafka解压目录打开终端，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic beta</span><br></pre></td></tr></table></figure>
+<p>创建一个名为beta的topic<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAtopic.png" alt="创建一个topic"></p>
+<p>在创建topic后可以通过输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure>
+<p>来查看已经创建的topic<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E6%9F%A5%E7%9C%8B%E5%B7%B2%E7%BB%8F%E5%88%9B%E5%BB%BA%E7%9A%84topic.png" alt="查看已经创建的topic"></p>
+<p>5.2 创建一个消息消费者<br>在kafka解压目录打开终端，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic beta --from-beginning</span><br></pre></td></tr></table></figure>
+<p>可以创建一个用于消费topic为beta的消费者<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E%E6%B6%88%E8%B4%B9topic%E4%B8%BAtest%E7%9A%84%E6%B6%88%E8%B4%B9%E8%80%85.png" alt="消费topic为beta的消费者"></p>
+<p>消费者创建完成之后，因为还没有发送任何数据，因此这里在执行后没有打印出任何数据不过别着急，不要关闭这个终端，打开一个新的终端，接下来我们创建第一个消息生产者</p>
+<p>5.3创建一个消息生产者</p>
+<p>在kafka解压目录打开一个新的终端，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic beta</span><br></pre></td></tr></table></figure>
+<p>在执行完毕后会进入的编辑器页面<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/kafka/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%B6%88%E6%81%AF%E7%94%9F%E4%BA%A7%E8%80%85.png" alt="创建一个消息生产者"></p>
+<p>在发送完消息之后，可以回到我们的消息消费者终端中，可以看到，终端中已经打印出了我们刚才发送的消息</p>
+<p><img src="https://github.com/zhaoguibin/hexo_blog_files/blob/master/kafka/%E7%BB%88%E7%AB%AF%E4%B8%AD%E5%B7%B2%E7%BB%8F%E6%89%93%E5%8D%B0%E5%87%BA%E4%BA%86%E6%88%91%E4%BB%AC%E5%88%9A%E6%89%8D%E5%8F%91%E9%80%81%E7%9A%84%E6%B6%88%E6%81%AF.png?raw=true" alt="终端中已经打印出了我们刚才发送的消息"></p>
+<p><a href="https://www.cnblogs.com/hei12138/p/7805475.html" target="_blank">转载自：cnblogs–嘿123</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/kafka/" rel="tag"># kafka</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/09/30/Linux%E5%AE%89%E8%A3%85jdk/" rel="prev" title="Linux安装jdk">
+                  <i class="fa fa-chevron-left"></i> Linux安装jdk
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/11/09/MySQL%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/" rel="next" title="MySQL保留两位小数">
+                  MySQL保留两位小数 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaoguibin</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

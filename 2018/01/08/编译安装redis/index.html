@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一.安装Redis(1) cd &#x2F;usr&#x2F;src 进入下载目录 (1) yum install -y wget gcc make tcl 安装依赖 (2) redis官网http:&#x2F;&#x2F;www.redis.io下载最新的源码包 (3) tar -zxvf redis-3.2.2.tar.gz     解压 (4) cd redis-3.2.2    进入redis目录 (5) m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译安装redis">
+<meta property="og:url" content="http://example.com/2018/01/08/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/index.html">
+<meta property="og:site_name" content="zhaoguibin">
+<meta property="og:description" content="一.安装Redis(1) cd &#x2F;usr&#x2F;src 进入下载目录 (1) yum install -y wget gcc make tcl 安装依赖 (2) redis官网http:&#x2F;&#x2F;www.redis.io下载最新的源码包 (3) tar -zxvf redis-3.2.2.tar.gz     解压 (4) cd redis-3.2.2    进入redis目录 (5) m">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/redis.png">
+<meta property="article:published_time" content="2018-01-08T12:53:37.000Z">
+<meta property="article:modified_time" content="2021-02-03T03:50:09.000Z">
+<meta property="article:author" content="zhaoguibin">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="redis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/redis.png">
+
+
+<link rel="canonical" href="http://example.com/2018/01/08/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2018/01/08/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/","path":"2018/01/08/编译安装redis/","title":"编译安装redis"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>编译安装redis | zhaoguibin</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">zhaoguibin</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80-%E5%AE%89%E8%A3%85Redis"><span class="nav-number">1.</span> <span class="nav-text">一.安装Redis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C-Redis%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">二.Redis配置说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%B9%B6%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text">增加服务并开机启动</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhaoguibin"
+      src="/images/astronaut.jpg">
+  <p class="site-author-name" itemprop="name">zhaoguibin</p>
+  <div class="site-description" itemprop="description">个人平时问题记录</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhaoguibin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhaoguibin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhaoguibinx@gmail.com" title="E-Mail → mailto:zhaoguibinx@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/01/08/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="编译安装redis | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          编译安装redis
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-01-08 20:53:37" itemprop="dateCreated datePublished" datetime="2018-01-08T20:53:37+08:00">2018-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h5 id="一-安装Redis"><a href="#一-安装Redis" class="headerlink" title="一.安装Redis"></a>一.安装Redis</h5><p>(1) cd &#x2F;usr&#x2F;src 进入下载目录</p>
+<p>(1) yum install -y wget gcc make tcl 安装依赖</p>
+<p>(2) redis官网<a target="_blank" rel="noopener" href="http://www.redis.io下载最新的源码包/">http://www.redis.io下载最新的源码包</a></p>
+<p>(3) tar -zxvf redis-3.2.2.tar.gz     解压</p>
+<p>(4) cd redis-3.2.2    进入redis目录</p>
+<p>(5) make  编辑</p>
+<p>(6) make test 测试</p>
+<p>测试过程报错</p>
+<p>[exception]: Executing test client: NOREPLICAS Not enough good slaves to write..<br>NOREPLICAS Not enough good slaves to write.<br>while executing</p>
+<p>这种情况下，可以修改当前目录文件tests&#x2F;integration&#x2F;replication-2.tcl，将after 1000改为after 10000以延长等待时间 重新测试</p>
+<p>(7)make install PREFIX&#x3D;&#x2F;usr&#x2F;local&#x2F;redis    PREFIX安装指定目录 否则安装到&#x2F;usr&#x2F;local&#x2F;bin里面了</p>
+<p>(8)启动redis服务 .&#x2F;redis-server .&#x2F;redis-conf</p>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/redis.png" alt="redis"></p>
+<span id="more"></span>
+
+<p>发现很多错误：</p>
+<ol>
+<li><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WARNING: The TCP backlog setting of 511 cannot be enforced because</span><br><span class="line">/proc/sys/net/core/somaxconn is <span class="built_in">set</span> to the lower value of 128</span><br></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 511 &gt; /proc/sys/net/core/somaxconn</span><br></pre></td></tr></table></figure>
+<p>写到&#x2F;etc&#x2F;rc.local里面   rc.local 是开机启动程序 是一个软连接  （确定两者都有执行权限）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lrwxrwxrwx. 1 root root 13 Aug  2 07:50 /etc/rc.local -&gt; rc.d/rc.local</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">WARNING overcommit_memory is <span class="built_in">set</span> to 0! Background save may fail under low memory</span><br><span class="line">condition. To fix this issue add <span class="string">&#x27;vm.overcommit_memory = 1&#x27;</span> to /etc/sysctl.conf and</span><br><span class="line"><span class="keyword">then</span> reboot or run the <span class="built_in">command</span> <span class="string">&#x27;sysctl vm.overcommit_memory=1&#x27;</span> <span class="keyword">for</span> this to take effect.</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>往&#x2F;etc&#x2F;sysctl.conf 中添加vm.overcommit_memory &#x3D; 1</p>
+<ol start="3">
+<li><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">WARNING you have Transparent Huge Pages (THP) support enabled <span class="keyword">in</span> your kernel. This</span><br><span class="line">will create latency and memory usage issues with Redis. To fix this issue run the</span><br><span class="line"><span class="built_in">command</span> <span class="string">&#x27;echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled&#x27;</span> as root, and add</span><br><span class="line">it to your /etc/rc.local <span class="keyword">in</span> order to retain the setting after a reboot. Redis must</span><br><span class="line">be restarted after THP is disabled.</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled 写到&#x2F;etc&#x2F;rc.local里面</p>
+<p>还有想在后台运行的话修改配置redis.conf   daemonize yes 就可以了</p>
+<p>(9)运行.&#x2F;redis-cli</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">./redis-cli</span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> 1 2</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get 1</span><br><span class="line"><span class="string">&quot;2&quot;</span></span><br><span class="line">127.0.0.1:6379&gt; quit</span><br></pre></td></tr></table></figure>
+
+<h5 id="二-Redis配置说明"><a href="#二-Redis配置说明" class="headerlink" title="二.Redis配置说明"></a>二.Redis配置说明</h5><ol>
+<li><p>Redis默认不是以守护进程的方式运行，可以通过该配置项修改，使用yes启用守护进程</p>
+<p> daemonize no</p>
+</li>
+<li><p>当Redis以守护进程方式运行时，Redis默认会把pid写入&#x2F;var&#x2F;run&#x2F;redis.pid文件，可以通过pidfile指定</p>
+<p> pidfile &#x2F;var&#x2F;run&#x2F;redis.pid</p>
+</li>
+<li><p>指定Redis监听端口，默认端口为6379，作者在自己的一篇博文中解释了为什么选用6379作为默认端口，因为6379在手机按键上MERZ对应的号码，而MERZ取自意大利歌女Alessia Merz的名字</p>
+<p> port 6379</p>
+</li>
+<li><p>绑定的主机地址</p>
+<p> bind 127.0.0.1</p>
+</li>
+<li><p>当 客户端闲置多长时间后关闭连接，如果指定为0，表示关闭该功能</p>
+<p> timeout 300</p>
+</li>
+<li><p>指定日志记录级别，Redis总共支持四个级别：debug、verbose、notice、warning，默认为verbose</p>
+<p> loglevel verbose</p>
+</li>
+<li><p>日志记录方式，默认为标准输出，如果配置Redis为守护进程方式运行，而这里又配置为日志记录方式为标准输出，则日志将会发送给&#x2F;dev&#x2F;null</p>
+<p> logfile stdout</p>
+</li>
+<li><p>设置数据库的数量，默认数据库为0，可以使用SELECT <dbid>命令在连接上指定数据库id</p>
+<p> databases 16</p>
+</li>
+<li><p>指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合</p>
+<p> save <seconds> <changes></p>
+<p> Redis默认配置文件中提供了三个条件：</p>
+<p> save 900 1</p>
+<p> save 300 10</p>
+<p> save 60 10000</p>
+<p> 分别表示900秒（15分钟）内有1个更改，300秒（5分钟）内有10个更改以及60秒内有10000个更改。</p>
+</li>
+<li><p>指定存储至本地数据库时是否压缩数据，默认为yes，Redis采用LZF压缩，如果为了节省CPU时间，可以关闭该选项，但会导致数据库文件变的巨大</p>
+<p>rdbcompression yes</p>
+</li>
+<li><p>指定本地数据库文件名，默认值为dump.rdb</p>
+<p>dbfilename dump.rdb</p>
+</li>
+<li><p>指定本地数据库存放目录</p>
+<p>dir .&#x2F;</p>
+</li>
+<li><p>设置当本机为slav服务时，设置master服务的IP地址及端口，在Redis启动时，它会自动从master进行数据同步</p>
+<p>slaveof <masterip> <masterport></p>
+</li>
+<li><p>当master服务设置了密码保护时，slav服务连接master的密码</p>
+<p>masterauth <master-password></p>
+</li>
+<li><p>设置Redis连接密码，如果配置了连接密码，客户端在连接Redis时需要通过AUTH <password>命令提供密码，默认关闭</p>
+<p>requirepass foobared</p>
+</li>
+<li><p>设置同一时间最大客户端连接数，默认无限制，Redis可以同时打开的客户端连接数为Redis进程可以打开的最大文件描述符数，如果设置 maxclients 0，表示不作限制。当客户端连接数到达限制时，Redis会关闭新的连接并向客户端返回max number of clients reached错误信息</p>
+<p>maxclients 128</p>
+</li>
+<li><p>指定Redis最大内存限制，Redis在启动时会把数据加载到内存中，达到最大内存后，Redis会先尝试清除已到期或即将到期的Key，当此方法处理 后，仍然到达最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作。Redis新的vm机制，会把Key存放内存，Value会存放在swap区</p>
+<p>maxmemory <bytes></p>
+</li>
+<li><p>指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能会在断电时导致一段时间内的数据丢失。因为 redis本身同步数据文件是按上面save条件来同步的，所以有的数据会在一段时间内只存在于内存中。默认为no</p>
+<p>appendonly no</p>
+</li>
+<li><p>指定更新日志文件名，默认为appendonly.aof</p>
+<p> appendfilename appendonly.aof</p>
+</li>
+<li><p>指定更新日志条件，共有3个可选值：<br>no：表示等操作系统进行数据缓存同步到磁盘（快）<br>always：表示每次更新操作后手动调用fsync()将数据写到磁盘（慢，安全）<br>everysec：表示每秒同步一次（折衷，默认值）</p>
+<p>appendfsync everysec</p>
+</li>
+<li><p>指定是否启用虚拟内存机制，默认值为no，简单的介绍一下，VM机制将数据分页存放，由Redis将访问量较少的页即冷数据swap到磁盘上，访问多的页面由磁盘自动换出到内存中（在后面的文章我会仔细分析Redis的VM机制）</p>
+<p> vm-enabled no</p>
+</li>
+<li><p>虚拟内存文件路径，默认值为&#x2F;tmp&#x2F;redis.swap，不可多个Redis实例共享</p>
+<p> vm-swap-file &#x2F;tmp&#x2F;redis.swap</p>
+</li>
+<li><p>将所有大于vm-max-memory的数据存入虚拟内存,无论vm-max-memory设置多小,所有索引数据都是内存存储的(Redis的索引数据 就是keys),也就是说,当vm-max-memory设置为0的时候,其实是所有value都存在于磁盘。默认值为0</p>
+<p> vm-max-memory 0</p>
+</li>
+<li><p>Redis swap文件分成了很多的page，一个对象可以保存在多个page上面，但一个page上不能被多个对象共享，vm-page-size是要根据存储的 数据大小来设定的，作者建议如果存储很多小对象，page大小最好设置为32或者64bytes；如果存储很大大对象，则可以使用更大的page，如果不 确定，就使用默认值</p>
+<p> vm-page-size 32</p>
+</li>
+<li><p>设置swap文件中的page数量，由于页表（一种表示页面空闲或使用的bitmap）是在放在内存中的，，在磁盘上每8个pages将消耗1byte的内存。</p>
+<p> vm-pages 134217728</p>
+</li>
+<li><p>设置访问swap文件的线程数,最好不要超过机器的核数,如果设置为0,那么所有对swap文件的操作都是串行的，可能会造成比较长时间的延迟。默认值为4</p>
+<p> vm-max-threads 4</p>
+</li>
+<li><p>设置在向客户端应答时，是否把较小的包合并为一个包发送，默认为开启</p>
+<p>glueoutputbuf yes</p>
+</li>
+<li><p>指定在超过一定的数量或者最大的元素超过某一临界值时，采用一种特殊的哈希算法</p>
+<p>hash-max-zipmap-entries 64</p>
+<p>hash-max-zipmap-value 512</p>
+</li>
+<li><p>指定是否激活重置哈希，默认为开启（后面在介绍Redis的哈希算法时具体介绍）</p>
+<p>activerehashing yes</p>
+</li>
+<li><p>指定包含其它的配置文件，可以在同一主机上多个Redis实例之间使用同一份配置文件，而同时各个实例又拥有自己的特定配置文件</p>
+<p>include &#x2F;path&#x2F;to&#x2F;local.conf</p>
+</li>
+</ol>
+<h5 id="增加服务并开机启动"><a href="#增加服务并开机启动" class="headerlink" title="增加服务并开机启动"></a>增加服务并开机启动</h5><p>redis启动脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#chkconfig: 2345 55 25</span></span><br><span class="line"><span class="comment">#description: Starts,stops and restart the redis-server</span></span><br><span class="line"><span class="comment">#Ver:1.1  </span></span><br><span class="line"><span class="comment">#Write by ND chengh(200808)</span></span><br><span class="line"><span class="comment">#usage: ./script_name -p [port] &#123;start|stop|status|restart&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Source function library.</span></span><br><span class="line">. /etc/rc.d/init.d/functions</span><br><span class="line"></span><br><span class="line"><span class="comment"># Source networking configuration.</span></span><br><span class="line">. /etc/sysconfig/network</span><br><span class="line"></span><br><span class="line"><span class="comment"># Check networking is up.</span></span><br><span class="line">[ <span class="string">&quot;<span class="variable">$NETWORKING</span>&quot;</span> = <span class="string">&quot;no&quot;</span> ] &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line"></span><br><span class="line">RETVAL=0</span><br><span class="line">REDIS_PORT=6379</span><br><span class="line">PID=</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$1</span>&quot;</span> = <span class="string">&quot;-p&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    REDIS_PORT=<span class="variable">$2</span></span><br><span class="line">    <span class="built_in">shift</span> 2</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">REDIS_DIR=<span class="string">&quot;/opt/local/redis&quot;</span></span><br><span class="line">REDIS=<span class="string">&quot;<span class="variable">$&#123;REDIS_DIR&#125;</span>/bin/redis-server&quot;</span></span><br><span class="line">PROG=$(<span class="built_in">basename</span> <span class="variable">$REDIS</span>)</span><br><span class="line"></span><br><span class="line">CONF=<span class="string">&quot;<span class="variable">$&#123;REDIS_DIR&#125;</span>/etc/redis-<span class="variable">$&#123;REDIS_PORT&#125;</span>.conf&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -f <span class="variable">$CONF</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="keyword">if</span> [ -f <span class="string">&quot;<span class="variable">$&#123;REDIS_DIR&#125;</span>/etc/redis.conf&quot;</span> ];<span class="keyword">then</span></span><br><span class="line">      CONF=<span class="string">&quot;<span class="variable">$&#123;REDIS_DIR&#125;</span>/etc/redis.conf&quot;</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">      <span class="built_in">echo</span> -n $<span class="string">&quot;<span class="variable">$CONF</span> not exist.&quot;</span>;warning;<span class="built_in">echo</span></span><br><span class="line">      <span class="built_in">exit</span> 1</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">PID_FILE=`grep <span class="string">&quot;pidfile&quot;</span> <span class="variable">$&#123;CONF&#125;</span>|<span class="built_in">cut</span> -d <span class="string">&#x27; &#x27;</span> -f2`</span><br><span class="line">PID_FILE=<span class="variable">$&#123;PID_FILE:=/var/run/redis.pid&#125;</span></span><br><span class="line">LOCKFILE=<span class="string">&quot;/var/lock/subsys/redis-<span class="variable">$&#123;REDIS_PORT&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -x <span class="variable">$REDIS</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> -n $<span class="string">&quot;<span class="variable">$REDIS</span> not exist.&quot;</span>;warning;<span class="built_in">echo</span></span><br><span class="line">    <span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">start</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> -n $<span class="string">&quot;Starting <span class="variable">$PROG</span>: &quot;</span></span><br><span class="line">    <span class="variable">$REDIS</span> <span class="variable">$CONF</span></span><br><span class="line">    RETVAL=$?</span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$RETVAL</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">        success;<span class="built_in">echo</span>;<span class="built_in">touch</span> <span class="variable">$LOCKFILE</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        failure;<span class="built_in">echo</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$RETVAL</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">stop</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> -n $<span class="string">&quot;Stopping <span class="variable">$PROG</span>: &quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ -f <span class="variable">$PID_FILE</span> ] ;<span class="keyword">then</span></span><br><span class="line">      <span class="built_in">read</span> PID &lt;  <span class="string">&quot;<span class="variable">$PID_FILE</span>&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      failure;<span class="built_in">echo</span>;</span><br><span class="line">      <span class="built_in">echo</span> -n $<span class="string">&quot;<span class="variable">$PID_FILE</span> not found.&quot;</span>;failure;<span class="built_in">echo</span></span><br><span class="line">      <span class="built_in">return</span> 1;</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> checkpid <span class="variable">$PID</span>; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">kill</span> -TERM <span class="variable">$PID</span> &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">        RETVAL=$?</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$RETVAL</span> -eq 0 ] ;<span class="keyword">then</span></span><br><span class="line">                success;<span class="built_in">echo</span></span><br><span class="line">                <span class="built_in">echo</span> -n <span class="string">&quot;Waiting for Redis to shutdown ..&quot;</span></span><br><span class="line">        <span class="keyword">while</span> checkpid <span class="variable">$PID</span>;<span class="keyword">do</span></span><br><span class="line">                <span class="built_in">echo</span> -n <span class="string">&quot;.&quot;</span></span><br><span class="line">                <span class="built_in">sleep</span> 1;</span><br><span class="line">                <span class="keyword">done</span></span><br><span class="line">                success;<span class="built_in">echo</span>;<span class="built_in">rm</span> -f <span class="variable">$LOCKFILE</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">                failure;<span class="built_in">echo</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> -n $<span class="string">&quot;Redis is dead and <span class="variable">$PID_FILE</span> exists.&quot;</span>;failure;<span class="built_in">echo</span></span><br><span class="line">        RETVAL=7</span><br><span class="line">    <span class="keyword">fi</span>    </span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$RETVAL</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">restart</span></span>() &#123;</span><br><span class="line">    stop</span><br><span class="line">    start</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">rhstatus</span></span>() &#123;</span><br><span class="line">    status -p <span class="variable">$&#123;PID_FILE&#125;</span> <span class="variable">$PROG</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">hid_status</span></span>() &#123;</span><br><span class="line">    rhstatus &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">    start)</span><br><span class="line">        hid_status &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">        start</span><br><span class="line">        ;;</span><br><span class="line">    stop)</span><br><span class="line">        rhstatus || <span class="built_in">exit</span> 0</span><br><span class="line">        stop</span><br><span class="line">        ;;</span><br><span class="line">    restart)</span><br><span class="line">        restart</span><br><span class="line">        ;;</span><br><span class="line">    status)</span><br><span class="line">        rhstatus</span><br><span class="line">        RETVAL=$?</span><br><span class="line">        ;;</span><br><span class="line">    *)</span><br><span class="line">        <span class="built_in">echo</span> $<span class="string">&quot;Usage: <span class="variable">$0</span> -p [port] &#123;start|stop|status|restart&#125;&quot;</span></span><br><span class="line">        RETVAL=1</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> <span class="variable">$RETVAL</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>把redis脚本文件放在 &#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F; 目录下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /etc/rc.d/init.d/redis</span><br><span class="line">chkconfig --add redis</span><br><span class="line">chkconfig --level 345 redis on</span><br><span class="line">chkconfig --list redis</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/redis/" rel="tag"># redis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/01/05/php%E5%AF%BC%E5%87%BACSV/" rel="prev" title="php导出CSV">
+                  <i class="fa fa-chevron-left"></i> php导出CSV
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/01/09/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/" rel="next" title="php下安装event扩展">
+                  php下安装event扩展 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaoguibin</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

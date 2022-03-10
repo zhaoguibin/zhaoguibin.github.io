@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一、环境准备1、操作系统安装：CentOS 6.5 64位最小化安装。2、配置好IP、DNS、网关、主机名3、配置防火墙，开启80、3306端口123&#x2F;sbin&#x2F;iptables -I INPUT -p tcp --dport 80 -j ACCEPT&#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;iptables save&#x2F;etc&#x2F;init.d&#x2F;iptables restart  这样就搞定了，查看效果 12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos6.5编译安装LNMP">
+<meta property="og:url" content="http://example.com/2017/12/02/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LNMP/index.html">
+<meta property="og:site_name" content="zhaoguibin">
+<meta property="og:description" content="一、环境准备1、操作系统安装：CentOS 6.5 64位最小化安装。2、配置好IP、DNS、网关、主机名3、配置防火墙，开启80、3306端口123&#x2F;sbin&#x2F;iptables -I INPUT -p tcp --dport 80 -j ACCEPT&#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;iptables save&#x2F;etc&#x2F;init.d&#x2F;iptables restart  这样就搞定了，查看效果 12">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-12-02T03:01:15.000Z">
+<meta property="article:modified_time" content="2021-02-03T03:50:09.000Z">
+<meta property="article:author" content="zhaoguibin">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="LNMP">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2017/12/02/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LNMP/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2017/12/02/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LNMP/","path":"2017/12/02/centos6.5编译安装LNMP/","title":"centos6.5编译安装LNMP"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>centos6.5编译安装LNMP | zhaoguibin</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">zhaoguibin</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">一、环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%EF%BC%9ACentOS-6-5-64%E4%BD%8D%E6%9C%80%E5%B0%8F%E5%8C%96%E5%AE%89%E8%A3%85%E3%80%82"><span class="nav-number">1.1.</span> <span class="nav-text">1、操作系统安装：CentOS 6.5 64位最小化安装。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E9%85%8D%E7%BD%AE%E5%A5%BDIP%E3%80%81DNS%E3%80%81%E7%BD%91%E5%85%B3%E3%80%81%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="nav-number">1.2.</span> <span class="nav-text">2、配置好IP、DNS、网关、主机名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E9%85%8D%E7%BD%AE%E9%98%B2%E7%81%AB%E5%A2%99%EF%BC%8C%E5%BC%80%E5%90%AF80%E3%80%813306%E7%AB%AF%E5%8F%A3"><span class="nav-number">1.3.</span> <span class="nav-text">3、配置防火墙，开启80、3306端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%85%B3%E9%97%ADSELinux"><span class="nav-number">1.4.</span> <span class="nav-text">4、关闭SELinux</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%B3%BB%E7%BB%9F%E7%BA%A6%E5%AE%9A"><span class="nav-number">2.</span> <span class="nav-text">二、系统约定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%BD%AF%E4%BB%B6%E5%8C%85%E4%B8%8B%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">三、软件包下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E5%8F%8A%E5%BA%93%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">四、安装编译工具及库文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AF%87"><span class="nav-number">5.</span> <span class="nav-text">五、软件安装篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85cmake"><span class="nav-number">5.1.</span> <span class="nav-text">1、安装cmake</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%AE%89%E8%A3%85pcre"><span class="nav-number">5.2.</span> <span class="nav-text">2、安装pcre</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%AE%89%E8%A3%85libmcrypt"><span class="nav-number">5.3.</span> <span class="nav-text">3、安装libmcrypt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%AE%89%E8%A3%85gd%E5%BA%93"><span class="nav-number">5.4.</span> <span class="nav-text">4、安装gd库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%AE%89%E8%A3%85Mysql"><span class="nav-number">5.5.</span> <span class="nav-text">5、安装Mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E5%AE%89%E8%A3%85-nginx"><span class="nav-number">5.6.</span> <span class="nav-text">6、安装 nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEnginx%E5%BC%80%E5%90%AF%E5%90%AF%E5%8A%A8"><span class="nav-number">5.6.1.</span> <span class="nav-text">设置nginx开启启动
+</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%AE%89%E8%A3%85php"><span class="nav-number">5.7.</span> <span class="nav-text">7、安装php</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE-php-fpm%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="nav-number">5.7.1.</span> <span class="nav-text">设置 php-fpm开机启动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E9%85%8D%E7%BD%AEnginx%E6%94%AF%E6%8C%81php"><span class="nav-number">5.8.</span> <span class="nav-text">8、配置nginx支持php</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%B5%8B%E8%AF%95%E7%AF%87"><span class="nav-number">6.</span> <span class="nav-text">六、测试篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%85%B6%E5%AE%83%E8%AF%B4%E6%98%8E"><span class="nav-number">7.</span> <span class="nav-text">七、其它说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="nav-number">7.1.</span> <span class="nav-text">服务器相关操作命令</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhaoguibin"
+      src="/images/astronaut.jpg">
+  <p class="site-author-name" itemprop="name">zhaoguibin</p>
+  <div class="site-description" itemprop="description">个人平时问题记录</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhaoguibin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhaoguibin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhaoguibinx@gmail.com" title="E-Mail → mailto:zhaoguibinx@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/12/02/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LNMP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="centos6.5编译安装LNMP | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          centos6.5编译安装LNMP
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-02 11:01:15" itemprop="dateCreated datePublished" datetime="2017-12-02T11:01:15+08:00">2017-12-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="1、操作系统安装：CentOS-6-5-64位最小化安装。"><a href="#1、操作系统安装：CentOS-6-5-64位最小化安装。" class="headerlink" title="1、操作系统安装：CentOS 6.5 64位最小化安装。"></a>1、操作系统安装：CentOS 6.5 64位最小化安装。</h3><h3 id="2、配置好IP、DNS、网关、主机名"><a href="#2、配置好IP、DNS、网关、主机名" class="headerlink" title="2、配置好IP、DNS、网关、主机名"></a>2、配置好IP、DNS、网关、主机名</h3><h3 id="3、配置防火墙，开启80、3306端口"><a href="#3、配置防火墙，开启80、3306端口" class="headerlink" title="3、配置防火墙，开启80、3306端口"></a>3、配置防火墙，开启80、3306端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line">/etc/rc.d/init.d/iptables save</span><br><span class="line">/etc/init.d/iptables restart</span><br></pre></td></tr></table></figure>
+
+<p>这样就搞定了，查看效果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables status</span><br><span class="line">/etc/init.d/iptables restart <span class="comment">#最后重启防火墙使配置生效</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p><strong>PS</strong>：</p>
+<p>Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开启端口</span></span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line"><span class="comment">#重启防火墙</span></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<p>命令含义：<br><br>–zone #作用域<br><br>–add-port&#x3D;80&#x2F;tcp #添加端口，格式为：端口&#x2F;通讯协议<br><br>–permanent #永久生效，没有此参数重启后失效<br></p>
+<h3 id="4、关闭SELinux"><a href="#4、关闭SELinux" class="headerlink" title="4、关闭SELinux"></a>4、关闭SELinux</h3><p>查看selinux状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sestatus -v</span><br><span class="line">SELinux status: disabled  //禁用selinux</span><br><span class="line">getenforce</span><br><span class="line">Disabled  //禁用selinux</span><br><span class="line">getenforce</span><br><span class="line">Enforcing //启动</span><br></pre></td></tr></table></figure>
+
+<p>关闭selinux方法：<br>setenforce 0 #设置SELinux 成为permissive模式<br>setenforce 1 #设置SELinux 成为enforcing模式<br>第二种方法：<br>vim &#x2F;etc&#x2F;selinux&#x2F;config 编辑文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file controls the state of SELinux on the system.</span></span><br><span class="line"><span class="comment"># SELINUX= can take one of these three values:</span></span><br><span class="line"><span class="comment"># enforcing - SELinux security policy is enforced.</span></span><br><span class="line"><span class="comment">#permissive - SELinux prints warnings instead of enforcing.</span></span><br><span class="line"><span class="comment">#disabled - No SELinux policy is loaded.</span></span><br><span class="line">SELINUX=enforcing</span><br><span class="line"><span class="comment"># SELINUXTYPE= can take one of these two values:</span></span><br><span class="line"><span class="comment"># targeted - Targeted processes are protected,</span></span><br><span class="line"><span class="comment"># mls - Multi Level Security protection.</span></span><br></pre></td></tr></table></figure>
+<p>将SELINUX&#x3D;enforceing 改为 SELINUX&#x3D;disabled 重启机器就ok了</p>
+<h2 id="二、系统约定"><a href="#二、系统约定" class="headerlink" title="二、系统约定"></a>二、系统约定</h2><p>硬盘分区：50G(&#x2F;boot 200M &#x2F;swap 8192M &#x2F;)+100G(&#x2F;opt)<br><br>软件源代码包存放位置：&#x2F;opt&#x2F;local&#x2F;src<br><br>源码包编译安装位置：&#x2F;opt&#x2F;local&#x2F;软件名<br><br>数据库数据文件存储路径&#x2F;opt&#x2F;local&#x2F;mysql&#x2F;var<br></p>
+<h2 id="三、软件包下载"><a href="#三、软件包下载" class="headerlink" title="三、软件包下载"></a>三、软件包下载</h2><li>下载nginx（目前稳定版）：http://nginx.org/download/nginx-1.4.4.tar.gz
+<li>下载pcre （支持nginx伪静态）：ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.34.tar.gz
+<li>下载MySQL：http://cdn.mysql.com/Downloads/MySQL-5.5/mysql-5.5.35.tar.gz
+<li>下载php：http://cn2.php.net/distributions/php-5.5.7.tar.gz
+<li>下载cmake（MySQL编译工具）：http://www.cmake.org/files/v2.8/cmake-2.8.12.1.tar.gz
+<li>下载libmcrypt（PHPlibmcrypt模块）：http://nchc.dl.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz
+<li>下载GD库安装包（php页面图片验证码支持）：https://phpsqq.googlecode.com/files/gd-2.0.36RC1.tar.gz
+
+
+<p>将以上软件包上传到&#x2F;opt&#x2F;local&#x2F;src目录</p>
+<h2 id="四、安装编译工具及库文件"><a href="#四、安装编译工具及库文件" class="headerlink" title="四、安装编译工具及库文件"></a>四、安装编译工具及库文件</h2><p>使用CentOS yum命令一键安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison</span><br></pre></td></tr></table></figure>
+<h2 id="五、软件安装篇"><a href="#五、软件安装篇" class="headerlink" title="五、软件安装篇"></a>五、软件安装篇</h2><h3 id="1、安装cmake"><a href="#1、安装cmake" class="headerlink" title="1、安装cmake"></a>1、安装cmake</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/local/src</span><br><span class="line">tar zxvf cmake-2.8.8.tar.gz</span><br><span class="line"><span class="built_in">cd</span> cmake-2.8.8</span><br><span class="line">./configure --prefix=/opt/local/cmake</span><br><span class="line">make <span class="comment">#编译</span></span><br><span class="line">make install <span class="comment">#安装</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile 在path路径中增加cmake执行文件路径</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/opt/local/cmake/bin</span><br><span class="line"><span class="built_in">source</span> /etc/profile使配置立即生效</span><br></pre></td></tr></table></figure>
+<h3 id="2、安装pcre"><a href="#2、安装pcre" class="headerlink" title="2、安装pcre"></a>2、安装pcre</h3><p><strong>PS</strong>：Pcre版本不能太高，8最好，要不编译不能通过</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/local/src</span><br><span class="line"><span class="built_in">mkdir</span> /usr/local/pcre <span class="comment">#创建安装目录</span></span><br><span class="line">tar zxvf pcre-8.34.tar.gz</span><br><span class="line"><span class="built_in">cd</span> pcre-8.34</span><br><span class="line">./configure --prefix=/opt/local/pcre <span class="comment">#配置</span></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h3 id="3、安装libmcrypt"><a href="#3、安装libmcrypt" class="headerlink" title="3、安装libmcrypt"></a>3、安装libmcrypt</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/local/src</span><br><span class="line">tar zxvf libmcrypt-2.5.8.tar.gz <span class="comment">#解压</span></span><br><span class="line"><span class="built_in">cd</span> libmcrypt-2.5.8 <span class="comment">#进入目录</span></span><br><span class="line">./configure <span class="comment">#配置</span></span><br><span class="line">make <span class="comment">#编译</span></span><br><span class="line">make install <span class="comment">#安装</span></span><br></pre></td></tr></table></figure>
+<h3 id="4、安装gd库"><a href="#4、安装gd库" class="headerlink" title="4、安装gd库"></a>4、安装gd库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/local/src</span><br><span class="line">tar zxvf gd-2.0.36RC1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> gd-2.0.36RC1</span><br><span class="line">./configure --enable-m4_pattern_allow --prefix=/opt/local/gd --with-jpeg=/usr/lib --with-png=/usr/lib --with-xpm=/usr/lib --with-freetype=/usr/lib --with-fontconfig=/usr/lib <span class="comment">#配置</span></span><br><span class="line">make <span class="comment">#编译</span></span><br><span class="line">make install <span class="comment">#安装</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5、安装Mysql"><a href="#5、安装Mysql" class="headerlink" title="5、安装Mysql"></a>5、安装Mysql</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql <span class="comment">#添加mysql组</span></span><br><span class="line">useradd -g mysql mysql -s /bin/false <span class="comment">#创建用户mysql并加入到mysql组，不允许mysql用户直接登录系统</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /opt/data/mysql/var <span class="comment">#创建MySQL数据库存放目录</span></span><br><span class="line"><span class="built_in">chown</span> -R mysql:mysql /opt/data/mysql/var <span class="comment">#设置MySQL数据库目录权限</span></span><br><span class="line"><span class="built_in">cd</span> /opt/local/src</span><br><span class="line">tar zxvf mysql-5.5.35.tar.gz <span class="comment">#解压</span></span><br><span class="line"><span class="built_in">cd</span> mysql-5.5.35</span><br><span class="line"> cmake . -DCMAKE_INSTALL_PREFIX=/opt/local/mysql -DMYSQL_DATADIR=/opt/data/mysql/var -DSYSCONFDIR=/etc <span class="comment">#配置</span></span><br><span class="line">make <span class="comment">#编译</span></span><br><span class="line">make install <span class="comment">#安装</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /opt/local/mysql</span><br><span class="line"><span class="built_in">cp</span> ./support-files/my-huge.cnf /etc/my.cnf <span class="comment">#拷贝配置文件（注意：如果/etc目录下面默认有一个my.cnf，直接覆盖即可）</span></span><br><span class="line">vi /etc/my.cnf <span class="comment">#编辑配置文件,在 [mysqld] 部分增加</span></span><br><span class="line">datadir = /opt/data/mysql/var <span class="comment">#添加MySQL数据库路径</span></span><br><span class="line"></span><br><span class="line">./scripts/mysql_install_db --user=mysql <span class="comment">#生成mysql系统数据库</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> ./support-files/mysql.server /etc/rc.d/init.d/mysqld <span class="comment">#把Mysql加入系统启动</span></span><br><span class="line"><span class="built_in">chmod</span> 755 /etc/init.d/mysqld <span class="comment">#增加执行权限</span></span><br><span class="line">chkconfig mysqld on <span class="comment">#加入开机启动</span></span><br><span class="line">vi /etc/rc.d/init.d/mysqld <span class="comment">#编辑</span></span><br><span class="line">basedir = /opt/local/mysql <span class="comment">#MySQL程序安装路径</span></span><br><span class="line">datadir = /opt/local/mysql/var <span class="comment">#MySQl数据库存放目录</span></span><br><span class="line">service mysqld start <span class="comment">#启动</span></span><br><span class="line">vi /etc/profile <span class="comment">#把mysql服务加入系统环境变量：在最后添加下面这一行</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/opt/local/cmake/bin:/opt/local/mysql/bin</span><br><span class="line"><span class="built_in">source</span> /etc/profile <span class="comment">#使配置立即生效</span></span><br><span class="line"><span class="built_in">mkdir</span> /var/lib/mysql <span class="comment">#创建目录</span></span><br><span class="line"><span class="built_in">ln</span> -s /tmp/mysql.sock /var/lib/mysql/mysql.sock <span class="comment">#添加软链接</span></span><br><span class="line">mysql_secure_installation <span class="comment">#设置Mysql密码，根据提示按Y 回车输入2次密码</span></span><br><span class="line"><span class="comment">#执行mysql_secure_installation时可能会报错</span></span><br><span class="line"><span class="comment">#ERROR 2002 (HY000): Can&#x27;t connect to local MySQL server through socket &#x27;/tmp/mysql.sock&#x27; (2)</span></span><br><span class="line"><span class="comment">#这时检查 /etc/my.cnf里面</span></span><br><span class="line"><span class="comment">#[mysqld]</span></span><br><span class="line"><span class="comment">#socket=/tmp/mysql.sock是否设置正确，这里把这里的目录修改成和报错一样的就可以</span></span><br><span class="line">/opt/local/mysql/bin/mysqladmin -u root -p password <span class="string">&quot;123456&quot;</span> <span class="comment">#或者直接修改密码</span></span><br></pre></td></tr></table></figure>
+<p>到此，mysql安装完成！</p>
+<h3 id="6、安装-nginx"><a href="#6、安装-nginx" class="headerlink" title="6、安装 nginx"></a>6、安装 nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/local/src</span><br><span class="line">groupadd www <span class="comment">#添加www组</span></span><br><span class="line">useradd -g www www -s /bin/false <span class="comment">#创建nginx运行账户www并加入到www组，不允许www用户直接登录系统</span></span><br><span class="line">tar zxvf nginx-1.4.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.4.4</span><br><span class="line">./configure --prefix=/opt/local/nginx --without-http_memcached_module --user=www --group=www --with-http_stub_status_module --with-openssl=/usr/ --with-pcre=/opt/local/src/pcre-8.36</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">/opt/local/nginx/sbin/nginx <span class="comment">#启动nginx</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>注意:–with-pcre&#x3D;&#x2F;opt&#x2F;local&#x2F;src&#x2F;pcre-8.64指向的是源码包解压的路径，而不是安装的路径，否则会报错</strong></p>
+<h4 id="设置nginx开启启动"><a href="#设置nginx开启启动" class="headerlink" title="设置nginx开启启动"></a>设置nginx开启启动<br></h4><p>vi &#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;nginx #编辑启动文件添加下面内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># nginx Startup script for the Nginx HTTP Server</span></span><br><span class="line"><span class="comment"># it is v.0.0.2 version.</span></span><br><span class="line"><span class="comment"># chkconfig: - 85 15</span></span><br><span class="line"><span class="comment"># description: Nginx is a high-performance web and proxy server.</span></span><br><span class="line"><span class="comment"># It has a lot of features, but it&#x27;s not for everyone.</span></span><br><span class="line"><span class="comment"># processname: nginx</span></span><br><span class="line"><span class="comment"># pidfile: /var/run/nginx.pid</span></span><br><span class="line"><span class="comment"># config: /usr/local/nginx/conf/nginx.conf</span></span><br><span class="line">nginxd=/opt/local/nginx/sbin/nginx</span><br><span class="line">nginx_config=/opt/local/nginx/conf/nginx.conf</span><br><span class="line">nginx_pid=/opt/local/nginx/logs/nginx.pid</span><br><span class="line">RETVAL=0</span><br><span class="line">prog=<span class="string">&quot;nginx&quot;</span></span><br><span class="line"><span class="comment"># Source function library.</span></span><br><span class="line">. /etc/rc.d/init.d/functions</span><br><span class="line"><span class="comment"># Source networking configuration.</span></span><br><span class="line">. /etc/sysconfig/network</span><br><span class="line"><span class="comment"># Check that networking is up.</span></span><br><span class="line">[ <span class="variable">$&#123;NETWORKING&#125;</span> = <span class="string">&quot;no&quot;</span> ] &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">[ -x <span class="variable">$nginxd</span> ] || <span class="built_in">exit</span> 0</span><br><span class="line"><span class="comment"># Start nginx daemons functions.</span></span><br><span class="line"><span class="function"><span class="title">start</span></span>() &#123;</span><br><span class="line"><span class="keyword">if</span> [ -e <span class="variable">$nginx_pid</span> ];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;nginx already running....&quot;</span></span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> -n $<span class="string">&quot;Starting <span class="variable">$prog</span>: &quot;</span></span><br><span class="line">daemon <span class="variable">$nginxd</span> -c <span class="variable">$&#123;nginx_config&#125;</span></span><br><span class="line">RETVAL=$?</span><br><span class="line"><span class="built_in">echo</span></span><br><span class="line">[ <span class="variable">$RETVAL</span> = 0 ] &amp;&amp; <span class="built_in">touch</span> /var/lock/subsys/nginx</span><br><span class="line"><span class="built_in">return</span> <span class="variable">$RETVAL</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># Stop nginx daemons functions.</span></span><br><span class="line"><span class="function"><span class="title">stop</span></span>() &#123;</span><br><span class="line"><span class="built_in">echo</span> -n $<span class="string">&quot;Stopping <span class="variable">$prog</span>: &quot;</span></span><br><span class="line">killproc <span class="variable">$nginxd</span></span><br><span class="line">RETVAL=$?</span><br><span class="line"><span class="built_in">echo</span></span><br><span class="line">[ <span class="variable">$RETVAL</span> = 0 ] &amp;&amp; <span class="built_in">rm</span> -f /var/lock/subsys/nginx /usr/local/nginx/logs/nginx.pid</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">reload</span></span>() &#123;</span><br><span class="line"><span class="built_in">echo</span> -n $<span class="string">&quot;Reloading <span class="variable">$prog</span>: &quot;</span></span><br><span class="line"><span class="comment">#kill -HUP `cat $&#123;nginx_pid&#125;`</span></span><br><span class="line">killproc <span class="variable">$nginxd</span> -HUP</span><br><span class="line">RETVAL=$?</span><br><span class="line"><span class="built_in">echo</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># See how we were called.</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">start)</span><br><span class="line">start</span><br><span class="line">;;</span><br><span class="line">stop)</span><br><span class="line">stop</span><br><span class="line">;;</span><br><span class="line">reload)</span><br><span class="line">reload</span><br><span class="line">;;</span><br><span class="line">restart)</span><br><span class="line">stop</span><br><span class="line">start</span><br><span class="line">;;</span><br><span class="line">status)</span><br><span class="line">status <span class="variable">$prog</span></span><br><span class="line">RETVAL=$?</span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line"><span class="built_in">echo</span> $<span class="string">&quot;Usage: <span class="variable">$prog</span> &#123;start|stop|restart|reload|status|help&#125;&quot;</span></span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> <span class="variable">$RETVAL</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:wq! <span class="comment">#保存退出</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">chmod</span> 775 /etc/rc.d/init.d/nginx <span class="comment">#赋予文件执行权限</span></span><br><span class="line">chkconfig nginx on <span class="comment">#设置开机启动</span></span><br><span class="line">/etc/rc.d/init.d/nginx restart <span class="comment">#重新启动Nginx</span></span><br><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="7、安装php"><a href="#7、安装php" class="headerlink" title="7、安装php"></a>7、安装php</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/local/src</span><br><span class="line">tar -zvxf php-5.5.7.tar.gz</span><br><span class="line"><span class="built_in">cd</span> php-5.5.7.</span><br><span class="line">./configure --prefix=/opt/local/php --with-config-file-path=/opt/local/php/etc --with-mysql=/opt/local/mysql --with-mysql-sock=/tmp/mysql.sock --with-gd --with-iconv --with-zlib --enable-xml --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --enable-mbregex --enable-fpm --enable-mbstring --enable-ftp --enable-gd-native-ttf --with-openssl --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --without-pear --with-gettext --enable-session --with-mcrypt --with-curl --with-jpeg-dir --with-freetype-dir</span><br><span class="line">make <span class="comment">#编译</span></span><br><span class="line">make install <span class="comment">#安装</span></span><br><span class="line"><span class="built_in">cp</span> php.ini-production /opt/local/php/etc/php.ini <span class="comment">#复制php配置文件到安装目录</span></span><br><span class="line"><span class="built_in">rm</span> -rf /etc/php.ini <span class="comment">#删除系统自带配置文件</span></span><br><span class="line"><span class="built_in">ln</span> -s /opt/local/php/etc/php.ini /etc/php.ini <span class="comment">#添加软链接</span></span><br><span class="line"><span class="built_in">cp</span> /opt/local/php/etc/php-fpm.conf.default /opt/local/php/etc/php-fpm.conf <span class="comment">#拷贝模板文件为php-fpm配置文件</span></span><br><span class="line">vi /opt/local/php/etc/php-fpm.conf <span class="comment">#编辑</span></span><br><span class="line">user = www <span class="comment">#设置php-fpm运行账号为www</span></span><br><span class="line">group = www <span class="comment">#设置php-fpm运行组为www</span></span><br><span class="line">pid = run/php-fpm.pid <span class="comment">#取消前面的分号</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="设置-php-fpm开机启动"><a href="#设置-php-fpm开机启动" class="headerlink" title="设置 php-fpm开机启动"></a>设置 php-fpm开机启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /opt/local/src/php-5.5.7/sapi/fpm/init.d.php-fpm /etc/rc.d/init.d/php-fpm <span class="comment">#拷贝php-fpm到启动目录</span></span><br><span class="line"><span class="built_in">chmod</span> +x /etc/rc.d/init.d/php-fpm <span class="comment">#添加执行权限</span></span><br><span class="line">chkconfig php-fpm on <span class="comment">#设置开机启动</span></span><br></pre></td></tr></table></figure>
+<p>vi &#x2F;opt&#x2F;local&#x2F;php&#x2F;etc&#x2F;php.ini #编辑配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">修改为：disable_functions= passthru,<span class="built_in">exec</span>,system,<span class="built_in">chroot</span>,scandir,<span class="built_in">chgrp</span>,<span class="built_in">chown</span>,shell_exec,proc_open,proc_get_status,ini_alter,ini_alter,ini_restore,dl,openlog,syslog,<span class="built_in">readlink</span>,symlink,popepassthru,stream_socket_server,escapeshellcmd,dll,popen,disk_free_space,checkdnsrr,checkdnsrr,getservbyname,getservbyport,disk_total_space,posix_ctermid,posix_get_last_error,posix_getcwd, posix_getegid,posix_geteuid,posix_getgid, posix_getgrgid,posix_getgrnam,posix_getgroups,posix_getlogin,posix_getpgid,posix_getpgrp,posix_getpid, posix_getppid,posix_getpwnam,posix_getpwuid, posix_getrlimit, posix_getsid,posix_getuid,posix_isatty, posix_kill,posix_mkfifo,posix_setegid,posix_seteuid,posix_setgid, posix_setpgid,posix_setsid,posix_setuid,posix_strerror,posix_times,posix_ttyname,posix_uname</span><br><span class="line"><span class="comment">#列出PHP可以禁用的函数，如果某些程序需要用到这个函数，可以删除，取消禁用</span></span><br><span class="line">找到：;date.timezone =</span><br><span class="line">修改为：date.timezone = PRC <span class="comment">#设置时区</span></span><br><span class="line">找到：expose_php = On</span><br><span class="line">修改为：expose_php = OFF <span class="comment">#禁止显示php版本的信息</span></span><br><span class="line">找到：short_open_tag = Off</span><br><span class="line">修改为：short_open_tag = ON <span class="comment">#支持php短标签</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8、配置nginx支持php"><a href="#8、配置nginx支持php" class="headerlink" title="8、配置nginx支持php"></a>8、配置nginx支持php</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">vi /opt/local/nginx/conf/nginx.conf</span><br><span class="line">修改/opt/local/nginx/conf/nginx.conf 配置文件,需做如下修改</span><br><span class="line">user www www; <span class="comment">#首行user去掉注释,修改Nginx运行组为www www；必须与/opt/local/php/etc/php-fpm.conf中的user,group配置相同，否则php运行出错</span></span><br><span class="line">user www www;</span><br><span class="line">worker_processes 1;</span><br><span class="line">events &#123;</span><br><span class="line">worker_connections 1024;</span><br><span class="line">&#125;</span><br><span class="line">http &#123;</span><br><span class="line">include mime.types;</span><br><span class="line">default_type application/octet-stream;</span><br><span class="line">sendfile on;</span><br><span class="line">keepalive_timeout 65;</span><br><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line">server_name localhost;</span><br><span class="line">location / &#123;</span><br><span class="line">root html;</span><br><span class="line">index index.php index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">root html;</span><br><span class="line">fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root<span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">/etc/init.d/nginx restart <span class="comment">#重启nginx</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="六、测试篇"><a href="#六、测试篇" class="headerlink" title="六、测试篇"></a>六、测试篇</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/local/nginx/html/ <span class="comment">#进入nginx默认网站根目录</span></span><br><span class="line"><span class="built_in">rm</span> -rf /opt/local/nginx/html/* <span class="comment">#删除默认测试页</span></span><br><span class="line">vi index.php <span class="comment">#新建index.php文件</span></span><br><span class="line">&lt;?php</span><br><span class="line">phpinfo();</span><br><span class="line">?&gt;</span><br><span class="line">:wq! <span class="comment">#保存退出</span></span><br><span class="line"><span class="built_in">chown</span> www.www /opt/local/nginx/html/ -R <span class="comment">#设置目录所有者</span></span><br><span class="line"><span class="built_in">chmod</span> 700 /opt/local/nginx/html/ -R <span class="comment">#设置目录权限</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="七、其它说明"><a href="#七、其它说明" class="headerlink" title="七、其它说明"></a>七、其它说明</h2><h3 id="服务器相关操作命令"><a href="#服务器相关操作命令" class="headerlink" title="服务器相关操作命令"></a>服务器相关操作命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart <span class="comment">#重启nginx</span></span><br><span class="line">service mysqld restart <span class="comment">#重启mysql</span></span><br><span class="line">/usr/local/php/sbin/php-fpm <span class="comment">#启动php-fpm</span></span><br><span class="line">/etc/rc.d/init.d/php-fpm restart <span class="comment">#重启php-fpm</span></span><br><span class="line">/etc/rc.d/init.d/php-fpm stop <span class="comment">#停止php-fpm</span></span><br><span class="line">/etc/rc.d/init.d/php-fpm start <span class="comment">#启动php-fpm</span></span><br><span class="line">nginx默认站点目录是：/opt/local/nginx/html/</span><br><span class="line">权限设置：<span class="built_in">chown</span> www.www /opt/local/nginx/html/ -R</span><br><span class="line">MySQL数据库目录是：/opt/local/mysql/var</span><br><span class="line">权限设置：<span class="built_in">chown</span> mysql.mysql -R /opt/local/mysql/var</span><br><span class="line">重启nginx</span><br><span class="line"><span class="built_in">cd</span> /lnmp/nginx/sbin</span><br><span class="line">  ./nginx -s reload</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/LNMP/" rel="tag"># LNMP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/12/01/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/" rel="prev" title="hexo相关优化">
+                  <i class="fa fa-chevron-left"></i> hexo相关优化
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/12/02/%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/" rel="next" title="用户及用户组管理">
+                  用户及用户组管理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaoguibin</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
