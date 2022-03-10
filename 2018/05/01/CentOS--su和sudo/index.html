@@ -6,10 +6,10 @@
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="mask-icon" href="/images/logo-book.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhaoguibin.me","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="su命令1su - root 一旦在使用su命令登录root，用户获取了系统的绝对管理权限 只允许特定用户使用该su命令要做到这一点，编辑插入式验证模块为（PAM）配置文件&#x2F;etc&#x2F;pam.d&#x2F;su 在文本编辑器中打开该文件，取消注释： 1#auth           required        pam_wheel.so use_uid 将用户添加到名为whee">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS--su和sudo">
-<meta property="og:url" content="http://example.com/2018/05/01/CentOS--su%E5%92%8Csudo/index.html">
+<meta property="og:url" content="http://zhaoguibin.me/2018/05/01/CentOS--su%E5%92%8Csudo/index.html">
 <meta property="og:site_name" content="zhaoguibin">
 <meta property="og:description" content="su命令1su - root 一旦在使用su命令登录root，用户获取了系统的绝对管理权限 只允许特定用户使用该su命令要做到这一点，编辑插入式验证模块为（PAM）配置文件&#x2F;etc&#x2F;pam.d&#x2F;su 在文本编辑器中打开该文件，取消注释： 1#auth           required        pam_wheel.so use_uid 将用户添加到名为whee">
 <meta property="og:locale" content="zh_CN">
@@ -34,11 +34,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2018/05/01/CentOS--su%E5%92%8Csudo/">
+<link rel="canonical" href="http://zhaoguibin.me/2018/05/01/CentOS--su%E5%92%8Csudo/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2018/05/01/CentOS--su%E5%92%8Csudo/","path":"2018/05/01/CentOS--su和sudo/","title":"CentOS--su和sudo"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zhaoguibin.me/2018/05/01/CentOS--su%E5%92%8Csudo/","path":"2018/05/01/CentOS--su和sudo/","title":"CentOS--su和sudo"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>CentOS--su和sudo | zhaoguibin</title>
@@ -213,7 +213,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/05/01/CentOS--su%E5%92%8Csudo/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/05/01/CentOS--su%E5%92%8Csudo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
