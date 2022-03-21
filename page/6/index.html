@@ -157,12 +157,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">122</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -199,6 +199,89 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/01/09/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/01/09/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/" class="post-title-link" itemprop="url">php下安装event扩展</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-01-09 19:59:37" itemprop="dateCreated datePublished" datetime="2018-01-09T19:59:37+08:00">2018-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>安装支持库libevent，需要编译高版本（这里以最新版本release-2.1.8-stable为例）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz -P /opt/local/src</span><br><span class="line"><span class="built_in">cd</span> /opt/local/src</span><br><span class="line">tar -zxvf libevent-2.1.8-stable.tar.gz &amp;&amp; <span class="built_in">cd</span> libevent-2.1.8-stable</span><br><span class="line">./configure --prefix=/opt/local/libevent</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<p>安装event库（以event-2.3.0.tgz为例）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget -c http://pecl.php.net/get/event-2.3.0.tgz -P /opt/local/src</span><br><span class="line"><span class="built_in">cd</span> /opt/local/src</span><br><span class="line">tar -zxvf event-2.3.0.tgz &amp;&amp; <span class="built_in">cd</span> event-2.3.0</span><br><span class="line">/opt/local/php72/bin/bin/phpize</span><br><span class="line">./configure --with-php-config=/opt/local/php72/bin/php-config --with-event-libevent-dir=/opt/local/libevent/</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<p>在php.ini添加下面配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension=event.so</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -950,95 +1033,6 @@
 <h4 id="配置和设计模式"><a href="#配置和设计模式" class="headerlink" title="配置和设计模式"></a>配置和设计模式</h4><p>1、php中使用ArrayAccess实现配置文件的加载<br><br>2、在工厂方法中读取配置,生成可配置化对象<br><br>3、使用装饰模式实现权限验证,模板渲染,json串化<br><br>4、使用观察者模式实现数据跟新时间的一系列更新操作<br><br>5、使用代理模式实现数据库的主从自动切换<br></p>
 <h4 id="PHP魔术方法的使用："><a href="#PHP魔术方法的使用：" class="headerlink" title="PHP魔术方法的使用："></a>PHP魔术方法的使用：</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__get/ __set   将对象的属性进行接管，访问/设置不存在的属性时</span><br><span class="line">__call/ __callStatic   控制对象的方法调用，访问不存在的方法、静态方法时</span><br><span class="line">__toString   将php对象转化为字符串</span><br><span class="line">__invoke    将php对象当作一个函数来执行时会调用这个方法</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/16/nginx%E9%85%8D%E7%BD%AEHTTPS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/16/nginx%E9%85%8D%E7%BD%AEHTTPS/" class="post-title-link" itemprop="url">nginx配置HTTPS</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-16 19:58:17" itemprop="dateCreated datePublished" datetime="2017-12-16T19:58:17+08:00">2017-12-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h6 id="PS：设置HTTPS-nginx需要添加ssl模块-–with-http-ssl-module"><a href="#PS：设置HTTPS-nginx需要添加ssl模块-–with-http-ssl-module" class="headerlink" title="PS：设置HTTPS nginx需要添加ssl模块 –with-http_ssl_module"></a>PS：设置HTTPS nginx需要添加ssl模块 –with-http_ssl_module</h6><h6 id="在nginx的conf目录下新增ssl目录，并进入。"><a href="#在nginx的conf目录下新增ssl目录，并进入。" class="headerlink" title="在nginx的conf目录下新增ssl目录，并进入。"></a>在nginx的conf目录下新增ssl目录，并进入。<br></h6><h6 id="生成服务器端的私钥-key文件"><a href="#生成服务器端的私钥-key文件" class="headerlink" title="生成服务器端的私钥(key文件):"></a>生成服务器端的私钥(key文件):</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -des3 -out server.key 2048</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/nginx_ssl/1.png" alt="nginx配置HTTPS"></p>
-<h6 id="运行时会提示输入密码-此密码用于加密key文件-参数des3便是指加密算法-当然也可以选用其他你认为安全的算法-以后每当需读取此文件-通过openssl提供的命令或API-都需输入口令-如果觉得不方便-也可以去除这个口令-但一定要采取其他的保护措施"><a href="#运行时会提示输入密码-此密码用于加密key文件-参数des3便是指加密算法-当然也可以选用其他你认为安全的算法-以后每当需读取此文件-通过openssl提供的命令或API-都需输入口令-如果觉得不方便-也可以去除这个口令-但一定要采取其他的保护措施" class="headerlink" title="运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过openssl提供的命令或API)都需输入口令.如果觉得不方便,也可以去除这个口令,但一定要采取其他的保护措施!"></a>运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过openssl提供的命令或API)都需输入口令.如果觉得不方便,也可以去除这个口令,但一定要采取其他的保护措施!</h6><p>去除key文件口令的命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -<span class="keyword">in</span> server.key -out server.key</span><br></pre></td></tr></table></figure>
-<h6 id="用刚生成的服务器私钥，生成证书请求文件。"><a href="#用刚生成的服务器私钥，生成证书请求文件。" class="headerlink" title="用刚生成的服务器私钥，生成证书请求文件。"></a>用刚生成的服务器私钥，生成证书请求文件。</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/nginx_ssl/2.png" alt="nginx配置HTTPS"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/16/nginx%E9%85%8D%E7%BD%AEHTTPS/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 

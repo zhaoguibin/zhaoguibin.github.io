@@ -157,12 +157,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">122</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -199,6 +199,82 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/%E4%BD%BF%E7%94%A8crontab%EF%BC%8C%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/03/%E4%BD%BF%E7%94%A8crontab%EF%BC%8C%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">使用crontab，让linux定时执行shell脚本</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-03 17:37:57" itemprop="dateCreated datePublished" datetime="2017-12-03T17:37:57+08:00">2017-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行</span><br><span class="line">入门</span><br><span class="line">crontab –e</span><br><span class="line">这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行：</span><br><span class="line">0 0 * * * /home/linrui/XXXXXXXX.sh</span><br><span class="line">这将会在每天凌晨运行 指定的.sh文件</span><br><span class="line">Cron 各项的描述</span><br><span class="line">以下是 crontab 文件的格式：</span><br><span class="line">&#123;minute&#125; &#123;hour&#125; &#123;day-of-month&#125; &#123;month&#125; &#123;day-of-week&#125; &#123;full-path-to-shell-script&#125;</span><br><span class="line">o minute: 区间为 0 – 59</span><br><span class="line">o hour: 区间为0 – 23</span><br><span class="line">o day-of-month: 区间为0 – 31</span><br><span class="line">o month: 区间为1 – 12. 1 是1月. 12是12月.</span><br><span class="line">o Day-of-week: 区间为0 – 7. 周日可以是0或7.</span><br><span class="line">Crontab 示例</span><br><span class="line">1、在 凌晨00:01运行</span><br><span class="line">1 0 * * * /home/linrui/XXXX.sh</span><br><span class="line">2、每个工作日23:59都进行备份作业。</span><br><span class="line">59 11 * * 1,2,3,4,5 /home/linrui/XXXX.sh</span><br><span class="line">或者如下写法：</span><br><span class="line">59 11 * * 1-5 /home/linrui/XXXX.sh</span><br><span class="line">3、每分钟运行一次命令</span><br><span class="line">*/1 * * * * /home/linrui/XXXX.sh</span><br><span class="line">4、每个月的1号 14:10 运行</span><br><span class="line">10 14 1 * * /home/linrui/XXXX.sh</span><br><span class="line">Crontab命令的选项</span><br><span class="line">以下是 crontab 的有效选项:</span><br><span class="line">crontab –e : 修改 crontab 文件. 如果文件不存在会自动创建。</span><br><span class="line">crontab –l : 显示 crontab 文件。</span><br><span class="line">crontab -r : 删除 crontab 文件。</span><br><span class="line">crontab -ir : 删除 crontab 文件前提醒用户。</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -886,84 +962,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory</span><br><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’</span><br><span class="line">make: *** [pdo_mysql.lo] Error 1</span><br></pre></td></tr></table></figure>
 <p>这是因为这是因为在编译时需要 MySQL 的头的文件。而它按默认搜索找不到头文件的位置，所以才出现这个问题。通过软连接把MySQL头文件对应到&#x2F;usr&#x2F;local&#x2F;include&#x2F;下就好<br>比如你的MySQL安装文件位于&#x2F;usr&#x2F;local&#x2F;mysql，那么就执行以下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /usr/local/mysql/include/* /usr/local/include/</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/NGINX-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-%E2%80%9Cxxx-com%E2%80%9D-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/NGINX-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-%E2%80%9Cxxx-com%E2%80%9D-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">NGINX-启动-warn-conflicting-server-name-“xxx-com”-on-0-0-0-0-80-ignored原因分析</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-03 17:10:19" itemprop="dateCreated datePublished" datetime="2017-12-03T17:10:19+08:00">2017-12-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>报错如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx: [warn] conflicting server name “www.xxx.com” on 0.0.0.0:80, ignored</span><br></pre></td></tr></table></figure>
-<p>域名重复配置所致</p>
 
       
     </div>
