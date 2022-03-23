@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -199,6 +199,187 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/02/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9AERROR-1794-HY000-Slave/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/02/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9AERROR-1794-HY000-Slave/" class="post-title-link" itemprop="url">主从复制时报错：ERROR-1794-HY000-Slave……</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-02 12:22:19" itemprop="dateCreated datePublished" datetime="2017-12-02T12:22:19+08:00">2017-12-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>centos 6.5</p>
+<p>mysql5.7</p>
+<p>在从库作stop slave时报：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error:</span><br><span class="line">ERROR 1794 (HY000): Slave is not configured or failed to initialize properly. You must at least <span class="built_in">set</span> --server-id to <span class="built_in">enable</span> either a master or a slave. Additional error messages can be found <span class="keyword">in</span> the MySQL error <span class="built_in">log</span>.</span><br></pre></td></tr></table></figure>
+<p>经分析，需要：</p>
+<p>删除5张表，并重新导入脚本</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use mysql</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> slave_master_info;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> slave_relay_log_info;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> slave_worker_info;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> innodb_index_stats;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> innodb_table_stats;</span><br><span class="line">source <span class="operator">/</span>usr<span class="operator">/</span>coolpad<span class="operator">/</span>mysql<span class="operator">/</span>share<span class="operator">/</span>mysql_system_tables.sql</span><br></pre></td></tr></table></figure>
+<p>(2)重新启动数据库</p>
+<p>注：这一步是必须的，否则无法正常配置双主架构。</p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/02/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9AERROR-1794-HY000-Slave/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/02/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/02/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/" class="post-title-link" itemprop="url">virtualbox下centos挂载共享文件夹</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-02 12:11:45" itemprop="dateCreated datePublished" datetime="2017-12-02T12:11:45+08:00">2017-12-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>PS:要挂载共享文件，需要安装virtualbox增强功能(增强包)</strong><br><br>安装virtualbox增强功能(增强包)：<a href="http://zhaoguibin.me/2017/12/02/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD(%E5%A2%9E%E5%BC%BA%E5%8C%85)%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/" target="_blank">安装virtualbox增强功能(增强包)</a></p>
+<p>设备—&gt;共享文件夹<br>宿主机 共享路径:E:\project, 共享文件夹名称project</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /mnt/share    //新建挂载点（mountpoint）</span><br><span class="line">mount -t vboxsf project  /mnt/share   // 挂载共享文件夹</span><br><span class="line"><span class="built_in">cd</span> /mnt/share    进入共享文件夹</span><br></pre></td></tr></table></figure>
+<p>OK<br>实现 开机挂载:</p>
+<p>vi ~&#x2F;.bashrc<br>在最后添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf sharing /mnt/share    挂载共享文件夹</span><br></pre></td></tr></table></figure>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/02/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -264,6 +445,14 @@
 <p>如图所示，downloads文件夹的权限为 drwxr-xr-x</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x一共十个字符，分成四段。</span><br><span class="line">第一个字符“d”表示目录；这个位置还可能会出现“l”链接；“-”表示普通文件</span><br><span class="line">第二三四个字符“rwx”表示当前所属用户的权限。    所以用数值表示为4+2+1=7</span><br><span class="line">第五六七个字符“r-x”表示当前所属组的权限。      所以用数值表示为4+1=5</span><br><span class="line">第八九十个字符“r-x”表示其他用户权限。         所以用数值表示为4+1=5</span><br><span class="line">所以操作此文件夹的权限用数值表示为755</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/02/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -348,7 +537,14 @@
 <p>将.rpm文件转为.deb文件</p>
 <p>.rpm为RedHat使用的软件格式。在Ubuntu下不能直接使用，所以需要转换一下。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alien abc.rpm</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/02/Linux%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -427,6 +623,14 @@
 <p>命令模式下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">:q             退出</span><br><span class="line">:q!            强制退出</span><br><span class="line">:wq            保存并退出</span><br><span class="line">:<span class="built_in">set</span> number    显示行号</span><br><span class="line">:<span class="built_in">set</span> nonumber  隐藏行号</span><br><span class="line">/apache        在文档中查找apache 按n跳到下一个，<span class="built_in">shift</span>+n上一个</span><br><span class="line">yyp            复制光标所在行，并粘贴</span><br><span class="line">h(左移一个字符←)、j(下一行↓)、k(上一行↑)、l(右移一个字符→)</span><br><span class="line"></span><br><span class="line">1、复制</span><br><span class="line">1）单行复制</span><br><span class="line">在命令模式下，将光标移动到将要复制的行处，按“yy”进行复制；</span><br><span class="line">2）多行复制</span><br><span class="line">在命令模式下，将光标移动到将要复制的首行处，按“nyy”复制n行；其中n为1、2、3……</span><br><span class="line">2、粘贴</span><br><span class="line">在命令模式下，将光标移动到将要粘贴的行处，按“p”进行粘贴</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/02/vim%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -594,6 +798,14 @@
 <p>于是我执行下面命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/02/yum%20%E5%AE%89%E8%A3%85%E6%8A%A5%20%E5%85%B3%E4%BA%8EPublic%20key%20for%20.rpm%20is%20not%20installed%20%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -671,6 +883,14 @@
           <p>错误提示： Warning: RPMDB altered outside of yum<br><br>解决办法： 删除yum的历史记录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf /var/lib/yum/history/*.sqlite</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/02/Warning%20RPMDB%20altered%20outside%20of%20yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%20/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -844,170 +1064,9 @@
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/etc/passwd      存储用户账号</span><br><span class="line">/etc/group       存储组账号</span><br><span class="line">/etc/shadow      存储用户账号的密码</span><br><span class="line">/etc/gshadow     存储用户组账号的密码</span><br><span class="line">useradd   用户名</span><br><span class="line">userdel   用户名</span><br><span class="line">adduser   用户名</span><br><span class="line">groupadd  组名</span><br><span class="line">groupdel  组名</span><br><span class="line">passwd root     给root设置密码</span><br><span class="line">su root</span><br><span class="line">su - root</span><br><span class="line">/etc/profile     系统环境变量</span><br><span class="line">bash_profile     用户环境变量</span><br><span class="line">.bashrc          用户环境变量</span><br><span class="line">su user          切换用户，加载配置文件.bashrc</span><br><span class="line">su - user        切换用户，加载配置文件/etc/profile ，加载bash_profile</span><br><span class="line">更改文件的用户及用户组</span><br><span class="line">sudo <span class="built_in">chown</span> [-R] owner[:group] &#123;File|Directory&#125;</span><br><span class="line">例如：还以jdk-7u21-linux-i586.tar.gz为例。属于用户hadoop，组hadoop</span><br><span class="line">要想切换此文件所属的用户及组。可以使用命令。</span><br><span class="line">sudo <span class="built_in">chown</span> root:root jdk-7u21-linux-i586.tar.gz</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/02/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LNMP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/02/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LNMP/" class="post-title-link" itemprop="url">centos6.5编译安装LNMP</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-02 11:01:15" itemprop="dateCreated datePublished" datetime="2017-12-02T11:01:15+08:00">2017-12-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="1、操作系统安装：CentOS-6-5-64位最小化安装。"><a href="#1、操作系统安装：CentOS-6-5-64位最小化安装。" class="headerlink" title="1、操作系统安装：CentOS 6.5 64位最小化安装。"></a>1、操作系统安装：CentOS 6.5 64位最小化安装。</h3><h3 id="2、配置好IP、DNS、网关、主机名"><a href="#2、配置好IP、DNS、网关、主机名" class="headerlink" title="2、配置好IP、DNS、网关、主机名"></a>2、配置好IP、DNS、网关、主机名</h3><h3 id="3、配置防火墙，开启80、3306端口"><a href="#3、配置防火墙，开启80、3306端口" class="headerlink" title="3、配置防火墙，开启80、3306端口"></a>3、配置防火墙，开启80、3306端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line">/etc/rc.d/init.d/iptables save</span><br><span class="line">/etc/init.d/iptables restart</span><br></pre></td></tr></table></figure>
-
-<p>这样就搞定了，查看效果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables status</span><br><span class="line">/etc/init.d/iptables restart <span class="comment">#最后重启防火墙使配置生效</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/02/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LNMP/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/01/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/01/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">hexo相关优化</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-01 19:57:59" itemprop="dateCreated datePublished" datetime="2017-12-01T19:57:59+08:00">2017-12-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="local-search"><a href="#local-search" class="headerlink" title="local search"></a>local search</h3><p>安装 hexo-generator-search</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/01/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/#more" rel="contents">
+              <a class="btn" href="/2017/12/02/%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

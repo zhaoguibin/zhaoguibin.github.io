@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="mask-icon" href="/images/logo-book.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhaoguibin.me","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1. 概念          工厂模式是我们最常用的实例化对象模式，是用工厂方法代替new操作的一种模式。            2. 好处          使用工厂模式的好处是，如果你想要更改所实例化的类名等，则只需要更改该工厂方法内容即可，不需要逐一寻找代码中具体实例化的地方（new 处）修改了。为系统结构提供灵活的动态扩展机制，减少了耦合。            3. 分类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工厂模式">
+<meta property="og:url" content="http://zhaoguibin.me/2022/03/22/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="zhaoguibin">
+<meta property="og:description" content="1. 概念          工厂模式是我们最常用的实例化对象模式，是用工厂方法代替new操作的一种模式。            2. 好处          使用工厂模式的好处是，如果你想要更改所实例化的类名等，则只需要更改该工厂方法内容即可，不需要逐一寻找代码中具体实例化的地方（new 处）修改了。为系统结构提供灵活的动态扩展机制，减少了耦合。            3. 分类">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-22T13:25:26.000Z">
+<meta property="article:modified_time" content="2022-03-23T09:20:13.727Z">
+<meta property="article:author" content="zhaoguibin">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="设计模式">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://zhaoguibin.me/2022/03/22/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zhaoguibin.me/2022/03/22/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/","path":"2022/03/22/工厂模式/","title":"工厂模式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>工厂模式 | zhaoguibin</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">zhaoguibin</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhaoguibin"
+      src="/images/astronaut.jpg">
+  <p class="site-author-name" itemprop="name">zhaoguibin</p>
+  <div class="site-description" itemprop="description">个人平时问题记录</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhaoguibin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhaoguibin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhaoguibinx@gmail.com" title="E-Mail → mailto:zhaoguibinx@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2022/03/22/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="工厂模式 | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          工厂模式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-22 21:25:26" itemprop="dateCreated datePublished" datetime="2022-03-22T21:25:26+08:00">2022-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-23 17:20:13" itemprop="dateModified" datetime="2022-03-23T17:20:13+08:00">2022-03-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ol>
+<li><p><strong>概念</strong></p>
+<p>工厂模式是我们最常用的实例化对象模式，是用工厂方法代替new操作的一种模式。</p>
+</li>
+<li><p><strong>好处</strong></p>
+<p>使用工厂模式的好处是，如果你想要更改所实例化的类名等，则只需要更改该工厂方法内容即可，不需要逐一寻找代码中具体实例化的地方（new 处）修改了。为系统结构提供灵活的动态扩展机制，减少了耦合。</p>
+</li>
+<li><p><strong>分类</strong></p>
+<ul>
+<li>简单工厂模式</li>
+<li>工厂方法模式</li>
+<li>抽象工厂模式</li>
+</ul>
+</li>
+</ol>
+<span id="more"></span>
+
+<ul>
+<li><p>简单工厂模式</p>
+<p>简单工厂模式又称静态工厂模式，之所以可以这么说，是因为简单工厂模式是通过一个静态方法来创建对象的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DbMysql</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">conn</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;连接MySQL&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DbSqlite</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">conn</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;连接SQLite&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DbFactory</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> 	<span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">createIns</span>(<span class="params"><span class="variable">$type</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (<span class="variable">$type</span>) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;mysql&#x27;</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="title function_ invoke__">DbMysql</span>();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;sqlite&#x27;</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">DbSqlite</span>();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">ErrorException</span>(<span class="string">&#x27;类型错误&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$mysql</span> = <span class="title class_">DbFactory</span>::<span class="title function_ invoke__">createIns</span>(<span class="string">&#x27;mysql&#x27;</span>);</span><br><span class="line"><span class="variable">$mysql</span>-&gt;<span class="title function_ invoke__">conn</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable">$sqlite</span> = <span class="title class_">DbFactory</span>::<span class="title function_ invoke__">createIns</span>(<span class="string">&#x27;sqlite&#x27;</span>);</span><br><span class="line"><span class="variable">$sqlite</span>-&gt;<span class="title function_ invoke__">conn</span>();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>工厂方法模式</p>
+<p>简单工厂模式实现了产品类的代码跟客户端代码的分离，但会有一个问题，优秀的代码是符合“开闭原则”如果你要加一个C类产品，你就要修改工厂类里面的代码，也就是说要增加条件语句如：switch–case。对于这个问题，接下来的工厂方法模式可以解决这个问题。</p>
+<ol>
+<li><p>概念</p>
+<p>工厂方法就是为配一个产品提供一个独立的工厂类，通过不同的工厂实例来创建不同的产品实例。</p>
+</li>
+<li><p>优点</p>
+<ul>
+<li>拥有良好的封装性，代码结构清晰，对于每一个对象的创建都是有条件约束的。如：调用一个具体的产品对象，只需要知道这个产品的类名和约束参数就可以了，不用知道创建对象自身的复杂过程。降低模块之间的耦合度。</li>
+<li>拥有良好的扩展性，新增一个产品类，只需要适当的增加工厂类或者扩展一个工厂类，如下面的例子中，当需要增加一个数据库Oracle的操作，则只需要增加一个Oracle类，工厂类不用修改任务就可完成系统扩展。</li>
+<li>屏蔽产品类，这一特点非常重要，产品类的实现如何变化，调用者都不需要关心，它只需要关心产品的接口，只要接口保持不变，系统中的上层模块就不要发生变化。</li>
+</ul>
+</li>
+<li><p>使用场景</p>
+<ul>
+<li>支付宝、微信、银联的连接方式（connectMode），支付方式（payMode）。使用工厂模式，“客户”就不需要知道具体的链接方式和支付方式了，只需要调用connectMode和payMode即可。</li>
+<li>MySQL、SQL Server、Oracle等数据库的连接方式（connectMode）、查询方式（selectMode）等操作可以使用工厂模式进行封装。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//数据库操作接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Db</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">conn</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DbMysql</span> <span class="keyword">implements</span> <span class="title">Db</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">conn</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;链接MySQL&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DbSqlite</span> <span class="keyword">implements</span> <span class="title">Db</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">conn</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;连接SQLite&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//工厂接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Factory</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">createIns</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MysqlFactory</span> <span class="keyword">implements</span> <span class="title">Factory</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">createIns</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">DbMysql</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SqliteFactory</span> <span class="keyword">implements</span> <span class="title">Factory</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">createIns</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">DbSqlite</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//客户端</span></span><br><span class="line"><span class="variable">$mysql</span> = <span class="title class_">MysqlFactory</span>::<span class="title function_ invoke__">createIns</span>();</span><br><span class="line"><span class="variable">$mysql</span>-&gt;<span class="title function_ invoke__">conn</span>();</span><br><span class="line"><span class="variable">$sqlite</span> = <span class="title class_">SqliteFactory</span>::<span class="title function_ invoke__">createIns</span>();</span><br><span class="line"><span class="variable">$sqlite</span>-&gt;<span class="title function_ invoke__">conn</span>();</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>抽象工厂模式</p>
+<ol>
+<li><p><strong>概念</strong></p>
+<p>抽象工厂模式的用意为：给客户端提供一个接口，可以创建多个产品族中的产品对象，而且使用抽象工厂模式还要满足以下条件：</p>
+<ul>
+<li>系统中有多个产品族，而系统一次只可能消费其中一族产品</li>
+<li>同属于同一产品族的产品可以使用</li>
+<li>产品族：位于不同产品等级结构中，功能相关联的产品组成的家族。下面例子的汽车和空调就是两个产品树，奔驰C200+格力某型号空调就是一个产品族，同理，奥迪A4+海尔某型号空调也是一个产品族。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//汽车（抽象产品接口）</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">AutoProduct</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">dirve</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AudiA4Product</span> <span class="keyword">implements</span> <span class="title">AutoProduct</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">dirve</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;奥迪A4&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BenzC200Product</span> <span class="keyword">implements</span> <span class="title">AutoProduct</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">dirve</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;奔驰C200&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//空调(抽象产品接口)</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">AirCondition</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">blow</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GreeAirCondition</span> <span class="keyword">implements</span> <span class="title">AirCondition</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">blow</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;格力&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HaierAirCondition</span> <span class="keyword">implements</span> <span class="title">AirCondition</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">blow</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;海尔&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//工厂接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Factory</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getAuto</span>(<span class="params"></span>)</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getAirCondition</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//工厂A 奥迪A4+海尔空调</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AFactory</span> <span class="keyword">implements</span> <span class="title">Factory</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getAuto</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">AudiA4Product</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getAirCondition</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">HaierAirCondition</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//工厂B 奔驰+格力</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BFactory</span> <span class="keyword">implements</span> <span class="title">Factory</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getAuto</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">BenzC200Product</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getAirCondition</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">GreeAirCondition</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//客户端</span></span><br><span class="line"><span class="comment">//A工厂制作车</span></span><br><span class="line"><span class="variable">$auto_carA</span> = <span class="title class_">AFactory</span>::<span class="title function_ invoke__">getAuto</span>();</span><br><span class="line"><span class="variable">$auto_airA</span> = <span class="title class_">AFactory</span>::<span class="title function_ invoke__">getAirCondition</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//奥迪+空调</span></span><br><span class="line"><span class="variable">$auto_carA</span>-&gt;<span class="title function_ invoke__">dirve</span>();</span><br><span class="line"><span class="variable">$auto_airA</span>-&gt;<span class="title function_ invoke__">blow</span>();</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><strong>三种工厂模式的比较</strong></p>
+<ul>
+<li>简单工厂：用来生产同一等级结构中的任意产品。（对于增加新的产品，无能为力）</li>
+<li>工厂方法：用来生产同一等级结构中的固定产品。（支持增加任意产品）</li>
+<li>抽象工厂：用来生产不同产品族的全部产品。（对于增加新的产品，无能为力；支持增加产品族）</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/php/" rel="tag"># php</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"># 设计模式</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/22/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="prev" title="单例模式">
+                  <i class="fa fa-chevron-left"></i> 单例模式
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaoguibin</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

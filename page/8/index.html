@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -199,6 +199,175 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/03/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory/" class="post-title-link" itemprop="url">在安装mysqli的时候，出现error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-03 17:42:56" itemprop="dateCreated datePublished" datetime="2017-12-03T17:42:56+08:00">2017-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>直接修改源码，把找不到的那个头文件的路径修改为绝对路径，编译通过了，也能正常使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br><span class="line">/home/neo/tools/php-5.5.28/ext/mysqli</span><br><span class="line">vim mysqli_api.c</span><br><span class="line">把第36行的</span><br><span class="line"><span class="comment">#include &quot;ext/mysqlnd/mysql_float_to_double.h&quot;</span></span><br><span class="line">修改为</span><br><span class="line"><span class="comment">#include &quot;/home/neo/tools/php-5.5.28/ext/mysqlnd/mysql_float_to_double.h&quot;</span></span><br></pre></td></tr></table></figure>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/03/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/" class="post-title-link" itemprop="url">网络连接以及下载</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-03 17:40:49" itemprop="dateCreated datePublished" datetime="2017-12-03T17:40:49+08:00">2017-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">wget 指定本定文件夹和保存为特定名称</span><br><span class="line">1. 在shell 中执行以下命令</span><br><span class="line">wget -P /root/test <span class="string">&quot;http://www.baidu.com/index.html&quot;</span></span><br><span class="line">会把 index.html 文件保存到 <span class="string">&quot;/root/test&quot;</span> 目录下.</span><br><span class="line">2. 执行</span><br><span class="line">wget -O <span class="string">&quot;baidu.html&quot;</span> <span class="string">&quot;http://www.baidu.com/index.html&quot;</span></span><br><span class="line">会把 index.hmtl 保存到当前目录, 命令为 <span class="string">&quot;baidu.html&quot;</span>.</span><br><span class="line">3. 执行</span><br><span class="line">wget -P /root/test -O <span class="string">&quot;baidu.html&quot;</span> <span class="string">&quot;http://www.baidu.com/index.html&quot;</span></span><br><span class="line">的结果和 2 相同, 并不会保存到 <span class="string">&quot;/root/test&quot;</span> 目录下.</span><br><span class="line">在linux命令下如何访问一个url？</span><br><span class="line">1.elinks - lynx-like替代角色模式WWW的浏览器</span><br><span class="line">例如：</span><br><span class="line"> elinks --dump http://www.baidu.com</span><br><span class="line">2.wget 这个会将访问的首页下载到本地</span><br><span class="line">[root@el5-mq2 ~]<span class="comment"># wget http://www.baidu.com</span></span><br><span class="line">--2011-10-17 16:30:10--  http://www.baidu.com/</span><br><span class="line">Resolving www.baidu.com... 119.75.218.45, 119.75.217.56</span><br><span class="line">Connecting to www.baidu.com|119.75.218.45|:80... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 8403 (8.2K) [text/html]</span><br><span class="line">Saving to: `index.html<span class="string">&#x27;</span></span><br><span class="line"><span class="string">100%[==========================================================================================&gt;] 8,403       --.-K/s   in 0.01s</span></span><br><span class="line"><span class="string">2011-10-17 16:30:10 (648 KB/s) - `index.html&#x27;</span> saved [8403/8403]</span><br><span class="line">3.curl会显示出源码</span><br><span class="line">curl http://www.baidu.com/index.html</span><br><span class="line">4.lynx（这个以前在群里面见有人讨论过，但是没有尝试过，想用的话还需要下载软件）</span><br><span class="line">lynx http://www.baidu.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -259,6 +428,14 @@
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行</span><br><span class="line">入门</span><br><span class="line">crontab –e</span><br><span class="line">这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行：</span><br><span class="line">0 0 * * * /home/linrui/XXXXXXXX.sh</span><br><span class="line">这将会在每天凌晨运行 指定的.sh文件</span><br><span class="line">Cron 各项的描述</span><br><span class="line">以下是 crontab 文件的格式：</span><br><span class="line">&#123;minute&#125; &#123;hour&#125; &#123;day-of-month&#125; &#123;month&#125; &#123;day-of-week&#125; &#123;full-path-to-shell-script&#125;</span><br><span class="line">o minute: 区间为 0 – 59</span><br><span class="line">o hour: 区间为0 – 23</span><br><span class="line">o day-of-month: 区间为0 – 31</span><br><span class="line">o month: 区间为1 – 12. 1 是1月. 12是12月.</span><br><span class="line">o Day-of-week: 区间为0 – 7. 周日可以是0或7.</span><br><span class="line">Crontab 示例</span><br><span class="line">1、在 凌晨00:01运行</span><br><span class="line">1 0 * * * /home/linrui/XXXX.sh</span><br><span class="line">2、每个工作日23:59都进行备份作业。</span><br><span class="line">59 11 * * 1,2,3,4,5 /home/linrui/XXXX.sh</span><br><span class="line">或者如下写法：</span><br><span class="line">59 11 * * 1-5 /home/linrui/XXXX.sh</span><br><span class="line">3、每分钟运行一次命令</span><br><span class="line">*/1 * * * * /home/linrui/XXXX.sh</span><br><span class="line">4、每个月的1号 14:10 运行</span><br><span class="line">10 14 1 * * /home/linrui/XXXX.sh</span><br><span class="line">Crontab命令的选项</span><br><span class="line">以下是 crontab 的有效选项:</span><br><span class="line">crontab –e : 修改 crontab 文件. 如果文件不存在会自动创建。</span><br><span class="line">crontab –l : 显示 crontab 文件。</span><br><span class="line">crontab -r : 删除 crontab 文件。</span><br><span class="line">crontab -ir : 删除 crontab 文件前提醒用户。</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/%E4%BD%BF%E7%94%A8crontab%EF%BC%8C%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -335,6 +512,14 @@
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">把目的数据库里面的 *.err 文件，ib_logfile 文件删除</span><br><span class="line">备注：经测试，源mysql的安装目录及数据文件目录 可以与 目标Mysql的安装目录及数据文件目录 不一致。</span><br><span class="line">此时，只需要拷贝所需移动的dbname及<span class="string">&#x27;mysql&#x27;</span>和<span class="string">&#x27;ibdata1&#x27;</span>，即可。</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -414,6 +599,14 @@
 <p>2.使用netstat</p>
 <p>使用netstat -anp|grep 80</p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/%E6%9F%A5%E7%9C%8Blinux%E4%B8%AD%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%EF%BC%88port%EF%BC%89%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -490,6 +683,14 @@
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line">example:</span><br><span class="line"><span class="built_in">alias</span> codedir=<span class="string">&#x27;cd /opt/local/www/project&#x27;</span></span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/%E7%BC%96%E8%BE%91-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -566,6 +767,14 @@
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y install 包名（支持*） ：自动选择y，全自动</span><br><span class="line">yum install 包名（支持*） ：手动选择y or n</span><br><span class="line">yum remove 包名（不支持*）</span><br><span class="line">rpm -ivh 包名（支持*）：安装rpm包</span><br><span class="line">rpm -e 包名（不支持*）：卸载rpm包</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -647,6 +856,14 @@
 <p>　　从任何主机上使用root用户，密码：youpassword（你的root密码）连接到mysql服务器：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql <span class="operator">-</span>u root <span class="operator">-</span>proot</span><br><span class="line">mysql<span class="operator">&gt;</span><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;youpassword&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br><span class="line">mysql<span class="operator">&gt;</span>flush privileges;</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BALinux%E4%B8%8BMySQL%E6%95%B0%E6%8D%AE%E5%BA%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -725,6 +942,14 @@
 <p>centos：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum -y groupinstall <span class="string">&quot;Development Tools&quot;</span></span><br><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; <span class="built_in">cd</span> libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make install</span><br><span class="line"><span class="built_in">echo</span> /usr/local/lib &gt;/etc/ld.so.conf.d/usr_local_lib.confldconfig</span><br><span class="line">ubuntu/debian：</span><br><span class="line">apt-get install build-essential</span><br><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; <span class="built_in">cd</span> libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make installldconfig</span><br><span class="line">如果曾经安装过旧版本，亦可重复用以上步骤更新到最新版，仅1.0.4或以上版本支持chacha20-ietf</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -801,168 +1026,14 @@
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ssh命令用于远程登录上Linux主机。</span><br><span class="line">常用格式：ssh [-l login_name] [-p port] [user@]hostname</span><br><span class="line">更详细的可以用ssh -h查看。</span><br><span class="line">举例</span><br><span class="line">不指定用户：</span><br><span class="line">ssh 192.168.0.11</span><br><span class="line">指定用户：</span><br><span class="line">ssh -l root 192.168.0.11</span><br><span class="line">ssh root@192.168.0.11</span><br><span class="line">如果修改过ssh登录端口的可以：</span><br><span class="line">ssh -p 12333 192.168.0.11</span><br><span class="line">ssh -l root -p 12333 216.230.230.114</span><br><span class="line">ssh -p 12333 root@216.230.230.114</span><br><span class="line">另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。</span><br><span class="line">编辑配置文件：</span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">找到<span class="comment">#Port 22，去掉注释，修改成一个五位的端口：</span></span><br><span class="line">Port 12333</span><br><span class="line">找到<span class="comment">#PermitRootLogin yes，去掉注释，修改为：</span></span><br><span class="line">PermitRootLogin no</span><br><span class="line">重启sshd服务：</span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5FastCGI/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5FastCGI/" class="post-title-link" itemprop="url">php-fpm设置socket方式连接FastCGI</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-03 17:16:17" itemprop="dateCreated datePublished" datetime="2017-12-03T17:16:17+08:00">2017-12-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/03/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5FastCGI/#more" rel="contents">
+              <a class="btn" href="/2017/12/03/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/PDO-MYSQL-make-pdo-mysql-lo-Error-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/PDO-MYSQL-make-pdo-mysql-lo-Error-1/" class="post-title-link" itemprop="url">PDO-MYSQL-make-pdo-mysql-lo-Error-1</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-03 17:13:16" itemprop="dateCreated datePublished" datetime="2017-12-03T17:13:16+08:00">2017-12-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>编译安装PDO_MYSQL拓展模块，总是提示</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory</span><br><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’</span><br><span class="line">make: *** [pdo_mysql.lo] Error 1</span><br></pre></td></tr></table></figure>
-<p>这是因为这是因为在编译时需要 MySQL 的头的文件。而它按默认搜索找不到头文件的位置，所以才出现这个问题。通过软连接把MySQL头文件对应到&#x2F;usr&#x2F;local&#x2F;include&#x2F;下就好<br>比如你的MySQL安装文件位于&#x2F;usr&#x2F;local&#x2F;mysql，那么就执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /usr/local/mysql/include/* /usr/local/include/</span><br></pre></td></tr></table></figure>
-
       
     </div>
 

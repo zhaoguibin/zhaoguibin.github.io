@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -199,6 +199,186 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/02/26/CentOS7%20%E6%90%AD%E5%BB%BA%20FTP%20%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/02/26/CentOS7%20%E6%90%AD%E5%BB%BA%20FTP%20%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">CentOS7 搭建 FTP 文件服务</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-02-26 17:48:08" itemprop="dateCreated datePublished" datetime="2018-02-26T17:48:08+08:00">2018-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h5 id="安装并启动-FTP-服务"><a href="#安装并启动-FTP-服务" class="headerlink" title="安装并启动 FTP 服务"></a>安装并启动 FTP 服务</h5><h6 id="安装-VSFTPD"><a href="#安装-VSFTPD" class="headerlink" title="安装 VSFTPD"></a>安装 VSFTPD</h6><p>使用 yum 安装 vsftpd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y vsftpd</span><br></pre></td></tr></table></figure>
+<h6 id="启动-VSFTPD"><a href="#启动-VSFTPD" class="headerlink" title="启动 VSFTPD"></a>启动 VSFTPD</h6><p>安装完成后，启动 FTP 服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd start</span><br></pre></td></tr></table></figure>
+<p>启动后，可以看到系统已经监听了 21 端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -nltp | grep 21</span><br></pre></td></tr></table></figure>
+<p>此时，访问 <a href="ftp://192.168.3.16/">ftp://192.168.3.16</a> 可浏览机器上的 &#x2F;var&#x2F;ftp目录了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/02/26/CentOS7%20%E6%90%AD%E5%BB%BA%20FTP%20%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/02/23/centos6.5%E5%AE%89%E8%A3%85git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/02/23/centos6.5%E5%AE%89%E8%A3%85git/" class="post-title-link" itemprop="url">Centos6.5安装git</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-02-23 17:18:18" itemprop="dateCreated datePublished" datetime="2018-02-23T17:18:18+08:00">2018-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h6 id="安装编译git时需要的包"><a href="#安装编译git时需要的包" class="headerlink" title="安装编译git时需要的包"></a>安装编译git时需要的包</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
+
+<h6 id="删除已有的git"><a href="#删除已有的git" class="headerlink" title="删除已有的git"></a>删除已有的git</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove git</span><br></pre></td></tr></table></figure>
+
+<h6 id="下载git源码"><a href="#下载git源码" class="headerlink" title="下载git源码"></a>下载git源码</h6><p>地址：<a target="_blank" rel="noopener" href="https://www.kernel.org/pub/software/scm/git/">https://www.kernel.org/pub/software/scm/git/</a> 选择要安装的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/local/src</span><br><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-x.x.x.tar.gz</span><br><span class="line">tar xzf git-x.x.x.tar.gz</span><br></pre></td></tr></table></figure>
+<h6 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd git-x.x.x</span><br><span class="line">make prefix=/usr/local/git all</span><br><span class="line">make prefix=/usr/local/git install</span><br><span class="line">echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc</span><br><span class="line">source /etc/bashrc</span><br></pre></td></tr></table></figure>
+
+<h6 id="检查一下版本号"><a href="#检查一下版本号" class="headerlink" title="检查一下版本号"></a>检查一下版本号</h6>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/02/23/centos6.5%E5%AE%89%E8%A3%85git/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -264,6 +444,14 @@
 
 <h5 id="4-重启机器。启动默认进入图形界面。"><a href="#4-重启机器。启动默认进入图形界面。" class="headerlink" title="4.重启机器。启动默认进入图形界面。"></a>4.重启机器。启动默认进入图形界面。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/02/09/centOS7%E4%B8%8B%E5%AE%89%E8%A3%85GUI%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -351,7 +539,14 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install kernel-PAE-devel</span><br></pre></td></tr></table></figure>
 <p>Then</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re-run VBoxLinuxAdditions.run.</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/02/09/vboxadd.sh%20failed%20modprobe%20vboxguest%20failed./#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -430,6 +625,14 @@
 
 <p>解决方法：<br>输入“1”，按Enter键<br><br>输入“2”，按Enter键<br><br>输入“q”，按Enter键<br><br>输入“yes”，按Enter键</p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/02/09/%E8%A3%85%E5%AE%8CCentos7%E6%8F%90%E7%A4%BAInitial%20setup%20of%20CentOS%20Linux%207%20(core)/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -506,6 +709,14 @@
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.PRIMARY  KEY（主键索引）</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  PRIMARY  KEY (`column`)</span><br><span class="line">2.UNIQUE(唯一索引)</span><br><span class="line">        mysql&gt;ALTER  TABLE  `table_name`  ADD  UNIQUE (`column` )</span><br><span class="line">3.INDEX(普通索引)</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  INDEX index_name (`column`)</span><br><span class="line">4.FULLTEXT(全文索引)</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  FULLTEXT (`column`)</span><br><span class="line">5.多列索引</span><br><span class="line">mysql&gt;ALTER  TABLE  `table_name`  ADD  INDEX index_name (`column1`,  `column2`,</span><br><span class="line">   `column3`)</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/01/20/mysql%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95%E5%91%BD%E4%BB%A4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -582,6 +793,14 @@
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">INSERT INTO 表名1(字段列表1)</span><br><span class="line">SELECT 字段列表2 FROM 表名2 WHERE 条件表达式;</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line"></span><br><span class="line">INSERT INTO 表名1(字段列表1)</span><br><span class="line">select * from (select 字段 from *) 临时表名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO 要插入数据的表 (字段1,字段2,....)</span><br><span class="line">SELECT * FROM (查询数据的sql语句) 临时表名</span><br><span class="line"></span><br><span class="line">2-例子：</span><br><span class="line"></span><br><span class="line">INSERT INTO purchaseandsale_export (`name`)</span><br><span class="line">SELECT * FROM (SELECT name FROM `worker`) temp</span><br></pre></td></tr></table></figure>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/01/20/mysql%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -665,6 +884,14 @@
 
 <p>要两个参数一起改,然后重启mysql，问题解决</p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/01/20/Mysqli%20statement%20execute%20error%20%20Statement%20violates%20GTID%20consistency%20CREATE%20TABLE%20...%20/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -827,166 +1054,14 @@
 <p>可能会遇到这个问题<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/git/git_error1.png" alt="git_error"><br>出现错误的原因是git服务器中的README.md文件不在本地代码目录中，可以通过如下命令进行代码合并</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull --rebase origin master</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/01/20/php%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E7%A1%AE%E8%BF%90%E7%AE%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/01/20/php%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E7%A1%AE%E8%BF%90%E7%AE%97/" class="post-title-link" itemprop="url">php浮点数精确运算</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-01-20 14:19:37" itemprop="dateCreated datePublished" datetime="2018-01-20T14:19:37+08:00">2018-01-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>如果用php的+-*&#x2F;计算浮点数的时候，可能会遇到一些计算结果错误的问题，所以基本上大部分语言都提供了精准计算的类库或函数库，比如php有BC高精确度函数库，下面我们介绍一下一些常用的BC高精确度函数使用。</p>
-<p>bc是Binary Calculator的缩写。bc*函数的参数都是操作数加上一个可选的 [int scale]，比如string bcadd(string $left_operand, string $right_operand[, int $scale])，如果scale没有提供，就用bcscale的缺省值。这里大数直接用一个由0-9组成的string表示，计算结果返回的也是一个 string。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/01/20/php%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E7%A1%AE%E8%BF%90%E7%AE%97/#more" rel="contents">
+              <a class="btn" href="/2018/01/20/git%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/01/09/%E9%80%A24%E8%BF%9B5,%E9%80%A25%E8%BF%9B10%E3%80%820,5%E5%80%BC%E4%B8%8D%E5%8F%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/01/09/%E9%80%A24%E8%BF%9B5,%E9%80%A25%E8%BF%9B10%E3%80%820,5%E5%80%BC%E4%B8%8D%E5%8F%98/" class="post-title-link" itemprop="url">逢4进5,逢5进10。0,5值不变</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-01-09 20:04:09" itemprop="dateCreated datePublished" datetime="2018-01-09T20:04:09+08:00">2018-01-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//逢4进5,逢5进10。0,5值不变</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ceiling</span>(<span class="params"><span class="variable">$number</span> = <span class="number">0</span></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$number</span> == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这里取出整数</span></span><br><span class="line">    <span class="variable">$number</span> = <span class="title function_ invoke__">explode</span>(<span class="string">&#x27;.&#x27;</span>,<span class="variable">$number</span>);</span><br><span class="line">    <span class="variable">$number</span> = <span class="variable">$number</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="variable">$cc</span> = <span class="variable">$number</span>%<span class="number">10</span>;</span><br><span class="line">    <span class="variable">$price</span> = <span class="variable">$number</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$cc</span> &gt; <span class="number">5</span>)&#123;</span><br><span class="line">        <span class="variable">$price</span> = <span class="variable">$number</span>+(<span class="number">10</span>-<span class="variable">$cc</span>);</span><br><span class="line">    &#125;<span class="keyword">elseif</span> (<span class="variable">$cc</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="variable">$price</span> = <span class="variable">$number</span>+(<span class="number">5</span>-<span class="variable">$cc</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$price</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
