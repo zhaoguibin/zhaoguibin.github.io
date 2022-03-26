@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -208,7 +208,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/11/09/MySQL%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2020/01/19/PHP%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -226,7 +226,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/11/09/MySQL%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/" class="post-title-link" itemprop="url">MySQL保留两位小数</a>
+          <a href="/2020/01/19/PHP%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8/" class="post-title-link" itemprop="url">PHP导出数据报表</a>
         </h2>
 
         <div class="post-meta-container">
@@ -237,7 +237,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-11-09 19:58:17" itemprop="dateCreated datePublished" datetime="2018-11-09T19:58:17+08:00">2018-11-09</time>
+      <time title="创建时间：2020-01-19 13:56:09" itemprop="dateCreated datePublished" datetime="2020-01-19T13:56:09+08:00">2020-01-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,14 +257,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h6 id="round-x-d-用于数据的四舍五入-round-x-其实就是round-x-0-也就是默认d为0；"><a href="#round-x-d-用于数据的四舍五入-round-x-其实就是round-x-0-也就是默认d为0；" class="headerlink" title="round(x,d) :用于数据的四舍五入,round(x)  ,其实就是round(x,0),也就是默认d为0；"></a>round(x,d) :用于数据的四舍五入,round(x)  ,其实就是round(x,0),也就是默认d为0；</h6><p>这里有个值得注意的地方是，d可以是负数，这时是指定小数点左边的d位整数位为0,同时小数位均为0；</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(5000.56789,2),ROUND(5000,2),ROUND(0.56789,2),ROUND(115.56789,-1);</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/mysql%E5%B0%8F%E6%95%B0/round1.png" alt="mysql保留两位小数"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(5000.12345,2),ROUND(5000,2),ROUND(0.12345,2),ROUND(114.12345,-1);</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/mysql%E5%B0%8F%E6%95%B0/round2.png" alt="mysql保留两位小数"></p>
+          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@FILE</span>_NAME:ExcelExport.php</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> csv导出数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@User</span> ZHaoGuiBin</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019-12-04 13:52:58</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExcelExport</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@FuncName</span>:sqlQuery</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 生成器模式返回数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@User</span> ZHaoGuiBin</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020-01-08 16:43</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $sql</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Generator</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">sqlQuery</span>(<span class="params"><span class="variable">$sql</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$sys</span> = <span class="keyword">new</span> <span class="title class_">SysModel</span>();</span><br><span class="line">        <span class="variable">$db</span> = <span class="variable">$sys</span>-&gt;<span class="title function_ invoke__">getAdapter</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$db</span>-&gt;<span class="title function_ invoke__">fetchAll</span>(<span class="variable">$sql</span>) <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$val</span>) &#123;</span><br><span class="line">            <span class="keyword">yield</span> <span class="variable">$val</span>; <span class="comment">//生成器返回数据，避免内存溢出</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@FuncName</span>:exportExcel</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@User</span> ZHaoGuiBin</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020-01-09 09:23</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $title</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $sql</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array $data example : [&quot;单号&quot; =&gt; &#x27;order_key&#x27;],[&#x27;报表title名称&#x27;=&gt;&#x27;mysql语句字段名&#x27;]</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">exportExcel</span>(<span class="params"><span class="variable">$title</span> = <span class="string">&#x27;报表导出&#x27;</span>, <span class="variable">$sql</span> = <span class="string">&#x27;&#x27;</span>, <span class="variable">$data</span> = []</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$data_dir</span> = <span class="title function_ invoke__">getcwd</span>() . <span class="string">&quot;/data_export/&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//删除历史表格</span></span><br><span class="line">        <span class="built_in">self</span>::<span class="title function_ invoke__">deleteExcel</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!<span class="title function_ invoke__">file_exists</span>(<span class="variable">$data_dir</span>) || !<span class="title function_ invoke__">is_writable</span>(<span class="variable">$data_dir</span>)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!@<span class="title function_ invoke__">mkdir</span>(<span class="variable">$data_dir</span>, <span class="number">0755</span>, <span class="literal">TRUE</span>)) &#123;</span><br><span class="line">                <span class="title class_">Tools</span>::<span class="title function_ invoke__">dieJs</span>(<span class="string">&quot;alert(&#x27;导出失败，请联系管理员处理&#x27;);history.go(-1);&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$file_name</span> = <span class="variable">$title</span> . <span class="title function_ invoke__">time</span>() . <span class="string">&quot;.csv&quot;</span>;</span><br><span class="line">        <span class="variable">$file_path</span> = <span class="variable">$data_dir</span> . <span class="variable">$file_name</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//拼接sql</span></span><br><span class="line">        <span class="variable">$fields</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        <span class="variable">$title_fields</span> = [];</span><br><span class="line">        <span class="variable">$temp_key</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="variable">$fields_count</span> = <span class="title function_ invoke__">count</span>(<span class="variable">$data</span>);</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$field</span>) &#123;</span><br><span class="line">            <span class="variable">$temp_key</span> += <span class="number">1</span>;</span><br><span class="line">            <span class="variable">$fields</span> .= <span class="string">&quot;ifnull(<span class="subst">&#123;$field&#125;</span>,&#x27;&#x27;) as <span class="subst">&#123;$field&#125;</span>&quot;</span> . (<span class="variable">$temp_key</span> &lt; <span class="variable">$fields_count</span> ? <span class="string">&#x27;,&#x27;</span> : <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">            <span class="title function_ invoke__">array_push</span>(<span class="variable">$title_fields</span>, <span class="variable">$key</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$fp</span> = <span class="title function_ invoke__">fopen</span>(<span class="variable">$file_path</span>, <span class="string">&#x27;w&#x27;</span>); <span class="comment">//生成临时文件</span></span><br><span class="line">        <span class="title function_ invoke__">fwrite</span>(<span class="variable">$fp</span>, <span class="title function_ invoke__">chr</span>(<span class="number">0xEF</span>) . <span class="title function_ invoke__">chr</span>(<span class="number">0xBB</span>) . <span class="title function_ invoke__">chr</span>(<span class="number">0xBF</span>));<span class="comment">//转码,防止乱码</span></span><br><span class="line">        <span class="title function_ invoke__">fputcsv</span>(<span class="variable">$fp</span>, <span class="variable">$title_fields</span>);<span class="comment">//插入标题</span></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="built_in">self</span>::<span class="title function_ invoke__">sqlQuery</span>(<span class="string">&quot;SELECT <span class="subst">&#123;$fields&#125;</span> FROM (<span class="subst">&#123;$sql&#125;</span>) as t&quot;</span>) <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>) &#123;</span><br><span class="line">            <span class="title function_ invoke__">fputcsv</span>(<span class="variable">$fp</span>, <span class="variable">$value</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="title function_ invoke__">fclose</span>(<span class="variable">$fp</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">self</span>::<span class="title function_ invoke__">downloadExcel</span>(<span class="variable">$file_path</span>, <span class="variable">$file_name</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@FuncName</span>:downloadExcel</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@User</span> ZHaoGuiBin</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020-01-08 16:46</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $file_path</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $file_name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">downloadExcel</span>(<span class="params"><span class="variable">$file_path</span> = <span class="string">&#x27;&#x27;</span>, <span class="variable">$file_name</span> = <span class="string">&#x27;&#x27;</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title function_ invoke__">ob_end_clean</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!<span class="title function_ invoke__">file_exists</span>(<span class="variable">$file_path</span>)) &#123;</span><br><span class="line">            <span class="title class_">Tools</span>::<span class="title function_ invoke__">dieJs</span>(<span class="string">&quot;alert(&#x27;文件不存在，请联系管理员处理&#x27;);history.go(-1);&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$fp</span> = <span class="title function_ invoke__">fopen</span>(<span class="variable">$file_path</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">        <span class="variable">$file_size</span> = <span class="title function_ invoke__">filesize</span>(<span class="variable">$file_path</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//下载文件需要用到的头</span></span><br><span class="line">        <span class="title function_ invoke__">header</span>(<span class="string">&quot;Content-type:text/html;charset=utf-8&quot;</span>);</span><br><span class="line">        <span class="title function_ invoke__">Header</span>(<span class="string">&quot;Content-type: application/octet-stream&quot;</span>);</span><br><span class="line">        <span class="title function_ invoke__">Header</span>(<span class="string">&quot;Accept-Ranges: bytes&quot;</span>);</span><br><span class="line">        <span class="title function_ invoke__">Header</span>(<span class="string">&quot;Accept-Length:&quot;</span> . <span class="variable">$file_size</span>);</span><br><span class="line">        <span class="title function_ invoke__">Header</span>(<span class="string">&quot;Content-Disposition: attachment; filename=&quot;</span> . <span class="variable">$file_name</span>);</span><br><span class="line">        <span class="variable">$buffer</span> = <span class="number">1024</span>;</span><br><span class="line">        <span class="variable">$file_count</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!<span class="title function_ invoke__">feof</span>(<span class="variable">$fp</span>) &amp;&amp; <span class="variable">$file_count</span> &lt; <span class="variable">$file_size</span>) &#123;</span><br><span class="line">            <span class="variable">$file_con</span> = <span class="title function_ invoke__">fread</span>(<span class="variable">$fp</span>, <span class="variable">$buffer</span>);</span><br><span class="line">            <span class="variable">$file_count</span> += <span class="variable">$buffer</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable">$file_con</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="title function_ invoke__">fclose</span>(<span class="variable">$fp</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@FuncName</span>:deleteExcel</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 删除没用的表格</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@User</span> ZHaoGuiBin</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2019-12-24 15:05:01</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">deleteExcel</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//几分钟前的时间戳</span></span><br><span class="line">        <span class="variable">$delete_time</span> = <span class="title function_ invoke__">strtotime</span>(<span class="string">&quot;-5 minute&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$data_dir</span> = <span class="title function_ invoke__">getcwd</span>() . <span class="string">&quot;/data_export/*.csv&quot;</span>;</span><br><span class="line">        <span class="variable">$data_dir</span> = <span class="title function_ invoke__">glob</span>(<span class="variable">$data_dir</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$data_dir</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$data_dir</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$file_path</span>) &#123;</span><br><span class="line">            <span class="variable">$temp_time</span> = <span class="built_in">self</span>::<span class="title function_ invoke__">findNum</span>(<span class="variable">$file_path</span>);</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$temp_time</span> &lt; <span class="variable">$delete_time</span>) &#123;</span><br><span class="line">                <span class="title function_ invoke__">unlink</span>(<span class="variable">$file_path</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@FuncName</span>:findNum</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@User</span> ZHaoGuiBin</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2019-12-24 14:54:11</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $str</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">findNum</span>(<span class="params"><span class="variable">$str</span> = <span class="string">&#x27;&#x27;</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$str</span> = <span class="title function_ invoke__">trim</span>(<span class="variable">$str</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$str</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$temp</span> = <span class="keyword">array</span>(<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;7&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;9&#x27;</span>, <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">        <span class="variable">$result</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="title function_ invoke__">strlen</span>(<span class="variable">$str</span>); <span class="variable">$i</span>++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">in_array</span>(<span class="variable">$str</span>[<span class="variable">$i</span>], <span class="variable">$temp</span>)) &#123;</span><br><span class="line">                <span class="variable">$result</span> .= <span class="variable">$str</span>[<span class="variable">$i</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/11/09/MySQL%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/#more" rel="contents">
+              <a class="btn" href="/2020/01/19/PHP%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -295,7 +291,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/09/30/Kafka%E5%AE%89%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2019/03/02/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -313,7 +309,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/09/30/Kafka%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Kafka安装</a>
+          <a href="/2019/03/02/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/" class="post-title-link" itemprop="url">virtualbox安装增强功能报错</a>
         </h2>
 
         <div class="post-meta-container">
@@ -324,7 +320,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-09-30 14:41:06" itemprop="dateCreated datePublished" datetime="2018-09-30T14:41:06+08:00">2018-09-30</time>
+      <time title="创建时间：2019-03-02 14:04:39" itemprop="dateCreated datePublished" datetime="2019-03-02T14:04:39+08:00">2019-03-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -344,13 +340,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>1.去<a href="http://kafka.apache.org/downloads" target="_blank">kafka官网</a>下载到最新的kafka安装包，选择下载二进制版本的tgz文件</p>
-<p>2.环境需求：java运行环境</p>
-<p>3.配置<br>在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">consumer.properites <span class="comment">#消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可</span></span><br><span class="line"></span><br><span class="line">producer.properties <span class="comment">#生产者配置，这个配置文件用于配置于2.5节中开启的生产者，此处我们使用默认的即可</span></span><br><span class="line"></span><br><span class="line">server.properties <span class="comment">#kafka服务器的配置，此配置文件用来配置kafka服务器，目前仅介绍几个最基础的配置</span></span><br><span class="line"></span><br><span class="line">broker.id <span class="comment">#申明当前kafka服务器在集群中的唯一ID，需配置为integer,并且集群中的每一个kafka服务器的id都应是唯一的，我们这里采用默认配置即可</span></span><br><span class="line"></span><br><span class="line">listeners <span class="comment">#申明此kafka服务器需要监听的端口号，如果是在本机上跑虚拟机运行可以不用配置本项，默认会使用localhost的地址，如果是在远程服务器上运行则必须配置，例如：</span></span><br><span class="line">　　　　　<span class="comment">#listeners=PLAINTEXT:// 192.168.180.128:9092。并确保服务器的9092端口能够访问</span></span><br><span class="line"></span><br><span class="line">zookeeper.connect <span class="comment">#申明kafka所连接的zookeeper的地址 ，需配置为zookeeper的地址，由于本次使用的是kafka高版本中自带zookeeper，使用默认配置即可</span></span><br><span class="line">zookeeper.connect=localhost:2181</span><br></pre></td></tr></table></figure>
+          <p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/f159aafdab4237ce348344391f108d0f2261c299/VirtualBox%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9C%AA%E8%83%BD%E5%8A%A0%E8%BD%BD%E8%99%9A%E6%8B%9F%E5%85%89%E7%9B%98.png" alt="报错信息"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/09/30/Kafka%E5%AE%89%E8%A3%85/#more" rel="contents">
+              <a class="btn" href="/2019/03/02/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -381,7 +374,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/09/30/Linux%E5%AE%89%E8%A3%85jdk/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2019/01/31/golang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -399,7 +392,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/09/30/Linux%E5%AE%89%E8%A3%85jdk/" class="post-title-link" itemprop="url">Linux安装jdk</a>
+          <a href="/2019/01/31/golang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0/" class="post-title-link" itemprop="url">golang两个线程交替打印1-100的奇数偶数</a>
         </h2>
 
         <div class="post-meta-container">
@@ -410,7 +403,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-09-30 13:46:57" itemprop="dateCreated datePublished" datetime="2018-09-30T13:46:57+08:00">2018-09-30</time>
+      <time title="创建时间：2019-01-31 13:39:38" itemprop="dateCreated datePublished" datetime="2019-01-31T13:39:38+08:00">2019-01-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -430,17 +423,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>到<a href="https://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html" target="_blank">oracle官网</a>下载二进制压缩文件</p>
-<h4 id="1-解压"><a href="#1-解压" class="headerlink" title="1.解压"></a>1.解压</h4><h4 id="2-编辑-x2F-etc-x2F-profile，添加以下配置"><a href="#2-编辑-x2F-etc-x2F-profile，添加以下配置" class="headerlink" title="2.编辑&#x2F;etc&#x2F;profile，添加以下配置"></a>2.编辑&#x2F;etc&#x2F;profile，添加以下配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/opt/src/jdk1.8.0_171</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=/opt/src/jdk1.8.0_171/jre</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/opt/src/jdk1.8.0_171/bin</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=./:/opt/src/jdk1.8.0_171/lib:/opt/src/jdk1.8.0_171/jre/lib</span><br></pre></td></tr></table></figure>
+          <p>启动两个线程, 一个输出 1,3,5,7…99, 另一个输出 2,4,6,8…100 最后 STDOUT 中按序输出 1,2,3,4,5…100</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;time&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pool = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//奇数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">oddNum</span><span class="params">(c <span class="keyword">chan</span> <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= pool; i++ &#123;</span><br><span class="line">		c &lt;- i</span><br><span class="line">		<span class="keyword">if</span> i%<span class="number">2</span> == <span class="number">1</span> &#123;</span><br><span class="line">			fmt.Println(i)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//偶数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">even</span><span class="params">(c <span class="keyword">chan</span> <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= pool; i++ &#123;</span><br><span class="line">		&lt;-c</span><br><span class="line">		<span class="keyword">if</span> i%<span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">			fmt.Println(i)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="type">int</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> oddNum(c)</span><br><span class="line">	<span class="keyword">go</span> even(c)</span><br><span class="line"></span><br><span class="line">	time.Sleep(time.Second * <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="3-刷新配置"><a href="#3-刷新配置" class="headerlink" title="3.刷新配置"></a>3.刷新配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-查看配置是否生效"><a href="#4-查看配置是否生效" class="headerlink" title="4.查看配置是否生效"></a>4.查看配置是否生效</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
 
-<h4 id="5-出现以下信息就安装成功了"><a href="#5-出现以下信息就安装成功了" class="headerlink" title="5.出现以下信息就安装成功了"></a>5.出现以下信息就安装成功了</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java version <span class="string">&quot;1.8.0_171&quot;</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_171-b11)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)</span><br></pre></td></tr></table></figure>
+
+
+
+
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/09/30/Linux%E5%AE%89%E8%A3%85jdk/#more" rel="contents">
+              <a class="btn" href="/2019/01/31/golang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -471,7 +465,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/09/30/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2019/01/26/golang%E6%8A%93%E5%8F%96%E7%9F%A5%E4%B9%8E%E5%9B%BE%E7%89%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -489,7 +483,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/09/30/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/" class="post-title-link" itemprop="url">docker保存对容器的修改</a>
+          <a href="/2019/01/26/golang%E6%8A%93%E5%8F%96%E7%9F%A5%E4%B9%8E%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">golang抓取知乎图片</a>
         </h2>
 
         <div class="post-meta-container">
@@ -500,7 +494,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-09-30 13:45:16" itemprop="dateCreated datePublished" datetime="2018-09-30T13:45:16+08:00">2018-09-30</time>
+      <time title="创建时间：2019-01-26 10:56:31" itemprop="dateCreated datePublished" datetime="2019-01-26T10:56:31+08:00">2019-01-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -520,11 +514,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器ID 要保存的镜像名称</span><br></pre></td></tr></table></figure>
-
+          <h6 id="代码github地址"><a href="#代码github地址" class="headerlink" title="代码github地址"></a>代码github地址</h6><p> <a  href="https://github.com/zhaoguibin/zhihu_pic" target="_blank">https://github.com/zhaoguibin/zhihu_pic</a></p>
+<h6 id="需要安装-gjson"><a href="#需要安装-gjson" class="headerlink" title="需要安装  gjson"></a>需要安装  <a  href="https://github.com/tidwall/gjson" target="_blank">gjson</a></h6>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/09/30/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/#more" rel="contents">
+              <a class="btn" href="/2019/01/26/golang%E6%8A%93%E5%8F%96%E7%9F%A5%E4%B9%8E%E5%9B%BE%E7%89%87/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -555,7 +549,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/09/30/docker%20%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%20systemctl/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2019/01/26/Virtualbox%20%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%20cannot%20create%20symlink%20error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -573,7 +567,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/09/30/docker%20%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%20systemctl/" class="post-title-link" itemprop="url">docker 不能运行 systemctl</a>
+          <a href="/2019/01/26/Virtualbox%20%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%20cannot%20create%20symlink%20error/" class="post-title-link" itemprop="url">Virtualbox 共享文件夹 cannot create symlink error</a>
         </h2>
 
         <div class="post-meta-container">
@@ -584,7 +578,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-09-30 13:39:07" itemprop="dateCreated datePublished" datetime="2018-09-30T13:39:07+08:00">2018-09-30</time>
+      <time title="创建时间：2019-01-26 10:29:46" itemprop="dateCreated datePublished" datetime="2019-01-26T10:29:46+08:00">2019-01-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -604,16 +598,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>docker centos7运行systemctl start nginx 报错：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to get D-BUS connection: Operation no permitted</span><br></pre></td></tr></table></figure>
-
-<p>解决方法：</p>
-<p>在启动容器的时候添加上-d参数就可以了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --privileged -p 3306:3306 -v /opt/data/:/opt/mysql/data 镜像ID /usr/sbin/init</span><br><span class="line"></span><br><span class="line">docker <span class="built_in">exec</span> -it 容器ID /bin/bash</span><br></pre></td></tr></table></figure>
-
+          <p>npm操作虚拟机共享文件夹里的文件时出现 <font color="red"><strong>npm Error: EROFS: read-only file system, symlink</strong></font>的报错信息。</p>
+<h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><p>原来VirtualBox从安全角度出发，限制了软链接的创建，需要打开相应的Feature。以下为详细步骤：</p>
+<h6 id="关闭-VirtualBox。"><a href="#关闭-VirtualBox。" class="headerlink" title="关闭 VirtualBox。"></a>关闭 VirtualBox。</h6><h6 id="将VirtualBox安装目录的路径加入系统环境变量PATH中。"><a href="#将VirtualBox安装目录的路径加入系统环境变量PATH中。" class="headerlink" title="将VirtualBox安装目录的路径加入系统环境变量PATH中。"></a>将VirtualBox安装目录的路径加入系统环境变量PATH中。</h6><h6 id="打开命令行窗口，执行如下命令："><a href="#打开命令行窗口，执行如下命令：" class="headerlink" title="打开命令行窗口，执行如下命令："></a>打开命令行窗口，执行如下命令：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VBoxManage setextradata YOURVMNAME VBoxInternal2/SharedFoldersEnableSymlinksCreate/YOURSHAREFOLDERNAME 1</span><br></pre></td></tr></table></figure>
+<p>其中：YOURVMNAME为虚拟机中linux系统的名称<br>YOURSHAREFOLDERNAME 为共享的目录名称</p>
+<h6 id="“以管理者身份运行”-VirtualBox-即可！"><a href="#“以管理者身份运行”-VirtualBox-即可！" class="headerlink" title="“以管理者身份运行” VirtualBox　即可！"></a>“以管理者身份运行” VirtualBox　即可！</h6>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/09/30/docker%20%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%20systemctl/#more" rel="contents">
+              <a class="btn" href="/2019/01/26/Virtualbox%20%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%20cannot%20create%20symlink%20error/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -644,7 +636,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/09/30/SQL%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%EF%BC%8C%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/11/23/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -662,7 +654,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/09/30/SQL%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%EF%BC%8C%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/" class="post-title-link" itemprop="url">SQL纵向变成横向，横向变成纵向</a>
+          <a href="/2018/11/23/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">linux挂载windows下的共享文件</a>
         </h2>
 
         <div class="post-meta-container">
@@ -673,7 +665,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-09-30 12:06:32" itemprop="dateCreated datePublished" datetime="2018-09-30T12:06:32+08:00">2018-09-30</time>
+      <time title="创建时间：2018-11-23 21:38:17" itemprop="dateCreated datePublished" datetime="2018-11-23T21:38:17+08:00">2018-11-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -693,51 +685,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="纵向变成横向"><a href="#纵向变成横向" class="headerlink" title="纵向变成横向"></a>纵向变成横向</h3><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Subject</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>张三</td>
-<td>语文</td>
-<td>73</td>
-</tr>
-<tr>
-<td>张三</td>
-<td>数学</td>
-<td>83</td>
-</tr>
-<tr>
-<td>张三</td>
-<td>物理</td>
-<td>93</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>语文</td>
-<td>74</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>数学</td>
-<td>84</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>物理</td>
-<td>94</td>
-</tr>
-</tbody></table>
-<p>转换成</p>
-<p>| 姓名 | 语文 | 数学 | 物理 |<br>| —— | —— | —— |<br>| 李四 | 74 | 84 | 94 |<br>| 张三 | 73 | 83 | 93 |</p>
-<h4 id="建表插入数据"><a href="#建表插入数据" class="headerlink" title="建表插入数据"></a>建表插入数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE students (</span><br><span class="line">	`Name` VARCHAR (50),</span><br><span class="line">	`Subject` VARCHAR (50),</span><br><span class="line">	`Result` INT (11)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">INSERT INTO students</span><br><span class="line">VALUES</span><br><span class="line">	(&#x27;张三&#x27;, &#x27;语文&#x27;, &#x27;73&#x27;),</span><br><span class="line">	(&#x27;张三&#x27;, &#x27;数学&#x27;, &#x27;83&#x27;),</span><br><span class="line">	(&#x27;张三&#x27;, &#x27;物理&#x27;, &#x27;93&#x27;),</span><br><span class="line">	(&#x27;李四&#x27;, &#x27;语文&#x27;, &#x27;74&#x27;),</span><br><span class="line">	(&#x27;李四&#x27;, &#x27;数学&#x27;, &#x27;84&#x27;),</span><br><span class="line">	(&#x27;李四&#x27;, &#x27;物理&#x27;, &#x27;94&#x27;);</span><br></pre></td></tr></table></figure>
+          <h5 id="安装cifs-utils"><a href="#安装cifs-utils" class="headerlink" title="安装cifs-utils"></a>安装cifs-utils</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install cifs* -y</span><br></pre></td></tr></table></figure>
+
+<h5 id="这条命令只可以读取Windows共享文件，不能创建文件"><a href="#这条命令只可以读取Windows共享文件，不能创建文件" class="headerlink" title="这条命令只可以读取Windows共享文件，不能创建文件"></a>这条命令只可以读取Windows共享文件，不能创建文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user=Windows用户</span></span><br><span class="line"><span class="comment">#pass=Windows登录密码</span></span><br><span class="line"><span class="comment">#//192.168.10.64/APP Windows共享文件</span></span><br><span class="line"><span class="comment">#/opt/APP/ linux挂载目录</span></span><br><span class="line"></span><br><span class="line">mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq</span><br></pre></td></tr></table></figure>
+
+<h5 id="这条命令可以添加文件操作权限"><a href="#这条命令可以添加文件操作权限" class="headerlink" title="这条命令可以添加文件操作权限"></a>这条命令可以添加文件操作权限</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user=Windows用户</span></span><br><span class="line"><span class="comment">#pass=Windows登录密码</span></span><br><span class="line"><span class="comment">#//192.168.10.64/APP Windows共享文件</span></span><br><span class="line"><span class="comment">#/opt/APP/ linux挂载目录</span></span><br><span class="line"><span class="comment">#uid，gid，linux用户的id和用户组id，可以通过 id root 命令查看用户的id和用户组id</span></span><br><span class="line"><span class="comment">#rw,dir_mode=0777,file_mode=0777这些是设置文件夹权限，可以根据自己的需求设置权限</span></span><br><span class="line"></span><br><span class="line">mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq,rw,uid=0,gid=0,dir_mode=0777,file_mode=0777</span><br></pre></td></tr></table></figure>
+
+
+
+
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/09/30/SQL%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%EF%BC%8C%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/#more" rel="contents">
+              <a class="btn" href="/2018/11/23/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -768,7 +727,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/09/30/MySQL%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/11/23/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -786,7 +745,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/09/30/MySQL%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/" class="post-title-link" itemprop="url">MySQL查询字段在哪个表</a>
+          <a href="/2018/11/23/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/" class="post-title-link" itemprop="url">php-fpm的关闭和重启</a>
         </h2>
 
         <div class="post-meta-container">
@@ -797,7 +756,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-09-30 10:01:03" itemprop="dateCreated datePublished" datetime="2018-09-30T10:01:03+08:00">2018-09-30</time>
+      <time title="创建时间：2018-11-23 21:13:41" itemprop="dateCreated datePublished" datetime="2018-11-23T21:13:41+08:00">2018-11-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -817,13 +776,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h4 id="查询pwd字段在哪个数据库哪个表"><a href="#查询pwd字段在哪个数据库哪个表" class="headerlink" title="查询pwd字段在哪个数据库哪个表"></a>查询pwd字段在哪个数据库哪个表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	TABLE_SCHEMA,</span><br><span class="line">	TABLE_NAME</span><br><span class="line">FROM</span><br><span class="line">	information_schema.`COLUMNS`</span><br><span class="line">WHERE</span><br><span class="line">	COLUMN_NAME = &#x27;pwd&#x27;</span><br></pre></td></tr></table></figure>
+          <h6 id="php-fpm-关闭："><a href="#php-fpm-关闭：" class="headerlink" title="php-fpm 关闭："></a>php-fpm 关闭：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -INT `<span class="built_in">cat</span> /usr/local/php/var/run/php-fpm.pid`</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall php-fpm</span><br></pre></td></tr></table></figure>
+<h6 id="php-fpm启动"><a href="#php-fpm启动" class="headerlink" title="php-fpm启动"></a>php-fpm启动</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/php/sbin/php-fpm</span><br></pre></td></tr></table></figure>
 
-<h4 id="查询pwd字段在ERP数据库的哪个表"><a href="#查询pwd字段在ERP数据库的哪个表" class="headerlink" title="查询pwd字段在ERP数据库的哪个表"></a>查询pwd字段在ERP数据库的哪个表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	TABLE_SCHEMA,</span><br><span class="line">	TABLE_NAME</span><br><span class="line">FROM</span><br><span class="line">	information_schema.`COLUMNS`</span><br><span class="line">WHERE</span><br><span class="line">	COLUMN_NAME = &#x27;pwd&#x27;</span><br><span class="line">AND TABLE_SCHEMA = &#x27;ERP&#x27;</span><br></pre></td></tr></table></figure>
+<h6 id="php-fpm-重启"><a href="#php-fpm-重启" class="headerlink" title="php-fpm 重启"></a>php-fpm 重启</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -USR2 `<span class="built_in">cat</span> /usr/local/php/var/run/php-fpm.pid`</span><br></pre></td></tr></table></figure>
+
+<h6 id="查看php-fpm进程数"><a href="#查看php-fpm进程数" class="headerlink" title="查看php-fpm进程数"></a>查看php-fpm进程数</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep -c php-fpm</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/09/30/MySQL%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/#more" rel="contents">
+              <a class="btn" href="/2018/11/23/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -854,7 +822,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/07/21/%E5%8D%B8%E8%BD%BDSQL%20Server%202017%20%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/11/16/Linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDIP%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -872,7 +840,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/07/21/%E5%8D%B8%E8%BD%BDSQL%20Server%202017%20%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/" class="post-title-link" itemprop="url">卸载SQL Server 2017 出现警告26003</a>
+          <a href="/2018/11/16/Linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDIP%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/" class="post-title-link" itemprop="url">Linux下iptables屏蔽IP和端口号</a>
         </h2>
 
         <div class="post-meta-container">
@@ -883,7 +851,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-07-21 14:19:45" itemprop="dateCreated datePublished" datetime="2018-07-21T14:19:45+08:00">2018-07-21</time>
+      <time title="创建时间：2018-11-16 19:47:29" itemprop="dateCreated datePublished" datetime="2018-11-16T19:47:29+08:00">2018-11-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -903,17 +871,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>卸载SQLserver出现以下问题，把解决方法记录下来，留着以后备用<br>提示信息：<br><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/master/%E5%8D%B8%E8%BD%BDSQL%20Server%202017%20%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003.png" alt="设置共享文件夹"></p>
-<p>解决方法：</p>
-<p>可以使用：WMIC（windows Management Instrumentation Command-line） 列出当前系统上安装的应用程序，最后使用MSIEXEC  &#x2F;X 将其卸载</p>
-<p>打开 CMD(命令提示符)<br>输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">WMIC</span><br><span class="line">Product  list</span><br><span class="line">msiexec /x &#123;IdentifyingNumbe&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#封单个IP的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.10.66 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封IP段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.0.0/16 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封整个段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.0.0/8 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#封几个段的命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.10.0/24 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#只封80端口：</span></span><br><span class="line">iptables -I INPUT -p tcp –dport 80 -s 192.168.0.0/24 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#解封：</span></span><br><span class="line">iptables -F</span><br><span class="line"></span><br><span class="line"><span class="comment">#清空：</span></span><br><span class="line">iptables -D INPUT 数字</span><br><span class="line"></span><br><span class="line"><span class="comment">#列出 INPUT链 所有的规则：</span></span><br><span class="line">iptables -L INPUT --line-numbers</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除某条规则，其中5代表序号（序号可用上面的命令查看）：</span></span><br><span class="line">iptables -D INPUT 5</span><br><span class="line"></span><br><span class="line"><span class="comment">#开放指定的端口：</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment">#禁止指定的端口：</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j DROP</span><br><span class="line"></span><br><span class="line"><span class="comment">#拒绝所有的端口：</span></span><br><span class="line">iptables -A INPUT -j DROP</span><br></pre></td></tr></table></figure>
 
+<p>以上都是针对INPUT链的操作，即是外面来访问本机的方向，配置完之后 需要保存，否则iptables 重启之后以上设置就失效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
 
+<p>iptables 对应的配置文件  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/iptables</span><br></pre></td></tr></table></figure>
+
+<p>注意：iptables的规则匹配顺序上从上到下的，也就是说如果上下两条规则有冲突时，将会以上面的规则为准。</p>
 
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/07/21/%E5%8D%B8%E8%BD%BDSQL%20Server%202017%20%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/#more" rel="contents">
+              <a class="btn" href="/2018/11/16/Linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDIP%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -944,7 +914,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/06/30/php%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/11/16/centos%E4%BF%AE%E6%94%B9IP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -962,7 +932,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/06/30/php%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">php排序实现方法</a>
+          <a href="/2018/11/16/centos%E4%BF%AE%E6%94%B9IP/" class="post-title-link" itemprop="url">centos修改IP</a>
         </h2>
 
         <div class="post-meta-container">
@@ -973,7 +943,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-06-30 13:31:00" itemprop="dateCreated datePublished" datetime="2018-06-30T13:31:00+08:00">2018-06-30</time>
+      <time title="创建时间：2018-11-16 19:35:51" itemprop="dateCreated datePublished" datetime="2018-11-16T19:35:51+08:00">2018-11-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -993,12 +963,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h5 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  直接插入排序,插入排序的思想是：当前插入位置之前的元素有序，</span></span><br><span class="line"><span class="comment"> *  若插入当前位置的元素比有序元素最后一个元素大，则什么也不做，</span></span><br><span class="line"><span class="comment"> *  否则在有序序列中找到插入的位置，并插入</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span>(<span class="params"><span class="variable">$arr</span></span>) </span>&#123;</span><br><span class="line">  <span class="variable">$len</span> = <span class="title function_ invoke__">count</span>(<span class="variable">$arr</span>);  </span><br><span class="line">  <span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt; <span class="variable">$len</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$arr</span>[<span class="variable">$i</span>-<span class="number">1</span>] &gt; <span class="variable">$arr</span>[i]) &#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="variable">$j</span> = <span class="variable">$i</span> - <span class="number">1</span>;<span class="variable">$j</span> &gt;= <span class="number">0</span>; <span class="variable">$j</span>-- ) &#123;</span><br><span class="line">        <span class="variable">$tmp</span> = <span class="variable">$arr</span>[<span class="variable">$j</span>+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$tmp</span> &lt; <span class="variable">$arr</span>[<span class="variable">$j</span>]) &#123;</span><br><span class="line">          <span class="variable">$arr</span>[<span class="variable">$j</span>+<span class="number">1</span>] = <span class="variable">$arr</span>[<span class="variable">$j</span>];</span><br><span class="line">          <span class="variable">$arr</span>[<span class="variable">$j</span>] = <span class="variable">$tmp</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;          </span><br><span class="line">      &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$arr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  冒泡排序,冒泡排序思想：进行 n-1 趟冒泡排序， 每趟两两比较调整最大值到数组（子数组）末尾</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params"><span class="variable">$arr</span></span>) </span>&#123;</span><br><span class="line">  <span class="variable">$len</span> = <span class="title function_ invoke__">count</span>(<span class="variable">$arr</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt; <span class="variable">$len</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="variable">$j</span> = <span class="number">0</span>; <span class="variable">$j</span> &lt; <span class="variable">$len</span>-<span class="variable">$i</span>; <span class="variable">$j</span>++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="variable">$arr</span>[<span class="variable">$j</span>] &gt; <span class="variable">$arr</span>[<span class="variable">$j</span>+<span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="variable">$tmp</span> = <span class="variable">$arr</span>[<span class="variable">$j</span>+<span class="number">1</span>];</span><br><span class="line">        <span class="variable">$arr</span>[<span class="variable">$j</span>+<span class="number">1</span>] = <span class="variable">$arr</span>[<span class="variable">$j</span>];</span><br><span class="line">        <span class="variable">$arr</span>[<span class="variable">$j</span>] = <span class="variable">$tmp</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$arr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h5 id="首先查看网络接口名称"><a href="#首先查看网络接口名称" class="headerlink" title="首先查看网络接口名称"></a>首先查看网络接口名称</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/zhaoguibin/hexo_blog_files/b11c555acaa92bbf9363cfec3e321a30dc950319/centos%20%E4%B8%B4%E6%97%B6%E4%BF%AE%E6%94%B9IP%E3%80%81%E6%B0%B8%E4%B9%85%E4%BF%AE%E6%94%B9IP.png" alt="修改IP地址"></p>
+<h5 id="临时修改IP"><a href="#临时修改IP" class="headerlink" title="临时修改IP"></a>临时修改IP</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth1 192.168.10.88</span><br></pre></td></tr></table></figure>
+<h5 id="永久修改IP"><a href="#永久修改IP" class="headerlink" title="永久修改IP"></a>永久修改IP</h5><h6 id="修改对应的网络接口配置文件，文件路径是"><a href="#修改对应的网络接口配置文件，文件路径是" class="headerlink" title="修改对应的网络接口配置文件，文件路径是"></a>修改对应的网络接口配置文件，文件路径是</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/network-scripts/</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称</span><br></pre></td></tr></table></figure>
+<h6 id="修改以下配置"><a href="#修改以下配置" class="headerlink" title="修改以下配置"></a>修改以下配置</h6>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/06/30/php%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/#more" rel="contents">
+              <a class="btn" href="/2018/11/16/centos%E4%BF%AE%E6%94%B9IP/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1029,7 +1002,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/06/30/DDL%E3%80%81DML%E5%92%8CDCL%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%90%86%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2018/11/09/Nginx%E4%BD%BF%E7%94%A8brotli/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -1047,7 +1020,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/06/30/DDL%E3%80%81DML%E5%92%8CDCL%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">DDL、DML和DCL的区别与理解</a>
+          <a href="/2018/11/09/Nginx%E4%BD%BF%E7%94%A8brotli/" class="post-title-link" itemprop="url">Nginx使用brotli</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1058,7 +1031,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-06-30 12:53:00" itemprop="dateCreated datePublished" datetime="2018-06-30T12:53:00+08:00">2018-06-30</time>
+      <time title="创建时间：2018-11-09 20:17:14" itemprop="dateCreated datePublished" datetime="2018-11-09T20:17:14+08:00">2018-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1078,17 +1051,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>DML、DDL、DCL区别 .</p>
-<p>总体解释：</p>
-<p>DML(data manipulation language)：</p>
-<p>它们是SELECT、UPDATE、INSERT、DELETE，就象它的名字一样，这4条命令是用来对数据库里的数据进行操作的语言</p>
-<p>DDL(data definition language)：</p>
-<p>DDL比DML要多，主要的命令有CREATE、ALTER、DROP等，DDL主要是用在定义或改变表(TABLE)的结构，数据类型，表之间的链接和约束等初始化工作上，他们大多在建立表时使用</p>
-<p>DCL(Data Control Language)：</p>
-<p>是数据库控制功能。是用来设置或更改数据库用户或角色权限的语句，包括(grant,deny,revoke等)语句。在默认状态下，只有sysadmin,dbcreator,db_owner或db_securityadmin等人员才有权力执行DCL</p>
+          <h5 id="首先下载brotli的nginx模块"><a href="#首先下载brotli的nginx模块" class="headerlink" title="首先下载brotli的nginx模块"></a>首先下载brotli的nginx模块</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/local/src</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/google/ngx_brotli.git</span><br></pre></td></tr></table></figure>
+
+<h5 id="接着下载brotli源代码"><a href="#接着下载brotli源代码" class="headerlink" title="接着下载brotli源代码"></a>接着下载brotli源代码</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ngx_brotli</span><br><span class="line"><span class="built_in">cd</span> deps/brotli</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/google/brotli.git</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/06/30/DDL%E3%80%81DML%E5%92%8CDCL%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%90%86%E8%A7%A3/#more" rel="contents">
+              <a class="btn" href="/2018/11/09/Nginx%E4%BD%BF%E7%94%A8brotli/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1112,7 +1080,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

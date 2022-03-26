@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -208,7 +208,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/Linux-Source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5FastCGI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -226,7 +226,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/Linux-Source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">Linux-Source命令及脚本的执行方式解析</a>
+          <a href="/2017/12/03/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5FastCGI/" class="post-title-link" itemprop="url">php-fpm设置socket方式连接FastCGI</a>
         </h2>
 
         <div class="post-meta-container">
@@ -237,7 +237,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-03 16:39:35" itemprop="dateCreated datePublished" datetime="2017-12-03T16:39:35+08:00">2017-12-03</time>
+      <time title="创建时间：2017-12-03 17:16:17" itemprop="dateCreated datePublished" datetime="2017-12-03T17:16:17+08:00">2017-12-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,12 +257,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>当我修改了&#x2F;etc&#x2F;profile文件，我想让它立刻生效，而不用重新登录；这时就想到用source命令，如:source &#x2F;etc&#x2F;profile<br>对source进行了学习，并且用它与sh 执行脚本进行了对比，现在总结一下。</p>
-<p>source命令：<br><br>source命令也称为“点命令”，也就是一个点符号（.）,是bash的内部命令。<br><br>功能：使Shell读入指定的Shell程序文件并依次执行文件中的所有语句<br><br>source命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。<br><br>用法：<br><br>source filename 或 . filename<br><br>source命令(从 C Shell 而来)是bash shell的内置命令;点命令(.)，就是个点符号(从Bourne Shell而来)是source的另一名称。<br><br>source filename 与 sh filename 及.&#x2F;filename执行脚本的区别在那里呢？<br><br>1.当shell脚本具有可执行权限时，用sh filename与.&#x2F;filename执行脚本是没有区别得。.&#x2F;filename是因为当前目录没有在PATH中，所有”.”是用来表示当前目录的。<br><br>2.sh filename 重新建立一个子shell，在子shell中执行脚本里面的语句，该子shell继承父shell的环境变量，但子shell新建的、改变的变量不会被带回父shell，除非使用export。<br><br>3.source filename：这个命令其实只是简单地读取脚本里面的语句依次在当前shell里面执行，没有建立新的子shell。那么脚本里面所有新建、改变变量的语句都会保存在当前shell里面。<br><br>举例说明：<br><br>1.新建一个test.sh脚本，内容为:A&#x3D;1<br><br>2.然后使其可执行chmod +x test.sh<br><br>3.运行sh test.sh后，echo $A，显示为空，因为A&#x3D;1并未传回给当前shell<br><br>4.运行.&#x2F;test.sh后，也是一样的效果<br><br>5.运行source test.sh 或者 . test.sh，然后echo $A，则会显示1，说明A&#x3D;1的变量在当前shell中</p>
-
+          <p>nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/03/Linux-Source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/#more" rel="contents">
+              <a class="btn" href="/2017/12/03/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5FastCGI/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -293,7 +291,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/Centos%E4%B8%AD%E5%AE%89%E8%A3%85PHP%E7%9A%84PDO-MySQL%E6%89%A9%E5%B1%95/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/PDO-MYSQL-make-pdo-mysql-lo-Error-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -311,7 +309,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/Centos%E4%B8%AD%E5%AE%89%E8%A3%85PHP%E7%9A%84PDO-MySQL%E6%89%A9%E5%B1%95/" class="post-title-link" itemprop="url">Centos中安装PHP的PDO-MySQL扩展</a>
+          <a href="/2017/12/03/PDO-MYSQL-make-pdo-mysql-lo-Error-1/" class="post-title-link" itemprop="url">PDO-MYSQL-make-pdo-mysql-lo-Error-1</a>
         </h2>
 
         <div class="post-meta-container">
@@ -322,7 +320,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-03 16:36:45" itemprop="dateCreated datePublished" datetime="2017-12-03T16:36:45+08:00">2017-12-03</time>
+      <time title="创建时间：2017-12-03 17:13:16" itemprop="dateCreated datePublished" datetime="2017-12-03T17:13:16+08:00">2017-12-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -342,12 +340,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>1、下载 文件 或者 进入 在PHP源码包中进入ext&#x2F;pdo_mysql<br><a target="_blank" rel="noopener" href="http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz">http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz</a></p>
-<p>2、解压文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf PDO_MYSQL-1.0.2.tgz</span><br></pre></td></tr></table></figure>
+          <p>编译安装PDO_MYSQL拓展模块，总是提示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory</span><br><span class="line">In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31:</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’</span><br><span class="line">/data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’</span><br><span class="line">make: *** [pdo_mysql.lo] Error 1</span><br></pre></td></tr></table></figure>
+<p>这是因为这是因为在编译时需要 MySQL 的头的文件。而它按默认搜索找不到头文件的位置，所以才出现这个问题。通过软连接把MySQL头文件对应到&#x2F;usr&#x2F;local&#x2F;include&#x2F;下就好<br>比如你的MySQL安装文件位于&#x2F;usr&#x2F;local&#x2F;mysql，那么就执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /usr/local/mysql/include/* /usr/local/include/</span><br></pre></td></tr></table></figure>
+
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/03/Centos%E4%B8%AD%E5%AE%89%E8%A3%85PHP%E7%9A%84PDO-MySQL%E6%89%A9%E5%B1%95/#more" rel="contents">
+              <a class="btn" href="/2017/12/03/PDO-MYSQL-make-pdo-mysql-lo-Error-1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -378,7 +378,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/Centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/NGINX-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-%E2%80%9Cxxx-com%E2%80%9D-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -396,7 +396,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/Centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/" class="post-title-link" itemprop="url">Centos-6-5-更改系统时间</a>
+          <a href="/2017/12/03/NGINX-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-%E2%80%9Cxxx-com%E2%80%9D-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">NGINX-启动-warn-conflicting-server-name-“xxx-com”-on-0-0-0-0-80-ignored原因分析</a>
         </h2>
 
         <div class="post-meta-container">
@@ -407,7 +407,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-03 16:33:12" itemprop="dateCreated datePublished" datetime="2017-12-03T16:33:12+08:00">2017-12-03</time>
+      <time title="创建时间：2017-12-03 17:10:19" itemprop="dateCreated datePublished" datetime="2017-12-03T17:10:19+08:00">2017-12-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -427,11 +427,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">date</span>  时间窗口</span><br><span class="line"><span class="built_in">date</span> -s <span class="string">&#x27;2015-02-02 10:10:00&#x27;</span>  更改年月日小时分秒</span><br><span class="line"><span class="built_in">date</span> -s 10:00:02  只更改时间 不更改年月</span><br><span class="line">clock -w 写入系统时间</span><br><span class="line">hwclock  同步bios 时间</span><br><span class="line">service ntpdate start  开启网络时间同步</span><br><span class="line">systemctl start  ntpdate.service 开启网络时间同步 Red Hat 7</span><br><span class="line">chkconfig --leves 2345 ntpdate on  开机启动</span><br><span class="line">reboot 重启报错</span><br><span class="line">or <span class="built_in">type</span> Contril-D to contime:输入系统密码-根据报错修复</span><br><span class="line">fsck -y /dev/mapper/VolGroup-lv_root</span><br><span class="line">fsck -y /dev/sda1</span><br><span class="line">reboot 重启是否正常</span><br></pre></td></tr></table></figure>
+          <p>报错如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx: [warn] conflicting server name “www.xxx.com” on 0.0.0.0:80, ignored</span><br></pre></td></tr></table></figure>
+<p>域名重复配置所致</p>
 
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/03/Centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/#more" rel="contents">
+              <a class="btn" href="/2017/12/03/NGINX-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-%E2%80%9Cxxx-com%E2%80%9D-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -462,7 +464,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/CentOS-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/nginx%E9%85%8D%E7%BD%AElocation%E6%80%BB%E7%BB%93%E5%8F%8Arewrite%E8%A7%84%E5%88%99%E5%86%99%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -480,7 +482,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/CentOS-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF/" class="post-title-link" itemprop="url">CentOS-6-4-php-fpm-添加service-添加平滑启动-重启</a>
+          <a href="/2017/12/03/nginx%E9%85%8D%E7%BD%AElocation%E6%80%BB%E7%BB%93%E5%8F%8Arewrite%E8%A7%84%E5%88%99%E5%86%99%E6%B3%95/" class="post-title-link" itemprop="url">nginx配置location总结及rewrite规则写法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -491,7 +493,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-03 16:28:16" itemprop="dateCreated datePublished" datetime="2017-12-03T16:28:16+08:00">2017-12-03</time>
+      <time title="创建时间：2017-12-03 17:07:09" itemprop="dateCreated datePublished" datetime="2017-12-03T17:07:09+08:00">2017-12-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -511,16 +513,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我的php是源码安装的。php-fpm在PHP 5.3.2以后的版本不支持以前的php-fpm (start|restart|stop|reload) ，那么如果将php-fpm配置成服务，并添加平滑启动&#x2F;重启。<br>配置php-fpm.conf（vi &#x2F;usr&#x2F;local&#x2F;php54&#x2F;etc&#x2F;php-fpm.conf）,将pid（;pid &#x3D; run&#x2F;php-fpm.pid）前的;去掉。<br>因为编译安装php的，所以会在php目录生成很多二进制文件，找到init.d.php-fpm，拷贝到init.d下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /usr/local/src/php54/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm</span><br></pre></td></tr></table></figure>
-<p>设置权限，并添加服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /etc/init.d/php-fpm</span><br><span class="line">chkconfig --add php-fpm</span><br></pre></td></tr></table></figure>
-<p>以后可以使用如下命令管理php-fpm了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service php-fpm start</span><br><span class="line">service php-fpm stop</span><br><span class="line">service php-fpm restart</span><br><span class="line">service php-fpm reload</span><br></pre></td></tr></table></figure>
-
+          <p>location正则写法<br>一个示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">location  = / &#123;</span><br><span class="line">  <span class="comment"># 精确匹配 / ，主机名后面不能带任何字符串</span></span><br><span class="line">  [ configuration A ]</span><br><span class="line">&#125;</span><br><span class="line">location  / &#123;</span><br><span class="line">  <span class="comment"># 因为所有的地址都以 / 开头，所以这条规则将匹配到所有请求</span></span><br><span class="line">  <span class="comment"># 但是正则和最长字符串会优先匹配</span></span><br><span class="line">  [ configuration B ]</span><br><span class="line">&#125;</span><br><span class="line">location /documents/ &#123;</span><br><span class="line">  <span class="comment"># 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索</span></span><br><span class="line">  <span class="comment"># 只有后面的正则表达式没有匹配到时，这一条才会采用这一条</span></span><br><span class="line">  [ configuration C ]</span><br><span class="line">&#125;</span><br><span class="line">location ~ /documents/Abc &#123;</span><br><span class="line">  <span class="comment"># 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索</span></span><br><span class="line">  <span class="comment"># 只有后面的正则表达式没有匹配到时，这一条才会采用这一条</span></span><br><span class="line">  [ configuration CC ]</span><br><span class="line">&#125;</span><br><span class="line">location ^~ /images/ &#123;</span><br><span class="line">  <span class="comment"># 匹配任何以 /images/ 开头的地址，匹配符合以后，停止往下搜索正则，采用这一条。</span></span><br><span class="line">  [ configuration D ]</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.(gif|jpg|jpeg)$ &#123;</span><br><span class="line">  <span class="comment"># 匹配所有以 gif,jpg或jpeg 结尾的请求</span></span><br><span class="line">  <span class="comment"># 然而，所有请求 /images/ 下的图片会被 config D 处理，因为 ^~ 到达不了这一条正则</span></span><br><span class="line">  [ configuration E ]</span><br><span class="line">&#125;</span><br><span class="line">location /images/ &#123;</span><br><span class="line">  <span class="comment"># 字符匹配到 /images/，继续往下，会发现 ^~ 存在</span></span><br><span class="line">  [ configuration F ]</span><br><span class="line">&#125;</span><br><span class="line">location /images/abc &#123;</span><br><span class="line">  <span class="comment"># 最长字符匹配到 /images/abc，继续往下，会发现 ^~ 存在</span></span><br><span class="line">  <span class="comment"># F与G的放置顺序是没有关系的</span></span><br><span class="line">  [ configuration G ]</span><br><span class="line">&#125;</span><br><span class="line">location ~ /images/abc/ &#123;</span><br><span class="line">  <span class="comment"># 只有去掉 config D 才有效：先最长匹配 config G 开头的地址，继续往下搜索，匹配到这一条正则，采用</span></span><br><span class="line">    [ configuration H ]</span><br><span class="line">&#125;</span><br><span class="line">1</span><br><span class="line">location ~* /js/.*/\.js</span><br><span class="line">已=开头表示精确匹配</span><br><span class="line"></span><br><span class="line">如 A 中只匹配根目录结尾的请求，后面不能带任何字符串。</span><br><span class="line"></span><br><span class="line">^~ 开头表示uri以某个常规字符串开头，不是正则匹配</span><br><span class="line"></span><br><span class="line">~ 开头表示区分大小写的正则匹配;</span><br><span class="line"></span><br><span class="line">~* 开头表示不区分大小写的正则匹配</span><br><span class="line"></span><br><span class="line">/ 通用匹配, 如果没有其它匹配,任何请求都会匹配到</span><br><span class="line">顺序 no优先级： (location =) &gt; (location 完整路径) &gt; (location ^~ 路径) &gt; (location ~,~* 正则顺序) &gt; (location 部分起始路径) &gt; (/)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/03/CentOS-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF/#more" rel="contents">
+              <a class="btn" href="/2017/12/03/nginx%E9%85%8D%E7%BD%AElocation%E6%80%BB%E7%BB%93%E5%8F%8Arewrite%E8%A7%84%E5%88%99%E5%86%99%E6%B3%95/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -551,7 +548,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/02/Mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/nginx-php-fpm%E5%87%BA%E7%8E%B0502-bad-gateway%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -569,7 +566,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/02/Mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/" class="post-title-link" itemprop="url">Mysql双主同步</a>
+          <a href="/2017/12/03/nginx-php-fpm%E5%87%BA%E7%8E%B0502-bad-gateway%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">nginx-php-fpm出现502-bad-gateway错误解决方法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -580,7 +577,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-02 15:12:36" itemprop="dateCreated datePublished" datetime="2017-12-02T15:12:36+08:00">2017-12-02</time>
+      <time title="创建时间：2017-12-03 17:05:56" itemprop="dateCreated datePublished" datetime="2017-12-03T17:05:56+08:00">2017-12-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -600,11 +597,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><strong>平台：centos7,mysql5.6.34</strong></p>
-<p>解决数据库瓶颈问题<br>两台服务器可以同时读写数据库<br>A B两台服务器<br>A和B需要拥有一个同名的数据库<br>同步账号设置<br>首先要在两台服务器上各新增加一个可登陆的账号。</p>
+          <p>1.或者php-cgi端口和nginx配置不一致，这是比较低级的错误</p>
+<p>2.php-fpm没有启动,到php-fpm所在目录启动</p>
+<p>3.php-fpm配置文件user和group配置和Nginx不一致</p>
+<p>4.在centos7中user和group修改在&#x2F;opt&#x2F;local&#x2F;php&#x2F;etc&#x2F;php-fpm.d&#x2F;<a target="_blank" rel="noopener" href="http://www.conf里面/">www.conf里面</a></p>
+
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/02/Mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/#more" rel="contents">
+              <a class="btn" href="/2017/12/03/nginx-php-fpm%E5%87%BA%E7%8E%B0502-bad-gateway%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -635,7 +635,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/02/MySQL%E4%BD%BF%E7%94%A8Symbolic-Links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/nginx-fastcgi-param%E8%A7%A3%E9%87%8A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -653,7 +653,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/02/MySQL%E4%BD%BF%E7%94%A8Symbolic-Links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/" class="post-title-link" itemprop="url">MySQL使用Symbolic-Links以支持数据分区存储</a>
+          <a href="/2017/12/03/nginx-fastcgi-param%E8%A7%A3%E9%87%8A/" class="post-title-link" itemprop="url">nginx-fastcgi-param解释</a>
         </h2>
 
         <div class="post-meta-container">
@@ -664,7 +664,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-02 15:09:45" itemprop="dateCreated datePublished" datetime="2017-12-02T15:09:45+08:00">2017-12-02</time>
+      <time title="创建时间：2017-12-03 17:03:17" itemprop="dateCreated datePublished" datetime="2017-12-03T17:03:17+08:00">2017-12-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -684,18 +684,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>MySQL数据库及表(仅MyISAM)支持符号链接(symbolic link)，即数据库或表可以存储在my.cnf中指定datadir之外的分区或目录。<br>要支持符号链接，需要在配置中设置symbolic-links&#x3D;1(较新的版本为默认开启)</p>
-<p>假设my.cnf有设置data目录:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datadir=/data1/mysql/data/</span><br></pre></td></tr></table></figure>
-<p>而在另一个分区目录下保存有数据数据库TestDB:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data2/mysql/data/TestDB</span><br></pre></td></tr></table></figure>
-<p>那么可以这样使得同一个MySQL实例能同时管理TestDB:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /data2/mysql/data/TestDB /data1/mysql/data/</span><br></pre></td></tr></table></figure>
-<p>所有文件相关权限设置正确后，MySQL就可以管理TestDB了。<br>值得注意的是，TestDB最好只能为一个MySQL服务来操作，否则会出现意想不到的问题。使用symbolic link的一个好处是当一个磁盘或分区空间不够时，可以将数据存储到其他的磁盘或分区。</p>
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">fastcgi_param SCRIPT_FILENAME $document_root<span class="variable">$fastcgi_script_name</span>;<span class="comment">#脚本文件请求的路径</span></span><br><span class="line">fastcgi_param QUERY_STRING <span class="variable">$query_string</span>;                        <span class="comment">#请求的参数;如?app=123</span></span><br><span class="line">fastcgi_param REQUEST_METHOD <span class="variable">$request_method</span>;                    <span class="comment">#请求的动作(GET,POST)</span></span><br><span class="line">fastcgi_param CONTENT_TYPE <span class="variable">$content_type</span>;                        <span class="comment">#请求头中的Content-Type字段</span></span><br><span class="line">fastcgi_param CONTENT_LENGTH <span class="variable">$content_length</span>;                    <span class="comment">#请求头中的Content-length字段。</span></span><br><span class="line">fastcgi_param SCRIPT_NAME <span class="variable">$fastcgi_script_name</span>;                  <span class="comment">#脚本名称</span></span><br><span class="line">fastcgi_param REQUEST_URI <span class="variable">$request_uri</span>;                          <span class="comment">#请求的地址不带参数</span></span><br><span class="line">fastcgi_param DOCUMENT_URI <span class="variable">$document_uri</span>;                        <span class="comment">#与$uri相同。</span></span><br><span class="line">fastcgi_param DOCUMENT_ROOT <span class="variable">$document_root</span>;                      <span class="comment">#网站的根目录。在server配置中root指令中指定的值</span></span><br><span class="line">fastcgi_param SERVER_PROTOCOL <span class="variable">$server_protocol</span>;                  <span class="comment">#请求使用的协议，通常是HTTP/1.0或HTTP/1.1。</span></span><br><span class="line">fastcgi_param GATEWAY_INTERFACE CGI/1.1;                         <span class="comment">#cgi 版本</span></span><br><span class="line">fastcgi_param SERVER_SOFTWARE nginx/<span class="variable">$nginx_version</span>;              <span class="comment">#nginx 版本号，可修改、隐藏</span></span><br><span class="line">fastcgi_param REMOTE_ADDR <span class="variable">$remote_addr</span>;                          <span class="comment">#客户端IP</span></span><br><span class="line">fastcgi_param REMOTE_PORT <span class="variable">$remote_port</span>;                          <span class="comment">#客户端端口</span></span><br><span class="line">fastcgi_param SERVER_ADDR <span class="variable">$server_addr</span>;                          <span class="comment">#服务器IP地址</span></span><br><span class="line">fastcgi_param SERVER_PORT <span class="variable">$server_port</span>;                          <span class="comment">#服务器端口</span></span><br><span class="line">fastcgi_param SERVER_NAME <span class="variable">$server_name</span>;                          <span class="comment">#服务器名，域名在server配置中指定的server_name</span></span><br><span class="line"><span class="comment">#fastcgi_param PATH_INFO $path_info;                             #可自定义变量</span></span><br><span class="line"><span class="comment">#PHP only, required if PHP was built with --enable-force-cgi-redirect</span></span><br><span class="line"><span class="comment">#fastcgi_param REDIRECT_STATUS 200;</span></span><br><span class="line">在php可打印出上面的服务环境变量</span><br><span class="line">如：<span class="built_in">echo</span> <span class="variable">$_SERVER</span>[<span class="string">&#x27;REMOTE_ADDR&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/02/MySQL%E4%BD%BF%E7%94%A8Symbolic-Links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/#more" rel="contents">
+              <a class="btn" href="/2017/12/03/nginx-fastcgi-param%E8%A7%A3%E9%87%8A/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -726,7 +719,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/02/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/nginx-alert-kill-646-1-failed-3-No-such-process-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -744,7 +737,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/02/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/" class="post-title-link" itemprop="url">centos7编译安装nginx</a>
+          <a href="/2017/12/03/nginx-alert-kill-646-1-failed-3-No-such-process-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">nginx-alert-kill-646-1-failed-3-No-such-process-解决方法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -755,7 +748,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-02 15:05:34" itemprop="dateCreated datePublished" datetime="2017-12-02T15:05:34+08:00">2017-12-02</time>
+      <time title="创建时间：2017-12-03 17:00:05" itemprop="dateCreated datePublished" datetime="2017-12-03T17:00:05+08:00">2017-12-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -775,13 +768,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><strong>ps : nginx安装在&#x2F;opt&#x2F;local&#x2F;nginx里</strong></p>
-<p>1.安装编译安装依赖的类库和包</p>
-<p>如果需要编译MySQL和PHP，就安装这些</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison</span><br></pre></td></tr></table></figure>
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br><span class="line">nginx: [alert] <span class="built_in">kill</span>(1708, 1) failed (3: No such process)</span><br><span class="line">/opt/local/nginx/sbin/nginx -c /opt/local/nginx/conf/nginx.conf</span><br><span class="line">/opt/local/nginx/sbin/nginx -s reload</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/02/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/#more" rel="contents">
+              <a class="btn" href="/2017/12/03/nginx-alert-kill-646-1-failed-3-No-such-process-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -812,7 +802,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/02/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/MySQL-ERROR-Table-mysql-user-doesn-t-exist/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -830,7 +820,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/02/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/" class="post-title-link" itemprop="url">centos6-5开启-关闭端口</a>
+          <a href="/2017/12/03/MySQL-ERROR-Table-mysql-user-doesn-t-exist/" class="post-title-link" itemprop="url">MySQL-ERROR-Table-mysql-user-doesn-t-exist</a>
         </h2>
 
         <div class="post-meta-container">
@@ -841,7 +831,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-02 15:03:33" itemprop="dateCreated datePublished" datetime="2017-12-02T15:03:33+08:00">2017-12-02</time>
+      <time title="创建时间：2017-12-03 16:55:56" itemprop="dateCreated datePublished" datetime="2017-12-03T16:55:56+08:00">2017-12-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -861,16 +851,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>列出所有端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ntlp</span><br></pre></td></tr></table></figure>
-<p>1、开启端口（以80端口为例）</p>
-<p>方法一：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT   写入修改</span><br><span class="line">/etc/init.d/iptables save   保存修改</span><br><span class="line">service iptables restart    重启防火墙，修改生效</span><br></pre></td></tr></table></figure>
-<p>方法二：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/iptables  打开配置文件加入如下语句:</span><br><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT   重启防火墙，修改完成</span><br></pre></td></tr></table></figure>
+          <p>1、现象描述<br>[root@centos65 scripts]# service mysqld start<br>Starting MySQL..The server quit without updating PID file (&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;HKBO.pid).[FAILED]<br>查看错误日志</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@centos65 scripts]<span class="comment"># tail /var/log/mysqld.log</span></span><br><span class="line">InnoDB: Apply batch completed</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: 128 rollback segment(s) are active.</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: Waiting <span class="keyword">for</span> purge to start</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] InnoDB: 5.6.12 started; <span class="built_in">log</span> sequence number 1600607</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] Server hostname (bind-address): <span class="string">&#x27;*&#x27;</span>; port: 3306</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] IPv6 is available.</span><br><span class="line">2014-12-08 11:01:37 15721 [Note]   - <span class="string">&#x27;::&#x27;</span> resolves to <span class="string">&#x27;::&#x27;</span>;</span><br><span class="line">2014-12-08 11:01:37 15721 [Note] Server socket created on IP: <span class="string">&#x27;::&#x27;</span>.</span><br><span class="line">2014-12-08 11:01:37 15721 [ERROR] Fatal error: Can<span class="string">&#x27;t open and lock privilege tables: Table &#x27;</span>mysql.user<span class="string">&#x27; doesn&#x27;</span>t exist</span><br><span class="line">141208 11:01:37 mysqld_safe mysqld from pid file /var/lib/mysql/HKBO.pid ended</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/02/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/#more" rel="contents">
+              <a class="btn" href="/2017/12/03/MySQL-ERROR-Table-mysql-user-doesn-t-exist/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -901,7 +886,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/02/Windows%E9%80%9A%E8%BF%87Samba%E8%AE%BF%E9%97%AELinux%E6%96%87%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/Linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -919,7 +904,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/02/Windows%E9%80%9A%E8%BF%87Samba%E8%AE%BF%E9%97%AELinux%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">Windows通过Samba访问Linux文件</a>
+          <a href="/2017/12/03/Linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Linux开机执行命令</a>
         </h2>
 
         <div class="post-meta-container">
@@ -930,7 +915,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-02 14:59:06" itemprop="dateCreated datePublished" datetime="2017-12-02T14:59:06+08:00">2017-12-02</time>
+      <time title="创建时间：2017-12-03 16:47:37" itemprop="dateCreated datePublished" datetime="2017-12-03T16:47:37+08:00">2017-12-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -950,19 +935,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install samba smaba-client</span><br></pre></td></tr></table></figure>
-<p>配置</p>
-<p>我想设置root用户给samba，并设置其密码，执行以下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smbpasswd -a root</span><br></pre></td></tr></table></figure>
-<p>这个命令也可以修改设置的用户的密码</p>
-<p>这里的意思是说，当windows登录到Linux共享文件夹的时候输入的用户名root和密码(刚刚设置的)</p>
-<p>配置下smb.conf</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/samba/smb.conf</span><br></pre></td></tr></table></figure>
-<p>⒈找到security &#x3D; XXXX</p>
+          <p>1、把需要执行的命令写到一个bash脚本里面：<br>#!&#x2F;bin&#x2F;sh （此括号内为需要执行的命令） 保存为一个文件，比如123.sh，放在oracle的主目录里面。<br><br>给这个文件加上可执行属性：chmod 775 123.sh<br><br>然后，在&#x2F;etc&#x2F;rc.d&#x2F;rc.local里面加上这句就可以了：<br></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/123.sh</span><br><span class="line">延时执行</span><br><span class="line">例子：(</span><br><span class="line"><span class="built_in">sleep</span> 60</span><br><span class="line">sh /goexcel.sh</span><br><span class="line">)&amp;</span><br><span class="line">延时60秒执行</span><br></pre></td></tr></table></figure>
+
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/02/Windows%E9%80%9A%E8%BF%87Samba%E8%AE%BF%E9%97%AELinux%E6%96%87%E4%BB%B6/#more" rel="contents">
+              <a class="btn" href="/2017/12/03/Linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -993,7 +971,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/02/Samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/Linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/astronaut.jpg">
@@ -1011,7 +989,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/02/Samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Samba-配置文件详解</a>
+          <a href="/2017/12/03/Linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/" class="post-title-link" itemprop="url">Linux-查看进程和删除进程</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1022,7 +1000,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-02 14:55:37" itemprop="dateCreated datePublished" datetime="2017-12-02T14:55:37+08:00">2017-12-02</time>
+      <time title="创建时间：2017-12-03 16:42:56" itemprop="dateCreated datePublished" datetime="2017-12-03T16:42:56+08:00">2017-12-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1042,10 +1020,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Samba 的配置文件 &#x2F;etc&#x2F;samba&#x2F;smb.conf 分为两大部分，一部分是 [global] ，即全局配置，另一部分是 [home] 、[printer] 、[自定义共享名] ，这些都是共享的部分，共享部分的设置优先级高于全局配置，另外，Samba 默认开启本地用户家目录 [home] 和打印机 [printer] 的共享，如果不需要你也可以关闭这两个共享，然后在末行自己重新创建一个共享，下面是详细的配置，你可以自定义一个共享，然后自己选择需要哪些配置：</p>
+          <ol>
+<li>在 LINUX 命令平台输入 1-2 个字符后按 Tab 键会自动补全后面的部分(前提是要有这个东西，例如在装了 tomcat 的前提下, 输入 tomcat 的 to 按 tab)。</li>
+<li>ps 命令用于查看当前正在运行的进程。<br><br>grep 是搜索<br><br>例如： ps -ef | grep java<br><br>表示查看所有进程里 CMD 是 java 的进程信息<br><br>ps -aux | grep java<br></li>
+</ol>
+<p>-aux 显示所有状态<br><br>ps<br>3. kill 命令用于终止进程<br><br>例如： kill -9 [PID]<br><br>-9 表示强迫进程立即停止<br><br>通常用 ps 查看进程 PID ，用 kill 命令终止进程<br><br>网上关于这两块的内容<br></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/12/02/Samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/#more" rel="contents">
+              <a class="btn" href="/2017/12/03/Linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1069,7 +1051,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
