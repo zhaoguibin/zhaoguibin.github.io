@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -199,6 +199,205 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/03/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/" class="post-title-link" itemprop="url">phpstorm中配置远程调试xdebug</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-03 19:19:20" itemprop="dateCreated datePublished" datetime="2017-12-03T19:19:20+08:00">2017-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-11 19:14:04" itemprop="dateModified" datetime="2022-07-11T19:14:04+08:00">2022-07-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          这里说的是真正的远程调试，不是本地，本地不需要安装任何php程序！！！
+
+这里略去xdebug的安装，安装很简单可以下载源码包，动态编译进去！
+
+环境：
+
+Dev 服务器(IP:192.168.3.2)，安装phpstorm，用来做开发任务！
+
+Server服务器（IP:192.168.3.9），web服务器(php架构)，用来浏览网页用！
+
+这里的两台服务器在同一个网段下，可以互通！
+
+在Server服务器上的php.ini里配置xdebug如下：
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+[xdebug]
+zend_extension=xdebug.so
+xdebug.remote_enabl
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/03/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/" class="post-title-link" itemprop="url">linux下php扩展mysqli的支持</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-03 17:49:50" itemprop="dateCreated datePublished" datetime="2017-12-03T17:49:50+08:00">2017-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>mysqli是优化后的mysql，具体的优点baidu下就ok了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> php-5.2.8   在这下面有个ext文件夹里有mysqli</span><br><span class="line"><span class="built_in">cd</span> ext/mysqli</span><br></pre></td></tr></table></figure>
+<p>linux下将源码文件编译应该都有configure吧，可这里没有，在我们已经安装php后，php5这个文件夹里的命令目录bin里有一个文件叫phpize，用它就可以生成configure文件啦，继续</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/php5/bin/phpize</span><br></pre></td></tr></table></figure>
+<p>这里回车运行，执行完后就出了configure文件，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/opt/local/mysqli --with-php-config=/opt/local/php/bin/php-config --with-mysqli=/opt/local/mysql/bin/mysql_config</span><br><span class="line">直接回车，不出问题就继续。。</span><br><span class="line">make</span><br><span class="line">make <span class="built_in">test</span></span><br><span class="line">make install   (不出错就会显示Installing shared extensions: /usr/local/php5/lib/php/extensions/no-debug-non-zts-20041030/)</span><br></pre></td></tr></table></figure>
+<p>现在mysqli.so文件就出来啦。。</p>
+<p>直接在php.ini里把这个文件加载就OK啦。。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -859,176 +1058,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2017/12/03/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BALinux%E4%B8%8BMySQL%E6%95%B0%E6%8D%AE%E5%BA%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/" class="post-title-link" itemprop="url">ss服务端安装libsodium支持chacha20</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-03 17:21:19" itemprop="dateCreated datePublished" datetime="2017-12-03T17:21:19+08:00">2017-12-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported.</p>
-<p>centos：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum -y groupinstall <span class="string">&quot;Development Tools&quot;</span></span><br><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; <span class="built_in">cd</span> libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make install</span><br><span class="line"><span class="built_in">echo</span> /usr/local/lib &gt;/etc/ld.so.conf.d/usr_local_lib.confldconfig</span><br><span class="line">ubuntu/debian：</span><br><span class="line">apt-get install build-essential</span><br><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; <span class="built_in">cd</span> libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make installldconfig</span><br><span class="line">如果曾经安装过旧版本，亦可重复用以上步骤更新到最新版，仅1.0.4或以上版本支持chacha20-ietf</span><br></pre></td></tr></table></figure>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/03/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/" class="post-title-link" itemprop="url">ssh远程登录命令简单实例</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-03 17:19:18" itemprop="dateCreated datePublished" datetime="2017-12-03T17:19:18+08:00">2017-12-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ssh命令用于远程登录上Linux主机。</span><br><span class="line">常用格式：ssh [-l login_name] [-p port] [user@]hostname</span><br><span class="line">更详细的可以用ssh -h查看。</span><br><span class="line">举例</span><br><span class="line">不指定用户：</span><br><span class="line">ssh 192.168.0.11</span><br><span class="line">指定用户：</span><br><span class="line">ssh -l root 192.168.0.11</span><br><span class="line">ssh root@192.168.0.11</span><br><span class="line">如果修改过ssh登录端口的可以：</span><br><span class="line">ssh -p 12333 192.168.0.11</span><br><span class="line">ssh -l root -p 12333 216.230.230.114</span><br><span class="line">ssh -p 12333 root@216.230.230.114</span><br><span class="line">另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。</span><br><span class="line">编辑配置文件：</span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">找到<span class="comment">#Port 22，去掉注释，修改成一个五位的端口：</span></span><br><span class="line">Port 12333</span><br><span class="line">找到<span class="comment">#PermitRootLogin yes，去掉注释，修改为：</span></span><br><span class="line">PermitRootLogin no</span><br><span class="line">重启sshd服务：</span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/03/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

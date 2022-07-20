@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -208,6 +208,176 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/03/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/" class="post-title-link" itemprop="url">ss服务端安装libsodium支持chacha20</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-03 17:21:19" itemprop="dateCreated datePublished" datetime="2017-12-03T17:21:19+08:00">2017-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported.</p>
+<p>centos：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum -y groupinstall <span class="string">&quot;Development Tools&quot;</span></span><br><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; <span class="built_in">cd</span> libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make install</span><br><span class="line"><span class="built_in">echo</span> /usr/local/lib &gt;/etc/ld.so.conf.d/usr_local_lib.confldconfig</span><br><span class="line">ubuntu/debian：</span><br><span class="line">apt-get install build-essential</span><br><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; <span class="built_in">cd</span> libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make installldconfig</span><br><span class="line">如果曾经安装过旧版本，亦可重复用以上步骤更新到最新版，仅1.0.4或以上版本支持chacha20-ietf</span><br></pre></td></tr></table></figure>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/astronaut.jpg">
+      <meta itemprop="name" content="zhaoguibin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaoguibin">
+      <meta itemprop="description" content="个人平时问题记录">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | zhaoguibin">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/03/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/" class="post-title-link" itemprop="url">ssh远程登录命令简单实例</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-03 17:19:18" itemprop="dateCreated datePublished" datetime="2017-12-03T17:19:18+08:00">2017-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ssh命令用于远程登录上Linux主机。</span><br><span class="line">常用格式：ssh [-l login_name] [-p port] [user@]hostname</span><br><span class="line">更详细的可以用ssh -h查看。</span><br><span class="line">举例</span><br><span class="line">不指定用户：</span><br><span class="line">ssh 192.168.0.11</span><br><span class="line">指定用户：</span><br><span class="line">ssh -l root 192.168.0.11</span><br><span class="line">ssh root@192.168.0.11</span><br><span class="line">如果修改过ssh登录端口的可以：</span><br><span class="line">ssh -p 12333 192.168.0.11</span><br><span class="line">ssh -l root -p 12333 216.230.230.114</span><br><span class="line">ssh -p 12333 root@216.230.230.114</span><br><span class="line">另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。</span><br><span class="line">编辑配置文件：</span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">找到<span class="comment">#Port 22，去掉注释，修改成一个五位的端口：</span></span><br><span class="line">Port 12333</span><br><span class="line">找到<span class="comment">#PermitRootLogin yes，去掉注释，修改为：</span></span><br><span class="line">PermitRootLogin no</span><br><span class="line">重启sshd服务：</span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/03/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5FastCGI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -244,7 +414,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
+      <time title="修改时间：2022-07-20 17:58:19" itemprop="dateModified" datetime="2022-07-20T17:58:19+08:00">2022-07-20</time>
     </span>
 
   
@@ -257,7 +427,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。</p>
+          nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。
+
+
+
+socket方式不会走到tcp层，tcp方式则会走到ip层。因此，理论上说socket连接方式效率会更好一点。
+TCP和unix domain socket方式对比
+
+TCP是使用TCP端口连接127.0.0.1:9000
+
+Socket是使用unix domain socket连接套接字/dev/shm/php-fpm.sock
+
+修改php-fpm.conf配置
+
+1
+2
+3
+4
+
+
+#listen = 127.0.0.1:9000
+listen=/dev/shm/php-fpm.so
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2017/12/03/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5FastCGI/#more" rel="contents">
@@ -856,178 +1046,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2017/12/03/MySQL-ERROR-Table-mysql-user-doesn-t-exist/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/Linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/Linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Linux开机执行命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-03 16:47:37" itemprop="dateCreated datePublished" datetime="2017-12-03T16:47:37+08:00">2017-12-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>1、把需要执行的命令写到一个bash脚本里面：<br>#!&#x2F;bin&#x2F;sh （此括号内为需要执行的命令） 保存为一个文件，比如123.sh，放在oracle的主目录里面。<br><br>给这个文件加上可执行属性：chmod 775 123.sh<br><br>然后，在&#x2F;etc&#x2F;rc.d&#x2F;rc.local里面加上这句就可以了：<br></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/123.sh</span><br><span class="line">延时执行</span><br><span class="line">例子：(</span><br><span class="line"><span class="built_in">sleep</span> 60</span><br><span class="line">sh /goexcel.sh</span><br><span class="line">)&amp;</span><br><span class="line">延时60秒执行</span><br></pre></td></tr></table></figure>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/03/Linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://zhaoguibin.me/2017/12/03/Linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/astronaut.jpg">
-      <meta itemprop="name" content="zhaoguibin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaoguibin">
-      <meta itemprop="description" content="个人平时问题记录">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | zhaoguibin">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/Linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/" class="post-title-link" itemprop="url">Linux-查看进程和删除进程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-03 16:42:56" itemprop="dateCreated datePublished" datetime="2017-12-03T16:42:56+08:00">2017-12-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-02-03 11:50:09" itemprop="dateModified" datetime="2021-02-03T11:50:09+08:00">2021-02-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ol>
-<li>在 LINUX 命令平台输入 1-2 个字符后按 Tab 键会自动补全后面的部分(前提是要有这个东西，例如在装了 tomcat 的前提下, 输入 tomcat 的 to 按 tab)。</li>
-<li>ps 命令用于查看当前正在运行的进程。<br><br>grep 是搜索<br><br>例如： ps -ef | grep java<br><br>表示查看所有进程里 CMD 是 java 的进程信息<br><br>ps -aux | grep java<br></li>
-</ol>
-<p>-aux 显示所有状态<br><br>ps<br>3. kill 命令用于终止进程<br><br>例如： kill -9 [PID]<br><br>-9 表示强迫进程立即停止<br><br>通常用 ps 查看进程 PID ，用 kill 命令终止进程<br><br>网上关于这两块的内容<br></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/03/Linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
