@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LNMP on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/lnmp/</link>
+    <description>Recent content in LNMP on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 09 Dec 2017 01:23:45 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/lnmp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>centos7 yum安装lnmp</title>
+      <link>http://zhaoguibin.me/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</link>
+      <pubDate>Sat, 09 Dec 2017 01:23:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</guid>
+      <description>PHP7 1.安装epel-release 通过命令：
+yum -y install epel-release 成功安装。
+2.安装PHP7 终端再次运行如下命令：
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm 成功获取PHP7的yum源，然后再执行：
+php安装以及安装扩展 yum install php70w php70w-devel php70w-fpm php70w-gd php70w-mysqli php70w-mbstring nginx centos7系统库中默认是没有nginx的rpm包的，所以我们自己需要先更新下rpm依赖库
+1.使用yum安装nginx需要包括Nginx的库，安装Nginx的库 rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm 2.使用下面命令安装nginx yum install nginx 3.启动Nginx service nginx start 或
+systemctl start nginx.service mysql 1.下载mysql的repo源 wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm 2.安装mysql-community-release-el7-5.noarch.rpm包 sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm 安装这个包后，会获得两个mysql的yum repo源：/etc/yum.repos.d/mysql-community.repo，/etc/yum.repos.d/mysql-community-source.repo。
+3.安装mysql sudo yum install mysql-server 根据提示安装就可以了,不过安装完成后没有密码,需要重置密码
+4.重置mysql密码 mysql -u root 登录时有可能报这样的错：ERROR 2002 (HY000): Can‘t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.</description>
+    </item>
+    <item>
+      <title>centos6.5编译安装LNMP</title>
+      <link>http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</link>
+      <pubDate>Sat, 02 Dec 2017 11:01:15 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</guid>
+      <description>一、环境准备 1、操作系统安装：CentOS 6.5 64位最小化安装。 2、配置好IP、DNS、网关、主机名 3、配置防火墙，开启80、3306端口 /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT /etc/rc.d/init.d/iptables save /etc/init.d/iptables restart 这样就搞定了，查看效果
+/etc/init.d/iptables status /etc/init.d/iptables restart #最后重启防火墙使配置生效 PS：
+Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：
+#开启端口 firewall-cmd --zone=public --add-port=80/tcp --permanent #重启防火墙 firewall-cmd --reload 命令含义： –zone #作用域 –add-port=80/tcp #添加端口，格式为：端口/通讯协议 –permanent #永久生效，没有此参数重启后失效
+4、关闭SELinux 查看selinux状态：
+/usr/sbin/sestatus -v SELinux status: disabled //禁用selinux getenforce Disabled //禁用selinux getenforce Enforcing //启动 关闭selinux方法： setenforce 0 #设置SELinux 成为permissive模式 setenforce 1 #设置SELinux 成为enforcing模式 第二种方法： vim /etc/selinux/config 编辑文件</description>
+    </item>
+  </channel>
+</rss>

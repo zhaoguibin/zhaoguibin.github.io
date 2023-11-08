@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>windows on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/windows/</link>
+    <description>Recent content in windows on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 23 Nov 2018 21:38:17 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux挂载windows下的共享文件</title>
+      <link>http://zhaoguibin.me/posts/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Fri, 23 Nov 2018 21:38:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</guid>
+      <description>安装cifs-utils yum install cifs* -y 这条命令只可以读取Windows共享文件，不能创建文件 #user=Windows用户 #pass=Windows登录密码 #//192.168.10.64/APP Windows共享文件 #/opt/APP/ linux挂载目录 mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq 这条命令可以添加文件操作权限 #user=Windows用户 #pass=Windows登录密码 #//192.168.10.64/APP Windows共享文件 #/opt/APP/ linux挂载目录 #uid，gid，linux用户的id和用户组id，可以通过 id root 命令查看用户的id和用户组id #rw,dir_mode=0777,file_mode=0777这些是设置文件夹权限，可以根据自己的需求设置权限 mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq,rw,uid=0,gid=0,dir_mode=0777,file_mode=0777 </description>
+    </item>
+  </channel>
+</rss>

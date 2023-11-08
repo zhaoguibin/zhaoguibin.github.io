@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssh on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/ssh/</link>
+    <description>Recent content in ssh on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 03 Dec 2017 17:19:18 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ssh远程登录命令简单实例</title>
+      <link>http://zhaoguibin.me/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Sun, 03 Dec 2017 17:19:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</guid>
+      <description>ssh命令用于远程登录上Linux主机。 常用格式：ssh [-l login_name] [-p port] [user@]hostname 更详细的可以用ssh -h查看。 举例 不指定用户： ssh 192.168.0.11 指定用户： ssh -l root 192.168.0.11 ssh root@192.168.0.11 如果修改过ssh登录端口的可以： ssh -p 12333 192.168.0.11 ssh -l root -p 12333 216.230.230.114 ssh -p 12333 root@216.230.230.114 另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。 编辑配置文件： vim /etc/ssh/sshd_config 找到#Port 22，去掉注释，修改成一个五位的端口： Port 12333 找到#PermitRootLogin yes，去掉注释，修改为： PermitRootLogin no 重启sshd服务： service sshd restart </description>
+    </item>
+    <item>
+      <title>ssh免密码登录</title>
+      <link>http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</link>
+      <pubDate>Thu, 30 Nov 2017 21:36:15 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</guid>
+      <description>ssh 无密码登录要使用公钥与私钥。linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。
+有机器A(192.168.3.7)，B(192.168.3.3)。现想A通过ssh免密码登录到B。
+1.在A机下生成公钥/私钥对。
+ssh-keygen -t rsa -P &amp;#39;&amp;#39; -P表示密码，-P &amp;rsquo;&amp;rsquo; 就表示空密码，也可以不用-P参数，这样就要三车回车，用-P就一次回车。 它在/home/root下生成.ssh目录，.ssh下有id_rsa和id_rsa.pub。
+2.把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。
+scp ~/.ssh/id_rsa.pub root@192.168.3.3:/home/root/id_rsa.pub root@192.168.3.3&amp;#39;s password: id_rsa.pub 100% 223 0.2KB/s 00:00 由于还没有免密码登录的，所以要输入密码。
+3.B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys 命令如下：
+cat id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys chmod 600 ~/.ssh/authorized_keys authorized_keys的权限要是600。
+4.A机登录B机。
+ssh 192.168.3.3 The authenticity of host &amp;#39;192.168.3.3 (192.168.3.3)&amp;#39; can&amp;#39;t be established. RSA key fingerprint is 00:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b. Are you sure you want to continue connecting (yes/no)? yes Warning: Permanently added &amp;#39;192.168.3.3&amp;#39; (RSA) to the list of known hosts.</description>
+    </item>
+  </channel>
+</rss>

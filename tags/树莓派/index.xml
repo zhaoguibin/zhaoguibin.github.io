@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>树莓派 on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</link>
+    <description>Recent content in 树莓派 on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 03 Feb 2021 12:35:01 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派格式化硬盘并自动挂载</title>
+      <link>http://zhaoguibin.me/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%A1%AC%E7%9B%98%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD/</link>
+      <pubDate>Wed, 03 Feb 2021 12:35:01 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%A1%AC%E7%9B%98%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD/</guid>
+      <description>输入 fdisk -l查看你U盘的具体分区 fdisk -l 先取消树莓派自动挂载取消挂载 sudo umount /dev/sdb1 将/dev/sdb1分区格式化成ext4文件系统 sudo mkfs.ext4 /dev/sdb1 挂载硬盘 sudo mount /dev/sdb1 /data/hardDisk/linkEase/musics 开机自动挂载硬盘 查看硬盘UUID ls -l /dev/disk/by-uuid/ 通过UUID挂载硬盘 #编辑/etc/fstab sudo vim /etc/fstab #添加以下命令到/etc/fstab UUID=601788b2-96aa-4975-a6c2-7b90b128a7e5 /data/hardDisk/linkEase/musics ext4 defaults 0 0 </description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,1613 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 个人笔记</title>
+    <link>http://zhaoguibin.me/posts/</link>
+    <description>Recent content in Posts on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 20 Jul 2022 19:13:31 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>图片转base64</title>
+      <link>http://zhaoguibin.me/posts/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</link>
+      <pubDate>Wed, 20 Jul 2022 19:13:31 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</guid>
+      <description>&amp;lt;?php /** * Describe: 图片转base64 * 使用方法: php imgtobase64.php path=/www/projects/test/20220623171931.png * Author: ZhaoGuibin * Date: 2022-06-23 */ class ImgToBase64 { static private $instance; private function __construct() { } static public function getInstance() { if (!self::$instance instanceof self) { self::$instance = new self(); } return self::$instance; } /** * 获取命令行输入参数 * @return array */ function getClientArgs() { global $argv; array_shift($argv); $args = array(); array_walk($argv, function ($v, $k) use (&amp;amp;$args) { @list($key, $value) = @explode(&amp;#39;=&amp;#39;, $v); $args[$key] = $value; }); return $args; } /** * 图片转为base64 * @param $img_path * @return string|void */ function imgToBase64($img_path = &amp;#39;&amp;#39;) { $img = isset($img_path[&amp;#39;path&amp;#39;]) ?</description>
+    </item>
+    <item>
+      <title>迭代器模式</title>
+      <link>http://zhaoguibin.me/posts/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 26 Mar 2022 21:19:21 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description>概念
+迭代器模式是遍历集合的成熟模式，迭代器模式的关键是将遍历集合的任务交给一个叫做迭代器的对象，它的工作是遍历并选择序列中的对象，而客户端程序员不必知道或关心该集合序列底层的结构。
+说明
+迭代器模式（Iterator），又叫做游标（Cursor）模式，提供一种方法访问一个容器（Container）对象中各个元素，而又不需要暴露该对象的内部细节。 当你需要访问一个聚合对象，而且不管这些对象是什么都需要遍历的时候，就应该考虑使用迭代器模式。另外，当需要对聚集有多种方式遍历时，可以考虑去使用迭代器模式。迭代器模式为遍历不同的聚合结构提供如开始、下一个、是否结束、当前哪一项等统一的接口。 作用 我们想要像遍历数组那样，遍历对象，或是遍历一个容器。 迭代器模式可以隐藏遍历元素所需的操作 应用场景 访问一个聚合对象的内容而无需暴露它的内部表示 支持对聚合对象的多种遍历 为遍历不同的聚合结构提供一个统一的接口。 角色 Iterator（迭代器）：迭代器定义访问和遍历元素的接口 ConcreteIterator（具体迭代器）：具体迭代器实现迭代接口，对该聚合遍历时跟踪当前位置 Aggregate（聚合）：聚合定义创建相应迭代器对象的接口。 ConcreteAggregate（具体聚合）：具体聚合实现创建相应迭代器的接口，该操作返回ConcreteIterator的一个适当的实例。 &amp;lt;?php //自定义迭代器实现系统定义迭代器接口 class MyIterator implements Iterator { protected $data = []; protected $index; public function __construct($data) { $this-&amp;gt;data = $data; $this-&amp;gt;index = 0; } //返回第一个元素 public function rewind() { $this-&amp;gt;index = 0; } //下一个元素 public function next() { $this-&amp;gt;index++; } //验证是否继续 public function valid() { return $this-&amp;gt;index &amp;lt; count($this-&amp;gt;data); } //返回key值 public function key() { return $this-&amp;gt;index; } //返回当前元素 public function current() { return $this-&amp;gt;data[$this-&amp;gt;index]; } } $arr = [1, 2, 3, 4, 5, 6]; $iterate = new MyIterator($arr); foreach ($iterate as $dynasty) { echo &amp;#39;the obj == &amp;#39; .</description>
+    </item>
+    <item>
+      <title>命令模式</title>
+      <link>http://zhaoguibin.me/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 26 Mar 2022 21:15:24 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</guid>
+      <description>概念 将一个请求封装（命令的封装）为一个对象，从而使用你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作。 命令模式是对命令的封装。命令模式把发出命令的责任和执行命令的责任分隔开，委派给不同的对象。 请求的一方发出请求要求执行一个操作；接收的一方收到请求，并执行操作。命令模式允许请求的一方和接收的一方独立开来，使得请求的一方不必知道接收请求的一方的接口，更不必知道请求是怎么被接收，以及操作是否被执行、何时被执行，以及是怎么被执行的。 角色 命令（command）角色：声明了一个给所有具体命令类的抽象接口。这是一个抽象角色。 具体命令（ConcreteCommand）角色：定义一个接收者和行为之间的弱耦合；实现Execute()方法，负责调用接收到的相应操作。Execute()方法通常叫做执行方法。 客户（client）角色：创建了一个具体命令（ConcreteCommand）对象并确定其接收者。 请求者（Invoker）角色：负责调用命令对象执行请求，相关的方法叫做行动方法。 接收者（Receiver）角色：负责具体实施和执行一个请求。任何一个类都可以成为接收者，实施和执行请求的方法叫做行动方法。 优点和缺点 优点： 命令模式把请求一个操作的对象与知道怎么执行一个操作的对象分离开。 命令类与其他任何别的类一样，可以修改和推广。 可以把命令对象聚合在一起，合成为合成命令。 可以很容易的加入新的命令类。 缺点： 可能会导致某些系统有过多的具体命令类。 应用场景 抽象出待执行的动作以参数化对象。Command模式是回调机制的一个面向对象的替代品。 在不同的时刻指定、排列和执行请求。 支持取消操作 支持修改日志 用构建在原语操作上的高层操作构建一个系统。Command模式提供了对事务进行建模的方法。Command有一个公共的接口，使得你可以用同一种方式调用所有的事务。同时使用该模式也易于添加新事务以扩展系统。 &amp;lt;?php //抽象命令接口 interface Command { //命令执行 public function execute(); } //宏命令（命令的组合） //宏命令接口 interface MacroCommand extends Command { //宏命令聚集管理方法，可以删除一个命令 public function remove(Command $command); //宏命令聚集管理方法，可以添加一个命令 public function add(Command $command); } //命令的实现 //复制命令 class CopyCommand implements Command { private $receiver; public function __construct(Receiver $receiver) { $this-&amp;gt;receiver = $receiver; } public function execute() { $this-&amp;gt;receiver-&amp;gt;copy(); } } //粘贴命令 class PasteCommand implements Command { private $receiver; public function __construct(Receiver $receiver) { $this-&amp;gt;receiver = $receiver; } public function execute() { $this-&amp;gt;receiver-&amp;gt;paste(); } } //命令接收者执行命令 class Receiver { private $name; public function __construct($name) { $this-&amp;gt;name = $name; } public function copy() { echo $this-&amp;gt;name .</description>
+    </item>
+    <item>
+      <title>观察者模式</title>
+      <link>http://zhaoguibin.me/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 26 Mar 2022 20:45:21 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>概念 观察者模式属于行为模式，是定义对象间的一种一对多的依赖关系，以便当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并自动刷新。 当一个对象状态发生改变后，会影响到其他几个对象的改变，这时候可以用观察者模式。 观察者模式符合接口隔离原则，实现了对象之间的松散耦合。 角色 抽象主题（subject）：它把所有观察者对象的引用保存到一个聚集里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。 具体主题（ConcreteSubjest）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。 抽象观察者（Observer）：为所有的具体观察者定义一个接口，在得到主题通知时更新自己。 具体观察者（ConcreteObserver）：实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题状态协调。 &amp;lt;?php //抽象主题 interface Subject { //新增观察者 public function attach(Observer $observer); //移除观察者 public function detach(Observer $observer); //通知观察者 public function notifyObserver(); } //具体主题 class ConcreteSubjest implements Subject { //储存观察者 private $observers; public function __construct() { $this-&amp;gt;observers = []; } //新增观察者 public function attach(Observer $observer) { return array_push($this-&amp;gt;observers, $observer); } //移除观察者 public function detach(Observer $observer) { //检查观察者是否存在观察者数组中，返回索引值 $index = array_search($observer, $this-&amp;gt;observers); if ($index === false) { return false; } else { unset($this-&amp;gt;observers[$index]); return true; } } //通知观察者 public function notifyObserver() { if (!</description>
+    </item>
+    <item>
+      <title>策略模式</title>
+      <link>http://zhaoguibin.me/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 26 Mar 2022 20:31:47 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念 将一组特定的行为和算法封装成类，以适应某些特定的上下文环境，并让它们可以相互替换，这种模式就是策略模式。 简单理解就是 有n个做法供你选择，根据你的需要选择某个策略得到结果 优点 使用设计模式之后，我们的代码冗余和耦合度变低，每个策略模块完成对应的功能。 当然缺点就是一个功能我们就要响应制作一个策略类，但是我们统观MVC架构当中（Thinkphp，Yii2），一个控制器对应一个视图，其实也是策略模式的体现了。 &amp;lt;?php interface UserInterface { public function showAd(); public function showCategory(); } //男性用户实现接口 class MaleUser implements UserInterface { public function showAd() { echo &amp;#39;电子产品&amp;#39;; } public function showCategory() { echo &amp;#34;PS5,PC,Switch&amp;#34;; } } //女性用户实现接口 class FemaleUser implements UserInterface { public function showAd() { echo &amp;#39;化妆品&amp;#39;; } public function showCategory() { echo &amp;#34;口红,面膜&amp;#34;; } } //客户端实现，根据性别不同推荐不同内容 $sex = &amp;#39;male&amp;#39;; if ($sex == &amp;#39;male&amp;#39;) { $user = new MaleUser(); } else { $user = new FemaleUser(); } $user-&amp;gt;showAd(); $user-&amp;gt;showCategory(); </description>
+    </item>
+    <item>
+      <title>装饰器模式</title>
+      <link>http://zhaoguibin.me/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 24 Mar 2022 23:13:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+装饰器模式又叫装饰者模式。装饰模式是在不必改变原类文件和使用继承的情况下，动态地扩展一个对象的功能。它是通过创建一个包装对象，也就是装饰来包裹真实的对象。
+实例
+组件对象的接口：可以给这些对象动态的添加职责 所有装饰器的父类：需要定义一个与组件接口一直的接口，并持有一个component对象，该对象其实就是被装饰的对象。 具体的装饰器类：实现具体要向被装饰对象添加的功能。用来装饰具体的组件对象或者另外一个具体的装饰器对象。 使用场景
+需要动态的给一个对象添加功能，这些功能可以再动态的撤销 需要添加由一些基本功能的排列组合而产生的非常大量的功能，从而使继承关系变的不现实。 当不能采用生成子类的方法进行扩充时。一种情况是，可能有大量独立的扩展，为支持每一种组合将产生大量的子类，使得子类数目呈爆炸性增长。另一种情况可能是因为类定义被隐藏，或类定义不能用于生成子类。 &amp;lt;?php //组件对象接口 interface IComponent { //动态给对象添加功能 public function display(); } //待装饰的对象 class Person implements IComponent { protected $name; public function __construct($name) { $this-&amp;gt;name = $name; } public function display() { echo &amp;#39;装饰的&amp;#39; . $this-&amp;gt;name; } } //所有装饰器的父类 class Clothes implements IComponent { protected $component; public function Decorate(IComponent $component) { $this-&amp;gt;component = $component; } public function display() { if (!empty($this-&amp;gt;component)) { $this-&amp;gt;component-&amp;gt;display(); } } } //具体的装饰器 class Pixie extends Clothes { public function display() { echo &amp;#39;皮鞋&amp;#39;; parent::display(); } } class Waitao extends Clothes { public function display() { echo &amp;#39;外套&amp;#39;; parent::display(); } } //客户端 $gd = new Person(&amp;#39;狗蛋&amp;#39;); $px = new Pixie(); $px-&amp;gt;Decorate($gd); $px-&amp;gt;display(); $wt = new Waitao(); $wt-&amp;gt;Decorate($gd); $wt-&amp;gt;display(); </description>
+    </item>
+    <item>
+      <title>注册树模式</title>
+      <link>http://zhaoguibin.me/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 24 Mar 2022 22:39:41 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+注册树模式也叫注册模式或注册器模式，顾名思义，注册树就是把对象实例注册到一棵全局的对象树上，需要对象的时候就从树上取下来，就好比树上长的果子，需要的时候就摘一个下来，只是这个对象树果子是摘不完的。
+作用
+不管是单例模式还是工厂模式建立的对象，都没有得到很好的管理，用了注册树模式，就可以把创建出来的对象注册到全局树上，需要的时候取下来用，可以很好的管理创建的对象。
+&amp;lt;?php class DbMysql { public function conn() { echo &amp;#39;mysql conn&amp;#39;; } } class DbSqlite { public function conn() { echo &amp;#39;sqlite conn&amp;#39;; } } class MysqlFactory { public static function getIns() { return new DbMysql(); } } class SqliteFactory { public static function getIns() { return new DbSqlite(); } } //注册树实现存储对象（IOC控制反转思想） class RegisterTree { protected static $objects; //添加对象到注册树中 public static function set($alias, $object) { self::$objects[$alias] = $object; } //从注册树中获取对象 public static function get($alias) { return self::$objects[$alias]; } //销毁注册树上的对象 public static function _unset($alias) { unset(self::$objects[$alias]); } } //注册 RegisterTree::set(&amp;#39;mysql&amp;#39;, MysqlFactory::getIns()); RegisterTree::set(&amp;#39;sqlite&amp;#39;, SqliteFactory::getIns()); //客户端 // $mysql = RegisterTree::get(&amp;#39;mysql&amp;#39;); // $mysql-&amp;gt;conn(); // $sqlite = RegisterTree::get(&amp;#39;sqlite&amp;#39;); // $sqlite-&amp;gt;conn(); class Facade { public static $mysql; public static $sqlite; public function __construct() { self::$mysql = RegisterTree::get(&amp;#39;mysql&amp;#39;); self::$sqlite = RegisterTree::get(&amp;#39;sqlite&amp;#39;); } } new Facade(); Facade::$mysql-&amp;gt;conn(); Facade::$sqlite-&amp;gt;conn(); </description>
+    </item>
+    <item>
+      <title>门面模式</title>
+      <link>http://zhaoguibin.me/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 24 Mar 2022 22:15:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+门面模式（facade）又称外观模式，用于为子系统中的一组接口提供一个一致的界面。门面模式定义了一个高层接口，这个接口使得子系统更加容易使用；引入门面角色之后，用户只需要直接与门面角色交互，用户与子系统之间的复杂关系由门面角色来实现，从而降低了系统的耦合度。
+作用
+为一些复杂的子系统提供一组接口。 提高子系统的独立性 在层次化结构中，可以使用门面模式定义系统的每一层的接口 优点
+它对于客户屏蔽了子系统组件，因而减少了客户处理的对象的数目并使得子系统使用起来更加方便。 实现了子系统与客户之间的松耦合关系。 如果应用需要，它并不限制它们使用子系统类。因此可以在系统易用性与能用性之间加以选择。 &amp;lt;?php class Camera { public function turnOn() { echo &amp;#39;turn on camera&amp;#39;; } public function turnOff() { echo &amp;#39;turn off camera&amp;#39;; } } class Light { public function turnOn() { echo &amp;#39;turn on light&amp;#39;; } public function turnOff() { echo &amp;#39;turn off light&amp;#39;; } } //门面类 class Facade { private $camera; private $light; public function __construct() { $this-&amp;gt;camera = new Camera(); $this-&amp;gt;light = new Light(); } //启动接口 public function activate() { $this-&amp;gt;camera-&amp;gt;turnOn(); $this-&amp;gt;light-&amp;gt;turnOn(); } //关闭接口 public function deactivate() { $this-&amp;gt;camera-&amp;gt;turnOff(); $this-&amp;gt;light-&amp;gt;turnOff(); } } //客户端 class Client { private static $securit; public static function main() { self::$securit = new Facade(); self::$securit-&amp;gt;activate(); self::$securit-&amp;gt;deactivate(); } } Client::main(); </description>
+    </item>
+    <item>
+      <title>管道模式</title>
+      <link>http://zhaoguibin.me/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 24 Mar 2022 21:48:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+管道（pipeline）设计模式流水线模式就是将数据传递到一个任务序列中，管道扮演着流水线的角色，数据在这里被处理然后传递到下一个步骤
+释义
+管道，顾名思义，就是一个长长的流水管道，只不过加了许多阀门。所以管道模式大致需要三个角色：管道、阀门、载荷（流水）。
+目的是在管道中对载荷进行一系列的处理。因为可以对过滤器进行动态的添加，所以对载荷的处理可以变得更加灵活。但同时带来的问题是，在过滤器过多时，很难把握整体的处理逻辑。而且在某一个过滤器对载荷处理后，因为载荷改变，会造成下一个过滤器中的逻辑出错。
+&amp;lt;?php //管道接口 interface PipelineBuilder { public function __construct($payload); //$payload载荷 public function pipe(StageBuilder $stage); //管道与阀门 public function process(); //过程 } //实现管道接口 class Pipeline implements PipelineBuilder { protected $payload; protected $pipes = []; public function __construct($payload) { $this-&amp;gt;payload = $payload; } public function pipe(StageBuilder $stage) { $this-&amp;gt;pipes[] = $stage; return $this; } public function process() { foreach ($this-&amp;gt;pipes as $pipe) { call_user_func([$pipe, &amp;#39;handle&amp;#39;], $this-&amp;gt;payload); } } } //阀门类 interface StageBuilder { public function handle($payload); } //实现 class StageOneBuilder implements StageBuilder { public function handle($payload) { echo &amp;#39;one-&amp;#39;; } } class StageTwoBuilder implements StageBuilder { public function handle($payload) { echo &amp;#39;two-&amp;#39;; } } //客户端使用 $pipeline = new PipeLine(&amp;#39;step&amp;#39;); $pipeline-&amp;gt;pipe(new StageOneBuilder())-&amp;gt;pipe(new StageTwoBuilder())-&amp;gt;process(); </description>
+    </item>
+    <item>
+      <title>代理模式</title>
+      <link>http://zhaoguibin.me/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 24 Mar 2022 21:23:46 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+构建了透明置于两个不同对象之内的一个对象，从而能够截取或代理这两个对象间的通信或访问。
+应用场景
+远程代理：也就是为了一个对象在不同地址空间提供局部代表。隐藏一个对象存在于不同地址空间的事实。 虚拟代理：根据需求来创建开销很大的对象，通过它来存放实例化需要很长时间的真实对象。 安全代理：用来控制真实对象的访问对象。 智能指引：当调用真实对象的时候，代理处理一些事情。 &amp;lt;?php //真实类 interface Subject { public function request(); } class RealSubject implements Subject { public function request() { echo &amp;#39;真实的操作&amp;#39;; } } //代理模式代理真实类 class Proxy implements Subject { protected $realSubject; public function __construct() { $this-&amp;gt;realSubject = new RealSubject(); } public function request() { echo &amp;#39;代理操作&amp;#39;; $this-&amp;gt;realSubject-&amp;gt;request(); } } //客户端 $proxy = new Proxy(); $proxy-&amp;gt;request(); 注意事项 代理模式的实现其实非常简单，或许你在不经意间经常会用到 请注意代理模式与装饰器、适配器的区别 装饰器：一般是对对象进行装饰，其中的方法行为会有增加，以修饰对象为主 适配器：一般会改变方法行为，目的是保持接口的统一但得到不同的实现 代理模式有几种形式：远程代理（例如：第三方接口SDK）、虚代理（例如：异步加载图片）、保护代理&amp;amp;智能指引（例如：权限保护），而我们代码实现的最普通的代理，其实就是让代理类来代替真实类的操作 </description>
+    </item>
+    <item>
+      <title>适配器模式</title>
+      <link>http://zhaoguibin.me/posts/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 23 Mar 2022 21:48:23 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+将某个类的接口转换成与另一个接口兼容。适配器通过将原始接口进行转换，给用户提供一个兼容接口，使得原来因为接口不同而无法一起使用的类可以得到兼容。
+应用场景
+老代码接口不适应新的接口需求，或者代码很多很乱不便于继续修改，或者使用第三方类库。
+&amp;lt;?php interface Weather { public function show(); } class PhpWeather implements Weather { public function show() { $weatherInfo = [&amp;#39;weather&amp;#39; =&amp;gt; &amp;#39;雨&amp;#39;, &amp;#39;tep&amp;#39; =&amp;gt; 6, &amp;#39;wind&amp;#39; =&amp;gt; 3]; return serialize($weatherInfo); } } //兼容模式 使得java能够直接使用 interface WeatherA { public function getWeather(); } class JavaWeather implements WeatherA { protected $weather; public function __construct(Weather $weather) { $this-&amp;gt;weather = $weather; } public function getWeather() { $info = unserialize($this-&amp;gt;weather-&amp;gt;show()); return json_encode($info); } } $weather = new PhpWeather(); // $info = unserialize($weather); // var_dump($info); $java_weather = new JavaWeather($weather); $info = json_decode($java_weather-&amp;gt;getWeather()); var_dump($info); </description>
+    </item>
+    <item>
+      <title>工厂模式</title>
+      <link>http://zhaoguibin.me/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 22 Mar 2022 21:25:26 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <description>概念
+工厂模式是我们最常用的实例化对象模式，是用工厂方法代替new操作的一种模式。
+好处
+使用工厂模式的好处是，如果你想要更改所实例化的类名等，则只需要更改该工厂方法内容即可，不需要逐一寻找代码中具体实例化的地方（new 处）修改了。为系统结构提供灵活的动态扩展机制，减少了耦合。
+分类
+简单工厂模式 工厂方法模式 抽象工厂模式 简单工厂模式
+简单工厂模式又称静态工厂模式，之所以可以这么说，是因为简单工厂模式是通过一个静态方法来创建对象的
+&amp;lt;?php class DbMysql { public function conn() { echo &amp;#34;连接MySQL&amp;#34;; } } class DbSqlite { public function conn() { echo &amp;#34;连接SQLite&amp;#34;; } } class DbFactory { public static function createIns($type) { switch ($type) { case &amp;#39;mysql&amp;#39;: return DbMysql(); break; case &amp;#39;sqlite&amp;#39;: return new DbSqlite(); break; default: throw new ErrorException(&amp;#39;类型错误&amp;#39;); } } } $mysql = DbFactory::createIns(&amp;#39;mysql&amp;#39;); $mysql-&amp;gt;conn(); $sqlite = DbFactory::createIns(&amp;#39;sqlite&amp;#39;); $sqlite-&amp;gt;conn(); 工厂方法模式</description>
+    </item>
+    <item>
+      <title>单例模式</title>
+      <link>http://zhaoguibin.me/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 22 Mar 2022 20:49:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+是一种类的设计只会最多产生一个对象的设计思想
+作用
+php的应用主要在于数据库应用，所以一个应用中会存在大量的数据库操作，使用单例模式，则可以避免大量的new操作消耗的资源。 如果系统中需要有一个类来全局控制某些配置信息，那么使用单例模式可以很方便的实现。 再一次页面请求中，便于进行调试，因为所有的代码都会集中在一个类里面，我们可以在类中设置钩子，输出日志，从而避免到处var_dump，echo。 应用场景
+数据库连接，缓存操作，分布式储存
+单例模式的要点
+构造函数需要标记为private（访问控制：防止外部代码使用new操作符创建对象），单例类不能在其他类中实例化，只能被其自身实例化。 拥有一个保存类的实例的静态成员变量。 拥有一个访问这个实例的公共的静态方法（常用getInstance()方法进行实例化单例类，通过instanceof操作符可以检测到类是否已经被实例化） 简称 三私一公： 私有化构造方法：不让在外部产生多个对象 私有化克隆方法：不允许对象被克隆产生新对象 私有化静态属性：运行进入类内部产生对象 公有化静态方法：保存已经产生的对象 &amp;lt;?php //单例 class Uni{ //创建静态私有的变量保存该类对象 static private $instance; //参数 private $config; //防止直接创建对象 private function __construct($config){ $this -&amp;gt; config = $config; echo &amp;#34;我被实例化了&amp;#34;; } //防止克隆对象 private function __clone(){ } static public function getInstance($config){ //判断$instance是否是Uni的对象 //没有则创建 if (!self::$instance instanceof self) { self::$instance = new self($config); } return self::$instance; } public function getName(){ echo $this -&amp;gt; config; } } $db1 = Uni::getInstance(1); $db1 -&amp;gt; getName(); echo &amp;#34;&amp;lt;br&amp;gt;&amp;#34;; $db2 = Uni::getInstance(4); $db2 -&amp;gt; getName(); /** *运行结果： *我被实例化了1 *1 *$db1创建对象后，参数是1 *$db2没有创建对象，而是直接使用$instance保存的唯一对象，所以输出的参数并没有变为4； */ </description>
+    </item>
+    <item>
+      <title>什么是设计模式</title>
+      <link>http://zhaoguibin.me/posts/%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Mon, 21 Mar 2022 22:11:16 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>什么是设计模式
+设计模式是一套被反复使用、容易被他人理解的、可靠的代码设计经验的总结。
+那么我们常说的架构、框架和设计模式有什么关系呢？
+架构是一套体系结构，是项目的整体解决方案； 框架是可供复用的半成品软件，是具体程序代码。 架构一般会涉及到采用什么样的框架来加速和优化某部分问题的解决，而好的框架代码里合理使用了很多设计模式。 比如：laravel框架中就使用到了很多的设计模式。其中包括单例模式，门面模式，注册树模式（DI/IOC），适配器模式，观察者模式等多种设计模式。
+设计模式的目的是为了更好的代码重用性，可读性，可靠性，可维护性。
+设计模式的作用
+设计模式能解决：
+替换杂乱无章的代码，形成良好的代码风格 代码易读，工程师们都能很容易理解 增加新功能时不用修改接口，可扩展性强 稳定性好，一般不会出现未知的问题 设计模式不能解决：
+设计模式是用来组织你的代码的模板，而不是直接调用的库 设计模式并非最高效，但是代码的可读性和可维护性更重要 不要一味追求并套用设计模式，重构时多考虑 设计模式&amp;ndash;六大原则
+单一职责原则
+定义
+不要存在多于一个导致类变更的原因。既一个类只负责一项职责。
+场景
+类T负责两个不同的职责；职责P1，职责P2，当由于职责P1需求发生改变而需要修改类T时，有可能会导致原本运行正常的职责P2功能发生故障。
+&amp;lt;?php class Animal { public function bre($animal) { echo $animal.&amp;#34;呼吸空气&amp;#34;; } } class Program { public function main() { $animal = new Animal(); $animal-&amp;gt;bre(&amp;#39;猫&amp;#39;); $animal-&amp;gt;bre(&amp;#39;狗&amp;#39;); $animal-&amp;gt;bre(&amp;#39;鱼&amp;#39;); } } 修正
+遵循单一职责原则。分别建立两个类T1、T2，使T1完成职责P1功能，T2完成职责P2功能。这样，当修改类T1时，不会使职责P2发生故障风险；同理，当修改T2时，也不会使职责P1发生故障风险。
+&amp;lt;?php class Ter { public function bre($animal) { echo $animal.&amp;#34;呼吸空气&amp;#34;; } } class Aqu { public function bre($animal) { echo $animal.</description>
+    </item>
+    <item>
+      <title>树莓派格式化硬盘并自动挂载</title>
+      <link>http://zhaoguibin.me/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%A1%AC%E7%9B%98%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD/</link>
+      <pubDate>Wed, 03 Feb 2021 12:35:01 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%A1%AC%E7%9B%98%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD/</guid>
+      <description>输入 fdisk -l查看你U盘的具体分区 fdisk -l 先取消树莓派自动挂载取消挂载 sudo umount /dev/sdb1 将/dev/sdb1分区格式化成ext4文件系统 sudo mkfs.ext4 /dev/sdb1 挂载硬盘 sudo mount /dev/sdb1 /data/hardDisk/linkEase/musics 开机自动挂载硬盘 查看硬盘UUID ls -l /dev/disk/by-uuid/ 通过UUID挂载硬盘 #编辑/etc/fstab sudo vim /etc/fstab #添加以下命令到/etc/fstab UUID=601788b2-96aa-4975-a6c2-7b90b128a7e5 /data/hardDisk/linkEase/musics ext4 defaults 0 0 </description>
+    </item>
+    <item>
+      <title>RSA数据加密解密</title>
+      <link>http://zhaoguibin.me/posts/rsa%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</link>
+      <pubDate>Sat, 22 Aug 2020 14:31:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/rsa%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</guid>
+      <description>RSA数据加密解密 &amp;lt;?php //定义常量 define(&amp;#34;INVOICE_PRINT_URL&amp;#34;, &amp;#39;&amp;#39;); define(&amp;#34;MERCHANT_ID&amp;#34;, &amp;#39;&amp;#39;); define(&amp;#34;MERCHANT_SECRET&amp;#34;, &amp;#39;&amp;#39;); define(&amp;#34;PLATFORM_PUBLIC_KEY&amp;#34;, &amp;#39;&amp;#39;); define(&amp;#34;MERCHANT_PUBLIC_KEY&amp;#34;, &amp;#39;&amp;#39;); define(&amp;#34;MERCHANT_PRIVATE_KEY&amp;#34;, $&amp;#39;&amp;#39;); define(&amp;#34;ACCOUNT_VALUE&amp;#34;, &amp;#39;&amp;#39;); const KEYSIZE = 2048;//密钥长度 &amp;lt;?php /** * @FuncName:getPlatformPublicKey * @Description 获取平台公钥 * @User ZHaoGuiBin * @Date 2020-08-17 8:29 * @return false|resource */ private static function getPlatformPublicKey() { return openssl_pkey_get_public(PLATFORM_PUBLIC_KEY); } /** * @FuncName:getMerchantPrivateKey * @Description 获取商户私钥 * @User ZHaoGuiBin * @Date 2020-08-17 8:29 * @return false|resource */ private static function getMerchantPrivateKey() { return openssl_pkey_get_private(MERCHANT_PRIVATE_KEY); } /** * @FuncName:getMerchantPublicKey * @Description 获取商户公钥 * @User ZHaoGuiBin * @Date 2020-08-17 8:29 * @return false|resource */ private static function getMerchantPublicKey() { return openssl_pkey_get_public(MERCHANT_PUBLIC_KEY); } /** * @FuncName:sslPublicEncrypt * @Description 公钥加密数据 * @User ZHaoGuiBin * @Date 2020-08-14 10:42 * @param $source_data * @return array */ private static function sslPublicEncrypt($source_data) { if (!</description>
+    </item>
+    <item>
+      <title>多维数组拼接成字符串</title>
+      <link>http://zhaoguibin.me/posts/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E6%8B%BC%E6%8E%A5%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Sat, 22 Aug 2020 14:19:32 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E6%8B%BC%E6%8E%A5%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>多维数组拼接成字符串 /** * @FuncName:arrayToString * @Description 数组拼接成字符串 * @User ZHaoGuiBin * @Date 2020-08-14 9:17 * @param $data * @param string $keys * @param string $key_1 //多维数组主key * @param string $string * @return string */ private static function arrayToString($data, $keys = &amp;#39;&amp;#39;, $string = &amp;#39;&amp;#39;, $key_1 = &amp;#39;&amp;#39;) { $temp = 0; foreach ($data as $key =&amp;gt; $value) { if (is_array($value)) { if (!is_numeric($key)) { $key_1 = $key; $string .= $key_1 .</description>
+    </item>
+    <item>
+      <title>数组按照alphabet序排序</title>
+      <link>http://zhaoguibin.me/posts/%E6%95%B0%E7%BB%84key%E6%8C%89%E7%85%A7alphabet%E5%BA%8F%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 22 Aug 2020 13:51:31 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%95%B0%E7%BB%84key%E6%8C%89%E7%85%A7alphabet%E5%BA%8F%E6%8E%92%E5%BA%8F/</guid>
+      <description>数组key按照alphabet序排序 /** * @FuncName:arraySoft * @Description 数组key按照alphabet序排序 * @User ZHaoGuiBin * @Date 2020-08-13 15:45 * @param $data * @return mixed */ private static function arraySoft($data) { ksort($data); foreach ($data as $key =&amp;gt; $value) { if (is_array($value)) { $data[$key] = self::arraySoft($value); } } return $data; } </description>
+    </item>
+    <item>
+      <title>surge脚本-【DSU】每日签到</title>
+      <link>http://zhaoguibin.me/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/</link>
+      <pubDate>Tue, 04 Aug 2020 19:53:32 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/</guid>
+      <description>surge签到脚本 代码github地址 https://raw.githubusercontent.com/zhaoguibin/surge/master/script/RNB_daily_bonus.js /************************* [Script] mixrnb签到.js = type=cron,cronexp=35 8 * * *,wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/zhaoguibin/surge/master/script/RNB_daily_bonus.js 获取mixrnb的cookie = type=http-request,pattern=http:\/\/www.mixrnb.com\/plugin\.php\?id=dsu_paulsign:sign,tag=获取mixrnb的cookie,script-path=https://raw.githubusercontent.com/zhaoguibin/surge/master/script/RNB_daily_bonus.js,script-update-interval=0 签到页面获取到cookie，http://www.mixrnb.com/plugin.php?id=dsu_paulsign:sign *************************/ var error, response, body; var set_cookies = new Array(); const isRequest = typeof $request != &amp;#34;undefined&amp;#34; if (isRequest) { $cookie = $request.headers.Cookie; const saltkey_regex = /(R5nb_c8f5_saltkey=\S*)/gm; const auth_regex = /(R5nb_c8f5_auth=(\S*));/gm; const R5nb_c8f5_saltkey = saltkey_regex.exec($cookie); const R5nb_c8f5_auth = auth_regex.exec($cookie); if (!R5nb_c8f5_saltkey) { $notification.post(&amp;#39;&amp;#39;, &amp;#39;&amp;#39;, &amp;#39;获取R5nb_c8f5_saltkey失败&amp;#39;); $done(); } if (!R5nb_c8f5_auth) { $notification.post(&amp;#39;&amp;#39;, &amp;#39;&amp;#39;, &amp;#39;获取R5nb_c8f5_auth失败&amp;#39;); $done(); } $persistentStore.</description>
+    </item>
+    <item>
+      <title>php使用Linux命令导出MySQL数据到csv</title>
+      <link>http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</link>
+      <pubDate>Sun, 19 Jan 2020 16:23:54 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</guid>
+      <description>PS :使用这个导出功能需要的条件： 1&amp;ndash;服务器需要安装mysql客户端：yum install mysql 2&amp;ndash;php需要开启exec函数(disable_functions exec)
+/** * @FILE_NAME:ExcelExport.php * @Description 数据导出excel,从数据库导出再下载，数据库配置 * [mysqld] * secure_file_priv= &amp;#39;&amp;#39; * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2019-12-24 13:42:11 * @param string $title * @param $sql * @param $data * @return bool */ public static function exportExcel($title = &amp;#39;报表导出&amp;#39;, $sql, $data) { $data_dir = getcwd() . &amp;#34;/data_export/&amp;#34;; //去除sql语句里的`,要不然执行shell命令报错 $sql = str_replace(&amp;#39;`&amp;#39;, &amp;#39;&amp;#39;, $sql); $sql = str_replace(&amp;#39;&amp;#34;&amp;#39;, &amp;#34;&amp;#39;&amp;#34;, $sql); //删除历史表格 self::deleteExcel(); if (!</description>
+    </item>
+    <item>
+      <title>MySQL_OUTFILE导出数据</title>
+      <link>http://zhaoguibin.me/posts/mysql_outfile%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sun, 19 Jan 2020 14:33:53 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql_outfile%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/</guid>
+      <description>PS : mysql 需要开启grant FILE on . to newerp; 权限
+/** * @FILE_NAME:ExcelExport.php * @Description 数据导出excel,从数据库导出再下载，数据库配置 * [mysqld] * secure_file_priv= &amp;#39;&amp;#39; * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2019-12-24 13:42:11 * @param string $title * @param $sql * @param $data * @return bool */ public static function exportExcel($title = &amp;#39;报表导出&amp;#39;, $sql, $data) { $data_dir = getcwd() .</description>
+    </item>
+    <item>
+      <title>PHP导出数据报表</title>
+      <link>http://zhaoguibin.me/posts/php%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8/</link>
+      <pubDate>Sun, 19 Jan 2020 13:56:09 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8/</guid>
+      <description>/** * @FILE_NAME:ExcelExport.php * @Description csv导出数据 * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:sqlQuery * @Description 生成器模式返回数据 * @User ZHaoGuiBin * @Date 2020-01-08 16:43 * @param $sql * @return Generator */ public static function sqlQuery($sql) { $sys = new SysModel(); $db = $sys-&amp;gt;getAdapter(); foreach ($db-&amp;gt;fetchAll($sql) as $key =&amp;gt; $val) { yield $val; //生成器返回数据，避免内存溢出 } } /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2020-01-09 09:23 * @param string $title * @param string $sql * @param array $data example : [&amp;#34;单号&amp;#34; =&amp;gt; &amp;#39;order_key&amp;#39;],[&amp;#39;报表title名称&amp;#39;=&amp;gt;&amp;#39;mysql语句字段名&amp;#39;] * @return bool */ public static function exportExcel($title = &amp;#39;报表导出&amp;#39;, $sql = &amp;#39;&amp;#39;, $data = []) { $data_dir = getcwd() .</description>
+    </item>
+    <item>
+      <title>virtualbox安装增强功能报错</title>
+      <link>http://zhaoguibin.me/posts/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/</link>
+      <pubDate>Sat, 02 Mar 2019 14:04:39 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/</guid>
+      <description>在virtualbox安装目录找到VBoxGuestAdditions.iso复制到虚拟机里面，可以放到任意一个目录 sudo mkdir /media/GuestAdditionsISO sudo mount -o loop VBoxGuestAdditions.iso所在目录/VBoxGuestAdditions.iso /media/GuestAdditionsISO 这时候你会看到一条信息，the ISO has been mounted as READ-ONLY cd /media/GuestAdditionsISO ./VBoxLinuxAdditions.run 搞定 愿答案</description>
+    </item>
+    <item>
+      <title>golang两个线程交替打印1-100的奇数偶数</title>
+      <link>http://zhaoguibin.me/posts/golang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0/</link>
+      <pubDate>Thu, 31 Jan 2019 13:39:38 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/golang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0/</guid>
+      <description>启动两个线程, 一个输出 1,3,5,7…99, 另一个输出 2,4,6,8…100 最后 STDOUT 中按序输出 1,2,3,4,5…100
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;time&amp;#34; ) var pool = 100 //奇数 func oddNum(c chan int) { for i := 1; i &amp;lt;= pool; i++ { c &amp;lt;- i if i%2 == 1 { fmt.Println(i) } } } //偶数 func even(c chan int) { for i := 1; i &amp;lt;= pool; i++ { &amp;lt;-c if i%2 == 0 { fmt.Println(i) } } } func main() { c := make(chan int) go oddNum(c) go even(c) time.</description>
+    </item>
+    <item>
+      <title>golang抓取知乎图片</title>
+      <link>http://zhaoguibin.me/posts/golang%E6%8A%93%E5%8F%96%E7%9F%A5%E4%B9%8E%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Sat, 26 Jan 2019 10:56:31 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/golang%E6%8A%93%E5%8F%96%E7%9F%A5%E4%B9%8E%E5%9B%BE%E7%89%87/</guid>
+      <description>代码github地址 https://github.com/zhaoguibin/zhihu_pic 需要安装 gjson go get -u github.com/tidwall/gjson package main import ( &amp;#34;bytes&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;io&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os&amp;#34; &amp;#34;regexp&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;github.com/tidwall/gjson&amp;#34; &amp;#34;bufio&amp;#34; &amp;#34;strconv&amp;#34; &amp;#34;time&amp;#34; ) var quit = make(chan int) func main() { url := urlExists() dirName := strconv.FormatInt(time.Now().Unix(), 10) imgDir := &amp;#34;./&amp;#34; + dirName + &amp;#34;/&amp;#34; _, errs := pathExists(imgDir) if errs != nil { fmt.Printf(&amp;#34;创建文件失败&amp;#34;) return } getImgURL(url, imgDir) } //获取图片地址 func getImgURL(url, imgDir string) { //提交请求 reqest, err := http.</description>
+    </item>
+    <item>
+      <title>linux挂载windows下的共享文件</title>
+      <link>http://zhaoguibin.me/posts/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Fri, 23 Nov 2018 21:38:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</guid>
+      <description>安装cifs-utils yum install cifs* -y 这条命令只可以读取Windows共享文件，不能创建文件 #user=Windows用户 #pass=Windows登录密码 #//192.168.10.64/APP Windows共享文件 #/opt/APP/ linux挂载目录 mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq 这条命令可以添加文件操作权限 #user=Windows用户 #pass=Windows登录密码 #//192.168.10.64/APP Windows共享文件 #/opt/APP/ linux挂载目录 #uid，gid，linux用户的id和用户组id，可以通过 id root 命令查看用户的id和用户组id #rw,dir_mode=0777,file_mode=0777这些是设置文件夹权限，可以根据自己的需求设置权限 mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq,rw,uid=0,gid=0,dir_mode=0777,file_mode=0777 </description>
+    </item>
+    <item>
+      <title>php-fpm的关闭和重启</title>
+      <link>http://zhaoguibin.me/posts/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/</link>
+      <pubDate>Fri, 23 Nov 2018 21:13:41 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/</guid>
+      <description>php-fpm 关闭： kill -INT `cat /usr/local/php/var/run/php-fpm.pid` killall php-fpm php-fpm启动 /usr/local/php/sbin/php-fpm php-fpm 重启 kill -USR2 `cat /usr/local/php/var/run/php-fpm.pid` 查看php-fpm进程数 ps aux | grep -c php-fpm </description>
+    </item>
+    <item>
+      <title>Linux下iptables屏蔽IP和端口号</title>
+      <link>http://zhaoguibin.me/posts/linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDip%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/</link>
+      <pubDate>Fri, 16 Nov 2018 19:47:29 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDip%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/</guid>
+      <description>#封单个IP的命令： iptables -I INPUT -s 192.168.10.66 -j DROP #封IP段的命令： iptables -I INPUT -s 192.168.0.0/16 -j DROP #封整个段的命令： iptables -I INPUT -s 192.168.0.0/8 -j DROP #封几个段的命令： iptables -I INPUT -s 192.168.10.0/24 -j DROP #只封80端口： iptables -I INPUT -p tcp –dport 80 -s 192.168.0.0/24 -j DROP #解封： iptables -F #清空： iptables -D INPUT 数字 #列出 INPUT链 所有的规则： iptables -L INPUT --line-numbers #删除某条规则，其中5代表序号（序号可用上面的命令查看）： iptables -D INPUT 5 #开放指定的端口： iptables -A INPUT -p tcp --dport 80 -j ACCEPT #禁止指定的端口： iptables -A INPUT -p tcp --dport 80 -j DROP #拒绝所有的端口： iptables -A INPUT -j DROP 以上都是针对INPUT链的操作，即是外面来访问本机的方向，配置完之后 需要保存，否则iptables 重启之后以上设置就失效</description>
+    </item>
+    <item>
+      <title>centos修改IP</title>
+      <link>http://zhaoguibin.me/posts/centos%E4%BF%AE%E6%94%B9ip/</link>
+      <pubDate>Fri, 16 Nov 2018 19:35:51 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos%E4%BF%AE%E6%94%B9ip/</guid>
+      <description>首先查看网络接口名称 ifconfig 临时修改IP ifconfig eth1 192.168.10.88 永久修改IP 修改对应的网络接口配置文件，文件路径是 /etc/sysconfig/network-scripts/ vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称 修改以下配置 BOOTPROTO=static # 以下配置有就修改，没有就添加 IPADDR=192.168.10.88 #静态IP GATEWAY=192.168.10.1 #默认网关 NETMASK=255.255.255.0 #子网掩码 修改DNS vim /etc/resolv.conf nameserver 1.1.1.1 nameserver 8.8.8.8 重启网络服务 </description>
+    </item>
+    <item>
+      <title>Nginx使用brotli</title>
+      <link>http://zhaoguibin.me/posts/nginx%E4%BD%BF%E7%94%A8brotli/</link>
+      <pubDate>Fri, 09 Nov 2018 20:17:14 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/nginx%E4%BD%BF%E7%94%A8brotli/</guid>
+      <description>首先下载brotli的nginx模块 cd /opt/local/src git clone https://github.com/google/ngx_brotli.git 接着下载brotli源代码 cd ngx_brotli cd deps/brotli git clone https://github.com/google/brotli.git 编译nginx源代码指定第三方模块 ./configure --prefix=/opt/local/nginx --without-http_memcached_module --user=www --group=www --with-http_stub_status_module --with-openssl=/usr/ --with-pcre=/opt/local/src/pcre-8.36 --add-module=/opt/local/src/ngx_brotli 可能会报错，提示你 ./configure: error: Brotli library is missing from the /opt/local/src/ngx_brotli/deps/brotli directory. Please make sure that the git submodule has been checked out: cd /opt/local/src/ngx_brotli &amp;amp;&amp;amp; git submodule update --init &amp;amp;&amp;amp; cd /opt/local/src/nginx-1.12.1 照着它的提示操作就好了,网络不好的话需要等很长时间，这时候就是展现技术的时候了，你懂得 cd /opt/local/src/ngx_brotli &amp;amp;&amp;amp; git submodule update --init &amp;amp;&amp;amp; cd /opt/local/src/nginx-1.12.1 操作完以后，再一次编译nginx源码 ./configure --prefix=/opt/local/nginx --without-http_memcached_module --user=www --group=www --with-http_stub_status_module --with-openssl=/usr/ --with-pcre=/opt/local/src/pcre-8.</description>
+    </item>
+    <item>
+      <title>MySQL保留两位小数</title>
+      <link>http://zhaoguibin.me/posts/mysql%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/</link>
+      <pubDate>Fri, 09 Nov 2018 19:58:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/</guid>
+      <description>round(x,d) :用于数据的四舍五入,round(x) ,其实就是round(x,0),也就是默认d为0； 这里有个值得注意的地方是，d可以是负数，这时是指定小数点左边的d位整数位为0,同时小数位均为0；
+SELECT ROUND(5000.56789,2),ROUND(5000,2),ROUND(0.56789,2),ROUND(115.56789,-1); SELECT ROUND(5000.12345,2),ROUND(5000,2),ROUND(0.12345,2),ROUND(114.12345,-1); TRUNCATE(x,d)：函数返回被舍去至小数点后d位的数字x。若d的值为0，则结果不带有小数点或不带有小数部分。若d设为负数，则截去（归零）x小数点左起第d位开始后面所有低位的值。 SELECT TRUNCATE(5000.56789,2),TRUNCATE(5000,2),TRUNCATE(0.56789,2),TRUNCATE(115.56789,-1); SELECT TRUNCATE(5000.12345,2),TRUNCATE(5000,2),TRUNCATE(0.12345,2),TRUNCATE(114.12345,-1); </description>
+    </item>
+    <item>
+      <title>Kafka安装</title>
+      <link>http://zhaoguibin.me/posts/kafka%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sun, 30 Sep 2018 14:41:06 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/kafka%E5%AE%89%E8%A3%85/</guid>
+      <description>&lt;p&gt;1.去&lt;!-- raw HTML omitted --&gt;kafka官网&lt;!-- raw HTML omitted --&gt;下载到最新的kafka安装包，选择下载二进制版本的tgz文件&lt;/p&gt;
+&lt;p&gt;2.环境需求：java运行环境&lt;/p&gt;
+&lt;p&gt;3.配置
+在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;consumer.properites &lt;span style=&#34;color:#75715e&#34;&gt;#消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;producer.properties &lt;span style=&#34;color:#75715e&#34;&gt;#生产者配置，这个配置文件用于配置于2.5节中开启的生产者，此处我们使用默认的即可&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;server.properties &lt;span style=&#34;color:#75715e&#34;&gt;#kafka服务器的配置，此配置文件用来配置kafka服务器，目前仅介绍几个最基础的配置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;broker.id &lt;span style=&#34;color:#75715e&#34;&gt;#申明当前kafka服务器在集群中的唯一ID，需配置为integer,并且集群中的每一个kafka服务器的id都应是唯一的，我们这里采用默认配置即可&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;listeners &lt;span style=&#34;color:#75715e&#34;&gt;#申明此kafka服务器需要监听的端口号，如果是在本机上跑虚拟机运行可以不用配置本项，默认会使用localhost的地址，如果是在远程服务器上运行则必须配置，例如：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;　　　　　&lt;span style=&#34;color:#75715e&#34;&gt;#listeners=PLAINTEXT:// 192.168.180.128:9092。并确保服务器的9092端口能够访问&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;zookeeper.connect &lt;span style=&#34;color:#75715e&#34;&gt;#申明kafka所连接的zookeeper的地址 ，需配置为zookeeper的地址，由于本次使用的是kafka高版本中自带zookeeper，使用默认配置即可&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;zookeeper.connect&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;localhost:2181
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Linux安装jdk</title>
+      <link>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85jdk/</link>
+      <pubDate>Sun, 30 Sep 2018 13:46:57 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85jdk/</guid>
+      <description>到oracle官网下载二进制压缩文件
+1.解压 2.编辑/etc/profile，添加以下配置 export JAVA_HOME=/opt/src/jdk1.8.0_171 export JRE_HOME=/opt/src/jdk1.8.0_171/jre export PATH=$PATH:/opt/src/jdk1.8.0_171/bin export CLASSPATH=./:/opt/src/jdk1.8.0_171/lib:/opt/src/jdk1.8.0_171/jre/lib 3.刷新配置 source /etc/profile 4.查看配置是否生效 java -version 5.出现以下信息就安装成功了 java version &amp;#34;1.8.0_171&amp;#34; Java(TM) SE Runtime Environment (build 1.8.0_171-b11) Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode) </description>
+    </item>
+    <item>
+      <title>docker保存对容器的修改</title>
+      <link>http://zhaoguibin.me/posts/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/</link>
+      <pubDate>Sun, 30 Sep 2018 13:45:16 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/</guid>
+      <description>docker commit 容器ID 要保存的镜像名称 </description>
+    </item>
+    <item>
+      <title>docker 不能运行 systemctl</title>
+      <link>http://zhaoguibin.me/posts/docker-%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C-systemctl/</link>
+      <pubDate>Sun, 30 Sep 2018 13:39:07 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/docker-%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C-systemctl/</guid>
+      <description>docker centos7运行systemctl start nginx 报错：
+Failed to get D-BUS connection: Operation no permitted 解决方法：
+在启动容器的时候添加上-d参数就可以了
+docker run -itd --privileged -p 3306:3306 -v /opt/data/:/opt/mysql/data 镜像ID /usr/sbin/init docker exec -it 容器ID /bin/bash </description>
+    </item>
+    <item>
+      <title>SQL纵向变成横向，横向变成纵向</title>
+      <link>http://zhaoguibin.me/posts/sql%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/</link>
+      <pubDate>Sun, 30 Sep 2018 12:06:32 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/sql%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/</guid>
+      <description>&lt;h3 id=&#34;纵向变成横向&#34;&gt;纵向变成横向&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Subject&lt;/th&gt;
+&lt;th&gt;Result&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;张三&lt;/td&gt;
+&lt;td&gt;语文&lt;/td&gt;
+&lt;td&gt;73&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;张三&lt;/td&gt;
+&lt;td&gt;数学&lt;/td&gt;
+&lt;td&gt;83&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;张三&lt;/td&gt;
+&lt;td&gt;物理&lt;/td&gt;
+&lt;td&gt;93&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;李四&lt;/td&gt;
+&lt;td&gt;语文&lt;/td&gt;
+&lt;td&gt;74&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;李四&lt;/td&gt;
+&lt;td&gt;数学&lt;/td&gt;
+&lt;td&gt;84&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;李四&lt;/td&gt;
+&lt;td&gt;物理&lt;/td&gt;
+&lt;td&gt;94&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;转换成&lt;/p&gt;
+&lt;p&gt;| 姓名 | 语文 | 数学 | 物理 |
+| &amp;mdash;&amp;mdash; | &amp;mdash;&amp;mdash; | &amp;mdash;&amp;mdash; |
+| 李四 | 74 | 84 | 94 |
+| 张三 | 73 | 83 | 93 |&lt;/p&gt;
+&lt;h4 id=&#34;建表插入数据&#34;&gt;建表插入数据&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-mysql&#34; data-lang=&#34;mysql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;students&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;Name&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;VARCHAR&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;Subject&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;VARCHAR&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;Result&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;INT&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;INSERT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;INTO&lt;/span&gt; students
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;VALUES&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;张三&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;语文&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;73&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;张三&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;数学&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;83&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;张三&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;物理&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;93&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;李四&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;语文&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;74&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;李四&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;数学&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;84&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;李四&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;物理&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;94&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>MySQL查询字段在哪个表</title>
+      <link>http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/</link>
+      <pubDate>Sun, 30 Sep 2018 10:01:03 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/</guid>
+      <description>查询pwd字段在哪个数据库哪个表 SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.`COLUMNS` WHERE COLUMN_NAME = &amp;#39;pwd&amp;#39; 查询pwd字段在ERP数据库的哪个表 SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.`COLUMNS` WHERE COLUMN_NAME = &amp;#39;pwd&amp;#39; AND TABLE_SCHEMA = &amp;#39;ERP&amp;#39; </description>
+    </item>
+    <item>
+      <title>卸载SQL Server 2017 出现警告26003</title>
+      <link>http://zhaoguibin.me/posts/%E5%8D%B8%E8%BD%BDsql-server-2017-%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/</link>
+      <pubDate>Sat, 21 Jul 2018 14:19:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%8D%B8%E8%BD%BDsql-server-2017-%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/</guid>
+      <description>卸载SQLserver出现以下问题，把解决方法记录下来，留着以后备用 提示信息： 解决方法：
+可以使用：WMIC（windows Management Instrumentation Command-line） 列出当前系统上安装的应用程序，最后使用MSIEXEC /X 将其卸载
+打开 CMD(命令提示符) 输入命令：
+WMIC Product list msiexec /x {IdentifyingNumbe} </description>
+    </item>
+    <item>
+      <title>php排序实现方法</title>
+      <link>http://zhaoguibin.me/posts/php%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 30 Jun 2018 13:31:49 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;h5 id=&#34;直接插入排序&#34;&gt;直接插入排序&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; *  直接插入排序,插入排序的思想是：当前插入位置之前的元素有序，
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; *  若插入当前位置的元素比有序元素最后一个元素大，则什么也不做，
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; *  否则在有序序列中找到插入的位置，并插入
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;insertSort&lt;/span&gt;($arr) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  $len &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;count&lt;/span&gt;($arr);  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;($i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;; $i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; $len; $i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;($arr[$i&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; $arr[&lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;]) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;($j &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $i &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;$j &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; $j&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt; ) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $tmp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $arr[$j&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;($tmp &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; $arr[$j]) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          $arr[$j&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $arr[$j];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          $arr[$j] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $tmp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }          
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; $arr;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;冒泡排序&#34;&gt;冒泡排序&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;  冒泡排序,冒泡排序思想：进行 n-1 趟冒泡排序， 每趟两两比较调整最大值到数组（子数组）末尾
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;bubbleSort&lt;/span&gt;($arr) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  $len &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;count&lt;/span&gt;($arr);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;($i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;; $i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; $len; $i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;($j &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; $j &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; $len&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;$i; $j&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;($arr[$j] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; $arr[$j&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $tmp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $arr[$j&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $arr[$j&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $arr[$j];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $arr[$j] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $tmp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; $arr;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>DDL、DML和DCL的区别与理解</title>
+      <link>http://zhaoguibin.me/posts/ddldml%E5%92%8Cdcl%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Sat, 30 Jun 2018 12:53:19 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/ddldml%E5%92%8Cdcl%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%90%86%E8%A7%A3/</guid>
+      <description>&lt;p&gt;DML、DDL、DCL区别 .&lt;/p&gt;
+&lt;p&gt;总体解释：&lt;/p&gt;
+&lt;p&gt;DML(data manipulation language)：&lt;/p&gt;
+&lt;p&gt;它们是SELECT、UPDATE、INSERT、DELETE，就象它的名字一样，这4条命令是用来对数据库里的数据进行操作的语言&lt;/p&gt;
+&lt;p&gt;DDL(data definition language)：&lt;/p&gt;
+&lt;p&gt;DDL比DML要多，主要的命令有CREATE、ALTER、DROP等，DDL主要是用在定义或改变表(TABLE)的结构，数据类型，表之间的链接和约束等初始化工作上，他们大多在建立表时使用&lt;/p&gt;
+&lt;p&gt;DCL(Data Control Language)：&lt;/p&gt;
+&lt;p&gt;是数据库控制功能。是用来设置或更改数据库用户或角色权限的语句，包括(grant,deny,revoke等)语句。在默认状态下，只有sysadmin,dbcreator,db_owner或db_securityadmin等人员才有权力执行DCL&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>解决MySQL出现 Waiting for table metadata lock 问题</title>
+      <link>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3mysql%E5%87%BA%E7%8E%B0-waiting-for-table-metadata-lock-%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 30 Jun 2018 12:13:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3mysql%E5%87%BA%E7%8E%B0-waiting-for-table-metadata-lock-%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;前几天修改数据库表，结果数据库就卡死了，通过命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-mysql&#34; data-lang=&#34;mysql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;show&lt;/span&gt; processlist
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;发现 Waiting for table metadata lock状态的连接，幸好这个状态的连接不多，kill掉这些连接就可以了。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>正则掌握程度测试题</title>
+      <link>http://zhaoguibin.me/posts/%E6%AD%A3%E5%88%99%E6%8E%8C%E6%8F%A1%E7%A8%8B%E5%BA%A6%E6%B5%8B%E8%AF%95%E9%A2%98/</link>
+      <pubDate>Sat, 05 May 2018 14:11:46 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%AD%A3%E5%88%99%E6%8E%8C%E6%8F%A1%E7%A8%8B%E5%BA%A6%E6%B5%8B%E8%AF%95%E9%A2%98/</guid>
+      <description>&lt;h3 id=&#34;分组提取非捕获组&#34;&gt;分组提取/非捕获组&lt;/h3&gt;
+&lt;p&gt;分组，是正则里一个非常重要的概念，我们需要针对某个区域提取数据，往往需要依赖分组。而分组，其实就是正则里()括住的部分。&lt;/p&gt;
+&lt;h4 id=&#34;分组提取&#34;&gt;分组提取&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;需求：在分组1中匹配meta中author属性的值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;源串：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;author&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Zjmainstay&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;another&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;author&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Zjmainstay too&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;预期：分组1得到Zjmainstay&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;正则：&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;(\w*)&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;非捕获组&#34;&gt;非捕获组&lt;/h4&gt;
+&lt;p&gt;针对上面的分组，有时候，我们并不需要捕获某个分组的内容，我们可以使用非捕获组(?:表达式)，从而不捕获表达式部分内容到分组中。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;需求：匹配每行字母个数是偶数个的数据，每行数据不为空，正则不能存在分组1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;源串：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;abc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;abcd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;预期：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;匹配得到&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ab&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;和&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;abcd，不包含分组1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;正则：&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/^&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;?:&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;\w\w&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;单字符或&#34;&gt;单字符或&lt;/h3&gt;
+&lt;p&gt;或条件是正则使用过程中常用的概念，比如，密码由字母或数字组成，这里就用到了或条件，而且，由于字母或数字都是单个字符，因此，可以使用[a-z0-9]这样的单字符或语法实现。
+常犯错误：匹配a或b写成[a|b]，此表达式实际上表示a或b或|，在[]内部的|表示其本身，注意区分(a|b)表示a或b的写法。&lt;/p&gt;
+&lt;h4 id=&#34;单字符或-1&#34;&gt;单字符或&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;需求：匹配由&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;A&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;S&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;D&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;F&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;个字母&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;区分大小写&lt;/span&gt;)&lt;span style=&#34;color:#a6e22e&#34;&gt;组成的长度为3字符串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;源串：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ABC&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ASD&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ADS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ASF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;BBC&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;A&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;S&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;A&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;D&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ASDF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;预期：以&lt;/span&gt;[]&lt;span style=&#34;color:#a6e22e&#34;&gt;元字符获得3个字母的或集，匹配&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ASD&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ADS&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ASF&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;组数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;正则：&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/^&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;ASDF&lt;/span&gt;]{&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;}&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;多字符或&#34;&gt;多字符或&lt;/h3&gt;
+&lt;p&gt;相对单字符或条件，多字符或也是很常见的，比如，我们需要匹配http或ftp两个协议头的url，就需要^(http|ftp)://.+$这样的语法来实现。&lt;/p&gt;
+&lt;h4 id=&#34;多字符或-1&#34;&gt;多字符或&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;需求：匹配每行数据中以&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;jpg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;jpeg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;png&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;gif结尾的图片名称（含后缀）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;源串：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;jpg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;jpeg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;png&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;gif&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;not_image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;txt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;not_image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;doc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;not_image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;xls&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;not_image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ppt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;预期：匹配&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;jpg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;jpeg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;png&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;gif&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;个结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;正则：&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;.*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;\&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;jpg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;jpeg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;png&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;gif&lt;/span&gt;))&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>netstat命令</title>
+      <link>http://zhaoguibin.me/posts/netstat%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Tue, 01 May 2018 16:19:27 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/netstat%E5%91%BD%E4%BB%A4/</guid>
+      <description>netstat -anp | grep 端口号 telnet 127.0.0.1 9501 ps aft | grep tcp.php pstree -p 22727 </description>
+    </item>
+    <item>
+      <title>正则^的用法</title>
+      <link>http://zhaoguibin.me/posts/%E6%AD%A3%E5%88%99%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Tue, 01 May 2018 16:14:31 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%AD%A3%E5%88%99%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description>^在[]外面表示以[]里的字符为首 ^在[]里面表示不匹配[]里的字符</description>
+    </item>
+    <item>
+      <title>yum  update和yum  upgrade区别</title>
+      <link>http://zhaoguibin.me/posts/yum-update%E5%92%8Cyum-upgrade%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Tue, 01 May 2018 16:10:19 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/yum-update%E5%92%8Cyum-upgrade%E5%8C%BA%E5%88%AB/</guid>
+      <description>yum -y update #升级所有包同时也升级软件和系统内核 yum -y upgrade #只升级所有包，不升级软件和系统内核 </description>
+    </item>
+    <item>
+      <title>CentOS--su和sudo</title>
+      <link>http://zhaoguibin.me/posts/centos--su%E5%92%8Csudo/</link>
+      <pubDate>Tue, 01 May 2018 15:55:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos--su%E5%92%8Csudo/</guid>
+      <description>&lt;h5 id=&#34;su命令&#34;&gt;su命令&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;su - root
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一旦在使用su命令登录root，用户获取了系统的绝对管理权限&lt;/p&gt;
+&lt;h6 id=&#34;只允许特定用户使用该su命令&#34;&gt;只允许特定用户使用该su命令&lt;/h6&gt;
+&lt;p&gt;要做到这一点，编辑插入式验证模块为（PAM）配置文件/etc/pam.d/su 在文本编辑器中打开该文件，取消注释：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#auth           required        pam_wheel.so use_uid&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将用户添加到名为wheel的特殊管理组&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;usermod -a -G wheel username
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>PHP curl returns (35) SSL connect error</title>
+      <link>http://zhaoguibin.me/posts/php-curl-returns-35-ssl-connect-error/</link>
+      <pubDate>Sun, 15 Apr 2018 16:35:47 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php-curl-returns-35-ssl-connect-error/</guid>
+      <description>用PHP cURL来获取https链接的页面，出现错误PHP curl returns (35) SSL connect error， 找到一个方法，记录一下，以免忘记。
+解决方法：
+yum update nss Q:但是，什么是NSS呢？
+A:curl模块的ssl 支持默认为NSS,网络安全服务（NSS）
+The Network Security Services (NSS)
+再来个详细解释 https://serverfault.com/questions/606135/curl-35-ssl-connect-error/642203#642203 </description>
+    </item>
+    <item>
+      <title>centos7设置IP白名单</title>
+      <link>http://zhaoguibin.me/posts/centos7%E8%AE%BE%E7%BD%AEip%E7%99%BD%E5%90%8D%E5%8D%95/</link>
+      <pubDate>Fri, 02 Mar 2018 20:23:52 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos7%E8%AE%BE%E7%BD%AEip%E7%99%BD%E5%90%8D%E5%8D%95/</guid>
+      <description>编辑iptables配置文件，将文件内容更改为如下，则具备了ip地址白名单功能
+vim /etc/sysconfig/iptables 1 *filter 2 :INPUT ACCEPT [0:0] 3 :FORWARD ACCEPT [0:0] 4 :OUTPUT ACCEPT [0:0] 5 6 -N whitelist 7 -A whitelist -s 1.2.3.0/24 -j ACCEPT 8 -A whitelist -s 4.5.6.7 -j ACCEPT 9 10 -A INPUT -m state --state RELATED,ESTABLISHED -j whitelist 11 -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j whitelist 12 -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j whitelist 13 -A INPUT -p icmp -j ACCEPT 14 -A INPUT -i lo -j ACCEPT 15 -A INPUT -j REJECT --reject-with icmp-host-prohibited 16 -A FORWARD -j REJECT --reject-with icmp-host-prohibited 17 COMMIT 6~8 行是添加白名单列表，可以是ip段或者单个ip地址</description>
+    </item>
+    <item>
+      <title>php下载文件简单实例</title>
+      <link>http://zhaoguibin.me/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Fri, 02 Mar 2018 20:16:49 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</guid>
+      <description>class Spider { public function downloadImage($url, $path=&amp;#39;images/&amp;#39;) { $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, $url); curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30); $file = curl_exec($ch); curl_close($ch); $this-&amp;gt;saveAsImage($url, $file, $path); } private function saveAsImage($url, $file, $path) { $filename = pathinfo($url, PATHINFO_BASENAME); if(!file_exists($path)){ mkdir($path,0777); } $resource = fopen($path . $filename, &amp;#39;a&amp;#39;); fwrite($resource, $file); fclose($resource); } } $str = file_get_contents(&amp;#34;http://www.bing.com/HPImageArchive.aspx?format=js&amp;amp;idx=0&amp;amp;n=1&amp;amp;mkt=en-US&amp;#34;); $arr = json_decode($str,true); $img_url = &amp;#39;http://www.bing.com&amp;#39;.$arr[&amp;#39;images&amp;#39;][0][&amp;#39;url&amp;#39;]; $img = new Spider(); $img-&amp;gt;downloadImage($img_url); </description>
+    </item>
+    <item>
+      <title>Nginx 启用gzip压缩</title>
+      <link>http://zhaoguibin.me/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/</link>
+      <pubDate>Thu, 01 Mar 2018 19:58:19 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/</guid>
+      <description>&lt;h5 id=&#34;网页压缩&#34;&gt;网页压缩&lt;/h5&gt;
+&lt;p&gt;　　网页压缩是一项由 WEB 服务器和浏览器之间共同遵守的协议，也就是说 WEB 服务器和浏览器都必须支持该技术，所幸的是现在流行的浏览器都是支持的，包括 IE、FireFox、Opera 等；服务器有 Apache 和 IIS 等。双方的协商过程如下：　　
+　　首先浏览器请求某个 URL 地址，并在请求的头 (head) 中设置属性 accept-encoding 值为 gzip, deflate，表明浏览器支持 gzip 和 deflate 这两种压缩方式（事实上 deflate 也是使用 gzip 压缩协议，下面我们会介绍二者之间的区别）；&lt;/p&gt;
+&lt;p&gt;　　WEB 服务器接收到请求后判断浏览器是否支持压缩，如果支持就传送压缩后的响应内容，否则传送不经过压缩的内容；
+　　浏览器获取响应内容后，判断内容是否被压缩，如果是则解压缩，然后显示响应页面的内容。&lt;/p&gt;
+&lt;p&gt;　　在实际的应用中我们发现压缩的比率往往在 3 到 10 倍，也就是本来 50k 大小的页面，采用压缩后实际传输的内容大小只有 5 至 15k 大小，这可以大大节省服务器的网络带宽，同时如果应用程序的响应足够快时，网站的速度瓶颈就转到了网络的传输速度上，因此内容压缩后就可以大大的提升页面的浏览速度。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CentOS7 搭建 FTP 文件服务</title>
+      <link>http://zhaoguibin.me/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Mon, 26 Feb 2018 17:48:08 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</guid>
+      <description>&lt;h5 id=&#34;安装并启动-ftp-服务&#34;&gt;安装并启动 FTP 服务&lt;/h5&gt;
+&lt;h6 id=&#34;安装-vsftpd&#34;&gt;安装 VSFTPD&lt;/h6&gt;
+&lt;p&gt;使用 yum 安装 vsftpd&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yum install -y vsftpd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h6 id=&#34;启动-vsftpd&#34;&gt;启动 VSFTPD&lt;/h6&gt;
+&lt;p&gt;安装完成后，启动 FTP 服务：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;service vsftpd start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;启动后，可以看到系统已经监听了 21 端口：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;netstat -nltp | grep &lt;span style=&#34;color:#ae81ff&#34;&gt;21&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时，访问 ftp://192.168.3.16 可浏览机器上的 /var/ftp目录了。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Centos6.5安装git</title>
+      <link>http://zhaoguibin.me/posts/centos6.5%E5%AE%89%E8%A3%85git/</link>
+      <pubDate>Fri, 23 Feb 2018 17:18:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos6.5%E5%AE%89%E8%A3%85git/</guid>
+      <description>安装编译git时需要的包 yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel yum install gcc perl-ExtUtils-MakeMaker 删除已有的git yum remove git 下载git源码 地址：https://www.kernel.org/pub/software/scm/git/ 选择要安装的版本
+cd /opt/local/src wget https://www.kernel.org/pub/software/scm/git/git-x.x.x.tar.gz tar xzf git-x.x.x.tar.gz 编译安装 cd git-x.x.x make prefix=/usr/local/git all make prefix=/usr/local/git install echo &amp;#34;export PATH=$PATH:/usr/local/git/bin&amp;#34; &amp;gt;&amp;gt; /etc/bashrc source /etc/bashrc ``` ###### 检查一下版本号 ```bash git --version ``` </description>
+    </item>
+    <item>
+      <title>centOS7下安装GUI图形界面</title>
+      <link>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85gui%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</link>
+      <pubDate>Fri, 09 Feb 2018 15:52:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85gui%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</guid>
+      <description>1 .在命令行下 输入下面的命令来安装Gnome包。 yum groupinstall &amp;#34;GNOME Desktop&amp;#34; &amp;#34;Graphical Administration Tools&amp;#34; 2.在命令行输入startx进入桌面 startx 3.如果想开机就进桌面，那就更新系统的运行级别。 ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target 4.重启机器。启动默认进入图形界面。 reboot </description>
+    </item>
+    <item>
+      <title>vboxadd.sh failed modprobe vboxguest failed.</title>
+      <link>http://zhaoguibin.me/posts/vboxadd.sh-failed-modprobe-vboxguest-failed./</link>
+      <pubDate>Fri, 09 Feb 2018 15:48:15 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/vboxadd.sh-failed-modprobe-vboxguest-failed./</guid>
+      <description>virtualbox安装增强功能报错：
+vboxadd.sh failed modprobe vboxguest failed. 解决方法：
+yum install dkms binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers then
+yum install kernel-devel or
+yum install kernel-PAE-devel Then
+re-run VBoxLinuxAdditions.run. </description>
+    </item>
+    <item>
+      <title>装完Centos7提示Initial setup of CentOS Linux 7 (core)</title>
+      <link>http://zhaoguibin.me/posts/%E8%A3%85%E5%AE%8Ccentos7%E6%8F%90%E7%A4%BAinitial-setup-of-centos-linux-7-core/</link>
+      <pubDate>Fri, 09 Feb 2018 15:46:34 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%A3%85%E5%AE%8Ccentos7%E6%8F%90%E7%A4%BAinitial-setup-of-centos-linux-7-core/</guid>
+      <description>Initial setup of CentOS Linux 7 (core) 1) [x] Creat user 2) [!] License information (no user will be created) (license not accepted) Please make your choice from above [&amp;#39;q&amp;#39; to quit | &amp;#39;c&amp;#39; to continue | &amp;#39;r&amp;#39; to refresh]: 解决方法： 输入“1”，按Enter键 输入“2”，按Enter键 输入“q&amp;quot;，按Enter键 输入“yes”，按Enter键</description>
+    </item>
+    <item>
+      <title>mysql添加索引命令</title>
+      <link>http://zhaoguibin.me/posts/mysql%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sat, 20 Jan 2018 14:45:13 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95%E5%91%BD%E4%BB%A4/</guid>
+      <description>1.PRIMARY KEY（主键索引） mysql&amp;gt;ALTER TABLE `table_name` ADD PRIMARY KEY (`column`) 2.UNIQUE(唯一索引) mysql&amp;gt;ALTER TABLE `table_name` ADD UNIQUE (`column` ) 3.INDEX(普通索引) mysql&amp;gt;ALTER TABLE `table_name` ADD INDEX index_name (`column`) 4.FULLTEXT(全文索引) mysql&amp;gt;ALTER TABLE `table_name` ADD FULLTEXT (`column`) 5.多列索引 mysql&amp;gt;ALTER TABLE `table_name` ADD INDEX index_name (`column1`, `column2`, `column3`) </description>
+    </item>
+    <item>
+      <title>mysql查询出的数据插入另一个表</title>
+      <link>http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8/</link>
+      <pubDate>Sat, 20 Jan 2018 14:43:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8/</guid>
+      <description>1. INSERT INTO 表名1(字段列表1) SELECT 字段列表2 FROM 表名2 WHERE 条件表达式; 2. INSERT INTO 表名1(字段列表1) select * from (select 字段 from *) 临时表名 INSERT INTO 要插入数据的表 (字段1,字段2,....) SELECT * FROM (查询数据的sql语句) 临时表名 2-例子： INSERT INTO purchaseandsale_export (`name`) SELECT * FROM (SELECT name FROM `worker`) temp </description>
+    </item>
+    <item>
+      <title>Mysqli statement execute error  Statement violates GTID consistency CREATE TABLE ...</title>
+      <link>http://zhaoguibin.me/posts/mysqli-statement-execute-error-statement-violates-gtid-consistency-create-table-...-/</link>
+      <pubDate>Sat, 20 Jan 2018 14:40:42 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysqli-statement-execute-error-statement-violates-gtid-consistency-create-table-...-/</guid>
+      <description>解决：
+在my.cnf 中将
+gtid_mode = ON enforce_gtid_consistency = ON 改为
+gtid_mode = OFFenforce_gtid_consistency = OFF 要两个参数一起改,然后重启mysql，问题解决</description>
+    </item>
+    <item>
+      <title>linux安装pear</title>
+      <link>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85pear/</link>
+      <pubDate>Sat, 20 Jan 2018 14:34:19 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85pear/</guid>
+      <description>&lt;p&gt;看图操作&lt;/p&gt;
+&lt;p&gt;这是错误，先放在前面，以免出现错误不知道怎么办&lt;!-- raw HTML omitted --&gt;
+出现这个错误就按照它的那个地址下载现在在执行安装就好了
+&lt;p class=&#34;imgp&#34;&gt;
+  &lt;img loading=&#34;lazy&#34; src=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhYAAABcCAIAAAC9eWunAAAABmJLR0QA/wD/AP&amp;#43;gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAVfklEQVR4nO2drXLrPBPHd9557sIk05YUG4Z5phPUXIEDDUo6h4WKmnVKCgLjK0hRJjNmgcYlbSbE9/ECf8nWylr5I42b/ZFzokratbSWbNn&amp;#43;C0DF36Zpmqbp1kf&amp;#43;yFjgiuNRuMPXm/fQYHWP5effgluJYRT&amp;#43;hyefN0vHWUWDmbnY2dfTUDF7lvOnK46pxGgHURmuOSCZlyf0aOU4y815HFdGwBVHviBhmL&amp;#43;IZgq5CJrx8ddwxTG82ywdx3EcZ/9QzBbnIslxnLlIxrEdrZyK5eZ83rxF4Ir3&amp;#43;48i6S40zl/F/Olvr&amp;#43;tq2f8XwOZtuAsShmGuBeIU4orjUYjiSjkboMoZQB6v1ER/m6bpLpjNgl3j8n73dMgG53XshcpVvzSrVIl5rTV3CksaQ6if0uxVOfovOK3LOSISdrOF7FJ9AH9u&amp;#43;KnPCaUjcPhMABIxL&amp;#43;4EE/ERz&amp;#43;4f2314vIfDZwL&amp;#43;wjt965wf0E8q/sKLP8rWLJp&amp;#43;u91W1aKxZOG8EiHyfV0zpxLJFobGayWG&amp;#43;TP4W&amp;#43;VkcMUROWmzQVrKjibmf9CUrv2US/mimhqa9bviWEwRak113zGXamVcsS1mRGlsQRey2u6VJJfqhhQ/0ZzapilQstaOVF0H041ng/lJpd4jte5Q&amp;#43;8NgSOMSGoG1QlWSGslkQ2O2EsNMFIuFLOlKEsB9fprF&amp;#43;wgAINoX18doIsrjfZYxH6HfnwAAXPEiXa7mtwG1xOTzcL57yM7S3FDyfYIiCUHrUlkmESuRZC7Ngvt9Y90oEfNyfWkNYfuKG2oI9VPfSpLDEv429Grt3yB/OBKv81WwZeua2xB&amp;#43;UilvqQCg2R1oosmQGnW6CMlRI6StJVsMSYlDtxLDTBX6FHL&amp;#43;&amp;#43;dInlKcTmqjgPtydf77yRfKl47wedEYAAMALi0vrXTDLz1I8p8nxzKVEzJeHp139av3rJ3sAAQCadaNotY69hX4OMTZIe04AwB8b5M9oDG83uM9P8PMF7vOTNGSP5ieV&amp;#43;iKWpSFseQvPiURIdf8Yenpjei7ZSgwzWXo8TpeH2HLtHU00knyf1OIl8vNsx/5FMdSl8u5ifQrehSv70Bn6sety1u/D8qTj7umwbH2OLz8Fyv9pW1Hp7ycVV7zcNSdEtItxQ2UnSUeP5lQjxBXvwWmdd3EMHbhcKzHMhOk6hSSfh3N&amp;#43;Re4vvPw6DE0skE&amp;#43;05Ps0u38EiN42EOyKC8VEfMTeS&amp;#43;NZSCI&amp;#43;ikEeAMDfGl/eqo1RqEvF4w8AcB/uitM&amp;#43;2p&amp;#43;Cf&amp;#43;Uj&amp;#43;Bfv/PNVf7fJ34aeusYkoT12Yk5lEYsyf0C2jLWOIV6X/7S/OtbXTxzpqUBOfRELoNkdaKK1S6YIqQxZOT9SKzHM3&amp;#43;K/rgUT8bo57tI0BDhvlqtEn5j94SNOwzQNAeK1s4qifRy&amp;#43;CDcSYu4IqdbV8uG4SwMAgHjtZINpJCVCvHZWAPor7KYh1KVEvD0f03RW1JgP2tFqvUjTNCySRQKw&amp;#43;timaZpXntWo5bz5WSDHTs6ZLetJBvx/wQwgKI69zb6/8OL9Clxx1zrJDeInFX/hxR&amp;#43;NYlV3xHGsJnZzCYkQkOIg7nQXcqlWYpg/x0W&amp;#43;Tkcu&amp;#43;yYN/ZvGAT6z7PF1&amp;#43;sX8NBb3t9b9f4VfqPIn68xtg92FRCvH8nFDBxIxd763xUW/4fqeqXORHupJIuZzJNkV2&amp;#43;fPlUiyZZ&amp;#43;3i7vFMMyQdF7IGoIpjITMsFSLiLzswzAMwzAMwzAMwzAMc7uMoYh7Myq7v3agdoaLTyZHe4jf9oLAzQQD0x1ZFGr0V006vJSTF5PLNX4OSUN7qtRCks1lP9GcN8&amp;#43;E3leqKVxptPdRbASnURVRq2bqeMq0&amp;#43;6QKUU6jz5groPFpob8t5XMdx3mF96scCqNVTdv3xYvX473PVX35bBJcp&amp;#43;dkro66EguqvY9iI8gvnV1rkLMmnwd4eqbEi/twRz8mhhmf&amp;#43;hTiL7yz9DlxKTaOa3GjutlqYl3AdBg502i1zj9kr4lKqX7Kl1Q10zTR7xokwXVCTqVBFFXgurRt009Mqb5KbF7eYg3S1MnXgNaJWsePkqy930XsHS9ftlCjIlPYtXxZrn5jL2MhyC/PUtHbRp40ku/TzDSHuOKYprtglguCydrExHNT9UjTR6qmfc9gkLJetcg/0xdcCVunxY3mRhIbutz1JajOtzmuONbDUafrrp1CCJGkFMnnRHQhS82pr7WsoPy/RrFc8RNVqsf&amp;#43;phe6x3XyNaha6TrreGGz9n4nsXfZEbWqZmCZDlX/d5vV/3bvG21Rd5FqppnP6twk&amp;#43;dUaIZ2DYSIi/4w99buQRMyd9Sm/JCm3lmrT4kZ1sxuJ0T4uLrH8RbvKlAWJ&amp;#43;Ig9T1p9sNMMR/zEmZXNsau2pKqUYSUhWDQnRrQvFX&amp;#43;LBmlVLFf8VJTqUbQNQtPJ10KzTnepk9h75TzWdF8/WQMWg0yxuUAL&amp;#43;E0Irr2PYhLkf7yfQV2VQWr8jiKf9ucmDXqEdAlFivM6l8YX&amp;#43;WfsUGUWy2Xg5QYK9TqtnLVR/DqrMp9DXPEy2AySVQv16uxkt4mi35IKbPnEJV5XS&amp;#43;WlECyaU&amp;#43;d5NofUplRM0171E1Wqpxxiu2I5ESvr3Vxq7zjadgD5wwX3Ac7Zv3fGg0aHMPKWvQRB/q&amp;#43;fM&amp;#43;Tqw3k2Sda3&amp;#43;zMOu3PTvs4WOocimnglIv&amp;#43;MJS1KvdLSbl8562zl11eu6KLVsLomk5HdzueQ2gxC17RXlep1jNEgdOt0l3r6qTZd8n2a3T8/3/&amp;#43;8fpzuHx/vZ&amp;#43;214pfbiPY&amp;#43;Ck1QuZCnzsvUZ7XH&amp;#43;1nHEe53Y75bKKKJVyLyz1hSn0JccZRXDzPBczstbpzk8wBBGDTXBAZ9QxHXn6&amp;#43;eU5JEvy9FtI&amp;#43;9xbaaQeia9rhSPcYQHdfdeoFZe7&amp;#43;nn3jTff2cvSCA7yTaQ2gQ6Qd8JQVfxGrqg&amp;#43;rnj2bOaF/tZdB4Ru8&amp;#43;3J0NG4WhDNTFHTdb7BqKaOLViPwzdtQ1shIx328LufNS8BwstLh1JJ&amp;#43;HcxCchlvFwmxgfkZvm5fdLg06i36PRLSPw9CL16syAVEsx8CV6v1ted8epmmY6VbaiKgjoHXiOvk6SNr7VmLvGFjTJZ&amp;#43;Hc3C/jwDcnzPcGQfXcvsBvfY&amp;#43;ioUgf83P4twCAMi2mnztcmL1bTpA&amp;#43;gilZzBMR&amp;#43;SfuVb4u1bmupnI1&amp;#43;mT55pF/pnr5cZOE4ZhZMpFry4fhvEUcuNkH/vwBMIwN0wPcS&amp;#43;eQhiGYRiGYRiGYZgrZxgpLRv4ZrkBN8iwjNmeoyvATxqs5VFButG5/LA2Po1PC2Wp946N&amp;#43;/dGHvSIhjlM9C2Dm3z1gHep6IH/L/&amp;#43;ezvB149&amp;#43;j82mYf77Inx/W6dCejb3TEzF3BPjbdLEf9rtxBgP99ID2PcINwQ1igBXgmd&amp;#43;jReCkQKOwjeg8a7WjyZrMpSL0wuwSLtfZUinhtqqpcY0eEZqo1aNuob5HhZp4MY1rvfPNBqEfJlWYvU1yHGmlSWiG09uzrzj5CArwWpfUYzwei65I0aGBtDeE2RTYjDY655&amp;#43;p5ybVJcSQLuaJw1rderUFhMV2FbRGRv00nIZ2qDrUivizXudZvRUiazKjitAYaLNqXGq3XvcD17gmLWRp9Kgbf2qrQU28mMY1akjb7wMLs7e0hpI&amp;#43;Ec1wenv2NISV1DeIteB52wmT/82tdkAwdAdi3ebcpI42SKGWoFUihuqSyVCXYa0RlqIY1rRTiO1eG4UnlmNdO4S7EACN&amp;#43;DNR55msyYwqQtuhuGSyXqenCrqV1Dy6k5GaeDGNa7os/MDC7K011BtkSprh1jL7g4mTD6cAbzgRzj9fkHyf4PSd5DrEVtbtgsF6i4EuQWsdn1pDXYa1uqxnJMyHad5rQ3tEPce6iv/MWQCTSU7EfAmFPs15Y1Ap9cJKeAsgfgRIXHHcBbOyfq0hOlqXEOt4DT2VCBU96qR0zBHNzP7Ciz&amp;#43;askBqIl4nuT2bVVg6TxPo1va8Xpid1B1gahCDS2WTSMFwfe3Z1xDdOrlOvUuDW6cFg81oYx5Y2oOWHJ8WIxi9J&amp;#43;36nGhMPaIhle&amp;#43;JdyEYdJ1nuiZzR8nQVpfoIuo9sZDddsXLnbIPBZZ4MY1ruvODC7NrMTWIwaVf1QwnttJI4uR9&amp;#43;uiSsTT4BgeUgWUQl6xaiT6s9RwAUUYeALtOIa06z3V9b7ImM6oIjYJKuKMu0UXUWzEOXACA6FEXjjWfhRAXsdA6x9K47iG7ra1TodX5ZnuqDTIlzXBrDfbBNiMYTuS/i0t06wNtcKAbdevOa1z6&amp;#43;jnL5TsNF6bBij6siY9qO4DiWUjP7Srsj8h2FmssZFU3Z16ahi23jLjkeO5zQzuarMmMKkKjYBLuGpeoIup6UDVsJBHTo0YhLmKBps5RNK7JzlvkxNB1h9qeWINMRzOc2ErJGOLk/RTg&amp;#43;7pkYb3fBgdNZ7P9DXDndd1R5W8ZrHCXyK1EH9aa2wFkD1B6bleBHJF&amp;#43;yYim/M&amp;#43;MAf1VBvqXip2/m7Klp/NjYDR0zZrhFzPEML8N7XE6MyCJmM9pibeMpkFcsX3&amp;#43;XIkkW5F4u7hbDMPU4CmEmRLVkkbnDTQZhmEYhmEYhmEYhmEMUNUChrFEU8NhBmWILv6LathXz&amp;#43;XOTYa5fjq8qcOMhfWrSYQpZAKvO1UKfJJgXSMws59oToaZDj2&amp;#43;Tr9OWPiauQaqT4KXm7uwbc6j52SY66MxhdQvAqvrJlQAGREWRjSZpcTaNZaqCK2VB8dABKU1wtetxa9aMxw3/asK2xrdUKSLbZT/q&amp;#43;5oV8PW1UnsODW8K41nJBQ18qi2HZeID4rspjHndM5N5paR77bL/2sEkBVhYb0mMyYqbK2GLaHX9yat605EM1zr&amp;#43;O8pbGvHVu1RE5T/LdSwsTrJHaf0l2pd3lBBM4UQOk4pkncWupCl5tTXOoVzk7ktmgtZ0T7O9VzAX3jxPjIIICtqw0QFeJ0iNE2C2E7f21C8U50X0wxXuG6FbQOo9Z4i/zYdF&amp;#43;1jSXAoC2/rWCJ1XHGjlKa74LTOdYKy2&amp;#43;OM0GvLqXF&amp;#43;Aucmc2Moz0LKOC2iFADk2N8FMymq6ipqiZgvD0872t2uIr&amp;#43;s1mddnA5NMxwA8FUSPCfSStXqQdiQSBtObbnNJdSQrjfrWPWmBZj1oWX2tRRziCteqvC2iyWi2Lskj1pKDcXrSjC1lHdFc&amp;#43;qcn8S5ydwS6tfp0T4OFz7Awov3hcaYcUOQknJvDH&amp;#43;bvovPllKz&amp;#43;0qJv4Nm&amp;#43;IDFDXVi232gOdVWyhWh5xEA&amp;#43;Nv0xdZLG&amp;#43;gNMkZv0sFaCe8OOhbBEL1tXt6ffXiaxR/FINwzli7HRM5N5pZA3siK9rG32FbXOQNpMtfoqUc9aPFOdV5MM5zGxRS27aWnzcr/dDVsvE67YEg&amp;#43;DxCEwawMb6x4T4Xt0bjGc7Nz0DJ/AkwjK9rHYejF61LnuJ8ms78tF3EqVeV&amp;#43;etQ95ayvVjP88X4G1cVxtyMaWWEblZ5Guzirg6L8b6GGjdVpGQzJ5&amp;#43;EcBKdyIQgt3ldheywmcG4yzE1xTZrh/Gn2ReBXihhmMP7cp4U0ytv6ntu6DUu0cgZ53MC0Ib1xxDAM040eSloTUNhgcLIvPfkWhGEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYpqLnJn3Xscdfj00KGZUr2H58ChvNjx51w5xcV9CbJKbi523xn/zD36ahV//7ebN8vaQ/I&amp;#43;H/C05rZ84bZtviiuM7vCo7uidi7vyOQ1Ni&amp;#43;KjTdEdPptKbF/PT36aLvbPi4YLC/&amp;#43;Qf0cpxHMdx1jGcN0vHcRxn6Gj9HdyHu992gbk5OOqYG&amp;#43;B/5iwAAPC8TRu35H6eIqW54ngUQslZ4Ipj&amp;#43;z19fW2i/FUsBzQMuVghBVcc03QXzMAL5SrUOpUD0Ffb30&amp;#43;iIblS6RYedV5jPTfSPEzVsuKSv03TdBfMZsFOtl8Wri0ptFs3reRYxFJhaLtoq7B2kFhxQr&amp;#43;riZp&amp;#43;1xkfNuo03QHYuanp4rZWqkUX3nG0UMSLK03XjCa01WsnDBJ15OK48&amp;#43;RWYmyp97crjkW7o4uRVSKaMx9GXXE095NsuAizqqbqrxZTSMPF5m/kUAnR1NvPToZEWanqvMZ6ihwmWkrnkmaxvdGgBuv0NWxDLNUNtTVgzaQrti1Npzt2JBHrd8rBNH93izpQu0PTyJoupjlqrrM1FPXFSxPl/xE/28KmmUAvjjnf0krmvmVKiHch8T4CAEi&amp;#43;T3D30Ij1eiKa8/7fcfd0WBpXxaJ9PHt6dgEA/IUX7yMA9/lpltcZ7ePZ/SPN4VZa64w/zGt3g/hpNuSKF6/KFQmR6JzXWldzynUmn4ez3J&amp;#43;UY8f8NFhHwwbFEEt1Q6bKyooSsdI3XekrduyNRKTf6fSOOg1qK7V18RB1toYiWhwg2sfeIhuWy1NG5yctbOjFcef7txIDQJ1Czj9fSlp1Eyg/gsdywsy7g/Ms&amp;#43;Gee2Itz1BUv1Rkq1zlUP2vrRA9gDD9phtBcqCF6Yr66kuYLI9WZT3PJ6CdqvRWLWCLWmYj58vC0U1Yp7PpdSUT7nU7PqDPWWaHr4h51dgvFknIOqU2&amp;#43;mJ8WjUEuPkYrMQBAfxbSxBXvwWldPn1v57x5nc/XsRea7w6jtw08PfvV5Q0AyH17&amp;#43;h7m8X7fOn/DTzSxNERPLF6VyBnkxZM&amp;#43;x24VS/QTPRHzvM5T8F5MImP0O50xIgRl7C5GEw1HlM8htRmkp5/04qjz2uLRil/HItN1CpHwF545E0C0Ik0iyecBgjAoz9Dk83DO74D9hZdfTCTfJ2lBwdpjtE77Osb3U3zE3ktjDRc3pDsiNaf4kEZU8LfGHjEP2kO0Z&amp;#43;5OeyvVDbXlLB9/ZC9GZaPbGP1uVXKIViJ0h3UXm6GHop5oH3uLbTWD9PSTXhx3vqU4Pwux4D9zFpREfMRpmKYhQBwbV6UzotV6kYbpFlqn&amp;#43;OTzcA6CU3mGJuJ1c9ylaQhw3ixX2YVO9LZ52e3SwMJ63XukTts6LuAnRKvlw3GXBgAA8dqJtIY0R3Te/CyaiXKdEK&amp;#43;dVetRSv28dlaR/O1QmKZhltqvPS1iqTJkyJmIt&amp;#43;djms4AoGq5UfrdomR/60p34JC7GOtNzURADkU90T4OQy9el&amp;#43;4gfmpfR1Ojjl4cdd7uRGAmxFS&amp;#43;Qb16P69DF&amp;#43;DPcfX9zjAXZICFrIFxO64zX5qp&amp;#43;MkMC/c7w1wt2Sdm13&amp;#43;JNw0/&amp;#43;S5kaKbR7wzDMAzDMAzDMAxzUxSKRXzD3pexlpJ8RPiK7BGrAjEMMxSax&amp;#43;nnzXKgD5IyLrYs39NQpfenyMCNO&amp;#43;5WhmsOSOblCT1aOc5yc&amp;#43;5gJ//ezvgFH8MwDIH/A2IEBsYbdDY8AAAAAElFTkSuQmCC&#34; alt=&#34;error&#34;  /&gt;
+&lt;/p&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>git将本地代码提交到远程仓库</title>
+      <link>http://zhaoguibin.me/posts/git%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Sat, 20 Jan 2018 14:29:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/git%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</guid>
+      <description>touch README.md git init git add README.md git add . git commit -m &amp;#34;first commit&amp;#34; git remote add origin git@xx.xx.xx.xx:repos/xxx/xxx/xxx.git git push -u origin 分支名 可能会遇到这个问题 出现错误的原因是git服务器中的README.md文件不在本地代码目录中，可以通过如下命令进行代码合并
+git pull --rebase origin master </description>
+    </item>
+    <item>
+      <title>php浮点数精确运算</title>
+      <link>http://zhaoguibin.me/posts/php%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E7%A1%AE%E8%BF%90%E7%AE%97/</link>
+      <pubDate>Sat, 20 Jan 2018 14:19:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E7%A1%AE%E8%BF%90%E7%AE%97/</guid>
+      <description>如果用php的+-*/计算浮点数的时候，可能会遇到一些计算结果错误的问题，所以基本上大部分语言都提供了精准计算的类库或函数库，比如php有BC高精确度函数库，下面我们介绍一下一些常用的BC高精确度函数使用。
+bc是Binary Calculator的缩写。bc*函数的参数都是操作数加上一个可选的 [int scale]，比如string bcadd(string $left_operand, string $right_operand[, int $scale])，如果scale没有提供，就用bcscale的缺省值。这里大数直接用一个由0-9组成的string表示，计算结果返回的也是一个 string。
+bcadd — 将两个高精度数字相加 bccomp — 比较两个高精度数字，返回-1, 0, 1 bcdiv — 将两个高精度数字相除 bcmod — 求高精度数字余数 bcmul — 将两个高精度数字相乘 bcpow — 求高精度数字乘方 bcpowmod — 求高精度数字乘方求模，数论里非常常用 bcscale — 配置默认小数点位数，相当于就是Linux bc中的”scale=” bcsqrt — 求高精度数字平方根 bcsub — 将两个高精度数字相减
+首先看一段代码:
+&amp;lt;?php $a = 0.1; $b = 0.7; var_dump(($a + $b) == 0.8); 打印出来的值居然为 boolean false
+这是为啥?PHP手册对于浮点数有以下警告信息:
+Warning 浮点数精度 显然简单的十进制分数如同 0.1 或 0.7 不能在不丢失一点点精度的情况下转换为内部二进制的格式。这就会造成混乱的结果：例如，floor((0.1+0.7)*10) 通常会返回 7 而不是预期中的 8，因为该结果内部的表示其实是类似 7.</description>
+    </item>
+    <item>
+      <title>逢4进5,逢5进10。0,5值不变</title>
+      <link>http://zhaoguibin.me/posts/%E9%80%A24%E8%BF%9B5%E9%80%A25%E8%BF%9B1005%E5%80%BC%E4%B8%8D%E5%8F%98/</link>
+      <pubDate>Tue, 09 Jan 2018 20:04:09 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E9%80%A24%E8%BF%9B5%E9%80%A25%E8%BF%9B1005%E5%80%BC%E4%B8%8D%E5%8F%98/</guid>
+      <description>&amp;lt;?php //逢4进5,逢5进10。0,5值不变 function ceiling($number = 0){ if($number == 0){ return 0; } //这里取出整数 $number = explode(&amp;#39;.&amp;#39;,$number); $number = $number[0]; $cc = $number%10; $price = $number; if($cc &amp;gt; 5){ $price = $number+(10-$cc); }elseif ($cc &amp;gt; 0) { $price = $number+(5-$cc); } return $price; } </description>
+    </item>
+    <item>
+      <title>php下安装event扩展</title>
+      <link>http://zhaoguibin.me/posts/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/</link>
+      <pubDate>Tue, 09 Jan 2018 19:59:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/</guid>
+      <description>安装支持库libevent，需要编译高版本（这里以最新版本release-2.1.8-stable为例）
+wget -c https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz -P /opt/local/src cd /opt/local/src tar -zxvf libevent-2.1.8-stable.tar.gz &amp;amp;&amp;amp; cd libevent-2.1.8-stable ./configure --prefix=/opt/local/libevent make &amp;amp;&amp;amp; make install 安装event库（以event-2.3.0.tgz为例）
+wget -c http://pecl.php.net/get/event-2.3.0.tgz -P /opt/local/src cd /opt/local/src tar -zxvf event-2.3.0.tgz &amp;amp;&amp;amp; cd event-2.3.0 /opt/local/php72/bin/bin/phpize ./configure --with-php-config=/opt/local/php72/bin/php-config --with-event-libevent-dir=/opt/local/libevent/ make &amp;amp;&amp;amp; make install 在php.ini添加下面配置
+extension=event.so </description>
+    </item>
+    <item>
+      <title>编译安装redis</title>
+      <link>http://zhaoguibin.me/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</link>
+      <pubDate>Mon, 08 Jan 2018 20:53:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</guid>
+      <description>一.安装Redis (1) cd /usr/src 进入下载目录
+(1) yum install -y wget gcc make tcl 安装依赖
+(2) redis官网http://www.redis.io下载最新的源码包
+(3) tar -zxvf redis-3.2.2.tar.gz 解压
+(4) cd redis-3.2.2 进入redis目录
+(5) make 编辑
+(6) make test 测试
+测试过程报错
+[exception]: Executing test client: NOREPLICAS Not enough good slaves to write.. NOREPLICAS Not enough good slaves to write. while executing
+这种情况下，可以修改当前目录文件tests/integration/replication-2.tcl，将after 1000改为after 10000以延长等待时间 重新测试
+(7)make install PREFIX=/usr/local/redis PREFIX安装指定目录 否则安装到/usr/local/bin里面了
+(8)启动redis服务 ./redis-server ./redis-conf
+发现很多错误：
+1.
+WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128 echo 511 &amp;gt; /proc/sys/net/core/somaxconn 写到/etc/rc.</description>
+    </item>
+    <item>
+      <title>php导出CSV</title>
+      <link>http://zhaoguibin.me/posts/php%E5%AF%BC%E5%87%BAcsv/</link>
+      <pubDate>Fri, 05 Jan 2018 21:22:14 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E5%AF%BC%E5%87%BAcsv/</guid>
+      <description>&amp;lt;?php //导出的首行标题以及需要导出的字段 $parm = array( &amp;#34;公司名称&amp;#34;=&amp;gt;&amp;#39;business_name&amp;#39;, &amp;#39;公司城市&amp;#39;=&amp;gt;&amp;#39;province&amp;#39;, &amp;#39;公司地址&amp;#39;=&amp;gt;&amp;#39;detail_addr_&amp;#39; ); /** * 导出CSV文件 * @param array $data 数据 * @param array $header_data 首行数据 * @param string $file_name 文件名称 * @param string $body_data 需要导出的字段名 * @return string */ public function export_csv($data = [], $parm = [], $file_name = &amp;#39;&amp;#39;) { header(&amp;#39;Content-Type: application/vnd.ms-excel&amp;#39;); header(&amp;#39;Content-Disposition: attachment;filename=&amp;#39;.$file_name); header(&amp;#39;Cache-Control: max-age=0&amp;#39;); $fp = fopen(&amp;#39;php://output&amp;#39;, &amp;#39;a&amp;#39;); $header_data = array_keys($parm); $body_data = array_values($parm); if (!empty($header_data)) { foreach ($header_data as $key =&amp;gt; $value) { $header_data[$key] = iconv(&amp;#39;utf-8&amp;#39;, &amp;#39;gbk&amp;#39;, $value); } fputcsv($fp, $header_data); } $num = 0; $limit = 100000; //逐行取出数据，不浪费内存 $count = count($data); if ($count &amp;gt; 0) { for ($i = 0; $i &amp;lt; $count; $i++) { $num++; //刷新一下输出buffer，防止由于数据过多造成问题 if ($limit == $num) { ob_flush(); flush(); $num = 0; } $row = []; $export_data = $data[$i]; foreach ($export_data as $key =&amp;gt; $value) { if(!</description>
+    </item>
+    <item>
+      <title>虚拟机克隆centos出现“Device eth0 does not seem to be present”解决办法</title>
+      <link>http://zhaoguibin.me/posts/device-eth0-does-not-seem-to-be-present%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Fri, 05 Jan 2018 21:12:38 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/device-eth0-does-not-seem-to-be-present%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>在virtualBox中克隆出新的CentOS虚拟机时，出现如下问题：
+service network restart Shutting down loopback insterface: [ OK ] Bringing up loopback insterface: [ OK ] Bringing up interface eth0: Device eth0 does not seem to be present,delaying initialization. [FAILED] 用ifconfig查看发现缺少eth0，只有lo；用ifconfig -a查看发现多出了eth1的信息。
+解决办法1：
+mv /etc/sysconfig/network-scripts/ifcfg-eth0 /etcsysconfig/network-scripts/ifcfg-eth1 将eth0的mac地址改为eth1的mac地址，同时改变其DEVICE名称为eth1，再重启网络即可。
+解决办法2：
+rm -rf /etc/udev/rules.d/70-persistent-net.rules reboot 总之，只要保证/etc/sysconfig/network-scripts/ifcfg-eth0 与/etc/udev/rules.d/70-persistent-net.rules的信息一致即可，即网卡地址与网卡编号一致，这样service network restart 就可以配置成功。</description>
+    </item>
+    <item>
+      <title>Laravel运行出错RuntimeException No application encryption key has been specified.</title>
+      <link>http://zhaoguibin.me/posts/laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99runtimeexception-no-application-encryption-key-has-been-specified./</link>
+      <pubDate>Fri, 05 Jan 2018 20:58:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99runtimeexception-no-application-encryption-key-has-been-specified./</guid>
+      <description>在项目根目录放置.env文件
+APP_NAME=Laravel APP_ENV=local APP_KEY= APP_DEBUG=true APP_LOG_LEVEL=debug APP_URL=http://localhost DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=homestead DB_USERNAME=homestead DB_PASSWORD=secret BROADCAST_DRIVER=log CACHE_DRIVER=file SESSION_DRIVER=file SESSION_LIFETIME=120 QUEUE_DRIVER=sync REDIS_HOST=127.0.0.1 REDIS_PASSWORD=null REDIS_PORT=6379 MAIL_DRIVER=smtp MAIL_HOST=smtp.mailtrap.io MAIL_PORT=2525 MAIL_USERNAME=null MAIL_PASSWORD=null MAIL_ENCRYPTION=null PUSHER_APP_ID= PUSHER_APP_KEY= PUSHER_APP_SECRET= 在项目目录下运行:
+php artisan key:generate 该命令会生成APP_KEY并写入到.env文件中，重新运行</description>
+    </item>
+    <item>
+      <title>Laravel访问出错错误信息：`Warning require(vendorautoload.php) failed to open stream No such file or dire</title>
+      <link>http://zhaoguibin.me/posts/laravel%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AFwarning-requirevendorautoload.php-failed-to-open-stream-no-such-file-or-dire/</link>
+      <pubDate>Fri, 05 Jan 2018 20:55:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/laravel%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AFwarning-requirevendorautoload.php-failed-to-open-stream-no-such-file-or-dire/</guid>
+      <description>Warning: require(/opt/project/erp_api/public/../vendor/autoload.php): failed to open stream: No such file or directory in /opt/project/erp_api/public/index.php on line 24
+Fatal error: require(): Failed opening required &amp;lsquo;/opt/project/erp_api/public/../vendor/autoload.php&amp;rsquo; (include_path=&amp;rsquo;.:&amp;rsquo;) in /opt/project/erp_api/public/index.php on line 24
+原因：网站根目录下缺少vendor这个存放laraver依赖包的目录 解决方法：使用composer install进行安装 （没有安装过的情况下，以前安装过的话使用：composer update）</description>
+    </item>
+    <item>
+      <title>CentOS7下安装Python3及Pip3并保留Python2</title>
+      <link>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85python3%E5%8F%8Apip3%E5%B9%B6%E4%BF%9D%E7%95%99python2/</link>
+      <pubDate>Tue, 02 Jan 2018 21:14:48 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85python3%E5%8F%8Apip3%E5%B9%B6%E4%BF%9D%E7%95%99python2/</guid>
+      <description>安装依赖环境 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 浏览器打开 https://www.python.org/ftp/python/ 查看最新的Python版本，标记为3.A.B wget https://www.python.org/ftp/python/3.A.B/Python-3.A.B.tgz 创建Python3的目录 mkdir /usr/local/python3 解压下载文件并切换目录 tar -zxvf Python-3.A.B.tgz cd Python-3.A.B 执行 ./configure --prefix=/usr/local/python3 make &amp;amp;&amp;amp; make install 创建Python3的软链接 ln -s /usr/local/python3/bin/python3 /usr/bin/python3 创建Pip3的软链接 ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3 测试命令 python3 和 pip3 python3 pip3 因为执行yum需要python2版本，所以我们还要修改yum的配置，执行： vim /usr/bin/yum 把#! /usr/bin/python修改为#! /usr/bin/python2
+同理 vim /usr/libexec/urlgrabber-ext-down 文件里面的#! /usr/bin/python 也要修改为#! /usr/bin/python2
+安装保留了原python命令调用python2
+安装完成
+ps 安装报错 Q： ModuleNotFoundError: No module named &amp;#39;_ctypes&amp;#39; A： yum -y install gcc gcc-c++ yum -y install zlib zlib-devel yum -y install libffi-devel Q：configure: error: no acceptable C compiler found in $PATH A：yum install gcc </description>
+    </item>
+    <item>
+      <title>解决&#34;configure error no acceptable C compiler found in $PATH&#34;</title>
+      <link>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3configure-error-no-acceptable-c-compiler-found-in-path/</link>
+      <pubDate>Tue, 02 Jan 2018 21:12:10 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3configure-error-no-acceptable-c-compiler-found-in-path/</guid>
+      <description>解决方法： 安装gcc
+yum install gcc </description>
+    </item>
+    <item>
+      <title>php的socket通信</title>
+      <link>http://zhaoguibin.me/posts/php%E7%9A%84socket%E9%80%9A%E4%BF%A1/</link>
+      <pubDate>Tue, 02 Jan 2018 20:42:46 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E7%9A%84socket%E9%80%9A%E4%BF%A1/</guid>
+      <description>对TCP/IP、UDP、Socket编程这些词你不会很陌生吧？随着网络技术的发展，这些词充斥着我们的耳朵。那么我想问：
+什么是TCP/IP、UDP？ Socket在哪里呢？ Socket是什么呢？ 你会使用它们吗？ 什么是TCP/IP、UDP？ TCP/IP（Transmission Control Protocol/Internet Protocol）即传输控制协议/网间协议，是一个工业标准的协议集，它是为广域网（WANs）设计的。 UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是属于TCP/IP协议族中的一种。 这里有一张图，表明了这些协议的关系。
+TCP/IP协议族包括运输层、网络层、链路层。
+Socket在哪里呢？ 在图1中，我们没有看到Socket的影子，那么它到底在哪里呢？还是用图来说话，一目了然。
+原来Socket在这里。
+Socket是什么呢？ Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。 你会使用它们吗？ 前人已经给我们做了好多的事了，网络间的通信也就简单了许多，但毕竟还是有挺多工作要做的。以前听到Socket编程，觉得它是比较高深的编程知识，但是只要弄清Socket编程的工作原理，神秘的面纱也就揭开了。 一个生活中的场景。你要打电话给一个朋友，先拨号，朋友听到电话铃声后提起电话，这时你和你的朋友就建立起了连接，就可以讲话了。等交流结束，挂断电话结束此次交谈。 生活中的场景就解释了这工作原理，也许TCP/IP协议族就是诞生于生活中，这也不一定。
+先从服务器端说起。服务器端先初始化Socket，然后与端口绑定(bind)，对端口进行监听(listen)，调用accept阻塞，等待客户端连接。在这时如果有个客户端初始化一个Socket，然后连接服务器(connect)，如果连接成功，这时客户端与服务器端的连接就建立了。客户端发送数据请求，服务器端接收请求并处理请求，然后把回应数据发送给客户端，客户端读取数据，最后关闭连接，一次交互结束。
+socket相关函数： &amp;lt;?php socket_accept() 接受一个Socket连接 socket_bind() 把socket绑定在一个IP地址和端口上 socket_clear_error() 清除socket的错误或者最后的错误代码 socket_close() 关闭一个socket资源 socket_connect() 开始一个socket连接 socket_create_listen() 在指定端口打开一个socket监听 socket_create_pair() 产生一对没有区别的socket到一个数组里 socket_create() 产生一个socket，相当于产生一个socket的数据结构 socket_get_option() 获取socket选项 socket_getpeername() 获取远程类似主机的ip地址 socket_getsockname() 获取本地socket的ip地址 socket_iovec_add() 添加一个新的向量到一个分散/聚合的数组 socket_iovec_alloc() 这个函数创建一个能够发送接收读写的iovec数据结构 socket_iovec_delete() 删除一个已经分配的iovec socket_iovec_fetch() 返回指定的iovec资源的数据 socket_iovec_free() 释放一个iovec资源 socket_iovec_set() 设置iovec的数据新值 socket_last_error() 获取当前socket的最后错误代码 socket_listen() 监听由指定socket的所有连接 socket_read() 读取指定长度的数据 socket_readv() 读取从分散/聚合数组过来的数据 socket_recv() 从socket里结束数据到缓存 socket_recvfrom() 接受数据从指定的socket，如果没有指定则默认当前socket socket_recvmsg() 从iovec里接受消息 socket_select() 多路选择 socket_send() 这个函数发送数据到已连接的socket socket_sendmsg() 发送消息到socket socket_sendto() 发送消息到指定地址的socket socket_set_block() 在socket里设置为块模式 socket_set_nonblock() socket里设置为非块模式 socket_set_option() 设置socket选项 socket_shutdown() 这个函数允许你关闭读、写、或者指定的socket socket_strerror() 返回指定错误号的详细错误 socket_write() 写数据到socket缓存 socket_writev() 写数据到分散/聚合数组 案例一：socket通信演示 服务器端：</description>
+    </item>
+    <item>
+      <title>php设计模式概述</title>
+      <link>http://zhaoguibin.me/posts/php%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Sat, 23 Dec 2017 17:18:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/</guid>
+      <description>工厂模式： 我们定义一个专门用来创建其它对象的类。 这样在需要调用某个类的时候，我们就不需要去使用new关键字实例化这个类，而是通过我们的工厂类调用某个方法得到类的实例。 好处：当我们对象所对应的类的类名发生变化的时候，我们只需要改一下工厂类类里面的实例化方法即可。不需要外部改所有的地方。
+单例模式（口诀：三私一公） class Singleton{ //私有化构造方法，禁止外部实例化对象 private function __construct(){} //私有化__clone，防止对象被克隆 private function __clone(){} //私有化内部实例化的对象 private static $instance = null; // 公有静态实例方法 public static function getInstance(){ if(self::$instance == null){ //内部实例化对象 self::$instance = new self(); } return self::$instance; } } 注册器模式： 用来将一些对象注册到全局的注册树上，可以在任何地方访问。
+set():将对象隐射到全局树上， _unset():从树上移除。 get():去注册到树上的对象。 适配器模式： 1、可以将截然不同的函数接口封装成统一的API 2、实际应用举例：PHP的数据库操作有mysql/mysqli/pdo 三种，可以用适配器模式统一成一致。类似的场景还有cache适配器，可以将memcache/redis/file/apc等不同的缓存函数统一成一致的接口。
+策略模式： 1、策略模式，将一组特定的行为和算法封装成类，以适应某些特定的上下文环境，这种模式就是策略模式 2、实际应用举例，假如一个电商网站系统，针对男性女性用户要各自跳转到不同的商品类名，并且所有广告位展示不同的广告，传统的做法是加入if&amp;hellip;else&amp;hellip; 判断。 如果新增加一种用户类型，只需要新增加一种策略即可 3、使用策略模式可以实现Ioc ,依赖倒置，控制反转
+数据对象映射模式： 1、数据对象映射模式，是将对象和数据存储映射起来，对一个对象的操作会映射为对数据存储的操作，比我们在代码中new一个对象，那么使用该模式就可以将对对象的一些操作，比如说我们设置的一些属性，它就会自动保存到数据库，跟数据库中表的一条记录对应起来 实例，在代码中实现数据对象映射模式，我们将写一个ORM类，将复杂的SQL语句映射成对象属性的操作 结合使用数据对象映射模式，工厂模式，注册模式
+对象关系映射 对象关系映射（英语：Object Relation Mapping，简称ORM，或O/RM，或O/R mapping），是一种程序技术，用于实现面向对象编程语言里不同类型系统的数据之间的转换[1] 。从效果上说，它其实是创建了一个可在编程语言里使用的&amp;ndash;“虚拟对象数据库”。 面向对象是从软件工程基本原则（如耦合、聚合、封装）的基础上发展起来的，而关系数据库则是从数学理论发展而来的，两套理论存在显著的区别。为了解决这个不匹配的现象，对象关系映射技术应运而生 简单的说：ORM相当于中继数据
+适配器模式： 1、可以将截然不同的函数接口封装成统一的API 2、实际应用举例：PHP的数据库操作有mysql/mysqli/pdo 三种，可以用适配器模式统一成一致。类似的场景还有cache适配器，可以将memcache/redis/file/apc等不同的缓存函数统一成一致的接口。</description>
+    </item>
+    <item>
+      <title>nginx配置HTTPS</title>
+      <link>http://zhaoguibin.me/posts/nginx%E9%85%8D%E7%BD%AEhttps/</link>
+      <pubDate>Sat, 16 Dec 2017 19:58:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/nginx%E9%85%8D%E7%BD%AEhttps/</guid>
+      <description>PS：设置HTTPS nginx需要添加ssl模块 &amp;ndash;with-http_ssl_module 在nginx的conf目录下新增ssl目录，并进入。 生成服务器端的私钥(key文件): openssl genrsa -des3 -out server.key 2048 运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过openssl提供的命令或API)都需输入口令.如果觉得不方便,也可以去除这个口令,但一定要采取其他的保护措施! 去除key文件口令的命令：
+openssl rsa -in server.key -out server.key 用刚生成的服务器私钥，生成证书请求文件。 openssl req -new -key server.key -out server.csr 生成Certificate Signing Request（CSR）,生成的csr文件交给CA签名后形成服务端自己的证书.
+同样的命令生成生成客户端的私钥(key 文件)和证书请求文件Certificate Signing Request（CSR） openssl genrsa -des3 -out client.key 2048 openssl req -new -key client.key -out client.csr 生成的CSR证书文件必须有CA的签名才可形成证书。这里制作自己的CA， 这时生成一个KEY文件ca.key 和根证书ca.crt。默认生成CA证书有效期是一个月，可以添加-days 365,设置有效期即为365天。 openssl req -new -x509 -keyout ca.key -out ca.crt -days 365 签署证书准备工作： [root@centos65 ssl]# vim /etc/pki/tls/openssl.cnf #修改如下 dir = /etc/pki/CA #根据openssl.</description>
+    </item>
+    <item>
+      <title>Linux解决Warning mysql_connect() Headers and client library minor version mismatch. 警告</title>
+      <link>http://zhaoguibin.me/posts/linux%E8%A7%A3%E5%86%B3warning-mysql_connect-headers-and-client-library-minor-version-mismatch.-%E8%AD%A6%E5%91%8A/</link>
+      <pubDate>Sat, 16 Dec 2017 18:57:38 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E8%A7%A3%E5%86%B3warning-mysql_connect-headers-and-client-library-minor-version-mismatch.-%E8%AD%A6%E5%91%8A/</guid>
+      <description>yum remove php-mysql yum install php70w-mysqlnd </description>
+    </item>
+    <item>
+      <title>centos下彻底删除MYSQL 和重新安装MYSQL</title>
+      <link>http://zhaoguibin.me/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</link>
+      <pubDate>Sat, 16 Dec 2017 18:54:33 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</guid>
+      <description>1 删除Mysql
+yum remove mysql mysql-server mysql-libs mysql-server; find / -name mysql 将找到的相关东西delete掉； rpm -qa|grep mysql(查询出来的东东yum remove掉) 2 安装Mysql
+yum install mysql mysql-server mysql-libs mysql-server; </description>
+    </item>
+    <item>
+      <title>ERROR 1044 (42000) Access denied for user &#39;&#39;@&#39;localhost&#39; to database &#39;mysql&#39;</title>
+      <link>http://zhaoguibin.me/posts/error-1044-42000-access-denied-for-user-@localhost-to-database-mysql/</link>
+      <pubDate>Sat, 16 Dec 2017 18:51:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/error-1044-42000-access-denied-for-user-@localhost-to-database-mysql/</guid>
+      <description>方法一： 1.关闭mysql
+service mysqld stop 2.屏蔽权限
+mysqld_safe --skip-grant-table 屏幕出现： Starting demo from &amp;hellip;..
+3.新开起一个终端输入
+mysql -u root mysql mysql&amp;gt; UPDATE user SET Password=PASSWORD(&amp;#39;newpassword&amp;#39;) where USER=&amp;#39;root&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES;//记得要这句话，否则如果关闭先前的终端，又会出现原来的错误 mysql&amp;gt;exit; 方法二： 1.关闭mysql
+service mysqld stop 2.屏蔽权限
+mysqld_safe --skip-grant-table 屏幕出现： Starting demo from &amp;hellip;..
+3.新开起一个终端输入
+mysql -u root mysql mysql&amp;gt; delete from user where USER=&amp;#39;&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES;//记得要这句话，否则如果关闭先前的终端，又会出现原来的错误 mysql&amp;gt;exit; </description>
+    </item>
+    <item>
+      <title>mysql更改数据库目录</title>
+      <link>http://zhaoguibin.me/posts/mysql%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95/</link>
+      <pubDate>Sat, 16 Dec 2017 18:48:32 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95/</guid>
+      <description>修改 my.cnf
+datadir=/www/mysql/data socket=/www/mysql/data/mysql.sock 其实这里不需要复制/var/lib/mysql下的文件到新目录，修改完配置之后，mysql会自动复制/var/lib/mysql下的文件到新目录
+关闭SELinux
+vim /etc/selinux/config #编辑文件 # This file controls the state of SELinux on the system. # SELINUX= can take one of these three values: # enforcing - SELinux security policy is enforced. #permissive - SELinux prints warnings instead of enforcing. #disabled - No SELinux policy is loaded. SELINUX=enforcing # SELINUXTYPE= can take one of these two values: # targeted - Targeted processes are protected, # mls - Multi Level Security protection.</description>
+    </item>
+    <item>
+      <title>centos7 yum安装lnmp</title>
+      <link>http://zhaoguibin.me/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</link>
+      <pubDate>Sat, 09 Dec 2017 01:23:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</guid>
+      <description>PHP7 1.安装epel-release 通过命令：
+yum -y install epel-release 成功安装。
+2.安装PHP7 终端再次运行如下命令：
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm 成功获取PHP7的yum源，然后再执行：
+php安装以及安装扩展 yum install php70w php70w-devel php70w-fpm php70w-gd php70w-mysqli php70w-mbstring nginx centos7系统库中默认是没有nginx的rpm包的，所以我们自己需要先更新下rpm依赖库
+1.使用yum安装nginx需要包括Nginx的库，安装Nginx的库 rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm 2.使用下面命令安装nginx yum install nginx 3.启动Nginx service nginx start 或
+systemctl start nginx.service mysql 1.下载mysql的repo源 wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm 2.安装mysql-community-release-el7-5.noarch.rpm包 sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm 安装这个包后，会获得两个mysql的yum repo源：/etc/yum.repos.d/mysql-community.repo，/etc/yum.repos.d/mysql-community-source.repo。
+3.安装mysql sudo yum install mysql-server 根据提示安装就可以了,不过安装完成后没有密码,需要重置密码
+4.重置mysql密码 mysql -u root 登录时有可能报这样的错：ERROR 2002 (HY000): Can‘t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.</description>
+    </item>
+    <item>
+      <title>phpstorm中配置远程调试xdebug</title>
+      <link>http://zhaoguibin.me/posts/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</link>
+      <pubDate>Sun, 03 Dec 2017 19:19:20 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</guid>
+      <description>这里说的是真正的远程调试，不是本地，本地不需要安装任何php程序！！！
+这里略去xdebug的安装，安装很简单可以下载源码包，动态编译进去！
+环境：
+Dev 服务器(IP:192.168.3.2)，安装phpstorm，用来做开发任务！
+Server服务器（IP:192.168.3.9），web服务器(php架构)，用来浏览网页用！
+这里的两台服务器在同一个网段下，可以互通！
+在Server服务器上的php.ini里配置xdebug如下：
+[xdebug] zend_extension=xdebug.so xdebug.remote_enable=1 xdebug.remote_handler=dbgp xdebug.remote_mode=req xdebug.remote_host=192.168.3.9 xdebug.remote_port=9000 xdebug.idekey=&amp;#34;PHPSTORM&amp;#34; remote_host参数的值填写Dev 服务器(开发机器)的IP地址。
+remote_port填写9000，只要没有被其它程序占用，就可以了，可以不是9000。
+接下来开始设置phpstorm的参数：
+快捷键(Ctrl + Alt + S)打开窗口：
+打开phpstorm的配置对话框，找到Languages &amp;amp; Frameworks &amp;raquo; PHP &amp;raquo;Debug 窗口
+这里填写的Debug port为：9000，与php.ini里配置的端口号保持一致!
+接下来点选Server选项，点击绿色的 “+” 新建Server，并根据如下设置填写你相对应的内容！
+因为是远程调试，所以这里的Use Path mappings 一定要选，并且本地与远程文件要映射好。
+Debugger里选择：Xdebug ！
+接下来配置Edit Configurations( Run &amp;raquo; Edit Configurations)
+点击后弹出窗口如下：
+选中PHP Web Application ，在右边选择前面新增的Server：ecstore，保存。
+这里其实只是用来配置一个模板，我之前只配置了这个，没有新增Debug选项，总是不能调试，后来参照资料才想明白，这里其实只是模板，配置好了后，可以直接新增选择对应模板就可以了。
+现在来新增Debug选项：
+点击后新增调试选项：
+好了。
+在php代码里打个断点开始调试吧：)
+然后，点击调试，开始愉快的干活吧！！！
+看看调试效果：
+这里真的没有什么DBGp概念，我们没有用到，也没有什么点击什么绿色的电话图标启动Start Listening&amp;hellip;，有吗？？
+没用，真的用不到那么些概念，网上一大堆以讹传讹的贴子，真是越看越迷糊！！！
+就这么愉快的调试吧 :)
+关于DBGp，其实就是个代理，把phpstorm设置成一个代理，但是对于我来说，真的需要什么代理吗？？？
+就这样吧，最简单的远程调试，去粗到精的成果！
+浏览器设置 下载谷歌浏览器的扩展程序chrome helper，安装好后，在选项里找到IDE key，在其下拉列表中选择PhpStorm。如下图：</description>
+    </item>
+    <item>
+      <title>linux下php扩展mysqli的支持</title>
+      <link>http://zhaoguibin.me/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</link>
+      <pubDate>Sun, 03 Dec 2017 17:49:50 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</guid>
+      <description>mysqli是优化后的mysql，具体的优点baidu下就ok了
+cd php-5.2.8 在这下面有个ext文件夹里有mysqli cd ext/mysqli linux下将源码文件编译应该都有configure吧，可这里没有，在我们已经安装php后，php5这个文件夹里的命令目录bin里有一个文件叫phpize，用它就可以生成configure文件啦，继续
+/usr/local/php5/bin/phpize 这里回车运行，执行完后就出了configure文件，
+./configure --prefix=/opt/local/mysqli --with-php-config=/opt/local/php/bin/php-config --with-mysqli=/opt/local/mysql/bin/mysql_config 直接回车，不出问题就继续。。 make make test make install (不出错就会显示Installing shared extensions: /usr/local/php5/lib/php/extensions/no-debug-non-zts-20041030/) 现在mysqli.so文件就出来啦。。
+直接在php.ini里把这个文件加载就OK啦。。
+extension_dir=”/usr/local/php5/ext” extension=mysqli.so 把上面第一行找到修改成这个,然后再把第二行加入。。wq保存退出。
+把mysqli.so这个文件cp到/usr/local/php5/ext下
+重启apache.</description>
+    </item>
+    <item>
+      <title>在安装mysqli的时候，出现error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory</title>
+      <link>http://zhaoguibin.me/posts/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-no-such-file-or-directory/</link>
+      <pubDate>Sun, 03 Dec 2017 17:42:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-no-such-file-or-directory/</guid>
+      <description>直接修改源码，把找不到的那个头文件的路径修改为绝对路径，编译通过了，也能正常使用
+pwd /home/neo/tools/php-5.5.28/ext/mysqli vim mysqli_api.c 把第36行的 #include &amp;#34;ext/mysqlnd/mysql_float_to_double.h&amp;#34; 修改为 #include &amp;#34;/home/neo/tools/php-5.5.28/ext/mysqlnd/mysql_float_to_double.h&amp;#34; </description>
+    </item>
+    <item>
+      <title>网络连接以及下载</title>
+      <link>http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Sun, 03 Dec 2017 17:40:49 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/</guid>
+      <description>wget 指定本定文件夹和保存为特定名称 1. 在shell 中执行以下命令 wget -P /root/test &amp;#34;http://www.baidu.com/index.html&amp;#34; 会把 index.html 文件保存到 &amp;#34;/root/test&amp;#34; 目录下. 2. 执行 wget -O &amp;#34;baidu.html&amp;#34; &amp;#34;http://www.baidu.com/index.html&amp;#34; 会把 index.hmtl 保存到当前目录, 命令为 &amp;#34;baidu.html&amp;#34;. 3. 执行 wget -P /root/test -O &amp;#34;baidu.html&amp;#34; &amp;#34;http://www.baidu.com/index.html&amp;#34; 的结果和 2 相同, 并不会保存到 &amp;#34;/root/test&amp;#34; 目录下. 在linux命令下如何访问一个url？ 1.elinks - lynx-like替代角色模式WWW的浏览器 例如： elinks --dump http://www.baidu.com 2.wget 这个会将访问的首页下载到本地 [root@el5-mq2 ~]# wget http://www.baidu.com --2011-10-17 16:30:10-- http://www.baidu.com/ Resolving www.baidu.com... 119.75.218.45, 119.75.217.56 Connecting to www.baidu.com|119.75.218.45|:80... connected. HTTP request sent, awaiting response... 200 OK Length: 8403 (8.</description>
+    </item>
+    <item>
+      <title>使用crontab，让linux定时执行shell脚本</title>
+      <link>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sun, 03 Dec 2017 17:37:57 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/</guid>
+      <description>使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行 入门 crontab –e 这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行： 0 0 * * * /home/linrui/XXXXXXXX.sh 这将会在每天凌晨运行 指定的.sh文件 Cron 各项的描述 以下是 crontab 文件的格式： {minute} {hour} {day-of-month} {month} {day-of-week} {full-path-to-shell-script} o minute: 区间为 0 – 59 o hour: 区间为0 – 23 o day-of-month: 区间为0 – 31 o month: 区间为1 – 12. 1 是1月. 12是12月. o Day-of-week: 区间为0 – 7. 周日可以是0或7. Crontab 示例 1、在 凌晨00:01运行 1 0 * * * /home/linrui/XXXX.sh 2、每个工作日23:59都进行备份作业。 59 11 * * 1,2,3,4,5 /home/linrui/XXXX.</description>
+    </item>
+    <item>
+      <title>迁移数据库：直接复制数据表文件到数据库</title>
+      <link>http://zhaoguibin.me/posts/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Sun, 03 Dec 2017 17:35:55 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description>把目的数据库里面的 *.err 文件，ib_logfile 文件删除 备注：经测试，源mysql的安装目录及数据文件目录 可以与 目标Mysql的安装目录及数据文件目录 不一致。 此时，只需要拷贝所需移动的dbname及&amp;#39;mysql&amp;#39;和&amp;#39;ibdata1&amp;#39;，即可。 </description>
+    </item>
+    <item>
+      <title>查看linux中某个端口（port）是否被占用</title>
+      <link>http://zhaoguibin.me/posts/%E6%9F%A5%E7%9C%8Blinux%E4%B8%AD%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3port%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8/</link>
+      <pubDate>Sun, 03 Dec 2017 17:32:46 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%9F%A5%E7%9C%8Blinux%E4%B8%AD%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3port%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8/</guid>
+      <description>1.使用lsof
+lsof -i:端口号查看某个端口是否被占用
+2.使用netstat
+使用netstat -anp|grep 80</description>
+    </item>
+    <item>
+      <title>编辑-自定义命令</title>
+      <link>http://zhaoguibin.me/posts/%E7%BC%96%E8%BE%91-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sun, 03 Dec 2017 17:30:43 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%BC%96%E8%BE%91-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/</guid>
+      <description>vim ~/.bashrc example: alias codedir=&amp;#39;cd /opt/local/www/project&amp;#39; </description>
+    </item>
+    <item>
+      <title>yum-y-install与yum-install有什么不同</title>
+      <link>http://zhaoguibin.me/posts/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</link>
+      <pubDate>Sun, 03 Dec 2017 17:28:57 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</guid>
+      <description>yum -y install 包名（支持*） ：自动选择y，全自动 yum install 包名（支持*） ：手动选择y or n yum remove 包名（不支持*） rpm -ivh 包名（支持*）：安装rpm包 rpm -e 包名（不支持*）：卸载rpm包 </description>
+    </item>
+    <item>
+      <title>windows下用navicat远程链接虚拟机Linux下MySQL数据库</title>
+      <link>http://zhaoguibin.me/posts/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BAlinux%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Sun, 03 Dec 2017 17:25:46 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BAlinux%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description>手动增加可以远程访问数据库的用户。
+方法一、本地登入mysql，更改 “mysql” 数据库里的 “user” 表里的 “host” 项，将”localhost”改为”%”
+mysql -u root -proot mysql&amp;gt;use mysql; mysql&amp;gt;update user set host = &amp;#39;%&amp;#39; where user = &amp;#39;root&amp;#39;; mysql&amp;gt;flush privileges; mysql&amp;gt;select host, user from user; 方法二、直接授权(推荐)
+从任何主机上使用root用户，密码：youpassword（你的root密码）连接到mysql服务器：
+mysql -u root -proot mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &amp;#39;root&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;youpassword&amp;#39; WITH GRANT OPTION; mysql&amp;gt;flush privileges; </description>
+    </item>
+    <item>
+      <title>ss服务端安装libsodium支持chacha20</title>
+      <link>http://zhaoguibin.me/posts/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/</link>
+      <pubDate>Sun, 03 Dec 2017 17:21:19 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/</guid>
+      <description>ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported.
+centos：
+yum -y groupinstall &amp;#34;Development Tools&amp;#34; wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;amp;&amp;amp; cd libsodium-1.0.11./configure &amp;amp;&amp;amp; make -j2 &amp;amp;&amp;amp; make install echo /usr/local/lib &amp;gt;/etc/ld.so.conf.d/usr_local_lib.confldconfig ubuntu/debian： apt-get install build-essential wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;amp;&amp;amp; cd libsodium-1.0.11./configure &amp;amp;&amp;amp; make -j2 &amp;amp;&amp;amp; make installldconfig 如果曾经安装过旧版本，亦可重复用以上步骤更新到最新版，仅1.0.4或以上版本支持chacha20-ietf </description>
+    </item>
+    <item>
+      <title>ssh远程登录命令简单实例</title>
+      <link>http://zhaoguibin.me/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Sun, 03 Dec 2017 17:19:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</guid>
+      <description>ssh命令用于远程登录上Linux主机。 常用格式：ssh [-l login_name] [-p port] [user@]hostname 更详细的可以用ssh -h查看。 举例 不指定用户： ssh 192.168.0.11 指定用户： ssh -l root 192.168.0.11 ssh root@192.168.0.11 如果修改过ssh登录端口的可以： ssh -p 12333 192.168.0.11 ssh -l root -p 12333 216.230.230.114 ssh -p 12333 root@216.230.230.114 另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。 编辑配置文件： vim /etc/ssh/sshd_config 找到#Port 22，去掉注释，修改成一个五位的端口： Port 12333 找到#PermitRootLogin yes，去掉注释，修改为： PermitRootLogin no 重启sshd服务： service sshd restart </description>
+    </item>
+    <item>
+      <title>php-fpm设置socket方式连接FastCGI</title>
+      <link>http://zhaoguibin.me/posts/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5fastcgi/</link>
+      <pubDate>Sun, 03 Dec 2017 17:16:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5fastcgi/</guid>
+      <description>nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。
+socket方式不会走到tcp层，tcp方式则会走到ip层。因此，理论上说socket连接方式效率会更好一点。 TCP和unix domain socket方式对比
+TCP是使用TCP端口连接127.0.0.1:9000
+Socket是使用unix domain socket连接套接字/dev/shm/php-fpm.sock
+修改php-fpm.conf配置
+#listen = 127.0.0.1:9000 listen=/dev/shm/php-fpm.sock #/dev/shm/为内存文件系统，注意 确保可读写 listen.owner=apache #注意自己的用户和组 listen.group=apache 修改nginx.conf配置
+#fastcgi_pass 127.0.0.1:9000; #将相应的如上内容修改如下 fastcgi_pass unix:/dev/shm/php-fpm.sock; 重启nginx和php-fpm
+service nginx restart /usr/local/nginx/sbin/nginx -s reload </description>
+    </item>
+    <item>
+      <title>PDO-MYSQL-make-pdo-mysql-lo-Error-1</title>
+      <link>http://zhaoguibin.me/posts/pdo-mysql-make-pdo-mysql-lo-error-1/</link>
+      <pubDate>Sun, 03 Dec 2017 17:13:16 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/pdo-mysql-make-pdo-mysql-lo-error-1/</guid>
+      <description>编译安装PDO_MYSQL拓展模块，总是提示
+In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31: /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31: /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’ /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’ /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’ make: *** [pdo_mysql.lo] Error 1 这是因为这是因为在编译时需要 MySQL 的头的文件。而它按默认搜索找不到头文件的位置，所以才出现这个问题。通过软连接把MySQL头文件对应到/usr/local/include/下就好 比如你的MySQL安装文件位于/usr/local/mysql，那么就执行以下命令：
+ln -s /usr/local/mysql/include/* /usr/local/include/ </description>
+    </item>
+    <item>
+      <title>NGINX-启动-warn-conflicting-server-name-“xxx-com”-on-0-0-0-0-80-ignored原因分析</title>
+      <link>http://zhaoguibin.me/posts/nginx-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-xxx-com-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sun, 03 Dec 2017 17:10:19 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/nginx-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-xxx-com-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</guid>
+      <description>报错如下：
+nginx: [warn] conflicting server name “www.xxx.com” on 0.0.0.0:80, ignored 域名重复配置所致</description>
+    </item>
+    <item>
+      <title>nginx配置location总结及rewrite规则写法</title>
+      <link>http://zhaoguibin.me/posts/nginx%E9%85%8D%E7%BD%AElocation%E6%80%BB%E7%BB%93%E5%8F%8Arewrite%E8%A7%84%E5%88%99%E5%86%99%E6%B3%95/</link>
+      <pubDate>Sun, 03 Dec 2017 17:07:09 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/nginx%E9%85%8D%E7%BD%AElocation%E6%80%BB%E7%BB%93%E5%8F%8Arewrite%E8%A7%84%E5%88%99%E5%86%99%E6%B3%95/</guid>
+      <description>location正则写法 一个示例：
+location = / { # 精确匹配 / ，主机名后面不能带任何字符串 [ configuration A ] } location / { # 因为所有的地址都以 / 开头，所以这条规则将匹配到所有请求 # 但是正则和最长字符串会优先匹配 [ configuration B ] } location /documents/ { # 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索 # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条 [ configuration C ] } location ~ /documents/Abc { # 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索 # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条 [ configuration CC ] } location ^~ /images/ { # 匹配任何以 /images/ 开头的地址，匹配符合以后，停止往下搜索正则，采用这一条。 [ configuration D ] } location ~* \.</description>
+    </item>
+    <item>
+      <title>nginx-php-fpm出现502-bad-gateway错误解决方法</title>
+      <link>http://zhaoguibin.me/posts/nginx-php-fpm%E5%87%BA%E7%8E%B0502-bad-gateway%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sun, 03 Dec 2017 17:05:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/nginx-php-fpm%E5%87%BA%E7%8E%B0502-bad-gateway%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>1.或者php-cgi端口和nginx配置不一致，这是比较低级的错误
+2.php-fpm没有启动,到php-fpm所在目录启动
+3.php-fpm配置文件user和group配置和Nginx不一致
+4.在centos7中user和group修改在/opt/local/php/etc/php-fpm.d/www.conf里面</description>
+    </item>
+    <item>
+      <title>nginx-fastcgi-param解释</title>
+      <link>http://zhaoguibin.me/posts/nginx-fastcgi-param%E8%A7%A3%E9%87%8A/</link>
+      <pubDate>Sun, 03 Dec 2017 17:03:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/nginx-fastcgi-param%E8%A7%A3%E9%87%8A/</guid>
+      <description>fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;#脚本文件请求的路径 fastcgi_param QUERY_STRING $query_string; #请求的参数;如?app=123 fastcgi_param REQUEST_METHOD $request_method; #请求的动作(GET,POST) fastcgi_param CONTENT_TYPE $content_type; #请求头中的Content-Type字段 fastcgi_param CONTENT_LENGTH $content_length; #请求头中的Content-length字段。 fastcgi_param SCRIPT_NAME $fastcgi_script_name; #脚本名称 fastcgi_param REQUEST_URI $request_uri; #请求的地址不带参数 fastcgi_param DOCUMENT_URI $document_uri; #与$uri相同。 fastcgi_param DOCUMENT_ROOT $document_root; #网站的根目录。在server配置中root指令中指定的值 fastcgi_param SERVER_PROTOCOL $server_protocol; #请求使用的协议，通常是HTTP/1.0或HTTP/1.1。 fastcgi_param GATEWAY_INTERFACE CGI/1.1; #cgi 版本 fastcgi_param SERVER_SOFTWARE nginx/$nginx_version; #nginx 版本号，可修改、隐藏 fastcgi_param REMOTE_ADDR $remote_addr; #客户端IP fastcgi_param REMOTE_PORT $remote_port; #客户端端口 fastcgi_param SERVER_ADDR $server_addr; #服务器IP地址 fastcgi_param SERVER_PORT $server_port; #服务器端口 fastcgi_param SERVER_NAME $server_name; #服务器名，域名在server配置中指定的server_name #fastcgi_param PATH_INFO $path_info; #可自定义变量 #PHP only, required if PHP was built with --enable-force-cgi-redirect #fastcgi_param REDIRECT_STATUS 200; 在php可打印出上面的服务环境变量 如：echo $_SERVER[&amp;#39;REMOTE_ADDR&amp;#39;] </description>
+    </item>
+    <item>
+      <title>nginx-alert-kill-646-1-failed-3-No-such-process-解决方法</title>
+      <link>http://zhaoguibin.me/posts/nginx-alert-kill-646-1-failed-3-no-such-process-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sun, 03 Dec 2017 17:00:05 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/nginx-alert-kill-646-1-failed-3-no-such-process-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>./nginx -s reload nginx: [alert] kill(1708, 1) failed (3: No such process) /opt/local/nginx/sbin/nginx -c /opt/local/nginx/conf/nginx.conf /opt/local/nginx/sbin/nginx -s reload PS: 假设你的nginx的目录是：/usr/opt/nginx/sbin/nginx 假设nginx的配置目录是： /usr/opt/nginx/conf/nginx.conf 重启的方法是：/usr/opt/nginx/sbin/nginx -c /usr/opt/nginx/conf/nginx.conf 参数-c 指定了配置文件的路径，如果不指定该参数，则nginx会默认加载其按照目录的conf目录下的nginx.conf. 平滑重启： 1、检查修改后的配置文件是否正确： /usr/opt/nginx/sbin/nginx -t -c /usr/opt/nginx/conf/nginx.conf 2、kill -HUP Nginx主进程号。示例如下：
+kill -HUP cat/usr/local/webserver/nginx/logs/nginx.pid 主要参数介绍如下：-c 为Nginx 指定一个配置文件，来代替缺省的。-t 不运行，而仅仅测试配置文件。</description>
+    </item>
+    <item>
+      <title>MySQL-ERROR-Table-mysql-user-doesn-t-exist</title>
+      <link>http://zhaoguibin.me/posts/mysql-error-table-mysql-user-doesn-t-exist/</link>
+      <pubDate>Sun, 03 Dec 2017 16:55:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql-error-table-mysql-user-doesn-t-exist/</guid>
+      <description>1、现象描述 [root@centos65 scripts]# service mysqld start Starting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED] 查看错误日志
+[root@centos65 scripts]# tail /var/log/mysqld.log InnoDB: Apply batch completed 2014-12-08 11:01:37 15721 [Note] InnoDB: 128 rollback segment(s) are active. 2014-12-08 11:01:37 15721 [Note] InnoDB: Waiting for purge to start 2014-12-08 11:01:37 15721 [Note] InnoDB: 5.6.12 started; log sequence number 1600607 2014-12-08 11:01:37 15721 [Note] Server hostname (bind-address): &amp;#39;*&amp;#39;; port: 3306 2014-12-08 11:01:37 15721 [Note] IPv6 is available.</description>
+    </item>
+    <item>
+      <title>Linux开机执行命令</title>
+      <link>http://zhaoguibin.me/posts/linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sun, 03 Dec 2017 16:47:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</guid>
+      <description>1、把需要执行的命令写到一个bash脚本里面： #!/bin/sh （此括号内为需要执行的命令） 保存为一个文件，比如123.sh，放在oracle的主目录里面。 给这个文件加上可执行属性：chmod 775 123.sh 然后，在/etc/rc.d/rc.local里面加上这句就可以了：
+/123.sh 延时执行 例子：( sleep 60 sh /goexcel.sh )&amp;amp; 延时60秒执行 </description>
+    </item>
+    <item>
+      <title>Linux-查看进程和删除进程</title>
+      <link>http://zhaoguibin.me/posts/linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/</link>
+      <pubDate>Sun, 03 Dec 2017 16:42:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/</guid>
+      <description>在 LINUX 命令平台输入 1-2 个字符后按 Tab 键会自动补全后面的部分(前提是要有这个东西，例如在装了 tomcat 的前提下, 输入 tomcat 的 to 按 tab)。 ps 命令用于查看当前正在运行的进程。 grep 是搜索 例如： ps -ef | grep java 表示查看所有进程里 CMD 是 java 的进程信息 ps -aux | grep java -aux 显示所有状态 ps kill 命令用于终止进程 例如： kill -9 [PID] -9 表示强迫进程立即停止 通常用 ps 查看进程 PID ，用 kill 命令终止进程 网上关于这两块的内容 PS ps 简介 ps 命令就是最根本相应情况下也是相当强大地进程查看命令.运用该命令可以确定有哪些进程正在运行和运行地状态、 进程 是否结束、进程有没有僵死、哪些进程占用了过多地资源等等.总之大部分信息均为可以通过执行该命令得到地. ps 命令及其参数 ps 命令最经常使用地还是用于监控后台进程地工作情况,因为后台进程是不和屏幕键盘这些标准输入/输出设 备进行通信地,所以如果需要检测其情况,便可以运用 ps 命令了. 该命令语法格式如下： ps [选项] -e 显示所有进程,环境变量 -f 全格式 -h 不显示标题 -l 长格式 -w 宽输出 a 显示终端上地所有进程,包括其他用户地进程 r 只显示正在运行地进程 x 显示没有控制终端地进程 O[+|-] k1 [,[+|-] k2 [,…]] 根据 SHORT KEYS、k1、k2 中快捷键指定地多级排序顺序显示进程列表.</description>
+    </item>
+    <item>
+      <title>Linux-Source命令及脚本的执行方式解析</title>
+      <link>http://zhaoguibin.me/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Sun, 03 Dec 2017 16:39:35 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/</guid>
+      <description>当我修改了/etc/profile文件，我想让它立刻生效，而不用重新登录；这时就想到用source命令，如:source /etc/profile 对source进行了学习，并且用它与sh 执行脚本进行了对比，现在总结一下。
+source命令： source命令也称为“点命令”，也就是一个点符号（.）,是bash的内部命令。 功能：使Shell读入指定的Shell程序文件并依次执行文件中的所有语句 source命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。 用法： source filename 或 . filename source命令(从 C Shell 而来)是bash shell的内置命令;点命令(.)，就是个点符号(从Bourne Shell而来)是source的另一名称。 source filename 与 sh filename 及./filename执行脚本的区别在那里呢？ 1.当shell脚本具有可执行权限时，用sh filename与./filename执行脚本是没有区别得。./filename是因为当前目录没有在PATH中，所有&amp;quot;.&amp;ldquo;是用来表示当前目录的。 2.sh filename 重新建立一个子shell，在子shell中执行脚本里面的语句，该子shell继承父shell的环境变量，但子shell新建的、改变的变量不会被带回父shell，除非使用export。 3.source filename：这个命令其实只是简单地读取脚本里面的语句依次在当前shell里面执行，没有建立新的子shell。那么脚本里面所有新建、改变变量的语句都会保存在当前shell里面。 举例说明： 1.新建一个test.sh脚本，内容为:A=1 2.然后使其可执行chmod +x test.sh 3.运行sh test.sh后，echo $A，显示为空，因为A=1并未传回给当前shell 4.运行./test.sh后，也是一样的效果 5.运行source test.sh 或者 . test.sh，然后echo $A，则会显示1，说明A=1的变量在当前shell中</description>
+    </item>
+    <item>
+      <title>Centos中安装PHP的PDO-MySQL扩展</title>
+      <link>http://zhaoguibin.me/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/</link>
+      <pubDate>Sun, 03 Dec 2017 16:36:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/</guid>
+      <description>1、下载 文件 或者 进入 在PHP源码包中进入ext/pdo_mysql http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz 2、解压文件
+tar zxvf PDO_MYSQL-1.0.2.tgz 3、配置和编译文件
+cd PDO_MYSQL-1.0.2 /usr/local/php/bin/phpize ./configure –with-php-config=/usr/local/php/bin/php-config –with-pdo-mysql=/usr/local/mysql make make install 注： 我的PHP安装在 ： /usr/local/php/ mysql 安装在 ： /usr/local/mysql 编译的时候注意你自己的安装目录在哪里 3、安装到PHP配置下
+把这个记住，然后打开 php.ini文件， 并添加一行
+extension=pdo_mysql.so </description>
+    </item>
+    <item>
+      <title>Centos-6-5-更改系统时间</title>
+      <link>http://zhaoguibin.me/posts/centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/</link>
+      <pubDate>Sun, 03 Dec 2017 16:33:12 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/</guid>
+      <description>date 时间窗口 date -s &amp;#39;2015-02-02 10:10:00&amp;#39; 更改年月日小时分秒 date -s 10:00:02 只更改时间 不更改年月 clock -w 写入系统时间 hwclock 同步bios 时间 service ntpdate start 开启网络时间同步 systemctl start ntpdate.service 开启网络时间同步 Red Hat 7 chkconfig --leves 2345 ntpdate on 开机启动 reboot 重启报错 or type Contril-D to contime:输入系统密码-根据报错修复 fsck -y /dev/mapper/VolGroup-lv_root fsck -y /dev/sda1 reboot 重启是否正常 </description>
+    </item>
+    <item>
+      <title>CentOS-6-4-php-fpm-添加service-添加平滑启动-重启</title>
+      <link>http://zhaoguibin.me/posts/centos-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF/</link>
+      <pubDate>Sun, 03 Dec 2017 16:28:16 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF/</guid>
+      <description>我的php是源码安装的。php-fpm在PHP 5.3.2以后的版本不支持以前的php-fpm (start|restart|stop|reload) ，那么如果将php-fpm配置成服务，并添加平滑启动/重启。 配置php-fpm.conf（vi /usr/local/php54/etc/php-fpm.conf）,将pid（;pid = run/php-fpm.pid）前的;去掉。 因为编译安装php的，所以会在php目录生成很多二进制文件，找到init.d.php-fpm，拷贝到init.d下。
+cp /usr/local/src/php54/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm 设置权限，并添加服务
+chmod +x /etc/init.d/php-fpm chkconfig --add php-fpm 以后可以使用如下命令管理php-fpm了
+service php-fpm start service php-fpm stop service php-fpm restart service php-fpm reload </description>
+    </item>
+    <item>
+      <title>Mysql双主同步</title>
+      <link>http://zhaoguibin.me/posts/mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Sat, 02 Dec 2017 15:12:36 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/</guid>
+      <description>平台：centos7,mysql5.6.34
+解决数据库瓶颈问题 两台服务器可以同时读写数据库 A B两台服务器 A和B需要拥有一个同名的数据库 同步账号设置 首先要在两台服务器上各新增加一个可登陆的账号。
+A端50
+mysql&amp;gt;grant replication slave,file on *.* to &amp;#39;sync_user&amp;#39;@&amp;#39;192.168.10.58&amp;#39; identified by &amp;#39;123456&amp;#39;; B端58
+mysql&amp;gt;grant replication slave,file on *.* to &amp;#39;sync_user&amp;#39;@&amp;#39;192.168.10.50&amp;#39; identified by &amp;#39;123456&amp;#39;; 修改my.cnf主配置文件
+vim /etc/my.cnf 在 [mysqld] 添加
+[mysqld] A端 log-bin=mysql-bin #启动二进制日志系统 server-id=1 #本机数据库ID标示为主，另一为2 binlog-do-db=test #二进制需同步的数据库名 binlog-ignore-db=mysql #避免同步用户数据库配置 replicate-do-db=test #同步数据库的名称 replicate-ignore-db=mysql #屏蔽对mysql数据库的同步 log-slave-updates slave-skip-errors=all sync_binlog=1 auto_increment_increment=2 auto_increment_offset=1 #B端配置2 B端 log-bin=mysql-bin #启动二进制日志系统 server-id=2 #本机数据库ID标示为主，另一为1 binlog-do-db=test #二进制需同步的数据库名 binlog-ignore-db=mysql #避免同步用户数据库配置 replicate-do-db=test #同步数据库的名称 replicate-ignore-db=mysql #屏蔽对mysql数据库的同步 log-slave-updates slave-skip-errors=all sync_binlog=1 auto_increment_increment=2 auto_increment_offset=2 #A端配置1 mysql -u root -p mysql&amp;gt;flush tables with read lock; #锁定表格 service mysqld restart mysql&amp;gt;show master status\G ＃查看主服务器同步状态 A端是这样的</description>
+    </item>
+    <item>
+      <title>MySQL使用Symbolic-Links以支持数据分区存储</title>
+      <link>http://zhaoguibin.me/posts/mysql%E4%BD%BF%E7%94%A8symbolic-links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Sat, 02 Dec 2017 15:09:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql%E4%BD%BF%E7%94%A8symbolic-links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</guid>
+      <description>MySQL数据库及表(仅MyISAM)支持符号链接(symbolic link)，即数据库或表可以存储在my.cnf中指定datadir之外的分区或目录。 要支持符号链接，需要在配置中设置symbolic-links=1(较新的版本为默认开启)
+假设my.cnf有设置data目录:
+datadir=/data1/mysql/data/ 而在另一个分区目录下保存有数据数据库TestDB:
+/data2/mysql/data/TestDB 那么可以这样使得同一个MySQL实例能同时管理TestDB:
+ln -s /data2/mysql/data/TestDB /data1/mysql/data/ 所有文件相关权限设置正确后，MySQL就可以管理TestDB了。 值得注意的是，TestDB最好只能为一个MySQL服务来操作，否则会出现意想不到的问题。使用symbolic link的一个好处是当一个磁盘或分区空间不够时，可以将数据存储到其他的磁盘或分区。</description>
+    </item>
+    <item>
+      <title>centos7编译安装nginx</title>
+      <link>http://zhaoguibin.me/posts/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/</link>
+      <pubDate>Sat, 02 Dec 2017 15:05:34 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/</guid>
+      <description>ps : nginx安装在/opt/local/nginx里
+1.安装编译安装依赖的类库和包
+如果需要编译MySQL和PHP，就安装这些
+yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison 如果只编译nginx，就安装这些
+yum install gcc gcc-c++ autoconf automake zlib zlib-devel openssl openssl-devel pcre-devel 2.编译安装pcre
+PS：Pcre版本不能太高，8最好，要不编译不能通过
+mkdir /usr/local/pcre #创建安装目录 tar zxvf pcre-8.</description>
+    </item>
+    <item>
+      <title>centos6-5开启-关闭端口</title>
+      <link>http://zhaoguibin.me/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</link>
+      <pubDate>Sat, 02 Dec 2017 15:03:33 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</guid>
+      <description>列出所有端口
+netstat -ntlp 1、开启端口（以80端口为例）
+方法一：
+/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT 写入修改 /etc/init.d/iptables save 保存修改 service iptables restart 重启防火墙，修改生效 方法二：
+vi /etc/sysconfig/iptables 打开配置文件加入如下语句: -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT 重启防火墙，修改完成 2、关闭端口
+方法一：
+/sbin/iptables -I INPUT -p tcp --dport 80 -j DROP 写入修改 /etc/init.d/iptables save 保存修改 service iptables restart 重启防火墙，修改生效 方法二：
+vi /etc/sysconfig/iptables 打开配置文件加入如下语句: -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j DROP 重启防火墙，修改完成 3、查看端口状态</description>
+    </item>
+    <item>
+      <title>Windows通过Samba访问Linux文件</title>
+      <link>http://zhaoguibin.me/posts/windows%E9%80%9A%E8%BF%87samba%E8%AE%BF%E9%97%AElinux%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Sat, 02 Dec 2017 14:59:06 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/windows%E9%80%9A%E8%BF%87samba%E8%AE%BF%E9%97%AElinux%E6%96%87%E4%BB%B6/</guid>
+      <description>安装
+yum install samba smaba-client 配置
+我想设置root用户给samba，并设置其密码，执行以下命令
+smbpasswd -a root 这个命令也可以修改设置的用户的密码
+这里的意思是说，当windows登录到Linux共享文件夹的时候输入的用户名root和密码(刚刚设置的)
+配置下smb.conf
+vim /etc/samba/smb.conf ⒈找到security = XXXX
+设置其为 security = root ⒉定位到该文件的最后，添加以下代码
+[root] comment = share path = /www browseable = yes guest ok = yes writable = yes path的意思是说我要共享的文件夹路径，其他的设置成yes就OK
+④使用windows连接Linux共享的这个文件夹 windows : 开始 -&amp;gt; 输入\192.168.10.52 (该IP为Linux的IP地址) -&amp;gt; 输入设置好的用户名和密码即可连接。。
+ps:linux需要开启139和445端口</description>
+    </item>
+    <item>
+      <title>Samba-配置文件详解</title>
+      <link>http://zhaoguibin.me/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Sat, 02 Dec 2017 14:55:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</guid>
+      <description>Samba 的配置文件 /etc/samba/smb.conf 分为两大部分，一部分是 [global] ，即全局配置，另一部分是 [home] 、[printer] 、[自定义共享名] ，这些都是共享的部分，共享部分的设置优先级高于全局配置，另外，Samba 默认开启本地用户家目录 [home] 和打印机 [printer] 的共享，如果不需要你也可以关闭这两个共享，然后在末行自己重新创建一个共享，下面是详细的配置，你可以自定义一个共享，然后自己选择需要哪些配置：
+[pzk] # 自定义共享名 comment = Home Directories # 描述符，是给系统管理员看的 path = /tmp # 共享的路径 public = yes # 是否公开，也就是是否能在网上邻居看到该共享 browseable = yes # 共享的目录是否让所有人可见 writable = yes # 是否可写 guest ok = no # 是否拒绝匿名访问，仅当安全级别为 share 时才生效 workgroup = WORKGROUP # 工作组，要设置成跟 Windows 的工作组一致 server string = Samba Server Version %v # 其他 Linux 主机查看共享时的提示符 netbios name = MYSERVER # 用于在 Windows 网上邻居上显示的主机名 hosts allow = 127.</description>
+    </item>
+    <item>
+      <title>使用firewalld打开关闭防火墙与端口</title>
+      <link>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</link>
+      <pubDate>Sat, 02 Dec 2017 14:53:02 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</guid>
+      <description>1、firewalld的基本使用
+启动： systemctl start firewalld
+查看状态： systemctl status firewalld
+停止： systemctl disable firewalld
+禁用： systemctl stop firewalld
+2.systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。
+启动一个服务：systemctl start firewalld.service
+关闭一个服务：systemctl stop firewalld.service
+重启一个服务：systemctl restart firewalld.service
+显示一个服务的状态：systemctl status firewalld.service
+在开机时启用一个服务：systemctl enable firewalld.service
+在开机时禁用一个服务：systemctl disable firewalld.service
+查看服务是否开机启动：systemctl is-enabled firewalld.service
+查看已启动的服务列表：systemctl list-unit-files|grep enabled
+查看启动失败的服务列表：systemctl –failed
+3.配置firewalld-cmd
+查看版本： firewall-cmd –version
+查看帮助： firewall-cmd –help
+显示状态： firewall-cmd –state
+查看所有打开的端口： firewall-cmd –zone=public –list-ports
+更新防火墙规则： firewall-cmd –reload
+查看区域信息: firewall-cmd –get-active-zones
+查看指定接口所属区域： firewall-cmd –get-zone-of-interface=eth0
+拒绝所有包：firewall-cmd –panic-on
+取消拒绝状态： firewall-cmd –panic-off</description>
+    </item>
+    <item>
+      <title>将Ubuntu主文件夹里的中文文件夹名称改成英文</title>
+      <link>http://zhaoguibin.me/posts/%E5%B0%86ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/</link>
+      <pubDate>Sat, 02 Dec 2017 14:48:53 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%B0%86ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/</guid>
+      <description>Ubuntu中文版本把用户主目录下的文件夹名称都默认设置成了中文（home文件里用户目录的“桌面”、“图片”、“视频”、“音乐”……都是中文的），这其实对于英文不太好才选择中文版本的Ubuntu系统也未必是一件好事，当在各个路径跳转的时候必须得使用中英文切换，感觉很复杂，所以这些默认文件夹名称还是英文的比较好。下面是将中文名称调整为英文的方法。
+第一种调整方法
+首先打开终端，在终端中输入命令:
+export LANG=en_US xdg-user-dirs-gtk-update 然后会跳出对话框询问是否将目录转化为英文路径,同意并关闭.
+在终端中输入命令：
+export LANG=zh_CN 最后关闭终端,并重起系统.下次再进入系统时，会提示是否把转化好的目录改回中文.选择不再提示,并取消修改.主目录的中文转英文就完成了。
+第二种调整方法
+首先通过可视化界面修改现有主文件夹下各文件夹名称（就是右键重命名）： Desktop、 Download、Documents、 Pictures、 Videos 、 Music、 Templates、Public ……
+然后修改配置文件（采用vi或者gedit都可以，此处以gedit为例）：
+打开一个终端输入命令打开配置文件编辑器
+vim ~/.config/user-dirs.dirs 把文件夹指向改掉，等号右边引号中即为指向，调整为刚才通过重命名所更改的文件名
+XDG_DESKTOP_DIR=&amp;#34;$HOME/Desktop&amp;#34; XDG_DOWNLOAD_DIR=&amp;#34;$HOME/Download&amp;#34; XDG_TEMPLATES_DIR=&amp;#34;$HOME/Templates&amp;#34; XDG_DOCUMENTS_DIR=&amp;#34;$HOME/Documents&amp;#34; XDG_MUSIC_DIR=&amp;#34;$HOME/Music&amp;#34; XDG_PICTURES_DIR=&amp;#34;$HOME/Pictures&amp;#34; XDG_VIDEOS_DIR=&amp;#34;$HOME/Videos&amp;#34; XDG_PUBLICSHARE_DIR=&amp;#34;$HOME/Public&amp;#34; 调整完之后，Ubuntu主目录下文件夹中文名称改为英文就调整好了。</description>
+    </item>
+    <item>
+      <title>解决问题E-无法获得锁-var-lib-dpkg-lock-open-11-资源暂时不可用-E-无法锁定管理目录</title>
+      <link>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98e-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%BE%97%E9%94%81-var-lib-dpkg-lock-open-11-%E8%B5%84%E6%BA%90%E6%9A%82%E6%97%B6%E4%B8%8D%E5%8F%AF%E7%94%A8-e-%E6%97%A0%E6%B3%95%E9%94%81%E5%AE%9A%E7%AE%A1%E7%90%86%E7%9B%AE%E5%BD%95/</link>
+      <pubDate>Sat, 02 Dec 2017 14:45:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98e-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%BE%97%E9%94%81-var-lib-dpkg-lock-open-11-%E8%B5%84%E6%BA%90%E6%9A%82%E6%97%B6%E4%B8%8D%E5%8F%AF%E7%94%A8-e-%E6%97%A0%E6%B3%95%E9%94%81%E5%AE%9A%E7%AE%A1%E7%90%86%E7%9B%AE%E5%BD%95/</guid>
+      <description>在用sudo apt-get update 更新时，终端提示:
+“E: 无法获得锁 /var/lib/dpkg/lock - open (11: 资源暂时不可用) E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？” 解决办法如下：
+1.终端输入 ps -aux ，列出进程。找到含有apt‘-get的进程，直接sudo kill PID。解决。
+2.强制解锁,命令
+sudo rm /var/cache/apt/archives/lock sudo rm /var/lib/dpkg/lock </description>
+    </item>
+    <item>
+      <title>ubuntu修改su密码</title>
+      <link>http://zhaoguibin.me/posts/ubuntu%E4%BF%AE%E6%94%B9su%E5%AF%86%E7%A0%81/</link>
+      <pubDate>Sat, 02 Dec 2017 14:38:16 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/ubuntu%E4%BF%AE%E6%94%B9su%E5%AF%86%E7%A0%81/</guid>
+      <description>非常简单，下面是设置的方法：
+gabe@gabe-TM-1613:~$ sudo passwd Password: &amp;lt;--- sudo的密码 Enter new UNIX password: &amp;lt;--- 新的Root用户密码 Retype new UNIX password: &amp;lt;--- 重复新的Root用户密码 passwd </description>
+    </item>
+    <item>
+      <title>mysql-日志文件mysql-bin文件清除方法</title>
+      <link>http://zhaoguibin.me/posts/mysql-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6mysql-bin%E6%96%87%E4%BB%B6%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 02 Dec 2017 14:35:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6mysql-bin%E6%96%87%E4%BB%B6%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/</guid>
+      <description>默认情况下mysql会一直保留mysql-bin文件，这样到一定时候，磁盘可能会被撑满，这时候是否可以删除这些文件呢，是否可以安全删除，是个问题。
+首先要说明一下，这些文件都是mysql的日志文件，如果不做主从复制的话，基本上是没用的，虽然没用，但是不建议使用rm命令删除，这样有可能会不安全，正确的方法是通过mysql的命令去删除。
+mysql -u root -p Enter password:Welcome to the MySQL monitor.Commandsendwith;or \g.YourMySQL connection id is2819416Server version:5.5.24-0ubuntu0.12.04.1-log (Ubuntu)Copyright(c)2000,2011,Oracleand/or its affiliates.All rights reserved.Oracleis a registered trademark of OracleCorporationand/or its affiliates.Other names may be trademarks of their respective owners.Type&amp;#39;help;&amp;#39;or&amp;#39;\h&amp;#39;for help.Type&amp;#39;\c&amp;#39; to clear the current input statement. mysql&amp;gt; reset master;Query OK,0 rows affected (3 min 37.65 sec) 其实关键的命令就是reset master;这个命令会清空mysql-bin文件。
+另外如果你的mysql服务器不需要做主从复制的话，建议通过修改my.cnf文件，来设置不生成这些文件，只要删除my.cnf中的下面一行就可以了。
+log-bin=mysql-bin 如果你需要复制，最好控制一下这些日志文件保留的天数，可以通过下面的配置设定日志文件保留的天数：
+expire_logs_days =7 表示保留7天的日志，这样老日志会自动被清理掉。</description>
+    </item>
+    <item>
+      <title>Virtualbox 共享文件夹 cannot create symlink error</title>
+      <link>http://zhaoguibin.me/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/</link>
+      <pubDate>Sat, 02 Dec 2017 14:31:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/</guid>
+      <description>npm操作虚拟机共享文件夹里的文件时出现 npm Error: EROFS: read-only file system, symlink的报错信息。
+解决方法 原来VirtualBox从安全角度出发，限制了软链接的创建，需要打开相应的Feature。以下为详细步骤：
+关闭 VirtualBox。 将VirtualBox安装目录的路径加入系统环境变量PATH中。 打开命令行窗口，执行如下命令： VBoxManage setextradata YOURVMNAME VBoxInternal2/SharedFoldersEnableSymlinksCreate/YOURSHAREFOLDERNAME 1 其中：YOURVMNAME为虚拟机中linux系统的名称 YOURSHAREFOLDERNAME 为共享的目录名称
+“以管理者身份运行” VirtualBox　即可！ </description>
+    </item>
+    <item>
+      <title>安装golang</title>
+      <link>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85golang/</link>
+      <pubDate>Sat, 02 Dec 2017 14:31:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85golang/</guid>
+      <description>到官方https://golang.org/dl/
+或者 https://www.golangtc.com/download 下载安装包
+wget https://www.golangtc.com/static/go/1.9/go1.9.linux-amd64.tar.gz tar zxvf go1.9.linux-amd64.tar.gz -C /usr/local 新建GOPATH目录
+mkdir -p /www/golang vim /etc/profile export GOROOT=/usr/local/go export GOBIN=$GOROOT/bin export PATH=$PATH:$GOBIN export GOPATH=/www/golang :wq保存 使其生效
+source /etc/profile 查看是否配置成功
+go version go version go1.9 linux/amd64 简单测试：
+cd /www/golang vim hello.go package main import &amp;#34;fmt&amp;#34; func main() { fmt.Println(&amp;#34;Hello, world&amp;#34;) } :wq go run hello.go Hello, world </description>
+    </item>
+    <item>
+      <title>安装CentOS7文字界面版后，无法联网，用yum安装软件提示-cannot-find-a-valid-baseurl-for-repobase7x86-64-的解决方法</title>
+      <link>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85centos7%E6%96%87%E5%AD%97%E7%95%8C%E9%9D%A2%E7%89%88%E5%90%8E%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA-cannot-find-a-valid-baseurl-for-repobase7x86-64-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 02 Dec 2017 14:27:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85centos7%E6%96%87%E5%AD%97%E7%95%8C%E9%9D%A2%E7%89%88%E5%90%8E%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA-cannot-find-a-valid-baseurl-for-repobase7x86-64-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>无法联网的明显表现会有：
+1、yum install出现 Error: cannot find a valid baseurl or repo:base
+2、ping host会提示unknown host
+方法一、
+1、打开 vi /etc/sysconfig/network-scripts/ifcfg-eth0（每个机子都可能不一样，但格式会是“ifcfg-eth数字”），把ONBOOT=no，改为ONBOOT=yes
+2、重启网络：service network restart
+方法二、
+1、打开 vi /etc/resolv.conf，增加 nameserver 8.8.8.8
+2、重启网络: service network restart</description>
+    </item>
+    <item>
+      <title>ubuntu配置全局代理</title>
+      <link>http://zhaoguibin.me/posts/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Sat, 02 Dec 2017 14:02:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</guid>
+      <description>PS:使用 polipo 前需要先安装 shadowsocks
+启动shawdowsocks服务后，发现并不能翻墙上网，这是因为shawdowsocks是socks 5代理，需要客户端配合才能翻墙。
+为了让整个系统都走shawdowsocks通道，需要配置全局代理，可以通过polipo实现。
+首先是安装polipo：
+sudo apt-get install polipo 接着修改polipo的配置文件/etc/polipo/config：
+logSyslog = true logFile = /var/log/polipo/polipo.log proxyAddress = &amp;#34;0.0.0.0&amp;#34; socksParentProxy = &amp;#34;127.0.0.1:1080&amp;#34; socksProxyType = socks5 chunkHighMark = 50331648 objectHighMark = 16384 serverMaxSlots = 64 serverSlots = 16 serverSlots1 = 32 重启polipo服务：
+sudo /etc/init.d/polipo restart 为终端配置http代理：
+export http_proxy=&amp;#34;http://127.0.0.1:8123/&amp;#34; export https_proxy=&amp;#34;http://127.0.0.1:8123/&amp;#34; 接着测试下能否翻墙：
+ping www.google.com 如果有响应，则全局代理配置成功。
+注意事项
+服务器重启后，下面两句需要重新执行：
+shawdowsocks启动，然后
+export http_proxy=&amp;#34;http://127.0.0.1:8123/&amp;#34; </description>
+    </item>
+    <item>
+      <title>Ubuntu-手动挂载U盘</title>
+      <link>http://zhaoguibin.me/posts/ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDu%E7%9B%98/</link>
+      <pubDate>Sat, 02 Dec 2017 13:50:19 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDu%E7%9B%98/</guid>
+      <description>1.在插入U盘前和插入U盘后，都输入同一个命令，检查多了哪个盘
+cat /proc/partitions 这里我发现多了
+8 16 7827424 sdb 8 17 7825423 sdb1 sdb是统称，所以新插入的U盘就是/dev/sdb1
+2.用命令检查新的U盘的文件系统格式
+root@ www.linuxidc.com :/# fdisk -l /dev/sdb Disk /dev/sdb: 8015 MB, 8015282176 bytes 247 heads, 62 sectors/track, 1022 cylinders, total 15654848 sectors Units = sectors of 1 * 512 = 512 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum/optimal): 512 bytes / 512 bytes Disk identifier: 0x0001fce0 Device Boot Start End Blocks Id System /dev/sdb1 * 62 15650907 7825423 c W95 FAT32 (LBA) 看到这里是FAT32格式。</description>
+    </item>
+    <item>
+      <title>centos7下使用yum安装mysql数据库</title>
+      <link>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Sat, 02 Dec 2017 12:24:47 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description>CentOS7的yum源中默认好像是没有mysql的。为了解决这个问题，我们要先下载mysql的repo源。
+1 . 下载mysql的repo源
+wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm 2 . 安装mysql-community-release-el7-5.noarch.rpm包
+sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm 安装这个包后，会获得两个mysql的yum repo源：/etc/yum.repos.d/mysql-community.repo，/etc/yum.repos.d/mysql-community-source.repo。
+3 . 安装mysql
+sudo yum install mysql-server 根据步骤安装就可以了，不过安装完成后，没有密码，需要重置密码。
+4 . 重置密码
+重置密码前，首先要登录
+mysql -u root 登录时有可能报这样的错：ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (2)，原因是/var/lib/mysql的访问权限问题。下面的命令把/var/lib/mysql的拥有者改为当前用户：
+sudo chown -R root:root /var/lib/mysql 然后，重启服务：
+service mysqld restart 接下来登录重置密码：
+mysql -u root mysql &amp;gt; use mysql; mysql &amp;gt; update user set password=password(&amp;#39;123456&amp;#39;) where user=&amp;#39;root&amp;#39;; mysql &amp;gt; exit; </description>
+    </item>
+    <item>
+      <title>主从复制时报错：ERROR-1794-HY000-Slave……</title>
+      <link>http://zhaoguibin.me/posts/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99error-1794-hy000-slave/</link>
+      <pubDate>Sat, 02 Dec 2017 12:22:19 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99error-1794-hy000-slave/</guid>
+      <description>centos 6.5
+mysql5.7
+在从库作stop slave时报：
+error: ERROR 1794 (HY000): Slave is not configured or failed to initialize properly. You must at least set --server-id to enable either a master or a slave. Additional error messages can be found in the MySQL error log. 经分析，需要：
+删除5张表，并重新导入脚本
+use mysql drop table slave_master_info; drop table slave_relay_log_info; drop table slave_worker_info; drop table innodb_index_stats; drop table innodb_table_stats; source /usr/coolpad/mysql/share/mysql_system_tables.sql (2)重新启动数据库
+注：这一步是必须的，否则无法正常配置双主架构。</description>
+    </item>
+    <item>
+      <title>virtualbox下centos挂载共享文件夹</title>
+      <link>http://zhaoguibin.me/posts/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
+      <pubDate>Sat, 02 Dec 2017 12:11:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
+      <description>PS:要挂载共享文件，需要安装virtualbox增强功能(增强包) 安装virtualbox增强功能(增强包)：安装virtualbox增强功能(增强包)
+设备—&amp;gt;共享文件夹 宿主机 共享路径:E:\project, 共享文件夹名称project
+mkdir /mnt/share //新建挂载点（mountpoint） mount -t vboxsf project /mnt/share // 挂载共享文件夹 cd /mnt/share 进入共享文件夹 OK 实现 开机挂载:
+vi ~/.bashrc 在最后添加
+mount -t vboxsf sharing /mnt/share 挂载共享文件夹 </description>
+    </item>
+    <item>
+      <title>文件权限管理</title>
+      <link>http://zhaoguibin.me/posts/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sat, 02 Dec 2017 12:02:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
+      <description>三种基本权限
+R 读 数值表示为4 W 写 数值表示为2 X 可执行 数值表示为1 如图所示，downloads文件夹的权限为 drwxr-xr-x
+drwxr-xr-x一共十个字符，分成四段。 第一个字符“d”表示目录；这个位置还可能会出现“l”链接；“-”表示普通文件 第二三四个字符“rwx”表示当前所属用户的权限。 所以用数值表示为4+2+1=7 第五六七个字符“r-x”表示当前所属组的权限。 所以用数值表示为4+1=5 第八九十个字符“r-x”表示其他用户权限。 所以用数值表示为4+1=5 所以操作此文件夹的权限用数值表示为755 </description>
+    </item>
+    <item>
+      <title>linux软件包管理</title>
+      <link>http://zhaoguibin.me/posts/linux%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sat, 02 Dec 2017 12:01:46 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
+      <description>dpkg (Debian Package)管理工具，软件包名以.deb后缀。这种方法适合系统不能联网的情况下。
+比如安装demo命令的安装包，先将demo.deb传到Linux系统中。再使用如下命令安装。
+sudo dpkg -i demo_1.5.3-1_i386.deb 安装软件 sudo dpkg -r demo 卸载软件 注：将demo.deb传到Linux系统中，有多种方式。VMwareTool，使用挂载方式；使用winSCP工具等；
+APT（Advanced Packaging Tool）高级软件工具。这种方法适合系统能够连接互联网的情况。
+依然以demo为例
+sudo apt-get install demo 安装demo sudo apt-get remove demo 卸载demo sudo apt-get update 更新软件 sudo apt-get upgrade 将.rpm文件转为.deb文件
+.rpm为RedHat使用的软件格式。在Ubuntu下不能直接使用，所以需要转换一下。
+sudo alien abc.rpm </description>
+    </item>
+    <item>
+      <title>vim使用</title>
+      <link>http://zhaoguibin.me/posts/vim%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 02 Dec 2017 11:59:21 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/vim%E4%BD%BF%E7%94%A8/</guid>
+      <description>vim三种模式：命令模式、插入模式、编辑模式。使用ESC或i或：来切换模式。
+命令模式下：
+:q 退出 :q! 强制退出 :wq 保存并退出 :set number 显示行号 :set nonumber 隐藏行号 /apache 在文档中查找apache 按n跳到下一个，shift+n上一个 yyp 复制光标所在行，并粘贴 h(左移一个字符←)、j(下一行↓)、k(上一行↑)、l(右移一个字符→) 1、复制 1）单行复制 在命令模式下，将光标移动到将要复制的行处，按“yy”进行复制； 2）多行复制 在命令模式下，将光标移动到将要复制的首行处，按“nyy”复制n行；其中n为1、2、3…… 2、粘贴 在命令模式下，将光标移动到将要粘贴的行处，按“p”进行粘贴 </description>
+    </item>
+    <item>
+      <title>在linux系统中安装virtualbox增强功能(增强包)的详细步骤</title>
+      <link>http://zhaoguibin.me/posts/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E5%8C%85%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</link>
+      <pubDate>Sat, 02 Dec 2017 11:39:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E5%8C%85%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</guid>
+      <description>设置共享文件路径
+点击虚拟机 设置–&amp;gt;选择 共享文件夹
+（图1 设置共享文件夹）
+设置共享文件夹路径
+1 选择路径
+2 填写自定义的共享名称（在后面需要与挂载路径相对应）
+3 设置自动挂载/固定分配
+（图2 设置共享文件路径属性）
+安装VirtualBox增强工具
+先安装必备的包
+执行下面的命令:
+yum install -y gcc gcc-devel gcc-c++ gcc-c++-devel make kernel kernel-devel 安装完后，重启虚拟机：
+shutdown -r now 安装virtualBox增强工具
+点击 设置–&amp;gt;点击 安装增强功能…
+点击菜单栏 设备 –&amp;gt; 分配光驱 –&amp;gt; 选择一个虚拟光盘，找到VirtualBox安装目录下的VBoxGuestAdditions.iso，加载此镜像。 启动Linux系统并用root身份登入系统 执行挂载命令，将虚拟光盘挂在到 /mnt/cdrom，如果没有cdrom目录，则先创建之。
+mkdir /mnt/cdrom mount -t auto /dev/cdrom /mnt/cdrom 复制脚本到/tmp目录下
+cd /mnt/cdrom cp VBoxLinuxAdditions.run /tmp cd /tmp ./VBoxLinuxAddtion.run 得到输出内容
+如果centos是server版本的话就显示
+即安装成功！
+挂载共享文件夹
+切换到root用户输入挂载命令：
+sudo mount -t vboxsf shared_file /home/xingoo/shared 注意格式为</description>
+    </item>
+    <item>
+      <title>yum 安装报 关于Public key for .rpm is not installed 的解决方法</title>
+      <link>http://zhaoguibin.me/posts/yum-%E5%AE%89%E8%A3%85%E6%8A%A5-%E5%85%B3%E4%BA%8Epublic-key-for-.rpm-is-not-installed-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 02 Dec 2017 11:27:39 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/yum-%E5%AE%89%E8%A3%85%E6%8A%A5-%E5%85%B3%E4%BA%8Epublic-key-for-.rpm-is-not-installed-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>此时要导入rpm的签名信息即可
+以root登录，执行下面命令
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release 根据我的Linux版本是CentOS 7
+于是我执行下面命令
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 </description>
+    </item>
+    <item>
+      <title>Warning RPMDB altered outside of yum.的解决办法</title>
+      <link>http://zhaoguibin.me/posts/warning-rpmdb-altered-outside-of-yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95-/</link>
+      <pubDate>Sat, 02 Dec 2017 11:26:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/warning-rpmdb-altered-outside-of-yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95-/</guid>
+      <description>错误提示： Warning: RPMDB altered outside of yum 解决办法： 删除yum的历史记录
+rm -rf /var/lib/yum/history/*.sqlite </description>
+    </item>
+    <item>
+      <title>mysql实现主从复制</title>
+      <link>http://zhaoguibin.me/posts/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
+      <pubDate>Sat, 02 Dec 2017 11:12:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
+      <description>准备工作：
+1.两个虚拟机：我这里用的是CentOS5.5，IP地址分别是192.168.1.101 和192.168.1.105；
+101做主服务器，105做从服务器（都已经安装相同版本的Mysql）；
+2.本机环境：Nginx+PHP+MySQL
+好了，现在开始吧，来看看这听起来高大上的主从复制是怎么回事。
+原理：mysql要做到主从复制，其实依靠的是二进制日志，即：假设主服务器叫A，从服务器叫B；主从复制就是
+B跟着A学，A做什么，B就做什么。那么B怎么同步A的动作呢？现在A有一个日志功能，把自己所做的增删改查的动作
+全都记录在日志中，B只需要拿到这份日志，照着日志上面的动作施加到自己身上就可以了。这样就实现了主从复制。
+扩展：MYSQL还有一种日志叫做：慢日志
+可以设置一个时间，那么所有执行时间超过这个时间的SQL都会被记录下来。这样就可以通过慢日志快速的找到网站中SQL的瓶颈来进行优化。
+实现步骤：
+1.首先修改mysql的配置文件，使其支持二进制日志功能。
+打开主服务器的mysql配置文件：my.conf
+vim /etc/my.cnf 加入如下三行代码：
+参数解释： log-bin=mysql-bin //将mysql二进制日志取名为mysql-bin
+binlog_format=mixed //二进制日志的格式，有三种：statement/row/mixed,具体分别不多做解释，这里使用mixed
+server-id=101 //为服务器设置一个独一无二的id便于区分，这里使用ip地址的最后一位充当server-id
+配置完成，:wq 保存，重启mysql
+重启mysql命令：# service mysqld restart
+同样的，进入从服务器，配置从服务器的my.cnf,重复步骤1即可，
+唯一的区别是，server-id要改成从服务器的ip尾位，即server-id=105;其他两项是一样的，保存，并重启mySQL；
+2.在主服务器上为从服务器分配一个账号，就像一把钥匙，从服务器拿着这个钥匙，才能到主服务器上来共享主服务器的日志文件。
+进入主服务器的mysql界面，
+mysql -u root -p 111111 //我这里mysql账号是root，密码是111111 在mysql操作界面下，输入下面一行命令：
+GRANT replication slave ON *.* TO &amp;#39;slave&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;111111&amp;#39;; 3.查看主服务器BIN日志的信息（执行完之后记录下这两值，然后在配置完从服务器之前不要对主服务器进行任何操作，因为每次操作数据库时这两值会发生改变）.
+4.设置从服务器
+进入从服务器mysql
+mysql -u root -p111111 关闭slave（如果你以前配置过主从的话，一定要先关闭）
+stop slave; 开始配置：
+输入下面代码即可：
+参数解释：
+MASTER_HOST : 设置要连接的主服务器的ip地址
+MASTER_USER : 设置要连接的主服务器的用户名</description>
+    </item>
+    <item>
+      <title>用户及用户组管理</title>
+      <link>http://zhaoguibin.me/posts/%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sat, 02 Dec 2017 11:08:57 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/</guid>
+      <description>/etc/passwd 存储用户账号 /etc/group 存储组账号 /etc/shadow 存储用户账号的密码 /etc/gshadow 存储用户组账号的密码 useradd 用户名 userdel 用户名 adduser 用户名 groupadd 组名 groupdel 组名 passwd root 给root设置密码 su root su - root /etc/profile 系统环境变量 bash_profile 用户环境变量 .bashrc 用户环境变量 su user 切换用户，加载配置文件.bashrc su - user 切换用户，加载配置文件/etc/profile ，加载bash_profile 更改文件的用户及用户组 sudo chown [-R] owner[:group] {File|Directory} 例如：还以jdk-7u21-linux-i586.tar.gz为例。属于用户hadoop，组hadoop 要想切换此文件所属的用户及组。可以使用命令。 sudo chown root:root jdk-7u21-linux-i586.tar.gz </description>
+    </item>
+    <item>
+      <title>centos6.5编译安装LNMP</title>
+      <link>http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</link>
+      <pubDate>Sat, 02 Dec 2017 11:01:15 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</guid>
+      <description>一、环境准备 1、操作系统安装：CentOS 6.5 64位最小化安装。 2、配置好IP、DNS、网关、主机名 3、配置防火墙，开启80、3306端口 /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT /etc/rc.d/init.d/iptables save /etc/init.d/iptables restart 这样就搞定了，查看效果
+/etc/init.d/iptables status /etc/init.d/iptables restart #最后重启防火墙使配置生效 PS：
+Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：
+#开启端口 firewall-cmd --zone=public --add-port=80/tcp --permanent #重启防火墙 firewall-cmd --reload 命令含义： –zone #作用域 –add-port=80/tcp #添加端口，格式为：端口/通讯协议 –permanent #永久生效，没有此参数重启后失效
+4、关闭SELinux 查看selinux状态：
+/usr/sbin/sestatus -v SELinux status: disabled //禁用selinux getenforce Disabled //禁用selinux getenforce Enforcing //启动 关闭selinux方法： setenforce 0 #设置SELinux 成为permissive模式 setenforce 1 #设置SELinux 成为enforcing模式 第二种方法： vim /etc/selinux/config 编辑文件</description>
+    </item>
+    <item>
+      <title>ssh免密码登录</title>
+      <link>http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</link>
+      <pubDate>Thu, 30 Nov 2017 21:36:15 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</guid>
+      <description>ssh 无密码登录要使用公钥与私钥。linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。
+有机器A(192.168.3.7)，B(192.168.3.3)。现想A通过ssh免密码登录到B。
+1.在A机下生成公钥/私钥对。
+ssh-keygen -t rsa -P &amp;#39;&amp;#39; -P表示密码，-P &amp;rsquo;&amp;rsquo; 就表示空密码，也可以不用-P参数，这样就要三车回车，用-P就一次回车。 它在/home/root下生成.ssh目录，.ssh下有id_rsa和id_rsa.pub。
+2.把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。
+scp ~/.ssh/id_rsa.pub root@192.168.3.3:/home/root/id_rsa.pub root@192.168.3.3&amp;#39;s password: id_rsa.pub 100% 223 0.2KB/s 00:00 由于还没有免密码登录的，所以要输入密码。
+3.B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys 命令如下：
+cat id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys chmod 600 ~/.ssh/authorized_keys authorized_keys的权限要是600。
+4.A机登录B机。
+ssh 192.168.3.3 The authenticity of host &amp;#39;192.168.3.3 (192.168.3.3)&amp;#39; can&amp;#39;t be established. RSA key fingerprint is 00:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b. Are you sure you want to continue connecting (yes/no)? yes Warning: Permanently added &amp;#39;192.168.3.3&amp;#39; (RSA) to the list of known hosts.</description>
+    </item>
+    <item>
+      <title>lsyncd实时同步工具安装</title>
+      <link>http://zhaoguibin.me/posts/lsyncd%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Thu, 30 Nov 2017 20:24:03 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/lsyncd%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/</guid>
+      <description>有2种方法可以安装
+1.yum安装，前提是安装了epel更新源。使用命令：
+yum install -y lsyncd 2.github下载，地址为：https://github.com/axkibe/lsyncd
+安装lua软件包以及依赖软件
+yum install -y lua lua-devel cmake rsync 解压下载的压缩包
+unzip lsyncd-master.zip -d /usr/src/ 进入目录
+cd /usr/src/lsyncd-master/ 使用cmake编译，如果没有安装cmake,可以yum安装一下
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local/lsyncd make &amp;amp;&amp;amp; make install 进入安装目录
+cd /usr/local/lsyncd/ 创建配置文件目录和日志目录
+mkdir etc var 进入配置文件目录
+cd etc/ 编译配置文件
+vim lsyncd.conf settings { --pid文件 logfile = &amp;#34;/usr/local/lsyncd/var/lsyncd.log&amp;#34;, --状态文件 statusFile = &amp;#34;/usr/local/lsyncd/var/lsyncd.status&amp;#34;, --同步模式，意思就是有更新就同步 inotifyMode = &amp;#34;CloseWrite or Modify&amp;#34;, --最大8个进程 maxProcesses = 8, } sync { default.rsync, source = &amp;#34;/www&amp;#34;, target = &amp;#34;root@192.</description>
+    </item>
+  </channel>
+</rss>

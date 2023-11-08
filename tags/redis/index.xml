@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redis on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/redis/</link>
+    <description>Recent content in redis on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 08 Jan 2018 20:53:37 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>编译安装redis</title>
+      <link>http://zhaoguibin.me/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</link>
+      <pubDate>Mon, 08 Jan 2018 20:53:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</guid>
+      <description>一.安装Redis (1) cd /usr/src 进入下载目录
+(1) yum install -y wget gcc make tcl 安装依赖
+(2) redis官网http://www.redis.io下载最新的源码包
+(3) tar -zxvf redis-3.2.2.tar.gz 解压
+(4) cd redis-3.2.2 进入redis目录
+(5) make 编辑
+(6) make test 测试
+测试过程报错
+[exception]: Executing test client: NOREPLICAS Not enough good slaves to write.. NOREPLICAS Not enough good slaves to write. while executing
+这种情况下，可以修改当前目录文件tests/integration/replication-2.tcl，将after 1000改为after 10000以延长等待时间 重新测试
+(7)make install PREFIX=/usr/local/redis PREFIX安装指定目录 否则安装到/usr/local/bin里面了
+(8)启动redis服务 ./redis-server ./redis-conf
+发现很多错误：
+1.
+WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128 echo 511 &amp;gt; /proc/sys/net/core/somaxconn 写到/etc/rc.</description>
+    </item>
+  </channel>
+</rss>

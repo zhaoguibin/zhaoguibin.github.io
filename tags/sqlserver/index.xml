@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQLserver on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/sqlserver/</link>
+    <description>Recent content in SQLserver on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 21 Jul 2018 14:19:45 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/sqlserver/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>卸载SQL Server 2017 出现警告26003</title>
+      <link>http://zhaoguibin.me/posts/%E5%8D%B8%E8%BD%BDsql-server-2017-%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/</link>
+      <pubDate>Sat, 21 Jul 2018 14:19:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%8D%B8%E8%BD%BDsql-server-2017-%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/</guid>
+      <description>卸载SQLserver出现以下问题，把解决方法记录下来，留着以后备用 提示信息： 解决方法：
+可以使用：WMIC（windows Management Instrumentation Command-line） 列出当前系统上安装的应用程序，最后使用MSIEXEC /X 将其卸载
+打开 CMD(命令提示符) 输入命令：
+WMIC Product list msiexec /x {IdentifyingNumbe} </description>
+    </item>
+  </channel>
+</rss>

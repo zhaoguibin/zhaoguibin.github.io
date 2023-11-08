@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lsyncd on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/lsyncd/</link>
+    <description>Recent content in lsyncd on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 30 Nov 2017 20:24:03 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/lsyncd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>lsyncd实时同步工具安装</title>
+      <link>http://zhaoguibin.me/posts/lsyncd%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Thu, 30 Nov 2017 20:24:03 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/lsyncd%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/</guid>
+      <description>有2种方法可以安装
+1.yum安装，前提是安装了epel更新源。使用命令：
+yum install -y lsyncd 2.github下载，地址为：https://github.com/axkibe/lsyncd
+安装lua软件包以及依赖软件
+yum install -y lua lua-devel cmake rsync 解压下载的压缩包
+unzip lsyncd-master.zip -d /usr/src/ 进入目录
+cd /usr/src/lsyncd-master/ 使用cmake编译，如果没有安装cmake,可以yum安装一下
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local/lsyncd make &amp;amp;&amp;amp; make install 进入安装目录
+cd /usr/local/lsyncd/ 创建配置文件目录和日志目录
+mkdir etc var 进入配置文件目录
+cd etc/ 编译配置文件
+vim lsyncd.conf settings { --pid文件 logfile = &amp;#34;/usr/local/lsyncd/var/lsyncd.log&amp;#34;, --状态文件 statusFile = &amp;#34;/usr/local/lsyncd/var/lsyncd.status&amp;#34;, --同步模式，意思就是有更新就同步 inotifyMode = &amp;#34;CloseWrite or Modify&amp;#34;, --最大8个进程 maxProcesses = 8, } sync { default.rsync, source = &amp;#34;/www&amp;#34;, target = &amp;#34;root@192.</description>
+    </item>
+  </channel>
+</rss>

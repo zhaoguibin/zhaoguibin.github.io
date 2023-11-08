@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nss on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/nss/</link>
+    <description>Recent content in nss on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 15 Apr 2018 16:35:47 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/nss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PHP curl returns (35) SSL connect error</title>
+      <link>http://zhaoguibin.me/posts/php-curl-returns-35-ssl-connect-error/</link>
+      <pubDate>Sun, 15 Apr 2018 16:35:47 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php-curl-returns-35-ssl-connect-error/</guid>
+      <description>用PHP cURL来获取https链接的页面，出现错误PHP curl returns (35) SSL connect error， 找到一个方法，记录一下，以免忘记。
+解决方法：
+yum update nss Q:但是，什么是NSS呢？
+A:curl模块的ssl 支持默认为NSS,网络安全服务（NSS）
+The Network Security Services (NSS)
+再来个详细解释 https://serverfault.com/questions/606135/curl-35-ssl-connect-error/642203#642203 </description>
+    </item>
+  </channel>
+</rss>

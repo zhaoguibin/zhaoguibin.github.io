@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>php on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/php/</link>
+    <description>Recent content in php on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 20 Jul 2022 19:13:31 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>图片转base64</title>
+      <link>http://zhaoguibin.me/posts/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</link>
+      <pubDate>Wed, 20 Jul 2022 19:13:31 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</guid>
+      <description>&amp;lt;?php /** * Describe: 图片转base64 * 使用方法: php imgtobase64.php path=/www/projects/test/20220623171931.png * Author: ZhaoGuibin * Date: 2022-06-23 */ class ImgToBase64 { static private $instance; private function __construct() { } static public function getInstance() { if (!self::$instance instanceof self) { self::$instance = new self(); } return self::$instance; } /** * 获取命令行输入参数 * @return array */ function getClientArgs() { global $argv; array_shift($argv); $args = array(); array_walk($argv, function ($v, $k) use (&amp;amp;$args) { @list($key, $value) = @explode(&amp;#39;=&amp;#39;, $v); $args[$key] = $value; }); return $args; } /** * 图片转为base64 * @param $img_path * @return string|void */ function imgToBase64($img_path = &amp;#39;&amp;#39;) { $img = isset($img_path[&amp;#39;path&amp;#39;]) ?</description>
+    </item>
+    <item>
+      <title>迭代器模式</title>
+      <link>http://zhaoguibin.me/posts/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 26 Mar 2022 21:19:21 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description>概念
+迭代器模式是遍历集合的成熟模式，迭代器模式的关键是将遍历集合的任务交给一个叫做迭代器的对象，它的工作是遍历并选择序列中的对象，而客户端程序员不必知道或关心该集合序列底层的结构。
+说明
+迭代器模式（Iterator），又叫做游标（Cursor）模式，提供一种方法访问一个容器（Container）对象中各个元素，而又不需要暴露该对象的内部细节。 当你需要访问一个聚合对象，而且不管这些对象是什么都需要遍历的时候，就应该考虑使用迭代器模式。另外，当需要对聚集有多种方式遍历时，可以考虑去使用迭代器模式。迭代器模式为遍历不同的聚合结构提供如开始、下一个、是否结束、当前哪一项等统一的接口。 作用 我们想要像遍历数组那样，遍历对象，或是遍历一个容器。 迭代器模式可以隐藏遍历元素所需的操作 应用场景 访问一个聚合对象的内容而无需暴露它的内部表示 支持对聚合对象的多种遍历 为遍历不同的聚合结构提供一个统一的接口。 角色 Iterator（迭代器）：迭代器定义访问和遍历元素的接口 ConcreteIterator（具体迭代器）：具体迭代器实现迭代接口，对该聚合遍历时跟踪当前位置 Aggregate（聚合）：聚合定义创建相应迭代器对象的接口。 ConcreteAggregate（具体聚合）：具体聚合实现创建相应迭代器的接口，该操作返回ConcreteIterator的一个适当的实例。 &amp;lt;?php //自定义迭代器实现系统定义迭代器接口 class MyIterator implements Iterator { protected $data = []; protected $index; public function __construct($data) { $this-&amp;gt;data = $data; $this-&amp;gt;index = 0; } //返回第一个元素 public function rewind() { $this-&amp;gt;index = 0; } //下一个元素 public function next() { $this-&amp;gt;index++; } //验证是否继续 public function valid() { return $this-&amp;gt;index &amp;lt; count($this-&amp;gt;data); } //返回key值 public function key() { return $this-&amp;gt;index; } //返回当前元素 public function current() { return $this-&amp;gt;data[$this-&amp;gt;index]; } } $arr = [1, 2, 3, 4, 5, 6]; $iterate = new MyIterator($arr); foreach ($iterate as $dynasty) { echo &amp;#39;the obj == &amp;#39; .</description>
+    </item>
+    <item>
+      <title>命令模式</title>
+      <link>http://zhaoguibin.me/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 26 Mar 2022 21:15:24 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</guid>
+      <description>概念 将一个请求封装（命令的封装）为一个对象，从而使用你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作。 命令模式是对命令的封装。命令模式把发出命令的责任和执行命令的责任分隔开，委派给不同的对象。 请求的一方发出请求要求执行一个操作；接收的一方收到请求，并执行操作。命令模式允许请求的一方和接收的一方独立开来，使得请求的一方不必知道接收请求的一方的接口，更不必知道请求是怎么被接收，以及操作是否被执行、何时被执行，以及是怎么被执行的。 角色 命令（command）角色：声明了一个给所有具体命令类的抽象接口。这是一个抽象角色。 具体命令（ConcreteCommand）角色：定义一个接收者和行为之间的弱耦合；实现Execute()方法，负责调用接收到的相应操作。Execute()方法通常叫做执行方法。 客户（client）角色：创建了一个具体命令（ConcreteCommand）对象并确定其接收者。 请求者（Invoker）角色：负责调用命令对象执行请求，相关的方法叫做行动方法。 接收者（Receiver）角色：负责具体实施和执行一个请求。任何一个类都可以成为接收者，实施和执行请求的方法叫做行动方法。 优点和缺点 优点： 命令模式把请求一个操作的对象与知道怎么执行一个操作的对象分离开。 命令类与其他任何别的类一样，可以修改和推广。 可以把命令对象聚合在一起，合成为合成命令。 可以很容易的加入新的命令类。 缺点： 可能会导致某些系统有过多的具体命令类。 应用场景 抽象出待执行的动作以参数化对象。Command模式是回调机制的一个面向对象的替代品。 在不同的时刻指定、排列和执行请求。 支持取消操作 支持修改日志 用构建在原语操作上的高层操作构建一个系统。Command模式提供了对事务进行建模的方法。Command有一个公共的接口，使得你可以用同一种方式调用所有的事务。同时使用该模式也易于添加新事务以扩展系统。 &amp;lt;?php //抽象命令接口 interface Command { //命令执行 public function execute(); } //宏命令（命令的组合） //宏命令接口 interface MacroCommand extends Command { //宏命令聚集管理方法，可以删除一个命令 public function remove(Command $command); //宏命令聚集管理方法，可以添加一个命令 public function add(Command $command); } //命令的实现 //复制命令 class CopyCommand implements Command { private $receiver; public function __construct(Receiver $receiver) { $this-&amp;gt;receiver = $receiver; } public function execute() { $this-&amp;gt;receiver-&amp;gt;copy(); } } //粘贴命令 class PasteCommand implements Command { private $receiver; public function __construct(Receiver $receiver) { $this-&amp;gt;receiver = $receiver; } public function execute() { $this-&amp;gt;receiver-&amp;gt;paste(); } } //命令接收者执行命令 class Receiver { private $name; public function __construct($name) { $this-&amp;gt;name = $name; } public function copy() { echo $this-&amp;gt;name .</description>
+    </item>
+    <item>
+      <title>观察者模式</title>
+      <link>http://zhaoguibin.me/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 26 Mar 2022 20:45:21 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>概念 观察者模式属于行为模式，是定义对象间的一种一对多的依赖关系，以便当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并自动刷新。 当一个对象状态发生改变后，会影响到其他几个对象的改变，这时候可以用观察者模式。 观察者模式符合接口隔离原则，实现了对象之间的松散耦合。 角色 抽象主题（subject）：它把所有观察者对象的引用保存到一个聚集里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。 具体主题（ConcreteSubjest）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。 抽象观察者（Observer）：为所有的具体观察者定义一个接口，在得到主题通知时更新自己。 具体观察者（ConcreteObserver）：实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题状态协调。 &amp;lt;?php //抽象主题 interface Subject { //新增观察者 public function attach(Observer $observer); //移除观察者 public function detach(Observer $observer); //通知观察者 public function notifyObserver(); } //具体主题 class ConcreteSubjest implements Subject { //储存观察者 private $observers; public function __construct() { $this-&amp;gt;observers = []; } //新增观察者 public function attach(Observer $observer) { return array_push($this-&amp;gt;observers, $observer); } //移除观察者 public function detach(Observer $observer) { //检查观察者是否存在观察者数组中，返回索引值 $index = array_search($observer, $this-&amp;gt;observers); if ($index === false) { return false; } else { unset($this-&amp;gt;observers[$index]); return true; } } //通知观察者 public function notifyObserver() { if (!</description>
+    </item>
+    <item>
+      <title>策略模式</title>
+      <link>http://zhaoguibin.me/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 26 Mar 2022 20:31:47 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念 将一组特定的行为和算法封装成类，以适应某些特定的上下文环境，并让它们可以相互替换，这种模式就是策略模式。 简单理解就是 有n个做法供你选择，根据你的需要选择某个策略得到结果 优点 使用设计模式之后，我们的代码冗余和耦合度变低，每个策略模块完成对应的功能。 当然缺点就是一个功能我们就要响应制作一个策略类，但是我们统观MVC架构当中（Thinkphp，Yii2），一个控制器对应一个视图，其实也是策略模式的体现了。 &amp;lt;?php interface UserInterface { public function showAd(); public function showCategory(); } //男性用户实现接口 class MaleUser implements UserInterface { public function showAd() { echo &amp;#39;电子产品&amp;#39;; } public function showCategory() { echo &amp;#34;PS5,PC,Switch&amp;#34;; } } //女性用户实现接口 class FemaleUser implements UserInterface { public function showAd() { echo &amp;#39;化妆品&amp;#39;; } public function showCategory() { echo &amp;#34;口红,面膜&amp;#34;; } } //客户端实现，根据性别不同推荐不同内容 $sex = &amp;#39;male&amp;#39;; if ($sex == &amp;#39;male&amp;#39;) { $user = new MaleUser(); } else { $user = new FemaleUser(); } $user-&amp;gt;showAd(); $user-&amp;gt;showCategory(); </description>
+    </item>
+    <item>
+      <title>装饰器模式</title>
+      <link>http://zhaoguibin.me/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 24 Mar 2022 23:13:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+装饰器模式又叫装饰者模式。装饰模式是在不必改变原类文件和使用继承的情况下，动态地扩展一个对象的功能。它是通过创建一个包装对象，也就是装饰来包裹真实的对象。
+实例
+组件对象的接口：可以给这些对象动态的添加职责 所有装饰器的父类：需要定义一个与组件接口一直的接口，并持有一个component对象，该对象其实就是被装饰的对象。 具体的装饰器类：实现具体要向被装饰对象添加的功能。用来装饰具体的组件对象或者另外一个具体的装饰器对象。 使用场景
+需要动态的给一个对象添加功能，这些功能可以再动态的撤销 需要添加由一些基本功能的排列组合而产生的非常大量的功能，从而使继承关系变的不现实。 当不能采用生成子类的方法进行扩充时。一种情况是，可能有大量独立的扩展，为支持每一种组合将产生大量的子类，使得子类数目呈爆炸性增长。另一种情况可能是因为类定义被隐藏，或类定义不能用于生成子类。 &amp;lt;?php //组件对象接口 interface IComponent { //动态给对象添加功能 public function display(); } //待装饰的对象 class Person implements IComponent { protected $name; public function __construct($name) { $this-&amp;gt;name = $name; } public function display() { echo &amp;#39;装饰的&amp;#39; . $this-&amp;gt;name; } } //所有装饰器的父类 class Clothes implements IComponent { protected $component; public function Decorate(IComponent $component) { $this-&amp;gt;component = $component; } public function display() { if (!empty($this-&amp;gt;component)) { $this-&amp;gt;component-&amp;gt;display(); } } } //具体的装饰器 class Pixie extends Clothes { public function display() { echo &amp;#39;皮鞋&amp;#39;; parent::display(); } } class Waitao extends Clothes { public function display() { echo &amp;#39;外套&amp;#39;; parent::display(); } } //客户端 $gd = new Person(&amp;#39;狗蛋&amp;#39;); $px = new Pixie(); $px-&amp;gt;Decorate($gd); $px-&amp;gt;display(); $wt = new Waitao(); $wt-&amp;gt;Decorate($gd); $wt-&amp;gt;display(); </description>
+    </item>
+    <item>
+      <title>注册树模式</title>
+      <link>http://zhaoguibin.me/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 24 Mar 2022 22:39:41 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+注册树模式也叫注册模式或注册器模式，顾名思义，注册树就是把对象实例注册到一棵全局的对象树上，需要对象的时候就从树上取下来，就好比树上长的果子，需要的时候就摘一个下来，只是这个对象树果子是摘不完的。
+作用
+不管是单例模式还是工厂模式建立的对象，都没有得到很好的管理，用了注册树模式，就可以把创建出来的对象注册到全局树上，需要的时候取下来用，可以很好的管理创建的对象。
+&amp;lt;?php class DbMysql { public function conn() { echo &amp;#39;mysql conn&amp;#39;; } } class DbSqlite { public function conn() { echo &amp;#39;sqlite conn&amp;#39;; } } class MysqlFactory { public static function getIns() { return new DbMysql(); } } class SqliteFactory { public static function getIns() { return new DbSqlite(); } } //注册树实现存储对象（IOC控制反转思想） class RegisterTree { protected static $objects; //添加对象到注册树中 public static function set($alias, $object) { self::$objects[$alias] = $object; } //从注册树中获取对象 public static function get($alias) { return self::$objects[$alias]; } //销毁注册树上的对象 public static function _unset($alias) { unset(self::$objects[$alias]); } } //注册 RegisterTree::set(&amp;#39;mysql&amp;#39;, MysqlFactory::getIns()); RegisterTree::set(&amp;#39;sqlite&amp;#39;, SqliteFactory::getIns()); //客户端 // $mysql = RegisterTree::get(&amp;#39;mysql&amp;#39;); // $mysql-&amp;gt;conn(); // $sqlite = RegisterTree::get(&amp;#39;sqlite&amp;#39;); // $sqlite-&amp;gt;conn(); class Facade { public static $mysql; public static $sqlite; public function __construct() { self::$mysql = RegisterTree::get(&amp;#39;mysql&amp;#39;); self::$sqlite = RegisterTree::get(&amp;#39;sqlite&amp;#39;); } } new Facade(); Facade::$mysql-&amp;gt;conn(); Facade::$sqlite-&amp;gt;conn(); </description>
+    </item>
+    <item>
+      <title>门面模式</title>
+      <link>http://zhaoguibin.me/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 24 Mar 2022 22:15:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+门面模式（facade）又称外观模式，用于为子系统中的一组接口提供一个一致的界面。门面模式定义了一个高层接口，这个接口使得子系统更加容易使用；引入门面角色之后，用户只需要直接与门面角色交互，用户与子系统之间的复杂关系由门面角色来实现，从而降低了系统的耦合度。
+作用
+为一些复杂的子系统提供一组接口。 提高子系统的独立性 在层次化结构中，可以使用门面模式定义系统的每一层的接口 优点
+它对于客户屏蔽了子系统组件，因而减少了客户处理的对象的数目并使得子系统使用起来更加方便。 实现了子系统与客户之间的松耦合关系。 如果应用需要，它并不限制它们使用子系统类。因此可以在系统易用性与能用性之间加以选择。 &amp;lt;?php class Camera { public function turnOn() { echo &amp;#39;turn on camera&amp;#39;; } public function turnOff() { echo &amp;#39;turn off camera&amp;#39;; } } class Light { public function turnOn() { echo &amp;#39;turn on light&amp;#39;; } public function turnOff() { echo &amp;#39;turn off light&amp;#39;; } } //门面类 class Facade { private $camera; private $light; public function __construct() { $this-&amp;gt;camera = new Camera(); $this-&amp;gt;light = new Light(); } //启动接口 public function activate() { $this-&amp;gt;camera-&amp;gt;turnOn(); $this-&amp;gt;light-&amp;gt;turnOn(); } //关闭接口 public function deactivate() { $this-&amp;gt;camera-&amp;gt;turnOff(); $this-&amp;gt;light-&amp;gt;turnOff(); } } //客户端 class Client { private static $securit; public static function main() { self::$securit = new Facade(); self::$securit-&amp;gt;activate(); self::$securit-&amp;gt;deactivate(); } } Client::main(); </description>
+    </item>
+    <item>
+      <title>管道模式</title>
+      <link>http://zhaoguibin.me/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 24 Mar 2022 21:48:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+管道（pipeline）设计模式流水线模式就是将数据传递到一个任务序列中，管道扮演着流水线的角色，数据在这里被处理然后传递到下一个步骤
+释义
+管道，顾名思义，就是一个长长的流水管道，只不过加了许多阀门。所以管道模式大致需要三个角色：管道、阀门、载荷（流水）。
+目的是在管道中对载荷进行一系列的处理。因为可以对过滤器进行动态的添加，所以对载荷的处理可以变得更加灵活。但同时带来的问题是，在过滤器过多时，很难把握整体的处理逻辑。而且在某一个过滤器对载荷处理后，因为载荷改变，会造成下一个过滤器中的逻辑出错。
+&amp;lt;?php //管道接口 interface PipelineBuilder { public function __construct($payload); //$payload载荷 public function pipe(StageBuilder $stage); //管道与阀门 public function process(); //过程 } //实现管道接口 class Pipeline implements PipelineBuilder { protected $payload; protected $pipes = []; public function __construct($payload) { $this-&amp;gt;payload = $payload; } public function pipe(StageBuilder $stage) { $this-&amp;gt;pipes[] = $stage; return $this; } public function process() { foreach ($this-&amp;gt;pipes as $pipe) { call_user_func([$pipe, &amp;#39;handle&amp;#39;], $this-&amp;gt;payload); } } } //阀门类 interface StageBuilder { public function handle($payload); } //实现 class StageOneBuilder implements StageBuilder { public function handle($payload) { echo &amp;#39;one-&amp;#39;; } } class StageTwoBuilder implements StageBuilder { public function handle($payload) { echo &amp;#39;two-&amp;#39;; } } //客户端使用 $pipeline = new PipeLine(&amp;#39;step&amp;#39;); $pipeline-&amp;gt;pipe(new StageOneBuilder())-&amp;gt;pipe(new StageTwoBuilder())-&amp;gt;process(); </description>
+    </item>
+    <item>
+      <title>代理模式</title>
+      <link>http://zhaoguibin.me/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 24 Mar 2022 21:23:46 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+构建了透明置于两个不同对象之内的一个对象，从而能够截取或代理这两个对象间的通信或访问。
+应用场景
+远程代理：也就是为了一个对象在不同地址空间提供局部代表。隐藏一个对象存在于不同地址空间的事实。 虚拟代理：根据需求来创建开销很大的对象，通过它来存放实例化需要很长时间的真实对象。 安全代理：用来控制真实对象的访问对象。 智能指引：当调用真实对象的时候，代理处理一些事情。 &amp;lt;?php //真实类 interface Subject { public function request(); } class RealSubject implements Subject { public function request() { echo &amp;#39;真实的操作&amp;#39;; } } //代理模式代理真实类 class Proxy implements Subject { protected $realSubject; public function __construct() { $this-&amp;gt;realSubject = new RealSubject(); } public function request() { echo &amp;#39;代理操作&amp;#39;; $this-&amp;gt;realSubject-&amp;gt;request(); } } //客户端 $proxy = new Proxy(); $proxy-&amp;gt;request(); 注意事项 代理模式的实现其实非常简单，或许你在不经意间经常会用到 请注意代理模式与装饰器、适配器的区别 装饰器：一般是对对象进行装饰，其中的方法行为会有增加，以修饰对象为主 适配器：一般会改变方法行为，目的是保持接口的统一但得到不同的实现 代理模式有几种形式：远程代理（例如：第三方接口SDK）、虚代理（例如：异步加载图片）、保护代理&amp;amp;智能指引（例如：权限保护），而我们代码实现的最普通的代理，其实就是让代理类来代替真实类的操作 </description>
+    </item>
+    <item>
+      <title>适配器模式</title>
+      <link>http://zhaoguibin.me/posts/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 23 Mar 2022 21:48:23 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+将某个类的接口转换成与另一个接口兼容。适配器通过将原始接口进行转换，给用户提供一个兼容接口，使得原来因为接口不同而无法一起使用的类可以得到兼容。
+应用场景
+老代码接口不适应新的接口需求，或者代码很多很乱不便于继续修改，或者使用第三方类库。
+&amp;lt;?php interface Weather { public function show(); } class PhpWeather implements Weather { public function show() { $weatherInfo = [&amp;#39;weather&amp;#39; =&amp;gt; &amp;#39;雨&amp;#39;, &amp;#39;tep&amp;#39; =&amp;gt; 6, &amp;#39;wind&amp;#39; =&amp;gt; 3]; return serialize($weatherInfo); } } //兼容模式 使得java能够直接使用 interface WeatherA { public function getWeather(); } class JavaWeather implements WeatherA { protected $weather; public function __construct(Weather $weather) { $this-&amp;gt;weather = $weather; } public function getWeather() { $info = unserialize($this-&amp;gt;weather-&amp;gt;show()); return json_encode($info); } } $weather = new PhpWeather(); // $info = unserialize($weather); // var_dump($info); $java_weather = new JavaWeather($weather); $info = json_decode($java_weather-&amp;gt;getWeather()); var_dump($info); </description>
+    </item>
+    <item>
+      <title>工厂模式</title>
+      <link>http://zhaoguibin.me/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 22 Mar 2022 21:25:26 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <description>概念
+工厂模式是我们最常用的实例化对象模式，是用工厂方法代替new操作的一种模式。
+好处
+使用工厂模式的好处是，如果你想要更改所实例化的类名等，则只需要更改该工厂方法内容即可，不需要逐一寻找代码中具体实例化的地方（new 处）修改了。为系统结构提供灵活的动态扩展机制，减少了耦合。
+分类
+简单工厂模式 工厂方法模式 抽象工厂模式 简单工厂模式
+简单工厂模式又称静态工厂模式，之所以可以这么说，是因为简单工厂模式是通过一个静态方法来创建对象的
+&amp;lt;?php class DbMysql { public function conn() { echo &amp;#34;连接MySQL&amp;#34;; } } class DbSqlite { public function conn() { echo &amp;#34;连接SQLite&amp;#34;; } } class DbFactory { public static function createIns($type) { switch ($type) { case &amp;#39;mysql&amp;#39;: return DbMysql(); break; case &amp;#39;sqlite&amp;#39;: return new DbSqlite(); break; default: throw new ErrorException(&amp;#39;类型错误&amp;#39;); } } } $mysql = DbFactory::createIns(&amp;#39;mysql&amp;#39;); $mysql-&amp;gt;conn(); $sqlite = DbFactory::createIns(&amp;#39;sqlite&amp;#39;); $sqlite-&amp;gt;conn(); 工厂方法模式</description>
+    </item>
+    <item>
+      <title>单例模式</title>
+      <link>http://zhaoguibin.me/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 22 Mar 2022 20:49:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description> 概念
+是一种类的设计只会最多产生一个对象的设计思想
+作用
+php的应用主要在于数据库应用，所以一个应用中会存在大量的数据库操作，使用单例模式，则可以避免大量的new操作消耗的资源。 如果系统中需要有一个类来全局控制某些配置信息，那么使用单例模式可以很方便的实现。 再一次页面请求中，便于进行调试，因为所有的代码都会集中在一个类里面，我们可以在类中设置钩子，输出日志，从而避免到处var_dump，echo。 应用场景
+数据库连接，缓存操作，分布式储存
+单例模式的要点
+构造函数需要标记为private（访问控制：防止外部代码使用new操作符创建对象），单例类不能在其他类中实例化，只能被其自身实例化。 拥有一个保存类的实例的静态成员变量。 拥有一个访问这个实例的公共的静态方法（常用getInstance()方法进行实例化单例类，通过instanceof操作符可以检测到类是否已经被实例化） 简称 三私一公： 私有化构造方法：不让在外部产生多个对象 私有化克隆方法：不允许对象被克隆产生新对象 私有化静态属性：运行进入类内部产生对象 公有化静态方法：保存已经产生的对象 &amp;lt;?php //单例 class Uni{ //创建静态私有的变量保存该类对象 static private $instance; //参数 private $config; //防止直接创建对象 private function __construct($config){ $this -&amp;gt; config = $config; echo &amp;#34;我被实例化了&amp;#34;; } //防止克隆对象 private function __clone(){ } static public function getInstance($config){ //判断$instance是否是Uni的对象 //没有则创建 if (!self::$instance instanceof self) { self::$instance = new self($config); } return self::$instance; } public function getName(){ echo $this -&amp;gt; config; } } $db1 = Uni::getInstance(1); $db1 -&amp;gt; getName(); echo &amp;#34;&amp;lt;br&amp;gt;&amp;#34;; $db2 = Uni::getInstance(4); $db2 -&amp;gt; getName(); /** *运行结果： *我被实例化了1 *1 *$db1创建对象后，参数是1 *$db2没有创建对象，而是直接使用$instance保存的唯一对象，所以输出的参数并没有变为4； */ </description>
+    </item>
+    <item>
+      <title>什么是设计模式</title>
+      <link>http://zhaoguibin.me/posts/%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Mon, 21 Mar 2022 22:11:16 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>什么是设计模式
+设计模式是一套被反复使用、容易被他人理解的、可靠的代码设计经验的总结。
+那么我们常说的架构、框架和设计模式有什么关系呢？
+架构是一套体系结构，是项目的整体解决方案； 框架是可供复用的半成品软件，是具体程序代码。 架构一般会涉及到采用什么样的框架来加速和优化某部分问题的解决，而好的框架代码里合理使用了很多设计模式。 比如：laravel框架中就使用到了很多的设计模式。其中包括单例模式，门面模式，注册树模式（DI/IOC），适配器模式，观察者模式等多种设计模式。
+设计模式的目的是为了更好的代码重用性，可读性，可靠性，可维护性。
+设计模式的作用
+设计模式能解决：
+替换杂乱无章的代码，形成良好的代码风格 代码易读，工程师们都能很容易理解 增加新功能时不用修改接口，可扩展性强 稳定性好，一般不会出现未知的问题 设计模式不能解决：
+设计模式是用来组织你的代码的模板，而不是直接调用的库 设计模式并非最高效，但是代码的可读性和可维护性更重要 不要一味追求并套用设计模式，重构时多考虑 设计模式&amp;ndash;六大原则
+单一职责原则
+定义
+不要存在多于一个导致类变更的原因。既一个类只负责一项职责。
+场景
+类T负责两个不同的职责；职责P1，职责P2，当由于职责P1需求发生改变而需要修改类T时，有可能会导致原本运行正常的职责P2功能发生故障。
+&amp;lt;?php class Animal { public function bre($animal) { echo $animal.&amp;#34;呼吸空气&amp;#34;; } } class Program { public function main() { $animal = new Animal(); $animal-&amp;gt;bre(&amp;#39;猫&amp;#39;); $animal-&amp;gt;bre(&amp;#39;狗&amp;#39;); $animal-&amp;gt;bre(&amp;#39;鱼&amp;#39;); } } 修正
+遵循单一职责原则。分别建立两个类T1、T2，使T1完成职责P1功能，T2完成职责P2功能。这样，当修改类T1时，不会使职责P2发生故障风险；同理，当修改T2时，也不会使职责P1发生故障风险。
+&amp;lt;?php class Ter { public function bre($animal) { echo $animal.&amp;#34;呼吸空气&amp;#34;; } } class Aqu { public function bre($animal) { echo $animal.</description>
+    </item>
+    <item>
+      <title>RSA数据加密解密</title>
+      <link>http://zhaoguibin.me/posts/rsa%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</link>
+      <pubDate>Sat, 22 Aug 2020 14:31:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/rsa%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</guid>
+      <description>RSA数据加密解密 &amp;lt;?php //定义常量 define(&amp;#34;INVOICE_PRINT_URL&amp;#34;, &amp;#39;&amp;#39;); define(&amp;#34;MERCHANT_ID&amp;#34;, &amp;#39;&amp;#39;); define(&amp;#34;MERCHANT_SECRET&amp;#34;, &amp;#39;&amp;#39;); define(&amp;#34;PLATFORM_PUBLIC_KEY&amp;#34;, &amp;#39;&amp;#39;); define(&amp;#34;MERCHANT_PUBLIC_KEY&amp;#34;, &amp;#39;&amp;#39;); define(&amp;#34;MERCHANT_PRIVATE_KEY&amp;#34;, $&amp;#39;&amp;#39;); define(&amp;#34;ACCOUNT_VALUE&amp;#34;, &amp;#39;&amp;#39;); const KEYSIZE = 2048;//密钥长度 &amp;lt;?php /** * @FuncName:getPlatformPublicKey * @Description 获取平台公钥 * @User ZHaoGuiBin * @Date 2020-08-17 8:29 * @return false|resource */ private static function getPlatformPublicKey() { return openssl_pkey_get_public(PLATFORM_PUBLIC_KEY); } /** * @FuncName:getMerchantPrivateKey * @Description 获取商户私钥 * @User ZHaoGuiBin * @Date 2020-08-17 8:29 * @return false|resource */ private static function getMerchantPrivateKey() { return openssl_pkey_get_private(MERCHANT_PRIVATE_KEY); } /** * @FuncName:getMerchantPublicKey * @Description 获取商户公钥 * @User ZHaoGuiBin * @Date 2020-08-17 8:29 * @return false|resource */ private static function getMerchantPublicKey() { return openssl_pkey_get_public(MERCHANT_PUBLIC_KEY); } /** * @FuncName:sslPublicEncrypt * @Description 公钥加密数据 * @User ZHaoGuiBin * @Date 2020-08-14 10:42 * @param $source_data * @return array */ private static function sslPublicEncrypt($source_data) { if (!</description>
+    </item>
+    <item>
+      <title>多维数组拼接成字符串</title>
+      <link>http://zhaoguibin.me/posts/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E6%8B%BC%E6%8E%A5%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Sat, 22 Aug 2020 14:19:32 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E6%8B%BC%E6%8E%A5%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>多维数组拼接成字符串 /** * @FuncName:arrayToString * @Description 数组拼接成字符串 * @User ZHaoGuiBin * @Date 2020-08-14 9:17 * @param $data * @param string $keys * @param string $key_1 //多维数组主key * @param string $string * @return string */ private static function arrayToString($data, $keys = &amp;#39;&amp;#39;, $string = &amp;#39;&amp;#39;, $key_1 = &amp;#39;&amp;#39;) { $temp = 0; foreach ($data as $key =&amp;gt; $value) { if (is_array($value)) { if (!is_numeric($key)) { $key_1 = $key; $string .= $key_1 .</description>
+    </item>
+    <item>
+      <title>数组按照alphabet序排序</title>
+      <link>http://zhaoguibin.me/posts/%E6%95%B0%E7%BB%84key%E6%8C%89%E7%85%A7alphabet%E5%BA%8F%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 22 Aug 2020 13:51:31 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%95%B0%E7%BB%84key%E6%8C%89%E7%85%A7alphabet%E5%BA%8F%E6%8E%92%E5%BA%8F/</guid>
+      <description>数组key按照alphabet序排序 /** * @FuncName:arraySoft * @Description 数组key按照alphabet序排序 * @User ZHaoGuiBin * @Date 2020-08-13 15:45 * @param $data * @return mixed */ private static function arraySoft($data) { ksort($data); foreach ($data as $key =&amp;gt; $value) { if (is_array($value)) { $data[$key] = self::arraySoft($value); } } return $data; } </description>
+    </item>
+    <item>
+      <title>php使用Linux命令导出MySQL数据到csv</title>
+      <link>http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</link>
+      <pubDate>Sun, 19 Jan 2020 16:23:54 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</guid>
+      <description>PS :使用这个导出功能需要的条件： 1&amp;ndash;服务器需要安装mysql客户端：yum install mysql 2&amp;ndash;php需要开启exec函数(disable_functions exec)
+/** * @FILE_NAME:ExcelExport.php * @Description 数据导出excel,从数据库导出再下载，数据库配置 * [mysqld] * secure_file_priv= &amp;#39;&amp;#39; * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2019-12-24 13:42:11 * @param string $title * @param $sql * @param $data * @return bool */ public static function exportExcel($title = &amp;#39;报表导出&amp;#39;, $sql, $data) { $data_dir = getcwd() . &amp;#34;/data_export/&amp;#34;; //去除sql语句里的`,要不然执行shell命令报错 $sql = str_replace(&amp;#39;`&amp;#39;, &amp;#39;&amp;#39;, $sql); $sql = str_replace(&amp;#39;&amp;#34;&amp;#39;, &amp;#34;&amp;#39;&amp;#34;, $sql); //删除历史表格 self::deleteExcel(); if (!</description>
+    </item>
+    <item>
+      <title>MySQL_OUTFILE导出数据</title>
+      <link>http://zhaoguibin.me/posts/mysql_outfile%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sun, 19 Jan 2020 14:33:53 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql_outfile%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/</guid>
+      <description>PS : mysql 需要开启grant FILE on . to newerp; 权限
+/** * @FILE_NAME:ExcelExport.php * @Description 数据导出excel,从数据库导出再下载，数据库配置 * [mysqld] * secure_file_priv= &amp;#39;&amp;#39; * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2019-12-24 13:42:11 * @param string $title * @param $sql * @param $data * @return bool */ public static function exportExcel($title = &amp;#39;报表导出&amp;#39;, $sql, $data) { $data_dir = getcwd() .</description>
+    </item>
+    <item>
+      <title>PHP导出数据报表</title>
+      <link>http://zhaoguibin.me/posts/php%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8/</link>
+      <pubDate>Sun, 19 Jan 2020 13:56:09 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8/</guid>
+      <description>/** * @FILE_NAME:ExcelExport.php * @Description csv导出数据 * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:sqlQuery * @Description 生成器模式返回数据 * @User ZHaoGuiBin * @Date 2020-01-08 16:43 * @param $sql * @return Generator */ public static function sqlQuery($sql) { $sys = new SysModel(); $db = $sys-&amp;gt;getAdapter(); foreach ($db-&amp;gt;fetchAll($sql) as $key =&amp;gt; $val) { yield $val; //生成器返回数据，避免内存溢出 } } /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2020-01-09 09:23 * @param string $title * @param string $sql * @param array $data example : [&amp;#34;单号&amp;#34; =&amp;gt; &amp;#39;order_key&amp;#39;],[&amp;#39;报表title名称&amp;#39;=&amp;gt;&amp;#39;mysql语句字段名&amp;#39;] * @return bool */ public static function exportExcel($title = &amp;#39;报表导出&amp;#39;, $sql = &amp;#39;&amp;#39;, $data = []) { $data_dir = getcwd() .</description>
+    </item>
+    <item>
+      <title>php-fpm的关闭和重启</title>
+      <link>http://zhaoguibin.me/posts/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/</link>
+      <pubDate>Fri, 23 Nov 2018 21:13:41 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/</guid>
+      <description>php-fpm 关闭： kill -INT `cat /usr/local/php/var/run/php-fpm.pid` killall php-fpm php-fpm启动 /usr/local/php/sbin/php-fpm php-fpm 重启 kill -USR2 `cat /usr/local/php/var/run/php-fpm.pid` 查看php-fpm进程数 ps aux | grep -c php-fpm </description>
+    </item>
+    <item>
+      <title>php排序实现方法</title>
+      <link>http://zhaoguibin.me/posts/php%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 30 Jun 2018 13:31:49 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;h5 id=&#34;直接插入排序&#34;&gt;直接插入排序&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; *  直接插入排序,插入排序的思想是：当前插入位置之前的元素有序，
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; *  若插入当前位置的元素比有序元素最后一个元素大，则什么也不做，
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; *  否则在有序序列中找到插入的位置，并插入
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;insertSort&lt;/span&gt;($arr) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  $len &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;count&lt;/span&gt;($arr);  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;($i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;; $i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; $len; $i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;($arr[$i&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; $arr[&lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;]) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;($j &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $i &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;$j &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; $j&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt; ) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $tmp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $arr[$j&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;($tmp &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; $arr[$j]) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          $arr[$j&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $arr[$j];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          $arr[$j] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $tmp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }          
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; $arr;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;冒泡排序&#34;&gt;冒泡排序&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;  冒泡排序,冒泡排序思想：进行 n-1 趟冒泡排序， 每趟两两比较调整最大值到数组（子数组）末尾
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;bubbleSort&lt;/span&gt;($arr) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  $len &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;count&lt;/span&gt;($arr);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;($i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;; $i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; $len; $i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;($j &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; $j &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; $len&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;$i; $j&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;($arr[$j] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; $arr[$j&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $tmp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $arr[$j&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $arr[$j&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $arr[$j];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $arr[$j] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $tmp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; $arr;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>PHP curl returns (35) SSL connect error</title>
+      <link>http://zhaoguibin.me/posts/php-curl-returns-35-ssl-connect-error/</link>
+      <pubDate>Sun, 15 Apr 2018 16:35:47 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php-curl-returns-35-ssl-connect-error/</guid>
+      <description>用PHP cURL来获取https链接的页面，出现错误PHP curl returns (35) SSL connect error， 找到一个方法，记录一下，以免忘记。
+解决方法：
+yum update nss Q:但是，什么是NSS呢？
+A:curl模块的ssl 支持默认为NSS,网络安全服务（NSS）
+The Network Security Services (NSS)
+再来个详细解释 https://serverfault.com/questions/606135/curl-35-ssl-connect-error/642203#642203 </description>
+    </item>
+    <item>
+      <title>php下载文件简单实例</title>
+      <link>http://zhaoguibin.me/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Fri, 02 Mar 2018 20:16:49 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</guid>
+      <description>class Spider { public function downloadImage($url, $path=&amp;#39;images/&amp;#39;) { $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, $url); curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30); $file = curl_exec($ch); curl_close($ch); $this-&amp;gt;saveAsImage($url, $file, $path); } private function saveAsImage($url, $file, $path) { $filename = pathinfo($url, PATHINFO_BASENAME); if(!file_exists($path)){ mkdir($path,0777); } $resource = fopen($path . $filename, &amp;#39;a&amp;#39;); fwrite($resource, $file); fclose($resource); } } $str = file_get_contents(&amp;#34;http://www.bing.com/HPImageArchive.aspx?format=js&amp;amp;idx=0&amp;amp;n=1&amp;amp;mkt=en-US&amp;#34;); $arr = json_decode($str,true); $img_url = &amp;#39;http://www.bing.com&amp;#39;.$arr[&amp;#39;images&amp;#39;][0][&amp;#39;url&amp;#39;]; $img = new Spider(); $img-&amp;gt;downloadImage($img_url); </description>
+    </item>
+    <item>
+      <title>linux安装pear</title>
+      <link>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85pear/</link>
+      <pubDate>Sat, 20 Jan 2018 14:34:19 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85pear/</guid>
+      <description>&lt;p&gt;看图操作&lt;/p&gt;
+&lt;p&gt;这是错误，先放在前面，以免出现错误不知道怎么办&lt;!-- raw HTML omitted --&gt;
+出现这个错误就按照它的那个地址下载现在在执行安装就好了
+&lt;p class=&#34;imgp&#34;&gt;
+  &lt;img loading=&#34;lazy&#34; src=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhYAAABcCAIAAAC9eWunAAAABmJLR0QA/wD/AP&amp;#43;gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAVfklEQVR4nO2drXLrPBPHd9557sIk05YUG4Z5phPUXIEDDUo6h4WKmnVKCgLjK0hRJjNmgcYlbSbE9/ECf8nWylr5I42b/ZFzokratbSWbNn&amp;#43;C0DF36Zpmqbp1kf&amp;#43;yFjgiuNRuMPXm/fQYHWP5effgluJYRT&amp;#43;hyefN0vHWUWDmbnY2dfTUDF7lvOnK46pxGgHURmuOSCZlyf0aOU4y815HFdGwBVHviBhmL&amp;#43;IZgq5CJrx8ddwxTG82ywdx3EcZ/9QzBbnIslxnLlIxrEdrZyK5eZ83rxF4Ir3&amp;#43;48i6S40zl/F/Olvr&amp;#43;tq2f8XwOZtuAsShmGuBeIU4orjUYjiSjkboMoZQB6v1ER/m6bpLpjNgl3j8n73dMgG53XshcpVvzSrVIl5rTV3CksaQ6if0uxVOfovOK3LOSISdrOF7FJ9AH9u&amp;#43;KnPCaUjcPhMABIxL&amp;#43;4EE/ERz&amp;#43;4f2314vIfDZwL&amp;#43;wjt965wf0E8q/sKLP8rWLJp&amp;#43;u91W1aKxZOG8EiHyfV0zpxLJFobGayWG&amp;#43;TP4W&amp;#43;VkcMUROWmzQVrKjibmf9CUrv2US/mimhqa9bviWEwRak113zGXamVcsS1mRGlsQRey2u6VJJfqhhQ/0ZzapilQstaOVF0H041ng/lJpd4jte5Q&amp;#43;8NgSOMSGoG1QlWSGslkQ2O2EsNMFIuFLOlKEsB9fprF&amp;#43;wgAINoX18doIsrjfZYxH6HfnwAAXPEiXa7mtwG1xOTzcL57yM7S3FDyfYIiCUHrUlkmESuRZC7Ngvt9Y90oEfNyfWkNYfuKG2oI9VPfSpLDEv429Grt3yB/OBKv81WwZeua2xB&amp;#43;UilvqQCg2R1oosmQGnW6CMlRI6StJVsMSYlDtxLDTBX6FHL&amp;#43;&amp;#43;dInlKcTmqjgPtydf77yRfKl47wedEYAAMALi0vrXTDLz1I8p8nxzKVEzJeHp139av3rJ3sAAQCadaNotY69hX4OMTZIe04AwB8b5M9oDG83uM9P8PMF7vOTNGSP5ieV&amp;#43;iKWpSFseQvPiURIdf8Yenpjei7ZSgwzWXo8TpeH2HLtHU00knyf1OIl8vNsx/5FMdSl8u5ifQrehSv70Bn6sety1u/D8qTj7umwbH2OLz8Fyv9pW1Hp7ycVV7zcNSdEtItxQ2UnSUeP5lQjxBXvwWmdd3EMHbhcKzHMhOk6hSSfh3N&amp;#43;Re4vvPw6DE0skE&amp;#43;05Ps0u38EiN42EOyKC8VEfMTeS&amp;#43;NZSCI&amp;#43;ikEeAMDfGl/eqo1RqEvF4w8AcB/uitM&amp;#43;2p&amp;#43;Cf&amp;#43;Uj&amp;#43;Bfv/PNVf7fJ34aeusYkoT12Yk5lEYsyf0C2jLWOIV6X/7S/OtbXTxzpqUBOfRELoNkdaKK1S6YIqQxZOT9SKzHM3&amp;#43;K/rgUT8bo57tI0BDhvlqtEn5j94SNOwzQNAeK1s4qifRy&amp;#43;CDcSYu4IqdbV8uG4SwMAgHjtZINpJCVCvHZWAPor7KYh1KVEvD0f03RW1JgP2tFqvUjTNCySRQKw&amp;#43;timaZpXntWo5bz5WSDHTs6ZLetJBvx/wQwgKI69zb6/8OL9Clxx1zrJDeInFX/hxR&amp;#43;NYlV3xHGsJnZzCYkQkOIg7nQXcqlWYpg/x0W&amp;#43;Tkcu&amp;#43;yYN/ZvGAT6z7PF1&amp;#43;sX8NBb3t9b9f4VfqPIn68xtg92FRCvH8nFDBxIxd763xUW/4fqeqXORHupJIuZzJNkV2&amp;#43;fPlUiyZZ&amp;#43;3i7vFMMyQdF7IGoIpjITMsFSLiLzswzAMwzAMwzAMwzAMc7uMoYh7Myq7v3agdoaLTyZHe4jf9oLAzQQD0x1ZFGr0V006vJSTF5PLNX4OSUN7qtRCks1lP9GcN8&amp;#43;E3leqKVxptPdRbASnURVRq2bqeMq0&amp;#43;6QKUU6jz5groPFpob8t5XMdx3mF96scCqNVTdv3xYvX473PVX35bBJcp&amp;#43;dkro66EguqvY9iI8gvnV1rkLMmnwd4eqbEi/twRz8mhhmf&amp;#43;hTiL7yz9DlxKTaOa3GjutlqYl3AdBg502i1zj9kr4lKqX7Kl1Q10zTR7xokwXVCTqVBFFXgurRt009Mqb5KbF7eYg3S1MnXgNaJWsePkqy930XsHS9ftlCjIlPYtXxZrn5jL2MhyC/PUtHbRp40ku/TzDSHuOKYprtglguCydrExHNT9UjTR6qmfc9gkLJetcg/0xdcCVunxY3mRhIbutz1JajOtzmuONbDUafrrp1CCJGkFMnnRHQhS82pr7WsoPy/RrFc8RNVqsf&amp;#43;phe6x3XyNaha6TrreGGz9n4nsXfZEbWqZmCZDlX/d5vV/3bvG21Rd5FqppnP6twk&amp;#43;dUaIZ2DYSIi/4w99buQRMyd9Sm/JCm3lmrT4kZ1sxuJ0T4uLrH8RbvKlAWJ&amp;#43;Ig9T1p9sNMMR/zEmZXNsau2pKqUYSUhWDQnRrQvFX&amp;#43;LBmlVLFf8VJTqUbQNQtPJ10KzTnepk9h75TzWdF8/WQMWg0yxuUAL&amp;#43;E0Irr2PYhLkf7yfQV2VQWr8jiKf9ucmDXqEdAlFivM6l8YX&amp;#43;WfsUGUWy2Xg5QYK9TqtnLVR/DqrMp9DXPEy2AySVQv16uxkt4mi35IKbPnEJV5XS&amp;#43;WlECyaU&amp;#43;d5NofUplRM0171E1Wqpxxiu2I5ESvr3Vxq7zjadgD5wwX3Ac7Zv3fGg0aHMPKWvQRB/q&amp;#43;fM&amp;#43;Tqw3k2Sda3&amp;#43;zMOu3PTvs4WOocimnglIv&amp;#43;MJS1KvdLSbl8562zl11eu6KLVsLomk5HdzueQ2gxC17RXlep1jNEgdOt0l3r6qTZd8n2a3T8/3/&amp;#43;8fpzuHx/vZ&amp;#43;214pfbiPY&amp;#43;Ck1QuZCnzsvUZ7XH&amp;#43;1nHEe53Y75bKKKJVyLyz1hSn0JccZRXDzPBczstbpzk8wBBGDTXBAZ9QxHXn6&amp;#43;eU5JEvy9FtI&amp;#43;9xbaaQeia9rhSPcYQHdfdeoFZe7&amp;#43;nn3jTff2cvSCA7yTaQ2gQ6Qd8JQVfxGrqg&amp;#43;rnj2bOaF/tZdB4Ru8&amp;#43;3J0NG4WhDNTFHTdb7BqKaOLViPwzdtQ1shIx328LufNS8BwstLh1JJ&amp;#43;HcxCchlvFwmxgfkZvm5fdLg06i36PRLSPw9CL16syAVEsx8CV6v1ted8epmmY6VbaiKgjoHXiOvk6SNr7VmLvGFjTJZ&amp;#43;Hc3C/jwDcnzPcGQfXcvsBvfY&amp;#43;ioUgf83P4twCAMi2mnztcmL1bTpA&amp;#43;gilZzBMR&amp;#43;SfuVb4u1bmupnI1&amp;#43;mT55pF/pnr5cZOE4ZhZMpFry4fhvEUcuNkH/vwBMIwN0wPcS&amp;#43;eQhiGYRiGYRiGYZgrZxgpLRv4ZrkBN8iwjNmeoyvATxqs5VFButG5/LA2Po1PC2Wp946N&amp;#43;/dGHvSIhjlM9C2Dm3z1gHep6IH/L/&amp;#43;ezvB149&amp;#43;j82mYf77Inx/W6dCejb3TEzF3BPjbdLEf9rtxBgP99ID2PcINwQ1igBXgmd&amp;#43;jReCkQKOwjeg8a7WjyZrMpSL0wuwSLtfZUinhtqqpcY0eEZqo1aNuob5HhZp4MY1rvfPNBqEfJlWYvU1yHGmlSWiG09uzrzj5CArwWpfUYzwei65I0aGBtDeE2RTYjDY655&amp;#43;p5ybVJcSQLuaJw1rderUFhMV2FbRGRv00nIZ2qDrUivizXudZvRUiazKjitAYaLNqXGq3XvcD17gmLWRp9Kgbf2qrQU28mMY1akjb7wMLs7e0hpI&amp;#43;Ec1wenv2NISV1DeIteB52wmT/82tdkAwdAdi3ebcpI42SKGWoFUihuqSyVCXYa0RlqIY1rRTiO1eG4UnlmNdO4S7EACN&amp;#43;DNR55msyYwqQtuhuGSyXqenCrqV1Dy6k5GaeDGNa7os/MDC7K011BtkSprh1jL7g4mTD6cAbzgRzj9fkHyf4PSd5DrEVtbtgsF6i4EuQWsdn1pDXYa1uqxnJMyHad5rQ3tEPce6iv/MWQCTSU7EfAmFPs15Y1Ap9cJKeAsgfgRIXHHcBbOyfq0hOlqXEOt4DT2VCBU96qR0zBHNzP7Ciz&amp;#43;askBqIl4nuT2bVVg6TxPo1va8Xpid1B1gahCDS2WTSMFwfe3Z1xDdOrlOvUuDW6cFg81oYx5Y2oOWHJ8WIxi9J&amp;#43;36nGhMPaIhle&amp;#43;JdyEYdJ1nuiZzR8nQVpfoIuo9sZDddsXLnbIPBZZ4MY1ruvODC7NrMTWIwaVf1QwnttJI4uR9&amp;#43;uiSsTT4BgeUgWUQl6xaiT6s9RwAUUYeALtOIa06z3V9b7ImM6oIjYJKuKMu0UXUWzEOXACA6FEXjjWfhRAXsdA6x9K47iG7ra1TodX5ZnuqDTIlzXBrDfbBNiMYTuS/i0t06wNtcKAbdevOa1z6&amp;#43;jnL5TsNF6bBij6siY9qO4DiWUjP7Srsj8h2FmssZFU3Z16ahi23jLjkeO5zQzuarMmMKkKjYBLuGpeoIup6UDVsJBHTo0YhLmKBps5RNK7JzlvkxNB1h9qeWINMRzOc2ErJGOLk/RTg&amp;#43;7pkYb3fBgdNZ7P9DXDndd1R5W8ZrHCXyK1EH9aa2wFkD1B6bleBHJF&amp;#43;yYim/M&amp;#43;MAf1VBvqXip2/m7Klp/NjYDR0zZrhFzPEML8N7XE6MyCJmM9pibeMpkFcsX3&amp;#43;XIkkW5F4u7hbDMPU4CmEmRLVkkbnDTQZhmEYhmEYhmEYhmEMUNUChrFEU8NhBmWILv6LathXz&amp;#43;XOTYa5fjq8qcOMhfWrSYQpZAKvO1UKfJJgXSMws59oToaZDj2&amp;#43;Tr9OWPiauQaqT4KXm7uwbc6j52SY66MxhdQvAqvrJlQAGREWRjSZpcTaNZaqCK2VB8dABKU1wtetxa9aMxw3/asK2xrdUKSLbZT/q&amp;#43;5oV8PW1UnsODW8K41nJBQ18qi2HZeID4rspjHndM5N5paR77bL/2sEkBVhYb0mMyYqbK2GLaHX9yat605EM1zr&amp;#43;O8pbGvHVu1RE5T/LdSwsTrJHaf0l2pd3lBBM4UQOk4pkncWupCl5tTXOoVzk7ktmgtZ0T7O9VzAX3jxPjIIICtqw0QFeJ0iNE2C2E7f21C8U50X0wxXuG6FbQOo9Z4i/zYdF&amp;#43;1jSXAoC2/rWCJ1XHGjlKa74LTOdYKy2&amp;#43;OM0GvLqXF&amp;#43;Aucmc2Moz0LKOC2iFADk2N8FMymq6ipqiZgvD0872t2uIr&amp;#43;s1mddnA5NMxwA8FUSPCfSStXqQdiQSBtObbnNJdSQrjfrWPWmBZj1oWX2tRRziCteqvC2iyWi2Lskj1pKDcXrSjC1lHdFc&amp;#43;qcn8S5ydwS6tfp0T4OFz7Awov3hcaYcUOQknJvDH&amp;#43;bvovPllKz&amp;#43;0qJv4Nm&amp;#43;IDFDXVi232gOdVWyhWh5xEA&amp;#43;Nv0xdZLG&amp;#43;gNMkZv0sFaCe8OOhbBEL1tXt6ffXiaxR/FINwzli7HRM5N5pZA3siK9rG32FbXOQNpMtfoqUc9aPFOdV5MM5zGxRS27aWnzcr/dDVsvE67YEg&amp;#43;DxCEwawMb6x4T4Xt0bjGc7Nz0DJ/AkwjK9rHYejF61LnuJ8ms78tF3EqVeV&amp;#43;etQ95ayvVjP88X4G1cVxtyMaWWEblZ5Guzirg6L8b6GGjdVpGQzJ5&amp;#43;EcBKdyIQgt3ldheywmcG4yzE1xTZrh/Gn2ReBXihhmMP7cp4U0ytv6ntu6DUu0cgZ53MC0Ib1xxDAM040eSloTUNhgcLIvPfkWhGEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYpqLnJn3Xscdfj00KGZUr2H58ChvNjx51w5xcV9CbJKbi523xn/zD36ahV//7ebN8vaQ/I&amp;#43;H/C05rZ84bZtviiuM7vCo7uidi7vyOQ1Ni&amp;#43;KjTdEdPptKbF/PT36aLvbPi4YLC/&amp;#43;Qf0cpxHMdx1jGcN0vHcRxn6Gj9HdyHu992gbk5OOqYG&amp;#43;B/5iwAAPC8TRu35H6eIqW54ngUQslZ4Ipj&amp;#43;z19fW2i/FUsBzQMuVghBVcc03QXzMAL5SrUOpUD0Ffb30&amp;#43;iIblS6RYedV5jPTfSPEzVsuKSv03TdBfMZsFOtl8Wri0ptFs3reRYxFJhaLtoq7B2kFhxQr&amp;#43;riZp&amp;#43;1xkfNuo03QHYuanp4rZWqkUX3nG0UMSLK03XjCa01WsnDBJ15OK48&amp;#43;RWYmyp97crjkW7o4uRVSKaMx9GXXE095NsuAizqqbqrxZTSMPF5m/kUAnR1NvPToZEWanqvMZ6ihwmWkrnkmaxvdGgBuv0NWxDLNUNtTVgzaQrti1Npzt2JBHrd8rBNH93izpQu0PTyJoupjlqrrM1FPXFSxPl/xE/28KmmUAvjjnf0krmvmVKiHch8T4CAEi&amp;#43;T3D30Ij1eiKa8/7fcfd0WBpXxaJ9PHt6dgEA/IUX7yMA9/lpltcZ7ePZ/SPN4VZa64w/zGt3g/hpNuSKF6/KFQmR6JzXWldzynUmn4ez3J&amp;#43;UY8f8NFhHwwbFEEt1Q6bKyooSsdI3XekrduyNRKTf6fSOOg1qK7V18RB1toYiWhwg2sfeIhuWy1NG5yctbOjFcef7txIDQJ1Czj9fSlp1Eyg/gsdywsy7g/Ms&amp;#43;Gee2Itz1BUv1Rkq1zlUP2vrRA9gDD9phtBcqCF6Yr66kuYLI9WZT3PJ6CdqvRWLWCLWmYj58vC0U1Yp7PpdSUT7nU7PqDPWWaHr4h51dgvFknIOqU2&amp;#43;mJ8WjUEuPkYrMQBAfxbSxBXvwWldPn1v57x5nc/XsRea7w6jtw08PfvV5Q0AyH17&amp;#43;h7m8X7fOn/DTzSxNERPLF6VyBnkxZM&amp;#43;x24VS/QTPRHzvM5T8F5MImP0O50xIgRl7C5GEw1HlM8htRmkp5/04qjz2uLRil/HItN1CpHwF545E0C0Ik0iyecBgjAoz9Dk83DO74D9hZdfTCTfJ2lBwdpjtE77Osb3U3zE3ktjDRc3pDsiNaf4kEZU8LfGHjEP2kO0Z&amp;#43;5OeyvVDbXlLB9/ZC9GZaPbGP1uVXKIViJ0h3UXm6GHop5oH3uLbTWD9PSTXhx3vqU4Pwux4D9zFpREfMRpmKYhQBwbV6UzotV6kYbpFlqn&amp;#43;OTzcA6CU3mGJuJ1c9ylaQhw3ixX2YVO9LZ52e3SwMJ63XukTts6LuAnRKvlw3GXBgAA8dqJtIY0R3Te/CyaiXKdEK&amp;#43;dVetRSv28dlaR/O1QmKZhltqvPS1iqTJkyJmIt&amp;#43;djms4AoGq5UfrdomR/60p34JC7GOtNzURADkU90T4OQy9el&amp;#43;4gfmpfR1Ojjl4cdd7uRGAmxFS&amp;#43;Qb16P69DF&amp;#43;DPcfX9zjAXZICFrIFxO64zX5qp&amp;#43;MkMC/c7w1wt2Sdm13&amp;#43;JNw0/&amp;#43;S5kaKbR7wzDMAzDMAzDMAxzUxSKRXzD3pexlpJ8RPiK7BGrAjEMMxSax&amp;#43;nnzXKgD5IyLrYs39NQpfenyMCNO&amp;#43;5WhmsOSOblCT1aOc5yc&amp;#43;5gJ//ezvgFH8MwDIH/A2IEBsYbdDY8AAAAAElFTkSuQmCC&#34; alt=&#34;error&#34;  /&gt;
+&lt;/p&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>php浮点数精确运算</title>
+      <link>http://zhaoguibin.me/posts/php%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E7%A1%AE%E8%BF%90%E7%AE%97/</link>
+      <pubDate>Sat, 20 Jan 2018 14:19:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E7%A1%AE%E8%BF%90%E7%AE%97/</guid>
+      <description>如果用php的+-*/计算浮点数的时候，可能会遇到一些计算结果错误的问题，所以基本上大部分语言都提供了精准计算的类库或函数库，比如php有BC高精确度函数库，下面我们介绍一下一些常用的BC高精确度函数使用。
+bc是Binary Calculator的缩写。bc*函数的参数都是操作数加上一个可选的 [int scale]，比如string bcadd(string $left_operand, string $right_operand[, int $scale])，如果scale没有提供，就用bcscale的缺省值。这里大数直接用一个由0-9组成的string表示，计算结果返回的也是一个 string。
+bcadd — 将两个高精度数字相加 bccomp — 比较两个高精度数字，返回-1, 0, 1 bcdiv — 将两个高精度数字相除 bcmod — 求高精度数字余数 bcmul — 将两个高精度数字相乘 bcpow — 求高精度数字乘方 bcpowmod — 求高精度数字乘方求模，数论里非常常用 bcscale — 配置默认小数点位数，相当于就是Linux bc中的”scale=” bcsqrt — 求高精度数字平方根 bcsub — 将两个高精度数字相减
+首先看一段代码:
+&amp;lt;?php $a = 0.1; $b = 0.7; var_dump(($a + $b) == 0.8); 打印出来的值居然为 boolean false
+这是为啥?PHP手册对于浮点数有以下警告信息:
+Warning 浮点数精度 显然简单的十进制分数如同 0.1 或 0.7 不能在不丢失一点点精度的情况下转换为内部二进制的格式。这就会造成混乱的结果：例如，floor((0.1+0.7)*10) 通常会返回 7 而不是预期中的 8，因为该结果内部的表示其实是类似 7.</description>
+    </item>
+    <item>
+      <title>逢4进5,逢5进10。0,5值不变</title>
+      <link>http://zhaoguibin.me/posts/%E9%80%A24%E8%BF%9B5%E9%80%A25%E8%BF%9B1005%E5%80%BC%E4%B8%8D%E5%8F%98/</link>
+      <pubDate>Tue, 09 Jan 2018 20:04:09 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E9%80%A24%E8%BF%9B5%E9%80%A25%E8%BF%9B1005%E5%80%BC%E4%B8%8D%E5%8F%98/</guid>
+      <description>&amp;lt;?php //逢4进5,逢5进10。0,5值不变 function ceiling($number = 0){ if($number == 0){ return 0; } //这里取出整数 $number = explode(&amp;#39;.&amp;#39;,$number); $number = $number[0]; $cc = $number%10; $price = $number; if($cc &amp;gt; 5){ $price = $number+(10-$cc); }elseif ($cc &amp;gt; 0) { $price = $number+(5-$cc); } return $price; } </description>
+    </item>
+    <item>
+      <title>php下安装event扩展</title>
+      <link>http://zhaoguibin.me/posts/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/</link>
+      <pubDate>Tue, 09 Jan 2018 19:59:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/</guid>
+      <description>安装支持库libevent，需要编译高版本（这里以最新版本release-2.1.8-stable为例）
+wget -c https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz -P /opt/local/src cd /opt/local/src tar -zxvf libevent-2.1.8-stable.tar.gz &amp;amp;&amp;amp; cd libevent-2.1.8-stable ./configure --prefix=/opt/local/libevent make &amp;amp;&amp;amp; make install 安装event库（以event-2.3.0.tgz为例）
+wget -c http://pecl.php.net/get/event-2.3.0.tgz -P /opt/local/src cd /opt/local/src tar -zxvf event-2.3.0.tgz &amp;amp;&amp;amp; cd event-2.3.0 /opt/local/php72/bin/bin/phpize ./configure --with-php-config=/opt/local/php72/bin/php-config --with-event-libevent-dir=/opt/local/libevent/ make &amp;amp;&amp;amp; make install 在php.ini添加下面配置
+extension=event.so </description>
+    </item>
+    <item>
+      <title>php导出CSV</title>
+      <link>http://zhaoguibin.me/posts/php%E5%AF%BC%E5%87%BAcsv/</link>
+      <pubDate>Fri, 05 Jan 2018 21:22:14 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E5%AF%BC%E5%87%BAcsv/</guid>
+      <description>&amp;lt;?php //导出的首行标题以及需要导出的字段 $parm = array( &amp;#34;公司名称&amp;#34;=&amp;gt;&amp;#39;business_name&amp;#39;, &amp;#39;公司城市&amp;#39;=&amp;gt;&amp;#39;province&amp;#39;, &amp;#39;公司地址&amp;#39;=&amp;gt;&amp;#39;detail_addr_&amp;#39; ); /** * 导出CSV文件 * @param array $data 数据 * @param array $header_data 首行数据 * @param string $file_name 文件名称 * @param string $body_data 需要导出的字段名 * @return string */ public function export_csv($data = [], $parm = [], $file_name = &amp;#39;&amp;#39;) { header(&amp;#39;Content-Type: application/vnd.ms-excel&amp;#39;); header(&amp;#39;Content-Disposition: attachment;filename=&amp;#39;.$file_name); header(&amp;#39;Cache-Control: max-age=0&amp;#39;); $fp = fopen(&amp;#39;php://output&amp;#39;, &amp;#39;a&amp;#39;); $header_data = array_keys($parm); $body_data = array_values($parm); if (!empty($header_data)) { foreach ($header_data as $key =&amp;gt; $value) { $header_data[$key] = iconv(&amp;#39;utf-8&amp;#39;, &amp;#39;gbk&amp;#39;, $value); } fputcsv($fp, $header_data); } $num = 0; $limit = 100000; //逐行取出数据，不浪费内存 $count = count($data); if ($count &amp;gt; 0) { for ($i = 0; $i &amp;lt; $count; $i++) { $num++; //刷新一下输出buffer，防止由于数据过多造成问题 if ($limit == $num) { ob_flush(); flush(); $num = 0; } $row = []; $export_data = $data[$i]; foreach ($export_data as $key =&amp;gt; $value) { if(!</description>
+    </item>
+    <item>
+      <title>php的socket通信</title>
+      <link>http://zhaoguibin.me/posts/php%E7%9A%84socket%E9%80%9A%E4%BF%A1/</link>
+      <pubDate>Tue, 02 Jan 2018 20:42:46 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E7%9A%84socket%E9%80%9A%E4%BF%A1/</guid>
+      <description>对TCP/IP、UDP、Socket编程这些词你不会很陌生吧？随着网络技术的发展，这些词充斥着我们的耳朵。那么我想问：
+什么是TCP/IP、UDP？ Socket在哪里呢？ Socket是什么呢？ 你会使用它们吗？ 什么是TCP/IP、UDP？ TCP/IP（Transmission Control Protocol/Internet Protocol）即传输控制协议/网间协议，是一个工业标准的协议集，它是为广域网（WANs）设计的。 UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是属于TCP/IP协议族中的一种。 这里有一张图，表明了这些协议的关系。
+TCP/IP协议族包括运输层、网络层、链路层。
+Socket在哪里呢？ 在图1中，我们没有看到Socket的影子，那么它到底在哪里呢？还是用图来说话，一目了然。
+原来Socket在这里。
+Socket是什么呢？ Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。 你会使用它们吗？ 前人已经给我们做了好多的事了，网络间的通信也就简单了许多，但毕竟还是有挺多工作要做的。以前听到Socket编程，觉得它是比较高深的编程知识，但是只要弄清Socket编程的工作原理，神秘的面纱也就揭开了。 一个生活中的场景。你要打电话给一个朋友，先拨号，朋友听到电话铃声后提起电话，这时你和你的朋友就建立起了连接，就可以讲话了。等交流结束，挂断电话结束此次交谈。 生活中的场景就解释了这工作原理，也许TCP/IP协议族就是诞生于生活中，这也不一定。
+先从服务器端说起。服务器端先初始化Socket，然后与端口绑定(bind)，对端口进行监听(listen)，调用accept阻塞，等待客户端连接。在这时如果有个客户端初始化一个Socket，然后连接服务器(connect)，如果连接成功，这时客户端与服务器端的连接就建立了。客户端发送数据请求，服务器端接收请求并处理请求，然后把回应数据发送给客户端，客户端读取数据，最后关闭连接，一次交互结束。
+socket相关函数： &amp;lt;?php socket_accept() 接受一个Socket连接 socket_bind() 把socket绑定在一个IP地址和端口上 socket_clear_error() 清除socket的错误或者最后的错误代码 socket_close() 关闭一个socket资源 socket_connect() 开始一个socket连接 socket_create_listen() 在指定端口打开一个socket监听 socket_create_pair() 产生一对没有区别的socket到一个数组里 socket_create() 产生一个socket，相当于产生一个socket的数据结构 socket_get_option() 获取socket选项 socket_getpeername() 获取远程类似主机的ip地址 socket_getsockname() 获取本地socket的ip地址 socket_iovec_add() 添加一个新的向量到一个分散/聚合的数组 socket_iovec_alloc() 这个函数创建一个能够发送接收读写的iovec数据结构 socket_iovec_delete() 删除一个已经分配的iovec socket_iovec_fetch() 返回指定的iovec资源的数据 socket_iovec_free() 释放一个iovec资源 socket_iovec_set() 设置iovec的数据新值 socket_last_error() 获取当前socket的最后错误代码 socket_listen() 监听由指定socket的所有连接 socket_read() 读取指定长度的数据 socket_readv() 读取从分散/聚合数组过来的数据 socket_recv() 从socket里结束数据到缓存 socket_recvfrom() 接受数据从指定的socket，如果没有指定则默认当前socket socket_recvmsg() 从iovec里接受消息 socket_select() 多路选择 socket_send() 这个函数发送数据到已连接的socket socket_sendmsg() 发送消息到socket socket_sendto() 发送消息到指定地址的socket socket_set_block() 在socket里设置为块模式 socket_set_nonblock() socket里设置为非块模式 socket_set_option() 设置socket选项 socket_shutdown() 这个函数允许你关闭读、写、或者指定的socket socket_strerror() 返回指定错误号的详细错误 socket_write() 写数据到socket缓存 socket_writev() 写数据到分散/聚合数组 案例一：socket通信演示 服务器端：</description>
+    </item>
+    <item>
+      <title>php设计模式概述</title>
+      <link>http://zhaoguibin.me/posts/php%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Sat, 23 Dec 2017 17:18:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/</guid>
+      <description>工厂模式： 我们定义一个专门用来创建其它对象的类。 这样在需要调用某个类的时候，我们就不需要去使用new关键字实例化这个类，而是通过我们的工厂类调用某个方法得到类的实例。 好处：当我们对象所对应的类的类名发生变化的时候，我们只需要改一下工厂类类里面的实例化方法即可。不需要外部改所有的地方。
+单例模式（口诀：三私一公） class Singleton{ //私有化构造方法，禁止外部实例化对象 private function __construct(){} //私有化__clone，防止对象被克隆 private function __clone(){} //私有化内部实例化的对象 private static $instance = null; // 公有静态实例方法 public static function getInstance(){ if(self::$instance == null){ //内部实例化对象 self::$instance = new self(); } return self::$instance; } } 注册器模式： 用来将一些对象注册到全局的注册树上，可以在任何地方访问。
+set():将对象隐射到全局树上， _unset():从树上移除。 get():去注册到树上的对象。 适配器模式： 1、可以将截然不同的函数接口封装成统一的API 2、实际应用举例：PHP的数据库操作有mysql/mysqli/pdo 三种，可以用适配器模式统一成一致。类似的场景还有cache适配器，可以将memcache/redis/file/apc等不同的缓存函数统一成一致的接口。
+策略模式： 1、策略模式，将一组特定的行为和算法封装成类，以适应某些特定的上下文环境，这种模式就是策略模式 2、实际应用举例，假如一个电商网站系统，针对男性女性用户要各自跳转到不同的商品类名，并且所有广告位展示不同的广告，传统的做法是加入if&amp;hellip;else&amp;hellip; 判断。 如果新增加一种用户类型，只需要新增加一种策略即可 3、使用策略模式可以实现Ioc ,依赖倒置，控制反转
+数据对象映射模式： 1、数据对象映射模式，是将对象和数据存储映射起来，对一个对象的操作会映射为对数据存储的操作，比我们在代码中new一个对象，那么使用该模式就可以将对对象的一些操作，比如说我们设置的一些属性，它就会自动保存到数据库，跟数据库中表的一条记录对应起来 实例，在代码中实现数据对象映射模式，我们将写一个ORM类，将复杂的SQL语句映射成对象属性的操作 结合使用数据对象映射模式，工厂模式，注册模式
+对象关系映射 对象关系映射（英语：Object Relation Mapping，简称ORM，或O/RM，或O/R mapping），是一种程序技术，用于实现面向对象编程语言里不同类型系统的数据之间的转换[1] 。从效果上说，它其实是创建了一个可在编程语言里使用的&amp;ndash;“虚拟对象数据库”。 面向对象是从软件工程基本原则（如耦合、聚合、封装）的基础上发展起来的，而关系数据库则是从数学理论发展而来的，两套理论存在显著的区别。为了解决这个不匹配的现象，对象关系映射技术应运而生 简单的说：ORM相当于中继数据
+适配器模式： 1、可以将截然不同的函数接口封装成统一的API 2、实际应用举例：PHP的数据库操作有mysql/mysqli/pdo 三种，可以用适配器模式统一成一致。类似的场景还有cache适配器，可以将memcache/redis/file/apc等不同的缓存函数统一成一致的接口。</description>
+    </item>
+    <item>
+      <title>php-fpm设置socket方式连接FastCGI</title>
+      <link>http://zhaoguibin.me/posts/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5fastcgi/</link>
+      <pubDate>Sun, 03 Dec 2017 17:16:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5fastcgi/</guid>
+      <description>nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。
+socket方式不会走到tcp层，tcp方式则会走到ip层。因此，理论上说socket连接方式效率会更好一点。 TCP和unix domain socket方式对比
+TCP是使用TCP端口连接127.0.0.1:9000
+Socket是使用unix domain socket连接套接字/dev/shm/php-fpm.sock
+修改php-fpm.conf配置
+#listen = 127.0.0.1:9000 listen=/dev/shm/php-fpm.sock #/dev/shm/为内存文件系统，注意 确保可读写 listen.owner=apache #注意自己的用户和组 listen.group=apache 修改nginx.conf配置
+#fastcgi_pass 127.0.0.1:9000; #将相应的如上内容修改如下 fastcgi_pass unix:/dev/shm/php-fpm.sock; 重启nginx和php-fpm
+service nginx restart /usr/local/nginx/sbin/nginx -s reload </description>
+    </item>
+    <item>
+      <title>Centos中安装PHP的PDO-MySQL扩展</title>
+      <link>http://zhaoguibin.me/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/</link>
+      <pubDate>Sun, 03 Dec 2017 16:36:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/</guid>
+      <description>1、下载 文件 或者 进入 在PHP源码包中进入ext/pdo_mysql http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz 2、解压文件
+tar zxvf PDO_MYSQL-1.0.2.tgz 3、配置和编译文件
+cd PDO_MYSQL-1.0.2 /usr/local/php/bin/phpize ./configure –with-php-config=/usr/local/php/bin/php-config –with-pdo-mysql=/usr/local/mysql make make install 注： 我的PHP安装在 ： /usr/local/php/ mysql 安装在 ： /usr/local/mysql 编译的时候注意你自己的安装目录在哪里 3、安装到PHP配置下
+把这个记住，然后打开 php.ini文件， 并添加一行
+extension=pdo_mysql.so </description>
+    </item>
+  </channel>
+</rss>

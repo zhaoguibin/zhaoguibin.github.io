@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>golang on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/golang/</link>
+    <description>Recent content in golang on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 31 Jan 2019 13:39:38 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang两个线程交替打印1-100的奇数偶数</title>
+      <link>http://zhaoguibin.me/posts/golang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0/</link>
+      <pubDate>Thu, 31 Jan 2019 13:39:38 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/golang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0/</guid>
+      <description>启动两个线程, 一个输出 1,3,5,7…99, 另一个输出 2,4,6,8…100 最后 STDOUT 中按序输出 1,2,3,4,5…100
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;time&amp;#34; ) var pool = 100 //奇数 func oddNum(c chan int) { for i := 1; i &amp;lt;= pool; i++ { c &amp;lt;- i if i%2 == 1 { fmt.Println(i) } } } //偶数 func even(c chan int) { for i := 1; i &amp;lt;= pool; i++ { &amp;lt;-c if i%2 == 0 { fmt.Println(i) } } } func main() { c := make(chan int) go oddNum(c) go even(c) time.</description>
+    </item>
+    <item>
+      <title>golang抓取知乎图片</title>
+      <link>http://zhaoguibin.me/posts/golang%E6%8A%93%E5%8F%96%E7%9F%A5%E4%B9%8E%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Sat, 26 Jan 2019 10:56:31 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/golang%E6%8A%93%E5%8F%96%E7%9F%A5%E4%B9%8E%E5%9B%BE%E7%89%87/</guid>
+      <description>代码github地址 https://github.com/zhaoguibin/zhihu_pic 需要安装 gjson go get -u github.com/tidwall/gjson package main import ( &amp;#34;bytes&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;io&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os&amp;#34; &amp;#34;regexp&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;github.com/tidwall/gjson&amp;#34; &amp;#34;bufio&amp;#34; &amp;#34;strconv&amp;#34; &amp;#34;time&amp;#34; ) var quit = make(chan int) func main() { url := urlExists() dirName := strconv.FormatInt(time.Now().Unix(), 10) imgDir := &amp;#34;./&amp;#34; + dirName + &amp;#34;/&amp;#34; _, errs := pathExists(imgDir) if errs != nil { fmt.Printf(&amp;#34;创建文件失败&amp;#34;) return } getImgURL(url, imgDir) } //获取图片地址 func getImgURL(url, imgDir string) { //提交请求 reqest, err := http.</description>
+    </item>
+    <item>
+      <title>Virtualbox 共享文件夹 cannot create symlink error</title>
+      <link>http://zhaoguibin.me/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/</link>
+      <pubDate>Sat, 02 Dec 2017 14:31:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/</guid>
+      <description>npm操作虚拟机共享文件夹里的文件时出现 npm Error: EROFS: read-only file system, symlink的报错信息。
+解决方法 原来VirtualBox从安全角度出发，限制了软链接的创建，需要打开相应的Feature。以下为详细步骤：
+关闭 VirtualBox。 将VirtualBox安装目录的路径加入系统环境变量PATH中。 打开命令行窗口，执行如下命令： VBoxManage setextradata YOURVMNAME VBoxInternal2/SharedFoldersEnableSymlinksCreate/YOURSHAREFOLDERNAME 1 其中：YOURVMNAME为虚拟机中linux系统的名称 YOURSHAREFOLDERNAME 为共享的目录名称
+“以管理者身份运行” VirtualBox　即可！ </description>
+    </item>
+    <item>
+      <title>安装golang</title>
+      <link>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85golang/</link>
+      <pubDate>Sat, 02 Dec 2017 14:31:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85golang/</guid>
+      <description>到官方https://golang.org/dl/
+或者 https://www.golangtc.com/download 下载安装包
+wget https://www.golangtc.com/static/go/1.9/go1.9.linux-amd64.tar.gz tar zxvf go1.9.linux-amd64.tar.gz -C /usr/local 新建GOPATH目录
+mkdir -p /www/golang vim /etc/profile export GOROOT=/usr/local/go export GOBIN=$GOROOT/bin export PATH=$PATH:$GOBIN export GOPATH=/www/golang :wq保存 使其生效
+source /etc/profile 查看是否配置成功
+go version go version go1.9 linux/amd64 简单测试：
+cd /www/golang vim hello.go package main import &amp;#34;fmt&amp;#34; func main() { fmt.Println(&amp;#34;Hello, world&amp;#34;) } :wq go run hello.go Hello, world </description>
+    </item>
+  </channel>
+</rss>

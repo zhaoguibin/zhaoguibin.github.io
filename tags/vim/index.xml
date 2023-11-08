@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/vim/</link>
+    <description>Recent content in vim on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 02 Dec 2017 11:59:21 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vim使用</title>
+      <link>http://zhaoguibin.me/posts/vim%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 02 Dec 2017 11:59:21 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/vim%E4%BD%BF%E7%94%A8/</guid>
+      <description>vim三种模式：命令模式、插入模式、编辑模式。使用ESC或i或：来切换模式。
+命令模式下：
+:q 退出 :q! 强制退出 :wq 保存并退出 :set number 显示行号 :set nonumber 隐藏行号 /apache 在文档中查找apache 按n跳到下一个，shift+n上一个 yyp 复制光标所在行，并粘贴 h(左移一个字符←)、j(下一行↓)、k(上一行↑)、l(右移一个字符→) 1、复制 1）单行复制 在命令模式下，将光标移动到将要复制的行处，按“yy”进行复制； 2）多行复制 在命令模式下，将光标移动到将要复制的首行处，按“nyy”复制n行；其中n为1、2、3…… 2、粘贴 在命令模式下，将光标移动到将要粘贴的行处，按“p”进行粘贴 </description>
+    </item>
+  </channel>
+</rss>

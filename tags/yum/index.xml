@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>yum on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/yum/</link>
+    <description>Recent content in yum on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 09 Dec 2017 01:23:45 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/yum/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>centos7 yum安装lnmp</title>
+      <link>http://zhaoguibin.me/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</link>
+      <pubDate>Sat, 09 Dec 2017 01:23:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</guid>
+      <description>PHP7 1.安装epel-release 通过命令：
+yum -y install epel-release 成功安装。
+2.安装PHP7 终端再次运行如下命令：
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm 成功获取PHP7的yum源，然后再执行：
+php安装以及安装扩展 yum install php70w php70w-devel php70w-fpm php70w-gd php70w-mysqli php70w-mbstring nginx centos7系统库中默认是没有nginx的rpm包的，所以我们自己需要先更新下rpm依赖库
+1.使用yum安装nginx需要包括Nginx的库，安装Nginx的库 rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm 2.使用下面命令安装nginx yum install nginx 3.启动Nginx service nginx start 或
+systemctl start nginx.service mysql 1.下载mysql的repo源 wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm 2.安装mysql-community-release-el7-5.noarch.rpm包 sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm 安装这个包后，会获得两个mysql的yum repo源：/etc/yum.repos.d/mysql-community.repo，/etc/yum.repos.d/mysql-community-source.repo。
+3.安装mysql sudo yum install mysql-server 根据提示安装就可以了,不过安装完成后没有密码,需要重置密码
+4.重置mysql密码 mysql -u root 登录时有可能报这样的错：ERROR 2002 (HY000): Can‘t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.</description>
+    </item>
+    <item>
+      <title>yum 安装报 关于Public key for .rpm is not installed 的解决方法</title>
+      <link>http://zhaoguibin.me/posts/yum-%E5%AE%89%E8%A3%85%E6%8A%A5-%E5%85%B3%E4%BA%8Epublic-key-for-.rpm-is-not-installed-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 02 Dec 2017 11:27:39 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/yum-%E5%AE%89%E8%A3%85%E6%8A%A5-%E5%85%B3%E4%BA%8Epublic-key-for-.rpm-is-not-installed-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>此时要导入rpm的签名信息即可
+以root登录，执行下面命令
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release 根据我的Linux版本是CentOS 7
+于是我执行下面命令
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 </description>
+    </item>
+    <item>
+      <title>Warning RPMDB altered outside of yum.的解决办法</title>
+      <link>http://zhaoguibin.me/posts/warning-rpmdb-altered-outside-of-yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95-/</link>
+      <pubDate>Sat, 02 Dec 2017 11:26:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/warning-rpmdb-altered-outside-of-yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95-/</guid>
+      <description>错误提示： Warning: RPMDB altered outside of yum 解决办法： 删除yum的历史记录
+rm -rf /var/lib/yum/history/*.sqlite </description>
+    </item>
+  </channel>
+</rss>

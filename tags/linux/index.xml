@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/linux/</link>
+    <description>Recent content in linux on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 19 Jan 2020 16:23:54 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>php使用Linux命令导出MySQL数据到csv</title>
+      <link>http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</link>
+      <pubDate>Sun, 19 Jan 2020 16:23:54 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</guid>
+      <description>PS :使用这个导出功能需要的条件： 1&amp;ndash;服务器需要安装mysql客户端：yum install mysql 2&amp;ndash;php需要开启exec函数(disable_functions exec)
+/** * @FILE_NAME:ExcelExport.php * @Description 数据导出excel,从数据库导出再下载，数据库配置 * [mysqld] * secure_file_priv= &amp;#39;&amp;#39; * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2019-12-24 13:42:11 * @param string $title * @param $sql * @param $data * @return bool */ public static function exportExcel($title = &amp;#39;报表导出&amp;#39;, $sql, $data) { $data_dir = getcwd() . &amp;#34;/data_export/&amp;#34;; //去除sql语句里的`,要不然执行shell命令报错 $sql = str_replace(&amp;#39;`&amp;#39;, &amp;#39;&amp;#39;, $sql); $sql = str_replace(&amp;#39;&amp;#34;&amp;#39;, &amp;#34;&amp;#39;&amp;#34;, $sql); //删除历史表格 self::deleteExcel(); if (!</description>
+    </item>
+    <item>
+      <title>virtualbox安装增强功能报错</title>
+      <link>http://zhaoguibin.me/posts/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/</link>
+      <pubDate>Sat, 02 Mar 2019 14:04:39 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/</guid>
+      <description>在virtualbox安装目录找到VBoxGuestAdditions.iso复制到虚拟机里面，可以放到任意一个目录 sudo mkdir /media/GuestAdditionsISO sudo mount -o loop VBoxGuestAdditions.iso所在目录/VBoxGuestAdditions.iso /media/GuestAdditionsISO 这时候你会看到一条信息，the ISO has been mounted as READ-ONLY cd /media/GuestAdditionsISO ./VBoxLinuxAdditions.run 搞定 愿答案</description>
+    </item>
+    <item>
+      <title>linux挂载windows下的共享文件</title>
+      <link>http://zhaoguibin.me/posts/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Fri, 23 Nov 2018 21:38:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</guid>
+      <description>安装cifs-utils yum install cifs* -y 这条命令只可以读取Windows共享文件，不能创建文件 #user=Windows用户 #pass=Windows登录密码 #//192.168.10.64/APP Windows共享文件 #/opt/APP/ linux挂载目录 mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq 这条命令可以添加文件操作权限 #user=Windows用户 #pass=Windows登录密码 #//192.168.10.64/APP Windows共享文件 #/opt/APP/ linux挂载目录 #uid，gid，linux用户的id和用户组id，可以通过 id root 命令查看用户的id和用户组id #rw,dir_mode=0777,file_mode=0777这些是设置文件夹权限，可以根据自己的需求设置权限 mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq,rw,uid=0,gid=0,dir_mode=0777,file_mode=0777 </description>
+    </item>
+    <item>
+      <title>Linux下iptables屏蔽IP和端口号</title>
+      <link>http://zhaoguibin.me/posts/linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDip%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/</link>
+      <pubDate>Fri, 16 Nov 2018 19:47:29 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDip%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/</guid>
+      <description>#封单个IP的命令： iptables -I INPUT -s 192.168.10.66 -j DROP #封IP段的命令： iptables -I INPUT -s 192.168.0.0/16 -j DROP #封整个段的命令： iptables -I INPUT -s 192.168.0.0/8 -j DROP #封几个段的命令： iptables -I INPUT -s 192.168.10.0/24 -j DROP #只封80端口： iptables -I INPUT -p tcp –dport 80 -s 192.168.0.0/24 -j DROP #解封： iptables -F #清空： iptables -D INPUT 数字 #列出 INPUT链 所有的规则： iptables -L INPUT --line-numbers #删除某条规则，其中5代表序号（序号可用上面的命令查看）： iptables -D INPUT 5 #开放指定的端口： iptables -A INPUT -p tcp --dport 80 -j ACCEPT #禁止指定的端口： iptables -A INPUT -p tcp --dport 80 -j DROP #拒绝所有的端口： iptables -A INPUT -j DROP 以上都是针对INPUT链的操作，即是外面来访问本机的方向，配置完之后 需要保存，否则iptables 重启之后以上设置就失效</description>
+    </item>
+    <item>
+      <title>centos修改IP</title>
+      <link>http://zhaoguibin.me/posts/centos%E4%BF%AE%E6%94%B9ip/</link>
+      <pubDate>Fri, 16 Nov 2018 19:35:51 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos%E4%BF%AE%E6%94%B9ip/</guid>
+      <description>首先查看网络接口名称 ifconfig 临时修改IP ifconfig eth1 192.168.10.88 永久修改IP 修改对应的网络接口配置文件，文件路径是 /etc/sysconfig/network-scripts/ vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称 修改以下配置 BOOTPROTO=static # 以下配置有就修改，没有就添加 IPADDR=192.168.10.88 #静态IP GATEWAY=192.168.10.1 #默认网关 NETMASK=255.255.255.0 #子网掩码 修改DNS vim /etc/resolv.conf nameserver 1.1.1.1 nameserver 8.8.8.8 重启网络服务 </description>
+    </item>
+    <item>
+      <title>Linux安装jdk</title>
+      <link>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85jdk/</link>
+      <pubDate>Sun, 30 Sep 2018 13:46:57 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85jdk/</guid>
+      <description>到oracle官网下载二进制压缩文件
+1.解压 2.编辑/etc/profile，添加以下配置 export JAVA_HOME=/opt/src/jdk1.8.0_171 export JRE_HOME=/opt/src/jdk1.8.0_171/jre export PATH=$PATH:/opt/src/jdk1.8.0_171/bin export CLASSPATH=./:/opt/src/jdk1.8.0_171/lib:/opt/src/jdk1.8.0_171/jre/lib 3.刷新配置 source /etc/profile 4.查看配置是否生效 java -version 5.出现以下信息就安装成功了 java version &amp;#34;1.8.0_171&amp;#34; Java(TM) SE Runtime Environment (build 1.8.0_171-b11) Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode) </description>
+    </item>
+    <item>
+      <title>netstat命令</title>
+      <link>http://zhaoguibin.me/posts/netstat%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Tue, 01 May 2018 16:19:27 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/netstat%E5%91%BD%E4%BB%A4/</guid>
+      <description>netstat -anp | grep 端口号 telnet 127.0.0.1 9501 ps aft | grep tcp.php pstree -p 22727 </description>
+    </item>
+    <item>
+      <title>php下载文件简单实例</title>
+      <link>http://zhaoguibin.me/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Fri, 02 Mar 2018 20:16:49 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</guid>
+      <description>class Spider { public function downloadImage($url, $path=&amp;#39;images/&amp;#39;) { $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, $url); curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30); $file = curl_exec($ch); curl_close($ch); $this-&amp;gt;saveAsImage($url, $file, $path); } private function saveAsImage($url, $file, $path) { $filename = pathinfo($url, PATHINFO_BASENAME); if(!file_exists($path)){ mkdir($path,0777); } $resource = fopen($path . $filename, &amp;#39;a&amp;#39;); fwrite($resource, $file); fclose($resource); } } $str = file_get_contents(&amp;#34;http://www.bing.com/HPImageArchive.aspx?format=js&amp;amp;idx=0&amp;amp;n=1&amp;amp;mkt=en-US&amp;#34;); $arr = json_decode($str,true); $img_url = &amp;#39;http://www.bing.com&amp;#39;.$arr[&amp;#39;images&amp;#39;][0][&amp;#39;url&amp;#39;]; $img = new Spider(); $img-&amp;gt;downloadImage($img_url); </description>
+    </item>
+    <item>
+      <title>centOS7下安装GUI图形界面</title>
+      <link>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85gui%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</link>
+      <pubDate>Fri, 09 Feb 2018 15:52:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85gui%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</guid>
+      <description>1 .在命令行下 输入下面的命令来安装Gnome包。 yum groupinstall &amp;#34;GNOME Desktop&amp;#34; &amp;#34;Graphical Administration Tools&amp;#34; 2.在命令行输入startx进入桌面 startx 3.如果想开机就进桌面，那就更新系统的运行级别。 ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target 4.重启机器。启动默认进入图形界面。 reboot </description>
+    </item>
+    <item>
+      <title>vboxadd.sh failed modprobe vboxguest failed.</title>
+      <link>http://zhaoguibin.me/posts/vboxadd.sh-failed-modprobe-vboxguest-failed./</link>
+      <pubDate>Fri, 09 Feb 2018 15:48:15 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/vboxadd.sh-failed-modprobe-vboxguest-failed./</guid>
+      <description>virtualbox安装增强功能报错：
+vboxadd.sh failed modprobe vboxguest failed. 解决方法：
+yum install dkms binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers then
+yum install kernel-devel or
+yum install kernel-PAE-devel Then
+re-run VBoxLinuxAdditions.run. </description>
+    </item>
+    <item>
+      <title>装完Centos7提示Initial setup of CentOS Linux 7 (core)</title>
+      <link>http://zhaoguibin.me/posts/%E8%A3%85%E5%AE%8Ccentos7%E6%8F%90%E7%A4%BAinitial-setup-of-centos-linux-7-core/</link>
+      <pubDate>Fri, 09 Feb 2018 15:46:34 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%A3%85%E5%AE%8Ccentos7%E6%8F%90%E7%A4%BAinitial-setup-of-centos-linux-7-core/</guid>
+      <description>Initial setup of CentOS Linux 7 (core) 1) [x] Creat user 2) [!] License information (no user will be created) (license not accepted) Please make your choice from above [&amp;#39;q&amp;#39; to quit | &amp;#39;c&amp;#39; to continue | &amp;#39;r&amp;#39; to refresh]: 解决方法： 输入“1”，按Enter键 输入“2”，按Enter键 输入“q&amp;quot;，按Enter键 输入“yes”，按Enter键</description>
+    </item>
+    <item>
+      <title>linux安装pear</title>
+      <link>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85pear/</link>
+      <pubDate>Sat, 20 Jan 2018 14:34:19 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85pear/</guid>
+      <description>&lt;p&gt;看图操作&lt;/p&gt;
+&lt;p&gt;这是错误，先放在前面，以免出现错误不知道怎么办&lt;!-- raw HTML omitted --&gt;
+出现这个错误就按照它的那个地址下载现在在执行安装就好了
+&lt;p class=&#34;imgp&#34;&gt;
+  &lt;img loading=&#34;lazy&#34; src=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhYAAABcCAIAAAC9eWunAAAABmJLR0QA/wD/AP&amp;#43;gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAVfklEQVR4nO2drXLrPBPHd9557sIk05YUG4Z5phPUXIEDDUo6h4WKmnVKCgLjK0hRJjNmgcYlbSbE9/ECf8nWylr5I42b/ZFzokratbSWbNn&amp;#43;C0DF36Zpmqbp1kf&amp;#43;yFjgiuNRuMPXm/fQYHWP5effgluJYRT&amp;#43;hyefN0vHWUWDmbnY2dfTUDF7lvOnK46pxGgHURmuOSCZlyf0aOU4y815HFdGwBVHviBhmL&amp;#43;IZgq5CJrx8ddwxTG82ywdx3EcZ/9QzBbnIslxnLlIxrEdrZyK5eZ83rxF4Ir3&amp;#43;48i6S40zl/F/Olvr&amp;#43;tq2f8XwOZtuAsShmGuBeIU4orjUYjiSjkboMoZQB6v1ER/m6bpLpjNgl3j8n73dMgG53XshcpVvzSrVIl5rTV3CksaQ6if0uxVOfovOK3LOSISdrOF7FJ9AH9u&amp;#43;KnPCaUjcPhMABIxL&amp;#43;4EE/ERz&amp;#43;4f2314vIfDZwL&amp;#43;wjt965wf0E8q/sKLP8rWLJp&amp;#43;u91W1aKxZOG8EiHyfV0zpxLJFobGayWG&amp;#43;TP4W&amp;#43;VkcMUROWmzQVrKjibmf9CUrv2US/mimhqa9bviWEwRak113zGXamVcsS1mRGlsQRey2u6VJJfqhhQ/0ZzapilQstaOVF0H041ng/lJpd4jte5Q&amp;#43;8NgSOMSGoG1QlWSGslkQ2O2EsNMFIuFLOlKEsB9fprF&amp;#43;wgAINoX18doIsrjfZYxH6HfnwAAXPEiXa7mtwG1xOTzcL57yM7S3FDyfYIiCUHrUlkmESuRZC7Ngvt9Y90oEfNyfWkNYfuKG2oI9VPfSpLDEv429Grt3yB/OBKv81WwZeua2xB&amp;#43;UilvqQCg2R1oosmQGnW6CMlRI6StJVsMSYlDtxLDTBX6FHL&amp;#43;&amp;#43;dInlKcTmqjgPtydf77yRfKl47wedEYAAMALi0vrXTDLz1I8p8nxzKVEzJeHp139av3rJ3sAAQCadaNotY69hX4OMTZIe04AwB8b5M9oDG83uM9P8PMF7vOTNGSP5ieV&amp;#43;iKWpSFseQvPiURIdf8Yenpjei7ZSgwzWXo8TpeH2HLtHU00knyf1OIl8vNsx/5FMdSl8u5ifQrehSv70Bn6sety1u/D8qTj7umwbH2OLz8Fyv9pW1Hp7ycVV7zcNSdEtItxQ2UnSUeP5lQjxBXvwWmdd3EMHbhcKzHMhOk6hSSfh3N&amp;#43;Re4vvPw6DE0skE&amp;#43;05Ps0u38EiN42EOyKC8VEfMTeS&amp;#43;NZSCI&amp;#43;ikEeAMDfGl/eqo1RqEvF4w8AcB/uitM&amp;#43;2p&amp;#43;Cf&amp;#43;Uj&amp;#43;Bfv/PNVf7fJ34aeusYkoT12Yk5lEYsyf0C2jLWOIV6X/7S/OtbXTxzpqUBOfRELoNkdaKK1S6YIqQxZOT9SKzHM3&amp;#43;K/rgUT8bo57tI0BDhvlqtEn5j94SNOwzQNAeK1s4qifRy&amp;#43;CDcSYu4IqdbV8uG4SwMAgHjtZINpJCVCvHZWAPor7KYh1KVEvD0f03RW1JgP2tFqvUjTNCySRQKw&amp;#43;timaZpXntWo5bz5WSDHTs6ZLetJBvx/wQwgKI69zb6/8OL9Clxx1zrJDeInFX/hxR&amp;#43;NYlV3xHGsJnZzCYkQkOIg7nQXcqlWYpg/x0W&amp;#43;Tkcu&amp;#43;yYN/ZvGAT6z7PF1&amp;#43;sX8NBb3t9b9f4VfqPIn68xtg92FRCvH8nFDBxIxd763xUW/4fqeqXORHupJIuZzJNkV2&amp;#43;fPlUiyZZ&amp;#43;3i7vFMMyQdF7IGoIpjITMsFSLiLzswzAMwzAMwzAMwzAMc7uMoYh7Myq7v3agdoaLTyZHe4jf9oLAzQQD0x1ZFGr0V006vJSTF5PLNX4OSUN7qtRCks1lP9GcN8&amp;#43;E3leqKVxptPdRbASnURVRq2bqeMq0&amp;#43;6QKUU6jz5groPFpob8t5XMdx3mF96scCqNVTdv3xYvX473PVX35bBJcp&amp;#43;dkro66EguqvY9iI8gvnV1rkLMmnwd4eqbEi/twRz8mhhmf&amp;#43;hTiL7yz9DlxKTaOa3GjutlqYl3AdBg502i1zj9kr4lKqX7Kl1Q10zTR7xokwXVCTqVBFFXgurRt009Mqb5KbF7eYg3S1MnXgNaJWsePkqy930XsHS9ftlCjIlPYtXxZrn5jL2MhyC/PUtHbRp40ku/TzDSHuOKYprtglguCydrExHNT9UjTR6qmfc9gkLJetcg/0xdcCVunxY3mRhIbutz1JajOtzmuONbDUafrrp1CCJGkFMnnRHQhS82pr7WsoPy/RrFc8RNVqsf&amp;#43;phe6x3XyNaha6TrreGGz9n4nsXfZEbWqZmCZDlX/d5vV/3bvG21Rd5FqppnP6twk&amp;#43;dUaIZ2DYSIi/4w99buQRMyd9Sm/JCm3lmrT4kZ1sxuJ0T4uLrH8RbvKlAWJ&amp;#43;Ig9T1p9sNMMR/zEmZXNsau2pKqUYSUhWDQnRrQvFX&amp;#43;LBmlVLFf8VJTqUbQNQtPJ10KzTnepk9h75TzWdF8/WQMWg0yxuUAL&amp;#43;E0Irr2PYhLkf7yfQV2VQWr8jiKf9ucmDXqEdAlFivM6l8YX&amp;#43;WfsUGUWy2Xg5QYK9TqtnLVR/DqrMp9DXPEy2AySVQv16uxkt4mi35IKbPnEJV5XS&amp;#43;WlECyaU&amp;#43;d5NofUplRM0171E1Wqpxxiu2I5ESvr3Vxq7zjadgD5wwX3Ac7Zv3fGg0aHMPKWvQRB/q&amp;#43;fM&amp;#43;Tqw3k2Sda3&amp;#43;zMOu3PTvs4WOocimnglIv&amp;#43;MJS1KvdLSbl8562zl11eu6KLVsLomk5HdzueQ2gxC17RXlep1jNEgdOt0l3r6qTZd8n2a3T8/3/&amp;#43;8fpzuHx/vZ&amp;#43;214pfbiPY&amp;#43;Ck1QuZCnzsvUZ7XH&amp;#43;1nHEe53Y75bKKKJVyLyz1hSn0JccZRXDzPBczstbpzk8wBBGDTXBAZ9QxHXn6&amp;#43;eU5JEvy9FtI&amp;#43;9xbaaQeia9rhSPcYQHdfdeoFZe7&amp;#43;nn3jTff2cvSCA7yTaQ2gQ6Qd8JQVfxGrqg&amp;#43;rnj2bOaF/tZdB4Ru8&amp;#43;3J0NG4WhDNTFHTdb7BqKaOLViPwzdtQ1shIx328LufNS8BwstLh1JJ&amp;#43;HcxCchlvFwmxgfkZvm5fdLg06i36PRLSPw9CL16syAVEsx8CV6v1ted8epmmY6VbaiKgjoHXiOvk6SNr7VmLvGFjTJZ&amp;#43;Hc3C/jwDcnzPcGQfXcvsBvfY&amp;#43;ioUgf83P4twCAMi2mnztcmL1bTpA&amp;#43;gilZzBMR&amp;#43;SfuVb4u1bmupnI1&amp;#43;mT55pF/pnr5cZOE4ZhZMpFry4fhvEUcuNkH/vwBMIwN0wPcS&amp;#43;eQhiGYRiGYRiGYZgrZxgpLRv4ZrkBN8iwjNmeoyvATxqs5VFButG5/LA2Po1PC2Wp946N&amp;#43;/dGHvSIhjlM9C2Dm3z1gHep6IH/L/&amp;#43;ezvB149&amp;#43;j82mYf77Inx/W6dCejb3TEzF3BPjbdLEf9rtxBgP99ID2PcINwQ1igBXgmd&amp;#43;jReCkQKOwjeg8a7WjyZrMpSL0wuwSLtfZUinhtqqpcY0eEZqo1aNuob5HhZp4MY1rvfPNBqEfJlWYvU1yHGmlSWiG09uzrzj5CArwWpfUYzwei65I0aGBtDeE2RTYjDY655&amp;#43;p5ybVJcSQLuaJw1rderUFhMV2FbRGRv00nIZ2qDrUivizXudZvRUiazKjitAYaLNqXGq3XvcD17gmLWRp9Kgbf2qrQU28mMY1akjb7wMLs7e0hpI&amp;#43;Ec1wenv2NISV1DeIteB52wmT/82tdkAwdAdi3ebcpI42SKGWoFUihuqSyVCXYa0RlqIY1rRTiO1eG4UnlmNdO4S7EACN&amp;#43;DNR55msyYwqQtuhuGSyXqenCrqV1Dy6k5GaeDGNa7os/MDC7K011BtkSprh1jL7g4mTD6cAbzgRzj9fkHyf4PSd5DrEVtbtgsF6i4EuQWsdn1pDXYa1uqxnJMyHad5rQ3tEPce6iv/MWQCTSU7EfAmFPs15Y1Ap9cJKeAsgfgRIXHHcBbOyfq0hOlqXEOt4DT2VCBU96qR0zBHNzP7Ciz&amp;#43;askBqIl4nuT2bVVg6TxPo1va8Xpid1B1gahCDS2WTSMFwfe3Z1xDdOrlOvUuDW6cFg81oYx5Y2oOWHJ8WIxi9J&amp;#43;36nGhMPaIhle&amp;#43;JdyEYdJ1nuiZzR8nQVpfoIuo9sZDddsXLnbIPBZZ4MY1ruvODC7NrMTWIwaVf1QwnttJI4uR9&amp;#43;uiSsTT4BgeUgWUQl6xaiT6s9RwAUUYeALtOIa06z3V9b7ImM6oIjYJKuKMu0UXUWzEOXACA6FEXjjWfhRAXsdA6x9K47iG7ra1TodX5ZnuqDTIlzXBrDfbBNiMYTuS/i0t06wNtcKAbdevOa1z6&amp;#43;jnL5TsNF6bBij6siY9qO4DiWUjP7Srsj8h2FmssZFU3Z16ahi23jLjkeO5zQzuarMmMKkKjYBLuGpeoIup6UDVsJBHTo0YhLmKBps5RNK7JzlvkxNB1h9qeWINMRzOc2ErJGOLk/RTg&amp;#43;7pkYb3fBgdNZ7P9DXDndd1R5W8ZrHCXyK1EH9aa2wFkD1B6bleBHJF&amp;#43;yYim/M&amp;#43;MAf1VBvqXip2/m7Klp/NjYDR0zZrhFzPEML8N7XE6MyCJmM9pibeMpkFcsX3&amp;#43;XIkkW5F4u7hbDMPU4CmEmRLVkkbnDTQZhmEYhmEYhmEYhmEMUNUChrFEU8NhBmWILv6LathXz&amp;#43;XOTYa5fjq8qcOMhfWrSYQpZAKvO1UKfJJgXSMws59oToaZDj2&amp;#43;Tr9OWPiauQaqT4KXm7uwbc6j52SY66MxhdQvAqvrJlQAGREWRjSZpcTaNZaqCK2VB8dABKU1wtetxa9aMxw3/asK2xrdUKSLbZT/q&amp;#43;5oV8PW1UnsODW8K41nJBQ18qi2HZeID4rspjHndM5N5paR77bL/2sEkBVhYb0mMyYqbK2GLaHX9yat605EM1zr&amp;#43;O8pbGvHVu1RE5T/LdSwsTrJHaf0l2pd3lBBM4UQOk4pkncWupCl5tTXOoVzk7ktmgtZ0T7O9VzAX3jxPjIIICtqw0QFeJ0iNE2C2E7f21C8U50X0wxXuG6FbQOo9Z4i/zYdF&amp;#43;1jSXAoC2/rWCJ1XHGjlKa74LTOdYKy2&amp;#43;OM0GvLqXF&amp;#43;Aucmc2Moz0LKOC2iFADk2N8FMymq6ipqiZgvD0872t2uIr&amp;#43;s1mddnA5NMxwA8FUSPCfSStXqQdiQSBtObbnNJdSQrjfrWPWmBZj1oWX2tRRziCteqvC2iyWi2Lskj1pKDcXrSjC1lHdFc&amp;#43;qcn8S5ydwS6tfp0T4OFz7Awov3hcaYcUOQknJvDH&amp;#43;bvovPllKz&amp;#43;0qJv4Nm&amp;#43;IDFDXVi232gOdVWyhWh5xEA&amp;#43;Nv0xdZLG&amp;#43;gNMkZv0sFaCe8OOhbBEL1tXt6ffXiaxR/FINwzli7HRM5N5pZA3siK9rG32FbXOQNpMtfoqUc9aPFOdV5MM5zGxRS27aWnzcr/dDVsvE67YEg&amp;#43;DxCEwawMb6x4T4Xt0bjGc7Nz0DJ/AkwjK9rHYejF61LnuJ8ms78tF3EqVeV&amp;#43;etQ95ayvVjP88X4G1cVxtyMaWWEblZ5Guzirg6L8b6GGjdVpGQzJ5&amp;#43;EcBKdyIQgt3ldheywmcG4yzE1xTZrh/Gn2ReBXihhmMP7cp4U0ytv6ntu6DUu0cgZ53MC0Ib1xxDAM040eSloTUNhgcLIvPfkWhGEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYpqLnJn3Xscdfj00KGZUr2H58ChvNjx51w5xcV9CbJKbi523xn/zD36ahV//7ebN8vaQ/I&amp;#43;H/C05rZ84bZtviiuM7vCo7uidi7vyOQ1Ni&amp;#43;KjTdEdPptKbF/PT36aLvbPi4YLC/&amp;#43;Qf0cpxHMdx1jGcN0vHcRxn6Gj9HdyHu992gbk5OOqYG&amp;#43;B/5iwAAPC8TRu35H6eIqW54ngUQslZ4Ipj&amp;#43;z19fW2i/FUsBzQMuVghBVcc03QXzMAL5SrUOpUD0Ffb30&amp;#43;iIblS6RYedV5jPTfSPEzVsuKSv03TdBfMZsFOtl8Wri0ptFs3reRYxFJhaLtoq7B2kFhxQr&amp;#43;riZp&amp;#43;1xkfNuo03QHYuanp4rZWqkUX3nG0UMSLK03XjCa01WsnDBJ15OK48&amp;#43;RWYmyp97crjkW7o4uRVSKaMx9GXXE095NsuAizqqbqrxZTSMPF5m/kUAnR1NvPToZEWanqvMZ6ihwmWkrnkmaxvdGgBuv0NWxDLNUNtTVgzaQrti1Npzt2JBHrd8rBNH93izpQu0PTyJoupjlqrrM1FPXFSxPl/xE/28KmmUAvjjnf0krmvmVKiHch8T4CAEi&amp;#43;T3D30Ij1eiKa8/7fcfd0WBpXxaJ9PHt6dgEA/IUX7yMA9/lpltcZ7ePZ/SPN4VZa64w/zGt3g/hpNuSKF6/KFQmR6JzXWldzynUmn4ez3J&amp;#43;UY8f8NFhHwwbFEEt1Q6bKyooSsdI3XekrduyNRKTf6fSOOg1qK7V18RB1toYiWhwg2sfeIhuWy1NG5yctbOjFcef7txIDQJ1Czj9fSlp1Eyg/gsdywsy7g/Ms&amp;#43;Gee2Itz1BUv1Rkq1zlUP2vrRA9gDD9phtBcqCF6Yr66kuYLI9WZT3PJ6CdqvRWLWCLWmYj58vC0U1Yp7PpdSUT7nU7PqDPWWaHr4h51dgvFknIOqU2&amp;#43;mJ8WjUEuPkYrMQBAfxbSxBXvwWldPn1v57x5nc/XsRea7w6jtw08PfvV5Q0AyH17&amp;#43;h7m8X7fOn/DTzSxNERPLF6VyBnkxZM&amp;#43;x24VS/QTPRHzvM5T8F5MImP0O50xIgRl7C5GEw1HlM8htRmkp5/04qjz2uLRil/HItN1CpHwF545E0C0Ik0iyecBgjAoz9Dk83DO74D9hZdfTCTfJ2lBwdpjtE77Osb3U3zE3ktjDRc3pDsiNaf4kEZU8LfGHjEP2kO0Z&amp;#43;5OeyvVDbXlLB9/ZC9GZaPbGP1uVXKIViJ0h3UXm6GHop5oH3uLbTWD9PSTXhx3vqU4Pwux4D9zFpREfMRpmKYhQBwbV6UzotV6kYbpFlqn&amp;#43;OTzcA6CU3mGJuJ1c9ylaQhw3ixX2YVO9LZ52e3SwMJ63XukTts6LuAnRKvlw3GXBgAA8dqJtIY0R3Te/CyaiXKdEK&amp;#43;dVetRSv28dlaR/O1QmKZhltqvPS1iqTJkyJmIt&amp;#43;djms4AoGq5UfrdomR/60p34JC7GOtNzURADkU90T4OQy9el&amp;#43;4gfmpfR1Ojjl4cdd7uRGAmxFS&amp;#43;Qb16P69DF&amp;#43;DPcfX9zjAXZICFrIFxO64zX5qp&amp;#43;MkMC/c7w1wt2Sdm13&amp;#43;JNw0/&amp;#43;S5kaKbR7wzDMAzDMAzDMAxzUxSKRXzD3pexlpJ8RPiK7BGrAjEMMxSax&amp;#43;nnzXKgD5IyLrYs39NQpfenyMCNO&amp;#43;5WhmsOSOblCT1aOc5yc&amp;#43;5gJ//ezvgFH8MwDIH/A2IEBsYbdDY8AAAAAElFTkSuQmCC&#34; alt=&#34;error&#34;  /&gt;
+&lt;/p&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>php下安装event扩展</title>
+      <link>http://zhaoguibin.me/posts/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/</link>
+      <pubDate>Tue, 09 Jan 2018 19:59:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/</guid>
+      <description>安装支持库libevent，需要编译高版本（这里以最新版本release-2.1.8-stable为例）
+wget -c https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz -P /opt/local/src cd /opt/local/src tar -zxvf libevent-2.1.8-stable.tar.gz &amp;amp;&amp;amp; cd libevent-2.1.8-stable ./configure --prefix=/opt/local/libevent make &amp;amp;&amp;amp; make install 安装event库（以event-2.3.0.tgz为例）
+wget -c http://pecl.php.net/get/event-2.3.0.tgz -P /opt/local/src cd /opt/local/src tar -zxvf event-2.3.0.tgz &amp;amp;&amp;amp; cd event-2.3.0 /opt/local/php72/bin/bin/phpize ./configure --with-php-config=/opt/local/php72/bin/php-config --with-event-libevent-dir=/opt/local/libevent/ make &amp;amp;&amp;amp; make install 在php.ini添加下面配置
+extension=event.so </description>
+    </item>
+    <item>
+      <title>编译安装redis</title>
+      <link>http://zhaoguibin.me/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</link>
+      <pubDate>Mon, 08 Jan 2018 20:53:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</guid>
+      <description>一.安装Redis (1) cd /usr/src 进入下载目录
+(1) yum install -y wget gcc make tcl 安装依赖
+(2) redis官网http://www.redis.io下载最新的源码包
+(3) tar -zxvf redis-3.2.2.tar.gz 解压
+(4) cd redis-3.2.2 进入redis目录
+(5) make 编辑
+(6) make test 测试
+测试过程报错
+[exception]: Executing test client: NOREPLICAS Not enough good slaves to write.. NOREPLICAS Not enough good slaves to write. while executing
+这种情况下，可以修改当前目录文件tests/integration/replication-2.tcl，将after 1000改为after 10000以延长等待时间 重新测试
+(7)make install PREFIX=/usr/local/redis PREFIX安装指定目录 否则安装到/usr/local/bin里面了
+(8)启动redis服务 ./redis-server ./redis-conf
+发现很多错误：
+1.
+WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128 echo 511 &amp;gt; /proc/sys/net/core/somaxconn 写到/etc/rc.</description>
+    </item>
+    <item>
+      <title>CentOS7下安装Python3及Pip3并保留Python2</title>
+      <link>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85python3%E5%8F%8Apip3%E5%B9%B6%E4%BF%9D%E7%95%99python2/</link>
+      <pubDate>Tue, 02 Jan 2018 21:14:48 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85python3%E5%8F%8Apip3%E5%B9%B6%E4%BF%9D%E7%95%99python2/</guid>
+      <description>安装依赖环境 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 浏览器打开 https://www.python.org/ftp/python/ 查看最新的Python版本，标记为3.A.B wget https://www.python.org/ftp/python/3.A.B/Python-3.A.B.tgz 创建Python3的目录 mkdir /usr/local/python3 解压下载文件并切换目录 tar -zxvf Python-3.A.B.tgz cd Python-3.A.B 执行 ./configure --prefix=/usr/local/python3 make &amp;amp;&amp;amp; make install 创建Python3的软链接 ln -s /usr/local/python3/bin/python3 /usr/bin/python3 创建Pip3的软链接 ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3 测试命令 python3 和 pip3 python3 pip3 因为执行yum需要python2版本，所以我们还要修改yum的配置，执行： vim /usr/bin/yum 把#! /usr/bin/python修改为#! /usr/bin/python2
+同理 vim /usr/libexec/urlgrabber-ext-down 文件里面的#! /usr/bin/python 也要修改为#! /usr/bin/python2
+安装保留了原python命令调用python2
+安装完成
+ps 安装报错 Q： ModuleNotFoundError: No module named &amp;#39;_ctypes&amp;#39; A： yum -y install gcc gcc-c++ yum -y install zlib zlib-devel yum -y install libffi-devel Q：configure: error: no acceptable C compiler found in $PATH A：yum install gcc </description>
+    </item>
+    <item>
+      <title>解决&#34;configure error no acceptable C compiler found in $PATH&#34;</title>
+      <link>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3configure-error-no-acceptable-c-compiler-found-in-path/</link>
+      <pubDate>Tue, 02 Jan 2018 21:12:10 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3configure-error-no-acceptable-c-compiler-found-in-path/</guid>
+      <description>解决方法： 安装gcc
+yum install gcc </description>
+    </item>
+    <item>
+      <title>linux下php扩展mysqli的支持</title>
+      <link>http://zhaoguibin.me/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</link>
+      <pubDate>Sun, 03 Dec 2017 17:49:50 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</guid>
+      <description>mysqli是优化后的mysql，具体的优点baidu下就ok了
+cd php-5.2.8 在这下面有个ext文件夹里有mysqli cd ext/mysqli linux下将源码文件编译应该都有configure吧，可这里没有，在我们已经安装php后，php5这个文件夹里的命令目录bin里有一个文件叫phpize，用它就可以生成configure文件啦，继续
+/usr/local/php5/bin/phpize 这里回车运行，执行完后就出了configure文件，
+./configure --prefix=/opt/local/mysqli --with-php-config=/opt/local/php/bin/php-config --with-mysqli=/opt/local/mysql/bin/mysql_config 直接回车，不出问题就继续。。 make make test make install (不出错就会显示Installing shared extensions: /usr/local/php5/lib/php/extensions/no-debug-non-zts-20041030/) 现在mysqli.so文件就出来啦。。
+直接在php.ini里把这个文件加载就OK啦。。
+extension_dir=”/usr/local/php5/ext” extension=mysqli.so 把上面第一行找到修改成这个,然后再把第二行加入。。wq保存退出。
+把mysqli.so这个文件cp到/usr/local/php5/ext下
+重启apache.</description>
+    </item>
+    <item>
+      <title>网络连接以及下载</title>
+      <link>http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Sun, 03 Dec 2017 17:40:49 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/</guid>
+      <description>wget 指定本定文件夹和保存为特定名称 1. 在shell 中执行以下命令 wget -P /root/test &amp;#34;http://www.baidu.com/index.html&amp;#34; 会把 index.html 文件保存到 &amp;#34;/root/test&amp;#34; 目录下. 2. 执行 wget -O &amp;#34;baidu.html&amp;#34; &amp;#34;http://www.baidu.com/index.html&amp;#34; 会把 index.hmtl 保存到当前目录, 命令为 &amp;#34;baidu.html&amp;#34;. 3. 执行 wget -P /root/test -O &amp;#34;baidu.html&amp;#34; &amp;#34;http://www.baidu.com/index.html&amp;#34; 的结果和 2 相同, 并不会保存到 &amp;#34;/root/test&amp;#34; 目录下. 在linux命令下如何访问一个url？ 1.elinks - lynx-like替代角色模式WWW的浏览器 例如： elinks --dump http://www.baidu.com 2.wget 这个会将访问的首页下载到本地 [root@el5-mq2 ~]# wget http://www.baidu.com --2011-10-17 16:30:10-- http://www.baidu.com/ Resolving www.baidu.com... 119.75.218.45, 119.75.217.56 Connecting to www.baidu.com|119.75.218.45|:80... connected. HTTP request sent, awaiting response... 200 OK Length: 8403 (8.</description>
+    </item>
+    <item>
+      <title>使用crontab，让linux定时执行shell脚本</title>
+      <link>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sun, 03 Dec 2017 17:37:57 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/</guid>
+      <description>使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行 入门 crontab –e 这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行： 0 0 * * * /home/linrui/XXXXXXXX.sh 这将会在每天凌晨运行 指定的.sh文件 Cron 各项的描述 以下是 crontab 文件的格式： {minute} {hour} {day-of-month} {month} {day-of-week} {full-path-to-shell-script} o minute: 区间为 0 – 59 o hour: 区间为0 – 23 o day-of-month: 区间为0 – 31 o month: 区间为1 – 12. 1 是1月. 12是12月. o Day-of-week: 区间为0 – 7. 周日可以是0或7. Crontab 示例 1、在 凌晨00:01运行 1 0 * * * /home/linrui/XXXX.sh 2、每个工作日23:59都进行备份作业。 59 11 * * 1,2,3,4,5 /home/linrui/XXXX.</description>
+    </item>
+    <item>
+      <title>查看linux中某个端口（port）是否被占用</title>
+      <link>http://zhaoguibin.me/posts/%E6%9F%A5%E7%9C%8Blinux%E4%B8%AD%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3port%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8/</link>
+      <pubDate>Sun, 03 Dec 2017 17:32:46 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%9F%A5%E7%9C%8Blinux%E4%B8%AD%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3port%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8/</guid>
+      <description>1.使用lsof
+lsof -i:端口号查看某个端口是否被占用
+2.使用netstat
+使用netstat -anp|grep 80</description>
+    </item>
+    <item>
+      <title>编辑-自定义命令</title>
+      <link>http://zhaoguibin.me/posts/%E7%BC%96%E8%BE%91-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sun, 03 Dec 2017 17:30:43 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%BC%96%E8%BE%91-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/</guid>
+      <description>vim ~/.bashrc example: alias codedir=&amp;#39;cd /opt/local/www/project&amp;#39; </description>
+    </item>
+    <item>
+      <title>yum-y-install与yum-install有什么不同</title>
+      <link>http://zhaoguibin.me/posts/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</link>
+      <pubDate>Sun, 03 Dec 2017 17:28:57 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</guid>
+      <description>yum -y install 包名（支持*） ：自动选择y，全自动 yum install 包名（支持*） ：手动选择y or n yum remove 包名（不支持*） rpm -ivh 包名（支持*）：安装rpm包 rpm -e 包名（不支持*）：卸载rpm包 </description>
+    </item>
+    <item>
+      <title>Linux开机执行命令</title>
+      <link>http://zhaoguibin.me/posts/linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sun, 03 Dec 2017 16:47:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</guid>
+      <description>1、把需要执行的命令写到一个bash脚本里面： #!/bin/sh （此括号内为需要执行的命令） 保存为一个文件，比如123.sh，放在oracle的主目录里面。 给这个文件加上可执行属性：chmod 775 123.sh 然后，在/etc/rc.d/rc.local里面加上这句就可以了：
+/123.sh 延时执行 例子：( sleep 60 sh /goexcel.sh )&amp;amp; 延时60秒执行 </description>
+    </item>
+    <item>
+      <title>Linux-查看进程和删除进程</title>
+      <link>http://zhaoguibin.me/posts/linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/</link>
+      <pubDate>Sun, 03 Dec 2017 16:42:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/</guid>
+      <description>在 LINUX 命令平台输入 1-2 个字符后按 Tab 键会自动补全后面的部分(前提是要有这个东西，例如在装了 tomcat 的前提下, 输入 tomcat 的 to 按 tab)。 ps 命令用于查看当前正在运行的进程。 grep 是搜索 例如： ps -ef | grep java 表示查看所有进程里 CMD 是 java 的进程信息 ps -aux | grep java -aux 显示所有状态 ps kill 命令用于终止进程 例如： kill -9 [PID] -9 表示强迫进程立即停止 通常用 ps 查看进程 PID ，用 kill 命令终止进程 网上关于这两块的内容 PS ps 简介 ps 命令就是最根本相应情况下也是相当强大地进程查看命令.运用该命令可以确定有哪些进程正在运行和运行地状态、 进程 是否结束、进程有没有僵死、哪些进程占用了过多地资源等等.总之大部分信息均为可以通过执行该命令得到地. ps 命令及其参数 ps 命令最经常使用地还是用于监控后台进程地工作情况,因为后台进程是不和屏幕键盘这些标准输入/输出设 备进行通信地,所以如果需要检测其情况,便可以运用 ps 命令了. 该命令语法格式如下： ps [选项] -e 显示所有进程,环境变量 -f 全格式 -h 不显示标题 -l 长格式 -w 宽输出 a 显示终端上地所有进程,包括其他用户地进程 r 只显示正在运行地进程 x 显示没有控制终端地进程 O[+|-] k1 [,[+|-] k2 [,…]] 根据 SHORT KEYS、k1、k2 中快捷键指定地多级排序顺序显示进程列表.</description>
+    </item>
+    <item>
+      <title>Linux-Source命令及脚本的执行方式解析</title>
+      <link>http://zhaoguibin.me/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Sun, 03 Dec 2017 16:39:35 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/</guid>
+      <description>当我修改了/etc/profile文件，我想让它立刻生效，而不用重新登录；这时就想到用source命令，如:source /etc/profile 对source进行了学习，并且用它与sh 执行脚本进行了对比，现在总结一下。
+source命令： source命令也称为“点命令”，也就是一个点符号（.）,是bash的内部命令。 功能：使Shell读入指定的Shell程序文件并依次执行文件中的所有语句 source命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。 用法： source filename 或 . filename source命令(从 C Shell 而来)是bash shell的内置命令;点命令(.)，就是个点符号(从Bourne Shell而来)是source的另一名称。 source filename 与 sh filename 及./filename执行脚本的区别在那里呢？ 1.当shell脚本具有可执行权限时，用sh filename与./filename执行脚本是没有区别得。./filename是因为当前目录没有在PATH中，所有&amp;quot;.&amp;ldquo;是用来表示当前目录的。 2.sh filename 重新建立一个子shell，在子shell中执行脚本里面的语句，该子shell继承父shell的环境变量，但子shell新建的、改变的变量不会被带回父shell，除非使用export。 3.source filename：这个命令其实只是简单地读取脚本里面的语句依次在当前shell里面执行，没有建立新的子shell。那么脚本里面所有新建、改变变量的语句都会保存在当前shell里面。 举例说明： 1.新建一个test.sh脚本，内容为:A=1 2.然后使其可执行chmod +x test.sh 3.运行sh test.sh后，echo $A，显示为空，因为A=1并未传回给当前shell 4.运行./test.sh后，也是一样的效果 5.运行source test.sh 或者 . test.sh，然后echo $A，则会显示1，说明A=1的变量在当前shell中</description>
+    </item>
+    <item>
+      <title>Samba-配置文件详解</title>
+      <link>http://zhaoguibin.me/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Sat, 02 Dec 2017 14:55:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</guid>
+      <description>Samba 的配置文件 /etc/samba/smb.conf 分为两大部分，一部分是 [global] ，即全局配置，另一部分是 [home] 、[printer] 、[自定义共享名] ，这些都是共享的部分，共享部分的设置优先级高于全局配置，另外，Samba 默认开启本地用户家目录 [home] 和打印机 [printer] 的共享，如果不需要你也可以关闭这两个共享，然后在末行自己重新创建一个共享，下面是详细的配置，你可以自定义一个共享，然后自己选择需要哪些配置：
+[pzk] # 自定义共享名 comment = Home Directories # 描述符，是给系统管理员看的 path = /tmp # 共享的路径 public = yes # 是否公开，也就是是否能在网上邻居看到该共享 browseable = yes # 共享的目录是否让所有人可见 writable = yes # 是否可写 guest ok = no # 是否拒绝匿名访问，仅当安全级别为 share 时才生效 workgroup = WORKGROUP # 工作组，要设置成跟 Windows 的工作组一致 server string = Samba Server Version %v # 其他 Linux 主机查看共享时的提示符 netbios name = MYSERVER # 用于在 Windows 网上邻居上显示的主机名 hosts allow = 127.</description>
+    </item>
+    <item>
+      <title>使用firewalld打开关闭防火墙与端口</title>
+      <link>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</link>
+      <pubDate>Sat, 02 Dec 2017 14:53:02 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</guid>
+      <description>1、firewalld的基本使用
+启动： systemctl start firewalld
+查看状态： systemctl status firewalld
+停止： systemctl disable firewalld
+禁用： systemctl stop firewalld
+2.systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。
+启动一个服务：systemctl start firewalld.service
+关闭一个服务：systemctl stop firewalld.service
+重启一个服务：systemctl restart firewalld.service
+显示一个服务的状态：systemctl status firewalld.service
+在开机时启用一个服务：systemctl enable firewalld.service
+在开机时禁用一个服务：systemctl disable firewalld.service
+查看服务是否开机启动：systemctl is-enabled firewalld.service
+查看已启动的服务列表：systemctl list-unit-files|grep enabled
+查看启动失败的服务列表：systemctl –failed
+3.配置firewalld-cmd
+查看版本： firewall-cmd –version
+查看帮助： firewall-cmd –help
+显示状态： firewall-cmd –state
+查看所有打开的端口： firewall-cmd –zone=public –list-ports
+更新防火墙规则： firewall-cmd –reload
+查看区域信息: firewall-cmd –get-active-zones
+查看指定接口所属区域： firewall-cmd –get-zone-of-interface=eth0
+拒绝所有包：firewall-cmd –panic-on
+取消拒绝状态： firewall-cmd –panic-off</description>
+    </item>
+    <item>
+      <title>解决问题E-无法获得锁-var-lib-dpkg-lock-open-11-资源暂时不可用-E-无法锁定管理目录</title>
+      <link>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98e-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%BE%97%E9%94%81-var-lib-dpkg-lock-open-11-%E8%B5%84%E6%BA%90%E6%9A%82%E6%97%B6%E4%B8%8D%E5%8F%AF%E7%94%A8-e-%E6%97%A0%E6%B3%95%E9%94%81%E5%AE%9A%E7%AE%A1%E7%90%86%E7%9B%AE%E5%BD%95/</link>
+      <pubDate>Sat, 02 Dec 2017 14:45:56 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98e-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%BE%97%E9%94%81-var-lib-dpkg-lock-open-11-%E8%B5%84%E6%BA%90%E6%9A%82%E6%97%B6%E4%B8%8D%E5%8F%AF%E7%94%A8-e-%E6%97%A0%E6%B3%95%E9%94%81%E5%AE%9A%E7%AE%A1%E7%90%86%E7%9B%AE%E5%BD%95/</guid>
+      <description>在用sudo apt-get update 更新时，终端提示:
+“E: 无法获得锁 /var/lib/dpkg/lock - open (11: 资源暂时不可用) E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？” 解决办法如下：
+1.终端输入 ps -aux ，列出进程。找到含有apt‘-get的进程，直接sudo kill PID。解决。
+2.强制解锁,命令
+sudo rm /var/cache/apt/archives/lock sudo rm /var/lib/dpkg/lock </description>
+    </item>
+    <item>
+      <title>Virtualbox 共享文件夹 cannot create symlink error</title>
+      <link>http://zhaoguibin.me/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/</link>
+      <pubDate>Sat, 02 Dec 2017 14:31:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/</guid>
+      <description>npm操作虚拟机共享文件夹里的文件时出现 npm Error: EROFS: read-only file system, symlink的报错信息。
+解决方法 原来VirtualBox从安全角度出发，限制了软链接的创建，需要打开相应的Feature。以下为详细步骤：
+关闭 VirtualBox。 将VirtualBox安装目录的路径加入系统环境变量PATH中。 打开命令行窗口，执行如下命令： VBoxManage setextradata YOURVMNAME VBoxInternal2/SharedFoldersEnableSymlinksCreate/YOURSHAREFOLDERNAME 1 其中：YOURVMNAME为虚拟机中linux系统的名称 YOURSHAREFOLDERNAME 为共享的目录名称
+“以管理者身份运行” VirtualBox　即可！ </description>
+    </item>
+    <item>
+      <title>安装golang</title>
+      <link>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85golang/</link>
+      <pubDate>Sat, 02 Dec 2017 14:31:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85golang/</guid>
+      <description>到官方https://golang.org/dl/
+或者 https://www.golangtc.com/download 下载安装包
+wget https://www.golangtc.com/static/go/1.9/go1.9.linux-amd64.tar.gz tar zxvf go1.9.linux-amd64.tar.gz -C /usr/local 新建GOPATH目录
+mkdir -p /www/golang vim /etc/profile export GOROOT=/usr/local/go export GOBIN=$GOROOT/bin export PATH=$PATH:$GOBIN export GOPATH=/www/golang :wq保存 使其生效
+source /etc/profile 查看是否配置成功
+go version go version go1.9 linux/amd64 简单测试：
+cd /www/golang vim hello.go package main import &amp;#34;fmt&amp;#34; func main() { fmt.Println(&amp;#34;Hello, world&amp;#34;) } :wq go run hello.go Hello, world </description>
+    </item>
+    <item>
+      <title>主从复制时报错：ERROR-1794-HY000-Slave……</title>
+      <link>http://zhaoguibin.me/posts/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99error-1794-hy000-slave/</link>
+      <pubDate>Sat, 02 Dec 2017 12:22:19 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99error-1794-hy000-slave/</guid>
+      <description>centos 6.5
+mysql5.7
+在从库作stop slave时报：
+error: ERROR 1794 (HY000): Slave is not configured or failed to initialize properly. You must at least set --server-id to enable either a master or a slave. Additional error messages can be found in the MySQL error log. 经分析，需要：
+删除5张表，并重新导入脚本
+use mysql drop table slave_master_info; drop table slave_relay_log_info; drop table slave_worker_info; drop table innodb_index_stats; drop table innodb_table_stats; source /usr/coolpad/mysql/share/mysql_system_tables.sql (2)重新启动数据库
+注：这一步是必须的，否则无法正常配置双主架构。</description>
+    </item>
+    <item>
+      <title>virtualbox下centos挂载共享文件夹</title>
+      <link>http://zhaoguibin.me/posts/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
+      <pubDate>Sat, 02 Dec 2017 12:11:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
+      <description>PS:要挂载共享文件，需要安装virtualbox增强功能(增强包) 安装virtualbox增强功能(增强包)：安装virtualbox增强功能(增强包)
+设备—&amp;gt;共享文件夹 宿主机 共享路径:E:\project, 共享文件夹名称project
+mkdir /mnt/share //新建挂载点（mountpoint） mount -t vboxsf project /mnt/share // 挂载共享文件夹 cd /mnt/share 进入共享文件夹 OK 实现 开机挂载:
+vi ~/.bashrc 在最后添加
+mount -t vboxsf sharing /mnt/share 挂载共享文件夹 </description>
+    </item>
+    <item>
+      <title>文件权限管理</title>
+      <link>http://zhaoguibin.me/posts/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sat, 02 Dec 2017 12:02:17 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
+      <description>三种基本权限
+R 读 数值表示为4 W 写 数值表示为2 X 可执行 数值表示为1 如图所示，downloads文件夹的权限为 drwxr-xr-x
+drwxr-xr-x一共十个字符，分成四段。 第一个字符“d”表示目录；这个位置还可能会出现“l”链接；“-”表示普通文件 第二三四个字符“rwx”表示当前所属用户的权限。 所以用数值表示为4+2+1=7 第五六七个字符“r-x”表示当前所属组的权限。 所以用数值表示为4+1=5 第八九十个字符“r-x”表示其他用户权限。 所以用数值表示为4+1=5 所以操作此文件夹的权限用数值表示为755 </description>
+    </item>
+    <item>
+      <title>linux软件包管理</title>
+      <link>http://zhaoguibin.me/posts/linux%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sat, 02 Dec 2017 12:01:46 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
+      <description>dpkg (Debian Package)管理工具，软件包名以.deb后缀。这种方法适合系统不能联网的情况下。
+比如安装demo命令的安装包，先将demo.deb传到Linux系统中。再使用如下命令安装。
+sudo dpkg -i demo_1.5.3-1_i386.deb 安装软件 sudo dpkg -r demo 卸载软件 注：将demo.deb传到Linux系统中，有多种方式。VMwareTool，使用挂载方式；使用winSCP工具等；
+APT（Advanced Packaging Tool）高级软件工具。这种方法适合系统能够连接互联网的情况。
+依然以demo为例
+sudo apt-get install demo 安装demo sudo apt-get remove demo 卸载demo sudo apt-get update 更新软件 sudo apt-get upgrade 将.rpm文件转为.deb文件
+.rpm为RedHat使用的软件格式。在Ubuntu下不能直接使用，所以需要转换一下。
+sudo alien abc.rpm </description>
+    </item>
+    <item>
+      <title>vim使用</title>
+      <link>http://zhaoguibin.me/posts/vim%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 02 Dec 2017 11:59:21 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/vim%E4%BD%BF%E7%94%A8/</guid>
+      <description>vim三种模式：命令模式、插入模式、编辑模式。使用ESC或i或：来切换模式。
+命令模式下：
+:q 退出 :q! 强制退出 :wq 保存并退出 :set number 显示行号 :set nonumber 隐藏行号 /apache 在文档中查找apache 按n跳到下一个，shift+n上一个 yyp 复制光标所在行，并粘贴 h(左移一个字符←)、j(下一行↓)、k(上一行↑)、l(右移一个字符→) 1、复制 1）单行复制 在命令模式下，将光标移动到将要复制的行处，按“yy”进行复制； 2）多行复制 在命令模式下，将光标移动到将要复制的首行处，按“nyy”复制n行；其中n为1、2、3…… 2、粘贴 在命令模式下，将光标移动到将要粘贴的行处，按“p”进行粘贴 </description>
+    </item>
+    <item>
+      <title>在linux系统中安装virtualbox增强功能(增强包)的详细步骤</title>
+      <link>http://zhaoguibin.me/posts/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E5%8C%85%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</link>
+      <pubDate>Sat, 02 Dec 2017 11:39:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E5%8C%85%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</guid>
+      <description>设置共享文件路径
+点击虚拟机 设置–&amp;gt;选择 共享文件夹
+（图1 设置共享文件夹）
+设置共享文件夹路径
+1 选择路径
+2 填写自定义的共享名称（在后面需要与挂载路径相对应）
+3 设置自动挂载/固定分配
+（图2 设置共享文件路径属性）
+安装VirtualBox增强工具
+先安装必备的包
+执行下面的命令:
+yum install -y gcc gcc-devel gcc-c++ gcc-c++-devel make kernel kernel-devel 安装完后，重启虚拟机：
+shutdown -r now 安装virtualBox增强工具
+点击 设置–&amp;gt;点击 安装增强功能…
+点击菜单栏 设备 –&amp;gt; 分配光驱 –&amp;gt; 选择一个虚拟光盘，找到VirtualBox安装目录下的VBoxGuestAdditions.iso，加载此镜像。 启动Linux系统并用root身份登入系统 执行挂载命令，将虚拟光盘挂在到 /mnt/cdrom，如果没有cdrom目录，则先创建之。
+mkdir /mnt/cdrom mount -t auto /dev/cdrom /mnt/cdrom 复制脚本到/tmp目录下
+cd /mnt/cdrom cp VBoxLinuxAdditions.run /tmp cd /tmp ./VBoxLinuxAddtion.run 得到输出内容
+如果centos是server版本的话就显示
+即安装成功！
+挂载共享文件夹
+切换到root用户输入挂载命令：
+sudo mount -t vboxsf shared_file /home/xingoo/shared 注意格式为</description>
+    </item>
+    <item>
+      <title>mysql实现主从复制</title>
+      <link>http://zhaoguibin.me/posts/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
+      <pubDate>Sat, 02 Dec 2017 11:12:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
+      <description>准备工作：
+1.两个虚拟机：我这里用的是CentOS5.5，IP地址分别是192.168.1.101 和192.168.1.105；
+101做主服务器，105做从服务器（都已经安装相同版本的Mysql）；
+2.本机环境：Nginx+PHP+MySQL
+好了，现在开始吧，来看看这听起来高大上的主从复制是怎么回事。
+原理：mysql要做到主从复制，其实依靠的是二进制日志，即：假设主服务器叫A，从服务器叫B；主从复制就是
+B跟着A学，A做什么，B就做什么。那么B怎么同步A的动作呢？现在A有一个日志功能，把自己所做的增删改查的动作
+全都记录在日志中，B只需要拿到这份日志，照着日志上面的动作施加到自己身上就可以了。这样就实现了主从复制。
+扩展：MYSQL还有一种日志叫做：慢日志
+可以设置一个时间，那么所有执行时间超过这个时间的SQL都会被记录下来。这样就可以通过慢日志快速的找到网站中SQL的瓶颈来进行优化。
+实现步骤：
+1.首先修改mysql的配置文件，使其支持二进制日志功能。
+打开主服务器的mysql配置文件：my.conf
+vim /etc/my.cnf 加入如下三行代码：
+参数解释： log-bin=mysql-bin //将mysql二进制日志取名为mysql-bin
+binlog_format=mixed //二进制日志的格式，有三种：statement/row/mixed,具体分别不多做解释，这里使用mixed
+server-id=101 //为服务器设置一个独一无二的id便于区分，这里使用ip地址的最后一位充当server-id
+配置完成，:wq 保存，重启mysql
+重启mysql命令：# service mysqld restart
+同样的，进入从服务器，配置从服务器的my.cnf,重复步骤1即可，
+唯一的区别是，server-id要改成从服务器的ip尾位，即server-id=105;其他两项是一样的，保存，并重启mySQL；
+2.在主服务器上为从服务器分配一个账号，就像一把钥匙，从服务器拿着这个钥匙，才能到主服务器上来共享主服务器的日志文件。
+进入主服务器的mysql界面，
+mysql -u root -p 111111 //我这里mysql账号是root，密码是111111 在mysql操作界面下，输入下面一行命令：
+GRANT replication slave ON *.* TO &amp;#39;slave&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;111111&amp;#39;; 3.查看主服务器BIN日志的信息（执行完之后记录下这两值，然后在配置完从服务器之前不要对主服务器进行任何操作，因为每次操作数据库时这两值会发生改变）.
+4.设置从服务器
+进入从服务器mysql
+mysql -u root -p111111 关闭slave（如果你以前配置过主从的话，一定要先关闭）
+stop slave; 开始配置：
+输入下面代码即可：
+参数解释：
+MASTER_HOST : 设置要连接的主服务器的ip地址
+MASTER_USER : 设置要连接的主服务器的用户名</description>
+    </item>
+    <item>
+      <title>用户及用户组管理</title>
+      <link>http://zhaoguibin.me/posts/%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sat, 02 Dec 2017 11:08:57 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/</guid>
+      <description>/etc/passwd 存储用户账号 /etc/group 存储组账号 /etc/shadow 存储用户账号的密码 /etc/gshadow 存储用户组账号的密码 useradd 用户名 userdel 用户名 adduser 用户名 groupadd 组名 groupdel 组名 passwd root 给root设置密码 su root su - root /etc/profile 系统环境变量 bash_profile 用户环境变量 .bashrc 用户环境变量 su user 切换用户，加载配置文件.bashrc su - user 切换用户，加载配置文件/etc/profile ，加载bash_profile 更改文件的用户及用户组 sudo chown [-R] owner[:group] {File|Directory} 例如：还以jdk-7u21-linux-i586.tar.gz为例。属于用户hadoop，组hadoop 要想切换此文件所属的用户及组。可以使用命令。 sudo chown root:root jdk-7u21-linux-i586.tar.gz </description>
+    </item>
+    <item>
+      <title>centos6.5编译安装LNMP</title>
+      <link>http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</link>
+      <pubDate>Sat, 02 Dec 2017 11:01:15 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</guid>
+      <description>一、环境准备 1、操作系统安装：CentOS 6.5 64位最小化安装。 2、配置好IP、DNS、网关、主机名 3、配置防火墙，开启80、3306端口 /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT /etc/rc.d/init.d/iptables save /etc/init.d/iptables restart 这样就搞定了，查看效果
+/etc/init.d/iptables status /etc/init.d/iptables restart #最后重启防火墙使配置生效 PS：
+Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：
+#开启端口 firewall-cmd --zone=public --add-port=80/tcp --permanent #重启防火墙 firewall-cmd --reload 命令含义： –zone #作用域 –add-port=80/tcp #添加端口，格式为：端口/通讯协议 –permanent #永久生效，没有此参数重启后失效
+4、关闭SELinux 查看selinux状态：
+/usr/sbin/sestatus -v SELinux status: disabled //禁用selinux getenforce Disabled //禁用selinux getenforce Enforcing //启动 关闭selinux方法： setenforce 0 #设置SELinux 成为permissive模式 setenforce 1 #设置SELinux 成为enforcing模式 第二种方法： vim /etc/selinux/config 编辑文件</description>
+    </item>
+    <item>
+      <title>ssh免密码登录</title>
+      <link>http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</link>
+      <pubDate>Thu, 30 Nov 2017 21:36:15 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</guid>
+      <description>ssh 无密码登录要使用公钥与私钥。linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。
+有机器A(192.168.3.7)，B(192.168.3.3)。现想A通过ssh免密码登录到B。
+1.在A机下生成公钥/私钥对。
+ssh-keygen -t rsa -P &amp;#39;&amp;#39; -P表示密码，-P &amp;rsquo;&amp;rsquo; 就表示空密码，也可以不用-P参数，这样就要三车回车，用-P就一次回车。 它在/home/root下生成.ssh目录，.ssh下有id_rsa和id_rsa.pub。
+2.把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。
+scp ~/.ssh/id_rsa.pub root@192.168.3.3:/home/root/id_rsa.pub root@192.168.3.3&amp;#39;s password: id_rsa.pub 100% 223 0.2KB/s 00:00 由于还没有免密码登录的，所以要输入密码。
+3.B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys 命令如下：
+cat id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys chmod 600 ~/.ssh/authorized_keys authorized_keys的权限要是600。
+4.A机登录B机。
+ssh 192.168.3.3 The authenticity of host &amp;#39;192.168.3.3 (192.168.3.3)&amp;#39; can&amp;#39;t be established. RSA key fingerprint is 00:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b. Are you sure you want to continue connecting (yes/no)? yes Warning: Permanently added &amp;#39;192.168.3.3&amp;#39; (RSA) to the list of known hosts.</description>
+    </item>
+    <item>
+      <title>lsyncd实时同步工具安装</title>
+      <link>http://zhaoguibin.me/posts/lsyncd%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Thu, 30 Nov 2017 20:24:03 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/lsyncd%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/</guid>
+      <description>有2种方法可以安装
+1.yum安装，前提是安装了epel更新源。使用命令：
+yum install -y lsyncd 2.github下载，地址为：https://github.com/axkibe/lsyncd
+安装lua软件包以及依赖软件
+yum install -y lua lua-devel cmake rsync 解压下载的压缩包
+unzip lsyncd-master.zip -d /usr/src/ 进入目录
+cd /usr/src/lsyncd-master/ 使用cmake编译，如果没有安装cmake,可以yum安装一下
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local/lsyncd make &amp;amp;&amp;amp; make install 进入安装目录
+cd /usr/local/lsyncd/ 创建配置文件目录和日志目录
+mkdir etc var 进入配置文件目录
+cd etc/ 编译配置文件
+vim lsyncd.conf settings { --pid文件 logfile = &amp;#34;/usr/local/lsyncd/var/lsyncd.log&amp;#34;, --状态文件 statusFile = &amp;#34;/usr/local/lsyncd/var/lsyncd.status&amp;#34;, --同步模式，意思就是有更新就同步 inotifyMode = &amp;#34;CloseWrite or Modify&amp;#34;, --最大8个进程 maxProcesses = 8, } sync { default.rsync, source = &amp;#34;/www&amp;#34;, target = &amp;#34;root@192.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>virtualbox on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/virtualbox/</link>
+    <description>Recent content in virtualbox on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 02 Mar 2019 14:04:39 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>virtualbox安装增强功能报错</title>
+      <link>http://zhaoguibin.me/posts/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/</link>
+      <pubDate>Sat, 02 Mar 2019 14:04:39 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/</guid>
+      <description>在virtualbox安装目录找到VBoxGuestAdditions.iso复制到虚拟机里面，可以放到任意一个目录 sudo mkdir /media/GuestAdditionsISO sudo mount -o loop VBoxGuestAdditions.iso所在目录/VBoxGuestAdditions.iso /media/GuestAdditionsISO 这时候你会看到一条信息，the ISO has been mounted as READ-ONLY cd /media/GuestAdditionsISO ./VBoxLinuxAdditions.run 搞定 愿答案</description>
+    </item>
+    <item>
+      <title>virtualbox下centos挂载共享文件夹</title>
+      <link>http://zhaoguibin.me/posts/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
+      <pubDate>Sat, 02 Dec 2017 12:11:45 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
+      <description>PS:要挂载共享文件，需要安装virtualbox增强功能(增强包) 安装virtualbox增强功能(增强包)：安装virtualbox增强功能(增强包)
+设备—&amp;gt;共享文件夹 宿主机 共享路径:E:\project, 共享文件夹名称project
+mkdir /mnt/share //新建挂载点（mountpoint） mount -t vboxsf project /mnt/share // 挂载共享文件夹 cd /mnt/share 进入共享文件夹 OK 实现 开机挂载:
+vi ~/.bashrc 在最后添加
+mount -t vboxsf sharing /mnt/share 挂载共享文件夹 </description>
+    </item>
+    <item>
+      <title>在linux系统中安装virtualbox增强功能(增强包)的详细步骤</title>
+      <link>http://zhaoguibin.me/posts/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E5%8C%85%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</link>
+      <pubDate>Sat, 02 Dec 2017 11:39:18 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E5%8C%85%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</guid>
+      <description>设置共享文件路径
+点击虚拟机 设置–&amp;gt;选择 共享文件夹
+（图1 设置共享文件夹）
+设置共享文件夹路径
+1 选择路径
+2 填写自定义的共享名称（在后面需要与挂载路径相对应）
+3 设置自动挂载/固定分配
+（图2 设置共享文件路径属性）
+安装VirtualBox增强工具
+先安装必备的包
+执行下面的命令:
+yum install -y gcc gcc-devel gcc-c++ gcc-c++-devel make kernel kernel-devel 安装完后，重启虚拟机：
+shutdown -r now 安装virtualBox增强工具
+点击 设置–&amp;gt;点击 安装增强功能…
+点击菜单栏 设备 –&amp;gt; 分配光驱 –&amp;gt; 选择一个虚拟光盘，找到VirtualBox安装目录下的VBoxGuestAdditions.iso，加载此镜像。 启动Linux系统并用root身份登入系统 执行挂载命令，将虚拟光盘挂在到 /mnt/cdrom，如果没有cdrom目录，则先创建之。
+mkdir /mnt/cdrom mount -t auto /dev/cdrom /mnt/cdrom 复制脚本到/tmp目录下
+cd /mnt/cdrom cp VBoxLinuxAdditions.run /tmp cd /tmp ./VBoxLinuxAddtion.run 得到输出内容
+如果centos是server版本的话就显示
+即安装成功！
+挂载共享文件夹
+切换到root用户输入挂载命令：
+sudo mount -t vboxsf shared_file /home/xingoo/shared 注意格式为</description>
+    </item>
+  </channel>
+</rss>

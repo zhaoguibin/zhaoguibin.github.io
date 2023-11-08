@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>phpstorm on 个人笔记</title>
+    <link>http://zhaoguibin.me/tags/phpstorm/</link>
+    <description>Recent content in phpstorm on 个人笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 03 Dec 2017 19:19:20 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/phpstorm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>phpstorm中配置远程调试xdebug</title>
+      <link>http://zhaoguibin.me/posts/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</link>
+      <pubDate>Sun, 03 Dec 2017 19:19:20 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</guid>
+      <description>这里说的是真正的远程调试，不是本地，本地不需要安装任何php程序！！！
+这里略去xdebug的安装，安装很简单可以下载源码包，动态编译进去！
+环境：
+Dev 服务器(IP:192.168.3.2)，安装phpstorm，用来做开发任务！
+Server服务器（IP:192.168.3.9），web服务器(php架构)，用来浏览网页用！
+这里的两台服务器在同一个网段下，可以互通！
+在Server服务器上的php.ini里配置xdebug如下：
+[xdebug] zend_extension=xdebug.so xdebug.remote_enable=1 xdebug.remote_handler=dbgp xdebug.remote_mode=req xdebug.remote_host=192.168.3.9 xdebug.remote_port=9000 xdebug.idekey=&amp;#34;PHPSTORM&amp;#34; remote_host参数的值填写Dev 服务器(开发机器)的IP地址。
+remote_port填写9000，只要没有被其它程序占用，就可以了，可以不是9000。
+接下来开始设置phpstorm的参数：
+快捷键(Ctrl + Alt + S)打开窗口：
+打开phpstorm的配置对话框，找到Languages &amp;amp; Frameworks &amp;raquo; PHP &amp;raquo;Debug 窗口
+这里填写的Debug port为：9000，与php.ini里配置的端口号保持一致!
+接下来点选Server选项，点击绿色的 “+” 新建Server，并根据如下设置填写你相对应的内容！
+因为是远程调试，所以这里的Use Path mappings 一定要选，并且本地与远程文件要映射好。
+Debugger里选择：Xdebug ！
+接下来配置Edit Configurations( Run &amp;raquo; Edit Configurations)
+点击后弹出窗口如下：
+选中PHP Web Application ，在右边选择前面新增的Server：ecstore，保存。
+这里其实只是用来配置一个模板，我之前只配置了这个，没有新增Debug选项，总是不能调试，后来参照资料才想明白，这里其实只是模板，配置好了后，可以直接新增选择对应模板就可以了。
+现在来新增Debug选项：
+点击后新增调试选项：
+好了。
+在php代码里打个断点开始调试吧：)
+然后，点击调试，开始愉快的干活吧！！！
+看看调试效果：
+这里真的没有什么DBGp概念，我们没有用到，也没有什么点击什么绿色的电话图标启动Start Listening&amp;hellip;，有吗？？
+没用，真的用不到那么些概念，网上一大堆以讹传讹的贴子，真是越看越迷糊！！！
+就这么愉快的调试吧 :)
+关于DBGp，其实就是个代理，把phpstorm设置成一个代理，但是对于我来说，真的需要什么代理吗？？？
+就这样吧，最简单的远程调试，去粗到精的成果！
+浏览器设置 下载谷歌浏览器的扩展程序chrome helper，安装好后，在选项里找到IDE key，在其下拉列表中选择PhpStorm。如下图：</description>
+    </item>
+  </channel>
+</rss>
