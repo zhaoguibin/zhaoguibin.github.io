@@ -10,7 +10,9 @@
 <meta name="description" content="ssh命令用于远程登录上Linux主机。 常用格式：ssh [-l login_name] [-p port] [user@]hostname 更详细的可以用ssh -h查看。 举例 不指定用户： ssh 192.168.0.11 指定用户： ssh -l root 192.168.0.11 ssh root@192.168.0.11 如果修改过ssh登录端口的可以： ssh -p 12333 192.168.0.11 ssh -l root -p 12333 216.230.230.114 ssh -p 12333 root@216.230.230.114 另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。 编辑配置文件： vim /etc/ssh/sshd_config 找到#Port 22，去掉注释，修改成一个五位的端口： Port 12333 找到#PermitRootLogin yes，去掉注释，修改为： PermitRootLogin no 重启sshd服务： service sshd restart ">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="http://zhaoguibin.me/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/favicon-32x32.png">
