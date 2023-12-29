@@ -15,9 +15,7 @@
 &lt;?php //管道接口 interface PipelineBuilder { public function __construct($payload); //$payload载荷 public function pipe(StageBuilder $stage); //管道与阀门 public function process(); //过程 } //实现管道接口 class Pipeline implements PipelineBuilder { protected $payload; protected $pipes = []; public function __construct($payload) { $this-&gt;payload = $payload; } public function pipe(StageBuilder $stage) { $this-&gt;pipes[] = $stage; return $this; } public function process() { foreach ($this-&gt;pipes as $pipe) { call_user_func([$pipe, &#39;handle&#39;], $this-&gt;payload); } } } //阀门类 interface StageBuilder { public function handle($payload); } //实现 class StageOneBuilder implements StageBuilder { public function handle($payload) { echo &#39;one-&#39;; } } class StageTwoBuilder implements StageBuilder { public function handle($payload) { echo &#39;two-&#39;; } } //客户端使用 $pipeline = new PipeLine(&#39;step&#39;); $pipeline-&gt;pipe(new StageOneBuilder())-&gt;pipe(new StageTwoBuilder())-&gt;process(); ">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/favicon-32x32.png">
