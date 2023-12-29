@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ftp on 笔记</title>
-    <link>https://example.org/tags/ftp/</link>
+    <link>http://zhaoguibin.me/tags/ftp/</link>
     <description>Recent content in ftp on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 26 Feb 2018 17:48:08 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/ftp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/ftp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS7 搭建 FTP 文件服务</title>
-      <link>https://example.org/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</link>
+      <link>http://zhaoguibin.me/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Mon, 26 Feb 2018 17:48:08 +0000</pubDate>
-      <guid>https://example.org/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>http://zhaoguibin.me/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</guid>
       <description>&lt;h5 id=&#34;安装并启动-ftp-服务&#34;&gt;安装并启动 FTP 服务&lt;/h5&gt;
 &lt;h6 id=&#34;安装-vsftpd&#34;&gt;安装 VSFTPD&lt;/h6&gt;
 &lt;p&gt;使用 yum 安装 vsftpd&lt;/p&gt;

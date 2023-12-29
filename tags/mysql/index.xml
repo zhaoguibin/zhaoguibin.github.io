@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mysql on 笔记</title>
-    <link>https://example.org/tags/mysql/</link>
+    <link>http://zhaoguibin.me/tags/mysql/</link>
     <description>Recent content in mysql on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 19 Jan 2020 16:23:54 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>php使用Linux命令导出MySQL数据到csv</title>
-      <link>https://example.org/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</link>
+      <link>http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</link>
       <pubDate>Sun, 19 Jan 2020 16:23:54 +0000</pubDate>
-      <guid>https://example.org/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</guid>
+      <guid>http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</guid>
       <description>PS :使用这个导出功能需要的条件： 1&amp;ndash;服务器需要安装mysql客户端：yum install mysql 2&amp;ndash;php需要开启exec函数(disable_functions exec)
 /** * @FILE_NAME:ExcelExport.php * @Description 数据导出excel,从数据库导出再下载，数据库配置 * [mysqld] * secure_file_priv= &amp;#39;&amp;#39; * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2019-12-24 13:42:11 * @param string $title * @param $sql * @param $data * @return bool */ public static function exportExcel($title = &amp;#39;报表导出&amp;#39;, $sql, $data) { $data_dir = getcwd() . &amp;#34;/data_export/&amp;#34;; //去除sql语句里的`,要不然执行shell命令报错 $sql = str_replace(&amp;#39;`&amp;#39;, &amp;#39;&amp;#39;, $sql); $sql = str_replace(&amp;#39;&amp;#34;&amp;#39;, &amp;#34;&amp;#39;&amp;#34;, $sql); //删除历史表格 self::deleteExcel(); if (!</description>
     </item>
     <item>
       <title>MySQL_OUTFILE导出数据</title>
-      <link>https://example.org/posts/mysql_outfile%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/</link>
+      <link>http://zhaoguibin.me/posts/mysql_outfile%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sun, 19 Jan 2020 14:33:53 +0000</pubDate>
-      <guid>https://example.org/posts/mysql_outfile%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/</guid>
+      <guid>http://zhaoguibin.me/posts/mysql_outfile%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/</guid>
       <description>PS : mysql 需要开启grant FILE on . to newerp; 权限
 /** * @FILE_NAME:ExcelExport.php * @Description 数据导出excel,从数据库导出再下载，数据库配置 * [mysqld] * secure_file_priv= &amp;#39;&amp;#39; * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2019-12-24 13:42:11 * @param string $title * @param $sql * @param $data * @return bool */ public static function exportExcel($title = &amp;#39;报表导出&amp;#39;, $sql, $data) { $data_dir = getcwd() .</description>
     </item>
     <item>
       <title>MySQL保留两位小数</title>
-      <link>https://example.org/posts/mysql%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/</link>
+      <link>http://zhaoguibin.me/posts/mysql%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/</link>
       <pubDate>Fri, 09 Nov 2018 19:58:17 +0000</pubDate>
-      <guid>https://example.org/posts/mysql%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/</guid>
+      <guid>http://zhaoguibin.me/posts/mysql%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/</guid>
       <description>round(x,d) :用于数据的四舍五入,round(x) ,其实就是round(x,0),也就是默认d为0； 这里有个值得注意的地方是，d可以是负数，这时是指定小数点左边的d位整数位为0,同时小数位均为0；
 SELECT ROUND(5000.56789,2),ROUND(5000,2),ROUND(0.56789,2),ROUND(115.56789,-1); SELECT ROUND(5000.12345,2),ROUND(5000,2),ROUND(0.12345,2),ROUND(114.12345,-1); TRUNCATE(x,d)：函数返回被舍去至小数点后d位的数字x。若d的值为0，则结果不带有小数点或不带有小数部分。若d设为负数，则截去（归零）x小数点左起第d位开始后面所有低位的值。 SELECT TRUNCATE(5000.56789,2),TRUNCATE(5000,2),TRUNCATE(0.56789,2),TRUNCATE(115.56789,-1); SELECT TRUNCATE(5000.12345,2),TRUNCATE(5000,2),TRUNCATE(0.12345,2),TRUNCATE(114.12345,-1); </description>
     </item>
     <item>
       <title>SQL纵向变成横向，横向变成纵向</title>
-      <link>https://example.org/posts/sql%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/</link>
+      <link>http://zhaoguibin.me/posts/sql%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/</link>
       <pubDate>Sun, 30 Sep 2018 12:06:32 +0000</pubDate>
-      <guid>https://example.org/posts/sql%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/</guid>
+      <guid>http://zhaoguibin.me/posts/sql%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/</guid>
       <description>&lt;h3 id=&#34;纵向变成横向&#34;&gt;纵向变成横向&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -108,30 +108,30 @@ SELECT ROUND(5000.56789,2),ROUND(5000,2),ROUND(0.56789,2),ROUND(115.56789,-1); S
     </item>
     <item>
       <title>MySQL查询字段在哪个表</title>
-      <link>https://example.org/posts/mysql%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/</link>
+      <link>http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/</link>
       <pubDate>Sun, 30 Sep 2018 10:01:03 +0000</pubDate>
-      <guid>https://example.org/posts/mysql%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/</guid>
+      <guid>http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/</guid>
       <description>查询pwd字段在哪个数据库哪个表 SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.`COLUMNS` WHERE COLUMN_NAME = &amp;#39;pwd&amp;#39; 查询pwd字段在ERP数据库的哪个表 SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.`COLUMNS` WHERE COLUMN_NAME = &amp;#39;pwd&amp;#39; AND TABLE_SCHEMA = &amp;#39;ERP&amp;#39; </description>
     </item>
     <item>
       <title>mysql添加索引命令</title>
-      <link>https://example.org/posts/mysql%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95%E5%91%BD%E4%BB%A4/</link>
+      <link>http://zhaoguibin.me/posts/mysql%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Sat, 20 Jan 2018 14:45:13 +0000</pubDate>
-      <guid>https://example.org/posts/mysql%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95%E5%91%BD%E4%BB%A4/</guid>
+      <guid>http://zhaoguibin.me/posts/mysql%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95%E5%91%BD%E4%BB%A4/</guid>
       <description>1.PRIMARY KEY（主键索引） mysql&amp;gt;ALTER TABLE `table_name` ADD PRIMARY KEY (`column`) 2.UNIQUE(唯一索引) mysql&amp;gt;ALTER TABLE `table_name` ADD UNIQUE (`column` ) 3.INDEX(普通索引) mysql&amp;gt;ALTER TABLE `table_name` ADD INDEX index_name (`column`) 4.FULLTEXT(全文索引) mysql&amp;gt;ALTER TABLE `table_name` ADD FULLTEXT (`column`) 5.多列索引 mysql&amp;gt;ALTER TABLE `table_name` ADD INDEX index_name (`column1`, `column2`, `column3`) </description>
     </item>
     <item>
       <title>mysql查询出的数据插入另一个表</title>
-      <link>https://example.org/posts/mysql%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8/</link>
+      <link>http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8/</link>
       <pubDate>Sat, 20 Jan 2018 14:43:37 +0000</pubDate>
-      <guid>https://example.org/posts/mysql%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8/</guid>
+      <guid>http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8/</guid>
       <description>1. INSERT INTO 表名1(字段列表1) SELECT 字段列表2 FROM 表名2 WHERE 条件表达式; 2. INSERT INTO 表名1(字段列表1) select * from (select 字段 from *) 临时表名 INSERT INTO 要插入数据的表 (字段1,字段2,....) SELECT * FROM (查询数据的sql语句) 临时表名 2-例子： INSERT INTO purchaseandsale_export (`name`) SELECT * FROM (SELECT name FROM `worker`) temp </description>
     </item>
     <item>
       <title>Mysqli statement execute error  Statement violates GTID consistency CREATE TABLE ...</title>
-      <link>https://example.org/posts/mysqli-statement-execute-error-statement-violates-gtid-consistency-create-table-...-/</link>
+      <link>http://zhaoguibin.me/posts/mysqli-statement-execute-error-statement-violates-gtid-consistency-create-table-...-/</link>
       <pubDate>Sat, 20 Jan 2018 14:40:42 +0000</pubDate>
-      <guid>https://example.org/posts/mysqli-statement-execute-error-statement-violates-gtid-consistency-create-table-...-/</guid>
+      <guid>http://zhaoguibin.me/posts/mysqli-statement-execute-error-statement-violates-gtid-consistency-create-table-...-/</guid>
       <description>解决：
 在my.cnf 中将
 gtid_mode = ON enforce_gtid_consistency = ON 改为
@@ -139,25 +139,25 @@ gtid_mode = OFFenforce_gtid_consistency = OFF 要两个参数一起改,然后�
     </item>
     <item>
       <title>Linux解决Warning mysql_connect() Headers and client library minor version mismatch. 警告</title>
-      <link>https://example.org/posts/linux%E8%A7%A3%E5%86%B3warning-mysql_connect-headers-and-client-library-minor-version-mismatch.-%E8%AD%A6%E5%91%8A/</link>
+      <link>http://zhaoguibin.me/posts/linux%E8%A7%A3%E5%86%B3warning-mysql_connect-headers-and-client-library-minor-version-mismatch.-%E8%AD%A6%E5%91%8A/</link>
       <pubDate>Sat, 16 Dec 2017 18:57:38 +0000</pubDate>
-      <guid>https://example.org/posts/linux%E8%A7%A3%E5%86%B3warning-mysql_connect-headers-and-client-library-minor-version-mismatch.-%E8%AD%A6%E5%91%8A/</guid>
+      <guid>http://zhaoguibin.me/posts/linux%E8%A7%A3%E5%86%B3warning-mysql_connect-headers-and-client-library-minor-version-mismatch.-%E8%AD%A6%E5%91%8A/</guid>
       <description>yum remove php-mysql yum install php70w-mysqlnd </description>
     </item>
     <item>
       <title>centos下彻底删除MYSQL 和重新安装MYSQL</title>
-      <link>https://example.org/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</link>
+      <link>http://zhaoguibin.me/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</link>
       <pubDate>Sat, 16 Dec 2017 18:54:33 +0000</pubDate>
-      <guid>https://example.org/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</guid>
+      <guid>http://zhaoguibin.me/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</guid>
       <description>1 删除Mysql
 yum remove mysql mysql-server mysql-libs mysql-server; find / -name mysql 将找到的相关东西delete掉； rpm -qa|grep mysql(查询出来的东东yum remove掉) 2 安装Mysql
 yum install mysql mysql-server mysql-libs mysql-server; </description>
     </item>
     <item>
       <title>ERROR 1044 (42000) Access denied for user &#39;&#39;@&#39;localhost&#39; to database &#39;mysql&#39;</title>
-      <link>https://example.org/posts/error-1044-42000-access-denied-for-user-@localhost-to-database-mysql/</link>
+      <link>http://zhaoguibin.me/posts/error-1044-42000-access-denied-for-user-@localhost-to-database-mysql/</link>
       <pubDate>Sat, 16 Dec 2017 18:51:45 +0000</pubDate>
-      <guid>https://example.org/posts/error-1044-42000-access-denied-for-user-@localhost-to-database-mysql/</guid>
+      <guid>http://zhaoguibin.me/posts/error-1044-42000-access-denied-for-user-@localhost-to-database-mysql/</guid>
       <description>方法一： 1.关闭mysql
 service mysqld stop 2.屏蔽权限
 mysqld_safe --skip-grant-table 屏幕出现： Starting demo from &amp;hellip;..
@@ -170,9 +170,9 @@ mysql -u root mysql mysql&amp;gt; delete from user where USER=&amp;#39;&amp;#39;
     </item>
     <item>
       <title>mysql更改数据库目录</title>
-      <link>https://example.org/posts/mysql%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95/</link>
+      <link>http://zhaoguibin.me/posts/mysql%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95/</link>
       <pubDate>Sat, 16 Dec 2017 18:48:32 +0000</pubDate>
-      <guid>https://example.org/posts/mysql%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95/</guid>
+      <guid>http://zhaoguibin.me/posts/mysql%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95/</guid>
       <description>修改 my.cnf
 datadir=/www/mysql/data socket=/www/mysql/data/mysql.sock 其实这里不需要复制/var/lib/mysql下的文件到新目录，修改完配置之后，mysql会自动复制/var/lib/mysql下的文件到新目录
 关闭SELinux
@@ -180,9 +180,9 @@ vim /etc/selinux/config #编辑文件 # This file controls the state of SELinux 
     </item>
     <item>
       <title>linux下php扩展mysqli的支持</title>
-      <link>https://example.org/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</link>
+      <link>http://zhaoguibin.me/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</link>
       <pubDate>Sun, 03 Dec 2017 17:49:50 +0000</pubDate>
-      <guid>https://example.org/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</guid>
+      <guid>http://zhaoguibin.me/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</guid>
       <description>mysqli是优化后的mysql，具体的优点baidu下就ok了
 cd php-5.2.8 在这下面有个ext文件夹里有mysqli cd ext/mysqli linux下将源码文件编译应该都有configure吧，可这里没有，在我们已经安装php后，php5这个文件夹里的命令目录bin里有一个文件叫phpize，用它就可以生成configure文件啦，继续
 /usr/local/php5/bin/phpize 这里回车运行，执行完后就出了configure文件，
@@ -194,24 +194,24 @@ extension_dir=”/usr/local/php5/ext” extension=mysqli.so 把上面第一行�
     </item>
     <item>
       <title>在安装mysqli的时候，出现error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory</title>
-      <link>https://example.org/posts/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-no-such-file-or-directory/</link>
+      <link>http://zhaoguibin.me/posts/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-no-such-file-or-directory/</link>
       <pubDate>Sun, 03 Dec 2017 17:42:56 +0000</pubDate>
-      <guid>https://example.org/posts/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-no-such-file-or-directory/</guid>
+      <guid>http://zhaoguibin.me/posts/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-no-such-file-or-directory/</guid>
       <description>直接修改源码，把找不到的那个头文件的路径修改为绝对路径，编译通过了，也能正常使用
 pwd /home/neo/tools/php-5.5.28/ext/mysqli vim mysqli_api.c 把第36行的 #include &amp;#34;ext/mysqlnd/mysql_float_to_double.h&amp;#34; 修改为 #include &amp;#34;/home/neo/tools/php-5.5.28/ext/mysqlnd/mysql_float_to_double.h&amp;#34; </description>
     </item>
     <item>
       <title>迁移数据库：直接复制数据表文件到数据库</title>
-      <link>https://example.org/posts/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <link>http://zhaoguibin.me/posts/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sun, 03 Dec 2017 17:35:55 +0000</pubDate>
-      <guid>https://example.org/posts/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <guid>http://zhaoguibin.me/posts/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>把目的数据库里面的 *.err 文件，ib_logfile 文件删除 备注：经测试，源mysql的安装目录及数据文件目录 可以与 目标Mysql的安装目录及数据文件目录 不一致。 此时，只需要拷贝所需移动的dbname及&amp;#39;mysql&amp;#39;和&amp;#39;ibdata1&amp;#39;，即可。 </description>
     </item>
     <item>
       <title>windows下用navicat远程链接虚拟机Linux下MySQL数据库</title>
-      <link>https://example.org/posts/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BAlinux%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <link>http://zhaoguibin.me/posts/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BAlinux%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sun, 03 Dec 2017 17:25:46 +0000</pubDate>
-      <guid>https://example.org/posts/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BAlinux%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <guid>http://zhaoguibin.me/posts/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BAlinux%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>手动增加可以远程访问数据库的用户。
 方法一、本地登入mysql，更改 “mysql” 数据库里的 “user” 表里的 “host” 项，将”localhost”改为”%”
 mysql -u root -proot mysql&amp;gt;use mysql; mysql&amp;gt;update user set host = &amp;#39;%&amp;#39; where user = &amp;#39;root&amp;#39;; mysql&amp;gt;flush privileges; mysql&amp;gt;select host, user from user; 方法二、直接授权(推荐)
@@ -220,26 +220,26 @@ mysql -u root -proot mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &amp;#39;root&a
     </item>
     <item>
       <title>PDO-MYSQL-make-pdo-mysql-lo-Error-1</title>
-      <link>https://example.org/posts/pdo-mysql-make-pdo-mysql-lo-error-1/</link>
+      <link>http://zhaoguibin.me/posts/pdo-mysql-make-pdo-mysql-lo-error-1/</link>
       <pubDate>Sun, 03 Dec 2017 17:13:16 +0000</pubDate>
-      <guid>https://example.org/posts/pdo-mysql-make-pdo-mysql-lo-error-1/</guid>
+      <guid>http://zhaoguibin.me/posts/pdo-mysql-make-pdo-mysql-lo-error-1/</guid>
       <description>编译安装PDO_MYSQL拓展模块，总是提示
 In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31: /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31: /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’ /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’ /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’ make: *** [pdo_mysql.lo] Error 1 这是因为这是因为在编译时需要 MySQL 的头的文件。而它按默认搜索找不到头文件的位置，所以才出现这个问题。通过软连接把MySQL头文件对应到/usr/local/include/下就好 比如你的MySQL安装文件位于/usr/local/mysql，那么就执行以下命令：
 ln -s /usr/local/mysql/include/* /usr/local/include/ </description>
     </item>
     <item>
       <title>MySQL-ERROR-Table-mysql-user-doesn-t-exist</title>
-      <link>https://example.org/posts/mysql-error-table-mysql-user-doesn-t-exist/</link>
+      <link>http://zhaoguibin.me/posts/mysql-error-table-mysql-user-doesn-t-exist/</link>
       <pubDate>Sun, 03 Dec 2017 16:55:56 +0000</pubDate>
-      <guid>https://example.org/posts/mysql-error-table-mysql-user-doesn-t-exist/</guid>
+      <guid>http://zhaoguibin.me/posts/mysql-error-table-mysql-user-doesn-t-exist/</guid>
       <description>1、现象描述 [root@centos65 scripts]# service mysqld start Starting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED] 查看错误日志
 [root@centos65 scripts]# tail /var/log/mysqld.log InnoDB: Apply batch completed 2014-12-08 11:01:37 15721 [Note] InnoDB: 128 rollback segment(s) are active. 2014-12-08 11:01:37 15721 [Note] InnoDB: Waiting for purge to start 2014-12-08 11:01:37 15721 [Note] InnoDB: 5.6.12 started; log sequence number 1600607 2014-12-08 11:01:37 15721 [Note] Server hostname (bind-address): &amp;#39;*&amp;#39;; port: 3306 2014-12-08 11:01:37 15721 [Note] IPv6 is available.</description>
     </item>
     <item>
       <title>Mysql双主同步</title>
-      <link>https://example.org/posts/mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/</link>
+      <link>http://zhaoguibin.me/posts/mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/</link>
       <pubDate>Sat, 02 Dec 2017 15:12:36 +0000</pubDate>
-      <guid>https://example.org/posts/mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/</guid>
+      <guid>http://zhaoguibin.me/posts/mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/</guid>
       <description>平台：centos7,mysql5.6.34
 解决数据库瓶颈问题 两台服务器可以同时读写数据库 A B两台服务器 A和B需要拥有一个同名的数据库 同步账号设置 首先要在两台服务器上各新增加一个可登陆的账号。
 A端50
@@ -250,9 +250,9 @@ vim /etc/my.cnf 在 [mysqld] 添加
     </item>
     <item>
       <title>MySQL使用Symbolic-Links以支持数据分区存储</title>
-      <link>https://example.org/posts/mysql%E4%BD%BF%E7%94%A8symbolic-links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</link>
+      <link>http://zhaoguibin.me/posts/mysql%E4%BD%BF%E7%94%A8symbolic-links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</link>
       <pubDate>Sat, 02 Dec 2017 15:09:45 +0000</pubDate>
-      <guid>https://example.org/posts/mysql%E4%BD%BF%E7%94%A8symbolic-links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</guid>
+      <guid>http://zhaoguibin.me/posts/mysql%E4%BD%BF%E7%94%A8symbolic-links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</guid>
       <description>MySQL数据库及表(仅MyISAM)支持符号链接(symbolic link)，即数据库或表可以存储在my.cnf中指定datadir之外的分区或目录。 要支持符号链接，需要在配置中设置symbolic-links=1(较新的版本为默认开启)
 假设my.cnf有设置data目录:
 datadir=/data1/mysql/data/ 而在另一个分区目录下保存有数据数据库TestDB:
@@ -261,9 +261,9 @@ ln -s /data2/mysql/data/TestDB /data1/mysql/data/ 所有文件相关权限设置
     </item>
     <item>
       <title>mysql-日志文件mysql-bin文件清除方法</title>
-      <link>https://example.org/posts/mysql-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6mysql-bin%E6%96%87%E4%BB%B6%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/</link>
+      <link>http://zhaoguibin.me/posts/mysql-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6mysql-bin%E6%96%87%E4%BB%B6%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/</link>
       <pubDate>Sat, 02 Dec 2017 14:35:37 +0000</pubDate>
-      <guid>https://example.org/posts/mysql-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6mysql-bin%E6%96%87%E4%BB%B6%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/</guid>
+      <guid>http://zhaoguibin.me/posts/mysql-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6mysql-bin%E6%96%87%E4%BB%B6%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/</guid>
       <description>默认情况下mysql会一直保留mysql-bin文件，这样到一定时候，磁盘可能会被撑满，这时候是否可以删除这些文件呢，是否可以安全删除，是个问题。
 首先要说明一下，这些文件都是mysql的日志文件，如果不做主从复制的话，基本上是没用的，虽然没用，但是不建议使用rm命令删除，这样有可能会不安全，正确的方法是通过mysql的命令去删除。
 mysql -u root -p Enter password:Welcome to the MySQL monitor.Commandsendwith;or \g.YourMySQL connection id is2819416Server version:5.5.24-0ubuntu0.12.04.1-log (Ubuntu)Copyright(c)2000,2011,Oracleand/or its affiliates.All rights reserved.Oracleis a registered trademark of OracleCorporationand/or its affiliates.Other names may be trademarks of their respective owners.Type&amp;#39;help;&amp;#39;or&amp;#39;\h&amp;#39;for help.Type&amp;#39;\c&amp;#39; to clear the current input statement. mysql&amp;gt; reset master;Query OK,0 rows affected (3 min 37.65 sec) 其实关键的命令就是reset master;这个命令会清空mysql-bin文件。
@@ -273,9 +273,9 @@ expire_logs_days =7 表示保留7天的日志，这样老日志会自动被清�
     </item>
     <item>
       <title>centos7下使用yum安装mysql数据库</title>
-      <link>https://example.org/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <link>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sat, 02 Dec 2017 12:24:47 +0000</pubDate>
-      <guid>https://example.org/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <guid>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>CentOS7的yum源中默认好像是没有mysql的。为了解决这个问题，我们要先下载mysql的repo源。
 1 . 下载mysql的repo源
 wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm 2 . 安装mysql-community-release-el7-5.noarch.rpm包
@@ -291,9 +291,9 @@ mysql -u root mysql &amp;gt; use mysql; mysql &amp;gt; update user set password=
     </item>
     <item>
       <title>主从复制时报错：ERROR-1794-HY000-Slave……</title>
-      <link>https://example.org/posts/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99error-1794-hy000-slave/</link>
+      <link>http://zhaoguibin.me/posts/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99error-1794-hy000-slave/</link>
       <pubDate>Sat, 02 Dec 2017 12:22:19 +0000</pubDate>
-      <guid>https://example.org/posts/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99error-1794-hy000-slave/</guid>
+      <guid>http://zhaoguibin.me/posts/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99error-1794-hy000-slave/</guid>
       <description>centos 6.5
 mysql5.7
 在从库作stop slave时报：
@@ -304,9 +304,9 @@ use mysql drop table slave_master_info; drop table slave_relay_log_info; drop ta
     </item>
     <item>
       <title>mysql实现主从复制</title>
-      <link>https://example.org/posts/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
+      <link>http://zhaoguibin.me/posts/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
       <pubDate>Sat, 02 Dec 2017 11:12:18 +0000</pubDate>
-      <guid>https://example.org/posts/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
+      <guid>http://zhaoguibin.me/posts/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
       <description>准备工作：
 1.两个虚拟机：我这里用的是CentOS5.5，IP地址分别是192.168.1.101 和192.168.1.105；
 101做主服务器，105做从服务器（都已经安装相同版本的Mysql）；
@@ -343,9 +343,9 @@ MASTER_USER : 设置要连接的主服务器的用户名</description>
     </item>
     <item>
       <title>DDL、DML和DCL的区别与理解</title>
-      <link>https://example.org/posts/ddldml%E5%92%8Cdcl%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%90%86%E8%A7%A3/</link>
+      <link>http://zhaoguibin.me/posts/ddldml%E5%92%8Cdcl%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%90%86%E8%A7%A3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/posts/ddldml%E5%92%8Cdcl%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%90%86%E8%A7%A3/</guid>
+      <guid>http://zhaoguibin.me/posts/ddldml%E5%92%8Cdcl%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%90%86%E8%A7%A3/</guid>
       <description>&lt;p&gt;DML、DDL、DCL区别 .&lt;/p&gt;
 &lt;p&gt;总体解释：&lt;/p&gt;
 &lt;p&gt;DML(data manipulation language)：&lt;/p&gt;
@@ -357,9 +357,9 @@ MASTER_USER : 设置要连接的主服务器的用户名</description>
     </item>
     <item>
       <title>解决MySQL出现 Waiting for table metadata lock 问题</title>
-      <link>https://example.org/posts/%E8%A7%A3%E5%86%B3mysql%E5%87%BA%E7%8E%B0-waiting-for-table-metadata-lock-%E9%97%AE%E9%A2%98/</link>
+      <link>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3mysql%E5%87%BA%E7%8E%B0-waiting-for-table-metadata-lock-%E9%97%AE%E9%A2%98/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/posts/%E8%A7%A3%E5%86%B3mysql%E5%87%BA%E7%8E%B0-waiting-for-table-metadata-lock-%E9%97%AE%E9%A2%98/</guid>
+      <guid>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3mysql%E5%87%BA%E7%8E%B0-waiting-for-table-metadata-lock-%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;p&gt;前几天修改数据库表，结果数据库就卡死了，通过命令&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-mysql&#34; data-lang=&#34;mysql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;processlist&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;发现 Waiting for table metadata lock状态的连接，幸好这个状态的连接不多，kill掉这些连接就可以了。&lt;/p&gt;</description>

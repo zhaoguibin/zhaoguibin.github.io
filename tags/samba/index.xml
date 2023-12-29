@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>samba on 笔记</title>
-    <link>https://example.org/tags/samba/</link>
+    <link>http://zhaoguibin.me/tags/samba/</link>
     <description>Recent content in samba on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 02 Dec 2017 14:59:06 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/samba/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/samba/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows通过Samba访问Linux文件</title>
-      <link>https://example.org/posts/windows%E9%80%9A%E8%BF%87samba%E8%AE%BF%E9%97%AElinux%E6%96%87%E4%BB%B6/</link>
+      <link>http://zhaoguibin.me/posts/windows%E9%80%9A%E8%BF%87samba%E8%AE%BF%E9%97%AElinux%E6%96%87%E4%BB%B6/</link>
       <pubDate>Sat, 02 Dec 2017 14:59:06 +0000</pubDate>
-      <guid>https://example.org/posts/windows%E9%80%9A%E8%BF%87samba%E8%AE%BF%E9%97%AElinux%E6%96%87%E4%BB%B6/</guid>
+      <guid>http://zhaoguibin.me/posts/windows%E9%80%9A%E8%BF%87samba%E8%AE%BF%E9%97%AElinux%E6%96%87%E4%BB%B6/</guid>
       <description>安装
 yum install samba smaba-client 配置
 我想设置root用户给samba，并设置其密码，执行以下命令
@@ -32,9 +32,9 @@ ps:linux需要开启139和445端口</description>
     </item>
     <item>
       <title>Samba-配置文件详解</title>
-      <link>https://example.org/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</link>
+      <link>http://zhaoguibin.me/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</link>
       <pubDate>Sat, 02 Dec 2017 14:55:37 +0000</pubDate>
-      <guid>https://example.org/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</guid>
+      <guid>http://zhaoguibin.me/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</guid>
       <description>Samba 的配置文件 /etc/samba/smb.conf 分为两大部分，一部分是 [global] ，即全局配置，另一部分是 [home] 、[printer] 、[自定义共享名] ，这些都是共享的部分，共享部分的设置优先级高于全局配置，另外，Samba 默认开启本地用户家目录 [home] 和打印机 [printer] 的共享，如果不需要你也可以关闭这两个共享，然后在末行自己重新创建一个共享，下面是详细的配置，你可以自定义一个共享，然后自己选择需要哪些配置：
 [pzk] # 自定义共享名 comment = Home Directories # 描述符，是给系统管理员看的 path = /tmp # 共享的路径 public = yes # 是否公开，也就是是否能在网上邻居看到该共享 browseable = yes # 共享的目录是否让所有人可见 writable = yes # 是否可写 guest ok = no # 是否拒绝匿名访问，仅当安全级别为 share 时才生效 workgroup = WORKGROUP # 工作组，要设置成跟 Windows 的工作组一致 server string = Samba Server Version %v # 其他 Linux 主机查看共享时的提示符 netbios name = MYSERVER # 用于在 Windows 网上邻居上显示的主机名 hosts allow = 127.</description>
     </item>

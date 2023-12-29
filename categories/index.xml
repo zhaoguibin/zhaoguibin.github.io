@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 笔记</title>
-    <link>https://example.org/categories/</link>
+    <link>http://zhaoguibin.me/categories/</link>
     <description>Recent content in Categories on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <atom:link href="https://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>gcc on 笔记</title>
-    <link>https://example.org/tags/gcc/</link>
+    <link>http://zhaoguibin.me/tags/gcc/</link>
     <description>Recent content in gcc on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 02 Jan 2018 21:12:10 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/gcc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/gcc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>解决&#34;configure error no acceptable C compiler found in $PATH&#34;</title>
-      <link>https://example.org/posts/%E8%A7%A3%E5%86%B3configure-error-no-acceptable-c-compiler-found-in-path/</link>
+      <link>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3configure-error-no-acceptable-c-compiler-found-in-path/</link>
       <pubDate>Tue, 02 Jan 2018 21:12:10 +0000</pubDate>
-      <guid>https://example.org/posts/%E8%A7%A3%E5%86%B3configure-error-no-acceptable-c-compiler-found-in-path/</guid>
+      <guid>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3configure-error-no-acceptable-c-compiler-found-in-path/</guid>
       <description>解决方法： 安装gcc
 yum install gcc </description>
     </item>

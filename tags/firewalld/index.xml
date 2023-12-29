@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>firewalld on 笔记</title>
-    <link>https://example.org/tags/firewalld/</link>
+    <link>http://zhaoguibin.me/tags/firewalld/</link>
     <description>Recent content in firewalld on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 02 Dec 2017 14:53:02 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/firewalld/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/firewalld/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用firewalld打开关闭防火墙与端口</title>
-      <link>https://example.org/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</link>
+      <link>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</link>
       <pubDate>Sat, 02 Dec 2017 14:53:02 +0000</pubDate>
-      <guid>https://example.org/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</guid>
+      <guid>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</guid>
       <description>1、firewalld的基本使用
 启动： systemctl start firewalld
 查看状态： systemctl status firewalld

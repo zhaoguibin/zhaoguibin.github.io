@@ -14,13 +14,13 @@
 　　浏览器获取响应内容后，判断内容是否被压缩，如果是则解压缩，然后显示响应页面的内容。
 　　在实际的应用中我们发现压缩的比率往往在 3 到 10 倍，也就是本来 50k 大小的页面，采用压缩后实际传输的内容大小只有 5 至 15k 大小，这可以大大节省服务器的网络带宽，同时如果应用程序的响应足够快时，网站的速度瓶颈就转到了网络的传输速度上，因此内容压缩后就可以大大的提升页面的浏览速度。">
 <meta name="author" content="ZhaoGuibin">
-<link rel="canonical" href="https://example.org/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/">
+<link rel="canonical" href="http://zhaoguibin.me/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://example.org/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
-<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<link rel="icon" href="http://zhaoguibin.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://zhaoguibin.me/apple-touch-icon.png">
+<link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -67,12 +67,12 @@
 　　浏览器获取响应内容后，判断内容是否被压缩，如果是则解压缩，然后显示响应页面的内容。
 　　在实际的应用中我们发现压缩的比率往往在 3 到 10 倍，也就是本来 50k 大小的页面，采用压缩后实际传输的内容大小只有 5 至 15k 大小，这可以大大节省服务器的网络带宽，同时如果应用程序的响应足够快时，网站的速度瓶颈就转到了网络的传输速度上，因此内容压缩后就可以大大的提升页面的浏览速度。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.org/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://zhaoguibin.me/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/" /><meta property="og:image" content="http://zhaoguibin.me/images/papermod-cover.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-03-01T19:58:19+00:00" />
 <meta property="article:modified_time" content="2018-03-01T19:58:19+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+<meta name="twitter:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
 
 <meta name="twitter:title" content="Nginx 启用gzip压缩"/>
 <meta name="twitter:description" content="网页压缩
@@ -92,13 +92,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "https://example.org/posts/"
+      "item": "http://zhaoguibin.me/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Nginx 启用gzip压缩",
-      "item": "https://example.org/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/"
+      "item": "http://zhaoguibin.me/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/"
     }
   ]
 }
@@ -124,14 +124,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://example.org/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/"
+    "@id": "http://zhaoguibin.me/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "笔记",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://example.org/favicon.ico"
+      "url": "http://zhaoguibin.me/favicon.ico"
     }
   }
 }
@@ -153,7 +153,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <a href="http://zhaoguibin.me/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -179,17 +179,17 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://example.org/archives" title="Archive">
+                <a href="http://zhaoguibin.me/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://zhaoguibin.me/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/tags/" title="Tags">
+                <a href="http://zhaoguibin.me/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -200,7 +200,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://zhaoguibin.me/">Home</a>&nbsp;»&nbsp;<a href="http://zhaoguibin.me/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Nginx 启用gzip压缩
     </h1>
@@ -329,16 +329,16 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://example.org/tags/centos/">centos</a></li>
-      <li><a href="https://example.org/tags/nginx/">nginx</a></li>
+      <li><a href="http://zhaoguibin.me/tags/centos/">centos</a></li>
+      <li><a href="http://zhaoguibin.me/tags/nginx/">nginx</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://example.org/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/">
+  <a class="prev" href="http://zhaoguibin.me/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/">
     <span class="title">« Prev</span>
     <br>
     <span>php下载文件简单实例</span>
   </a>
-  <a class="next" href="https://example.org/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/">
+  <a class="next" href="http://zhaoguibin.me/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/">
     <span class="title">Next »</span>
     <br>
     <span>CentOS7 搭建 FTP 文件服务</span>
@@ -350,7 +350,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>&copy; 2023 <a href="http://zhaoguibin.me/">笔记</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

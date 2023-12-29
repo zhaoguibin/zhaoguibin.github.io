@@ -16,13 +16,13 @@ npm install hexo-generator-searchdb --save 启用搜索
 search: path: search.xml field: post format: html limit: 10000 给 Github 添加 README 默认情况下， Github 中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。 正确的解决方法其实很简单： 把 README.md 文件的后缀名改成 MDOWN 然后扔到 blog/source 文件夹下即可，这样 hexo 不会解析， Github 也会将其作为MD文件解析。
 解决每次发布后需要手动在 github page 的 setting 里重新设置自定义域名 在 /hexo/source 目录建一个 CNAME，里面写你的域名，这样每次生成的时候就会自带这个文件了，以后就不用重新修改自定义域名了">
 <meta name="author" content="ZhaoGuibin">
-<link rel="canonical" href="https://example.org/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/">
+<link rel="canonical" href="http://zhaoguibin.me/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://example.org/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
-<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<link rel="icon" href="http://zhaoguibin.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://zhaoguibin.me/apple-touch-icon.png">
+<link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -71,12 +71,12 @@ npm install hexo-generator-searchdb --save 启用搜索
 search: path: search.xml field: post format: html limit: 10000 给 Github 添加 README 默认情况下， Github 中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。 正确的解决方法其实很简单： 把 README.md 文件的后缀名改成 MDOWN 然后扔到 blog/source 文件夹下即可，这样 hexo 不会解析， Github 也会将其作为MD文件解析。
 解决每次发布后需要手动在 github page 的 setting 里重新设置自定义域名 在 /hexo/source 目录建一个 CNAME，里面写你的域名，这样每次生成的时候就会自带这个文件了，以后就不用重新修改自定义域名了" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.org/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://zhaoguibin.me/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/" /><meta property="og:image" content="http://zhaoguibin.me/images/papermod-cover.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2017-12-01T19:57:59+00:00" />
 <meta property="article:modified_time" content="2017-12-01T19:57:59+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+<meta name="twitter:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
 
 <meta name="twitter:title" content="hexo相关优化"/>
 <meta name="twitter:description" content="local search 安装 hexo-generator-search
@@ -98,13 +98,13 @@ search: path: search.xml field: post format: html limit: 10000 给 Github 添加
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "https://example.org/posts/"
+      "item": "http://zhaoguibin.me/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "hexo相关优化",
-      "item": "https://example.org/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/"
+      "item": "http://zhaoguibin.me/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/"
     }
   ]
 }
@@ -130,14 +130,14 @@ search: path: search.xml field: post format: html limit: 10000 给 Github 添加
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://example.org/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/"
+    "@id": "http://zhaoguibin.me/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "笔记",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://example.org/favicon.ico"
+      "url": "http://zhaoguibin.me/favicon.ico"
     }
   }
 }
@@ -159,7 +159,7 @@ search: path: search.xml field: post format: html limit: 10000 给 Github 添加
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <a href="http://zhaoguibin.me/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -185,17 +185,17 @@ search: path: search.xml field: post format: html limit: 10000 给 Github 添加
         </div>
         <ul id="menu">
             <li>
-                <a href="https://example.org/archives" title="Archive">
+                <a href="http://zhaoguibin.me/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://zhaoguibin.me/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/tags/" title="Tags">
+                <a href="http://zhaoguibin.me/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -206,7 +206,7 @@ search: path: search.xml field: post format: html limit: 10000 给 Github 添加
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://zhaoguibin.me/">Home</a>&nbsp;»&nbsp;<a href="http://zhaoguibin.me/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       hexo相关优化
     </h1>
@@ -259,15 +259,15 @@ search: path: search.xml field: post format: html limit: 10000 给 Github 添加
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://example.org/tags/hexo/">hexo</a></li>
+      <li><a href="http://zhaoguibin.me/tags/hexo/">hexo</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://example.org/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/">
+  <a class="prev" href="http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/">
     <span class="title">« Prev</span>
     <br>
     <span>centos6.5编译安装LNMP</span>
   </a>
-  <a class="next" href="https://example.org/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/">
+  <a class="next" href="http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/">
     <span class="title">Next »</span>
     <br>
     <span>ssh免密码登录</span>
@@ -279,7 +279,7 @@ search: path: search.xml field: post format: html limit: 10000 给 Github 添加
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>&copy; 2023 <a href="http://zhaoguibin.me/">笔记</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

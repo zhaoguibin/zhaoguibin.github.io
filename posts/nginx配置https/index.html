@@ -12,13 +12,13 @@
 openssl rsa -in server.key -out server.key 用刚生成的服务器私钥，生成证书请求文件。 openssl req -new -key server.key -out server.csr 生成Certificate Signing Request（CSR）,生成的csr文件交给CA签名后形成服务端自己的证书.
 同样的命令生成生成客户端的私钥(key 文件)和证书请求文件Certificate Signing Request（CSR） openssl genrsa -des3 -out client.key 2048 openssl req -new -key client.key -out client.csr 生成的CSR证书文件必须有CA的签名才可形成证书。这里制作自己的CA， 这时生成一个KEY文件ca.key 和根证书ca.crt。默认生成CA证书有效期是一个月，可以添加-days 365,设置有效期即为365天。 openssl req -new -x509 -keyout ca.key -out ca.crt -days 365 签署证书准备工作： [root@centos65 ssl]# vim /etc/pki/tls/openssl.cnf #修改如下 dir = /etc/pki/CA #根据openssl.">
 <meta name="author" content="ZhaoGuibin">
-<link rel="canonical" href="https://example.org/posts/nginx%E9%85%8D%E7%BD%AEhttps/">
+<link rel="canonical" href="http://zhaoguibin.me/posts/nginx%E9%85%8D%E7%BD%AEhttps/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://example.org/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
-<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<link rel="icon" href="http://zhaoguibin.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://zhaoguibin.me/apple-touch-icon.png">
+<link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -63,12 +63,12 @@ openssl rsa -in server.key -out server.key 用刚生成的服务器私钥，生�
 openssl rsa -in server.key -out server.key 用刚生成的服务器私钥，生成证书请求文件。 openssl req -new -key server.key -out server.csr 生成Certificate Signing Request（CSR）,生成的csr文件交给CA签名后形成服务端自己的证书.
 同样的命令生成生成客户端的私钥(key 文件)和证书请求文件Certificate Signing Request（CSR） openssl genrsa -des3 -out client.key 2048 openssl req -new -key client.key -out client.csr 生成的CSR证书文件必须有CA的签名才可形成证书。这里制作自己的CA， 这时生成一个KEY文件ca.key 和根证书ca.crt。默认生成CA证书有效期是一个月，可以添加-days 365,设置有效期即为365天。 openssl req -new -x509 -keyout ca.key -out ca.crt -days 365 签署证书准备工作： [root@centos65 ssl]# vim /etc/pki/tls/openssl.cnf #修改如下 dir = /etc/pki/CA #根据openssl." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.org/posts/nginx%E9%85%8D%E7%BD%AEhttps/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://zhaoguibin.me/posts/nginx%E9%85%8D%E7%BD%AEhttps/" /><meta property="og:image" content="http://zhaoguibin.me/images/papermod-cover.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2017-12-16T19:58:17+00:00" />
 <meta property="article:modified_time" content="2017-12-16T19:58:17+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+<meta name="twitter:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
 
 <meta name="twitter:title" content="nginx配置HTTPS"/>
 <meta name="twitter:description" content="PS：设置HTTPS nginx需要添加ssl模块 &ndash;with-http_ssl_module 在nginx的conf目录下新增ssl目录，并进入。
@@ -86,13 +86,13 @@ openssl rsa -in server.key -out server.key 用刚生成的服务器私钥，生�
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "https://example.org/posts/"
+      "item": "http://zhaoguibin.me/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "nginx配置HTTPS",
-      "item": "https://example.org/posts/nginx%E9%85%8D%E7%BD%AEhttps/"
+      "item": "http://zhaoguibin.me/posts/nginx%E9%85%8D%E7%BD%AEhttps/"
     }
   ]
 }
@@ -118,14 +118,14 @@ openssl rsa -in server.key -out server.key 用刚生成的服务器私钥，生�
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://example.org/posts/nginx%E9%85%8D%E7%BD%AEhttps/"
+    "@id": "http://zhaoguibin.me/posts/nginx%E9%85%8D%E7%BD%AEhttps/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "笔记",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://example.org/favicon.ico"
+      "url": "http://zhaoguibin.me/favicon.ico"
     }
   }
 }
@@ -147,7 +147,7 @@ openssl rsa -in server.key -out server.key 用刚生成的服务器私钥，生�
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <a href="http://zhaoguibin.me/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -173,17 +173,17 @@ openssl rsa -in server.key -out server.key 用刚生成的服务器私钥，生�
         </div>
         <ul id="menu">
             <li>
-                <a href="https://example.org/archives" title="Archive">
+                <a href="http://zhaoguibin.me/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://zhaoguibin.me/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/tags/" title="Tags">
+                <a href="http://zhaoguibin.me/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -194,7 +194,7 @@ openssl rsa -in server.key -out server.key 用刚生成的服务器私钥，生�
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://zhaoguibin.me/">Home</a>&nbsp;»&nbsp;<a href="http://zhaoguibin.me/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       nginx配置HTTPS
     </h1>
@@ -316,15 +316,15 @@ openssl rsa -in server.key -out server.key 用刚生成的服务器私钥，生�
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://example.org/tags/nginx/">nginx</a></li>
+      <li><a href="http://zhaoguibin.me/tags/nginx/">nginx</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://example.org/posts/php%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/">
+  <a class="prev" href="http://zhaoguibin.me/posts/php%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/">
     <span class="title">« Prev</span>
     <br>
     <span>php设计模式概述</span>
   </a>
-  <a class="next" href="https://example.org/posts/linux%E8%A7%A3%E5%86%B3warning-mysql_connect-headers-and-client-library-minor-version-mismatch.-%E8%AD%A6%E5%91%8A/">
+  <a class="next" href="http://zhaoguibin.me/posts/linux%E8%A7%A3%E5%86%B3warning-mysql_connect-headers-and-client-library-minor-version-mismatch.-%E8%AD%A6%E5%91%8A/">
     <span class="title">Next »</span>
     <br>
     <span>Linux解决Warning mysql_connect() Headers and client library minor version mismatch. 警告</span>
@@ -336,7 +336,7 @@ openssl rsa -in server.key -out server.key 用刚生成的服务器私钥，生�
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>&copy; 2023 <a href="http://zhaoguibin.me/">笔记</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

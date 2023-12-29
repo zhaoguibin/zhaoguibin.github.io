@@ -9,16 +9,16 @@
 <meta name="keywords" content="">
 <meta name="description" content="笔记">
 <meta name="author" content="ZhaoGuibin">
-<link rel="canonical" href="https://example.org/tags/surge/">
+<link rel="canonical" href="http://zhaoguibin.me/tags/surge/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://example.org/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
-<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<link rel="icon" href="http://zhaoguibin.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://zhaoguibin.me/apple-touch-icon.png">
+<link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://example.org/tags/surge/index.xml">
+<link rel="alternate" type="application/rss+xml" href="http://zhaoguibin.me/tags/surge/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,10 +58,10 @@
 </noscript><meta property="og:title" content="surge" />
 <meta property="og:description" content="笔记" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://example.org/tags/surge/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/>
+<meta property="og:url" content="http://zhaoguibin.me/tags/surge/" /><meta property="og:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+<meta name="twitter:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
 
 <meta name="twitter:title" content="surge"/>
 <meta name="twitter:description" content="笔记"/>
@@ -83,7 +83,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <a href="http://zhaoguibin.me/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -109,17 +109,17 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://example.org/archives" title="Archive">
+                <a href="http://zhaoguibin.me/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://zhaoguibin.me/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/tags/" title="Tags">
+                <a href="http://zhaoguibin.me/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -127,7 +127,7 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/tags/">Tags</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="http://zhaoguibin.me/">Home</a>&nbsp;»&nbsp;<a href="http://zhaoguibin.me/tags/">Tags</a></div>
   <h1>
     surge
     <a href="/tags/surge/index.xml" title="RSS" aria-label="RSS">
@@ -151,12 +151,12 @@
 /************************* [Script] mixrnb签到.js = type=cron,cronexp=35 8 * * *,wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/zhaoguibin/surge/master/script/RNB_daily_bonus.js 获取mixrnb的cookie = type=http-request,pattern=http:\/\/www.mixrnb.com\/plugin\.php\?id=dsu_paulsign:sign,tag=获取mixrnb的cookie,script-path=https://raw.githubusercontent.com/zhaoguibin/surge/master/script/RNB_daily_bonus.js,script-update-interval=0 签到页面获取到cookie，http://www.mixrnb.com/plugin.php?id=dsu_paulsign:sign *************************/ var error, response, body; var set_cookies = new Array(); const isRequest = typeof $request != &#34;undefined&#34; if (isRequest) { $cookie = $request.headers.Cookie; const saltkey_regex = /(R5nb_c8f5_saltkey=\S*)/gm; const auth_regex = /(R5nb_c8f5_auth=(\S*));/gm; const R5nb_c8f5_saltkey = saltkey_regex.exec($cookie); const R5nb_c8f5_auth = auth_regex.exec($cookie); if (!R5nb_c8f5_saltkey) { $notification.post(&#39;&#39;, &#39;&#39;, &#39;获取R5nb_c8f5_saltkey失败&#39;); $done(); } if (!R5nb_c8f5_auth) { $notification.post(&#39;&#39;, &#39;&#39;, &#39;获取R5nb_c8f5_auth失败&#39;); $done(); } $persistentStore....</p>
   </div>
   <footer class="entry-footer"><span title='2020-08-04 19:53:32 +0000 UTC'>August 4, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to surge脚本-【DSU】每日签到" href="https://example.org/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/"></a>
+  <a class="entry-link" aria-label="post link to surge脚本-【DSU】每日签到" href="http://zhaoguibin.me/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/"></a>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>&copy; 2023 <a href="http://zhaoguibin.me/">笔记</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

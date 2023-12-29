@@ -26,13 +26,13 @@ source filename 与 sh filename 及./filename执行脚本的区别在那里呢�
 4.运行./test.sh后，也是一样的效果
 5.运行source test.sh 或者 . test.sh，然后echo $A，则会显示1，说明A=1的变量在当前shell中">
 <meta name="author" content="ZhaoGuibin">
-<link rel="canonical" href="https://example.org/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/">
+<link rel="canonical" href="http://zhaoguibin.me/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://example.org/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
-<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<link rel="icon" href="http://zhaoguibin.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://zhaoguibin.me/apple-touch-icon.png">
+<link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -91,12 +91,12 @@ source filename 与 sh filename 及./filename执行脚本的区别在那里呢�
 4.运行./test.sh后，也是一样的效果
 5.运行source test.sh 或者 . test.sh，然后echo $A，则会显示1，说明A=1的变量在当前shell中" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.org/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://zhaoguibin.me/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/" /><meta property="og:image" content="http://zhaoguibin.me/images/papermod-cover.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2017-12-03T16:39:35+00:00" />
 <meta property="article:modified_time" content="2017-12-03T16:39:35+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+<meta name="twitter:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
 
 <meta name="twitter:title" content="Linux-Source命令及脚本的执行方式解析"/>
 <meta name="twitter:description" content="当我修改了/etc/profile文件，我想让它立刻生效，而不用重新登录；这时就想到用source命令，如:source /etc/profile 对source进行了学习，并且用它与sh 执行脚本进行了对比，现在总结一下。
@@ -128,13 +128,13 @@ source filename 与 sh filename 及./filename执行脚本的区别在那里呢�
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "https://example.org/posts/"
+      "item": "http://zhaoguibin.me/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Linux-Source命令及脚本的执行方式解析",
-      "item": "https://example.org/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/"
+      "item": "http://zhaoguibin.me/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/"
     }
   ]
 }
@@ -160,14 +160,14 @@ source filename 与 sh filename 及./filename执行脚本的区别在那里呢�
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://example.org/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/"
+    "@id": "http://zhaoguibin.me/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "笔记",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://example.org/favicon.ico"
+      "url": "http://zhaoguibin.me/favicon.ico"
     }
   }
 }
@@ -189,7 +189,7 @@ source filename 与 sh filename 及./filename执行脚本的区别在那里呢�
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <a href="http://zhaoguibin.me/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -215,17 +215,17 @@ source filename 与 sh filename 及./filename执行脚本的区别在那里呢�
         </div>
         <ul id="menu">
             <li>
-                <a href="https://example.org/archives" title="Archive">
+                <a href="http://zhaoguibin.me/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://zhaoguibin.me/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/tags/" title="Tags">
+                <a href="http://zhaoguibin.me/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -236,7 +236,7 @@ source filename 与 sh filename 及./filename执行脚本的区别在那里呢�
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://zhaoguibin.me/">Home</a>&nbsp;»&nbsp;<a href="http://zhaoguibin.me/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Linux-Source命令及脚本的执行方式解析
     </h1>
@@ -270,15 +270,15 @@ source filename 与 sh filename 及./filename执行脚本的区别在那里呢�
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://example.org/tags/linux/">linux</a></li>
+      <li><a href="http://zhaoguibin.me/tags/linux/">linux</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://example.org/posts/linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/">
+  <a class="prev" href="http://zhaoguibin.me/posts/linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/">
     <span class="title">« Prev</span>
     <br>
     <span>Linux-查看进程和删除进程</span>
   </a>
-  <a class="next" href="https://example.org/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/">
+  <a class="next" href="http://zhaoguibin.me/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/">
     <span class="title">Next »</span>
     <br>
     <span>Centos中安装PHP的PDO-MySQL扩展</span>
@@ -290,7 +290,7 @@ source filename 与 sh filename 及./filename执行脚本的区别在那里呢�
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>&copy; 2023 <a href="http://zhaoguibin.me/">笔记</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

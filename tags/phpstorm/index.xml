@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>phpstorm on 笔记</title>
-    <link>https://example.org/tags/phpstorm/</link>
+    <link>http://zhaoguibin.me/tags/phpstorm/</link>
     <description>Recent content in phpstorm on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 03 Dec 2017 19:19:20 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/phpstorm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/phpstorm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>phpstorm中配置远程调试xdebug</title>
-      <link>https://example.org/posts/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</link>
+      <link>http://zhaoguibin.me/posts/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</link>
       <pubDate>Sun, 03 Dec 2017 19:19:20 +0000</pubDate>
-      <guid>https://example.org/posts/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</guid>
+      <guid>http://zhaoguibin.me/posts/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</guid>
       <description>这里说的是真正的远程调试，不是本地，本地不需要安装任何php程序！！！
 这里略去xdebug的安装，安装很简单可以下载源码包，动态编译进去！
 环境：

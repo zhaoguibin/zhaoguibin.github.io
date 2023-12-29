@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>surge on 笔记</title>
-    <link>https://example.org/tags/surge/</link>
+    <link>http://zhaoguibin.me/tags/surge/</link>
     <description>Recent content in surge on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 04 Aug 2020 19:53:32 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/surge/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/surge/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>surge脚本-【DSU】每日签到</title>
-      <link>https://example.org/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/</link>
+      <link>http://zhaoguibin.me/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/</link>
       <pubDate>Tue, 04 Aug 2020 19:53:32 +0000</pubDate>
-      <guid>https://example.org/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/</guid>
+      <guid>http://zhaoguibin.me/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/</guid>
       <description>surge签到脚本 代码github地址 https://raw.githubusercontent.com/zhaoguibin/surge/master/script/RNB_daily_bonus.js
 /************************* [Script] mixrnb签到.js = type=cron,cronexp=35 8 * * *,wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/zhaoguibin/surge/master/script/RNB_daily_bonus.js 获取mixrnb的cookie = type=http-request,pattern=http:\/\/www.mixrnb.com\/plugin\.php\?id=dsu_paulsign:sign,tag=获取mixrnb的cookie,script-path=https://raw.githubusercontent.com/zhaoguibin/surge/master/script/RNB_daily_bonus.js,script-update-interval=0 签到页面获取到cookie，http://www.mixrnb.com/plugin.php?id=dsu_paulsign:sign *************************/ var error, response, body; var set_cookies = new Array(); const isRequest = typeof $request != &amp;#34;undefined&amp;#34; if (isRequest) { $cookie = $request.headers.Cookie; const saltkey_regex = /(R5nb_c8f5_saltkey=\S*)/gm; const auth_regex = /(R5nb_c8f5_auth=(\S*));/gm; const R5nb_c8f5_saltkey = saltkey_regex.exec($cookie); const R5nb_c8f5_auth = auth_regex.exec($cookie); if (!R5nb_c8f5_saltkey) { $notification.post(&amp;#39;&amp;#39;, &amp;#39;&amp;#39;, &amp;#39;获取R5nb_c8f5_saltkey失败&amp;#39;); $done(); } if (!R5nb_c8f5_auth) { $notification.post(&amp;#39;&amp;#39;, &amp;#39;&amp;#39;, &amp;#39;获取R5nb_c8f5_auth失败&amp;#39;); $done(); } $persistentStore.</description>
     </item>

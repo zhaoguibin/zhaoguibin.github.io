@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>设计模式 on 笔记</title>
-    <link>https://example.org/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <link>http://zhaoguibin.me/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
     <description>Recent content in 设计模式 on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 26 Mar 2022 21:19:21 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>迭代器模式</title>
-      <link>https://example.org/posts/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 26 Mar 2022 21:19:21 +0000</pubDate>
-      <guid>https://example.org/posts/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
       <description>概念
 迭代器模式是遍历集合的成熟模式，迭代器模式的关键是将遍历集合的任务交给一个叫做迭代器的对象，它的工作是遍历并选择序列中的对象，而客户端程序员不必知道或关心该集合序列底层的结构。
 说明
@@ -25,30 +25,30 @@
     </item>
     <item>
       <title>命令模式</title>
-      <link>https://example.org/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 26 Mar 2022 21:15:24 +0000</pubDate>
-      <guid>https://example.org/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</guid>
       <description>概念 将一个请求封装（命令的封装）为一个对象，从而使用你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作。 命令模式是对命令的封装。命令模式把发出命令的责任和执行命令的责任分隔开，委派给不同的对象。 请求的一方发出请求要求执行一个操作；接收的一方收到请求，并执行操作。命令模式允许请求的一方和接收的一方独立开来，使得请求的一方不必知道接收请求的一方的接口，更不必知道请求是怎么被接收，以及操作是否被执行、何时被执行，以及是怎么被执行的。 角色 命令（command）角色：声明了一个给所有具体命令类的抽象接口。这是一个抽象角色。 具体命令（ConcreteCommand）角色：定义一个接收者和行为之间的弱耦合；实现Execute()方法，负责调用接收到的相应操作。Execute()方法通常叫做执行方法。 客户（client）角色：创建了一个具体命令（ConcreteCommand）对象并确定其接收者。 请求者（Invoker）角色：负责调用命令对象执行请求，相关的方法叫做行动方法。 接收者（Receiver）角色：负责具体实施和执行一个请求。任何一个类都可以成为接收者，实施和执行请求的方法叫做行动方法。 优点和缺点 优点： 命令模式把请求一个操作的对象与知道怎么执行一个操作的对象分离开。 命令类与其他任何别的类一样，可以修改和推广。 可以把命令对象聚合在一起，合成为合成命令。 可以很容易的加入新的命令类。 缺点： 可能会导致某些系统有过多的具体命令类。 应用场景 抽象出待执行的动作以参数化对象。Command模式是回调机制的一个面向对象的替代品。 在不同的时刻指定、排列和执行请求。 支持取消操作 支持修改日志 用构建在原语操作上的高层操作构建一个系统。Command模式提供了对事务进行建模的方法。Command有一个公共的接口，使得你可以用同一种方式调用所有的事务。同时使用该模式也易于添加新事务以扩展系统。 &amp;lt;?php //抽象命令接口 interface Command { //命令执行 public function execute(); } //宏命令（命令的组合） //宏命令接口 interface MacroCommand extends Command { //宏命令聚集管理方法，可以删除一个命令 public function remove(Command $command); //宏命令聚集管理方法，可以添加一个命令 public function add(Command $command); } //命令的实现 //复制命令 class CopyCommand implements Command { private $receiver; public function __construct(Receiver $receiver) { $this-&amp;gt;receiver = $receiver; } public function execute() { $this-&amp;gt;receiver-&amp;gt;copy(); } } //粘贴命令 class PasteCommand implements Command { private $receiver; public function __construct(Receiver $receiver) { $this-&amp;gt;receiver = $receiver; } public function execute() { $this-&amp;gt;receiver-&amp;gt;paste(); } } //命令接收者执行命令 class Receiver { private $name; public function __construct($name) { $this-&amp;gt;name = $name; } public function copy() { echo $this-&amp;gt;name .</description>
     </item>
     <item>
       <title>观察者模式</title>
-      <link>https://example.org/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 26 Mar 2022 20:45:21 +0000</pubDate>
-      <guid>https://example.org/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>概念 观察者模式属于行为模式，是定义对象间的一种一对多的依赖关系，以便当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并自动刷新。 当一个对象状态发生改变后，会影响到其他几个对象的改变，这时候可以用观察者模式。 观察者模式符合接口隔离原则，实现了对象之间的松散耦合。 角色 抽象主题（subject）：它把所有观察者对象的引用保存到一个聚集里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。 具体主题（ConcreteSubjest）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。 抽象观察者（Observer）：为所有的具体观察者定义一个接口，在得到主题通知时更新自己。 具体观察者（ConcreteObserver）：实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题状态协调。 &amp;lt;?php //抽象主题 interface Subject { //新增观察者 public function attach(Observer $observer); //移除观察者 public function detach(Observer $observer); //通知观察者 public function notifyObserver(); } //具体主题 class ConcreteSubjest implements Subject { //储存观察者 private $observers; public function __construct() { $this-&amp;gt;observers = []; } //新增观察者 public function attach(Observer $observer) { return array_push($this-&amp;gt;observers, $observer); } //移除观察者 public function detach(Observer $observer) { //检查观察者是否存在观察者数组中，返回索引值 $index = array_search($observer, $this-&amp;gt;observers); if ($index === false) { return false; } else { unset($this-&amp;gt;observers[$index]); return true; } } //通知观察者 public function notifyObserver() { if (!</description>
     </item>
     <item>
       <title>策略模式</title>
-      <link>https://example.org/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 26 Mar 2022 20:31:47 +0000</pubDate>
-      <guid>https://example.org/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
       <description> 概念 将一组特定的行为和算法封装成类，以适应某些特定的上下文环境，并让它们可以相互替换，这种模式就是策略模式。 简单理解就是 有n个做法供你选择，根据你的需要选择某个策略得到结果 优点 使用设计模式之后，我们的代码冗余和耦合度变低，每个策略模块完成对应的功能。 当然缺点就是一个功能我们就要响应制作一个策略类，但是我们统观MVC架构当中（Thinkphp，Yii2），一个控制器对应一个视图，其实也是策略模式的体现了。 &amp;lt;?php interface UserInterface { public function showAd(); public function showCategory(); } //男性用户实现接口 class MaleUser implements UserInterface { public function showAd() { echo &amp;#39;电子产品&amp;#39;; } public function showCategory() { echo &amp;#34;PS5,PC,Switch&amp;#34;; } } //女性用户实现接口 class FemaleUser implements UserInterface { public function showAd() { echo &amp;#39;化妆品&amp;#39;; } public function showCategory() { echo &amp;#34;口红,面膜&amp;#34;; } } //客户端实现，根据性别不同推荐不同内容 $sex = &amp;#39;male&amp;#39;; if ($sex == &amp;#39;male&amp;#39;) { $user = new MaleUser(); } else { $user = new FemaleUser(); } $user-&amp;gt;showAd(); $user-&amp;gt;showCategory(); </description>
     </item>
     <item>
       <title>装饰器模式</title>
-      <link>https://example.org/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 24 Mar 2022 23:13:56 +0000</pubDate>
-      <guid>https://example.org/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
       <description> 概念
 装饰器模式又叫装饰者模式。装饰模式是在不必改变原类文件和使用继承的情况下，动态地扩展一个对象的功能。它是通过创建一个包装对象，也就是装饰来包裹真实的对象。
 实例
@@ -57,9 +57,9 @@
     </item>
     <item>
       <title>注册树模式</title>
-      <link>https://example.org/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 24 Mar 2022 22:39:41 +0000</pubDate>
-      <guid>https://example.org/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/</guid>
       <description> 概念
 注册树模式也叫注册模式或注册器模式，顾名思义，注册树就是把对象实例注册到一棵全局的对象树上，需要对象的时候就从树上取下来，就好比树上长的果子，需要的时候就摘一个下来，只是这个对象树果子是摘不完的。
 作用
@@ -68,9 +68,9 @@
     </item>
     <item>
       <title>门面模式</title>
-      <link>https://example.org/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 24 Mar 2022 22:15:37 +0000</pubDate>
-      <guid>https://example.org/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</guid>
       <description> 概念
 门面模式（facade）又称外观模式，用于为子系统中的一组接口提供一个一致的界面。门面模式定义了一个高层接口，这个接口使得子系统更加容易使用；引入门面角色之后，用户只需要直接与门面角色交互，用户与子系统之间的复杂关系由门面角色来实现，从而降低了系统的耦合度。
 作用
@@ -79,9 +79,9 @@
     </item>
     <item>
       <title>管道模式</title>
-      <link>https://example.org/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 24 Mar 2022 21:48:18 +0000</pubDate>
-      <guid>https://example.org/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/</guid>
       <description> 概念
 管道（pipeline）设计模式流水线模式就是将数据传递到一个任务序列中，管道扮演着流水线的角色，数据在这里被处理然后传递到下一个步骤
 释义
@@ -91,9 +91,9 @@
     </item>
     <item>
       <title>代理模式</title>
-      <link>https://example.org/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 24 Mar 2022 21:23:46 +0000</pubDate>
-      <guid>https://example.org/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</guid>
       <description> 概念
 构建了透明置于两个不同对象之内的一个对象，从而能够截取或代理这两个对象间的通信或访问。
 应用场景
@@ -101,9 +101,9 @@
     </item>
     <item>
       <title>适配器模式</title>
-      <link>https://example.org/posts/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Wed, 23 Mar 2022 21:48:23 +0000</pubDate>
-      <guid>https://example.org/posts/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
       <description> 概念
 将某个类的接口转换成与另一个接口兼容。适配器通过将原始接口进行转换，给用户提供一个兼容接口，使得原来因为接口不同而无法一起使用的类可以得到兼容。
 应用场景
@@ -112,9 +112,9 @@
     </item>
     <item>
       <title>工厂模式</title>
-      <link>https://example.org/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 22 Mar 2022 21:25:26 +0000</pubDate>
-      <guid>https://example.org/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
       <description>概念
 工厂模式是我们最常用的实例化对象模式，是用工厂方法代替new操作的一种模式。
 好处
@@ -126,9 +126,9 @@
     </item>
     <item>
       <title>单例模式</title>
-      <link>https://example.org/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 22 Mar 2022 20:49:17 +0000</pubDate>
-      <guid>https://example.org/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
       <description> 概念
 是一种类的设计只会最多产生一个对象的设计思想
 作用
@@ -139,9 +139,9 @@ php的应用主要在于数据库应用，所以一个应用中会存在大量�
     </item>
     <item>
       <title>什么是设计模式</title>
-      <link>https://example.org/posts/%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <link>http://zhaoguibin.me/posts/%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Mon, 21 Mar 2022 22:11:16 +0000</pubDate>
-      <guid>https://example.org/posts/%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>http://zhaoguibin.me/posts/%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
       <description>什么是设计模式
 设计模式是一套被反复使用、容易被他人理解的、可靠的代码设计经验的总结。
 那么我们常说的架构、框架和设计模式有什么关系呢？

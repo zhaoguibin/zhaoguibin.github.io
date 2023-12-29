@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>redis on 笔记</title>
-    <link>https://example.org/tags/redis/</link>
+    <link>http://zhaoguibin.me/tags/redis/</link>
     <description>Recent content in redis on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 08 Jan 2018 20:53:37 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>编译安装redis</title>
-      <link>https://example.org/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</link>
+      <link>http://zhaoguibin.me/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</link>
       <pubDate>Mon, 08 Jan 2018 20:53:37 +0000</pubDate>
-      <guid>https://example.org/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</guid>
+      <guid>http://zhaoguibin.me/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</guid>
       <description>一.安装Redis (1) cd /usr/src 进入下载目录
 (1) yum install -y wget gcc make tcl 安装依赖
 (2) redis官网http://www.redis.io下载最新的源码包

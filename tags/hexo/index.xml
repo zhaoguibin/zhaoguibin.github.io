@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hexo on 笔记</title>
-    <link>https://example.org/tags/hexo/</link>
+    <link>http://zhaoguibin.me/tags/hexo/</link>
     <description>Recent content in hexo on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 01 Dec 2017 19:57:59 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>hexo相关优化</title>
-      <link>https://example.org/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</link>
+      <link>http://zhaoguibin.me/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</link>
       <pubDate>Fri, 01 Dec 2017 19:57:59 +0000</pubDate>
-      <guid>https://example.org/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</guid>
+      <guid>http://zhaoguibin.me/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</guid>
       <description>local search 安装 hexo-generator-search
 在站点的根目录下执行以下命令：
 npm install hexo-generator-search --save 安装 hexo-generator-searchdb

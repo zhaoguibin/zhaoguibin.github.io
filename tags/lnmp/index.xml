@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LNMP on 笔记</title>
-    <link>https://example.org/tags/lnmp/</link>
+    <link>http://zhaoguibin.me/tags/lnmp/</link>
     <description>Recent content in LNMP on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 09 Dec 2017 01:23:45 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/lnmp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/lnmp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>centos7 yum安装lnmp</title>
-      <link>https://example.org/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</link>
+      <link>http://zhaoguibin.me/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</link>
       <pubDate>Sat, 09 Dec 2017 01:23:45 +0000</pubDate>
-      <guid>https://example.org/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</guid>
+      <guid>http://zhaoguibin.me/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</guid>
       <description>PHP7 1.安装epel-release 通过命令：
 yum -y install epel-release 成功安装。
 2.安装PHP7 终端再次运行如下命令：
@@ -30,9 +30,9 @@ systemctl start nginx.service mysql 1.下载mysql的repo源 wget http://repo.mys
     </item>
     <item>
       <title>centos6.5编译安装LNMP</title>
-      <link>https://example.org/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</link>
+      <link>http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</link>
       <pubDate>Sat, 02 Dec 2017 11:01:15 +0000</pubDate>
-      <guid>https://example.org/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</guid>
+      <guid>http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</guid>
       <description>一、环境准备 1、操作系统安装：CentOS 6.5 64位最小化安装。 2、配置好IP、DNS、网关、主机名 3、配置防火墙，开启80、3306端口 /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT /etc/rc.d/init.d/iptables save /etc/init.d/iptables restart 这样就搞定了，查看效果
 /etc/init.d/iptables status /etc/init.d/iptables restart #最后重启防火墙使配置生效 PS：
 Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：

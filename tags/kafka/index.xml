@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kafka on 笔记</title>
-    <link>https://example.org/tags/kafka/</link>
+    <link>http://zhaoguibin.me/tags/kafka/</link>
     <description>Recent content in kafka on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 30 Sep 2018 14:41:06 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka安装</title>
-      <link>https://example.org/posts/kafka%E5%AE%89%E8%A3%85/</link>
+      <link>http://zhaoguibin.me/posts/kafka%E5%AE%89%E8%A3%85/</link>
       <pubDate>Sun, 30 Sep 2018 14:41:06 +0000</pubDate>
-      <guid>https://example.org/posts/kafka%E5%AE%89%E8%A3%85/</guid>
+      <guid>http://zhaoguibin.me/posts/kafka%E5%AE%89%E8%A3%85/</guid>
       <description>&lt;p&gt;1.去&lt;a href=&#34;http://kafka.apache.org/downloads&#34; target=&#34;_blank&#34;&gt;kafka官网&lt;/a&gt;下载到最新的kafka安装包，选择下载二进制版本的tgz文件&lt;/p&gt;
 &lt;p&gt;2.环境需求：java运行环境&lt;/p&gt;
 &lt;p&gt;3.配置

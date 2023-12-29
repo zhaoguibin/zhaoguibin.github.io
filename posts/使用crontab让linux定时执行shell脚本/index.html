@@ -9,13 +9,13 @@
 <meta name="keywords" content="linux, crontab">
 <meta name="description" content="使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行 入门 crontab –e 这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行： 0 0 * * * /home/linrui/XXXXXXXX.sh 这将会在每天凌晨运行 指定的.sh文件 Cron 各项的描述 以下是 crontab 文件的格式： {minute} {hour} {day-of-month} {month} {day-of-week} {full-path-to-shell-script} o minute: 区间为 0 – 59 o hour: 区间为0 – 23 o day-of-month: 区间为0 – 31 o month: 区间为1 – 12. 1 是1月. 12是12月. o Day-of-week: 区间为0 – 7. 周日可以是0或7. Crontab 示例 1、在 凌晨00:01运行 1 0 * * * /home/linrui/XXXX.sh 2、每个工作日23:59都进行备份作业。 59 11 * * 1,2,3,4,5 /home/linrui/XXXX.">
 <meta name="author" content="ZhaoGuibin">
-<link rel="canonical" href="https://example.org/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/">
+<link rel="canonical" href="http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://example.org/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
-<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<link rel="icon" href="http://zhaoguibin.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://zhaoguibin.me/apple-touch-icon.png">
+<link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -57,12 +57,12 @@
 </noscript><meta property="og:title" content="使用crontab，让linux定时执行shell脚本" />
 <meta property="og:description" content="使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行 入门 crontab –e 这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行： 0 0 * * * /home/linrui/XXXXXXXX.sh 这将会在每天凌晨运行 指定的.sh文件 Cron 各项的描述 以下是 crontab 文件的格式： {minute} {hour} {day-of-month} {month} {day-of-week} {full-path-to-shell-script} o minute: 区间为 0 – 59 o hour: 区间为0 – 23 o day-of-month: 区间为0 – 31 o month: 区间为1 – 12. 1 是1月. 12是12月. o Day-of-week: 区间为0 – 7. 周日可以是0或7. Crontab 示例 1、在 凌晨00:01运行 1 0 * * * /home/linrui/XXXX.sh 2、每个工作日23:59都进行备份作业。 59 11 * * 1,2,3,4,5 /home/linrui/XXXX." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.org/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/" /><meta property="og:image" content="http://zhaoguibin.me/images/papermod-cover.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2017-12-03T17:37:57+00:00" />
 <meta property="article:modified_time" content="2017-12-03T17:37:57+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+<meta name="twitter:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
 
 <meta name="twitter:title" content="使用crontab，让linux定时执行shell脚本"/>
 <meta name="twitter:description" content="使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行 入门 crontab –e 这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行： 0 0 * * * /home/linrui/XXXXXXXX.sh 这将会在每天凌晨运行 指定的.sh文件 Cron 各项的描述 以下是 crontab 文件的格式： {minute} {hour} {day-of-month} {month} {day-of-week} {full-path-to-shell-script} o minute: 区间为 0 – 59 o hour: 区间为0 – 23 o day-of-month: 区间为0 – 31 o month: 区间为1 – 12. 1 是1月. 12是12月. o Day-of-week: 区间为0 – 7. 周日可以是0或7. Crontab 示例 1、在 凌晨00:01运行 1 0 * * * /home/linrui/XXXX.sh 2、每个工作日23:59都进行备份作业。 59 11 * * 1,2,3,4,5 /home/linrui/XXXX."/>
@@ -77,13 +77,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "https://example.org/posts/"
+      "item": "http://zhaoguibin.me/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "使用crontab，让linux定时执行shell脚本",
-      "item": "https://example.org/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/"
+      "item": "http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/"
     }
   ]
 }
@@ -109,14 +109,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://example.org/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/"
+    "@id": "http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "笔记",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://example.org/favicon.ico"
+      "url": "http://zhaoguibin.me/favicon.ico"
     }
   }
 }
@@ -138,7 +138,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <a href="http://zhaoguibin.me/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -164,17 +164,17 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://example.org/archives" title="Archive">
+                <a href="http://zhaoguibin.me/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://zhaoguibin.me/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://example.org/tags/" title="Tags">
+                <a href="http://zhaoguibin.me/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -185,7 +185,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://zhaoguibin.me/">Home</a>&nbsp;»&nbsp;<a href="http://zhaoguibin.me/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       使用crontab，让linux定时执行shell脚本
     </h1>
@@ -231,16 +231,16 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://example.org/tags/linux/">linux</a></li>
-      <li><a href="https://example.org/tags/crontab/">crontab</a></li>
+      <li><a href="http://zhaoguibin.me/tags/linux/">linux</a></li>
+      <li><a href="http://zhaoguibin.me/tags/crontab/">crontab</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://example.org/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/">
+  <a class="prev" href="http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/">
     <span class="title">« Prev</span>
     <br>
     <span>网络连接以及下载</span>
   </a>
-  <a class="next" href="https://example.org/posts/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/">
+  <a class="next" href="http://zhaoguibin.me/posts/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/">
     <span class="title">Next »</span>
     <br>
     <span>迁移数据库：直接复制数据表文件到数据库</span>
@@ -252,7 +252,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>&copy; 2023 <a href="http://zhaoguibin.me/">笔记</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

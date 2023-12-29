@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ubuntu on 笔记</title>
-    <link>https://example.org/tags/ubuntu/</link>
+    <link>http://zhaoguibin.me/tags/ubuntu/</link>
     <description>Recent content in ubuntu on 笔记</description>
     <image>
       <title>笔记</title>
-      <url>https://example.org/images/papermod-cover.png</url>
-      <link>https://example.org/images/papermod-cover.png</link>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 02 Dec 2017 14:48:53 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://zhaoguibin.me/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>将Ubuntu主文件夹里的中文文件夹名称改成英文</title>
-      <link>https://example.org/posts/%E5%B0%86ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/</link>
+      <link>http://zhaoguibin.me/posts/%E5%B0%86ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/</link>
       <pubDate>Sat, 02 Dec 2017 14:48:53 +0000</pubDate>
-      <guid>https://example.org/posts/%E5%B0%86ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/</guid>
+      <guid>http://zhaoguibin.me/posts/%E5%B0%86ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/</guid>
       <description>Ubuntu中文版本把用户主目录下的文件夹名称都默认设置成了中文（home文件里用户目录的“桌面”、“图片”、“视频”、“音乐”……都是中文的），这其实对于英文不太好才选择中文版本的Ubuntu系统也未必是一件好事，当在各个路径跳转的时候必须得使用中英文切换，感觉很复杂，所以这些默认文件夹名称还是英文的比较好。下面是将中文名称调整为英文的方法。
 第一种调整方法
 首先打开终端，在终端中输入命令:
@@ -33,17 +33,17 @@ XDG_DESKTOP_DIR=&amp;#34;$HOME/Desktop&amp;#34; XDG_DOWNLOAD_DIR=&amp;#34;$HOME/
     </item>
     <item>
       <title>ubuntu修改su密码</title>
-      <link>https://example.org/posts/ubuntu%E4%BF%AE%E6%94%B9su%E5%AF%86%E7%A0%81/</link>
+      <link>http://zhaoguibin.me/posts/ubuntu%E4%BF%AE%E6%94%B9su%E5%AF%86%E7%A0%81/</link>
       <pubDate>Sat, 02 Dec 2017 14:38:16 +0000</pubDate>
-      <guid>https://example.org/posts/ubuntu%E4%BF%AE%E6%94%B9su%E5%AF%86%E7%A0%81/</guid>
+      <guid>http://zhaoguibin.me/posts/ubuntu%E4%BF%AE%E6%94%B9su%E5%AF%86%E7%A0%81/</guid>
       <description>非常简单，下面是设置的方法：
 gabe@gabe-TM-1613:~$ sudo passwd Password: &amp;lt;--- sudo的密码 Enter new UNIX password: &amp;lt;--- 新的Root用户密码 Retype new UNIX password: &amp;lt;--- 重复新的Root用户密码 passwd </description>
     </item>
     <item>
       <title>Ubuntu-手动挂载U盘</title>
-      <link>https://example.org/posts/ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDu%E7%9B%98/</link>
+      <link>http://zhaoguibin.me/posts/ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDu%E7%9B%98/</link>
       <pubDate>Sat, 02 Dec 2017 13:50:19 +0000</pubDate>
-      <guid>https://example.org/posts/ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDu%E7%9B%98/</guid>
+      <guid>http://zhaoguibin.me/posts/ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDu%E7%9B%98/</guid>
       <description>1.在插入U盘前和插入U盘后，都输入同一个命令，检查多了哪个盘
 cat /proc/partitions 这里我发现多了
 8 16 7827424 sdb 8 17 7825423 sdb1 sdb是统称，所以新插入的U盘就是/dev/sdb1
@@ -52,9 +52,9 @@ root@ www.linuxidc.com :/# fdisk -l /dev/sdb Disk /dev/sdb: 8015 MB, 8015282176 
     </item>
     <item>
       <title>ubuntu配置全局代理</title>
-      <link>https://example.org/posts/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</link>
+      <link>http://zhaoguibin.me/posts/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/posts/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</guid>
+      <guid>http://zhaoguibin.me/posts/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</guid>
       <description>PS:使用 polipo 前需要先安装 shadowsocks
 启动shawdowsocks服务后，发现并不能翻墙上网，这是因为shawdowsocks是socks 5代理，需要客户端配合才能翻墙。
 为了让整个系统都走shawdowsocks通道，需要配置全局代理，可以通过polipo实现。
