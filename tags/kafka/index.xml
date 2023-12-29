@@ -1,35 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kafka on 个人笔记</title>
-    <link>http://zhaoguibin.me/tags/kafka/</link>
-    <description>Recent content in kafka on 个人笔记</description>
+    <title>kafka on 笔记</title>
+    <link>https://example.org/tags/kafka/</link>
+    <description>Recent content in kafka on 笔记</description>
+    <image>
+      <title>笔记</title>
+      <url>https://example.org/images/papermod-cover.png</url>
+      <link>https://example.org/images/papermod-cover.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>en</language>
     <lastBuildDate>Sun, 30 Sep 2018 14:41:06 +0000</lastBuildDate>
-    <atom:link href="http://zhaoguibin.me/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka安装</title>
-      <link>http://zhaoguibin.me/posts/kafka%E5%AE%89%E8%A3%85/</link>
+      <link>https://example.org/posts/kafka%E5%AE%89%E8%A3%85/</link>
       <pubDate>Sun, 30 Sep 2018 14:41:06 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/kafka%E5%AE%89%E8%A3%85/</guid>
-      <description>&lt;p&gt;1.去&lt;!-- raw HTML omitted --&gt;kafka官网&lt;!-- raw HTML omitted --&gt;下载到最新的kafka安装包，选择下载二进制版本的tgz文件&lt;/p&gt;
+      <guid>https://example.org/posts/kafka%E5%AE%89%E8%A3%85/</guid>
+      <description>&lt;p&gt;1.去&lt;a href=&#34;http://kafka.apache.org/downloads&#34; target=&#34;_blank&#34;&gt;kafka官网&lt;/a&gt;下载到最新的kafka安装包，选择下载二进制版本的tgz文件&lt;/p&gt;
 &lt;p&gt;2.环境需求：java运行环境&lt;/p&gt;
 &lt;p&gt;3.配置
 在kafka解压目录下下有一个config的文件夹，里面放置的是我们的配置文件&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;consumer.properites &lt;span style=&#34;color:#75715e&#34;&gt;#消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;producer.properties &lt;span style=&#34;color:#75715e&#34;&gt;#生产者配置，这个配置文件用于配置于2.5节中开启的生产者，此处我们使用默认的即可&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;server.properties &lt;span style=&#34;color:#75715e&#34;&gt;#kafka服务器的配置，此配置文件用来配置kafka服务器，目前仅介绍几个最基础的配置&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;broker.id &lt;span style=&#34;color:#75715e&#34;&gt;#申明当前kafka服务器在集群中的唯一ID，需配置为integer,并且集群中的每一个kafka服务器的id都应是唯一的，我们这里采用默认配置即可&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;listeners &lt;span style=&#34;color:#75715e&#34;&gt;#申明此kafka服务器需要监听的端口号，如果是在本机上跑虚拟机运行可以不用配置本项，默认会使用localhost的地址，如果是在远程服务器上运行则必须配置，例如：&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;　　　　　&lt;span style=&#34;color:#75715e&#34;&gt;#listeners=PLAINTEXT:// 192.168.180.128:9092。并确保服务器的9092端口能够访问&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;zookeeper.connect &lt;span style=&#34;color:#75715e&#34;&gt;#申明kafka所连接的zookeeper的地址 ，需配置为zookeeper的地址，由于本次使用的是kafka高版本中自带zookeeper，使用默认配置即可&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;zookeeper.connect&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;localhost:2181
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;consumer.properites &lt;span class=&#34;c1&#34;&gt;#消费者配置，这个配置文件用于配置于2.5节中开启的消费者，此处我们使用默认的即可&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;producer.properties &lt;span class=&#34;c1&#34;&gt;#生产者配置，这个配置文件用于配置于2.5节中开启的生产者，此处我们使用默认的即可&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;server.properties &lt;span class=&#34;c1&#34;&gt;#kafka服务器的配置，此配置文件用来配置kafka服务器，目前仅介绍几个最基础的配置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;broker.id &lt;span class=&#34;c1&#34;&gt;#申明当前kafka服务器在集群中的唯一ID，需配置为integer,并且集群中的每一个kafka服务器的id都应是唯一的，我们这里采用默认配置即可&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;listeners &lt;span class=&#34;c1&#34;&gt;#申明此kafka服务器需要监听的端口号，如果是在本机上跑虚拟机运行可以不用配置本项，默认会使用localhost的地址，如果是在远程服务器上运行则必须配置，例如：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;　　　　　&lt;span class=&#34;c1&#34;&gt;#listeners=PLAINTEXT:// 192.168.180.128:9092。并确保服务器的9092端口能够访问&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;zookeeper.connect &lt;span class=&#34;c1&#34;&gt;#申明kafka所连接的zookeeper的地址 ，需配置为zookeeper的地址，由于本次使用的是kafka高版本中自带zookeeper，使用默认配置即可&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;zookeeper.connect&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;localhost:2181
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
   </channel>

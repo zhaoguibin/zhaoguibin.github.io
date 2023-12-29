@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>laravel on 个人笔记</title>
-    <link>http://zhaoguibin.me/tags/laravel/</link>
-    <description>Recent content in laravel on 个人笔记</description>
+    <title>laravel on 笔记</title>
+    <link>https://example.org/tags/laravel/</link>
+    <description>Recent content in laravel on 笔记</description>
+    <image>
+      <title>笔记</title>
+      <url>https://example.org/images/papermod-cover.png</url>
+      <link>https://example.org/images/papermod-cover.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>en</language>
     <lastBuildDate>Fri, 05 Jan 2018 20:58:37 +0000</lastBuildDate>
-    <atom:link href="http://zhaoguibin.me/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Laravel运行出错RuntimeException No application encryption key has been specified.</title>
-      <link>http://zhaoguibin.me/posts/laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99runtimeexception-no-application-encryption-key-has-been-specified./</link>
+      <link>https://example.org/posts/laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99runtimeexception-no-application-encryption-key-has-been-specified./</link>
       <pubDate>Fri, 05 Jan 2018 20:58:37 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99runtimeexception-no-application-encryption-key-has-been-specified./</guid>
+      <guid>https://example.org/posts/laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99runtimeexception-no-application-encryption-key-has-been-specified./</guid>
       <description>在项目根目录放置.env文件
 APP_NAME=Laravel APP_ENV=local APP_KEY= APP_DEBUG=true APP_LOG_LEVEL=debug APP_URL=http://localhost DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=homestead DB_USERNAME=homestead DB_PASSWORD=secret BROADCAST_DRIVER=log CACHE_DRIVER=file SESSION_DRIVER=file SESSION_LIFETIME=120 QUEUE_DRIVER=sync REDIS_HOST=127.0.0.1 REDIS_PASSWORD=null REDIS_PORT=6379 MAIL_DRIVER=smtp MAIL_HOST=smtp.mailtrap.io MAIL_PORT=2525 MAIL_USERNAME=null MAIL_PASSWORD=null MAIL_ENCRYPTION=null PUSHER_APP_ID= PUSHER_APP_KEY= PUSHER_APP_SECRET= 在项目目录下运行:
 php artisan key:generate 该命令会生成APP_KEY并写入到.env文件中，重新运行</description>
     </item>
     <item>
       <title>Laravel访问出错错误信息：`Warning require(vendorautoload.php) failed to open stream No such file or dire</title>
-      <link>http://zhaoguibin.me/posts/laravel%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AFwarning-requirevendorautoload.php-failed-to-open-stream-no-such-file-or-dire/</link>
+      <link>https://example.org/posts/laravel%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AFwarning-requirevendorautoload.php-failed-to-open-stream-no-such-file-or-dire/</link>
       <pubDate>Fri, 05 Jan 2018 20:55:18 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/laravel%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AFwarning-requirevendorautoload.php-failed-to-open-stream-no-such-file-or-dire/</guid>
+      <guid>https://example.org/posts/laravel%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AFwarning-requirevendorautoload.php-failed-to-open-stream-no-such-file-or-dire/</guid>
       <description>Warning: require(/opt/project/erp_api/public/../vendor/autoload.php): failed to open stream: No such file or directory in /opt/project/erp_api/public/index.php on line 24
 Fatal error: require(): Failed opening required &amp;lsquo;/opt/project/erp_api/public/../vendor/autoload.php&amp;rsquo; (include_path=&amp;rsquo;.:&amp;rsquo;) in /opt/project/erp_api/public/index.php on line 24
-原因：网站根目录下缺少vendor这个存放laraver依赖包的目录 解决方法：使用composer install进行安装 （没有安装过的情况下，以前安装过的话使用：composer update）</description>
+原因：网站根目录下缺少vendor这个存放laraver依赖包的目录
+解决方法：使用composer install进行安装
+（没有安装过的情况下，以前安装过的话使用：composer update）</description>
     </item>
   </channel>
 </rss>

@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ssh on 个人笔记</title>
-    <link>http://zhaoguibin.me/tags/ssh/</link>
-    <description>Recent content in ssh on 个人笔记</description>
+    <title>ssh on 笔记</title>
+    <link>https://example.org/tags/ssh/</link>
+    <description>Recent content in ssh on 笔记</description>
+    <image>
+      <title>笔记</title>
+      <url>https://example.org/images/papermod-cover.png</url>
+      <link>https://example.org/images/papermod-cover.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>en</language>
     <lastBuildDate>Sun, 03 Dec 2017 17:19:18 +0000</lastBuildDate>
-    <atom:link href="http://zhaoguibin.me/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ssh远程登录命令简单实例</title>
-      <link>http://zhaoguibin.me/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</link>
+      <link>https://example.org/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</link>
       <pubDate>Sun, 03 Dec 2017 17:19:18 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</guid>
+      <guid>https://example.org/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</guid>
       <description>ssh命令用于远程登录上Linux主机。 常用格式：ssh [-l login_name] [-p port] [user@]hostname 更详细的可以用ssh -h查看。 举例 不指定用户： ssh 192.168.0.11 指定用户： ssh -l root 192.168.0.11 ssh root@192.168.0.11 如果修改过ssh登录端口的可以： ssh -p 12333 192.168.0.11 ssh -l root -p 12333 216.230.230.114 ssh -p 12333 root@216.230.230.114 另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。 编辑配置文件： vim /etc/ssh/sshd_config 找到#Port 22，去掉注释，修改成一个五位的端口： Port 12333 找到#PermitRootLogin yes，去掉注释，修改为： PermitRootLogin no 重启sshd服务： service sshd restart </description>
     </item>
     <item>
       <title>ssh免密码登录</title>
-      <link>http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</link>
+      <link>https://example.org/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</link>
       <pubDate>Thu, 30 Nov 2017 21:36:15 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</guid>
+      <guid>https://example.org/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</guid>
       <description>ssh 无密码登录要使用公钥与私钥。linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。
 有机器A(192.168.3.7)，B(192.168.3.3)。现想A通过ssh免密码登录到B。
 1.在A机下生成公钥/私钥对。

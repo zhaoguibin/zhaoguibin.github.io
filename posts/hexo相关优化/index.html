@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>hexo相关优化 | 笔记</title>
+<meta name="keywords" content="hexo">
+<meta name="description" content="local search 安装 hexo-generator-search
+在站点的根目录下执行以下命令：
+npm install hexo-generator-search --save 安装 hexo-generator-searchdb
+在站点的根目录下执行以下命令：
+npm install hexo-generator-searchdb --save 启用搜索
+编辑 站点配置文件，新增以下内容到任意位置：
+search: path: search.xml field: post format: html limit: 10000 给 Github 添加 README 默认情况下， Github 中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。 正确的解决方法其实很简单： 把 README.md 文件的后缀名改成 MDOWN 然后扔到 blog/source 文件夹下即可，这样 hexo 不会解析， Github 也会将其作为MD文件解析。
+解决每次发布后需要手动在 github page 的 setting 里重新设置自定义域名 在 /hexo/source 目录建一个 CNAME，里面写你的域名，这样每次生成的时候就会自带这个文件了，以后就不用重新修改自定义域名了">
+<meta name="author" content="ZhaoGuibin">
+<link rel="canonical" href="https://example.org/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://example.org/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="hexo相关优化" />
+<meta property="og:description" content="local search 安装 hexo-generator-search
+在站点的根目录下执行以下命令：
+npm install hexo-generator-search --save 安装 hexo-generator-searchdb
+在站点的根目录下执行以下命令：
+npm install hexo-generator-searchdb --save 启用搜索
+编辑 站点配置文件，新增以下内容到任意位置：
+search: path: search.xml field: post format: html limit: 10000 给 Github 添加 README 默认情况下， Github 中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。 正确的解决方法其实很简单： 把 README.md 文件的后缀名改成 MDOWN 然后扔到 blog/source 文件夹下即可，这样 hexo 不会解析， Github 也会将其作为MD文件解析。
+解决每次发布后需要手动在 github page 的 setting 里重新设置自定义域名 在 /hexo/source 目录建一个 CNAME，里面写你的域名，这样每次生成的时候就会自带这个文件了，以后就不用重新修改自定义域名了" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.org/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-12-01T19:57:59+00:00" />
+<meta property="article:modified_time" content="2017-12-01T19:57:59+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:title" content="hexo相关优化"/>
+<meta name="twitter:description" content="local search 安装 hexo-generator-search
+在站点的根目录下执行以下命令：
+npm install hexo-generator-search --save 安装 hexo-generator-searchdb
+在站点的根目录下执行以下命令：
+npm install hexo-generator-searchdb --save 启用搜索
+编辑 站点配置文件，新增以下内容到任意位置：
+search: path: search.xml field: post format: html limit: 10000 给 Github 添加 README 默认情况下， Github 中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。 正确的解决方法其实很简单： 把 README.md 文件的后缀名改成 MDOWN 然后扔到 blog/source 文件夹下即可，这样 hexo 不会解析， Github 也会将其作为MD文件解析。
+解决每次发布后需要手动在 github page 的 setting 里重新设置自定义域名 在 /hexo/source 目录建一个 CNAME，里面写你的域名，这样每次生成的时候就会自带这个文件了，以后就不用重新修改自定义域名了"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://example.org/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "hexo相关优化",
+      "item": "https://example.org/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "hexo相关优化",
+  "name": "hexo相关优化",
+  "description": "local search 安装 hexo-generator-search\n在站点的根目录下执行以下命令：\nnpm install hexo-generator-search --save 安装 hexo-generator-searchdb\n在站点的根目录下执行以下命令：\nnpm install hexo-generator-searchdb --save 启用搜索\n编辑 站点配置文件，新增以下内容到任意位置：\nsearch: path: search.xml field: post format: html limit: 10000 给 Github 添加 README 默认情况下， Github 中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。 正确的解决方法其实很简单： 把 README.md 文件的后缀名改成 MDOWN 然后扔到 blog/source 文件夹下即可，这样 hexo 不会解析， Github 也会将其作为MD文件解析。\n解决每次发布后需要手动在 github page 的 setting 里重新设置自定义域名 在 /hexo/source 目录建一个 CNAME，里面写你的域名，这样每次生成的时候就会自带这个文件了，以后就不用重新修改自定义域名了",
+  "keywords": [
+    "hexo"
+  ],
+  "articleBody": "local search 安装 hexo-generator-search\n在站点的根目录下执行以下命令：\nnpm install hexo-generator-search --save 安装 hexo-generator-searchdb\n在站点的根目录下执行以下命令：\nnpm install hexo-generator-searchdb --save 启用搜索\n编辑 站点配置文件，新增以下内容到任意位置：\nsearch: path: search.xml field: post format: html limit: 10000 给 Github 添加 README 默认情况下， Github 中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。 正确的解决方法其实很简单： 把 README.md 文件的后缀名改成 MDOWN 然后扔到 blog/source 文件夹下即可，这样 hexo 不会解析， Github 也会将其作为MD文件解析。\n解决每次发布后需要手动在 github page 的 setting 里重新设置自定义域名 在 /hexo/source 目录建一个 CNAME，里面写你的域名，这样每次生成的时候就会自带这个文件了，以后就不用重新修改自定义域名了\n",
+  "wordCount" : "69",
+  "inLanguage": "en",
+  "datePublished": "2017-12-01T19:57:59Z",
+  "dateModified": "2017-12-01T19:57:59Z",
+  "author":{
+    "@type": "Person",
+    "name": "ZhaoGuibin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://example.org/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "笔记",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://example.org/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://example.org/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      hexo相关优化
+    </h1>
+    <div class="post-meta"><span title='2017-12-01 19:57:59 +0000 UTC'>December 1, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#local-search" aria-label="local search">local search</a></li>
+                <li>
+                    <a href="#%e7%bb%99-github-%e6%b7%bb%e5%8a%a0-readme" aria-label="给 Github 添加 README">给 Github 添加 README</a></li>
+                <li>
+                    <a href="#%e8%a7%a3%e5%86%b3%e6%af%8f%e6%ac%a1%e5%8f%91%e5%b8%83%e5%90%8e%e9%9c%80%e8%a6%81%e6%89%8b%e5%8a%a8%e5%9c%a8-github-page-%e7%9a%84-setting-%e9%87%8c%e9%87%8d%e6%96%b0%e8%ae%be%e7%bd%ae%e8%87%aa%e5%ae%9a%e4%b9%89%e5%9f%9f%e5%90%8d" aria-label="解决每次发布后需要手动在 github page 的 setting 里重新设置自定义域名">解决每次发布后需要手动在 github page 的 setting 里重新设置自定义域名</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h3 id="local-search">local search<a hidden class="anchor" aria-hidden="true" href="#local-search">#</a></h3>
+<p>安装 hexo-generator-search</p>
+<!-- more -->
+<p>在站点的根目录下执行以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install hexo-generator-search --save
+</span></span></code></pre></div><p>安装 hexo-generator-searchdb</p>
+<p>在站点的根目录下执行以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install hexo-generator-searchdb --save
+</span></span></code></pre></div><p>启用搜索</p>
+<p>编辑 站点配置文件，新增以下内容到任意位置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">search:
+</span></span><span class="line"><span class="cl">  path: search.xml
+</span></span><span class="line"><span class="cl">  field: post
+</span></span><span class="line"><span class="cl">  format: html
+</span></span><span class="line"><span class="cl">  limit: <span class="m">10000</span>
+</span></span></code></pre></div><h3 id="给-github-添加-readme">给 Github 添加 README<a hidden class="anchor" aria-hidden="true" href="#给-github-添加-readme">#</a></h3>
+<p>默认情况下， Github 中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。
+正确的解决方法其实很简单：
+把 README.md 文件的后缀名改成 MDOWN 然后扔到 blog/source 文件夹下即可，这样 hexo 不会解析， Github 也会将其作为MD文件解析。</p>
+<h3 id="解决每次发布后需要手动在-github-page-的-setting-里重新设置自定义域名">解决每次发布后需要手动在 github page 的 setting 里重新设置自定义域名<a hidden class="anchor" aria-hidden="true" href="#解决每次发布后需要手动在-github-page-的-setting-里重新设置自定义域名">#</a></h3>
+<p>在 /hexo/source 目录建一个 CNAME，里面写你的域名，这样每次生成的时候就会自带这个文件了，以后就不用重新修改自定义域名了</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://example.org/tags/hexo/">hexo</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://example.org/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>centos6.5编译安装LNMP</span>
+  </a>
+  <a class="next" href="https://example.org/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/">
+    <span class="title">Next »</span>
+    <br>
+    <span>ssh免密码登录</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

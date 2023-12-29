@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Virtualbox | 笔记</title>
+<meta name="keywords" content="">
+<meta name="description" content="笔记">
+<meta name="author" content="ZhaoGuibin">
+<link rel="canonical" href="https://example.org/tags/virtualbox/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://example.org/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://example.org/tags/virtualbox/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Virtualbox" />
+<meta property="og:description" content="笔记" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.org/tags/virtualbox/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Virtualbox"/>
+<meta name="twitter:description" content="笔记"/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://example.org/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/tags/">Tags</a></div>
+  <h1>
+    Virtualbox
+    <a href="/tags/virtualbox/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">virtualbox安装增强功能报错
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在virtualbox安装目录找到VBoxGuestAdditions.iso复制到虚拟机里面，可以放到任意一个目录 sudo mkdir /media/GuestAdditionsISO sudo mount -o loop VBoxGuestAdditions.iso所在目录/VBoxGuestAdditions.iso /media/GuestAdditionsISO 这时候你会看到一条信息，the ISO has been mounted as READ-ONLY cd /media/GuestAdditionsISO ./VBoxLinuxAdditions.run 搞定 愿答案</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-03-02 14:04:39 +0000 UTC'>March 2, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to virtualbox安装增强功能报错" href="https://example.org/posts/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Virtualbox 共享文件夹 cannot create symlink error
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>npm操作虚拟机共享文件夹里的文件时出现 npm Error: EROFS: read-only file system, symlink的报错信息。
+解决方法 原来VirtualBox从安全角度出发，限制了软链接的创建，需要打开相应的Feature。以下为详细步骤：
+关闭 VirtualBox。 将VirtualBox安装目录的路径加入系统环境变量PATH中。 打开命令行窗口，执行如下命令： VBoxManage setextradata YOURVMNAME VBoxInternal2/SharedFoldersEnableSymlinksCreate/YOURSHAREFOLDERNAME 1 其中：YOURVMNAME为虚拟机中linux系统的名称 YOURSHAREFOLDERNAME 为共享的目录名称
+“以管理者身份运行” VirtualBox　即可！ </p>
+  </div>
+  <footer class="entry-footer"><span title='2019-01-26 10:29:46 +0000 UTC'>January 26, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Virtualbox 共享文件夹 cannot create symlink error" href="https://example.org/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">virtualbox下centos挂载共享文件夹
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>PS:要挂载共享文件，需要安装virtualbox增强功能(增强包)
+安装virtualbox增强功能(增强包)：安装virtualbox增强功能(增强包)
+设备—&gt;共享文件夹 宿主机 共享路径:E:\project, 共享文件夹名称project
+mkdir /mnt/share //新建挂载点（mountpoint） mount -t vboxsf project /mnt/share // 挂载共享文件夹 cd /mnt/share 进入共享文件夹 OK 实现 开机挂载:
+vi ~/.bashrc 在最后添加
+mount -t vboxsf sharing /mnt/share 挂载共享文件夹 </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 12:11:45 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to virtualbox下centos挂载共享文件夹" href="https://example.org/posts/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">在linux系统中安装virtualbox增强功能(增强包)的详细步骤
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>设置共享文件路径
+点击虚拟机 设置–&gt;选择 共享文件夹
+（图1 设置共享文件夹）
+设置共享文件夹路径
+1 选择路径
+2 填写自定义的共享名称（在后面需要与挂载路径相对应）
+3 设置自动挂载/固定分配
+（图2 设置共享文件路径属性）
+安装VirtualBox增强工具
+先安装必备的包
+执行下面的命令:
+yum install -y gcc gcc-devel gcc-c&#43;&#43; gcc-c&#43;&#43;-devel make kernel kernel-devel 安装完后，重启虚拟机：
+shutdown -r now 安装virtualBox增强工具
+点击 设置–&gt;点击 安装增强功能…
+点击菜单栏 设备 –&gt; 分配光驱 –&gt; 选择一个虚拟光盘，找到VirtualBox安装目录下的VBoxGuestAdditions.iso，加载此镜像。 启动Linux系统并用root身份登入系统 执行挂载命令，将虚拟光盘挂在到 /mnt/cdrom，如果没有cdrom目录，则先创建之。
+mkdir /mnt/cdrom mount -t auto /dev/cdrom /mnt/cdrom 复制脚本到/tmp目录下
+cd /mnt/cdrom cp VBoxLinuxAdditions.run /tmp cd /tmp ./VBoxLinuxAddtion.run 得到输出内容
+如果centos是server版本的话就显示
+即安装成功！
+挂载共享文件夹
+切换到root用户输入挂载命令：
+sudo mount -t vboxsf shared_file /home/xingoo/shared 注意格式为...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 11:39:18 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 在linux系统中安装virtualbox增强功能(增强包)的详细步骤" href="https://example.org/posts/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E5%8C%85%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

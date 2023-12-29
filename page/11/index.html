@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.121.1"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>笔记</title>
+
+<meta name="description" content="笔记">
+<meta name="author" content="ZhaoGuibin">
+<link rel="canonical" href="https://example.org/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://example.org/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://example.org/index.xml">
+<link rel="alternate" type="application/json" href="https://example.org/index.json">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="笔记" />
+<meta property="og:description" content="笔记" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.org/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:title" content="笔记"/>
+<meta name="twitter:description" content="笔记"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "笔记",
+  "url": "https://example.org/",
+  "description": "笔记",
+  "thumbnailUrl": "https://example.org/favicon.ico",
+  "sameAs": [
+      "https://github.com/zhaoguibin"
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://example.org/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Centos-6-5-更改系统时间
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>date 时间窗口 date -s &#39;2015-02-02 10:10:00&#39; 更改年月日小时分秒 date -s 10:00:02 只更改时间 不更改年月 clock -w 写入系统时间 hwclock 同步bios 时间 service ntpdate start 开启网络时间同步 systemctl start ntpdate.service 开启网络时间同步 Red Hat 7 chkconfig --leves 2345 ntpdate on 开机启动 reboot 重启报错 or type Contril-D to contime:输入系统密码-根据报错修复 fsck -y /dev/mapper/VolGroup-lv_root fsck -y /dev/sda1 reboot 重启是否正常 </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 16:33:12 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Centos-6-5-更改系统时间" href="https://example.org/posts/centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CentOS-6-4-php-fpm-添加service-添加平滑启动-重启
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>我的php是源码安装的。php-fpm在PHP 5.3.2以后的版本不支持以前的php-fpm (start|restart|stop|reload) ，那么如果将php-fpm配置成服务，并添加平滑启动/重启。 配置php-fpm.conf（vi /usr/local/php54/etc/php-fpm.conf）,将pid（;pid = run/php-fpm.pid）前的;去掉。 因为编译安装php的，所以会在php目录生成很多二进制文件，找到init.d.php-fpm，拷贝到init.d下。
+cp /usr/local/src/php54/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm 设置权限，并添加服务
+chmod &#43;x /etc/init.d/php-fpm chkconfig --add php-fpm 以后可以使用如下命令管理php-fpm了
+service php-fpm start service php-fpm stop service php-fpm restart service php-fpm reload </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 16:28:16 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to CentOS-6-4-php-fpm-添加service-添加平滑启动-重启" href="https://example.org/posts/centos-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mysql双主同步
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>平台：centos7,mysql5.6.34
+解决数据库瓶颈问题 两台服务器可以同时读写数据库 A B两台服务器 A和B需要拥有一个同名的数据库 同步账号设置 首先要在两台服务器上各新增加一个可登陆的账号。
+A端50
+mysql&gt;grant replication slave,file on *.* to &#39;sync_user&#39;@&#39;192.168.10.58&#39; identified by &#39;123456&#39;; B端58
+mysql&gt;grant replication slave,file on *.* to &#39;sync_user&#39;@&#39;192.168.10.50&#39; identified by &#39;123456&#39;; 修改my.cnf主配置文件
+vim /etc/my.cnf 在 [mysqld] 添加
+[mysqld] A端 log-bin=mysql-bin #启动二进制日志系统 server-id=1 #本机数据库ID标示为主，另一为2 binlog-do-db=test #二进制需同步的数据库名 binlog-ignore-db=mysql #避免同步用户数据库配置 replicate-do-db=test #同步数据库的名称 replicate-ignore-db=mysql #屏蔽对mysql数据库的同步 log-slave-updates slave-skip-errors=all sync_binlog=1 auto_increment_increment=2 auto_increment_offset=1 #B端配置2 B端 log-bin=mysql-bin #启动二进制日志系统 server-id=2 #本机数据库ID标示为主，另一为1 binlog-do-db=test #二进制需同步的数据库名 binlog-ignore-db=mysql #避免同步用户数据库配置 replicate-do-db=test #同步数据库的名称 replicate-ignore-db=mysql #屏蔽对mysql数据库的同步 log-slave-updates slave-skip-errors=all sync_binlog=1 auto_increment_increment=2 auto_increment_offset=2 #A端配置1 mysql -u root -p mysql&gt;flush tables with read lock; #锁定表格 service mysqld restart mysql&gt;show master status\G ＃查看主服务器同步状态 A端是这样的...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 15:12:36 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Mysql双主同步" href="https://example.org/posts/mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">MySQL使用Symbolic-Links以支持数据分区存储
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>MySQL数据库及表(仅MyISAM)支持符号链接(symbolic link)，即数据库或表可以存储在my.cnf中指定datadir之外的分区或目录。 要支持符号链接，需要在配置中设置symbolic-links=1(较新的版本为默认开启)
+假设my.cnf有设置data目录:
+datadir=/data1/mysql/data/ 而在另一个分区目录下保存有数据数据库TestDB:
+/data2/mysql/data/TestDB 那么可以这样使得同一个MySQL实例能同时管理TestDB:
+ln -s /data2/mysql/data/TestDB /data1/mysql/data/ 所有文件相关权限设置正确后，MySQL就可以管理TestDB了。 值得注意的是，TestDB最好只能为一个MySQL服务来操作，否则会出现意想不到的问题。使用symbolic link的一个好处是当一个磁盘或分区空间不够时，可以将数据存储到其他的磁盘或分区。</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 15:09:45 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to MySQL使用Symbolic-Links以支持数据分区存储" href="https://example.org/posts/mysql%E4%BD%BF%E7%94%A8symbolic-links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">centos7编译安装nginx
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>ps : nginx安装在/opt/local/nginx里
+1.安装编译安装依赖的类库和包
+如果需要编译MySQL和PHP，就安装这些
+yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c&#43;&#43; gtk&#43;-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc&#43;&#43;-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison 如果只编译nginx，就安装这些
+yum install gcc gcc-c&#43;&#43; autoconf automake zlib zlib-devel openssl openssl-devel pcre-devel 2.编译安装pcre
+PS：Pcre版本不能太高，8最好，要不编译不能通过
+mkdir /usr/local/pcre #创建安装目录 tar zxvf pcre-8....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 15:05:34 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to centos7编译安装nginx" href="https://example.org/posts/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">centos6-5开启-关闭端口
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>列出所有端口
+netstat -ntlp 1、开启端口（以80端口为例）
+方法一：
+/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT 写入修改 /etc/init.d/iptables save 保存修改 service iptables restart 重启防火墙，修改生效 方法二：
+vi /etc/sysconfig/iptables 打开配置文件加入如下语句: -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT 重启防火墙，修改完成 2、关闭端口
+方法一：
+/sbin/iptables -I INPUT -p tcp --dport 80 -j DROP 写入修改 /etc/init.d/iptables save 保存修改 service iptables restart 重启防火墙，修改生效 方法二：
+vi /etc/sysconfig/iptables 打开配置文件加入如下语句: -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j DROP 重启防火墙，修改完成 3、查看端口状态...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 15:03:33 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to centos6-5开启-关闭端口" href="https://example.org/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Windows通过Samba访问Linux文件
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安装
+yum install samba smaba-client 配置
+我想设置root用户给samba，并设置其密码，执行以下命令
+smbpasswd -a root 这个命令也可以修改设置的用户的密码
+这里的意思是说，当windows登录到Linux共享文件夹的时候输入的用户名root和密码(刚刚设置的)
+配置下smb.conf
+vim /etc/samba/smb.conf ⒈找到security = XXXX
+设置其为 security = root ⒉定位到该文件的最后，添加以下代码
+[root] comment = share path = /www browseable = yes guest ok = yes writable = yes path的意思是说我要共享的文件夹路径，其他的设置成yes就OK
+④使用windows连接Linux共享的这个文件夹 windows : 开始 -&gt; 输入\192.168.10.52 (该IP为Linux的IP地址) -&gt; 输入设置好的用户名和密码即可连接。。
+ps:linux需要开启139和445端口</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 14:59:06 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Windows通过Samba访问Linux文件" href="https://example.org/posts/windows%E9%80%9A%E8%BF%87samba%E8%AE%BF%E9%97%AElinux%E6%96%87%E4%BB%B6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Samba-配置文件详解
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Samba 的配置文件 /etc/samba/smb.conf 分为两大部分，一部分是 [global] ，即全局配置，另一部分是 [home] 、[printer] 、[自定义共享名] ，这些都是共享的部分，共享部分的设置优先级高于全局配置，另外，Samba 默认开启本地用户家目录 [home] 和打印机 [printer] 的共享，如果不需要你也可以关闭这两个共享，然后在末行自己重新创建一个共享，下面是详细的配置，你可以自定义一个共享，然后自己选择需要哪些配置：
+[pzk] # 自定义共享名 comment = Home Directories # 描述符，是给系统管理员看的 path = /tmp # 共享的路径 public = yes # 是否公开，也就是是否能在网上邻居看到该共享 browseable = yes # 共享的目录是否让所有人可见 writable = yes # 是否可写 guest ok = no # 是否拒绝匿名访问，仅当安全级别为 share 时才生效 workgroup = WORKGROUP # 工作组，要设置成跟 Windows 的工作组一致 server string = Samba Server Version %v # 其他 Linux 主机查看共享时的提示符 netbios name = MYSERVER # 用于在 Windows 网上邻居上显示的主机名 hosts allow = 127....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 14:55:37 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Samba-配置文件详解" href="https://example.org/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">使用firewalld打开关闭防火墙与端口
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1、firewalld的基本使用
+启动： systemctl start firewalld
+查看状态： systemctl status firewalld
+停止： systemctl disable firewalld
+禁用： systemctl stop firewalld
+2.systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。
+启动一个服务：systemctl start firewalld.service
+关闭一个服务：systemctl stop firewalld.service
+重启一个服务：systemctl restart firewalld.service
+显示一个服务的状态：systemctl status firewalld.service
+在开机时启用一个服务：systemctl enable firewalld.service
+在开机时禁用一个服务：systemctl disable firewalld.service
+查看服务是否开机启动：systemctl is-enabled firewalld.service
+查看已启动的服务列表：systemctl list-unit-files|grep enabled
+查看启动失败的服务列表：systemctl –failed
+3.配置firewalld-cmd
+查看版本： firewall-cmd –version
+查看帮助： firewall-cmd –help
+显示状态： firewall-cmd –state
+查看所有打开的端口： firewall-cmd –zone=public –list-ports
+更新防火墙规则： firewall-cmd –reload
+查看区域信息: firewall-cmd –get-active-zones
+查看指定接口所属区域： firewall-cmd –get-zone-of-interface=eth0
+拒绝所有包：firewall-cmd –panic-on
+取消拒绝状态： firewall-cmd –panic-off...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 14:53:02 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 使用firewalld打开关闭防火墙与端口" href="https://example.org/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">将Ubuntu主文件夹里的中文文件夹名称改成英文
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Ubuntu中文版本把用户主目录下的文件夹名称都默认设置成了中文（home文件里用户目录的“桌面”、“图片”、“视频”、“音乐”……都是中文的），这其实对于英文不太好才选择中文版本的Ubuntu系统也未必是一件好事，当在各个路径跳转的时候必须得使用中英文切换，感觉很复杂，所以这些默认文件夹名称还是英文的比较好。下面是将中文名称调整为英文的方法。
+第一种调整方法
+首先打开终端，在终端中输入命令:
+export LANG=en_US xdg-user-dirs-gtk-update 然后会跳出对话框询问是否将目录转化为英文路径,同意并关闭.
+在终端中输入命令：
+export LANG=zh_CN 最后关闭终端,并重起系统.下次再进入系统时，会提示是否把转化好的目录改回中文.选择不再提示,并取消修改.主目录的中文转英文就完成了。
+第二种调整方法
+首先通过可视化界面修改现有主文件夹下各文件夹名称（就是右键重命名）： Desktop、 Download、Documents、 Pictures、 Videos 、 Music、 Templates、Public ……
+然后修改配置文件（采用vi或者gedit都可以，此处以gedit为例）：
+打开一个终端输入命令打开配置文件编辑器
+vim ~/.config/user-dirs.dirs 把文件夹指向改掉，等号右边引号中即为指向，调整为刚才通过重命名所更改的文件名
+XDG_DESKTOP_DIR=&#34;$HOME/Desktop&#34; XDG_DOWNLOAD_DIR=&#34;$HOME/Download&#34; XDG_TEMPLATES_DIR=&#34;$HOME/Templates&#34; XDG_DOCUMENTS_DIR=&#34;$HOME/Documents&#34; XDG_MUSIC_DIR=&#34;$HOME/Music&#34; XDG_PICTURES_DIR=&#34;$HOME/Pictures&#34; XDG_VIDEOS_DIR=&#34;$HOME/Videos&#34; XDG_PUBLICSHARE_DIR=&#34;$HOME/Public&#34; 调整完之后，Ubuntu主目录下文件夹中文名称改为英文就调整好了。</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 14:48:53 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 将Ubuntu主文件夹里的中文文件夹名称改成英文" href="https://example.org/posts/%E5%B0%86ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://example.org/page/10/">
+      «&nbsp;Prev&nbsp;10/14
+    </a>
+    <a class="next" href="https://example.org/page/12/">Next&nbsp;12/14&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>php | 笔记</title>
+<meta name="keywords" content="">
+<meta name="description" content="笔记">
+<meta name="author" content="ZhaoGuibin">
+<link rel="canonical" href="https://example.org/tags/php/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://example.org/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://example.org/tags/php/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="php" />
+<meta property="og:description" content="笔记" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.org/tags/php/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:title" content="php"/>
+<meta name="twitter:description" content="笔记"/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://example.org/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/tags/">Tags</a></div>
+  <h1>
+    php
+    <a href="/tags/php/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php-fpm设置socket方式连接FastCGI
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。
+socket方式不会走到tcp层，tcp方式则会走到ip层。因此，理论上说socket连接方式效率会更好一点。 TCP和unix domain socket方式对比
+TCP是使用TCP端口连接127.0.0.1:9000
+Socket是使用unix domain socket连接套接字/dev/shm/php-fpm.sock
+修改php-fpm.conf配置
+#listen = 127.0.0.1:9000 listen=/dev/shm/php-fpm.sock #/dev/shm/为内存文件系统，注意 确保可读写 listen.owner=apache #注意自己的用户和组 listen.group=apache 修改nginx.conf配置
+#fastcgi_pass 127.0.0.1:9000; #将相应的如上内容修改如下 fastcgi_pass unix:/dev/shm/php-fpm.sock; 重启nginx和php-fpm
+service nginx restart /usr/local/nginx/sbin/nginx -s reload </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:16:17 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php-fpm设置socket方式连接FastCGI" href="https://example.org/posts/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5fastcgi/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Centos中安装PHP的PDO-MySQL扩展
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1、下载 文件 或者 进入 在PHP源码包中进入ext/pdo_mysql http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz
+2、解压文件
+tar zxvf PDO_MYSQL-1.0.2.tgz 3、配置和编译文件
+cd PDO_MYSQL-1.0.2 /usr/local/php/bin/phpize ./configure –with-php-config=/usr/local/php/bin/php-config –with-pdo-mysql=/usr/local/mysql make make install 注： 我的PHP安装在 ： /usr/local/php/ mysql 安装在 ： /usr/local/mysql 编译的时候注意你自己的安装目录在哪里 3、安装到PHP配置下
+把这个记住，然后打开 php.ini文件， 并添加一行
+extension=pdo_mysql.so </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 16:36:45 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Centos中安装PHP的PDO-MySQL扩展" href="https://example.org/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php排序实现方法
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>直接插入排序 /* * 直接插入排序,插入排序的思想是：当前插入位置之前的元素有序， * 若插入当前位置的元素比有序元素最后一个元素大，则什么也不做， * 否则在有序序列中找到插入的位置，并插入 */ function insertSort($arr) { $len = count($arr); for($i = 1; $i &lt; $len; $i&#43;&#43;) { if($arr[$i-1] &gt; $arr[i]) { for($j = $i - 1;$j &gt;= 0; $j-- ) { $tmp = $arr[$j&#43;1]; if($tmp &lt; $arr[$j]) { $arr[$j&#43;1] = $arr[$j]; $arr[$j] = $tmp; }else{ break; } } } } return $arr; } 冒泡排序 /* 冒泡排序,冒泡排序思想：进行 n-1 趟冒泡排序， 每趟两两比较调整最大值到数组（子数组）末尾 */ function bubbleSort($arr) { $len = count($arr); for($i = 1; $i &lt; $len; $i&#43;&#43;) { for($j = 0; $j &lt; $len-$i; $j&#43;&#43;) { if($arr[$j] &gt; $arr[$j&#43;1]) { $tmp = $arr[$j&#43;1]; $arr[$j&#43;1] = $arr[$j]; $arr[$j] = $tmp; } } } return $arr; } ...</p>
+  </div>
+  <footer class="entry-footer">3 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php排序实现方法" href="https://example.org/posts/php%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://example.org/tags/php/page/3/">
+      «&nbsp;Prev&nbsp;3/4
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

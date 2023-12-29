@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jdk on 个人笔记</title>
-    <link>http://zhaoguibin.me/tags/jdk/</link>
-    <description>Recent content in jdk on 个人笔记</description>
+    <title>jdk on 笔记</title>
+    <link>https://example.org/tags/jdk/</link>
+    <description>Recent content in jdk on 笔记</description>
+    <image>
+      <title>笔记</title>
+      <url>https://example.org/images/papermod-cover.png</url>
+      <link>https://example.org/images/papermod-cover.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>en</language>
     <lastBuildDate>Sun, 30 Sep 2018 13:46:57 +0000</lastBuildDate>
-    <atom:link href="http://zhaoguibin.me/tags/jdk/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/jdk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux安装jdk</title>
-      <link>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85jdk/</link>
+      <link>https://example.org/posts/linux%E5%AE%89%E8%A3%85jdk/</link>
       <pubDate>Sun, 30 Sep 2018 13:46:57 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85jdk/</guid>
+      <guid>https://example.org/posts/linux%E5%AE%89%E8%A3%85jdk/</guid>
       <description>到oracle官网下载二进制压缩文件
 1.解压 2.编辑/etc/profile，添加以下配置 export JAVA_HOME=/opt/src/jdk1.8.0_171 export JRE_HOME=/opt/src/jdk1.8.0_171/jre export PATH=$PATH:/opt/src/jdk1.8.0_171/bin export CLASSPATH=./:/opt/src/jdk1.8.0_171/lib:/opt/src/jdk1.8.0_171/jre/lib 3.刷新配置 source /etc/profile 4.查看配置是否生效 java -version 5.出现以下信息就安装成功了 java version &amp;#34;1.8.0_171&amp;#34; Java(TM) SE Runtime Environment (build 1.8.0_171-b11) Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode) </description>
     </item>

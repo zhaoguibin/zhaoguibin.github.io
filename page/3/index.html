@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.121.1"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>笔记</title>
+
+<meta name="description" content="笔记">
+<meta name="author" content="ZhaoGuibin">
+<link rel="canonical" href="https://example.org/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://example.org/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://example.org/index.xml">
+<link rel="alternate" type="application/json" href="https://example.org/index.json">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="笔记" />
+<meta property="og:description" content="笔记" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.org/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:title" content="笔记"/>
+<meta name="twitter:description" content="笔记"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "笔记",
+  "url": "https://example.org/",
+  "description": "笔记",
+  "thumbnailUrl": "https://example.org/favicon.ico",
+  "sameAs": [
+      "https://github.com/zhaoguibin"
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://example.org/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">MySQL_OUTFILE导出数据
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>PS : mysql 需要开启grant FILE on . to newerp; 权限
+/** * @FILE_NAME:ExcelExport.php * @Description 数据导出excel,从数据库导出再下载，数据库配置 * [mysqld] * secure_file_priv= &#39;&#39; * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2019-12-24 13:42:11 * @param string $title * @param $sql * @param $data * @return bool */ public static function exportExcel($title = &#39;报表导出&#39;, $sql, $data) { $data_dir = getcwd() ....</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-01-19 14:33:53 +0000 UTC'>January 19, 2020</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to MySQL_OUTFILE导出数据" href="https://example.org/posts/mysql_outfile%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PHP导出数据报表
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>/** * @FILE_NAME:ExcelExport.php * @Description csv导出数据 * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:sqlQuery * @Description 生成器模式返回数据 * @User ZHaoGuiBin * @Date 2020-01-08 16:43 * @param $sql * @return Generator */ public static function sqlQuery($sql) { $sys = new SysModel(); $db = $sys-&gt;getAdapter(); foreach ($db-&gt;fetchAll($sql) as $key =&gt; $val) { yield $val; //生成器返回数据，避免内存溢出 } } /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2020-01-09 09:23 * @param string $title * @param string $sql * @param array $data example : [&#34;单号&#34; =&gt; &#39;order_key&#39;],[&#39;报表title名称&#39;=&gt;&#39;mysql语句字段名&#39;] * @return bool */ public static function exportExcel($title = &#39;报表导出&#39;, $sql = &#39;&#39;, $data = []) { $data_dir = getcwd() ....</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-01-19 13:56:09 +0000 UTC'>January 19, 2020</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to PHP导出数据报表" href="https://example.org/posts/php%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">virtualbox安装增强功能报错
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在virtualbox安装目录找到VBoxGuestAdditions.iso复制到虚拟机里面，可以放到任意一个目录 sudo mkdir /media/GuestAdditionsISO sudo mount -o loop VBoxGuestAdditions.iso所在目录/VBoxGuestAdditions.iso /media/GuestAdditionsISO 这时候你会看到一条信息，the ISO has been mounted as READ-ONLY cd /media/GuestAdditionsISO ./VBoxLinuxAdditions.run 搞定 愿答案</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-03-02 14:04:39 +0000 UTC'>March 2, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to virtualbox安装增强功能报错" href="https://example.org/posts/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">golang两个线程交替打印1-100的奇数偶数
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>启动两个线程, 一个输出 1,3,5,7…99, 另一个输出 2,4,6,8…100 最后 STDOUT 中按序输出 1,2,3,4,5…100
+package main import ( &#34;fmt&#34; &#34;time&#34; ) var pool = 100 //奇数 func oddNum(c chan int) { for i := 1; i &lt;= pool; i&#43;&#43; { c &lt;- i if i%2 == 1 { fmt.Println(i) } } } //偶数 func even(c chan int) { for i := 1; i &lt;= pool; i&#43;&#43; { &lt;-c if i%2 == 0 { fmt.Println(i) } } } func main() { c := make(chan int) go oddNum(c) go even(c) time....</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-01-31 13:39:38 +0000 UTC'>January 31, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to golang两个线程交替打印1-100的奇数偶数" href="https://example.org/posts/golang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">golang抓取知乎图片
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>代码github地址 https://github.com/zhaoguibin/zhihu_pic
+需要安装 gjson go get -u github.com/tidwall/gjson package main import ( &#34;bytes&#34; &#34;fmt&#34; &#34;io&#34; &#34;io/ioutil&#34; &#34;net/http&#34; &#34;os&#34; &#34;regexp&#34; &#34;strings&#34; &#34;github.com/tidwall/gjson&#34; &#34;bufio&#34; &#34;strconv&#34; &#34;time&#34; ) var quit = make(chan int) func main() { url := urlExists() dirName := strconv.FormatInt(time.Now().Unix(), 10) imgDir := &#34;./&#34; &#43; dirName &#43; &#34;/&#34; _, errs := pathExists(imgDir) if errs != nil { fmt.Printf(&#34;创建文件失败&#34;) return } getImgURL(url, imgDir) } //获取图片地址 func getImgURL(url, imgDir string) { //提交请求 reqest, err := http....</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-01-26 10:56:31 +0000 UTC'>January 26, 2019</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to golang抓取知乎图片" href="https://example.org/posts/golang%E6%8A%93%E5%8F%96%E7%9F%A5%E4%B9%8E%E5%9B%BE%E7%89%87/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Virtualbox 共享文件夹 cannot create symlink error
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>npm操作虚拟机共享文件夹里的文件时出现 npm Error: EROFS: read-only file system, symlink的报错信息。
+解决方法 原来VirtualBox从安全角度出发，限制了软链接的创建，需要打开相应的Feature。以下为详细步骤：
+关闭 VirtualBox。 将VirtualBox安装目录的路径加入系统环境变量PATH中。 打开命令行窗口，执行如下命令： VBoxManage setextradata YOURVMNAME VBoxInternal2/SharedFoldersEnableSymlinksCreate/YOURSHAREFOLDERNAME 1 其中：YOURVMNAME为虚拟机中linux系统的名称 YOURSHAREFOLDERNAME 为共享的目录名称
+“以管理者身份运行” VirtualBox　即可！ </p>
+  </div>
+  <footer class="entry-footer"><span title='2019-01-26 10:29:46 +0000 UTC'>January 26, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Virtualbox 共享文件夹 cannot create symlink error" href="https://example.org/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">linux挂载windows下的共享文件
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安装cifs-utils yum install cifs* -y 这条命令只可以读取Windows共享文件，不能创建文件 #user=Windows用户 #pass=Windows登录密码 #//192.168.10.64/APP Windows共享文件 #/opt/APP/ linux挂载目录 mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq 这条命令可以添加文件操作权限 #user=Windows用户 #pass=Windows登录密码 #//192.168.10.64/APP Windows共享文件 #/opt/APP/ linux挂载目录 #uid，gid，linux用户的id和用户组id，可以通过 id root 命令查看用户的id和用户组id #rw,dir_mode=0777,file_mode=0777这些是设置文件夹权限，可以根据自己的需求设置权限 mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq,rw,uid=0,gid=0,dir_mode=0777,file_mode=0777 </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-11-23 21:38:17 +0000 UTC'>November 23, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to linux挂载windows下的共享文件" href="https://example.org/posts/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php-fpm的关闭和重启
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>php-fpm 关闭： kill -INT `cat /usr/local/php/var/run/php-fpm.pid` killall php-fpm php-fpm启动 /usr/local/php/sbin/php-fpm php-fpm 重启 kill -USR2 `cat /usr/local/php/var/run/php-fpm.pid` 查看php-fpm进程数 ps aux | grep -c php-fpm </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-11-23 21:13:41 +0000 UTC'>November 23, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php-fpm的关闭和重启" href="https://example.org/posts/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Linux下iptables屏蔽IP和端口号
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>#封单个IP的命令： iptables -I INPUT -s 192.168.10.66 -j DROP #封IP段的命令： iptables -I INPUT -s 192.168.0.0/16 -j DROP #封整个段的命令： iptables -I INPUT -s 192.168.0.0/8 -j DROP #封几个段的命令： iptables -I INPUT -s 192.168.10.0/24 -j DROP #只封80端口： iptables -I INPUT -p tcp –dport 80 -s 192.168.0.0/24 -j DROP #解封： iptables -F #清空： iptables -D INPUT 数字 #列出 INPUT链 所有的规则： iptables -L INPUT --line-numbers #删除某条规则，其中5代表序号（序号可用上面的命令查看）： iptables -D INPUT 5 #开放指定的端口： iptables -A INPUT -p tcp --dport 80 -j ACCEPT #禁止指定的端口： iptables -A INPUT -p tcp --dport 80 -j DROP #拒绝所有的端口： iptables -A INPUT -j DROP 以上都是针对INPUT链的操作，即是外面来访问本机的方向，配置完之后 需要保存，否则iptables 重启之后以上设置就失效...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-11-16 19:47:29 +0000 UTC'>November 16, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Linux下iptables屏蔽IP和端口号" href="https://example.org/posts/linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDip%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">centos修改IP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>首先查看网络接口名称 ifconfig 临时修改IP ifconfig eth1 192.168.10.88 永久修改IP 修改对应的网络接口配置文件，文件路径是 /etc/sysconfig/network-scripts/ vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称 修改以下配置 BOOTPROTO=static # 以下配置有就修改，没有就添加 IPADDR=192.168.10.88 #静态IP GATEWAY=192.168.10.1 #默认网关 NETMASK=255.255.255.0 #子网掩码 修改DNS vim /etc/resolv.conf nameserver 1.1.1.1 nameserver 8.8.8.8 重启网络服务 </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-11-16 19:35:51 +0000 UTC'>November 16, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to centos修改IP" href="https://example.org/posts/centos%E4%BF%AE%E6%94%B9ip/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://example.org/page/2/">
+      «&nbsp;Prev&nbsp;2/14
+    </a>
+    <a class="next" href="https://example.org/page/4/">Next&nbsp;4/14&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

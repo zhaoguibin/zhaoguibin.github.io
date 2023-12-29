@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>centos on 个人笔记</title>
-    <link>http://zhaoguibin.me/tags/centos/</link>
-    <description>Recent content in centos on 个人笔记</description>
+    <title>centos on 笔记</title>
+    <link>https://example.org/tags/centos/</link>
+    <description>Recent content in centos on 笔记</description>
+    <image>
+      <title>笔记</title>
+      <url>https://example.org/images/papermod-cover.png</url>
+      <link>https://example.org/images/papermod-cover.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>en</language>
     <lastBuildDate>Fri, 16 Nov 2018 19:35:51 +0000</lastBuildDate>
-    <atom:link href="http://zhaoguibin.me/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/centos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>centos修改IP</title>
-      <link>http://zhaoguibin.me/posts/centos%E4%BF%AE%E6%94%B9ip/</link>
+      <link>https://example.org/posts/centos%E4%BF%AE%E6%94%B9ip/</link>
       <pubDate>Fri, 16 Nov 2018 19:35:51 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos%E4%BF%AE%E6%94%B9ip/</guid>
+      <guid>https://example.org/posts/centos%E4%BF%AE%E6%94%B9ip/</guid>
       <description>首先查看网络接口名称 ifconfig 临时修改IP ifconfig eth1 192.168.10.88 永久修改IP 修改对应的网络接口配置文件，文件路径是 /etc/sysconfig/network-scripts/ vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称 修改以下配置 BOOTPROTO=static # 以下配置有就修改，没有就添加 IPADDR=192.168.10.88 #静态IP GATEWAY=192.168.10.1 #默认网关 NETMASK=255.255.255.0 #子网掩码 修改DNS vim /etc/resolv.conf nameserver 1.1.1.1 nameserver 8.8.8.8 重启网络服务 </description>
     </item>
     <item>
       <title>yum  update和yum  upgrade区别</title>
-      <link>http://zhaoguibin.me/posts/yum-update%E5%92%8Cyum-upgrade%E5%8C%BA%E5%88%AB/</link>
+      <link>https://example.org/posts/yum-update%E5%92%8Cyum-upgrade%E5%8C%BA%E5%88%AB/</link>
       <pubDate>Tue, 01 May 2018 16:10:19 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/yum-update%E5%92%8Cyum-upgrade%E5%8C%BA%E5%88%AB/</guid>
+      <guid>https://example.org/posts/yum-update%E5%92%8Cyum-upgrade%E5%8C%BA%E5%88%AB/</guid>
       <description>yum -y update #升级所有包同时也升级软件和系统内核 yum -y upgrade #只升级所有包，不升级软件和系统内核 </description>
     </item>
     <item>
       <title>CentOS--su和sudo</title>
-      <link>http://zhaoguibin.me/posts/centos--su%E5%92%8Csudo/</link>
+      <link>https://example.org/posts/centos--su%E5%92%8Csudo/</link>
       <pubDate>Tue, 01 May 2018 15:55:18 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos--su%E5%92%8Csudo/</guid>
+      <guid>https://example.org/posts/centos--su%E5%92%8Csudo/</guid>
       <description>&lt;h5 id=&#34;su命令&#34;&gt;su命令&lt;/h5&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;su - root
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;su - root
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一旦在使用su命令登录root，用户获取了系统的绝对管理权限&lt;/p&gt;
 &lt;h6 id=&#34;只允许特定用户使用该su命令&#34;&gt;只允许特定用户使用该su命令&lt;/h6&gt;
 &lt;p&gt;要做到这一点，编辑插入式验证模块为（PAM）配置文件/etc/pam.d/su 在文本编辑器中打开该文件，取消注释：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#auth           required        pam_wheel.so use_uid&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#auth           required        pam_wheel.so use_uid&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将用户添加到名为wheel的特殊管理组&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;usermod -a -G wheel username
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;usermod -a -G wheel username
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>PHP curl returns (35) SSL connect error</title>
-      <link>http://zhaoguibin.me/posts/php-curl-returns-35-ssl-connect-error/</link>
+      <link>https://example.org/posts/php-curl-returns-35-ssl-connect-error/</link>
       <pubDate>Sun, 15 Apr 2018 16:35:47 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/php-curl-returns-35-ssl-connect-error/</guid>
+      <guid>https://example.org/posts/php-curl-returns-35-ssl-connect-error/</guid>
       <description>用PHP cURL来获取https链接的页面，出现错误PHP curl returns (35) SSL connect error， 找到一个方法，记录一下，以免忘记。
 解决方法：
 yum update nss Q:但是，什么是NSS呢？
@@ -51,17 +56,17 @@ The Network Security Services (NSS)
     </item>
     <item>
       <title>centos7设置IP白名单</title>
-      <link>http://zhaoguibin.me/posts/centos7%E8%AE%BE%E7%BD%AEip%E7%99%BD%E5%90%8D%E5%8D%95/</link>
+      <link>https://example.org/posts/centos7%E8%AE%BE%E7%BD%AEip%E7%99%BD%E5%90%8D%E5%8D%95/</link>
       <pubDate>Fri, 02 Mar 2018 20:23:52 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos7%E8%AE%BE%E7%BD%AEip%E7%99%BD%E5%90%8D%E5%8D%95/</guid>
+      <guid>https://example.org/posts/centos7%E8%AE%BE%E7%BD%AEip%E7%99%BD%E5%90%8D%E5%8D%95/</guid>
       <description>编辑iptables配置文件，将文件内容更改为如下，则具备了ip地址白名单功能
 vim /etc/sysconfig/iptables 1 *filter 2 :INPUT ACCEPT [0:0] 3 :FORWARD ACCEPT [0:0] 4 :OUTPUT ACCEPT [0:0] 5 6 -N whitelist 7 -A whitelist -s 1.2.3.0/24 -j ACCEPT 8 -A whitelist -s 4.5.6.7 -j ACCEPT 9 10 -A INPUT -m state --state RELATED,ESTABLISHED -j whitelist 11 -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j whitelist 12 -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j whitelist 13 -A INPUT -p icmp -j ACCEPT 14 -A INPUT -i lo -j ACCEPT 15 -A INPUT -j REJECT --reject-with icmp-host-prohibited 16 -A FORWARD -j REJECT --reject-with icmp-host-prohibited 17 COMMIT 6~8 行是添加白名单列表，可以是ip段或者单个ip地址</description>
     </item>
     <item>
       <title>Nginx 启用gzip压缩</title>
-      <link>http://zhaoguibin.me/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/</link>
+      <link>https://example.org/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/</link>
       <pubDate>Thu, 01 Mar 2018 19:58:19 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/</guid>
+      <guid>https://example.org/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/</guid>
       <description>&lt;h5 id=&#34;网页压缩&#34;&gt;网页压缩&lt;/h5&gt;
 &lt;p&gt;　　网页压缩是一项由 WEB 服务器和浏览器之间共同遵守的协议，也就是说 WEB 服务器和浏览器都必须支持该技术，所幸的是现在流行的浏览器都是支持的，包括 IE、FireFox、Opera 等；服务器有 Apache 和 IIS 等。双方的协商过程如下：　　
 　　首先浏览器请求某个 URL 地址，并在请求的头 (head) 中设置属性 accept-encoding 值为 gzip, deflate，表明浏览器支持 gzip 和 deflate 这两种压缩方式（事实上 deflate 也是使用 gzip 压缩协议，下面我们会介绍二者之间的区别）；&lt;/p&gt;
@@ -71,42 +76,42 @@ vim /etc/sysconfig/iptables 1 *filter 2 :INPUT ACCEPT [0:0] 3 :FORWARD ACCEPT [0
     </item>
     <item>
       <title>CentOS7 搭建 FTP 文件服务</title>
-      <link>http://zhaoguibin.me/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://example.org/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Mon, 26 Feb 2018 17:48:08 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://example.org/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</guid>
       <description>&lt;h5 id=&#34;安装并启动-ftp-服务&#34;&gt;安装并启动 FTP 服务&lt;/h5&gt;
 &lt;h6 id=&#34;安装-vsftpd&#34;&gt;安装 VSFTPD&lt;/h6&gt;
 &lt;p&gt;使用 yum 安装 vsftpd&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yum install -y vsftpd
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yum install -y vsftpd
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h6 id=&#34;启动-vsftpd&#34;&gt;启动 VSFTPD&lt;/h6&gt;
 &lt;p&gt;安装完成后，启动 FTP 服务：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;service vsftpd start
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service vsftpd start
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;启动后，可以看到系统已经监听了 21 端口：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;netstat -nltp | grep &lt;span style=&#34;color:#ae81ff&#34;&gt;21&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netstat -nltp &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep &lt;span class=&#34;m&#34;&gt;21&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时，访问 ftp://192.168.3.16 可浏览机器上的 /var/ftp目录了。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Centos6.5安装git</title>
-      <link>http://zhaoguibin.me/posts/centos6.5%E5%AE%89%E8%A3%85git/</link>
+      <link>https://example.org/posts/centos6.5%E5%AE%89%E8%A3%85git/</link>
       <pubDate>Fri, 23 Feb 2018 17:18:18 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos6.5%E5%AE%89%E8%A3%85git/</guid>
+      <guid>https://example.org/posts/centos6.5%E5%AE%89%E8%A3%85git/</guid>
       <description>安装编译git时需要的包 yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel yum install gcc perl-ExtUtils-MakeMaker 删除已有的git yum remove git 下载git源码 地址：https://www.kernel.org/pub/software/scm/git/ 选择要安装的版本
 cd /opt/local/src wget https://www.kernel.org/pub/software/scm/git/git-x.x.x.tar.gz tar xzf git-x.x.x.tar.gz 编译安装 cd git-x.x.x make prefix=/usr/local/git all make prefix=/usr/local/git install echo &amp;#34;export PATH=$PATH:/usr/local/git/bin&amp;#34; &amp;gt;&amp;gt; /etc/bashrc source /etc/bashrc ``` ###### 检查一下版本号 ```bash git --version ``` </description>
     </item>
     <item>
       <title>centos下彻底删除MYSQL 和重新安装MYSQL</title>
-      <link>http://zhaoguibin.me/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</link>
+      <link>https://example.org/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</link>
       <pubDate>Sat, 16 Dec 2017 18:54:33 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</guid>
+      <guid>https://example.org/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</guid>
       <description>1 删除Mysql
 yum remove mysql mysql-server mysql-libs mysql-server; find / -name mysql 将找到的相关东西delete掉； rpm -qa|grep mysql(查询出来的东东yum remove掉) 2 安装Mysql
 yum install mysql mysql-server mysql-libs mysql-server; </description>
     </item>
     <item>
       <title>centos7 yum安装lnmp</title>
-      <link>http://zhaoguibin.me/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</link>
+      <link>https://example.org/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</link>
       <pubDate>Sat, 09 Dec 2017 01:23:45 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</guid>
+      <guid>https://example.org/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</guid>
       <description>PHP7 1.安装epel-release 通过命令：
 yum -y install epel-release 成功安装。
 2.安装PHP7 终端再次运行如下命令：
@@ -119,17 +124,18 @@ systemctl start nginx.service mysql 1.下载mysql的repo源 wget http://repo.mys
     </item>
     <item>
       <title>yum-y-install与yum-install有什么不同</title>
-      <link>http://zhaoguibin.me/posts/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</link>
+      <link>https://example.org/posts/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</link>
       <pubDate>Sun, 03 Dec 2017 17:28:57 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</guid>
+      <guid>https://example.org/posts/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</guid>
       <description>yum -y install 包名（支持*） ：自动选择y，全自动 yum install 包名（支持*） ：手动选择y or n yum remove 包名（不支持*） rpm -ivh 包名（支持*）：安装rpm包 rpm -e 包名（不支持*）：卸载rpm包 </description>
     </item>
     <item>
       <title>Centos中安装PHP的PDO-MySQL扩展</title>
-      <link>http://zhaoguibin.me/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/</link>
+      <link>https://example.org/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/</link>
       <pubDate>Sun, 03 Dec 2017 16:36:45 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/</guid>
-      <description>1、下载 文件 或者 进入 在PHP源码包中进入ext/pdo_mysql http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz 2、解压文件
+      <guid>https://example.org/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/</guid>
+      <description>1、下载 文件 或者 进入 在PHP源码包中进入ext/pdo_mysql http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz
+2、解压文件
 tar zxvf PDO_MYSQL-1.0.2.tgz 3、配置和编译文件
 cd PDO_MYSQL-1.0.2 /usr/local/php/bin/phpize ./configure –with-php-config=/usr/local/php/bin/php-config –with-pdo-mysql=/usr/local/mysql make make install 注： 我的PHP安装在 ： /usr/local/php/ mysql 安装在 ： /usr/local/mysql 编译的时候注意你自己的安装目录在哪里 3、安装到PHP配置下
 把这个记住，然后打开 php.ini文件， 并添加一行
@@ -137,16 +143,16 @@ extension=pdo_mysql.so </description>
     </item>
     <item>
       <title>Centos-6-5-更改系统时间</title>
-      <link>http://zhaoguibin.me/posts/centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/</link>
+      <link>https://example.org/posts/centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/</link>
       <pubDate>Sun, 03 Dec 2017 16:33:12 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/</guid>
+      <guid>https://example.org/posts/centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/</guid>
       <description>date 时间窗口 date -s &amp;#39;2015-02-02 10:10:00&amp;#39; 更改年月日小时分秒 date -s 10:00:02 只更改时间 不更改年月 clock -w 写入系统时间 hwclock 同步bios 时间 service ntpdate start 开启网络时间同步 systemctl start ntpdate.service 开启网络时间同步 Red Hat 7 chkconfig --leves 2345 ntpdate on 开机启动 reboot 重启报错 or type Contril-D to contime:输入系统密码-根据报错修复 fsck -y /dev/mapper/VolGroup-lv_root fsck -y /dev/sda1 reboot 重启是否正常 </description>
     </item>
     <item>
       <title>centos7编译安装nginx</title>
-      <link>http://zhaoguibin.me/posts/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/</link>
+      <link>https://example.org/posts/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/</link>
       <pubDate>Sat, 02 Dec 2017 15:05:34 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/</guid>
+      <guid>https://example.org/posts/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/</guid>
       <description>ps : nginx安装在/opt/local/nginx里
 1.安装编译安装依赖的类库和包
 如果需要编译MySQL和PHP，就安装这些
@@ -157,9 +163,9 @@ mkdir /usr/local/pcre #创建安装目录 tar zxvf pcre-8.</description>
     </item>
     <item>
       <title>centos6-5开启-关闭端口</title>
-      <link>http://zhaoguibin.me/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</link>
+      <link>https://example.org/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</link>
       <pubDate>Sat, 02 Dec 2017 15:03:33 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</guid>
+      <guid>https://example.org/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</guid>
       <description>列出所有端口
 netstat -ntlp 1、开启端口（以80端口为例）
 方法一：
@@ -171,9 +177,9 @@ vi /etc/sysconfig/iptables 打开配置文件加入如下语句: -A INPUT -p tcp
     </item>
     <item>
       <title>安装CentOS7文字界面版后，无法联网，用yum安装软件提示-cannot-find-a-valid-baseurl-for-repobase7x86-64-的解决方法</title>
-      <link>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85centos7%E6%96%87%E5%AD%97%E7%95%8C%E9%9D%A2%E7%89%88%E5%90%8E%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA-cannot-find-a-valid-baseurl-for-repobase7x86-64-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <link>https://example.org/posts/%E5%AE%89%E8%A3%85centos7%E6%96%87%E5%AD%97%E7%95%8C%E9%9D%A2%E7%89%88%E5%90%8E%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA-cannot-find-a-valid-baseurl-for-repobase7x86-64-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
       <pubDate>Sat, 02 Dec 2017 14:27:37 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85centos7%E6%96%87%E5%AD%97%E7%95%8C%E9%9D%A2%E7%89%88%E5%90%8E%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA-cannot-find-a-valid-baseurl-for-repobase7x86-64-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://example.org/posts/%E5%AE%89%E8%A3%85centos7%E6%96%87%E5%AD%97%E7%95%8C%E9%9D%A2%E7%89%88%E5%90%8E%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA-cannot-find-a-valid-baseurl-for-repobase7x86-64-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
       <description>无法联网的明显表现会有：
 1、yum install出现 Error: cannot find a valid baseurl or repo:base
 2、ping host会提示unknown host
@@ -186,9 +192,9 @@ vi /etc/sysconfig/iptables 打开配置文件加入如下语句: -A INPUT -p tcp
     </item>
     <item>
       <title>centos7下使用yum安装mysql数据库</title>
-      <link>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <link>https://example.org/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sat, 02 Dec 2017 12:24:47 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <guid>https://example.org/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>CentOS7的yum源中默认好像是没有mysql的。为了解决这个问题，我们要先下载mysql的repo源。
 1 . 下载mysql的repo源
 wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm 2 . 安装mysql-community-release-el7-5.noarch.rpm包

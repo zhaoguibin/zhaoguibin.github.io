@@ -2,528 +2,536 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://zhaoguibin.me/tags/php/</loc>
+    <loc>https://example.org/tags/php/</loc>
     <lastmod>2022-07-20T19:13:31+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/</loc>
+    <loc>https://example.org/posts/</loc>
     <lastmod>2022-07-20T19:13:31+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/</loc>
+    <loc>https://example.org/tags/</loc>
     <lastmod>2022-07-20T19:13:31+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/</loc>
+    <loc>https://example.org/posts/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</loc>
     <lastmod>2022-07-20T19:13:31+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</loc>
+    <loc>https://example.org/</loc>
     <lastmod>2022-07-20T19:13:31+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-26T21:19:21+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-26T21:19:21+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-26T21:15:24+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-26T20:45:21+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-26T20:31:47+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-24T23:13:56+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-24T22:39:41+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-24T22:15:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-24T21:48:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-24T21:23:46+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-23T21:48:23+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-22T21:25:26+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-22T20:49:17+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://example.org/posts/%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-21T22:11:16+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
+    <loc>https://example.org/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
     <lastmod>2021-02-03T12:35:01+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%A1%AC%E7%9B%98%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD/</loc>
+    <loc>https://example.org/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%A1%AC%E7%9B%98%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD/</loc>
     <lastmod>2021-02-03T12:35:01+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/rsa%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</loc>
+    <loc>https://example.org/posts/rsa%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</loc>
     <lastmod>2020-08-22T14:31:45+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E6%8B%BC%E6%8E%A5%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    <loc>https://example.org/posts/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E6%8B%BC%E6%8E%A5%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     <lastmod>2020-08-22T14:19:32+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E6%95%B0%E7%BB%84key%E6%8C%89%E7%85%A7alphabet%E5%BA%8F%E6%8E%92%E5%BA%8F/</loc>
+    <loc>https://example.org/posts/%E6%95%B0%E7%BB%84key%E6%8C%89%E7%85%A7alphabet%E5%BA%8F%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2020-08-22T13:51:31+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/surge/</loc>
+    <loc>https://example.org/tags/surge/</loc>
     <lastmod>2020-08-04T19:53:32+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/</loc>
+    <loc>https://example.org/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/</loc>
     <lastmod>2020-08-04T19:53:32+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/linux/</loc>
+    <loc>https://example.org/tags/linux/</loc>
     <lastmod>2020-01-19T16:23:54+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/mysql/</loc>
+    <loc>https://example.org/tags/mysql/</loc>
     <lastmod>2020-01-19T16:23:54+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</loc>
+    <loc>https://example.org/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</loc>
     <lastmod>2020-01-19T16:23:54+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysql_outfile%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/</loc>
+    <loc>https://example.org/posts/mysql_outfile%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2020-01-19T14:33:53+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8/</loc>
+    <loc>https://example.org/posts/php%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8/</loc>
     <lastmod>2020-01-19T13:56:09+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/virtualbox/</loc>
+    <loc>https://example.org/tags/virtualbox/</loc>
     <lastmod>2019-03-02T14:04:39+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/</loc>
+    <loc>https://example.org/posts/virtualbox%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E6%8A%A5%E9%94%99/</loc>
     <lastmod>2019-03-02T14:04:39+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/golang/</loc>
+    <loc>https://example.org/tags/golang/</loc>
     <lastmod>2019-01-31T13:39:38+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/golang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0/</loc>
+    <loc>https://example.org/posts/golang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0/</loc>
     <lastmod>2019-01-31T13:39:38+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/golang%E6%8A%93%E5%8F%96%E7%9F%A5%E4%B9%8E%E5%9B%BE%E7%89%87/</loc>
+    <loc>https://example.org/posts/golang%E6%8A%93%E5%8F%96%E7%9F%A5%E4%B9%8E%E5%9B%BE%E7%89%87/</loc>
     <lastmod>2019-01-26T10:56:31+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</loc>
+    <loc>https://example.org/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/</loc>
+    <lastmod>2019-01-26T10:29:46+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/posts/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2018-11-23T21:38:17+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/windows/</loc>
+    <loc>https://example.org/tags/windows/</loc>
     <lastmod>2018-11-23T21:38:17+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/</loc>
+    <loc>https://example.org/posts/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/</loc>
     <lastmod>2018-11-23T21:13:41+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/iptables/</loc>
+    <loc>https://example.org/tags/iptables/</loc>
     <lastmod>2018-11-16T19:47:29+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDip%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/</loc>
+    <loc>https://example.org/posts/linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDip%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/</loc>
     <lastmod>2018-11-16T19:47:29+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/centos/</loc>
+    <loc>https://example.org/tags/centos/</loc>
     <lastmod>2018-11-16T19:35:51+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos%E4%BF%AE%E6%94%B9ip/</loc>
+    <loc>https://example.org/posts/centos%E4%BF%AE%E6%94%B9ip/</loc>
     <lastmod>2018-11-16T19:35:51+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/nginx/</loc>
+    <loc>https://example.org/tags/nginx/</loc>
     <lastmod>2018-11-09T20:17:14+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/nginx%E4%BD%BF%E7%94%A8brotli/</loc>
+    <loc>https://example.org/posts/nginx%E4%BD%BF%E7%94%A8brotli/</loc>
     <lastmod>2018-11-09T20:17:14+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysql%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/</loc>
+    <loc>https://example.org/posts/mysql%E4%BF%9D%E7%95%99%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/</loc>
     <lastmod>2018-11-09T19:58:17+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/kafka/</loc>
+    <loc>https://example.org/tags/kafka/</loc>
     <lastmod>2018-09-30T14:41:06+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/kafka%E5%AE%89%E8%A3%85/</loc>
+    <loc>https://example.org/posts/kafka%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2018-09-30T14:41:06+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/jdk/</loc>
+    <loc>https://example.org/tags/jdk/</loc>
     <lastmod>2018-09-30T13:46:57+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85jdk/</loc>
+    <loc>https://example.org/posts/linux%E5%AE%89%E8%A3%85jdk/</loc>
     <lastmod>2018-09-30T13:46:57+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/docker/</loc>
+    <loc>https://example.org/tags/docker/</loc>
     <lastmod>2018-09-30T13:45:16+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/</loc>
+    <loc>https://example.org/posts/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/</loc>
     <lastmod>2018-09-30T13:45:16+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/docker-%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C-systemctl/</loc>
+    <loc>https://example.org/posts/docker-%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C-systemctl/</loc>
     <lastmod>2018-09-30T13:39:07+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/sql%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/</loc>
+    <loc>https://example.org/posts/sql%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/</loc>
     <lastmod>2018-09-30T12:06:32+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/</loc>
+    <loc>https://example.org/posts/mysql%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/</loc>
     <lastmod>2018-09-30T10:01:03+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/sqlserver/</loc>
+    <loc>https://example.org/tags/sqlserver/</loc>
     <lastmod>2018-07-21T14:19:45+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E5%8D%B8%E8%BD%BDsql-server-2017-%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/</loc>
+    <loc>https://example.org/posts/%E5%8D%B8%E8%BD%BDsql-server-2017-%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/</loc>
     <lastmod>2018-07-21T14:19:45+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2018-06-30T13:31:49+00:00</lastmod>
-  </url><url>
-    <loc>http://zhaoguibin.me/posts/ddldml%E5%92%8Cdcl%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%90%86%E8%A7%A3/</loc>
-    <lastmod>2018-06-30T12:53:19+00:00</lastmod>
-  </url><url>
-    <loc>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3mysql%E5%87%BA%E7%8E%B0-waiting-for-table-metadata-lock-%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2018-06-30T12:13:56+00:00</lastmod>
-  </url><url>
-    <loc>http://zhaoguibin.me/tags/%E6%AD%A3%E5%88%99/</loc>
+    <loc>https://example.org/tags/%E6%AD%A3%E5%88%99/</loc>
     <lastmod>2018-05-05T14:11:46+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E6%AD%A3%E5%88%99%E6%8E%8C%E6%8F%A1%E7%A8%8B%E5%BA%A6%E6%B5%8B%E8%AF%95%E9%A2%98/</loc>
+    <loc>https://example.org/posts/%E6%AD%A3%E5%88%99%E6%8E%8C%E6%8F%A1%E7%A8%8B%E5%BA%A6%E6%B5%8B%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2018-05-05T14:11:46+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/netstat%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://example.org/posts/netstat%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2018-05-01T16:19:27+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E6%AD%A3%E5%88%99%E7%9A%84%E7%94%A8%E6%B3%95/</loc>
+    <loc>https://example.org/posts/%E6%AD%A3%E5%88%99%E7%9A%84%E7%94%A8%E6%B3%95/</loc>
     <lastmod>2018-05-01T16:14:31+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/yum-update%E5%92%8Cyum-upgrade%E5%8C%BA%E5%88%AB/</loc>
+    <loc>https://example.org/posts/yum-update%E5%92%8Cyum-upgrade%E5%8C%BA%E5%88%AB/</loc>
     <lastmod>2018-05-01T16:10:19+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos--su%E5%92%8Csudo/</loc>
+    <loc>https://example.org/posts/centos--su%E5%92%8Csudo/</loc>
     <lastmod>2018-05-01T15:55:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/nss/</loc>
+    <loc>https://example.org/tags/nss/</loc>
     <lastmod>2018-04-15T16:35:47+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php-curl-returns-35-ssl-connect-error/</loc>
+    <loc>https://example.org/posts/php-curl-returns-35-ssl-connect-error/</loc>
     <lastmod>2018-04-15T16:35:47+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos7%E8%AE%BE%E7%BD%AEip%E7%99%BD%E5%90%8D%E5%8D%95/</loc>
+    <loc>https://example.org/posts/centos7%E8%AE%BE%E7%BD%AEip%E7%99%BD%E5%90%8D%E5%8D%95/</loc>
     <lastmod>2018-03-02T20:23:52+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</loc>
+    <loc>https://example.org/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</loc>
     <lastmod>2018-03-02T20:16:49+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/</loc>
+    <loc>https://example.org/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/</loc>
     <lastmod>2018-03-01T19:58:19+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</loc>
+    <loc>https://example.org/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/</loc>
     <lastmod>2018-02-26T17:48:08+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/ftp/</loc>
+    <loc>https://example.org/tags/ftp/</loc>
     <lastmod>2018-02-26T17:48:08+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos6.5%E5%AE%89%E8%A3%85git/</loc>
+    <loc>https://example.org/posts/centos6.5%E5%AE%89%E8%A3%85git/</loc>
     <lastmod>2018-02-23T17:18:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/git/</loc>
+    <loc>https://example.org/tags/git/</loc>
     <lastmod>2018-02-23T17:18:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85gui%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</loc>
+    <loc>https://example.org/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85gui%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</loc>
     <lastmod>2018-02-09T15:52:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/vboxadd.sh-failed-modprobe-vboxguest-failed./</loc>
+    <loc>https://example.org/posts/vboxadd.sh-failed-modprobe-vboxguest-failed./</loc>
     <lastmod>2018-02-09T15:48:15+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E8%A3%85%E5%AE%8Ccentos7%E6%8F%90%E7%A4%BAinitial-setup-of-centos-linux-7-core/</loc>
+    <loc>https://example.org/posts/%E8%A3%85%E5%AE%8Ccentos7%E6%8F%90%E7%A4%BAinitial-setup-of-centos-linux-7-core/</loc>
     <lastmod>2018-02-09T15:46:34+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysql%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://example.org/posts/mysql%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2018-01-20T14:45:13+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8/</loc>
+    <loc>https://example.org/posts/mysql%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8/</loc>
     <lastmod>2018-01-20T14:43:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysqli-statement-execute-error-statement-violates-gtid-consistency-create-table-...-/</loc>
+    <loc>https://example.org/posts/mysqli-statement-execute-error-statement-violates-gtid-consistency-create-table-...-/</loc>
     <lastmod>2018-01-20T14:40:42+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85pear/</loc>
+    <loc>https://example.org/posts/linux%E5%AE%89%E8%A3%85pear/</loc>
     <lastmod>2018-01-20T14:34:19+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/git%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</loc>
+    <loc>https://example.org/posts/git%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</loc>
     <lastmod>2018-01-20T14:29:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E7%A1%AE%E8%BF%90%E7%AE%97/</loc>
+    <loc>https://example.org/posts/php%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E7%A1%AE%E8%BF%90%E7%AE%97/</loc>
     <lastmod>2018-01-20T14:19:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E9%80%A24%E8%BF%9B5%E9%80%A25%E8%BF%9B1005%E5%80%BC%E4%B8%8D%E5%8F%98/</loc>
+    <loc>https://example.org/posts/%E9%80%A24%E8%BF%9B5%E9%80%A25%E8%BF%9B1005%E5%80%BC%E4%B8%8D%E5%8F%98/</loc>
     <lastmod>2018-01-09T20:04:09+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/</loc>
+    <loc>https://example.org/posts/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/</loc>
     <lastmod>2018-01-09T19:59:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/redis/</loc>
+    <loc>https://example.org/tags/redis/</loc>
     <lastmod>2018-01-08T20:53:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</loc>
+    <loc>https://example.org/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/</loc>
     <lastmod>2018-01-08T20:53:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php%E5%AF%BC%E5%87%BAcsv/</loc>
+    <loc>https://example.org/posts/php%E5%AF%BC%E5%87%BAcsv/</loc>
     <lastmod>2018-01-05T21:22:14+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/device-eth0-does-not-seem-to-be-present%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
+    <loc>https://example.org/posts/device-eth0-does-not-seem-to-be-present%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
     <lastmod>2018-01-05T21:12:38+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/laravel/</loc>
+    <loc>https://example.org/tags/laravel/</loc>
     <lastmod>2018-01-05T20:58:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99runtimeexception-no-application-encryption-key-has-been-specified./</loc>
+    <loc>https://example.org/posts/laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99runtimeexception-no-application-encryption-key-has-been-specified./</loc>
     <lastmod>2018-01-05T20:58:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/laravel%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AFwarning-requirevendorautoload.php-failed-to-open-stream-no-such-file-or-dire/</loc>
+    <loc>https://example.org/posts/laravel%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AFwarning-requirevendorautoload.php-failed-to-open-stream-no-such-file-or-dire/</loc>
     <lastmod>2018-01-05T20:55:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85python3%E5%8F%8Apip3%E5%B9%B6%E4%BF%9D%E7%95%99python2/</loc>
+    <loc>https://example.org/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85python3%E5%8F%8Apip3%E5%B9%B6%E4%BF%9D%E7%95%99python2/</loc>
     <lastmod>2018-01-02T21:14:48+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/python/</loc>
+    <loc>https://example.org/tags/python/</loc>
     <lastmod>2018-01-02T21:14:48+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/gcc/</loc>
+    <loc>https://example.org/tags/gcc/</loc>
     <lastmod>2018-01-02T21:12:10+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3configure-error-no-acceptable-c-compiler-found-in-path/</loc>
+    <loc>https://example.org/posts/%E8%A7%A3%E5%86%B3configure-error-no-acceptable-c-compiler-found-in-path/</loc>
     <lastmod>2018-01-02T21:12:10+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php%E7%9A%84socket%E9%80%9A%E4%BF%A1/</loc>
+    <loc>https://example.org/posts/php%E7%9A%84socket%E9%80%9A%E4%BF%A1/</loc>
     <lastmod>2018-01-02T20:42:46+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/socket/</loc>
+    <loc>https://example.org/tags/socket/</loc>
     <lastmod>2018-01-02T20:42:46+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/</loc>
+    <loc>https://example.org/posts/php%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/</loc>
     <lastmod>2017-12-23T17:18:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/nginx%E9%85%8D%E7%BD%AEhttps/</loc>
+    <loc>https://example.org/posts/nginx%E9%85%8D%E7%BD%AEhttps/</loc>
     <lastmod>2017-12-16T19:58:17+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/linux%E8%A7%A3%E5%86%B3warning-mysql_connect-headers-and-client-library-minor-version-mismatch.-%E8%AD%A6%E5%91%8A/</loc>
+    <loc>https://example.org/posts/linux%E8%A7%A3%E5%86%B3warning-mysql_connect-headers-and-client-library-minor-version-mismatch.-%E8%AD%A6%E5%91%8A/</loc>
     <lastmod>2017-12-16T18:57:38+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</loc>
+    <loc>https://example.org/posts/centos%E4%B8%8B%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4mysql-%E5%92%8C%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85mysql/</loc>
     <lastmod>2017-12-16T18:54:33+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/error-1044-42000-access-denied-for-user-@localhost-to-database-mysql/</loc>
+    <loc>https://example.org/posts/error-1044-42000-access-denied-for-user-@localhost-to-database-mysql/</loc>
     <lastmod>2017-12-16T18:51:45+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysql%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95/</loc>
+    <loc>https://example.org/posts/mysql%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95/</loc>
     <lastmod>2017-12-16T18:48:32+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</loc>
+    <loc>https://example.org/posts/centos7-yum%E5%AE%89%E8%A3%85lnmp/</loc>
     <lastmod>2017-12-09T01:23:45+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/lnmp/</loc>
+    <loc>https://example.org/tags/lnmp/</loc>
     <lastmod>2017-12-09T01:23:45+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/yum/</loc>
+    <loc>https://example.org/tags/yum/</loc>
     <lastmod>2017-12-09T01:23:45+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/phpstorm/</loc>
+    <loc>https://example.org/tags/phpstorm/</loc>
     <lastmod>2017-12-03T19:19:20+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</loc>
+    <loc>https://example.org/posts/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/</loc>
     <lastmod>2017-12-03T19:19:20+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</loc>
+    <loc>https://example.org/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/</loc>
     <lastmod>2017-12-03T17:49:50+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-no-such-file-or-directory/</loc>
+    <loc>https://example.org/posts/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-no-such-file-or-directory/</loc>
     <lastmod>2017-12-03T17:42:56+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/</loc>
+    <loc>https://example.org/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/</loc>
     <lastmod>2017-12-03T17:40:49+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/crontab/</loc>
+    <loc>https://example.org/tags/crontab/</loc>
     <lastmod>2017-12-03T17:37:57+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/</loc>
+    <loc>https://example.org/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2017-12-03T17:37:57+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://example.org/posts/%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%96%87%E4%BB%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2017-12-03T17:35:55+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E6%9F%A5%E7%9C%8Blinux%E4%B8%AD%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3port%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8/</loc>
+    <loc>https://example.org/posts/%E6%9F%A5%E7%9C%8Blinux%E4%B8%AD%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3port%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8/</loc>
     <lastmod>2017-12-03T17:32:46+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E7%BC%96%E8%BE%91-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://example.org/posts/%E7%BC%96%E8%BE%91-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2017-12-03T17:30:43+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</loc>
+    <loc>https://example.org/posts/yum-y-install%E4%B8%8Eyum-install%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</loc>
     <lastmod>2017-12-03T17:28:57+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BAlinux%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://example.org/posts/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BAlinux%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2017-12-03T17:25:46+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/ss/</loc>
+    <loc>https://example.org/tags/ss/</loc>
     <lastmod>2017-12-03T17:21:19+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/</loc>
+    <loc>https://example.org/posts/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/</loc>
     <lastmod>2017-12-03T17:21:19+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/ssh/</loc>
+    <loc>https://example.org/tags/ssh/</loc>
     <lastmod>2017-12-03T17:19:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</loc>
+    <loc>https://example.org/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</loc>
     <lastmod>2017-12-03T17:19:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5fastcgi/</loc>
+    <loc>https://example.org/posts/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5fastcgi/</loc>
     <lastmod>2017-12-03T17:16:17+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/pdo-mysql-make-pdo-mysql-lo-error-1/</loc>
+    <loc>https://example.org/posts/pdo-mysql-make-pdo-mysql-lo-error-1/</loc>
     <lastmod>2017-12-03T17:13:16+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/nginx-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-xxx-com-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</loc>
+    <loc>https://example.org/posts/nginx-%E5%90%AF%E5%8A%A8-warn-conflicting-server-name-xxx-com-on-0-0-0-0-80-ignored%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</loc>
     <lastmod>2017-12-03T17:10:19+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/nginx%E9%85%8D%E7%BD%AElocation%E6%80%BB%E7%BB%93%E5%8F%8Arewrite%E8%A7%84%E5%88%99%E5%86%99%E6%B3%95/</loc>
+    <loc>https://example.org/posts/nginx%E9%85%8D%E7%BD%AElocation%E6%80%BB%E7%BB%93%E5%8F%8Arewrite%E8%A7%84%E5%88%99%E5%86%99%E6%B3%95/</loc>
     <lastmod>2017-12-03T17:07:09+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/nginx-php-fpm%E5%87%BA%E7%8E%B0502-bad-gateway%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://example.org/posts/nginx-php-fpm%E5%87%BA%E7%8E%B0502-bad-gateway%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2017-12-03T17:05:56+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/nginx-fastcgi-param%E8%A7%A3%E9%87%8A/</loc>
+    <loc>https://example.org/posts/nginx-fastcgi-param%E8%A7%A3%E9%87%8A/</loc>
     <lastmod>2017-12-03T17:03:17+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/nginx-alert-kill-646-1-failed-3-no-such-process-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://example.org/posts/nginx-alert-kill-646-1-failed-3-no-such-process-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2017-12-03T17:00:05+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysql-error-table-mysql-user-doesn-t-exist/</loc>
+    <loc>https://example.org/posts/mysql-error-table-mysql-user-doesn-t-exist/</loc>
     <lastmod>2017-12-03T16:55:56+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://example.org/posts/linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2017-12-03T16:47:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/</loc>
+    <loc>https://example.org/posts/linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/</loc>
     <lastmod>2017-12-03T16:42:56+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/</loc>
+    <loc>https://example.org/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/</loc>
     <lastmod>2017-12-03T16:39:35+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/</loc>
+    <loc>https://example.org/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/</loc>
     <lastmod>2017-12-03T16:36:45+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/</loc>
+    <loc>https://example.org/posts/centos-6-5-%E6%9B%B4%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4/</loc>
     <lastmod>2017-12-03T16:33:12+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF/</loc>
+    <loc>https://example.org/posts/centos-6-4-php-fpm-%E6%B7%BB%E5%8A%A0service-%E6%B7%BB%E5%8A%A0%E5%B9%B3%E6%BB%91%E5%90%AF%E5%8A%A8-%E9%87%8D%E5%90%AF/</loc>
     <lastmod>2017-12-03T16:28:16+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/php-fpm/</loc>
+    <loc>https://example.org/tags/php-fpm/</loc>
     <lastmod>2017-12-03T16:28:16+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/</loc>
+    <loc>https://example.org/posts/mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/</loc>
     <lastmod>2017-12-02T15:12:36+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysql%E4%BD%BF%E7%94%A8symbolic-links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</loc>
+    <loc>https://example.org/posts/mysql%E4%BD%BF%E7%94%A8symbolic-links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/</loc>
     <lastmod>2017-12-02T15:09:45+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/</loc>
+    <loc>https://example.org/posts/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/</loc>
     <lastmod>2017-12-02T15:05:34+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</loc>
+    <loc>https://example.org/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</loc>
     <lastmod>2017-12-02T15:03:33+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/samba/</loc>
+    <loc>https://example.org/tags/samba/</loc>
     <lastmod>2017-12-02T14:59:06+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/windows%E9%80%9A%E8%BF%87samba%E8%AE%BF%E9%97%AElinux%E6%96%87%E4%BB%B6/</loc>
+    <loc>https://example.org/posts/windows%E9%80%9A%E8%BF%87samba%E8%AE%BF%E9%97%AElinux%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2017-12-02T14:59:06+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</loc>
+    <loc>https://example.org/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2017-12-02T14:55:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/firewalld/</loc>
+    <loc>https://example.org/tags/firewalld/</loc>
     <lastmod>2017-12-02T14:53:02+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</loc>
+    <loc>https://example.org/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/</loc>
     <lastmod>2017-12-02T14:53:02+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/ubuntu/</loc>
+    <loc>https://example.org/tags/ubuntu/</loc>
     <lastmod>2017-12-02T14:48:53+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E5%B0%86ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/</loc>
+    <loc>https://example.org/posts/%E5%B0%86ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/</loc>
     <lastmod>2017-12-02T14:48:53+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98e-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%BE%97%E9%94%81-var-lib-dpkg-lock-open-11-%E8%B5%84%E6%BA%90%E6%9A%82%E6%97%B6%E4%B8%8D%E5%8F%AF%E7%94%A8-e-%E6%97%A0%E6%B3%95%E9%94%81%E5%AE%9A%E7%AE%A1%E7%90%86%E7%9B%AE%E5%BD%95/</loc>
+    <loc>https://example.org/posts/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98e-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%BE%97%E9%94%81-var-lib-dpkg-lock-open-11-%E8%B5%84%E6%BA%90%E6%9A%82%E6%97%B6%E4%B8%8D%E5%8F%AF%E7%94%A8-e-%E6%97%A0%E6%B3%95%E9%94%81%E5%AE%9A%E7%AE%A1%E7%90%86%E7%9B%AE%E5%BD%95/</loc>
     <lastmod>2017-12-02T14:45:56+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/ubuntu%E4%BF%AE%E6%94%B9su%E5%AF%86%E7%A0%81/</loc>
+    <loc>https://example.org/posts/ubuntu%E4%BF%AE%E6%94%B9su%E5%AF%86%E7%A0%81/</loc>
     <lastmod>2017-12-02T14:38:16+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysql-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6mysql-bin%E6%96%87%E4%BB%B6%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://example.org/posts/mysql-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6mysql-bin%E6%96%87%E4%BB%B6%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2017-12-02T14:35:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/</loc>
+    <loc>https://example.org/posts/%E5%AE%89%E8%A3%85golang/</loc>
     <lastmod>2017-12-02T14:31:45+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85golang/</loc>
-    <lastmod>2017-12-02T14:31:45+00:00</lastmod>
-  </url><url>
-    <loc>http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85centos7%E6%96%87%E5%AD%97%E7%95%8C%E9%9D%A2%E7%89%88%E5%90%8E%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA-cannot-find-a-valid-baseurl-for-repobase7x86-64-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://example.org/posts/%E5%AE%89%E8%A3%85centos7%E6%96%87%E5%AD%97%E7%95%8C%E9%9D%A2%E7%89%88%E5%90%8E%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA-cannot-find-a-valid-baseurl-for-repobase7x86-64-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2017-12-02T14:27:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2017-12-02T14:02:18+00:00</lastmod>
-  </url><url>
-    <loc>http://zhaoguibin.me/posts/ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDu%E7%9B%98/</loc>
+    <loc>https://example.org/posts/ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDu%E7%9B%98/</loc>
     <lastmod>2017-12-02T13:50:19+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://example.org/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2017-12-02T12:24:47+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99error-1794-hy000-slave/</loc>
+    <loc>https://example.org/posts/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99error-1794-hy000-slave/</loc>
     <lastmod>2017-12-02T12:22:19+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</loc>
+    <loc>https://example.org/posts/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</loc>
     <lastmod>2017-12-02T12:11:45+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</loc>
+    <loc>https://example.org/posts/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2017-12-02T12:02:17+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/linux%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</loc>
+    <loc>https://example.org/posts/linux%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2017-12-02T12:01:46+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/vim/</loc>
+    <loc>https://example.org/tags/vim/</loc>
     <lastmod>2017-12-02T11:59:21+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/vim%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://example.org/posts/vim%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2017-12-02T11:59:21+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E5%8C%85%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</loc>
+    <loc>https://example.org/posts/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AE%89%E8%A3%85virtualbox%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E5%8C%85%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</loc>
     <lastmod>2017-12-02T11:39:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/yum-%E5%AE%89%E8%A3%85%E6%8A%A5-%E5%85%B3%E4%BA%8Epublic-key-for-.rpm-is-not-installed-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://example.org/posts/yum-%E5%AE%89%E8%A3%85%E6%8A%A5-%E5%85%B3%E4%BA%8Epublic-key-for-.rpm-is-not-installed-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2017-12-02T11:27:39+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/warning-rpmdb-altered-outside-of-yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95-/</loc>
+    <loc>https://example.org/posts/warning-rpmdb-altered-outside-of-yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95-/</loc>
     <lastmod>2017-12-02T11:26:56+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</loc>
+    <loc>https://example.org/posts/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</loc>
     <lastmod>2017-12-02T11:12:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/</loc>
+    <loc>https://example.org/posts/%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2017-12-02T11:08:57+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</loc>
+    <loc>https://example.org/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/</loc>
     <lastmod>2017-12-02T11:01:15+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</loc>
+    <loc>https://example.org/tags/hexo/</loc>
+    <lastmod>2017-12-01T19:57:59+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2017-12-01T19:57:59+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</loc>
     <lastmod>2017-11-30T21:36:15+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/lsyncd/</loc>
+    <loc>https://example.org/tags/lsyncd/</loc>
     <lastmod>2017-11-30T20:24:03+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/lsyncd%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/</loc>
+    <loc>https://example.org/posts/lsyncd%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2017-11-30T20:24:03+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/categories/</loc>
+    <loc>https://example.org/archives/</loc>
+  </url><url>
+    <loc>https://example.org/categories/</loc>
+  </url><url>
+    <loc>https://example.org/posts/ddldml%E5%92%8Cdcl%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%90%86%E8%A7%A3/</loc>
+  </url><url>
+    <loc>https://example.org/posts/php%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</loc>
+  </url><url>
+    <loc>https://example.org/search/</loc>
+  </url><url>
+    <loc>https://example.org/series/</loc>
+  </url><url>
+    <loc>https://example.org/posts/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</loc>
+  </url><url>
+    <loc>https://example.org/posts/%E8%A7%A3%E5%86%B3mysql%E5%87%BA%E7%8E%B0-waiting-for-table-metadata-lock-%E9%97%AE%E9%A2%98/</loc>
   </url>
 </urlset>

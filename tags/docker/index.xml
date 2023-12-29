@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>docker on 个人笔记</title>
-    <link>http://zhaoguibin.me/tags/docker/</link>
-    <description>Recent content in docker on 个人笔记</description>
+    <title>docker on 笔记</title>
+    <link>https://example.org/tags/docker/</link>
+    <description>Recent content in docker on 笔记</description>
+    <image>
+      <title>笔记</title>
+      <url>https://example.org/images/papermod-cover.png</url>
+      <link>https://example.org/images/papermod-cover.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>en</language>
     <lastBuildDate>Sun, 30 Sep 2018 13:45:16 +0000</lastBuildDate>
-    <atom:link href="http://zhaoguibin.me/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>docker保存对容器的修改</title>
-      <link>http://zhaoguibin.me/posts/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/</link>
+      <link>https://example.org/posts/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/</link>
       <pubDate>Sun, 30 Sep 2018 13:45:16 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/</guid>
+      <guid>https://example.org/posts/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/</guid>
       <description>docker commit 容器ID 要保存的镜像名称 </description>
     </item>
     <item>
       <title>docker 不能运行 systemctl</title>
-      <link>http://zhaoguibin.me/posts/docker-%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C-systemctl/</link>
+      <link>https://example.org/posts/docker-%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C-systemctl/</link>
       <pubDate>Sun, 30 Sep 2018 13:39:07 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/docker-%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C-systemctl/</guid>
+      <guid>https://example.org/posts/docker-%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C-systemctl/</guid>
       <description>docker centos7运行systemctl start nginx 报错：
 Failed to get D-BUS connection: Operation no permitted 解决方法：
 在启动容器的时候添加上-d参数就可以了

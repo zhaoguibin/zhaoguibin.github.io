@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>php | 笔记</title>
+<meta name="keywords" content="">
+<meta name="description" content="笔记">
+<meta name="author" content="ZhaoGuibin">
+<link rel="canonical" href="https://example.org/tags/php/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://example.org/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://example.org/tags/php/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="php" />
+<meta property="og:description" content="笔记" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.org/tags/php/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:title" content="php"/>
+<meta name="twitter:description" content="笔记"/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://example.org/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/tags/">Tags</a></div>
+  <h1>
+    php
+    <a href="/tags/php/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">图片转base64
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>&lt;?php /** * Describe: 图片转base64 * 使用方法: php imgtobase64.php path=/www/projects/test/20220623171931.png * Author: ZhaoGuibin * Date: 2022-06-23 */ class ImgToBase64 { static private $instance; private function __construct() { } static public function getInstance() { if (!self::$instance instanceof self) { self::$instance = new self(); } return self::$instance; } /** * 获取命令行输入参数 * @return array */ function getClientArgs() { global $argv; array_shift($argv); $args = array(); array_walk($argv, function ($v, $k) use (&amp;$args) { @list($key, $value) = @explode(&#39;=&#39;, $v); $args[$key] = $value; }); return $args; } /** * 图片转为base64 * @param $img_path * @return string|void */ function imgToBase64($img_path = &#39;&#39;) { $img = isset($img_path[&#39;path&#39;]) ?...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-07-20 19:13:31 +0000 UTC'>July 20, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 图片转base64" href="https://example.org/posts/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">迭代器模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>概念
+迭代器模式是遍历集合的成熟模式，迭代器模式的关键是将遍历集合的任务交给一个叫做迭代器的对象，它的工作是遍历并选择序列中的对象，而客户端程序员不必知道或关心该集合序列底层的结构。
+说明
+迭代器模式（Iterator），又叫做游标（Cursor）模式，提供一种方法访问一个容器（Container）对象中各个元素，而又不需要暴露该对象的内部细节。 当你需要访问一个聚合对象，而且不管这些对象是什么都需要遍历的时候，就应该考虑使用迭代器模式。另外，当需要对聚集有多种方式遍历时，可以考虑去使用迭代器模式。迭代器模式为遍历不同的聚合结构提供如开始、下一个、是否结束、当前哪一项等统一的接口。 作用 我们想要像遍历数组那样，遍历对象，或是遍历一个容器。 迭代器模式可以隐藏遍历元素所需的操作 应用场景 访问一个聚合对象的内容而无需暴露它的内部表示 支持对聚合对象的多种遍历 为遍历不同的聚合结构提供一个统一的接口。 角色 Iterator（迭代器）：迭代器定义访问和遍历元素的接口 ConcreteIterator（具体迭代器）：具体迭代器实现迭代接口，对该聚合遍历时跟踪当前位置 Aggregate（聚合）：聚合定义创建相应迭代器对象的接口。 ConcreteAggregate（具体聚合）：具体聚合实现创建相应迭代器的接口，该操作返回ConcreteIterator的一个适当的实例。 &lt;?php //自定义迭代器实现系统定义迭代器接口 class MyIterator implements Iterator { protected $data = []; protected $index; public function __construct($data) { $this-&gt;data = $data; $this-&gt;index = 0; } //返回第一个元素 public function rewind() { $this-&gt;index = 0; } //下一个元素 public function next() { $this-&gt;index&#43;&#43;; } //验证是否继续 public function valid() { return $this-&gt;index &lt; count($this-&gt;data); } //返回key值 public function key() { return $this-&gt;index; } //返回当前元素 public function current() { return $this-&gt;data[$this-&gt;index]; } } $arr = [1, 2, 3, 4, 5, 6]; $iterate = new MyIterator($arr); foreach ($iterate as $dynasty) { echo &#39;the obj == &#39; ....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-26 21:19:21 +0000 UTC'>March 26, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 迭代器模式" href="https://example.org/posts/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">命令模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>概念 将一个请求封装（命令的封装）为一个对象，从而使用你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作。 命令模式是对命令的封装。命令模式把发出命令的责任和执行命令的责任分隔开，委派给不同的对象。 请求的一方发出请求要求执行一个操作；接收的一方收到请求，并执行操作。命令模式允许请求的一方和接收的一方独立开来，使得请求的一方不必知道接收请求的一方的接口，更不必知道请求是怎么被接收，以及操作是否被执行、何时被执行，以及是怎么被执行的。 角色 命令（command）角色：声明了一个给所有具体命令类的抽象接口。这是一个抽象角色。 具体命令（ConcreteCommand）角色：定义一个接收者和行为之间的弱耦合；实现Execute()方法，负责调用接收到的相应操作。Execute()方法通常叫做执行方法。 客户（client）角色：创建了一个具体命令（ConcreteCommand）对象并确定其接收者。 请求者（Invoker）角色：负责调用命令对象执行请求，相关的方法叫做行动方法。 接收者（Receiver）角色：负责具体实施和执行一个请求。任何一个类都可以成为接收者，实施和执行请求的方法叫做行动方法。 优点和缺点 优点： 命令模式把请求一个操作的对象与知道怎么执行一个操作的对象分离开。 命令类与其他任何别的类一样，可以修改和推广。 可以把命令对象聚合在一起，合成为合成命令。 可以很容易的加入新的命令类。 缺点： 可能会导致某些系统有过多的具体命令类。 应用场景 抽象出待执行的动作以参数化对象。Command模式是回调机制的一个面向对象的替代品。 在不同的时刻指定、排列和执行请求。 支持取消操作 支持修改日志 用构建在原语操作上的高层操作构建一个系统。Command模式提供了对事务进行建模的方法。Command有一个公共的接口，使得你可以用同一种方式调用所有的事务。同时使用该模式也易于添加新事务以扩展系统。 &lt;?php //抽象命令接口 interface Command { //命令执行 public function execute(); } //宏命令（命令的组合） //宏命令接口 interface MacroCommand extends Command { //宏命令聚集管理方法，可以删除一个命令 public function remove(Command $command); //宏命令聚集管理方法，可以添加一个命令 public function add(Command $command); } //命令的实现 //复制命令 class CopyCommand implements Command { private $receiver; public function __construct(Receiver $receiver) { $this-&gt;receiver = $receiver; } public function execute() { $this-&gt;receiver-&gt;copy(); } } //粘贴命令 class PasteCommand implements Command { private $receiver; public function __construct(Receiver $receiver) { $this-&gt;receiver = $receiver; } public function execute() { $this-&gt;receiver-&gt;paste(); } } //命令接收者执行命令 class Receiver { private $name; public function __construct($name) { $this-&gt;name = $name; } public function copy() { echo $this-&gt;name ....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-26 21:15:24 +0000 UTC'>March 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 命令模式" href="https://example.org/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">观察者模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>概念 观察者模式属于行为模式，是定义对象间的一种一对多的依赖关系，以便当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并自动刷新。 当一个对象状态发生改变后，会影响到其他几个对象的改变，这时候可以用观察者模式。 观察者模式符合接口隔离原则，实现了对象之间的松散耦合。 角色 抽象主题（subject）：它把所有观察者对象的引用保存到一个聚集里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。 具体主题（ConcreteSubjest）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。 抽象观察者（Observer）：为所有的具体观察者定义一个接口，在得到主题通知时更新自己。 具体观察者（ConcreteObserver）：实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题状态协调。 &lt;?php //抽象主题 interface Subject { //新增观察者 public function attach(Observer $observer); //移除观察者 public function detach(Observer $observer); //通知观察者 public function notifyObserver(); } //具体主题 class ConcreteSubjest implements Subject { //储存观察者 private $observers; public function __construct() { $this-&gt;observers = []; } //新增观察者 public function attach(Observer $observer) { return array_push($this-&gt;observers, $observer); } //移除观察者 public function detach(Observer $observer) { //检查观察者是否存在观察者数组中，返回索引值 $index = array_search($observer, $this-&gt;observers); if ($index === false) { return false; } else { unset($this-&gt;observers[$index]); return true; } } //通知观察者 public function notifyObserver() { if (!...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-26 20:45:21 +0000 UTC'>March 26, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 观察者模式" href="https://example.org/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">策略模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 概念 将一组特定的行为和算法封装成类，以适应某些特定的上下文环境，并让它们可以相互替换，这种模式就是策略模式。 简单理解就是 有n个做法供你选择，根据你的需要选择某个策略得到结果 优点 使用设计模式之后，我们的代码冗余和耦合度变低，每个策略模块完成对应的功能。 当然缺点就是一个功能我们就要响应制作一个策略类，但是我们统观MVC架构当中（Thinkphp，Yii2），一个控制器对应一个视图，其实也是策略模式的体现了。 &lt;?php interface UserInterface { public function showAd(); public function showCategory(); } //男性用户实现接口 class MaleUser implements UserInterface { public function showAd() { echo &#39;电子产品&#39;; } public function showCategory() { echo &#34;PS5,PC,Switch&#34;; } } //女性用户实现接口 class FemaleUser implements UserInterface { public function showAd() { echo &#39;化妆品&#39;; } public function showCategory() { echo &#34;口红,面膜&#34;; } } //客户端实现，根据性别不同推荐不同内容 $sex = &#39;male&#39;; if ($sex == &#39;male&#39;) { $user = new MaleUser(); } else { $user = new FemaleUser(); } $user-&gt;showAd(); $user-&gt;showCategory(); </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-26 20:31:47 +0000 UTC'>March 26, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 策略模式" href="https://example.org/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">装饰器模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 概念
+装饰器模式又叫装饰者模式。装饰模式是在不必改变原类文件和使用继承的情况下，动态地扩展一个对象的功能。它是通过创建一个包装对象，也就是装饰来包裹真实的对象。
+实例
+组件对象的接口：可以给这些对象动态的添加职责 所有装饰器的父类：需要定义一个与组件接口一直的接口，并持有一个component对象，该对象其实就是被装饰的对象。 具体的装饰器类：实现具体要向被装饰对象添加的功能。用来装饰具体的组件对象或者另外一个具体的装饰器对象。 使用场景
+需要动态的给一个对象添加功能，这些功能可以再动态的撤销 需要添加由一些基本功能的排列组合而产生的非常大量的功能，从而使继承关系变的不现实。 当不能采用生成子类的方法进行扩充时。一种情况是，可能有大量独立的扩展，为支持每一种组合将产生大量的子类，使得子类数目呈爆炸性增长。另一种情况可能是因为类定义被隐藏，或类定义不能用于生成子类。 &lt;?php //组件对象接口 interface IComponent { //动态给对象添加功能 public function display(); } //待装饰的对象 class Person implements IComponent { protected $name; public function __construct($name) { $this-&gt;name = $name; } public function display() { echo &#39;装饰的&#39; . $this-&gt;name; } } //所有装饰器的父类 class Clothes implements IComponent { protected $component; public function Decorate(IComponent $component) { $this-&gt;component = $component; } public function display() { if (!empty($this-&gt;component)) { $this-&gt;component-&gt;display(); } } } //具体的装饰器 class Pixie extends Clothes { public function display() { echo &#39;皮鞋&#39;; parent::display(); } } class Waitao extends Clothes { public function display() { echo &#39;外套&#39;; parent::display(); } } //客户端 $gd = new Person(&#39;狗蛋&#39;); $px = new Pixie(); $px-&gt;Decorate($gd); $px-&gt;display(); $wt = new Waitao(); $wt-&gt;Decorate($gd); $wt-&gt;display(); </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-24 23:13:56 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 装饰器模式" href="https://example.org/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">注册树模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 概念
+注册树模式也叫注册模式或注册器模式，顾名思义，注册树就是把对象实例注册到一棵全局的对象树上，需要对象的时候就从树上取下来，就好比树上长的果子，需要的时候就摘一个下来，只是这个对象树果子是摘不完的。
+作用
+不管是单例模式还是工厂模式建立的对象，都没有得到很好的管理，用了注册树模式，就可以把创建出来的对象注册到全局树上，需要的时候取下来用，可以很好的管理创建的对象。
+&lt;?php class DbMysql { public function conn() { echo &#39;mysql conn&#39;; } } class DbSqlite { public function conn() { echo &#39;sqlite conn&#39;; } } class MysqlFactory { public static function getIns() { return new DbMysql(); } } class SqliteFactory { public static function getIns() { return new DbSqlite(); } } //注册树实现存储对象（IOC控制反转思想） class RegisterTree { protected static $objects; //添加对象到注册树中 public static function set($alias, $object) { self::$objects[$alias] = $object; } //从注册树中获取对象 public static function get($alias) { return self::$objects[$alias]; } //销毁注册树上的对象 public static function _unset($alias) { unset(self::$objects[$alias]); } } //注册 RegisterTree::set(&#39;mysql&#39;, MysqlFactory::getIns()); RegisterTree::set(&#39;sqlite&#39;, SqliteFactory::getIns()); //客户端 // $mysql = RegisterTree::get(&#39;mysql&#39;); // $mysql-&gt;conn(); // $sqlite = RegisterTree::get(&#39;sqlite&#39;); // $sqlite-&gt;conn(); class Facade { public static $mysql; public static $sqlite; public function __construct() { self::$mysql = RegisterTree::get(&#39;mysql&#39;); self::$sqlite = RegisterTree::get(&#39;sqlite&#39;); } } new Facade(); Facade::$mysql-&gt;conn(); Facade::$sqlite-&gt;conn(); </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-24 22:39:41 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 注册树模式" href="https://example.org/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">门面模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 概念
+门面模式（facade）又称外观模式，用于为子系统中的一组接口提供一个一致的界面。门面模式定义了一个高层接口，这个接口使得子系统更加容易使用；引入门面角色之后，用户只需要直接与门面角色交互，用户与子系统之间的复杂关系由门面角色来实现，从而降低了系统的耦合度。
+作用
+为一些复杂的子系统提供一组接口。 提高子系统的独立性 在层次化结构中，可以使用门面模式定义系统的每一层的接口 优点
+它对于客户屏蔽了子系统组件，因而减少了客户处理的对象的数目并使得子系统使用起来更加方便。 实现了子系统与客户之间的松耦合关系。 如果应用需要，它并不限制它们使用子系统类。因此可以在系统易用性与能用性之间加以选择。 &lt;?php class Camera { public function turnOn() { echo &#39;turn on camera&#39;; } public function turnOff() { echo &#39;turn off camera&#39;; } } class Light { public function turnOn() { echo &#39;turn on light&#39;; } public function turnOff() { echo &#39;turn off light&#39;; } } //门面类 class Facade { private $camera; private $light; public function __construct() { $this-&gt;camera = new Camera(); $this-&gt;light = new Light(); } //启动接口 public function activate() { $this-&gt;camera-&gt;turnOn(); $this-&gt;light-&gt;turnOn(); } //关闭接口 public function deactivate() { $this-&gt;camera-&gt;turnOff(); $this-&gt;light-&gt;turnOff(); } } //客户端 class Client { private static $securit; public static function main() { self::$securit = new Facade(); self::$securit-&gt;activate(); self::$securit-&gt;deactivate(); } } Client::main(); </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-24 22:15:37 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 门面模式" href="https://example.org/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">管道模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 概念
+管道（pipeline）设计模式流水线模式就是将数据传递到一个任务序列中，管道扮演着流水线的角色，数据在这里被处理然后传递到下一个步骤
+释义
+管道，顾名思义，就是一个长长的流水管道，只不过加了许多阀门。所以管道模式大致需要三个角色：管道、阀门、载荷（流水）。
+目的是在管道中对载荷进行一系列的处理。因为可以对过滤器进行动态的添加，所以对载荷的处理可以变得更加灵活。但同时带来的问题是，在过滤器过多时，很难把握整体的处理逻辑。而且在某一个过滤器对载荷处理后，因为载荷改变，会造成下一个过滤器中的逻辑出错。
+&lt;?php //管道接口 interface PipelineBuilder { public function __construct($payload); //$payload载荷 public function pipe(StageBuilder $stage); //管道与阀门 public function process(); //过程 } //实现管道接口 class Pipeline implements PipelineBuilder { protected $payload; protected $pipes = []; public function __construct($payload) { $this-&gt;payload = $payload; } public function pipe(StageBuilder $stage) { $this-&gt;pipes[] = $stage; return $this; } public function process() { foreach ($this-&gt;pipes as $pipe) { call_user_func([$pipe, &#39;handle&#39;], $this-&gt;payload); } } } //阀门类 interface StageBuilder { public function handle($payload); } //实现 class StageOneBuilder implements StageBuilder { public function handle($payload) { echo &#39;one-&#39;; } } class StageTwoBuilder implements StageBuilder { public function handle($payload) { echo &#39;two-&#39;; } } //客户端使用 $pipeline = new PipeLine(&#39;step&#39;); $pipeline-&gt;pipe(new StageOneBuilder())-&gt;pipe(new StageTwoBuilder())-&gt;process(); </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-24 21:48:18 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 管道模式" href="https://example.org/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">代理模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 概念
+构建了透明置于两个不同对象之内的一个对象，从而能够截取或代理这两个对象间的通信或访问。
+应用场景
+远程代理：也就是为了一个对象在不同地址空间提供局部代表。隐藏一个对象存在于不同地址空间的事实。 虚拟代理：根据需求来创建开销很大的对象，通过它来存放实例化需要很长时间的真实对象。 安全代理：用来控制真实对象的访问对象。 智能指引：当调用真实对象的时候，代理处理一些事情。 &lt;?php //真实类 interface Subject { public function request(); } class RealSubject implements Subject { public function request() { echo &#39;真实的操作&#39;; } } //代理模式代理真实类 class Proxy implements Subject { protected $realSubject; public function __construct() { $this-&gt;realSubject = new RealSubject(); } public function request() { echo &#39;代理操作&#39;; $this-&gt;realSubject-&gt;request(); } } //客户端 $proxy = new Proxy(); $proxy-&gt;request(); 注意事项 代理模式的实现其实非常简单，或许你在不经意间经常会用到 请注意代理模式与装饰器、适配器的区别 装饰器：一般是对对象进行装饰，其中的方法行为会有增加，以修饰对象为主 适配器：一般会改变方法行为，目的是保持接口的统一但得到不同的实现 代理模式有几种形式：远程代理（例如：第三方接口SDK）、虚代理（例如：异步加载图片）、保护代理&amp;智能指引（例如：权限保护），而我们代码实现的最普通的代理，其实就是让代理类来代替真实类的操作 </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-24 21:23:46 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 代理模式" href="https://example.org/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://example.org/tags/php/page/2/">Next&nbsp;2/4&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

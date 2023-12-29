@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>linux | 笔记</title>
+<meta name="keywords" content="">
+<meta name="description" content="笔记">
+<meta name="author" content="ZhaoGuibin">
+<link rel="canonical" href="https://example.org/tags/linux/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://example.org/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://example.org/tags/linux/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="linux" />
+<meta property="og:description" content="笔记" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.org/tags/linux/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:title" content="linux"/>
+<meta name="twitter:description" content="笔记"/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://example.org/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/tags/">Tags</a></div>
+  <h1>
+    linux
+    <a href="/tags/linux/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">vboxadd.sh failed modprobe vboxguest failed.
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>virtualbox安装增强功能报错：
+vboxadd.sh failed modprobe vboxguest failed. 解决方法：
+yum install dkms binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers then
+yum install kernel-devel or
+yum install kernel-PAE-devel Then
+re-run VBoxLinuxAdditions.run. </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-02-09 15:48:15 +0000 UTC'>February 9, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to vboxadd.sh failed modprobe vboxguest failed." href="https://example.org/posts/vboxadd.sh-failed-modprobe-vboxguest-failed./"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">装完Centos7提示Initial setup of CentOS Linux 7 (core)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Initial setup of CentOS Linux 7 (core) 1) [x] Creat user 2) [!] License information (no user will be created) (license not accepted) Please make your choice from above [&#39;q&#39; to quit | &#39;c&#39; to continue | &#39;r&#39; to refresh]: 解决方法： 输入“1”，按Enter键
+输入“2”，按Enter键
+输入“q&#34;，按Enter键
+输入“yes”，按Enter键</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-02-09 15:46:34 +0000 UTC'>February 9, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 装完Centos7提示Initial setup of CentOS Linux 7 (core)" href="https://example.org/posts/%E8%A3%85%E5%AE%8Ccentos7%E6%8F%90%E7%A4%BAinitial-setup-of-centos-linux-7-core/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">linux安装pear
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>看图操作
+这是错误，先放在前面，以免出现错误不知道怎么办
+出现这个错误就按照它的那个地址下载现在在执行安装就好了 ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-20 14:34:19 +0000 UTC'>January 20, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to linux安装pear" href="https://example.org/posts/linux%E5%AE%89%E8%A3%85pear/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php下安装event扩展
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安装支持库libevent，需要编译高版本（这里以最新版本release-2.1.8-stable为例）
+wget -c https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz -P /opt/local/src cd /opt/local/src tar -zxvf libevent-2.1.8-stable.tar.gz &amp;&amp; cd libevent-2.1.8-stable ./configure --prefix=/opt/local/libevent make &amp;&amp; make install 安装event库（以event-2.3.0.tgz为例）
+wget -c http://pecl.php.net/get/event-2.3.0.tgz -P /opt/local/src cd /opt/local/src tar -zxvf event-2.3.0.tgz &amp;&amp; cd event-2.3.0 /opt/local/php72/bin/bin/phpize ./configure --with-php-config=/opt/local/php72/bin/php-config --with-event-libevent-dir=/opt/local/libevent/ make &amp;&amp; make install 在php.ini添加下面配置
+extension=event.so </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-09 19:59:37 +0000 UTC'>January 9, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php下安装event扩展" href="https://example.org/posts/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">编译安装redis
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>一.安装Redis (1) cd /usr/src 进入下载目录
+(1) yum install -y wget gcc make tcl 安装依赖
+(2) redis官网http://www.redis.io下载最新的源码包
+(3) tar -zxvf redis-3.2.2.tar.gz 解压
+(4) cd redis-3.2.2 进入redis目录
+(5) make 编辑
+(6) make test 测试
+测试过程报错
+[exception]: Executing test client: NOREPLICAS Not enough good slaves to write.. NOREPLICAS Not enough good slaves to write. while executing
+这种情况下，可以修改当前目录文件tests/integration/replication-2.tcl，将after 1000改为after 10000以延长等待时间 重新测试
+(7)make install PREFIX=/usr/local/redis PREFIX安装指定目录 否则安装到/usr/local/bin里面了
+(8)启动redis服务 ./redis-server ./redis-conf
+发现很多错误：
+1.
+WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128 echo 511 &gt; /proc/sys/net/core/somaxconn 写到/etc/rc....</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-08 20:53:37 +0000 UTC'>January 8, 2018</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 编译安装redis" href="https://example.org/posts/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85redis/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CentOS7下安装Python3及Pip3并保留Python2
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安装依赖环境 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 浏览器打开 https://www.python.org/ftp/python/ 查看最新的Python版本，标记为3.A.B wget https://www.python.org/ftp/python/3.A.B/Python-3.A.B.tgz 创建Python3的目录 mkdir /usr/local/python3 解压下载文件并切换目录 tar -zxvf Python-3.A.B.tgz cd Python-3.A.B 执行 ./configure --prefix=/usr/local/python3 make &amp;&amp; make install 创建Python3的软链接 ln -s /usr/local/python3/bin/python3 /usr/bin/python3 创建Pip3的软链接 ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3 测试命令 python3 和 pip3 python3 pip3 因为执行yum需要python2版本，所以我们还要修改yum的配置，执行： vim /usr/bin/yum
+把#! /usr/bin/python修改为#! /usr/bin/python2
+同理 vim /usr/libexec/urlgrabber-ext-down 文件里面的#! /usr/bin/python 也要修改为#! /usr/bin/python2
+安装保留了原python命令调用python2
+安装完成
+ps 安装报错 Q： ModuleNotFoundError: No module named &#39;_ctypes&#39; A： yum -y install gcc gcc-c&#43;&#43; yum -y install zlib zlib-devel yum -y install libffi-devel Q：configure: error: no acceptable C compiler found in $PATH A：yum install gcc </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-02 21:14:48 +0000 UTC'>January 2, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to CentOS7下安装Python3及Pip3并保留Python2" href="https://example.org/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85python3%E5%8F%8Apip3%E5%B9%B6%E4%BF%9D%E7%95%99python2/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">解决&#34;configure error no acceptable C compiler found in $PATH&#34;
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>解决方法： 安装gcc
+yum install gcc </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-02 21:12:10 +0000 UTC'>January 2, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 解决&#34;configure error no acceptable C compiler found in $PATH&#34;" href="https://example.org/posts/%E8%A7%A3%E5%86%B3configure-error-no-acceptable-c-compiler-found-in-path/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">linux下php扩展mysqli的支持
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>mysqli是优化后的mysql，具体的优点baidu下就ok了
+cd php-5.2.8 在这下面有个ext文件夹里有mysqli cd ext/mysqli linux下将源码文件编译应该都有configure吧，可这里没有，在我们已经安装php后，php5这个文件夹里的命令目录bin里有一个文件叫phpize，用它就可以生成configure文件啦，继续
+/usr/local/php5/bin/phpize 这里回车运行，执行完后就出了configure文件，
+./configure --prefix=/opt/local/mysqli --with-php-config=/opt/local/php/bin/php-config --with-mysqli=/opt/local/mysql/bin/mysql_config 直接回车，不出问题就继续。。 make make test make install (不出错就会显示Installing shared extensions: /usr/local/php5/lib/php/extensions/no-debug-non-zts-20041030/) 现在mysqli.so文件就出来啦。。
+直接在php.ini里把这个文件加载就OK啦。。
+extension_dir=”/usr/local/php5/ext” extension=mysqli.so 把上面第一行找到修改成这个,然后再把第二行加入。。wq保存退出。
+把mysqli.so这个文件cp到/usr/local/php5/ext下
+重启apache.</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:49:50 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to linux下php扩展mysqli的支持" href="https://example.org/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">网络连接以及下载
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>wget 指定本定文件夹和保存为特定名称 1. 在shell 中执行以下命令 wget -P /root/test &#34;http://www.baidu.com/index.html&#34; 会把 index.html 文件保存到 &#34;/root/test&#34; 目录下. 2. 执行 wget -O &#34;baidu.html&#34; &#34;http://www.baidu.com/index.html&#34; 会把 index.hmtl 保存到当前目录, 命令为 &#34;baidu.html&#34;. 3. 执行 wget -P /root/test -O &#34;baidu.html&#34; &#34;http://www.baidu.com/index.html&#34; 的结果和 2 相同, 并不会保存到 &#34;/root/test&#34; 目录下. 在linux命令下如何访问一个url？ 1.elinks - lynx-like替代角色模式WWW的浏览器 例如： elinks --dump http://www.baidu.com 2.wget 这个会将访问的首页下载到本地 [root@el5-mq2 ~]# wget http://www.baidu.com --2011-10-17 16:30:10-- http://www.baidu.com/ Resolving www.baidu.com... 119.75.218.45, 119.75.217.56 Connecting to www.baidu.com|119.75.218.45|:80... connected. HTTP request sent, awaiting response... 200 OK Length: 8403 (8....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:40:49 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 网络连接以及下载" href="https://example.org/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">使用crontab，让linux定时执行shell脚本
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行 入门 crontab –e 这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行： 0 0 * * * /home/linrui/XXXXXXXX.sh 这将会在每天凌晨运行 指定的.sh文件 Cron 各项的描述 以下是 crontab 文件的格式： {minute} {hour} {day-of-month} {month} {day-of-week} {full-path-to-shell-script} o minute: 区间为 0 – 59 o hour: 区间为0 – 23 o day-of-month: 区间为0 – 31 o month: 区间为1 – 12. 1 是1月. 12是12月. o Day-of-week: 区间为0 – 7. 周日可以是0或7. Crontab 示例 1、在 凌晨00:01运行 1 0 * * * /home/linrui/XXXX.sh 2、每个工作日23:59都进行备份作业。 59 11 * * 1,2,3,4,5 /home/linrui/XXXX....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:37:57 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 使用crontab，让linux定时执行shell脚本" href="https://example.org/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://example.org/tags/linux/">
+      «&nbsp;Prev&nbsp;1/5
+    </a>
+    <a class="next" href="https://example.org/tags/linux/page/3/">Next&nbsp;3/5&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

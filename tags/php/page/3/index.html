@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>php | 笔记</title>
+<meta name="keywords" content="">
+<meta name="description" content="笔记">
+<meta name="author" content="ZhaoGuibin">
+<link rel="canonical" href="https://example.org/tags/php/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3ff36ac138ae599b02d800da6b61d408adf61dea1905ca0a5529b0e0433415f2.css" integrity="sha256-P/NqwTiuWZsC2ADaa2HUCK32HeoZBcoKVSmw4EM0FfI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://example.org/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://example.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://example.org/tags/php/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="php" />
+<meta property="og:description" content="笔记" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.org/tags/php/" /><meta property="og:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.org/images/papermod-cover.png"/>
+
+<meta name="twitter:title" content="php"/>
+<meta name="twitter:description" content="笔记"/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://example.org/" accesskey="h" title="笔记 (Alt + H)">笔记</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://example.org/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.org/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://example.org/">Home</a>&nbsp;»&nbsp;<a href="https://example.org/tags/">Tags</a></div>
+  <h1>
+    php
+    <a href="/tags/php/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php-fpm的关闭和重启
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>php-fpm 关闭： kill -INT `cat /usr/local/php/var/run/php-fpm.pid` killall php-fpm php-fpm启动 /usr/local/php/sbin/php-fpm php-fpm 重启 kill -USR2 `cat /usr/local/php/var/run/php-fpm.pid` 查看php-fpm进程数 ps aux | grep -c php-fpm </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-11-23 21:13:41 +0000 UTC'>November 23, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php-fpm的关闭和重启" href="https://example.org/posts/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PHP curl returns (35) SSL connect error
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>用PHP cURL来获取https链接的页面，出现错误PHP curl returns (35) SSL connect error， 找到一个方法，记录一下，以免忘记。
+解决方法：
+yum update nss Q:但是，什么是NSS呢？
+A:curl模块的ssl 支持默认为NSS,网络安全服务（NSS）
+The Network Security Services (NSS)
+再来个详细解释 https://serverfault.com/questions/606135/curl-35-ssl-connect-error/642203#642203 </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-04-15 16:35:47 +0000 UTC'>April 15, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to PHP curl returns (35) SSL connect error" href="https://example.org/posts/php-curl-returns-35-ssl-connect-error/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php下载文件简单实例
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>class Spider { public function downloadImage($url, $path=&#39;images/&#39;) { $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, $url); curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30); $file = curl_exec($ch); curl_close($ch); $this-&gt;saveAsImage($url, $file, $path); } private function saveAsImage($url, $file, $path) { $filename = pathinfo($url, PATHINFO_BASENAME); if(!file_exists($path)){ mkdir($path,0777); } $resource = fopen($path . $filename, &#39;a&#39;); fwrite($resource, $file); fclose($resource); } } $str = file_get_contents(&#34;http://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&amp;mkt=en-US&#34;); $arr = json_decode($str,true); $img_url = &#39;http://www.bing.com&#39;.$arr[&#39;images&#39;][0][&#39;url&#39;]; $img = new Spider(); $img-&gt;downloadImage($img_url); </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-03-02 20:16:49 +0000 UTC'>March 2, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php下载文件简单实例" href="https://example.org/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">linux安装pear
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>看图操作
+这是错误，先放在前面，以免出现错误不知道怎么办
+出现这个错误就按照它的那个地址下载现在在执行安装就好了 ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-20 14:34:19 +0000 UTC'>January 20, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to linux安装pear" href="https://example.org/posts/linux%E5%AE%89%E8%A3%85pear/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php浮点数精确运算
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>如果用php的&#43;-*/计算浮点数的时候，可能会遇到一些计算结果错误的问题，所以基本上大部分语言都提供了精准计算的类库或函数库，比如php有BC高精确度函数库，下面我们介绍一下一些常用的BC高精确度函数使用。
+bc是Binary Calculator的缩写。bc*函数的参数都是操作数加上一个可选的 [int scale]，比如string bcadd(string $left_operand, string $right_operand[, int $scale])，如果scale没有提供，就用bcscale的缺省值。这里大数直接用一个由0-9组成的string表示，计算结果返回的也是一个 string。
+bcadd — 将两个高精度数字相加 bccomp — 比较两个高精度数字，返回-1, 0, 1 bcdiv — 将两个高精度数字相除 bcmod — 求高精度数字余数 bcmul — 将两个高精度数字相乘 bcpow — 求高精度数字乘方 bcpowmod — 求高精度数字乘方求模，数论里非常常用 bcscale — 配置默认小数点位数，相当于就是Linux bc中的”scale=” bcsqrt — 求高精度数字平方根 bcsub — 将两个高精度数字相减
+首先看一段代码:
+&lt;?php $a = 0.1; $b = 0.7; var_dump(($a &#43; $b) == 0.8); 打印出来的值居然为 boolean false
+这是为啥?PHP手册对于浮点数有以下警告信息:
+Warning 浮点数精度 显然简单的十进制分数如同 0.1 或 0.7 不能在不丢失一点点精度的情况下转换为内部二进制的格式。这就会造成混乱的结果：例如，floor((0.1&#43;0.7)*10) 通常会返回 7 而不是预期中的 8，因为该结果内部的表示其实是类似 7....</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-20 14:19:37 +0000 UTC'>January 20, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php浮点数精确运算" href="https://example.org/posts/php%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E7%A1%AE%E8%BF%90%E7%AE%97/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">逢4进5,逢5进10。0,5值不变
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>&lt;?php //逢4进5,逢5进10。0,5值不变 function ceiling($number = 0){ if($number == 0){ return 0; } //这里取出整数 $number = explode(&#39;.&#39;,$number); $number = $number[0]; $cc = $number%10; $price = $number; if($cc &gt; 5){ $price = $number&#43;(10-$cc); }elseif ($cc &gt; 0) { $price = $number&#43;(5-$cc); } return $price; } </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-09 20:04:09 +0000 UTC'>January 9, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 逢4进5,逢5进10。0,5值不变" href="https://example.org/posts/%E9%80%A24%E8%BF%9B5%E9%80%A25%E8%BF%9B1005%E5%80%BC%E4%B8%8D%E5%8F%98/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php下安装event扩展
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安装支持库libevent，需要编译高版本（这里以最新版本release-2.1.8-stable为例）
+wget -c https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz -P /opt/local/src cd /opt/local/src tar -zxvf libevent-2.1.8-stable.tar.gz &amp;&amp; cd libevent-2.1.8-stable ./configure --prefix=/opt/local/libevent make &amp;&amp; make install 安装event库（以event-2.3.0.tgz为例）
+wget -c http://pecl.php.net/get/event-2.3.0.tgz -P /opt/local/src cd /opt/local/src tar -zxvf event-2.3.0.tgz &amp;&amp; cd event-2.3.0 /opt/local/php72/bin/bin/phpize ./configure --with-php-config=/opt/local/php72/bin/php-config --with-event-libevent-dir=/opt/local/libevent/ make &amp;&amp; make install 在php.ini添加下面配置
+extension=event.so </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-09 19:59:37 +0000 UTC'>January 9, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php下安装event扩展" href="https://example.org/posts/php%E4%B8%8B%E5%AE%89%E8%A3%85event%E6%89%A9%E5%B1%95/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php导出CSV
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>&lt;?php &lt;?php /** * 导出示例 * $data = [ * &#39;服务名称&#39; =&gt; &#39;cate_name&#39;, * &#39;规格&#39; =&gt; &#39;suk_unique&#39;, * &#39;金额&#39; =&gt; &#39;pay_price&#39;, * &#39;订单状态&#39; =&gt; &#39;status_name&#39;, * &#39;客户昵称&#39; =&gt; &#39;nickname&#39;, * &#39;客户电话&#39; =&gt; &#39;phone&#39;, * &#39;客户下单电话&#39; =&gt; &#39;user_phone&#39;, * &#39;师傅名称&#39; =&gt; &#39;service_nickname&#39;, * &#39;师傅电话&#39; =&gt; &#39;service_phone&#39;, * &#39;服务地址&#39; =&gt; &#39;user_address&#39;, * &#39;服务时间&#39; =&gt; &#39;service_day_time&#39;, * ]; * ExcelExport::export($sql, &#39;服务订单&#39;, $data); */ namespace app\core\util; use think\Db; trait ExcelExport { public static function export($sql, $filename = &#39;export&#39;, $data = []) { $file_name = $filename ....</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-05 21:22:14 +0000 UTC'>January 5, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php导出CSV" href="https://example.org/posts/php%E5%AF%BC%E5%87%BAcsv/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php的socket通信
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>对TCP/IP、UDP、Socket编程这些词你不会很陌生吧？随着网络技术的发展，这些词充斥着我们的耳朵。那么我想问：
+什么是TCP/IP、UDP？ Socket在哪里呢？ Socket是什么呢？ 你会使用它们吗？ 什么是TCP/IP、UDP？ TCP/IP（Transmission Control Protocol/Internet Protocol）即传输控制协议/网间协议，是一个工业标准的协议集，它是为广域网（WANs）设计的。
+UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是属于TCP/IP协议族中的一种。 这里有一张图，表明了这些协议的关系。
+TCP/IP协议族包括运输层、网络层、链路层。
+Socket在哪里呢？ 在图1中，我们没有看到Socket的影子，那么它到底在哪里呢？还是用图来说话，一目了然。
+原来Socket在这里。
+Socket是什么呢？ Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。
+你会使用它们吗？
+前人已经给我们做了好多的事了，网络间的通信也就简单了许多，但毕竟还是有挺多工作要做的。以前听到Socket编程，觉得它是比较高深的编程知识，但是只要弄清Socket编程的工作原理，神秘的面纱也就揭开了。
+一个生活中的场景。你要打电话给一个朋友，先拨号，朋友听到电话铃声后提起电话，这时你和你的朋友就建立起了连接，就可以讲话了。等交流结束，挂断电话结束此次交谈。 生活中的场景就解释了这工作原理，也许TCP/IP协议族就是诞生于生活中，这也不一定。
+先从服务器端说起。服务器端先初始化Socket，然后与端口绑定(bind)，对端口进行监听(listen)，调用accept阻塞，等待客户端连接。在这时如果有个客户端初始化一个Socket，然后连接服务器(connect)，如果连接成功，这时客户端与服务器端的连接就建立了。客户端发送数据请求，服务器端接收请求并处理请求，然后把回应数据发送给客户端，客户端读取数据，最后关闭连接，一次交互结束。
+socket相关函数： &lt;?php socket_accept() 接受一个Socket连接 socket_bind() 把socket绑定在一个IP地址和端口上 socket_clear_error() 清除socket的错误或者最后的错误代码 socket_close() 关闭一个socket资源 socket_connect() 开始一个socket连接 socket_create_listen() 在指定端口打开一个socket监听 socket_create_pair() 产生一对没有区别的socket到一个数组里 socket_create() 产生一个socket，相当于产生一个socket的数据结构 socket_get_option() 获取socket选项 socket_getpeername() 获取远程类似主机的ip地址 socket_getsockname() 获取本地socket的ip地址 socket_iovec_add() 添加一个新的向量到一个分散/聚合的数组 socket_iovec_alloc() 这个函数创建一个能够发送接收读写的iovec数据结构 socket_iovec_delete() 删除一个已经分配的iovec socket_iovec_fetch() 返回指定的iovec资源的数据 socket_iovec_free() 释放一个iovec资源 socket_iovec_set() 设置iovec的数据新值 socket_last_error() 获取当前socket的最后错误代码 socket_listen() 监听由指定socket的所有连接 socket_read() 读取指定长度的数据 socket_readv() 读取从分散/聚合数组过来的数据 socket_recv() 从socket里结束数据到缓存 socket_recvfrom() 接受数据从指定的socket，如果没有指定则默认当前socket socket_recvmsg() 从iovec里接受消息 socket_select() 多路选择 socket_send() 这个函数发送数据到已连接的socket socket_sendmsg() 发送消息到socket socket_sendto() 发送消息到指定地址的socket socket_set_block() 在socket里设置为块模式 socket_set_nonblock() socket里设置为非块模式 socket_set_option() 设置socket选项 socket_shutdown() 这个函数允许你关闭读、写、或者指定的socket socket_strerror() 返回指定错误号的详细错误 socket_write() 写数据到socket缓存 socket_writev() 写数据到分散/聚合数组 案例一：socket通信演示 服务器端：...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-02 20:42:46 +0000 UTC'>January 2, 2018</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php的socket通信" href="https://example.org/posts/php%E7%9A%84socket%E9%80%9A%E4%BF%A1/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php设计模式概述
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>工厂模式： 我们定义一个专门用来创建其它对象的类。 这样在需要调用某个类的时候，我们就不需要去使用new关键字实例化这个类，而是通过我们的工厂类调用某个方法得到类的实例。
+好处：当我们对象所对应的类的类名发生变化的时候，我们只需要改一下工厂类类里面的实例化方法即可。不需要外部改所有的地方。
+单例模式（口诀：三私一公） class Singleton{ //私有化构造方法，禁止外部实例化对象 private function __construct(){} //私有化__clone，防止对象被克隆 private function __clone(){} //私有化内部实例化的对象 private static $instance = null; // 公有静态实例方法 public static function getInstance(){ if(self::$instance == null){ //内部实例化对象 self::$instance = new self(); } return self::$instance; } } 注册器模式： 用来将一些对象注册到全局的注册树上，可以在任何地方访问。
+set():将对象隐射到全局树上， _unset():从树上移除。 get():去注册到树上的对象。 适配器模式： 1、可以将截然不同的函数接口封装成统一的API
+2、实际应用举例：PHP的数据库操作有mysql/mysqli/pdo 三种，可以用适配器模式统一成一致。类似的场景还有cache适配器，可以将memcache/redis/file/apc等不同的缓存函数统一成一致的接口。
+策略模式： 1、策略模式，将一组特定的行为和算法封装成类，以适应某些特定的上下文环境，这种模式就是策略模式
+2、实际应用举例，假如一个电商网站系统，针对男性女性用户要各自跳转到不同的商品类名，并且所有广告位展示不同的广告，传统的做法是加入if…else… 判断。 如果新增加一种用户类型，只需要新增加一种策略即可
+3、使用策略模式可以实现Ioc ,依赖倒置，控制反转
+数据对象映射模式： 1、数据对象映射模式，是将对象和数据存储映射起来，对一个对象的操作会映射为对数据存储的操作，比我们在代码中new一个对象，那么使用该模式就可以将对对象的一些操作，比如说我们设置的一些属性，它就会自动保存到数据库，跟数据库中表的一条记录对应起来
+实例，在代码中实现数据对象映射模式，我们将写一个ORM类，将复杂的SQL语句映射成对象属性的操作 结合使用数据对象映射模式，工厂模式，注册模式
+对象关系映射 对象关系映射（英语：Object Relation Mapping，简称ORM，或O/RM，或O/R mapping），是一种程序技术，用于实现面向对象编程语言里不同类型系统的数据之间的转换[1] 。从效果上说，它其实是创建了一个可在编程语言里使用的–“虚拟对象数据库”。 面向对象是从软件工程基本原则（如耦合、聚合、封装）的基础上发展起来的，而关系数据库则是从数学理论发展而来的，两套理论存在显著的区别。为了解决这个不匹配的现象，对象关系映射技术应运而生 简单的说：ORM相当于中继数据
+适配器模式： 1、可以将截然不同的函数接口封装成统一的API...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-23 17:18:18 +0000 UTC'>December 23, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php设计模式概述" href="https://example.org/posts/php%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://example.org/tags/php/page/2/">
+      «&nbsp;Prev&nbsp;2/4
+    </a>
+    <a class="next" href="https://example.org/tags/php/page/4/">Next&nbsp;4/4&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://example.org/">笔记</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
