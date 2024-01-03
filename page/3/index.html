@@ -145,6 +145,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">php使用Linux命令导出MySQL数据到csv
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>PS :使用这个导出功能需要的条件： 1–服务器需要安装mysql客户端：yum install mysql 2–php需要开启exec函数(disable_functions exec)
+/** * @FILE_NAME:ExcelExport.php * @Description 数据导出excel,从数据库导出再下载，数据库配置 * [mysqld] * secure_file_priv= &#39;&#39; * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2019-12-24 13:42:11 * @param string $title * @param $sql * @param $data * @return bool */ public static function exportExcel($title = &#39;报表导出&#39;, $sql, $data) { $data_dir = getcwd() . &#34;/data_export/&#34;; //去除sql语句里的`,要不然执行shell命令报错 $sql = str_replace(&#39;`&#39;, &#39;&#39;, $sql); $sql = str_replace(&#39;&#34;&#39;, &#34;&#39;&#34;, $sql); //删除历史表格 self::deleteExcel(); if (!...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-01-19 16:23:54 +0000 UTC'>January 19, 2020</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php使用Linux命令导出MySQL数据到csv" href="http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">MySQL_OUTFILE导出数据
     </h2>
   </header>
@@ -255,18 +268,6 @@ package main import ( &#34;fmt&#34; &#34;time&#34; ) var pool = 100 //奇数 fun
   </div>
   <footer class="entry-footer"><span title='2018-11-16 19:47:29 +0000 UTC'>November 16, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to Linux下iptables屏蔽IP和端口号" href="http://zhaoguibin.me/posts/linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDip%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">centos修改IP
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>首先查看网络接口名称 ifconfig 临时修改IP ifconfig eth1 192.168.10.88 永久修改IP 修改对应的网络接口配置文件，文件路径是 /etc/sysconfig/network-scripts/ vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称 修改以下配置 BOOTPROTO=static # 以下配置有就修改，没有就添加 IPADDR=192.168.10.88 #静态IP GATEWAY=192.168.10.1 #默认网关 NETMASK=255.255.255.0 #子网掩码 修改DNS vim /etc/resolv.conf nameserver 1.1.1.1 nameserver 8.8.8.8 重启网络服务 </p>
-  </div>
-  <footer class="entry-footer"><span title='2018-11-16 19:35:51 +0000 UTC'>November 16, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to centos修改IP" href="http://zhaoguibin.me/posts/centos%E4%BF%AE%E6%94%B9ip/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

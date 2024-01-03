@@ -158,6 +158,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">PDO-MYSQL-make-pdo-mysql-lo-Error-1
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>编译安装PDO_MYSQL拓展模块，总是提示
+In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31: /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31: /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’ /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’ /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’ make: *** [pdo_mysql.lo] Error 1 这是因为这是因为在编译时需要 MySQL 的头的文件。而它按默认搜索找不到头文件的位置，所以才出现这个问题。通过软连接把MySQL头文件对应到/usr/local/include/下就好 比如你的MySQL安装文件位于/usr/local/mysql，那么就执行以下命令：
+ln -s /usr/local/mysql/include/* /usr/local/include/ </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:13:16 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to PDO-MYSQL-make-pdo-mysql-lo-Error-1" href="http://zhaoguibin.me/posts/pdo-mysql-make-pdo-mysql-lo-error-1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">NGINX-启动-warn-conflicting-server-name-“xxx-com”-on-0-0-0-0-80-ignored原因分析
     </h2>
   </header>
@@ -306,23 +320,6 @@ source filename 与 sh filename 及./filename执行脚本的区别在那里呢�
   </div>
   <footer class="entry-footer"><span title='2017-12-03 16:39:35 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to Linux-Source命令及脚本的执行方式解析" href="http://zhaoguibin.me/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Centos中安装PHP的PDO-MySQL扩展
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1、下载 文件 或者 进入 在PHP源码包中进入ext/pdo_mysql http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz
-2、解压文件
-tar zxvf PDO_MYSQL-1.0.2.tgz 3、配置和编译文件
-cd PDO_MYSQL-1.0.2 /usr/local/php/bin/phpize ./configure –with-php-config=/usr/local/php/bin/php-config –with-pdo-mysql=/usr/local/mysql make make install 注： 我的PHP安装在 ： /usr/local/php/ mysql 安装在 ： /usr/local/mysql 编译的时候注意你自己的安装目录在哪里 3、安装到PHP配置下
-把这个记住，然后打开 php.ini文件， 并添加一行
-extension=pdo_mysql.so </p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-03 16:36:45 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to Centos中安装PHP的PDO-MySQL扩展" href="http://zhaoguibin.me/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

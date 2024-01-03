@@ -143,6 +143,27 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">ssh免密码登录
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>ssh 无密码登录要使用公钥与私钥。linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。
+有机器A(192.168.3.7)，B(192.168.3.3)。现想A通过ssh免密码登录到B。
+1.在A机下生成公钥/私钥对。
+ssh-keygen -t rsa -P &#39;&#39; -P表示密码，-P ’’ 就表示空密码，也可以不用-P参数，这样就要三车回车，用-P就一次回车。 它在/home/root下生成.ssh目录，.ssh下有id_rsa和id_rsa.pub。
+2.把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。
+scp ~/.ssh/id_rsa.pub root@192.168.3.3:/home/root/id_rsa.pub root@192.168.3.3&#39;s password: id_rsa.pub 100% 223 0.2KB/s 00:00 由于还没有免密码登录的，所以要输入密码。
+3.B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys 命令如下：
+cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys chmod 600 ~/.ssh/authorized_keys authorized_keys的权限要是600。
+4.A机登录B机。
+ssh 192.168.3.3 The authenticity of host &#39;192.168.3.3 (192.168.3.3)&#39; can&#39;t be established. RSA key fingerprint is 00:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b. Are you sure you want to continue connecting (yes/no)? yes Warning: Permanently added &#39;192.168.3.3&#39; (RSA) to the list of known hosts....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-11-30 21:36:15 +0000 UTC'>November 30, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to ssh免密码登录" href="http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">lsyncd实时同步工具安装
     </h2>
   </header>
@@ -162,18 +183,6 @@ vim lsyncd.conf settings { --pid文件 logfile = &#34;/usr/local/lsyncd/var/lsyn
   </div>
   <footer class="entry-footer"><span title='2017-11-30 20:24:03 +0000 UTC'>November 30, 2017</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to lsyncd实时同步工具安装" href="http://zhaoguibin.me/posts/lsyncd%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">linux任务按秒执行
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>#!/bin/bash path=$(dirname &#34;$PWD&#34;) php_bin=&#34;/usr/local/php/bin/php&#34; while true; do cd $path &amp;&amp; $php_bin think crontab_1 &amp;&amp; $php_bin think crontab_2 # 等待五秒钟 sleep 5 done </p>
-  </div>
-  <footer class="entry-footer">1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to linux任务按秒执行" href="http://zhaoguibin.me/posts/linux%E4%BB%BB%E5%8A%A1%E6%8C%89%E7%A7%92%E6%89%A7%E8%A1%8C/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

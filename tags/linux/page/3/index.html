@@ -143,6 +143,18 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">使用crontab，让linux定时执行shell脚本
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行 入门 crontab –e 这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行： 0 0 * * * /home/linrui/XXXXXXXX.sh 这将会在每天凌晨运行 指定的.sh文件 Cron 各项的描述 以下是 crontab 文件的格式： {minute} {hour} {day-of-month} {month} {day-of-week} {full-path-to-shell-script} o minute: 区间为 0 – 59 o hour: 区间为0 – 23 o day-of-month: 区间为0 – 31 o month: 区间为1 – 12. 1 是1月. 12是12月. o Day-of-week: 区间为0 – 7. 周日可以是0或7. Crontab 示例 1、在 凌晨00:01运行 1 0 * * * /home/linrui/XXXX.sh 2、每个工作日23:59都进行备份作业。 59 11 * * 1,2,3,4,5 /home/linrui/XXXX....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:37:57 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 使用crontab，让linux定时执行shell脚本" href="http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">查看linux中某个端口（port）是否被占用
     </h2>
   </header>
@@ -313,24 +325,6 @@ sudo rm /var/cache/apt/archives/lock sudo rm /var/lib/dpkg/lock </p>
   </div>
   <footer class="entry-footer"><span title='2017-12-02 14:45:56 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to 解决问题E-无法获得锁-var-lib-dpkg-lock-open-11-资源暂时不可用-E-无法锁定管理目录" href="http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98e-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%BE%97%E9%94%81-var-lib-dpkg-lock-open-11-%E8%B5%84%E6%BA%90%E6%9A%82%E6%97%B6%E4%B8%8D%E5%8F%AF%E7%94%A8-e-%E6%97%A0%E6%B3%95%E9%94%81%E5%AE%9A%E7%AE%A1%E7%90%86%E7%9B%AE%E5%BD%95/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">安装golang
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>到官方https://golang.org/dl/
-或者 https://www.golangtc.com/download 下载安装包
-wget https://www.golangtc.com/static/go/1.9/go1.9.linux-amd64.tar.gz tar zxvf go1.9.linux-amd64.tar.gz -C /usr/local 新建GOPATH目录
-mkdir -p /www/golang vim /etc/profile export GOROOT=/usr/local/go export GOBIN=$GOROOT/bin export PATH=$PATH:$GOBIN export GOPATH=/www/golang :wq保存 使其生效
-source /etc/profile 查看是否配置成功
-go version go version go1.9 linux/amd64 简单测试：
-cd /www/golang vim hello.go package main import &#34;fmt&#34; func main() { fmt.Println(&#34;Hello, world&#34;) } :wq go run hello.go Hello, world </p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 14:31:45 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 安装golang" href="http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85golang/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

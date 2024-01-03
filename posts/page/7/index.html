@@ -158,6 +158,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">逢4进5,逢5进10。0,5值不变
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>&lt;?php //逢4进5,逢5进10。0,5值不变 function ceiling($number = 0){ if($number == 0){ return 0; } //这里取出整数 $number = explode(&#39;.&#39;,$number); $number = $number[0]; $cc = $number%10; $price = $number; if($cc &gt; 5){ $price = $number&#43;(10-$cc); }elseif ($cc &gt; 0) { $price = $number&#43;(5-$cc); } return $price; } </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-09 20:04:09 +0000 UTC'>January 9, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 逢4进5,逢5进10。0,5值不变" href="http://zhaoguibin.me/posts/%E9%80%A24%E8%BF%9B5%E9%80%A25%E8%BF%9B1005%E5%80%BC%E4%B8%8D%E5%8F%98/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">php下安装event扩展
     </h2>
   </header>
@@ -307,29 +319,6 @@ socket相关函数： &lt;?php socket_accept() 接受一个Socket连接 socket_b
   </div>
   <footer class="entry-footer"><span title='2018-01-02 20:42:46 +0000 UTC'>January 2, 2018</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to php的socket通信" href="http://zhaoguibin.me/posts/php%E7%9A%84socket%E9%80%9A%E4%BF%A1/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">php设计模式概述
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>工厂模式： 我们定义一个专门用来创建其它对象的类。 这样在需要调用某个类的时候，我们就不需要去使用new关键字实例化这个类，而是通过我们的工厂类调用某个方法得到类的实例。
-好处：当我们对象所对应的类的类名发生变化的时候，我们只需要改一下工厂类类里面的实例化方法即可。不需要外部改所有的地方。
-单例模式（口诀：三私一公） class Singleton{ //私有化构造方法，禁止外部实例化对象 private function __construct(){} //私有化__clone，防止对象被克隆 private function __clone(){} //私有化内部实例化的对象 private static $instance = null; // 公有静态实例方法 public static function getInstance(){ if(self::$instance == null){ //内部实例化对象 self::$instance = new self(); } return self::$instance; } } 注册器模式： 用来将一些对象注册到全局的注册树上，可以在任何地方访问。
-set():将对象隐射到全局树上， _unset():从树上移除。 get():去注册到树上的对象。 适配器模式： 1、可以将截然不同的函数接口封装成统一的API
-2、实际应用举例：PHP的数据库操作有mysql/mysqli/pdo 三种，可以用适配器模式统一成一致。类似的场景还有cache适配器，可以将memcache/redis/file/apc等不同的缓存函数统一成一致的接口。
-策略模式： 1、策略模式，将一组特定的行为和算法封装成类，以适应某些特定的上下文环境，这种模式就是策略模式
-2、实际应用举例，假如一个电商网站系统，针对男性女性用户要各自跳转到不同的商品类名，并且所有广告位展示不同的广告，传统的做法是加入if…else… 判断。 如果新增加一种用户类型，只需要新增加一种策略即可
-3、使用策略模式可以实现Ioc ,依赖倒置，控制反转
-数据对象映射模式： 1、数据对象映射模式，是将对象和数据存储映射起来，对一个对象的操作会映射为对数据存储的操作，比我们在代码中new一个对象，那么使用该模式就可以将对对象的一些操作，比如说我们设置的一些属性，它就会自动保存到数据库，跟数据库中表的一条记录对应起来
-实例，在代码中实现数据对象映射模式，我们将写一个ORM类，将复杂的SQL语句映射成对象属性的操作 结合使用数据对象映射模式，工厂模式，注册模式
-对象关系映射 对象关系映射（英语：Object Relation Mapping，简称ORM，或O/RM，或O/R mapping），是一种程序技术，用于实现面向对象编程语言里不同类型系统的数据之间的转换[1] 。从效果上说，它其实是创建了一个可在编程语言里使用的–“虚拟对象数据库”。 面向对象是从软件工程基本原则（如耦合、聚合、封装）的基础上发展起来的，而关系数据库则是从数学理论发展而来的，两套理论存在显著的区别。为了解决这个不匹配的现象，对象关系映射技术应运而生 简单的说：ORM相当于中继数据
-适配器模式： 1、可以将截然不同的函数接口封装成统一的API...</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-23 17:18:18 +0000 UTC'>December 23, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to php设计模式概述" href="http://zhaoguibin.me/posts/php%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

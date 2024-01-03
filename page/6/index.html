@@ -145,6 +145,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Centos6.5安装git
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安装编译git时需要的包 yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel yum install gcc perl-ExtUtils-MakeMaker 删除已有的git yum remove git 下载git源码 地址：https://www.kernel.org/pub/software/scm/git/ 选择要安装的版本
+cd /opt/local/src wget https://www.kernel.org/pub/software/scm/git/git-x.x.x.tar.gz tar xzf git-x.x.x.tar.gz 编译安装 cd git-x.x.x make prefix=/usr/local/git all make prefix=/usr/local/git install echo &#34;export PATH=$PATH:/usr/local/git/bin&#34; &gt;&gt; /etc/bashrc source /etc/bashrc ``` ###### 检查一下版本号 ```bash git --version ``` </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-02-23 17:18:18 +0000 UTC'>February 23, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Centos6.5安装git" href="http://zhaoguibin.me/posts/centos6.5%E5%AE%89%E8%A3%85git/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">centOS7下安装GUI图形界面
     </h2>
   </header>
@@ -269,18 +282,6 @@ Warning 浮点数精度 显然简单的十进制分数如同 0.1 或 0.7 不能�
   </div>
   <footer class="entry-footer"><span title='2018-01-20 14:19:37 +0000 UTC'>January 20, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to php浮点数精确运算" href="http://zhaoguibin.me/posts/php%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E7%A1%AE%E8%BF%90%E7%AE%97/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">逢4进5,逢5进10。0,5值不变
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>&lt;?php //逢4进5,逢5进10。0,5值不变 function ceiling($number = 0){ if($number == 0){ return 0; } //这里取出整数 $number = explode(&#39;.&#39;,$number); $number = $number[0]; $cc = $number%10; $price = $number; if($cc &gt; 5){ $price = $number&#43;(10-$cc); }elseif ($cc &gt; 0) { $price = $number&#43;(5-$cc); } return $price; } </p>
-  </div>
-  <footer class="entry-footer"><span title='2018-01-09 20:04:09 +0000 UTC'>January 9, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 逢4进5,逢5进10。0,5值不变" href="http://zhaoguibin.me/posts/%E9%80%A24%E8%BF%9B5%E9%80%A25%E8%BF%9B1005%E5%80%BC%E4%B8%8D%E5%8F%98/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

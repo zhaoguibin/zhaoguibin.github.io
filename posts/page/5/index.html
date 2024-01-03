@@ -158,6 +158,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">正则掌握程度测试题
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>分组提取/非捕获组 分组，是正则里一个非常重要的概念，我们需要针对某个区域提取数据，往往需要依赖分组。而分组，其实就是正则里()括住的部分。
+分组提取 需求：在分组1中匹配meta中author属性的值 源串： &lt;meta author=&#34;Zjmainstay&#34; /&gt; another author=&#34;Zjmainstay too&#34; 预期：分组1得到Zjmainstay 正则：/&#34;(\w*)&#34;/ 非捕获组 针对上面的分组，有时候，我们并不需要捕获某个分组的内容，我们可以使用非捕获组(?:表达式)，从而不捕获表达式部分内容到分组中。
+需求：匹配每行字母个数是偶数个的数据，每行数据不为空，正则不能存在分组1 源串： a ab abc abcd 预期： 匹配得到 ab 和 abcd，不包含分组1 正则：/^(?:\w\w)&#43;$/m 单字符或 或条件是正则使用过程中常用的概念，比如，密码由字母或数字组成，这里就用到了或条件，而且，由于字母或数字都是单个字符，因此，可以使用[a-z0-9]这样的单字符或语法实现。 常犯错误：匹配a或b写成[a|b]，此表达式实际上表示a或b或|，在[]内部的|表示其本身，注意区分(a|b)表示a或b的写法。
+单字符或 需求：匹配由 A/S/D/F 4个字母(区分大小写)组成的长度为3字符串 源串： ABC ASD ADS ASF BBC A|S A|D ASDF 预期：以[]元字符获得3个字母的或集，匹配 ASD/ADS/ASF 3组数据 正则：/^[ASDF]{3}$/m 多字符或 相对单字符或条件，多字符或也是很常见的，比如，我们需要匹配http或ftp两个协议头的url，就需要^(http|ftp)://.&#43;$这样的语法来实现。
+多字符或 需求：匹配每行数据中以.jpg/.jpeg/.png/.gif结尾的图片名称（含后缀） 源串： image.jpg image.jpeg image.png image.gif not_image.txt not_image.doc not_image.xls not_image.ppt 预期：匹配 image.jpg/image.jpeg/image.png/image.gif 4个结果 正则：/(.*\.(jpg|jpeg|png|gif))/m ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-05-05 14:11:46 +0000 UTC'>May 5, 2018</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 正则掌握程度测试题" href="http://zhaoguibin.me/posts/%E6%AD%A3%E5%88%99%E6%8E%8C%E6%8F%A1%E7%A8%8B%E5%BA%A6%E6%B5%8B%E8%AF%95%E9%A2%98/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">netstat命令
     </h2>
   </header>
@@ -278,19 +294,6 @@ netstat -nltp | grep 21 此时，访问 ftp://192.168.3.16 可浏览机器上的
   </div>
   <footer class="entry-footer"><span title='2018-02-26 17:48:08 +0000 UTC'>February 26, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to CentOS7 搭建 FTP 文件服务" href="http://zhaoguibin.me/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Centos6.5安装git
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>安装编译git时需要的包 yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel yum install gcc perl-ExtUtils-MakeMaker 删除已有的git yum remove git 下载git源码 地址：https://www.kernel.org/pub/software/scm/git/ 选择要安装的版本
-cd /opt/local/src wget https://www.kernel.org/pub/software/scm/git/git-x.x.x.tar.gz tar xzf git-x.x.x.tar.gz 编译安装 cd git-x.x.x make prefix=/usr/local/git all make prefix=/usr/local/git install echo &#34;export PATH=$PATH:/usr/local/git/bin&#34; &gt;&gt; /etc/bashrc source /etc/bashrc ``` ###### 检查一下版本号 ```bash git --version ``` </p>
-  </div>
-  <footer class="entry-footer"><span title='2018-02-23 17:18:18 +0000 UTC'>February 23, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to Centos6.5安装git" href="http://zhaoguibin.me/posts/centos6.5%E5%AE%89%E8%A3%85git/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

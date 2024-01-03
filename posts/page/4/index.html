@@ -158,6 +158,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">centos修改IP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>首先查看网络接口名称 ifconfig 临时修改IP ifconfig eth1 192.168.10.88 永久修改IP 修改对应的网络接口配置文件，文件路径是 /etc/sysconfig/network-scripts/ vim /etc/sysconfig/network-scripts/ifcfg-网络接口名称 修改以下配置 BOOTPROTO=static # 以下配置有就修改，没有就添加 IPADDR=192.168.10.88 #静态IP GATEWAY=192.168.10.1 #默认网关 NETMASK=255.255.255.0 #子网掩码 修改DNS vim /etc/resolv.conf nameserver 1.1.1.1 nameserver 8.8.8.8 重启网络服务 </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-11-16 19:35:51 +0000 UTC'>November 16, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to centos修改IP" href="http://zhaoguibin.me/posts/centos%E4%BF%AE%E6%94%B9ip/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Nginx使用brotli
     </h2>
   </header>
@@ -275,22 +287,6 @@ WMIC Product list msiexec /x {IdentifyingNumbe} </p>
   </div>
   <footer class="entry-footer"><span title='2018-07-21 14:19:45 +0000 UTC'>July 21, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to 卸载SQL Server 2017 出现警告26003" href="http://zhaoguibin.me/posts/%E5%8D%B8%E8%BD%BDsql-server-2017-%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">正则掌握程度测试题
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>分组提取/非捕获组 分组，是正则里一个非常重要的概念，我们需要针对某个区域提取数据，往往需要依赖分组。而分组，其实就是正则里()括住的部分。
-分组提取 需求：在分组1中匹配meta中author属性的值 源串： &lt;meta author=&#34;Zjmainstay&#34; /&gt; another author=&#34;Zjmainstay too&#34; 预期：分组1得到Zjmainstay 正则：/&#34;(\w*)&#34;/ 非捕获组 针对上面的分组，有时候，我们并不需要捕获某个分组的内容，我们可以使用非捕获组(?:表达式)，从而不捕获表达式部分内容到分组中。
-需求：匹配每行字母个数是偶数个的数据，每行数据不为空，正则不能存在分组1 源串： a ab abc abcd 预期： 匹配得到 ab 和 abcd，不包含分组1 正则：/^(?:\w\w)&#43;$/m 单字符或 或条件是正则使用过程中常用的概念，比如，密码由字母或数字组成，这里就用到了或条件，而且，由于字母或数字都是单个字符，因此，可以使用[a-z0-9]这样的单字符或语法实现。 常犯错误：匹配a或b写成[a|b]，此表达式实际上表示a或b或|，在[]内部的|表示其本身，注意区分(a|b)表示a或b的写法。
-单字符或 需求：匹配由 A/S/D/F 4个字母(区分大小写)组成的长度为3字符串 源串： ABC ASD ADS ASF BBC A|S A|D ASDF 预期：以[]元字符获得3个字母的或集，匹配 ASD/ADS/ASF 3组数据 正则：/^[ASDF]{3}$/m 多字符或 相对单字符或条件，多字符或也是很常见的，比如，我们需要匹配http或ftp两个协议头的url，就需要^(http|ftp)://.&#43;$这样的语法来实现。
-多字符或 需求：匹配每行数据中以.jpg/.jpeg/.png/.gif结尾的图片名称（含后缀） 源串： image.jpg image.jpeg image.png image.gif not_image.txt not_image.doc not_image.xls not_image.ppt 预期：匹配 image.jpg/image.jpeg/image.png/image.gif 4个结果 正则：/(.*\.(jpg|jpeg|png|gif))/m ...</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-05-05 14:11:46 +0000 UTC'>May 5, 2018</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 正则掌握程度测试题" href="http://zhaoguibin.me/posts/%E6%AD%A3%E5%88%99%E6%8E%8C%E6%8F%A1%E7%A8%8B%E5%BA%A6%E6%B5%8B%E8%AF%95%E9%A2%98/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -158,6 +158,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">文件权限管理
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>三种基本权限
+R 读 数值表示为4 W 写 数值表示为2 X 可执行 数值表示为1 如图所示，downloads文件夹的权限为 drwxr-xr-x
+drwxr-xr-x一共十个字符，分成四段。 第一个字符“d”表示目录；这个位置还可能会出现“l”链接；“-”表示普通文件 第二三四个字符“rwx”表示当前所属用户的权限。 所以用数值表示为4&#43;2&#43;1=7 第五六七个字符“r-x”表示当前所属组的权限。 所以用数值表示为4&#43;1=5 第八九十个字符“r-x”表示其他用户权限。 所以用数值表示为4&#43;1=5 所以操作此文件夹的权限用数值表示为755 </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 12:02:17 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 文件权限管理" href="http://zhaoguibin.me/posts/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">linux软件包管理
     </h2>
   </header>
@@ -345,27 +359,6 @@ search: path: search.xml field: post format: html limit: 10000 给 Github 添加
   </div>
   <footer class="entry-footer"><span title='2017-12-01 19:57:59 +0000 UTC'>December 1, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to hexo相关优化" href="http://zhaoguibin.me/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">ssh免密码登录
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>ssh 无密码登录要使用公钥与私钥。linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。
-有机器A(192.168.3.7)，B(192.168.3.3)。现想A通过ssh免密码登录到B。
-1.在A机下生成公钥/私钥对。
-ssh-keygen -t rsa -P &#39;&#39; -P表示密码，-P ’’ 就表示空密码，也可以不用-P参数，这样就要三车回车，用-P就一次回车。 它在/home/root下生成.ssh目录，.ssh下有id_rsa和id_rsa.pub。
-2.把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。
-scp ~/.ssh/id_rsa.pub root@192.168.3.3:/home/root/id_rsa.pub root@192.168.3.3&#39;s password: id_rsa.pub 100% 223 0.2KB/s 00:00 由于还没有免密码登录的，所以要输入密码。
-3.B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys 命令如下：
-cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys chmod 600 ~/.ssh/authorized_keys authorized_keys的权限要是600。
-4.A机登录B机。
-ssh 192.168.3.3 The authenticity of host &#39;192.168.3.3 (192.168.3.3)&#39; can&#39;t be established. RSA key fingerprint is 00:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b. Are you sure you want to continue connecting (yes/no)? yes Warning: Permanently added &#39;192.168.3.3&#39; (RSA) to the list of known hosts....</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-11-30 21:36:15 +0000 UTC'>November 30, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to ssh免密码登录" href="http://zhaoguibin.me/posts/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -158,6 +158,23 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Centos中安装PHP的PDO-MySQL扩展
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1、下载 文件 或者 进入 在PHP源码包中进入ext/pdo_mysql http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz
+2、解压文件
+tar zxvf PDO_MYSQL-1.0.2.tgz 3、配置和编译文件
+cd PDO_MYSQL-1.0.2 /usr/local/php/bin/phpize ./configure –with-php-config=/usr/local/php/bin/php-config –with-pdo-mysql=/usr/local/mysql make make install 注： 我的PHP安装在 ： /usr/local/php/ mysql 安装在 ： /usr/local/mysql 编译的时候注意你自己的安装目录在哪里 3、安装到PHP配置下
+把这个记住，然后打开 php.ini文件， 并添加一行
+extension=pdo_mysql.so </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 16:36:45 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Centos中安装PHP的PDO-MySQL扩展" href="http://zhaoguibin.me/posts/centos%E4%B8%AD%E5%AE%89%E8%A3%85php%E7%9A%84pdo-mysql%E6%89%A9%E5%B1%95/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Centos-6-5-更改系统时间
     </h2>
   </header>
@@ -323,29 +340,6 @@ ps:linux需要开启139和445端口</p>
   </div>
   <footer class="entry-footer"><span title='2017-12-02 14:53:02 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to 使用firewalld打开关闭防火墙与端口" href="http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">将Ubuntu主文件夹里的中文文件夹名称改成英文
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Ubuntu中文版本把用户主目录下的文件夹名称都默认设置成了中文（home文件里用户目录的“桌面”、“图片”、“视频”、“音乐”……都是中文的），这其实对于英文不太好才选择中文版本的Ubuntu系统也未必是一件好事，当在各个路径跳转的时候必须得使用中英文切换，感觉很复杂，所以这些默认文件夹名称还是英文的比较好。下面是将中文名称调整为英文的方法。
-第一种调整方法
-首先打开终端，在终端中输入命令:
-export LANG=en_US xdg-user-dirs-gtk-update 然后会跳出对话框询问是否将目录转化为英文路径,同意并关闭.
-在终端中输入命令：
-export LANG=zh_CN 最后关闭终端,并重起系统.下次再进入系统时，会提示是否把转化好的目录改回中文.选择不再提示,并取消修改.主目录的中文转英文就完成了。
-第二种调整方法
-首先通过可视化界面修改现有主文件夹下各文件夹名称（就是右键重命名）： Desktop、 Download、Documents、 Pictures、 Videos 、 Music、 Templates、Public ……
-然后修改配置文件（采用vi或者gedit都可以，此处以gedit为例）：
-打开一个终端输入命令打开配置文件编辑器
-vim ~/.config/user-dirs.dirs 把文件夹指向改掉，等号右边引号中即为指向，调整为刚才通过重命名所更改的文件名
-XDG_DESKTOP_DIR=&#34;$HOME/Desktop&#34; XDG_DOWNLOAD_DIR=&#34;$HOME/Download&#34; XDG_TEMPLATES_DIR=&#34;$HOME/Templates&#34; XDG_DOCUMENTS_DIR=&#34;$HOME/Documents&#34; XDG_MUSIC_DIR=&#34;$HOME/Music&#34; XDG_PICTURES_DIR=&#34;$HOME/Pictures&#34; XDG_VIDEOS_DIR=&#34;$HOME/Videos&#34; XDG_PUBLICSHARE_DIR=&#34;$HOME/Public&#34; 调整完之后，Ubuntu主目录下文件夹中文名称改为英文就调整好了。</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 14:48:53 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 将Ubuntu主文件夹里的中文文件夹名称改成英文" href="http://zhaoguibin.me/posts/%E5%B0%86ubuntu%E4%B8%BB%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0%E6%94%B9%E6%88%90%E8%8B%B1%E6%96%87/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

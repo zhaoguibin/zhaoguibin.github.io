@@ -143,6 +143,18 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">centOS7下安装GUI图形界面
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1 .在命令行下 输入下面的命令来安装Gnome包。 yum groupinstall &#34;GNOME Desktop&#34; &#34;Graphical Administration Tools&#34; 2.在命令行输入startx进入桌面 startx 3.如果想开机就进桌面，那就更新系统的运行级别。 ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target 4.重启机器。启动默认进入图形界面。 reboot </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-02-09 15:52:37 +0000 UTC'>February 9, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to centOS7下安装GUI图形界面" href="http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85gui%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">vboxadd.sh failed modprobe vboxguest failed.
     </h2>
   </header>
@@ -287,18 +299,6 @@ extension_dir=”/usr/local/php5/ext” extension=mysqli.so 把上面第一行�
   </div>
   <footer class="entry-footer"><span title='2017-12-03 17:40:49 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to 网络连接以及下载" href="http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">使用crontab，让linux定时执行shell脚本
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行 入门 crontab –e 这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行： 0 0 * * * /home/linrui/XXXXXXXX.sh 这将会在每天凌晨运行 指定的.sh文件 Cron 各项的描述 以下是 crontab 文件的格式： {minute} {hour} {day-of-month} {month} {day-of-week} {full-path-to-shell-script} o minute: 区间为 0 – 59 o hour: 区间为0 – 23 o day-of-month: 区间为0 – 31 o month: 区间为1 – 12. 1 是1月. 12是12月. o Day-of-week: 区间为0 – 7. 周日可以是0或7. Crontab 示例 1、在 凌晨00:01运行 1 0 * * * /home/linrui/XXXX.sh 2、每个工作日23:59都进行备份作业。 59 11 * * 1,2,3,4,5 /home/linrui/XXXX....</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-03 17:37:57 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 使用crontab，让linux定时执行shell脚本" href="http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

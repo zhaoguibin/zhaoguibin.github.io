@@ -145,6 +145,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">代理模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 概念
+构建了透明置于两个不同对象之内的一个对象，从而能够截取或代理这两个对象间的通信或访问。
+应用场景
+远程代理：也就是为了一个对象在不同地址空间提供局部代表。隐藏一个对象存在于不同地址空间的事实。 虚拟代理：根据需求来创建开销很大的对象，通过它来存放实例化需要很长时间的真实对象。 安全代理：用来控制真实对象的访问对象。 智能指引：当调用真实对象的时候，代理处理一些事情。 &lt;?php //真实类 interface Subject { public function request(); } class RealSubject implements Subject { public function request() { echo &#39;真实的操作&#39;; } } //代理模式代理真实类 class Proxy implements Subject { protected $realSubject; public function __construct() { $this-&gt;realSubject = new RealSubject(); } public function request() { echo &#39;代理操作&#39;; $this-&gt;realSubject-&gt;request(); } } //客户端 $proxy = new Proxy(); $proxy-&gt;request(); 注意事项 代理模式的实现其实非常简单，或许你在不经意间经常会用到 请注意代理模式与装饰器、适配器的区别 装饰器：一般是对对象进行装饰，其中的方法行为会有增加，以修饰对象为主 适配器：一般会改变方法行为，目的是保持接口的统一但得到不同的实现 代理模式有几种形式：远程代理（例如：第三方接口SDK）、虚代理（例如：异步加载图片）、保护代理&amp;智能指引（例如：权限保护），而我们代码实现的最普通的代理，其实就是让代理类来代替真实类的操作 </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-24 21:23:46 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 代理模式" href="http://zhaoguibin.me/posts/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">适配器模式
     </h2>
   </header>
@@ -283,19 +298,6 @@ php的应用主要在于数据库应用，所以一个应用中会存在大量�
   </div>
   <footer class="entry-footer"><span title='2020-08-04 19:53:32 +0000 UTC'>August 4, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to surge脚本-【DSU】每日签到" href="http://zhaoguibin.me/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">php使用Linux命令导出MySQL数据到csv
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>PS :使用这个导出功能需要的条件： 1–服务器需要安装mysql客户端：yum install mysql 2–php需要开启exec函数(disable_functions exec)
-/** * @FILE_NAME:ExcelExport.php * @Description 数据导出excel,从数据库导出再下载，数据库配置 * [mysqld] * secure_file_priv= &#39;&#39; * @User ZHaoGuiBin * @Date 2019-12-04 13:52:58 */ class ExcelExport { /** * @FuncName:exportExcel * @Description * @User ZHaoGuiBin * @Date 2019-12-24 13:42:11 * @param string $title * @param $sql * @param $data * @return bool */ public static function exportExcel($title = &#39;报表导出&#39;, $sql, $data) { $data_dir = getcwd() . &#34;/data_export/&#34;; //去除sql语句里的`,要不然执行shell命令报错 $sql = str_replace(&#39;`&#39;, &#39;&#39;, $sql); $sql = str_replace(&#39;&#34;&#39;, &#34;&#39;&#34;, $sql); //删除历史表格 self::deleteExcel(); if (!...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-01-19 16:23:54 +0000 UTC'>January 19, 2020</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to php使用Linux命令导出MySQL数据到csv" href="http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

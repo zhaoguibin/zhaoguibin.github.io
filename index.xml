@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Jul 2022 19:13:31 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jan 2024 21:41:25 +0000</lastBuildDate>
     <atom:link href="http://zhaoguibin.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux任务按秒执行</title>
+      <link>http://zhaoguibin.me/posts/linux%E4%BB%BB%E5%8A%A1%E6%8C%89%E7%A7%92%E6%89%A7%E8%A1%8C/</link>
+      <pubDate>Wed, 03 Jan 2024 21:41:25 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E4%BB%BB%E5%8A%A1%E6%8C%89%E7%A7%92%E6%89%A7%E8%A1%8C/</guid>
+      <description>#!/bin/bash path=$(dirname &amp;#34;$PWD&amp;#34;) php_bin=&amp;#34;/usr/local/php/bin/php&amp;#34; while true; do cd $path &amp;amp;&amp;amp; $php_bin think crontab_1 &amp;amp;&amp;amp; $php_bin think crontab_2 # 等待五秒钟 sleep 5 done </description>
+    </item>
     <item>
       <title>图片转base64</title>
       <link>http://zhaoguibin.me/posts/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</link>
@@ -1609,13 +1616,6 @@ vim lsyncd.conf settings { --pid文件 logfile = &amp;#34;/usr/local/lsyncd/var/
 &lt;p&gt;DDL比DML要多，主要的命令有CREATE、ALTER、DROP等，DDL主要是用在定义或改变表(TABLE)的结构，数据类型，表之间的链接和约束等初始化工作上，他们大多在建立表时使用&lt;/p&gt;
 &lt;p&gt;DCL(Data Control Language)：&lt;/p&gt;
 &lt;p&gt;是数据库控制功能。是用来设置或更改数据库用户或角色权限的语句，包括(grant,deny,revoke等)语句。在默认状态下，只有sysadmin,dbcreator,db_owner或db_securityadmin等人员才有权力执行DCL&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>linux任务按秒执行</title>
-      <link>http://zhaoguibin.me/posts/linux%E4%BB%BB%E5%8A%A1%E6%8C%89%E7%A7%92%E6%89%A7%E8%A1%8C/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/linux%E4%BB%BB%E5%8A%A1%E6%8C%89%E7%A7%92%E6%89%A7%E8%A1%8C/</guid>
-      <description>#!/bin/bash path=$(dirname &amp;#34;$PWD&amp;#34;) php_bin=&amp;#34;/usr/local/php/bin/php&amp;#34; while true; do cd $path &amp;amp;&amp;amp; $php_bin think crontab_1 &amp;amp;&amp;amp; $php_bin think crontab_2 # 等待五秒钟 sleep 5 done </description>
     </item>
     <item>
       <title>php排序实现方法</title>

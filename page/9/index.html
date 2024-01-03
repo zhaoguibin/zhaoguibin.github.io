@@ -145,6 +145,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">网络连接以及下载
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>wget 指定本定文件夹和保存为特定名称 1. 在shell 中执行以下命令 wget -P /root/test &#34;http://www.baidu.com/index.html&#34; 会把 index.html 文件保存到 &#34;/root/test&#34; 目录下. 2. 执行 wget -O &#34;baidu.html&#34; &#34;http://www.baidu.com/index.html&#34; 会把 index.hmtl 保存到当前目录, 命令为 &#34;baidu.html&#34;. 3. 执行 wget -P /root/test -O &#34;baidu.html&#34; &#34;http://www.baidu.com/index.html&#34; 的结果和 2 相同, 并不会保存到 &#34;/root/test&#34; 目录下. 在linux命令下如何访问一个url？ 1.elinks - lynx-like替代角色模式WWW的浏览器 例如： elinks --dump http://www.baidu.com 2.wget 这个会将访问的首页下载到本地 [root@el5-mq2 ~]# wget http://www.baidu.com --2011-10-17 16:30:10-- http://www.baidu.com/ Resolving www.baidu.com... 119.75.218.45, 119.75.217.56 Connecting to www.baidu.com|119.75.218.45|:80... connected. HTTP request sent, awaiting response... 200 OK Length: 8403 (8....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:40:49 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 网络连接以及下载" href="http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">使用crontab，让linux定时执行shell脚本
     </h2>
   </header>
@@ -265,20 +277,6 @@ service nginx restart /usr/local/nginx/sbin/nginx -s reload </p>
   </div>
   <footer class="entry-footer"><span title='2017-12-03 17:16:17 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to php-fpm设置socket方式连接FastCGI" href="http://zhaoguibin.me/posts/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5fastcgi/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">PDO-MYSQL-make-pdo-mysql-lo-Error-1
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>编译安装PDO_MYSQL拓展模块，总是提示
-In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31: /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory In file included from /data0/software/PDO_MYSQL-1.0.2/pdo_mysql.c:31: /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’ /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’ /data0/software/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’ make: *** [pdo_mysql.lo] Error 1 这是因为这是因为在编译时需要 MySQL 的头的文件。而它按默认搜索找不到头文件的位置，所以才出现这个问题。通过软连接把MySQL头文件对应到/usr/local/include/下就好 比如你的MySQL安装文件位于/usr/local/mysql，那么就执行以下命令：
-ln -s /usr/local/mysql/include/* /usr/local/include/ </p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-03 17:13:16 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to PDO-MYSQL-make-pdo-mysql-lo-Error-1" href="http://zhaoguibin.me/posts/pdo-mysql-make-pdo-mysql-lo-error-1/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jan 2020 16:23:54 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jan 2024 21:41:25 +0000</lastBuildDate>
     <atom:link href="http://zhaoguibin.me/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux任务按秒执行</title>
+      <link>http://zhaoguibin.me/posts/linux%E4%BB%BB%E5%8A%A1%E6%8C%89%E7%A7%92%E6%89%A7%E8%A1%8C/</link>
+      <pubDate>Wed, 03 Jan 2024 21:41:25 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/linux%E4%BB%BB%E5%8A%A1%E6%8C%89%E7%A7%92%E6%89%A7%E8%A1%8C/</guid>
+      <description>#!/bin/bash path=$(dirname &amp;#34;$PWD&amp;#34;) php_bin=&amp;#34;/usr/local/php/bin/php&amp;#34; while true; do cd $path &amp;amp;&amp;amp; $php_bin think crontab_1 &amp;amp;&amp;amp; $php_bin think crontab_2 # 等待五秒钟 sleep 5 done </description>
+    </item>
     <item>
       <title>php使用Linux命令导出MySQL数据到csv</title>
       <link>http://zhaoguibin.me/posts/php%E4%BD%BF%E7%94%A8linux%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%87%BAmysql%E6%95%B0%E6%8D%AE%E5%88%B0csv/</link>
@@ -521,13 +528,6 @@ cd /usr/local/lsyncd/ 创建配置文件目录和日志目录
 mkdir etc var 进入配置文件目录
 cd etc/ 编译配置文件
 vim lsyncd.conf settings { --pid文件 logfile = &amp;#34;/usr/local/lsyncd/var/lsyncd.log&amp;#34;, --状态文件 statusFile = &amp;#34;/usr/local/lsyncd/var/lsyncd.status&amp;#34;, --同步模式，意思就是有更新就同步 inotifyMode = &amp;#34;CloseWrite or Modify&amp;#34;, --最大8个进程 maxProcesses = 8, } sync { default.rsync, source = &amp;#34;/www&amp;#34;, target = &amp;#34;root@192.</description>
-    </item>
-    <item>
-      <title>linux任务按秒执行</title>
-      <link>http://zhaoguibin.me/posts/linux%E4%BB%BB%E5%8A%A1%E6%8C%89%E7%A7%92%E6%89%A7%E8%A1%8C/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/linux%E4%BB%BB%E5%8A%A1%E6%8C%89%E7%A7%92%E6%89%A7%E8%A1%8C/</guid>
-      <description>#!/bin/bash path=$(dirname &amp;#34;$PWD&amp;#34;) php_bin=&amp;#34;/usr/local/php/bin/php&amp;#34; while true; do cd $path &amp;amp;&amp;amp; $php_bin think crontab_1 &amp;amp;&amp;amp; $php_bin think crontab_2 # 等待五秒钟 sleep 5 done </description>
     </item>
   </channel>
 </rss>
