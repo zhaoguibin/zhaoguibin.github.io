@@ -145,6 +145,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">php-fpm的关闭和重启
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>php-fpm 关闭： kill -INT `cat /usr/local/php/var/run/php-fpm.pid` killall php-fpm php-fpm启动 /usr/local/php/sbin/php-fpm php-fpm 重启 kill -USR2 `cat /usr/local/php/var/run/php-fpm.pid` 查看php-fpm进程数 ps aux | grep -c php-fpm </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-11-23 21:13:41 +0000 UTC'>November 23, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php-fpm的关闭和重启" href="http://zhaoguibin.me/posts/php-fpm%E7%9A%84%E5%85%B3%E9%97%AD%E5%92%8C%E9%87%8D%E5%90%AF/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Linux下iptables屏蔽IP和端口号
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>#封单个IP的命令： iptables -I INPUT -s 192.168.10.66 -j DROP #封IP段的命令： iptables -I INPUT -s 192.168.0.0/16 -j DROP #封整个段的命令： iptables -I INPUT -s 192.168.0.0/8 -j DROP #封几个段的命令： iptables -I INPUT -s 192.168.10.0/24 -j DROP #只封80端口： iptables -I INPUT -p tcp –dport 80 -s 192.168.0.0/24 -j DROP #解封： iptables -F #清空： iptables -D INPUT 数字 #列出 INPUT链 所有的规则： iptables -L INPUT --line-numbers #删除某条规则，其中5代表序号（序号可用上面的命令查看）： iptables -D INPUT 5 #开放指定的端口： iptables -A INPUT -p tcp --dport 80 -j ACCEPT #禁止指定的端口： iptables -A INPUT -p tcp --dport 80 -j DROP #拒绝所有的端口： iptables -A INPUT -j DROP 以上都是针对INPUT链的操作，即是外面来访问本机的方向，配置完之后 需要保存，否则iptables 重启之后以上设置就失效...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-11-16 19:47:29 +0000 UTC'>November 16, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Linux下iptables屏蔽IP和端口号" href="http://zhaoguibin.me/posts/linux%E4%B8%8Biptables%E5%B1%8F%E8%94%BDip%E5%92%8C%E7%AB%AF%E5%8F%A3%E5%8F%B7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">centos修改IP
     </h2>
   </header>
@@ -247,33 +271,6 @@ docker run -itd --privileged -p 3306:3306 -v /opt/data/:/opt/mysql/data 镜像ID
   </div>
   <footer class="entry-footer"><span title='2018-09-30 12:06:32 +0000 UTC'>September 30, 2018</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to SQL纵向变成横向，横向变成纵向" href="http://zhaoguibin.me/posts/sql%E7%BA%B5%E5%90%91%E5%8F%98%E6%88%90%E6%A8%AA%E5%90%91%E6%A8%AA%E5%90%91%E5%8F%98%E6%88%90%E7%BA%B5%E5%90%91/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">MySQL查询字段在哪个表
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>查询pwd字段在哪个数据库哪个表 SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.`COLUMNS` WHERE COLUMN_NAME = &#39;pwd&#39; 查询pwd字段在ERP数据库的哪个表 SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.`COLUMNS` WHERE COLUMN_NAME = &#39;pwd&#39; AND TABLE_SCHEMA = &#39;ERP&#39; </p>
-  </div>
-  <footer class="entry-footer"><span title='2018-09-30 10:01:03 +0000 UTC'>September 30, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to MySQL查询字段在哪个表" href="http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">卸载SQL Server 2017 出现警告26003
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>卸载SQLserver出现以下问题，把解决方法记录下来，留着以后备用 提示信息： 解决方法：
-可以使用：WMIC（windows Management Instrumentation Command-line） 列出当前系统上安装的应用程序，最后使用MSIEXEC /X 将其卸载
-打开 CMD(命令提示符) 输入命令：
-WMIC Product list msiexec /x {IdentifyingNumbe} </p>
-  </div>
-  <footer class="entry-footer"><span title='2018-07-21 14:19:45 +0000 UTC'>July 21, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 卸载SQL Server 2017 出现警告26003" href="http://zhaoguibin.me/posts/%E5%8D%B8%E8%BD%BDsql-server-2017-%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

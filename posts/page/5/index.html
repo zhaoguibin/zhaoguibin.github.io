@@ -158,6 +158,33 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">MySQL查询字段在哪个表
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>查询pwd字段在哪个数据库哪个表 SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.`COLUMNS` WHERE COLUMN_NAME = &#39;pwd&#39; 查询pwd字段在ERP数据库的哪个表 SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.`COLUMNS` WHERE COLUMN_NAME = &#39;pwd&#39; AND TABLE_SCHEMA = &#39;ERP&#39; </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-09-30 10:01:03 +0000 UTC'>September 30, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to MySQL查询字段在哪个表" href="http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%AD%97%E6%AE%B5%E5%9C%A8%E5%93%AA%E4%B8%AA%E8%A1%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">卸载SQL Server 2017 出现警告26003
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>卸载SQLserver出现以下问题，把解决方法记录下来，留着以后备用 提示信息： 解决方法：
+可以使用：WMIC（windows Management Instrumentation Command-line） 列出当前系统上安装的应用程序，最后使用MSIEXEC /X 将其卸载
+打开 CMD(命令提示符) 输入命令：
+WMIC Product list msiexec /x {IdentifyingNumbe} </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-07-21 14:19:45 +0000 UTC'>July 21, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 卸载SQL Server 2017 出现警告26003" href="http://zhaoguibin.me/posts/%E5%8D%B8%E8%BD%BDsql-server-2017-%E5%87%BA%E7%8E%B0%E8%AD%A6%E5%91%8A26003/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">正则掌握程度测试题
     </h2>
   </header>
@@ -263,37 +290,6 @@ vim /etc/sysconfig/iptables 1 *filter 2 :INPUT ACCEPT [0:0] 3 :FORWARD ACCEPT [0
   </div>
   <footer class="entry-footer"><span title='2018-03-02 20:16:49 +0000 UTC'>March 2, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to php下载文件简单实例" href="http://zhaoguibin.me/posts/php%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Nginx 启用gzip压缩
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>网页压缩 网页压缩是一项由 WEB 服务器和浏览器之间共同遵守的协议，也就是说 WEB 服务器和浏览器都必须支持该技术，所幸的是现在流行的浏览器都是支持的，包括 IE、FireFox、Opera 等；服务器有 Apache 和 IIS 等。双方的协商过程如下：　首先浏览器请求某个 URL 地址，并在请求的头 (head) 中设置属性 accept-encoding 值为 gzip, deflate，表明浏览器支持 gzip 和 deflate 这两种压缩方式（事实上 deflate 也是使用 gzip 压缩协议，下面我们会介绍二者之间的区别）；
-WEB 服务器接收到请求后判断浏览器是否支持压缩，如果支持就传送压缩后的响应内容，否则传送不经过压缩的内容； 浏览器获取响应内容后，判断内容是否被压缩，如果是则解压缩，然后显示响应页面的内容。
-在实际的应用中我们发现压缩的比率往往在 3 到 10 倍，也就是本来 50k 大小的页面，采用压缩后实际传输的内容大小只有 5 至 15k 大小，这可以大大节省服务器的网络带宽，同时如果应用程序的响应足够快时，网站的速度瓶颈就转到了网络的传输速度上，因此内容压缩后就可以大大的提升页面的浏览速度。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-03-01 19:58:19 +0000 UTC'>March 1, 2018</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to Nginx 启用gzip压缩" href="http://zhaoguibin.me/posts/nginx-%E5%90%AF%E7%94%A8gzip%E5%8E%8B%E7%BC%A9/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">CentOS7 搭建 FTP 文件服务
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>安装并启动 FTP 服务 安装 VSFTPD 使用 yum 安装 vsftpd
-yum install -y vsftpd 启动 VSFTPD 安装完成后，启动 FTP 服务：
-service vsftpd start 启动后，可以看到系统已经监听了 21 端口：
-netstat -nltp | grep 21 此时，访问 ftp://192.168.3.16 可浏览机器上的 /var/ftp目录了。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-02-26 17:48:08 +0000 UTC'>February 26, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to CentOS7 搭建 FTP 文件服务" href="http://zhaoguibin.me/posts/centos7-%E6%90%AD%E5%BB%BA-ftp-%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

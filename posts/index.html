@@ -158,6 +158,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Golang base64转图片
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>package main import ( &#34;encoding/base64&#34; &#34;fmt&#34; &#34;io/ioutil&#34; &#34;os&#34; &#34;path/filepath&#34; &#34;strings&#34; ) func main() { // 从命令行参数获取文件夹路径 if len(os.Args) &lt; 2 { fmt.Println(&#34;请提供要处理的文件夹路径&#34;) return } folderPath := os.Args[1] // 检查文件夹是否存在 _, err := os.Stat(folderPath) if os.IsNotExist(err) { fmt.Println(&#34;指定的文件夹路径不存在&#34;) return } // 获取上级目录路径 parentFolderPath := filepath.Dir(folderPath) // 获取原始文件夹名称并创建保存图片的文件夹 imageFolderName := filepath.Base(folderPath) &#43; &#34;_image&#34; imageFolderPath := filepath.Join(parentFolderPath, imageFolderName) err = os.Mkdir(imageFolderPath, 0755) if err != nil { fmt.Println(&#34;无法创建图片文件夹:&#34;, err) return } // 遍历文件夹 err = filepath....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-03 21:51:21 +0000 UTC'>January 3, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Golang base64转图片" href="http://zhaoguibin.me/posts/golang-base64%E8%BD%AC%E5%9B%BE%E7%89%87/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Golang图片转base64
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>package main import ( &#34;encoding/base64&#34; &#34;fmt&#34; &#34;io/ioutil&#34; &#34;os&#34; &#34;path/filepath&#34; ) func main() { // 从命令行参数获取文件夹路径 if len(os.Args) &lt; 2 { fmt.Println(&#34;请提供要处理的文件夹路径&#34;) return } folderPath := os.Args[1] // 检查文件夹是否存在 _, err := os.Stat(folderPath) if os.IsNotExist(err) { fmt.Println(&#34;指定的文件夹路径不存在&#34;) return } // 获取上级目录路径 parentFolderPath := filepath.Dir(folderPath) // 获取原始文件夹名称 base64FolderName := filepath.Base(folderPath) &#43; &#34;_base64&#34; // 创建保存 base64 文件的文件夹 base64FolderPath := filepath.Join(parentFolderPath, base64FolderName) err = os.Mkdir(base64FolderPath, 0755) if err != nil { fmt.Println(&#34;无法创建 base64 文件夹:&#34;, err) return } // 遍历文件夹 err = filepath....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-03 21:45:21 +0000 UTC'>January 3, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Golang图片转base64" href="http://zhaoguibin.me/posts/golang%E5%9B%BE%E7%89%87%E8%BD%ACbase64/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">linux任务按秒执行
     </h2>
   </header>
@@ -261,39 +285,6 @@
   </div>
   <footer class="entry-footer"><span title='2022-03-24 22:39:41 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to 注册树模式" href="http://zhaoguibin.me/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">门面模式
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 概念
-门面模式（facade）又称外观模式，用于为子系统中的一组接口提供一个一致的界面。门面模式定义了一个高层接口，这个接口使得子系统更加容易使用；引入门面角色之后，用户只需要直接与门面角色交互，用户与子系统之间的复杂关系由门面角色来实现，从而降低了系统的耦合度。
-作用
-为一些复杂的子系统提供一组接口。 提高子系统的独立性 在层次化结构中，可以使用门面模式定义系统的每一层的接口 优点
-它对于客户屏蔽了子系统组件，因而减少了客户处理的对象的数目并使得子系统使用起来更加方便。 实现了子系统与客户之间的松耦合关系。 如果应用需要，它并不限制它们使用子系统类。因此可以在系统易用性与能用性之间加以选择。 &lt;?php class Camera { public function turnOn() { echo &#39;turn on camera&#39;; } public function turnOff() { echo &#39;turn off camera&#39;; } } class Light { public function turnOn() { echo &#39;turn on light&#39;; } public function turnOff() { echo &#39;turn off light&#39;; } } //门面类 class Facade { private $camera; private $light; public function __construct() { $this-&gt;camera = new Camera(); $this-&gt;light = new Light(); } //启动接口 public function activate() { $this-&gt;camera-&gt;turnOn(); $this-&gt;light-&gt;turnOn(); } //关闭接口 public function deactivate() { $this-&gt;camera-&gt;turnOff(); $this-&gt;light-&gt;turnOff(); } } //客户端 class Client { private static $securit; public static function main() { self::$securit = new Facade(); self::$securit-&gt;activate(); self::$securit-&gt;deactivate(); } } Client::main(); </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-24 22:15:37 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 门面模式" href="http://zhaoguibin.me/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">管道模式
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 概念
-管道（pipeline）设计模式流水线模式就是将数据传递到一个任务序列中，管道扮演着流水线的角色，数据在这里被处理然后传递到下一个步骤
-释义
-管道，顾名思义，就是一个长长的流水管道，只不过加了许多阀门。所以管道模式大致需要三个角色：管道、阀门、载荷（流水）。
-目的是在管道中对载荷进行一系列的处理。因为可以对过滤器进行动态的添加，所以对载荷的处理可以变得更加灵活。但同时带来的问题是，在过滤器过多时，很难把握整体的处理逻辑。而且在某一个过滤器对载荷处理后，因为载荷改变，会造成下一个过滤器中的逻辑出错。
-&lt;?php //管道接口 interface PipelineBuilder { public function __construct($payload); //$payload载荷 public function pipe(StageBuilder $stage); //管道与阀门 public function process(); //过程 } //实现管道接口 class Pipeline implements PipelineBuilder { protected $payload; protected $pipes = []; public function __construct($payload) { $this-&gt;payload = $payload; } public function pipe(StageBuilder $stage) { $this-&gt;pipes[] = $stage; return $this; } public function process() { foreach ($this-&gt;pipes as $pipe) { call_user_func([$pipe, &#39;handle&#39;], $this-&gt;payload); } } } //阀门类 interface StageBuilder { public function handle($payload); } //实现 class StageOneBuilder implements StageBuilder { public function handle($payload) { echo &#39;one-&#39;; } } class StageTwoBuilder implements StageBuilder { public function handle($payload) { echo &#39;two-&#39;; } } //客户端使用 $pipeline = new PipeLine(&#39;step&#39;); $pipeline-&gt;pipe(new StageOneBuilder())-&gt;pipe(new StageTwoBuilder())-&gt;process(); </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-24 21:48:18 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 管道模式" href="http://zhaoguibin.me/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -158,6 +158,37 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">ssh远程登录命令简单实例
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>ssh命令用于远程登录上Linux主机。 常用格式：ssh [-l login_name] [-p port] [user@]hostname 更详细的可以用ssh -h查看。 举例 不指定用户： ssh 192.168.0.11 指定用户： ssh -l root 192.168.0.11 ssh root@192.168.0.11 如果修改过ssh登录端口的可以： ssh -p 12333 192.168.0.11 ssh -l root -p 12333 216.230.230.114 ssh -p 12333 root@216.230.230.114 另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。 编辑配置文件： vim /etc/ssh/sshd_config 找到#Port 22，去掉注释，修改成一个五位的端口： Port 12333 找到#PermitRootLogin yes，去掉注释，修改为： PermitRootLogin no 重启sshd服务： service sshd restart </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:19:18 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to ssh远程登录命令简单实例" href="http://zhaoguibin.me/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">php-fpm设置socket方式连接FastCGI
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。
+socket方式不会走到tcp层，tcp方式则会走到ip层。因此，理论上说socket连接方式效率会更好一点。 TCP和unix domain socket方式对比
+TCP是使用TCP端口连接127.0.0.1:9000
+Socket是使用unix domain socket连接套接字/dev/shm/php-fpm.sock
+修改php-fpm.conf配置
+#listen = 127.0.0.1:9000 listen=/dev/shm/php-fpm.sock #/dev/shm/为内存文件系统，注意 确保可读写 listen.owner=apache #注意自己的用户和组 listen.group=apache 修改nginx.conf配置
+#fastcgi_pass 127.0.0.1:9000; #将相应的如上内容修改如下 fastcgi_pass unix:/dev/shm/php-fpm.sock; 重启nginx和php-fpm
+service nginx restart /usr/local/nginx/sbin/nginx -s reload </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:16:17 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to php-fpm设置socket方式连接FastCGI" href="http://zhaoguibin.me/posts/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5fastcgi/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">PDO-MYSQL-make-pdo-mysql-lo-Error-1
     </h2>
   </header>
@@ -265,61 +296,6 @@ kill -HUP cat/usr/local/webserver/nginx/logs/nginx.pid 主要参数介绍如下�
   </div>
   <footer class="entry-footer"><span title='2017-12-03 16:47:37 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to Linux开机执行命令" href="http://zhaoguibin.me/posts/linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Linux-查看进程和删除进程
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>在 LINUX 命令平台输入 1-2 个字符后按 Tab 键会自动补全后面的部分(前提是要有这个东西，例如在装了 tomcat 的前提下, 输入 tomcat 的 to 按 tab)。 ps 命令用于查看当前正在运行的进程。
-grep 是搜索
-例如： ps -ef | grep java
-表示查看所有进程里 CMD 是 java 的进程信息
-ps -aux | grep java
--aux 显示所有状态
-ps kill 命令用于终止进程
-例如： kill -9 [PID]
--9 表示强迫进程立即停止
-通常用 ps 查看进程 PID ，用 kill 命令终止进程
-网上关于这两块的内容
-PS ps 简介
-ps 命令就是最根本相应情况下也是相当强大地进程查看命令.运用该命令可以确定有哪些进程正在运行和运行地状态、 进程 是否结束、进程有没有僵死、哪些进程占用了过多地资源等等.总之大部分信息均为可以通过执行该命令得到地. ps 命令及其参数
-ps 命令最经常使用地还是用于监控后台进程地工作情况,因为后台进程是不和屏幕键盘这些标准输入/输出设 备进行通信地,所以如果需要检测其情况,便可以运用 ps 命令了.
-该命令语法格式如下：...</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-03 16:42:56 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to Linux-查看进程和删除进程" href="http://zhaoguibin.me/posts/linux-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Linux-Source命令及脚本的执行方式解析
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>当我修改了/etc/profile文件，我想让它立刻生效，而不用重新登录；这时就想到用source命令，如:source /etc/profile 对source进行了学习，并且用它与sh 执行脚本进行了对比，现在总结一下。
-source命令：
-source命令也称为“点命令”，也就是一个点符号（.）,是bash的内部命令。
-功能：使Shell读入指定的Shell程序文件并依次执行文件中的所有语句
-source命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。
-用法：
-source filename 或 . filename
-source命令(从 C Shell 而来)是bash shell的内置命令;点命令(.)，就是个点符号(从Bourne Shell而来)是source的另一名称。
-source filename 与 sh filename 及./filename执行脚本的区别在那里呢？
-1.当shell脚本具有可执行权限时，用sh filename与./filename执行脚本是没有区别得。./filename是因为当前目录没有在PATH中，所有&#34;.“是用来表示当前目录的。
-2.sh filename 重新建立一个子shell，在子shell中执行脚本里面的语句，该子shell继承父shell的环境变量，但子shell新建的、改变的变量不会被带回父shell，除非使用export。
-3.source filename：这个命令其实只是简单地读取脚本里面的语句依次在当前shell里面执行，没有建立新的子shell。那么脚本里面所有新建、改变变量的语句都会保存在当前shell里面。
-举例说明：
-1.新建一个test.sh脚本，内容为:A=1
-2.然后使其可执行chmod &#43;x test.sh
-3.运行sh test.sh后，echo $A，显示为空，因为A=1并未传回给当前shell
-4.运行./test.sh后，也是一样的效果
-5.运行source test.sh 或者 . test.sh，然后echo $A，则会显示1，说明A=1的变量在当前shell中</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-03 16:39:35 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to Linux-Source命令及脚本的执行方式解析" href="http://zhaoguibin.me/posts/linux-source%E5%91%BD%E4%BB%A4%E5%8F%8A%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E8%A7%A3%E6%9E%90/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

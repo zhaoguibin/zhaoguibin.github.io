@@ -158,6 +158,45 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">centos6.5编译安装LNMP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>一、环境准备 1、操作系统安装：CentOS 6.5 64位最小化安装。 2、配置好IP、DNS、网关、主机名 3、配置防火墙，开启80、3306端口 /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT /etc/rc.d/init.d/iptables save /etc/init.d/iptables restart 这样就搞定了，查看效果
+/etc/init.d/iptables status /etc/init.d/iptables restart #最后重启防火墙使配置生效 PS：
+Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：
+#开启端口 firewall-cmd --zone=public --add-port=80/tcp --permanent #重启防火墙 firewall-cmd --reload 命令含义：
+–zone #作用域
+–add-port=80/tcp #添加端口，格式为：端口/通讯协议
+–permanent #永久生效，没有此参数重启后失效
+4、关闭SELinux 查看selinux状态：
+/usr/sbin/sestatus -v SELinux status: disabled //禁用selinux getenforce Disabled //禁用selinux getenforce Enforcing //启动 关闭selinux方法： setenforce 0 #设置SELinux 成为permissive模式 setenforce 1 #设置SELinux 成为enforcing模式 第二种方法： vim /etc/selinux/config 编辑文件...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 11:01:15 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to centos6.5编译安装LNMP" href="http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">hexo相关优化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>local search 安装 hexo-generator-search
+在站点的根目录下执行以下命令：
+npm install hexo-generator-search --save 安装 hexo-generator-searchdb
+在站点的根目录下执行以下命令：
+npm install hexo-generator-searchdb --save 启用搜索
+编辑 站点配置文件，新增以下内容到任意位置：
+search: path: search.xml field: post format: html limit: 10000 给 Github 添加 README 默认情况下， Github 中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。 正确的解决方法其实很简单： 把 README.md 文件的后缀名改成 MDOWN 然后扔到 blog/source 文件夹下即可，这样 hexo 不会解析， Github 也会将其作为MD文件解析。
+解决每次发布后需要手动在 github page 的 setting 里重新设置自定义域名 在 /hexo/source 目录建一个 CNAME，里面写你的域名，这样每次生成的时候就会自带这个文件了，以后就不用重新修改自定义域名了</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-01 19:57:59 +0000 UTC'>December 1, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to hexo相关优化" href="http://zhaoguibin.me/posts/hexo%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">ssh免密码登录
     </h2>
   </header>

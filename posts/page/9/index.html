@@ -158,6 +158,38 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">linux下php扩展mysqli的支持
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>mysqli是优化后的mysql，具体的优点baidu下就ok了
+cd php-5.2.8 在这下面有个ext文件夹里有mysqli cd ext/mysqli linux下将源码文件编译应该都有configure吧，可这里没有，在我们已经安装php后，php5这个文件夹里的命令目录bin里有一个文件叫phpize，用它就可以生成configure文件啦，继续
+/usr/local/php5/bin/phpize 这里回车运行，执行完后就出了configure文件，
+./configure --prefix=/opt/local/mysqli --with-php-config=/opt/local/php/bin/php-config --with-mysqli=/opt/local/mysql/bin/mysql_config 直接回车，不出问题就继续。。 make make test make install (不出错就会显示Installing shared extensions: /usr/local/php5/lib/php/extensions/no-debug-non-zts-20041030/) 现在mysqli.so文件就出来啦。。
+直接在php.ini里把这个文件加载就OK啦。。
+extension_dir=”/usr/local/php5/ext” extension=mysqli.so 把上面第一行找到修改成这个,然后再把第二行加入。。wq保存退出。
+把mysqli.so这个文件cp到/usr/local/php5/ext下
+重启apache.</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:49:50 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to linux下php扩展mysqli的支持" href="http://zhaoguibin.me/posts/linux%E4%B8%8Bphp%E6%89%A9%E5%B1%95mysqli%E7%9A%84%E6%94%AF%E6%8C%81/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">在安装mysqli的时候，出现error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>直接修改源码，把找不到的那个头文件的路径修改为绝对路径，编译通过了，也能正常使用
+pwd /home/neo/tools/php-5.5.28/ext/mysqli vim mysqli_api.c 把第36行的 #include &#34;ext/mysqlnd/mysql_float_to_double.h&#34; 修改为 #include &#34;/home/neo/tools/php-5.5.28/ext/mysqlnd/mysql_float_to_double.h&#34; </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:42:56 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 在安装mysqli的时候，出现error-ext-mysqlnd-mysql-float-to-double-h-No-such-file-or-directory" href="http://zhaoguibin.me/posts/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-no-such-file-or-directory/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">网络连接以及下载
     </h2>
   </header>
@@ -259,37 +291,6 @@ yum -y groupinstall &#34;Development Tools&#34; wget https://github.com/jedisct1
   </div>
   <footer class="entry-footer"><span title='2017-12-03 17:21:19 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to ss服务端安装libsodium支持chacha20" href="http://zhaoguibin.me/posts/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">ssh远程登录命令简单实例
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>ssh命令用于远程登录上Linux主机。 常用格式：ssh [-l login_name] [-p port] [user@]hostname 更详细的可以用ssh -h查看。 举例 不指定用户： ssh 192.168.0.11 指定用户： ssh -l root 192.168.0.11 ssh root@192.168.0.11 如果修改过ssh登录端口的可以： ssh -p 12333 192.168.0.11 ssh -l root -p 12333 216.230.230.114 ssh -p 12333 root@216.230.230.114 另外修改配置文件/etc/ssh/sshd_config，可以改ssh登录端口和禁止root登录。改端口可以防止被端口扫描。 编辑配置文件： vim /etc/ssh/sshd_config 找到#Port 22，去掉注释，修改成一个五位的端口： Port 12333 找到#PermitRootLogin yes，去掉注释，修改为： PermitRootLogin no 重启sshd服务： service sshd restart </p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-03 17:19:18 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to ssh远程登录命令简单实例" href="http://zhaoguibin.me/posts/ssh%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">php-fpm设置socket方式连接FastCGI
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>nginx和fastcgi的通信方式有两种，一种是TCP的方式，一种是unix socket方式。
-socket方式不会走到tcp层，tcp方式则会走到ip层。因此，理论上说socket连接方式效率会更好一点。 TCP和unix domain socket方式对比
-TCP是使用TCP端口连接127.0.0.1:9000
-Socket是使用unix domain socket连接套接字/dev/shm/php-fpm.sock
-修改php-fpm.conf配置
-#listen = 127.0.0.1:9000 listen=/dev/shm/php-fpm.sock #/dev/shm/为内存文件系统，注意 确保可读写 listen.owner=apache #注意自己的用户和组 listen.group=apache 修改nginx.conf配置
-#fastcgi_pass 127.0.0.1:9000; #将相应的如上内容修改如下 fastcgi_pass unix:/dev/shm/php-fpm.sock; 重启nginx和php-fpm
-service nginx restart /usr/local/nginx/sbin/nginx -s reload </p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-03 17:16:17 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to php-fpm设置socket方式连接FastCGI" href="http://zhaoguibin.me/posts/php-fpm%E8%AE%BE%E7%BD%AEsocket%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5fastcgi/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

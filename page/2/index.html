@@ -145,6 +145,39 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">门面模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 概念
+门面模式（facade）又称外观模式，用于为子系统中的一组接口提供一个一致的界面。门面模式定义了一个高层接口，这个接口使得子系统更加容易使用；引入门面角色之后，用户只需要直接与门面角色交互，用户与子系统之间的复杂关系由门面角色来实现，从而降低了系统的耦合度。
+作用
+为一些复杂的子系统提供一组接口。 提高子系统的独立性 在层次化结构中，可以使用门面模式定义系统的每一层的接口 优点
+它对于客户屏蔽了子系统组件，因而减少了客户处理的对象的数目并使得子系统使用起来更加方便。 实现了子系统与客户之间的松耦合关系。 如果应用需要，它并不限制它们使用子系统类。因此可以在系统易用性与能用性之间加以选择。 &lt;?php class Camera { public function turnOn() { echo &#39;turn on camera&#39;; } public function turnOff() { echo &#39;turn off camera&#39;; } } class Light { public function turnOn() { echo &#39;turn on light&#39;; } public function turnOff() { echo &#39;turn off light&#39;; } } //门面类 class Facade { private $camera; private $light; public function __construct() { $this-&gt;camera = new Camera(); $this-&gt;light = new Light(); } //启动接口 public function activate() { $this-&gt;camera-&gt;turnOn(); $this-&gt;light-&gt;turnOn(); } //关闭接口 public function deactivate() { $this-&gt;camera-&gt;turnOff(); $this-&gt;light-&gt;turnOff(); } } //客户端 class Client { private static $securit; public static function main() { self::$securit = new Facade(); self::$securit-&gt;activate(); self::$securit-&gt;deactivate(); } } Client::main(); </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-24 22:15:37 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 门面模式" href="http://zhaoguibin.me/posts/%E9%97%A8%E9%9D%A2%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">管道模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 概念
+管道（pipeline）设计模式流水线模式就是将数据传递到一个任务序列中，管道扮演着流水线的角色，数据在这里被处理然后传递到下一个步骤
+释义
+管道，顾名思义，就是一个长长的流水管道，只不过加了许多阀门。所以管道模式大致需要三个角色：管道、阀门、载荷（流水）。
+目的是在管道中对载荷进行一系列的处理。因为可以对过滤器进行动态的添加，所以对载荷的处理可以变得更加灵活。但同时带来的问题是，在过滤器过多时，很难把握整体的处理逻辑。而且在某一个过滤器对载荷处理后，因为载荷改变，会造成下一个过滤器中的逻辑出错。
+&lt;?php //管道接口 interface PipelineBuilder { public function __construct($payload); //$payload载荷 public function pipe(StageBuilder $stage); //管道与阀门 public function process(); //过程 } //实现管道接口 class Pipeline implements PipelineBuilder { protected $payload; protected $pipes = []; public function __construct($payload) { $this-&gt;payload = $payload; } public function pipe(StageBuilder $stage) { $this-&gt;pipes[] = $stage; return $this; } public function process() { foreach ($this-&gt;pipes as $pipe) { call_user_func([$pipe, &#39;handle&#39;], $this-&gt;payload); } } } //阀门类 interface StageBuilder { public function handle($payload); } //实现 class StageOneBuilder implements StageBuilder { public function handle($payload) { echo &#39;one-&#39;; } } class StageTwoBuilder implements StageBuilder { public function handle($payload) { echo &#39;two-&#39;; } } //客户端使用 $pipeline = new PipeLine(&#39;step&#39;); $pipeline-&gt;pipe(new StageOneBuilder())-&gt;pipe(new StageTwoBuilder())-&gt;process(); </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-24 21:48:18 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 管道模式" href="http://zhaoguibin.me/posts/%E7%AE%A1%E9%81%93%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">代理模式
     </h2>
   </header>
@@ -273,31 +306,6 @@ php的应用主要在于数据库应用，所以一个应用中会存在大量�
   </div>
   <footer class="entry-footer"><span title='2020-08-22 14:19:32 +0000 UTC'>August 22, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to 多维数组拼接成字符串" href="http://zhaoguibin.me/posts/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E6%8B%BC%E6%8E%A5%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">数组按照alphabet序排序
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>数组key按照alphabet序排序 /** * @FuncName:arraySoft * @Description 数组key按照alphabet序排序 * @User ZHaoGuiBin * @Date 2020-08-13 15:45 * @param $data * @return mixed */ private static function arraySoft($data) { ksort($data); foreach ($data as $key =&gt; $value) { if (is_array($value)) { $data[$key] = self::arraySoft($value); } } return $data; } </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-08-22 13:51:31 +0000 UTC'>August 22, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 数组按照alphabet序排序" href="http://zhaoguibin.me/posts/%E6%95%B0%E7%BB%84key%E6%8C%89%E7%85%A7alphabet%E5%BA%8F%E6%8E%92%E5%BA%8F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">surge脚本-【DSU】每日签到
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>surge签到脚本 代码github地址 https://raw.githubusercontent.com/zhaoguibin/surge/master/script/RNB_daily_bonus.js
-/************************* [Script] mixrnb签到.js = type=cron,cronexp=35 8 * * *,wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/zhaoguibin/surge/master/script/RNB_daily_bonus.js 获取mixrnb的cookie = type=http-request,pattern=http:\/\/www.mixrnb.com\/plugin\.php\?id=dsu_paulsign:sign,tag=获取mixrnb的cookie,script-path=https://raw.githubusercontent.com/zhaoguibin/surge/master/script/RNB_daily_bonus.js,script-update-interval=0 签到页面获取到cookie，http://www.mixrnb.com/plugin.php?id=dsu_paulsign:sign *************************/ var error, response, body; var set_cookies = new Array(); const isRequest = typeof $request != &#34;undefined&#34; if (isRequest) { $cookie = $request.headers.Cookie; const saltkey_regex = /(R5nb_c8f5_saltkey=\S*)/gm; const auth_regex = /(R5nb_c8f5_auth=(\S*));/gm; const R5nb_c8f5_saltkey = saltkey_regex.exec($cookie); const R5nb_c8f5_auth = auth_regex.exec($cookie); if (!R5nb_c8f5_saltkey) { $notification.post(&#39;&#39;, &#39;&#39;, &#39;获取R5nb_c8f5_saltkey失败&#39;); $done(); } if (!R5nb_c8f5_auth) { $notification.post(&#39;&#39;, &#39;&#39;, &#39;获取R5nb_c8f5_auth失败&#39;); $done(); } $persistentStore....</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-08-04 19:53:32 +0000 UTC'>August 4, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to surge脚本-【DSU】每日签到" href="http://zhaoguibin.me/posts/surge%E8%84%9A%E6%9C%AC-dsu%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -145,6 +145,55 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Samba-配置文件详解
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Samba 的配置文件 /etc/samba/smb.conf 分为两大部分，一部分是 [global] ，即全局配置，另一部分是 [home] 、[printer] 、[自定义共享名] ，这些都是共享的部分，共享部分的设置优先级高于全局配置，另外，Samba 默认开启本地用户家目录 [home] 和打印机 [printer] 的共享，如果不需要你也可以关闭这两个共享，然后在末行自己重新创建一个共享，下面是详细的配置，你可以自定义一个共享，然后自己选择需要哪些配置：
+[pzk] # 自定义共享名 comment = Home Directories # 描述符，是给系统管理员看的 path = /tmp # 共享的路径 public = yes # 是否公开，也就是是否能在网上邻居看到该共享 browseable = yes # 共享的目录是否让所有人可见 writable = yes # 是否可写 guest ok = no # 是否拒绝匿名访问，仅当安全级别为 share 时才生效 workgroup = WORKGROUP # 工作组，要设置成跟 Windows 的工作组一致 server string = Samba Server Version %v # 其他 Linux 主机查看共享时的提示符 netbios name = MYSERVER # 用于在 Windows 网上邻居上显示的主机名 hosts allow = 127....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 14:55:37 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Samba-配置文件详解" href="http://zhaoguibin.me/posts/samba-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">使用firewalld打开关闭防火墙与端口
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1、firewalld的基本使用
+启动： systemctl start firewalld
+查看状态： systemctl status firewalld
+停止： systemctl disable firewalld
+禁用： systemctl stop firewalld
+2.systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。
+启动一个服务：systemctl start firewalld.service
+关闭一个服务：systemctl stop firewalld.service
+重启一个服务：systemctl restart firewalld.service
+显示一个服务的状态：systemctl status firewalld.service
+在开机时启用一个服务：systemctl enable firewalld.service
+在开机时禁用一个服务：systemctl disable firewalld.service
+查看服务是否开机启动：systemctl is-enabled firewalld.service
+查看已启动的服务列表：systemctl list-unit-files|grep enabled
+查看启动失败的服务列表：systemctl –failed
+3.配置firewalld-cmd
+查看版本： firewall-cmd –version
+查看帮助： firewall-cmd –help
+显示状态： firewall-cmd –state
+查看所有打开的端口： firewall-cmd –zone=public –list-ports
+更新防火墙规则： firewall-cmd –reload
+查看区域信息: firewall-cmd –get-active-zones
+查看指定接口所属区域： firewall-cmd –get-zone-of-interface=eth0
+拒绝所有包：firewall-cmd –panic-on
+取消拒绝状态： firewall-cmd –panic-off...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 14:53:02 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 使用firewalld打开关闭防火墙与端口" href="http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">将Ubuntu主文件夹里的中文文件夹名称改成英文
     </h2>
   </header>
@@ -287,41 +336,6 @@ mysql -u root mysql &gt; use mysql; mysql &gt; update user set password=password
   </div>
   <footer class="entry-footer"><span title='2017-12-02 12:24:47 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to centos7下使用yum安装mysql数据库" href="http://zhaoguibin.me/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">主从复制时报错：ERROR-1794-HY000-Slave……
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>centos 6.5
-mysql5.7
-在从库作stop slave时报：
-error: ERROR 1794 (HY000): Slave is not configured or failed to initialize properly. You must at least set --server-id to enable either a master or a slave. Additional error messages can be found in the MySQL error log. 经分析，需要：
-删除5张表，并重新导入脚本
-use mysql drop table slave_master_info; drop table slave_relay_log_info; drop table slave_worker_info; drop table innodb_index_stats; drop table innodb_table_stats; source /usr/coolpad/mysql/share/mysql_system_tables.sql (2)重新启动数据库
-注：这一步是必须的，否则无法正常配置双主架构。</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 12:22:19 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 主从复制时报错：ERROR-1794-HY000-Slave……" href="http://zhaoguibin.me/posts/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%97%B6%E6%8A%A5%E9%94%99error-1794-hy000-slave/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">virtualbox下centos挂载共享文件夹
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>PS:要挂载共享文件，需要安装virtualbox增强功能(增强包)
-安装virtualbox增强功能(增强包)：安装virtualbox增强功能(增强包)
-设备—&gt;共享文件夹 宿主机 共享路径:E:\project, 共享文件夹名称project
-mkdir /mnt/share //新建挂载点（mountpoint） mount -t vboxsf project /mnt/share // 挂载共享文件夹 cd /mnt/share 进入共享文件夹 OK 实现 开机挂载:
-vi ~/.bashrc 在最后添加
-mount -t vboxsf sharing /mnt/share 挂载共享文件夹 </p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 12:11:45 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to virtualbox下centos挂载共享文件夹" href="http://zhaoguibin.me/posts/virtualbox%E4%B8%8Bcentos%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
