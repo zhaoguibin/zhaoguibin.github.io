@@ -158,6 +158,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">ss服务端安装libsodium支持chacha20
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported.
+centos：
+yum -y groupinstall &#34;Development Tools&#34; wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; cd libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make install echo /usr/local/lib &gt;/etc/ld.so.conf.d/usr_local_lib.confldconfig ubuntu/debian： apt-get install build-essential wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; cd libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make installldconfig 如果曾经安装过旧版本，亦可重复用以上步骤更新到最新版，仅1.0.4或以上版本支持chacha20-ietf </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:21:19 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to ss服务端安装libsodium支持chacha20" href="http://zhaoguibin.me/posts/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">ssh远程登录命令简单实例
     </h2>
   </header>
@@ -281,21 +295,6 @@ kill -HUP cat/usr/local/webserver/nginx/logs/nginx.pid 主要参数介绍如下�
   </div>
   <footer class="entry-footer"><span title='2017-12-03 16:55:56 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to MySQL-ERROR-Table-mysql-user-doesn-t-exist" href="http://zhaoguibin.me/posts/mysql-error-table-mysql-user-doesn-t-exist/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Linux开机执行命令
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1、把需要执行的命令写到一个bash脚本里面： #!/bin/sh （此括号内为需要执行的命令） 保存为一个文件，比如123.sh，放在oracle的主目录里面。
-给这个文件加上可执行属性：chmod 775 123.sh
-然后，在/etc/rc.d/rc.local里面加上这句就可以了：
-/123.sh 延时执行 例子：( sleep 60 sh /goexcel.sh )&amp; 延时60秒执行 </p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-03 16:47:37 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to Linux开机执行命令" href="http://zhaoguibin.me/posts/linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

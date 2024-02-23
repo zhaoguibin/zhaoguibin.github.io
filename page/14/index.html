@@ -145,6 +145,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">用户及用户组管理
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>/etc/passwd 存储用户账号 /etc/group 存储组账号 /etc/shadow 存储用户账号的密码 /etc/gshadow 存储用户组账号的密码 useradd 用户名 userdel 用户名 adduser 用户名 groupadd 组名 groupdel 组名 passwd root 给root设置密码 su root su - root /etc/profile 系统环境变量 bash_profile 用户环境变量 .bashrc 用户环境变量 su user 切换用户，加载配置文件.bashrc su - user 切换用户，加载配置文件/etc/profile ，加载bash_profile 更改文件的用户及用户组 sudo chown [-R] owner[:group] {File|Directory} 例如：还以jdk-7u21-linux-i586.tar.gz为例。属于用户hadoop，组hadoop 要想切换此文件所属的用户及组。可以使用命令。 sudo chown root:root jdk-7u21-linux-i586.tar.gz </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 11:08:57 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 用户及用户组管理" href="http://zhaoguibin.me/posts/%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">centos6.5编译安装LNMP
     </h2>
   </header>

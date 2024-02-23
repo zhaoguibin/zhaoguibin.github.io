@@ -145,6 +145,28 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Windows通过Samba访问Linux文件
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安装
+yum install samba smaba-client 配置
+我想设置root用户给samba，并设置其密码，执行以下命令
+smbpasswd -a root 这个命令也可以修改设置的用户的密码
+这里的意思是说，当windows登录到Linux共享文件夹的时候输入的用户名root和密码(刚刚设置的)
+配置下smb.conf
+vim /etc/samba/smb.conf ⒈找到security = XXXX
+设置其为 security = root ⒉定位到该文件的最后，添加以下代码
+[root] comment = share path = /www browseable = yes guest ok = yes writable = yes path的意思是说我要共享的文件夹路径，其他的设置成yes就OK
+④使用windows连接Linux共享的这个文件夹 windows : 开始 -&gt; 输入\192.168.10.52 (该IP为Linux的IP地址) -&gt; 输入设置好的用户名和密码即可连接。。
+ps:linux需要开启139和445端口</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 14:59:06 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Windows通过Samba访问Linux文件" href="http://zhaoguibin.me/posts/windows%E9%80%9A%E8%BF%87samba%E8%AE%BF%E9%97%AElinux%E6%96%87%E4%BB%B6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Samba-配置文件详解
     </h2>
   </header>
@@ -313,29 +335,6 @@ root@ www.linuxidc.com :/# fdisk -l /dev/sdb Disk /dev/sdb: 8015 MB, 8015282176 
   </div>
   <footer class="entry-footer"><span title='2017-12-02 13:50:19 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to Ubuntu-手动挂载U盘" href="http://zhaoguibin.me/posts/ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDu%E7%9B%98/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">centos7下使用yum安装mysql数据库
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>CentOS7的yum源中默认好像是没有mysql的。为了解决这个问题，我们要先下载mysql的repo源。
-1 . 下载mysql的repo源
-wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm 2 . 安装mysql-community-release-el7-5.noarch.rpm包
-sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm 安装这个包后，会获得两个mysql的yum repo源：/etc/yum.repos.d/mysql-community.repo，/etc/yum.repos.d/mysql-community-source.repo。
-3 . 安装mysql
-sudo yum install mysql-server 根据步骤安装就可以了，不过安装完成后，没有密码，需要重置密码。
-4 . 重置密码
-重置密码前，首先要登录
-mysql -u root 登录时有可能报这样的错：ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (2)，原因是/var/lib/mysql的访问权限问题。下面的命令把/var/lib/mysql的拥有者改为当前用户：
-sudo chown -R root:root /var/lib/mysql 然后，重启服务：
-service mysqld restart 接下来登录重置密码：
-mysql -u root mysql &gt; use mysql; mysql &gt; update user set password=password(&#39;123456&#39;) where user=&#39;root&#39;; mysql &gt; exit; </p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 12:24:47 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to centos7下使用yum安装mysql数据库" href="http://zhaoguibin.me/posts/centos7%E4%B8%8B%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

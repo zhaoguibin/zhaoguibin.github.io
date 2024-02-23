@@ -158,6 +158,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Linux开机执行命令
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1、把需要执行的命令写到一个bash脚本里面： #!/bin/sh （此括号内为需要执行的命令） 保存为一个文件，比如123.sh，放在oracle的主目录里面。
+给这个文件加上可执行属性：chmod 775 123.sh
+然后，在/etc/rc.d/rc.local里面加上这句就可以了：
+/123.sh 延时执行 例子：( sleep 60 sh /goexcel.sh )&amp; 延时60秒执行 </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 16:47:37 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Linux开机执行命令" href="http://zhaoguibin.me/posts/linux%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Linux-查看进程和删除进程
     </h2>
   </header>
@@ -324,28 +339,6 @@ vi /etc/sysconfig/iptables 打开配置文件加入如下语句: -A INPUT -p tcp
   </div>
   <footer class="entry-footer"><span title='2017-12-02 15:03:33 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to centos6-5开启-关闭端口" href="http://zhaoguibin.me/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Windows通过Samba访问Linux文件
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>安装
-yum install samba smaba-client 配置
-我想设置root用户给samba，并设置其密码，执行以下命令
-smbpasswd -a root 这个命令也可以修改设置的用户的密码
-这里的意思是说，当windows登录到Linux共享文件夹的时候输入的用户名root和密码(刚刚设置的)
-配置下smb.conf
-vim /etc/samba/smb.conf ⒈找到security = XXXX
-设置其为 security = root ⒉定位到该文件的最后，添加以下代码
-[root] comment = share path = /www browseable = yes guest ok = yes writable = yes path的意思是说我要共享的文件夹路径，其他的设置成yes就OK
-④使用windows连接Linux共享的这个文件夹 windows : 开始 -&gt; 输入\192.168.10.52 (该IP为Linux的IP地址) -&gt; 输入设置好的用户名和密码即可连接。。
-ps:linux需要开启139和445端口</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 14:59:06 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to Windows通过Samba访问Linux文件" href="http://zhaoguibin.me/posts/windows%E9%80%9A%E8%BF%87samba%E8%AE%BF%E9%97%AElinux%E6%96%87%E4%BB%B6/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

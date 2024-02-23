@@ -158,6 +158,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">mac使用fswatch监控文件夹修改并执行shell脚本
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安装 fswatch 需要安装 fswatch。可以使用 Homebrew 来安装： brew install fswatch 创建启动脚本 创建一个脚本来启动 fswatch 并执行相应的操作。创建一个脚本文件，比如 watch_files.sh，并添加以下内容：
+#!/bin/bash # 监视目录中的文件更改并执行脚本 fswatch -0 /path/to/directory | xargs -0 -n 1 /path/to/script.sh 将 /path/to/directory 替换为要监视的目录，将 /path/to/script.sh 替换为要在文件更改时执行的 shell 脚本的路径。
+创建启动项 创建一个 Launchd 启动项，以便在系统启动时运行脚本。创建一个 .plist 文件，比如 com.example.watchfiles.plist，并将以下内容添加到文件中：
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; &lt;dict&gt; &lt;key&gt;Label&lt;/key&gt; &lt;string&gt;com.example.watchfiles&lt;/string&gt; &lt;key&gt;ProgramArguments&lt;/key&gt; &lt;array&gt; &lt;string&gt;/bin/bash&lt;/string&gt; &lt;string&gt;/path/to/watch_files.sh&lt;/string&gt; &lt;/array&gt; &lt;key&gt;RunAtLoad&lt;/key&gt; &lt;true/&gt; &lt;/dict&gt; &lt;/plist&gt; 将 com.example.watchfiles 替换为自己的标识符，并将 /path/to/watch_files.sh 替换为您创建的脚本的路径。
+安装启动项 将 ....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-02-22 12:11:23 +0000 UTC'>February 22, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to mac使用fswatch监控文件夹修改并执行shell脚本" href="http://zhaoguibin.me/posts/mac%E4%BD%BF%E7%94%A8fswatch%E7%9B%91%E6%8E%A7%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BF%AE%E6%94%B9%E5%B9%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Golang base64转图片
     </h2>
   </header>
@@ -269,22 +285,6 @@
   </div>
   <footer class="entry-footer"><span title='2022-03-24 23:13:56 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to 装饰器模式" href="http://zhaoguibin.me/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">注册树模式
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 概念
-注册树模式也叫注册模式或注册器模式，顾名思义，注册树就是把对象实例注册到一棵全局的对象树上，需要对象的时候就从树上取下来，就好比树上长的果子，需要的时候就摘一个下来，只是这个对象树果子是摘不完的。
-作用
-不管是单例模式还是工厂模式建立的对象，都没有得到很好的管理，用了注册树模式，就可以把创建出来的对象注册到全局树上，需要的时候取下来用，可以很好的管理创建的对象。
-&lt;?php class DbMysql { public function conn() { echo &#39;mysql conn&#39;; } } class DbSqlite { public function conn() { echo &#39;sqlite conn&#39;; } } class MysqlFactory { public static function getIns() { return new DbMysql(); } } class SqliteFactory { public static function getIns() { return new DbSqlite(); } } //注册树实现存储对象（IOC控制反转思想） class RegisterTree { protected static $objects; //添加对象到注册树中 public static function set($alias, $object) { self::$objects[$alias] = $object; } //从注册树中获取对象 public static function get($alias) { return self::$objects[$alias]; } //销毁注册树上的对象 public static function _unset($alias) { unset(self::$objects[$alias]); } } //注册 RegisterTree::set(&#39;mysql&#39;, MysqlFactory::getIns()); RegisterTree::set(&#39;sqlite&#39;, SqliteFactory::getIns()); //客户端 // $mysql = RegisterTree::get(&#39;mysql&#39;); // $mysql-&gt;conn(); // $sqlite = RegisterTree::get(&#39;sqlite&#39;); // $sqlite-&gt;conn(); class Facade { public static $mysql; public static $sqlite; public function __construct() { self::$mysql = RegisterTree::get(&#39;mysql&#39;); self::$sqlite = RegisterTree::get(&#39;sqlite&#39;); } } new Facade(); Facade::$mysql-&gt;conn(); Facade::$sqlite-&gt;conn(); </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-24 22:39:41 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 注册树模式" href="http://zhaoguibin.me/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

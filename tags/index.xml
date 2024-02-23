@@ -11,8 +11,22 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 03 Jan 2024 21:51:21 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Feb 2024 12:11:23 +0000</lastBuildDate>
     <atom:link href="http://zhaoguibin.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fswatch</title>
+      <link>http://zhaoguibin.me/tags/fswatch/</link>
+      <pubDate>Thu, 22 Feb 2024 12:11:23 +0000</pubDate>
+      <guid>http://zhaoguibin.me/tags/fswatch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mac</title>
+      <link>http://zhaoguibin.me/tags/mac/</link>
+      <pubDate>Thu, 22 Feb 2024 12:11:23 +0000</pubDate>
+      <guid>http://zhaoguibin.me/tags/mac/</guid>
+      <description></description>
+    </item>
     <item>
       <title>golang</title>
       <link>http://zhaoguibin.me/tags/golang/</link>

@@ -145,6 +145,49 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">phpstorm中配置远程调试xdebug
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>这里说的是真正的远程调试，不是本地，本地不需要安装任何php程序！！！
+这里略去xdebug的安装，安装很简单可以下载源码包，动态编译进去！
+环境：
+Dev 服务器(IP:192.168.3.2)，安装phpstorm，用来做开发任务！
+Server服务器（IP:192.168.3.9），web服务器(php架构)，用来浏览网页用！
+这里的两台服务器在同一个网段下，可以互通！
+在Server服务器上的php.ini里配置xdebug如下：
+[xdebug] zend_extension=xdebug.so xdebug.remote_enable=1 xdebug.remote_handler=dbgp xdebug.remote_mode=req xdebug.remote_host=192.168.3.9 xdebug.remote_port=9000 xdebug.idekey=&#34;PHPSTORM&#34; remote_host参数的值填写Dev 服务器(开发机器)的IP地址。
+remote_port填写9000，只要没有被其它程序占用，就可以了，可以不是9000。
+接下来开始设置phpstorm的参数：
+快捷键(Ctrl &#43; Alt &#43; S)打开窗口：
+打开phpstorm的配置对话框，找到Languages &amp; Frameworks » PHP »Debug 窗口
+这里填写的Debug port为：9000，与php.ini里配置的端口号保持一致!
+接下来点选Server选项，点击绿色的 “&#43;” 新建Server，并根据如下设置填写你相对应的内容！
+因为是远程调试，所以这里的Use Path mappings 一定要选，并且本地与远程文件要映射好。
+Debugger里选择：Xdebug ！
+接下来配置Edit Configurations( Run » Edit Configurations)
+点击后弹出窗口如下：
+选中PHP Web Application ，在右边选择前面新增的Server：ecstore，保存。
+这里其实只是用来配置一个模板，我之前只配置了这个，没有新增Debug选项，总是不能调试，后来参照资料才想明白，这里其实只是模板，配置好了后，可以直接新增选择对应模板就可以了。
+现在来新增Debug选项：
+点击后新增调试选项：
+好了。
+在php代码里打个断点开始调试吧：)
+然后，点击调试，开始愉快的干活吧！！！
+看看调试效果：
+这里真的没有什么DBGp概念，我们没有用到，也没有什么点击什么绿色的电话图标启动Start Listening…，有吗？？
+没用，真的用不到那么些概念，网上一大堆以讹传讹的贴子，真是越看越迷糊！！！
+就这么愉快的调试吧 :)
+关于DBGp，其实就是个代理，把phpstorm设置成一个代理，但是对于我来说，真的需要什么代理吗？？？
+就这样吧，最简单的远程调试，去粗到精的成果！
+浏览器设置 下载谷歌浏览器的扩展程序chrome helper，安装好后，在选项里找到IDE key，在其下拉列表中选择PhpStorm。如下图：...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 19:19:20 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to phpstorm中配置远程调试xdebug" href="http://zhaoguibin.me/posts/phpstorm%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95xdebug/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">linux下php扩展mysqli的支持
     </h2>
   </header>
@@ -264,20 +307,6 @@ mysql -u root -proot mysql&gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39
   </div>
   <footer class="entry-footer"><span title='2017-12-03 17:25:46 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to windows下用navicat远程链接虚拟机Linux下MySQL数据库" href="http://zhaoguibin.me/posts/windows%E4%B8%8B%E7%94%A8navicat%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BAlinux%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">ss服务端安装libsodium支持chacha20
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>ss如果要使用 salsa20 或 chacha20 或 chacha20-ietf 算法，需要安装 libsodium ，否则就算在config.json里面设置成chacha20也会提示method not supported.
-centos：
-yum -y groupinstall &#34;Development Tools&#34; wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; cd libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make install echo /usr/local/lib &gt;/etc/ld.so.conf.d/usr_local_lib.confldconfig ubuntu/debian： apt-get install build-essential wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-1.0.11.tar.gztar xf libsodium-1.0.11.tar.gz &amp;&amp; cd libsodium-1.0.11./configure &amp;&amp; make -j2 &amp;&amp; make installldconfig 如果曾经安装过旧版本，亦可重复用以上步骤更新到最新版，仅1.0.4或以上版本支持chacha20-ietf </p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-03 17:21:19 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to ss服务端安装libsodium支持chacha20" href="http://zhaoguibin.me/posts/ss%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85libsodium%E6%94%AF%E6%8C%81chacha20/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

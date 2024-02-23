@@ -145,6 +145,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">多维数组拼接成字符串
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>多维数组拼接成字符串 /** * @FuncName:arrayToString * @Description 数组拼接成字符串 * @User ZHaoGuiBin * @Date 2020-08-14 9:17 * @param $data * @param string $keys * @param string $key_1 //多维数组主key * @param string $string * @return string */ private static function arrayToString($data, $keys = &#39;&#39;, $string = &#39;&#39;, $key_1 = &#39;&#39;) { $temp = 0; foreach ($data as $key =&gt; $value) { if (is_array($value)) { if (!is_numeric($key)) { $key_1 = $key; $string .= $key_1 ....</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-08-22 14:19:32 +0000 UTC'>August 22, 2020</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 多维数组拼接成字符串" href="http://zhaoguibin.me/posts/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E6%8B%BC%E6%8E%A5%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">数组按照alphabet序排序
     </h2>
   </header>
@@ -257,18 +269,6 @@ package main import ( &#34;fmt&#34; &#34;time&#34; ) var pool = 100 //奇数 fun
   </div>
   <footer class="entry-footer"><span title='2019-01-26 10:29:46 +0000 UTC'>January 26, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to Virtualbox 共享文件夹 cannot create symlink error" href="http://zhaoguibin.me/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">linux挂载windows下的共享文件
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>安装cifs-utils yum install cifs* -y 这条命令只可以读取Windows共享文件，不能创建文件 #user=Windows用户 #pass=Windows登录密码 #//192.168.10.64/APP Windows共享文件 #/opt/APP/ linux挂载目录 mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq 这条命令可以添加文件操作权限 #user=Windows用户 #pass=Windows登录密码 #//192.168.10.64/APP Windows共享文件 #/opt/APP/ linux挂载目录 #uid，gid，linux用户的id和用户组id，可以通过 id root 命令查看用户的id和用户组id #rw,dir_mode=0777,file_mode=0777这些是设置文件夹权限，可以根据自己的需求设置权限 mount.cifs //192.168.10.64/APP /opt/APP/ -o user=Developer,pass=123456trewq,rw,uid=0,gid=0,dir_mode=0777,file_mode=0777 </p>
-  </div>
-  <footer class="entry-footer"><span title='2018-11-23 21:38:17 +0000 UTC'>November 23, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to linux挂载windows下的共享文件" href="http://zhaoguibin.me/posts/linux%E6%8C%82%E8%BD%BDwindows%E4%B8%8B%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
