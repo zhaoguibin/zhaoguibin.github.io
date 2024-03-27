@@ -14,9 +14,7 @@
 &lt;?php class DbMysql { public function conn() { echo &#39;mysql conn&#39;; } } class DbSqlite { public function conn() { echo &#39;sqlite conn&#39;; } } class MysqlFactory { public static function getIns() { return new DbMysql(); } } class SqliteFactory { public static function getIns() { return new DbSqlite(); } } //注册树实现存储对象（IOC控制反转思想） class RegisterTree { protected static $objects; //添加对象到注册树中 public static function set($alias, $object) { self::$objects[$alias] = $object; } //从注册树中获取对象 public static function get($alias) { return self::$objects[$alias]; } //销毁注册树上的对象 public static function _unset($alias) { unset(self::$objects[$alias]); } } //注册 RegisterTree::set(&#39;mysql&#39;, MysqlFactory::getIns()); RegisterTree::set(&#39;sqlite&#39;, SqliteFactory::getIns()); //客户端 // $mysql = RegisterTree::get(&#39;mysql&#39;); // $mysql-&gt;conn(); // $sqlite = RegisterTree::get(&#39;sqlite&#39;); // $sqlite-&gt;conn(); class Facade { public static $mysql; public static $sqlite; public function __construct() { self::$mysql = RegisterTree::get(&#39;mysql&#39;); self::$sqlite = RegisterTree::get(&#39;sqlite&#39;); } } new Facade(); Facade::$mysql-&gt;conn(); Facade::$sqlite-&gt;conn(); ">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -24,6 +22,7 @@
 <link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/posts/%E6%B3%A8%E5%86%8C%E6%A0%91%E6%A8%A1%E5%BC%8F/">
 <noscript>
     <style>
         #theme-toggle,
@@ -41,7 +40,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -174,6 +173,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -308,7 +309,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://zhaoguibin.me/tags/php/">php</a></li>
+      <li><a href="http://zhaoguibin.me/tags/php/">Php</a></li>
       <li><a href="http://zhaoguibin.me/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li>
     </ul>
 <nav class="paginav">

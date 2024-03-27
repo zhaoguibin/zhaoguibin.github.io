@@ -10,7 +10,7 @@
 <meta name="description" content="Posts - 笔记">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://zhaoguibin.me/posts/index.xml">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/posts/">
 <noscript>
     <style>
         #theme-toggle,
@@ -36,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -120,6 +121,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -155,6 +158,80 @@
     </a>
   </h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">yum 安装报 关于Public key for .rpm is not installed 的解决方法
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>此时要导入rpm的签名信息即可
+以root登录，执行下面命令
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release 根据我的Linux版本是CentOS 7
+于是我执行下面命令
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 11:27:39 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to yum 安装报 关于Public key for .rpm is not installed 的解决方法" href="http://zhaoguibin.me/posts/yum-%E5%AE%89%E8%A3%85%E6%8A%A5-%E5%85%B3%E4%BA%8Epublic-key-for-.rpm-is-not-installed-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Warning RPMDB altered outside of yum.的解决办法
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>错误提示： Warning: RPMDB altered outside of yum
+解决办法： 删除yum的历史记录
+rm -rf /var/lib/yum/history/*.sqlite </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 11:26:56 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Warning RPMDB altered outside of yum.的解决办法" href="http://zhaoguibin.me/posts/warning-rpmdb-altered-outside-of-yum.%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95-/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">mysql实现主从复制
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>准备工作：
+1.两个虚拟机：我这里用的是CentOS5.5，IP地址分别是192.168.1.101 和192.168.1.105；
+101做主服务器，105做从服务器（都已经安装相同版本的Mysql）；
+2.本机环境：Nginx&#43;PHP&#43;MySQL
+好了，现在开始吧，来看看这听起来高大上的主从复制是怎么回事。
+原理：mysql要做到主从复制，其实依靠的是二进制日志，即：假设主服务器叫A，从服务器叫B；主从复制就是
+B跟着A学，A做什么，B就做什么。那么B怎么同步A的动作呢？现在A有一个日志功能，把自己所做的增删改查的动作
+全都记录在日志中，B只需要拿到这份日志，照着日志上面的动作施加到自己身上就可以了。这样就实现了主从复制。
+扩展：MYSQL还有一种日志叫做：慢日志
+可以设置一个时间，那么所有执行时间超过这个时间的SQL都会被记录下来。这样就可以通过慢日志快速的找到网站中SQL的瓶颈来进行优化。
+实现步骤：
+1.首先修改mysql的配置文件，使其支持二进制日志功能。
+打开主服务器的mysql配置文件：my.conf
+vim /etc/my.cnf 加入如下三行代码：
+参数解释： log-bin=mysql-bin //将mysql二进制日志取名为mysql-bin
+binlog_format=mixed //二进制日志的格式，有三种：statement/row/mixed,具体分别不多做解释，这里使用mixed
+server-id=101 //为服务器设置一个独一无二的id便于区分，这里使用ip地址的最后一位充当server-id
+配置完成，:wq 保存，重启mysql
+重启mysql命令：# service mysqld restart
+同样的，进入从服务器，配置从服务器的my.cnf,重复步骤1即可，
+唯一的区别是，server-id要改成从服务器的ip尾位，即server-id=105;其他两项是一样的，保存，并重启mySQL；
+2.在主服务器上为从服务器分配一个账号，就像一把钥匙，从服务器拿着这个钥匙，才能到主服务器上来共享主服务器的日志文件。
+进入主服务器的mysql界面，
+mysql -u root -p 111111 //我这里mysql账号是root，密码是111111 在mysql操作界面下，输入下面一行命令：
+GRANT replication slave ON *.* TO &#39;slave&#39;@&#39;%&#39; IDENTIFIED BY &#39;111111&#39;; 3.查看主服务器BIN日志的信息（执行完之后记录下这两值，然后在配置完从服务器之前不要对主服务器进行任何操作，因为每次操作数据库时这两值会发生改变）.
+4.设置从服务器
+进入从服务器mysql
+mysql -u root -p111111 关闭slave（如果你以前配置过主从的话，一定要先关闭）
+stop slave; 开始配置：
+输入下面代码即可：
+参数解释：
+MASTER_HOST : 设置要连接的主服务器的ip地址
+MASTER_USER : 设置要连接的主服务器的用户名...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 11:12:18 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to mysql实现主从复制" href="http://zhaoguibin.me/posts/mysql%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -282,48 +359,12 @@ DCL(Data Control Language)：
   <footer class="entry-footer">3 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to php排序实现方法" href="http://zhaoguibin.me/posts/php%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">ubuntu配置全局代理
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>PS:使用 polipo 前需要先安装 shadowsocks
-启动shawdowsocks服务后，发现并不能翻墙上网，这是因为shawdowsocks是socks 5代理，需要客户端配合才能翻墙。
-为了让整个系统都走shawdowsocks通道，需要配置全局代理，可以通过polipo实现。
-首先是安装polipo：
-sudo apt-get install polipo 接着修改polipo的配置文件/etc/polipo/config：
-logSyslog = true logFile = /var/log/polipo/polipo.log proxyAddress = &#34;0.0.0.0&#34; socksParentProxy = &#34;127.0.0.1:1080&#34; socksProxyType = socks5 chunkHighMark = 50331648 objectHighMark = 16384 serverMaxSlots = 64 serverSlots = 16 serverSlots1 = 32 重启polipo服务：
-sudo /etc/init.d/polipo restart 为终端配置http代理：
-export http_proxy=&#34;http://127.0.0.1:8123/&#34; export https_proxy=&#34;http://127.0.0.1:8123/&#34; 接着测试下能否翻墙：
-ping www.google.com 如果有响应，则全局代理配置成功。
-注意事项
-服务器重启后，下面两句需要重新执行：
-shawdowsocks启动，然后
-export http_proxy=&#34;http://127.0.0.1:8123/&#34; </p>
-  </div>
-  <footer class="entry-footer">1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to ubuntu配置全局代理" href="http://zhaoguibin.me/posts/ubuntu%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">解决MySQL出现 Waiting for table metadata lock 问题
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前几天修改数据库表，结果数据库就卡死了，通过命令
-show processlist 发现 Waiting for table metadata lock状态的连接，幸好这个状态的连接不多，kill掉这些连接就可以了。
-...</p>
-  </div>
-  <footer class="entry-footer">1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 解决MySQL出现 Waiting for table metadata lock 问题" href="http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3mysql%E5%87%BA%E7%8E%B0-waiting-for-table-metadata-lock-%E9%97%AE%E9%A2%98/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="http://zhaoguibin.me/posts/page/13/">
-      «&nbsp;Prev&nbsp;13/14
+      «&nbsp;Prev&nbsp;13/15
+    </a>
+    <a class="next" href="http://zhaoguibin.me/posts/page/15/">Next&nbsp;15/15&nbsp;»
     </a>
   </nav>
 </footer>

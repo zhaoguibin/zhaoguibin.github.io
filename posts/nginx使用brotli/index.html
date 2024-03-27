@@ -10,9 +10,7 @@
 <meta name="description" content="首先下载brotli的nginx模块 cd /opt/local/src git clone https://github.com/google/ngx_brotli.git 接着下载brotli源代码 cd ngx_brotli cd deps/brotli git clone https://github.com/google/brotli.git 编译nginx源代码指定第三方模块 ./configure --prefix=/opt/local/nginx --without-http_memcached_module --user=www --group=www --with-http_stub_status_module --with-openssl=/usr/ --with-pcre=/opt/local/src/pcre-8.36 --add-module=/opt/local/src/ngx_brotli 可能会报错，提示你 ./configure: error: Brotli library is missing from the /opt/local/src/ngx_brotli/deps/brotli directory. Please make sure that the git submodule has been checked out: cd /opt/local/src/ngx_brotli &amp;&amp; git submodule update --init &amp;&amp; cd /opt/local/src/nginx-1.12.1 照着它的提示操作就好了,网络不好的话需要等很长时间，这时候就是展现技术的时候了，你懂得 cd /opt/local/src/ngx_brotli &amp;&amp; git submodule update --init &amp;&amp; cd /opt/local/src/nginx-1.12.1 操作完以后，再一次编译nginx源码 ./configure --prefix=/opt/local/nginx --without-http_memcached_module --user=www --group=www --with-http_stub_status_module --with-openssl=/usr/ --with-pcre=/opt/local/src/pcre-8.">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/nginx%E4%BD%BF%E7%94%A8brotli/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -20,6 +18,7 @@
 <link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/posts/nginx%E4%BD%BF%E7%94%A8brotli/">
 <noscript>
     <style>
         #theme-toggle,
@@ -37,7 +36,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -162,6 +161,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -311,7 +312,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://zhaoguibin.me/tags/nginx/">nginx</a></li>
+      <li><a href="http://zhaoguibin.me/tags/nginx/">Nginx</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://zhaoguibin.me/posts/centos%E4%BF%AE%E6%94%B9ip/">

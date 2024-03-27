@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>linux | 笔记</title>
+<title>Linux | 笔记</title>
 <meta name="keywords" content="">
 <meta name="description" content="笔记">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/tags/linux/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://zhaoguibin.me/tags/linux/index.xml">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/tags/linux/">
 <noscript>
     <style>
         #theme-toggle,
@@ -36,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -55,7 +56,7 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="linux" />
+</noscript><meta property="og:title" content="Linux" />
 <meta property="og:description" content="笔记" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://zhaoguibin.me/tags/linux/" /><meta property="og:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
@@ -63,7 +64,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
 
-<meta name="twitter:title" content="linux"/>
+<meta name="twitter:title" content="Linux"/>
 <meta name="twitter:description" content="笔记"/>
 
 </head>
@@ -105,6 +106,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -129,7 +132,7 @@
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="http://zhaoguibin.me/">Home</a>&nbsp;»&nbsp;<a href="http://zhaoguibin.me/tags/">Tags</a></div>
   <h1>
-    linux
+    Linux
     <a href="/tags/linux/index.xml" title="RSS" aria-label="RSS">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" height="23">
@@ -140,6 +143,18 @@
     </a>
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">网络连接以及下载
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>wget 指定本定文件夹和保存为特定名称 1. 在shell 中执行以下命令 wget -P /root/test &#34;http://www.baidu.com/index.html&#34; 会把 index.html 文件保存到 &#34;/root/test&#34; 目录下. 2. 执行 wget -O &#34;baidu.html&#34; &#34;http://www.baidu.com/index.html&#34; 会把 index.hmtl 保存到当前目录, 命令为 &#34;baidu.html&#34;. 3. 执行 wget -P /root/test -O &#34;baidu.html&#34; &#34;http://www.baidu.com/index.html&#34; 的结果和 2 相同, 并不会保存到 &#34;/root/test&#34; 目录下. 在linux命令下如何访问一个url？ 1.elinks - lynx-like替代角色模式WWW的浏览器 例如： elinks --dump http://www.baidu.com 2.wget 这个会将访问的首页下载到本地 [root@el5-mq2 ~]# wget http://www.baidu.com --2011-10-17 16:30:10-- http://www.baidu.com/ Resolving www.baidu.com... 119.75.218.45, 119.75.217.56 Connecting to www.baidu.com|119.75.218.45|:80... connected. HTTP request sent, awaiting response... 200 OK Length: 8403 (8....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:40:49 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 网络连接以及下载" href="http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
@@ -309,22 +324,6 @@ source filename 与 sh filename 及./filename执行脚本的区别在那里呢�
   </div>
   <footer class="entry-footer"><span title='2017-12-02 14:53:02 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to 使用firewalld打开关闭防火墙与端口" href="http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8firewalld%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">解决问题E-无法获得锁-var-lib-dpkg-lock-open-11-资源暂时不可用-E-无法锁定管理目录
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>在用sudo apt-get update 更新时，终端提示:
-“E: 无法获得锁 /var/lib/dpkg/lock - open (11: 资源暂时不可用) E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？” 解决办法如下：
-1.终端输入 ps -aux ，列出进程。找到含有apt‘-get的进程，直接sudo kill PID。解决。
-2.强制解锁,命令
-sudo rm /var/cache/apt/archives/lock sudo rm /var/lib/dpkg/lock </p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 14:45:56 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 解决问题E-无法获得锁-var-lib-dpkg-lock-open-11-资源暂时不可用-E-无法锁定管理目录" href="http://zhaoguibin.me/posts/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98e-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%BE%97%E9%94%81-var-lib-dpkg-lock-open-11-%E8%B5%84%E6%BA%90%E6%9A%82%E6%97%B6%E4%B8%8D%E5%8F%AF%E7%94%A8-e-%E6%97%A0%E6%B3%95%E9%94%81%E5%AE%9A%E7%AE%A1%E7%90%86%E7%9B%AE%E5%BD%95/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

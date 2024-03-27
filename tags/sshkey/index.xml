@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sshkey on 笔记</title>
+    <link>http://zhaoguibin.me/tags/sshkey/</link>
+    <description>Recent content in Sshkey on 笔记</description>
+    <image>
+      <title>笔记</title>
+      <url>http://zhaoguibin.me/images/papermod-cover.png</url>
+      <link>http://zhaoguibin.me/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 26 Mar 2024 21:31:13 +0000</lastBuildDate>
+    <atom:link href="http://zhaoguibin.me/tags/sshkey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github通过sshkey的方式拉取代码报错kex_exchange_identification</title>
+      <link>http://zhaoguibin.me/posts/github%E9%80%9A%E8%BF%87sshkey%E7%9A%84%E6%96%B9%E5%BC%8F%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81%E6%8A%A5%E9%94%99kex_exchange_identification/</link>
+      <pubDate>Tue, 26 Mar 2024 21:31:13 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/github%E9%80%9A%E8%BF%87sshkey%E7%9A%84%E6%96%B9%E5%BC%8F%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81%E6%8A%A5%E9%94%99kex_exchange_identification/</guid>
+      <description>Git生成密钥 设定Git的username和email git config --global user.name &amp;#34;你的用户名&amp;#34; git config --global user.email &amp;#34;你的邮箱&amp;#34; 创建SSH key cd ~/.ssh ssh-keygen -t rsa -C &amp;#34;你的邮箱&amp;#34; 会出现以下的提示 Generating public/private rsa key pair. Enter file in which to save the key (~/.ssh/id_rsa): 一路回车默认就可以了，这样你的公钥和私钥就同时保存在了~/.ssh/下了。
+获取SSH key cat id_rsa.pub Github添加SSH key 以上都配置了还不行就执行这一步 将 Github 的连接端口从 22 改为 443 即可 编辑 ~/.ssh/config 文件（没有就新增），windows在用户目录下的.ssh目录，添加如下内容
+Host github.com HostName ssh.github.com User git Port 443 验证： ssh -T git@github.com 输出
+Enter passphrase for key &amp;#39;~/.</description>
+    </item>
+  </channel>
+</rss>

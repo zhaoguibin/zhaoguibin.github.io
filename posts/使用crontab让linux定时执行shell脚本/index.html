@@ -10,9 +10,7 @@
 <meta name="description" content="使用crontab你可以在指定的时间执行一个shell脚本或者一系列Linux命令。例如系统管理员安排一个备份任务使其每天都运行 入门 crontab –e 这样可以已编辑模式打开个人的crontab配置文件，然后加入一下这行： 0 0 * * * /home/linrui/XXXXXXXX.sh 这将会在每天凌晨运行 指定的.sh文件 Cron 各项的描述 以下是 crontab 文件的格式： {minute} {hour} {day-of-month} {month} {day-of-week} {full-path-to-shell-script} o minute: 区间为 0 – 59 o hour: 区间为0 – 23 o day-of-month: 区间为0 – 31 o month: 区间为1 – 12. 1 是1月. 12是12月. o Day-of-week: 区间为0 – 7. 周日可以是0或7. Crontab 示例 1、在 凌晨00:01运行 1 0 * * * /home/linrui/XXXX.sh 2、每个工作日23:59都进行备份作业。 59 11 * * 1,2,3,4,5 /home/linrui/XXXX.">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -20,6 +18,7 @@
 <link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/posts/%E4%BD%BF%E7%94%A8crontab%E8%AE%A9linux%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/">
 <noscript>
     <style>
         #theme-toggle,
@@ -37,7 +36,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -162,6 +161,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -233,8 +234,8 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://zhaoguibin.me/tags/linux/">linux</a></li>
-      <li><a href="http://zhaoguibin.me/tags/crontab/">crontab</a></li>
+      <li><a href="http://zhaoguibin.me/tags/linux/">Linux</a></li>
+      <li><a href="http://zhaoguibin.me/tags/crontab/">Crontab</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/">

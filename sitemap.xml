@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://zhaoguibin.me/tags/alpine/</loc>
+    <lastmod>2024-03-26T21:51:55+00:00</lastmod>
+  </url><url>
+    <loc>http://zhaoguibin.me/posts/alpine-linux-%E6%9B%B4%E6%94%B9%E6%97%B6%E5%8C%BA/</loc>
+    <lastmod>2024-03-26T21:51:55+00:00</lastmod>
+  </url><url>
+    <loc>http://zhaoguibin.me/tags/linux/</loc>
+    <lastmod>2024-03-26T21:51:55+00:00</lastmod>
+  </url><url>
+    <loc>http://zhaoguibin.me/posts/</loc>
+    <lastmod>2024-03-26T21:51:55+00:00</lastmod>
+  </url><url>
+    <loc>http://zhaoguibin.me/tags/</loc>
+    <lastmod>2024-03-26T21:51:55+00:00</lastmod>
+  </url><url>
+    <loc>http://zhaoguibin.me/</loc>
+    <lastmod>2024-03-26T21:51:55+00:00</lastmod>
+  </url><url>
+    <loc>http://zhaoguibin.me/tags/git/</loc>
+    <lastmod>2024-03-26T21:31:13+00:00</lastmod>
+  </url><url>
+    <loc>http://zhaoguibin.me/posts/github%E9%80%9A%E8%BF%87sshkey%E7%9A%84%E6%96%B9%E5%BC%8F%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81%E6%8A%A5%E9%94%99kex_exchange_identification/</loc>
+    <lastmod>2024-03-26T21:31:13+00:00</lastmod>
+  </url><url>
+    <loc>http://zhaoguibin.me/tags/sshkey/</loc>
+    <lastmod>2024-03-26T21:31:13+00:00</lastmod>
+  </url><url>
+    <loc>http://zhaoguibin.me/posts/ios%E4%B8%8A%E4%BD%BF%E7%94%A8ish%E7%9A%84git%E5%90%8C%E6%AD%A5irime/</loc>
+    <lastmod>2024-03-26T20:15:37+00:00</lastmod>
+  </url><url>
+    <loc>http://zhaoguibin.me/tags/iphone/</loc>
+    <lastmod>2024-03-26T20:15:37+00:00</lastmod>
+  </url><url>
+    <loc>http://zhaoguibin.me/tags/ish/</loc>
+    <lastmod>2024-03-26T20:15:37+00:00</lastmod>
+  </url><url>
     <loc>http://zhaoguibin.me/tags/fswatch/</loc>
     <lastmod>2024-02-22T12:11:23+00:00</lastmod>
   </url><url>
@@ -9,15 +45,6 @@
     <lastmod>2024-02-22T12:11:23+00:00</lastmod>
   </url><url>
     <loc>http://zhaoguibin.me/posts/mac%E4%BD%BF%E7%94%A8fswatch%E7%9B%91%E6%8E%A7%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BF%AE%E6%94%B9%E5%B9%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2024-02-22T12:11:23+00:00</lastmod>
-  </url><url>
-    <loc>http://zhaoguibin.me/posts/</loc>
-    <lastmod>2024-02-22T12:11:23+00:00</lastmod>
-  </url><url>
-    <loc>http://zhaoguibin.me/tags/</loc>
-    <lastmod>2024-02-22T12:11:23+00:00</lastmod>
-  </url><url>
-    <loc>http://zhaoguibin.me/</loc>
     <lastmod>2024-02-22T12:11:23+00:00</lastmod>
   </url><url>
     <loc>http://zhaoguibin.me/tags/golang/</loc>
@@ -28,9 +55,6 @@
   </url><url>
     <loc>http://zhaoguibin.me/posts/golang%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</loc>
     <lastmod>2024-01-03T21:45:21+00:00</lastmod>
-  </url><url>
-    <loc>http://zhaoguibin.me/tags/linux/</loc>
-    <lastmod>2024-01-03T21:41:25+00:00</lastmod>
   </url><url>
     <loc>http://zhaoguibin.me/posts/linux%E4%BB%BB%E5%8A%A1%E6%8C%89%E7%A7%92%E6%89%A7%E8%A1%8C/</loc>
     <lastmod>2024-01-03T21:41:25+00:00</lastmod>
@@ -206,7 +230,7 @@
     <loc>http://zhaoguibin.me/posts/%E6%AD%A3%E5%88%99%E7%9A%84%E7%94%A8%E6%B3%95/</loc>
     <lastmod>2018-05-01T16:14:31+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/yum-update%E5%92%8Cyum-upgrade%E5%8C%BA%E5%88%AB/</loc>
+    <loc>http://zhaoguibin.me/posts/yum--update%E5%92%8Cyum--upgrade%E5%8C%BA%E5%88%AB/</loc>
     <lastmod>2018-05-01T16:10:19+00:00</lastmod>
   </url><url>
     <loc>http://zhaoguibin.me/posts/centos--su%E5%92%8Csudo/</loc>
@@ -236,9 +260,6 @@
     <loc>http://zhaoguibin.me/posts/centos6.5%E5%AE%89%E8%A3%85git/</loc>
     <lastmod>2018-02-23T17:18:18+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/tags/git/</loc>
-    <lastmod>2018-02-23T17:18:18+00:00</lastmod>
-  </url><url>
     <loc>http://zhaoguibin.me/posts/centos7%E4%B8%8B%E5%AE%89%E8%A3%85gui%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</loc>
     <lastmod>2018-02-09T15:52:37+00:00</lastmod>
   </url><url>
@@ -254,7 +275,7 @@
     <loc>http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8/</loc>
     <lastmod>2018-01-20T14:43:37+00:00</lastmod>
   </url><url>
-    <loc>http://zhaoguibin.me/posts/mysqli-statement-execute-error-statement-violates-gtid-consistency-create-table-...-/</loc>
+    <loc>http://zhaoguibin.me/posts/mysqli-statement-execute-error--statement-violates-gtid-consistency-create-table-...-/</loc>
     <lastmod>2018-01-20T14:40:42+00:00</lastmod>
   </url><url>
     <loc>http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85pear/</loc>

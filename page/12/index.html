@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.121.1"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.123.4"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="笔记">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -21,6 +21,7 @@
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://zhaoguibin.me/index.xml">
 <link rel="alternate" type="application/json" href="http://zhaoguibin.me/index.json">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/">
 <noscript>
     <style>
         #theme-toggle,
@@ -38,7 +39,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -120,6 +121,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -142,6 +145,59 @@
     </nav>
 </header>
 <main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">MySQL使用Symbolic-Links以支持数据分区存储
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>MySQL数据库及表(仅MyISAM)支持符号链接(symbolic link)，即数据库或表可以存储在my.cnf中指定datadir之外的分区或目录。 要支持符号链接，需要在配置中设置symbolic-links=1(较新的版本为默认开启)
+假设my.cnf有设置data目录:
+datadir=/data1/mysql/data/ 而在另一个分区目录下保存有数据数据库TestDB:
+/data2/mysql/data/TestDB 那么可以这样使得同一个MySQL实例能同时管理TestDB:
+ln -s /data2/mysql/data/TestDB /data1/mysql/data/ 所有文件相关权限设置正确后，MySQL就可以管理TestDB了。 值得注意的是，TestDB最好只能为一个MySQL服务来操作，否则会出现意想不到的问题。使用symbolic link的一个好处是当一个磁盘或分区空间不够时，可以将数据存储到其他的磁盘或分区。</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 15:09:45 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to MySQL使用Symbolic-Links以支持数据分区存储" href="http://zhaoguibin.me/posts/mysql%E4%BD%BF%E7%94%A8symbolic-links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">centos7编译安装nginx
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>ps : nginx安装在/opt/local/nginx里
+1.安装编译安装依赖的类库和包
+如果需要编译MySQL和PHP，就安装这些
+yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c&#43;&#43; gtk&#43;-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc&#43;&#43;-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison 如果只编译nginx，就安装这些
+yum install gcc gcc-c&#43;&#43; autoconf automake zlib zlib-devel openssl openssl-devel pcre-devel 2.编译安装pcre
+PS：Pcre版本不能太高，8最好，要不编译不能通过
+mkdir /usr/local/pcre #创建安装目录 tar zxvf pcre-8....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 15:05:34 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to centos7编译安装nginx" href="http://zhaoguibin.me/posts/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">centos6-5开启-关闭端口
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>列出所有端口
+netstat -ntlp 1、开启端口（以80端口为例）
+方法一：
+/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT 写入修改 /etc/init.d/iptables save 保存修改 service iptables restart 重启防火墙，修改生效 方法二：
+vi /etc/sysconfig/iptables 打开配置文件加入如下语句: -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT 重启防火墙，修改完成 2、关闭端口
+方法一：
+/sbin/iptables -I INPUT -p tcp --dport 80 -j DROP 写入修改 /etc/init.d/iptables save 保存修改 service iptables restart 重启防火墙，修改生效 方法二：
+vi /etc/sysconfig/iptables 打开配置文件加入如下语句: -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j DROP 重启防火墙，修改完成 3、查看端口状态...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 15:03:33 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to centos6-5开启-关闭端口" href="http://zhaoguibin.me/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -282,66 +338,12 @@ expire_logs_days =7 表示保留7天的日志，这样老日志会自动被清�
   <footer class="entry-footer"><span title='2017-12-02 14:35:37 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to mysql-日志文件mysql-bin文件清除方法" href="http://zhaoguibin.me/posts/mysql-%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6mysql-bin%E6%96%87%E4%BB%B6%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">安装golang
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>到官方https://golang.org/dl/
-或者 https://www.golangtc.com/download 下载安装包
-wget https://www.golangtc.com/static/go/1.9/go1.9.linux-amd64.tar.gz tar zxvf go1.9.linux-amd64.tar.gz -C /usr/local 新建GOPATH目录
-mkdir -p /www/golang vim /etc/profile export GOROOT=/usr/local/go export GOBIN=$GOROOT/bin export PATH=$PATH:$GOBIN export GOPATH=/www/golang :wq保存 使其生效
-source /etc/profile 查看是否配置成功
-go version go version go1.9 linux/amd64 简单测试：
-cd /www/golang vim hello.go package main import &#34;fmt&#34; func main() { fmt.Println(&#34;Hello, world&#34;) } :wq go run hello.go Hello, world </p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 14:31:45 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 安装golang" href="http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85golang/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">安装CentOS7文字界面版后，无法联网，用yum安装软件提示-cannot-find-a-valid-baseurl-for-repobase7x86-64-的解决方法
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>无法联网的明显表现会有：
-1、yum install出现 Error: cannot find a valid baseurl or repo:base
-2、ping host会提示unknown host
-方法一、
-1、打开 vi /etc/sysconfig/network-scripts/ifcfg-eth0（每个机子都可能不一样，但格式会是“ifcfg-eth数字”），把ONBOOT=no，改为ONBOOT=yes
-2、重启网络：service network restart
-方法二、
-1、打开 vi /etc/resolv.conf，增加 nameserver 8.8.8.8
-2、重启网络: service network restart</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 14:27:37 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 安装CentOS7文字界面版后，无法联网，用yum安装软件提示-cannot-find-a-valid-baseurl-for-repobase7x86-64-的解决方法" href="http://zhaoguibin.me/posts/%E5%AE%89%E8%A3%85centos7%E6%96%87%E5%AD%97%E7%95%8C%E9%9D%A2%E7%89%88%E5%90%8E%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA-cannot-find-a-valid-baseurl-for-repobase7x86-64-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Ubuntu-手动挂载U盘
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1.在插入U盘前和插入U盘后，都输入同一个命令，检查多了哪个盘
-cat /proc/partitions 这里我发现多了
-8 16 7827424 sdb 8 17 7825423 sdb1 sdb是统称，所以新插入的U盘就是/dev/sdb1
-2.用命令检查新的U盘的文件系统格式
-root@ www.linuxidc.com :/# fdisk -l /dev/sdb Disk /dev/sdb: 8015 MB, 8015282176 bytes 247 heads, 62 sectors/track, 1022 cylinders, total 15654848 sectors Units = sectors of 1 * 512 = 512 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum/optimal): 512 bytes / 512 bytes Disk identifier: 0x0001fce0 Device Boot Start End Blocks Id System /dev/sdb1 * 62 15650907 7825423 c W95 FAT32 (LBA) 看到这里是FAT32格式。...</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 13:50:19 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to Ubuntu-手动挂载U盘" href="http://zhaoguibin.me/posts/ubuntu-%E6%89%8B%E5%8A%A8%E6%8C%82%E8%BD%BDu%E7%9B%98/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="http://zhaoguibin.me/page/11/">
-      «&nbsp;Prev&nbsp;11/14
+      «&nbsp;Prev&nbsp;11/15
     </a>
-    <a class="next" href="http://zhaoguibin.me/page/13/">Next&nbsp;13/14&nbsp;»
+    <a class="next" href="http://zhaoguibin.me/page/13/">Next&nbsp;13/15&nbsp;»
     </a>
   </nav>
 </footer>

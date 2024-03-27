@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>linux on 笔记</title>
+    <title>Linux on 笔记</title>
     <link>http://zhaoguibin.me/tags/linux/</link>
-    <description>Recent content in linux on 笔记</description>
+    <description>Recent content in Linux on 笔记</description>
     <image>
       <title>笔记</title>
       <url>http://zhaoguibin.me/images/papermod-cover.png</url>
@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 03 Jan 2024 21:41:25 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Mar 2024 21:51:55 +0000</lastBuildDate>
     <atom:link href="http://zhaoguibin.me/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alpine Linux 更改时区</title>
+      <link>http://zhaoguibin.me/posts/alpine-linux-%E6%9B%B4%E6%94%B9%E6%97%B6%E5%8C%BA/</link>
+      <pubDate>Tue, 26 Mar 2024 21:51:55 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/alpine-linux-%E6%9B%B4%E6%94%B9%E6%97%B6%E5%8C%BA/</guid>
+      <description>查看时区 date -R 安装tzdata依赖 apk add --no-cache tzdata 查看tzdata包含的时区 ls /usr/share/zoneinfo 输出 ls /usr/share/zoneinfo Africa CET Egypt GMT+0 Iran MST7MDT Poland UTC zone.tab America CST6CDT Eire GMT-0 Israel Mexico Portugal Universal zone1970.tab Antarctica Canada Etc GMT0 Jamaica NZ ROC W-SU Arctic Chile Europe Greenwich Japan NZ-CHAT ROK WET Asia Cuba Factory HST Kwajalein Navajo Singapore Zulu Atlantic EET GB Hongkong Libya PRC Turkey iso3166.tab Australia EST GB-Eire Iceland MET PST8PDT UCT posixrules Brazil EST5EDT GMT Indian MST Pacific US right 复制时区文件 如果localtime文件已经存在，可以先备份后删除。</description>
+    </item>
     <item>
       <title>linux任务按秒执行</title>
       <link>http://zhaoguibin.me/posts/linux%E4%BB%BB%E5%8A%A1%E6%8C%89%E7%A7%92%E6%89%A7%E8%A1%8C/</link>

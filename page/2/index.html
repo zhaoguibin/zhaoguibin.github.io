@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.121.1"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.123.4"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="笔记">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -21,6 +21,7 @@
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://zhaoguibin.me/index.xml">
 <link rel="alternate" type="application/json" href="http://zhaoguibin.me/index.json">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/">
 <noscript>
     <style>
         #theme-toggle,
@@ -38,7 +39,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -120,6 +121,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -142,6 +145,46 @@
     </nav>
 </header>
 <main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">观察者模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>概念 观察者模式属于行为模式，是定义对象间的一种一对多的依赖关系，以便当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并自动刷新。 当一个对象状态发生改变后，会影响到其他几个对象的改变，这时候可以用观察者模式。 观察者模式符合接口隔离原则，实现了对象之间的松散耦合。 角色 抽象主题（subject）：它把所有观察者对象的引用保存到一个聚集里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。 具体主题（ConcreteSubjest）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。 抽象观察者（Observer）：为所有的具体观察者定义一个接口，在得到主题通知时更新自己。 具体观察者（ConcreteObserver）：实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题状态协调。 &lt;?php //抽象主题 interface Subject { //新增观察者 public function attach(Observer $observer); //移除观察者 public function detach(Observer $observer); //通知观察者 public function notifyObserver(); } //具体主题 class ConcreteSubjest implements Subject { //储存观察者 private $observers; public function __construct() { $this-&gt;observers = []; } //新增观察者 public function attach(Observer $observer) { return array_push($this-&gt;observers, $observer); } //移除观察者 public function detach(Observer $observer) { //检查观察者是否存在观察者数组中，返回索引值 $index = array_search($observer, $this-&gt;observers); if ($index === false) { return false; } else { unset($this-&gt;observers[$index]); return true; } } //通知观察者 public function notifyObserver() { if (!...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-26 20:45:21 +0000 UTC'>March 26, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 观察者模式" href="http://zhaoguibin.me/posts/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">策略模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 概念 将一组特定的行为和算法封装成类，以适应某些特定的上下文环境，并让它们可以相互替换，这种模式就是策略模式。 简单理解就是 有n个做法供你选择，根据你的需要选择某个策略得到结果 优点 使用设计模式之后，我们的代码冗余和耦合度变低，每个策略模块完成对应的功能。 当然缺点就是一个功能我们就要响应制作一个策略类，但是我们统观MVC架构当中（Thinkphp，Yii2），一个控制器对应一个视图，其实也是策略模式的体现了。 &lt;?php interface UserInterface { public function showAd(); public function showCategory(); } //男性用户实现接口 class MaleUser implements UserInterface { public function showAd() { echo &#39;电子产品&#39;; } public function showCategory() { echo &#34;PS5,PC,Switch&#34;; } } //女性用户实现接口 class FemaleUser implements UserInterface { public function showAd() { echo &#39;化妆品&#39;; } public function showCategory() { echo &#34;口红,面膜&#34;; } } //客户端实现，根据性别不同推荐不同内容 $sex = &#39;male&#39;; if ($sex == &#39;male&#39;) { $user = new MaleUser(); } else { $user = new FemaleUser(); } $user-&gt;showAd(); $user-&gt;showCategory(); </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-26 20:31:47 +0000 UTC'>March 26, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 策略模式" href="http://zhaoguibin.me/posts/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">装饰器模式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 概念
+装饰器模式又叫装饰者模式。装饰模式是在不必改变原类文件和使用继承的情况下，动态地扩展一个对象的功能。它是通过创建一个包装对象，也就是装饰来包裹真实的对象。
+实例
+组件对象的接口：可以给这些对象动态的添加职责 所有装饰器的父类：需要定义一个与组件接口一直的接口，并持有一个component对象，该对象其实就是被装饰的对象。 具体的装饰器类：实现具体要向被装饰对象添加的功能。用来装饰具体的组件对象或者另外一个具体的装饰器对象。 使用场景
+需要动态的给一个对象添加功能，这些功能可以再动态的撤销 需要添加由一些基本功能的排列组合而产生的非常大量的功能，从而使继承关系变的不现实。 当不能采用生成子类的方法进行扩充时。一种情况是，可能有大量独立的扩展，为支持每一种组合将产生大量的子类，使得子类数目呈爆炸性增长。另一种情况可能是因为类定义被隐藏，或类定义不能用于生成子类。 &lt;?php //组件对象接口 interface IComponent { //动态给对象添加功能 public function display(); } //待装饰的对象 class Person implements IComponent { protected $name; public function __construct($name) { $this-&gt;name = $name; } public function display() { echo &#39;装饰的&#39; . $this-&gt;name; } } //所有装饰器的父类 class Clothes implements IComponent { protected $component; public function Decorate(IComponent $component) { $this-&gt;component = $component; } public function display() { if (!empty($this-&gt;component)) { $this-&gt;component-&gt;display(); } } } //具体的装饰器 class Pixie extends Clothes { public function display() { echo &#39;皮鞋&#39;; parent::display(); } } class Waitao extends Clothes { public function display() { echo &#39;外套&#39;; parent::display(); } } //客户端 $gd = new Person(&#39;狗蛋&#39;); $px = new Pixie(); $px-&gt;Decorate($gd); $px-&gt;display(); $wt = new Waitao(); $wt-&gt;Decorate($gd); $wt-&gt;display(); </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-03-24 23:13:56 +0000 UTC'>March 24, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to 装饰器模式" href="http://zhaoguibin.me/posts/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -259,64 +302,12 @@ php的应用主要在于数据库应用，所以一个应用中会存在大量�
   <footer class="entry-footer"><span title='2022-03-22 20:49:17 +0000 UTC'>March 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to 单例模式" href="http://zhaoguibin.me/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">什么是设计模式
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>什么是设计模式
-设计模式是一套被反复使用、容易被他人理解的、可靠的代码设计经验的总结。
-那么我们常说的架构、框架和设计模式有什么关系呢？
-架构是一套体系结构，是项目的整体解决方案； 框架是可供复用的半成品软件，是具体程序代码。 架构一般会涉及到采用什么样的框架来加速和优化某部分问题的解决，而好的框架代码里合理使用了很多设计模式。 比如：laravel框架中就使用到了很多的设计模式。其中包括单例模式，门面模式，注册树模式（DI/IOC），适配器模式，观察者模式等多种设计模式。
-设计模式的目的是为了更好的代码重用性，可读性，可靠性，可维护性。
-设计模式的作用
-设计模式能解决：
-替换杂乱无章的代码，形成良好的代码风格 代码易读，工程师们都能很容易理解 增加新功能时不用修改接口，可扩展性强 稳定性好，一般不会出现未知的问题 设计模式不能解决：
-设计模式是用来组织你的代码的模板，而不是直接调用的库 设计模式并非最高效，但是代码的可读性和可维护性更重要 不要一味追求并套用设计模式，重构时多考虑 设计模式–六大原则
-单一职责原则
-定义
-不要存在多于一个导致类变更的原因。既一个类只负责一项职责。
-场景
-类T负责两个不同的职责；职责P1，职责P2，当由于职责P1需求发生改变而需要修改类T时，有可能会导致原本运行正常的职责P2功能发生故障。
-&lt;?php class Animal { public function bre($animal) { echo $animal.&#34;呼吸空气&#34;; } } class Program { public function main() { $animal = new Animal(); $animal-&gt;bre(&#39;猫&#39;); $animal-&gt;bre(&#39;狗&#39;); $animal-&gt;bre(&#39;鱼&#39;); } } 修正
-遵循单一职责原则。分别建立两个类T1、T2，使T1完成职责P1功能，T2完成职责P2功能。这样，当修改类T1时，不会使职责P2发生故障风险；同理，当修改T2时，也不会使职责P1发生故障风险。
-&lt;?php class Ter { public function bre($animal) { echo $animal.&#34;呼吸空气&#34;; } } class Aqu { public function bre($animal) { echo $animal....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-03-21 22:11:16 +0000 UTC'>March 21, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 什么是设计模式" href="http://zhaoguibin.me/posts/%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">树莓派格式化硬盘并自动挂载
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>输入 fdisk -l查看你U盘的具体分区 fdisk -l 先取消树莓派自动挂载取消挂载 sudo umount /dev/sdb1 将/dev/sdb1分区格式化成ext4文件系统 sudo mkfs.ext4 /dev/sdb1 挂载硬盘 sudo mount /dev/sdb1 /data/hardDisk/linkEase/musics 开机自动挂载硬盘 查看硬盘UUID ls -l /dev/disk/by-uuid/ 通过UUID挂载硬盘 #编辑/etc/fstab sudo vim /etc/fstab #添加以下命令到/etc/fstab UUID=601788b2-96aa-4975-a6c2-7b90b128a7e5 /data/hardDisk/linkEase/musics ext4 defaults 0 0 </p>
-  </div>
-  <footer class="entry-footer"><span title='2021-02-03 12:35:01 +0000 UTC'>February 3, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 树莓派格式化硬盘并自动挂载" href="http://zhaoguibin.me/posts/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%A1%AC%E7%9B%98%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">RSA数据加密解密
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>RSA数据加密解密 &lt;?php //定义常量 define(&#34;INVOICE_PRINT_URL&#34;, &#39;&#39;); define(&#34;MERCHANT_ID&#34;, &#39;&#39;); define(&#34;MERCHANT_SECRET&#34;, &#39;&#39;); define(&#34;PLATFORM_PUBLIC_KEY&#34;, &#39;&#39;); define(&#34;MERCHANT_PUBLIC_KEY&#34;, &#39;&#39;); define(&#34;MERCHANT_PRIVATE_KEY&#34;, $&#39;&#39;); define(&#34;ACCOUNT_VALUE&#34;, &#39;&#39;); const KEYSIZE = 2048;//密钥长度 &lt;?php /** * @FuncName:getPlatformPublicKey * @Description 获取平台公钥 * @User ZHaoGuiBin * @Date 2020-08-17 8:29 * @return false|resource */ private static function getPlatformPublicKey() { return openssl_pkey_get_public(PLATFORM_PUBLIC_KEY); } /** * @FuncName:getMerchantPrivateKey * @Description 获取商户私钥 * @User ZHaoGuiBin * @Date 2020-08-17 8:29 * @return false|resource */ private static function getMerchantPrivateKey() { return openssl_pkey_get_private(MERCHANT_PRIVATE_KEY); } /** * @FuncName:getMerchantPublicKey * @Description 获取商户公钥 * @User ZHaoGuiBin * @Date 2020-08-17 8:29 * @return false|resource */ private static function getMerchantPublicKey() { return openssl_pkey_get_public(MERCHANT_PUBLIC_KEY); } /** * @FuncName:sslPublicEncrypt * @Description 公钥加密数据 * @User ZHaoGuiBin * @Date 2020-08-14 10:42 * @param $source_data * @return array */ private static function sslPublicEncrypt($source_data) { if (!...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-08-22 14:31:45 +0000 UTC'>August 22, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to RSA数据加密解密" href="http://zhaoguibin.me/posts/rsa%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="http://zhaoguibin.me/">
-      «&nbsp;Prev&nbsp;1/14
+      «&nbsp;Prev&nbsp;1/15
     </a>
-    <a class="next" href="http://zhaoguibin.me/page/3/">Next&nbsp;3/14&nbsp;»
+    <a class="next" href="http://zhaoguibin.me/page/3/">Next&nbsp;3/15&nbsp;»
     </a>
   </nav>
 </footer>

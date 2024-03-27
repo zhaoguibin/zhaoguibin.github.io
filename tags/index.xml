@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on 笔记</title>
     <link>http://zhaoguibin.me/tags/</link>
@@ -11,38 +11,73 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Feb 2024 12:11:23 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Mar 2024 21:51:55 +0000</lastBuildDate>
     <atom:link href="http://zhaoguibin.me/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>fswatch</title>
+      <title>Alpine</title>
+      <link>http://zhaoguibin.me/tags/alpine/</link>
+      <pubDate>Tue, 26 Mar 2024 21:51:55 +0000</pubDate>
+      <guid>http://zhaoguibin.me/tags/alpine/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>http://zhaoguibin.me/tags/linux/</link>
+      <pubDate>Tue, 26 Mar 2024 21:51:55 +0000</pubDate>
+      <guid>http://zhaoguibin.me/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>http://zhaoguibin.me/tags/git/</link>
+      <pubDate>Tue, 26 Mar 2024 21:31:13 +0000</pubDate>
+      <guid>http://zhaoguibin.me/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sshkey</title>
+      <link>http://zhaoguibin.me/tags/sshkey/</link>
+      <pubDate>Tue, 26 Mar 2024 21:31:13 +0000</pubDate>
+      <guid>http://zhaoguibin.me/tags/sshkey/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IPhone</title>
+      <link>http://zhaoguibin.me/tags/iphone/</link>
+      <pubDate>Tue, 26 Mar 2024 20:15:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/tags/iphone/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ISH</title>
+      <link>http://zhaoguibin.me/tags/ish/</link>
+      <pubDate>Tue, 26 Mar 2024 20:15:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/tags/ish/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fswatch</title>
       <link>http://zhaoguibin.me/tags/fswatch/</link>
       <pubDate>Thu, 22 Feb 2024 12:11:23 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/fswatch/</guid>
       <description></description>
     </item>
     <item>
-      <title>mac</title>
+      <title>Mac</title>
       <link>http://zhaoguibin.me/tags/mac/</link>
       <pubDate>Thu, 22 Feb 2024 12:11:23 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/mac/</guid>
       <description></description>
     </item>
     <item>
-      <title>golang</title>
+      <title>Golang</title>
       <link>http://zhaoguibin.me/tags/golang/</link>
       <pubDate>Wed, 03 Jan 2024 21:51:21 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/golang/</guid>
       <description></description>
     </item>
     <item>
-      <title>linux</title>
-      <link>http://zhaoguibin.me/tags/linux/</link>
-      <pubDate>Wed, 03 Jan 2024 21:41:25 +0000</pubDate>
-      <guid>http://zhaoguibin.me/tags/linux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>php</title>
+      <title>Php</title>
       <link>http://zhaoguibin.me/tags/php/</link>
       <pubDate>Wed, 20 Jul 2022 19:13:31 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/php/</guid>
@@ -63,14 +98,14 @@
       <description></description>
     </item>
     <item>
-      <title>surge</title>
+      <title>Surge</title>
       <link>http://zhaoguibin.me/tags/surge/</link>
       <pubDate>Tue, 04 Aug 2020 19:53:32 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/surge/</guid>
       <description></description>
     </item>
     <item>
-      <title>mysql</title>
+      <title>Mysql</title>
       <link>http://zhaoguibin.me/tags/mysql/</link>
       <pubDate>Sun, 19 Jan 2020 16:23:54 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/mysql/</guid>
@@ -84,49 +119,49 @@
       <description></description>
     </item>
     <item>
-      <title>windows</title>
+      <title>Windows</title>
       <link>http://zhaoguibin.me/tags/windows/</link>
       <pubDate>Fri, 23 Nov 2018 21:38:17 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/windows/</guid>
       <description></description>
     </item>
     <item>
-      <title>iptables</title>
+      <title>Iptables</title>
       <link>http://zhaoguibin.me/tags/iptables/</link>
       <pubDate>Fri, 16 Nov 2018 19:47:29 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/iptables/</guid>
       <description></description>
     </item>
     <item>
-      <title>centos</title>
+      <title>Centos</title>
       <link>http://zhaoguibin.me/tags/centos/</link>
       <pubDate>Fri, 16 Nov 2018 19:35:51 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/centos/</guid>
       <description></description>
     </item>
     <item>
-      <title>nginx</title>
+      <title>Nginx</title>
       <link>http://zhaoguibin.me/tags/nginx/</link>
       <pubDate>Fri, 09 Nov 2018 20:17:14 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/nginx/</guid>
       <description></description>
     </item>
     <item>
-      <title>kafka</title>
+      <title>Kafka</title>
       <link>http://zhaoguibin.me/tags/kafka/</link>
       <pubDate>Sun, 30 Sep 2018 14:41:06 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/kafka/</guid>
       <description></description>
     </item>
     <item>
-      <title>jdk</title>
+      <title>Jdk</title>
       <link>http://zhaoguibin.me/tags/jdk/</link>
       <pubDate>Sun, 30 Sep 2018 13:46:57 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/jdk/</guid>
       <description></description>
     </item>
     <item>
-      <title>docker</title>
+      <title>Docker</title>
       <link>http://zhaoguibin.me/tags/docker/</link>
       <pubDate>Sun, 30 Sep 2018 13:45:16 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/docker/</guid>
@@ -147,147 +182,140 @@
       <description></description>
     </item>
     <item>
-      <title>nss</title>
+      <title>Nss</title>
       <link>http://zhaoguibin.me/tags/nss/</link>
       <pubDate>Sun, 15 Apr 2018 16:35:47 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/nss/</guid>
       <description></description>
     </item>
     <item>
-      <title>ftp</title>
+      <title>Ftp</title>
       <link>http://zhaoguibin.me/tags/ftp/</link>
       <pubDate>Mon, 26 Feb 2018 17:48:08 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/ftp/</guid>
       <description></description>
     </item>
     <item>
-      <title>git</title>
-      <link>http://zhaoguibin.me/tags/git/</link>
-      <pubDate>Fri, 23 Feb 2018 17:18:18 +0000</pubDate>
-      <guid>http://zhaoguibin.me/tags/git/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>redis</title>
+      <title>Redis</title>
       <link>http://zhaoguibin.me/tags/redis/</link>
       <pubDate>Mon, 08 Jan 2018 20:53:37 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/redis/</guid>
       <description></description>
     </item>
     <item>
-      <title>laravel</title>
+      <title>Laravel</title>
       <link>http://zhaoguibin.me/tags/laravel/</link>
       <pubDate>Fri, 05 Jan 2018 20:58:37 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/laravel/</guid>
       <description></description>
     </item>
     <item>
-      <title>python</title>
+      <title>Python</title>
       <link>http://zhaoguibin.me/tags/python/</link>
       <pubDate>Tue, 02 Jan 2018 21:14:48 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/python/</guid>
       <description></description>
     </item>
     <item>
-      <title>gcc</title>
+      <title>Gcc</title>
       <link>http://zhaoguibin.me/tags/gcc/</link>
       <pubDate>Tue, 02 Jan 2018 21:12:10 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/gcc/</guid>
       <description></description>
     </item>
     <item>
-      <title>socket</title>
+      <title>Socket</title>
       <link>http://zhaoguibin.me/tags/socket/</link>
       <pubDate>Tue, 02 Jan 2018 20:42:46 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/socket/</guid>
       <description></description>
     </item>
     <item>
-      <title>LNMP</title>
+      <title>Lnmp</title>
       <link>http://zhaoguibin.me/tags/lnmp/</link>
       <pubDate>Sat, 09 Dec 2017 01:23:45 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/lnmp/</guid>
       <description></description>
     </item>
     <item>
-      <title>yum</title>
+      <title>Yum</title>
       <link>http://zhaoguibin.me/tags/yum/</link>
       <pubDate>Sat, 09 Dec 2017 01:23:45 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/yum/</guid>
       <description></description>
     </item>
     <item>
-      <title>phpstorm</title>
+      <title>Phpstorm</title>
       <link>http://zhaoguibin.me/tags/phpstorm/</link>
       <pubDate>Sun, 03 Dec 2017 19:19:20 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/phpstorm/</guid>
       <description></description>
     </item>
     <item>
-      <title>crontab</title>
+      <title>Crontab</title>
       <link>http://zhaoguibin.me/tags/crontab/</link>
       <pubDate>Sun, 03 Dec 2017 17:37:57 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/crontab/</guid>
       <description></description>
     </item>
     <item>
-      <title>ss</title>
+      <title>Ss</title>
       <link>http://zhaoguibin.me/tags/ss/</link>
       <pubDate>Sun, 03 Dec 2017 17:21:19 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/ss/</guid>
       <description></description>
     </item>
     <item>
-      <title>ssh</title>
+      <title>Ssh</title>
       <link>http://zhaoguibin.me/tags/ssh/</link>
       <pubDate>Sun, 03 Dec 2017 17:19:18 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/ssh/</guid>
       <description></description>
     </item>
     <item>
-      <title>php-fpm</title>
+      <title>Php-Fpm</title>
       <link>http://zhaoguibin.me/tags/php-fpm/</link>
       <pubDate>Sun, 03 Dec 2017 16:28:16 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/php-fpm/</guid>
       <description></description>
     </item>
     <item>
-      <title>samba</title>
+      <title>Samba</title>
       <link>http://zhaoguibin.me/tags/samba/</link>
       <pubDate>Sat, 02 Dec 2017 14:59:06 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/samba/</guid>
       <description></description>
     </item>
     <item>
-      <title>firewalld</title>
+      <title>Firewalld</title>
       <link>http://zhaoguibin.me/tags/firewalld/</link>
       <pubDate>Sat, 02 Dec 2017 14:53:02 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/firewalld/</guid>
       <description></description>
     </item>
     <item>
-      <title>ubuntu</title>
+      <title>Ubuntu</title>
       <link>http://zhaoguibin.me/tags/ubuntu/</link>
       <pubDate>Sat, 02 Dec 2017 14:48:53 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/ubuntu/</guid>
       <description></description>
     </item>
     <item>
-      <title>vim</title>
+      <title>Vim</title>
       <link>http://zhaoguibin.me/tags/vim/</link>
       <pubDate>Sat, 02 Dec 2017 11:59:21 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/vim/</guid>
       <description></description>
     </item>
     <item>
-      <title>hexo</title>
+      <title>Hexo</title>
       <link>http://zhaoguibin.me/tags/hexo/</link>
       <pubDate>Fri, 01 Dec 2017 19:57:59 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/hexo/</guid>
       <description></description>
     </item>
     <item>
-      <title>lsyncd</title>
+      <title>Lsyncd</title>
       <link>http://zhaoguibin.me/tags/lsyncd/</link>
       <pubDate>Thu, 30 Nov 2017 20:24:03 +0000</pubDate>
       <guid>http://zhaoguibin.me/tags/lsyncd/</guid>

@@ -10,9 +10,7 @@
 <meta name="description" content="概念 将一个请求封装（命令的封装）为一个对象，从而使用你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作。 命令模式是对命令的封装。命令模式把发出命令的责任和执行命令的责任分隔开，委派给不同的对象。 请求的一方发出请求要求执行一个操作；接收的一方收到请求，并执行操作。命令模式允许请求的一方和接收的一方独立开来，使得请求的一方不必知道接收请求的一方的接口，更不必知道请求是怎么被接收，以及操作是否被执行、何时被执行，以及是怎么被执行的。 角色 命令（command）角色：声明了一个给所有具体命令类的抽象接口。这是一个抽象角色。 具体命令（ConcreteCommand）角色：定义一个接收者和行为之间的弱耦合；实现Execute()方法，负责调用接收到的相应操作。Execute()方法通常叫做执行方法。 客户（client）角色：创建了一个具体命令（ConcreteCommand）对象并确定其接收者。 请求者（Invoker）角色：负责调用命令对象执行请求，相关的方法叫做行动方法。 接收者（Receiver）角色：负责具体实施和执行一个请求。任何一个类都可以成为接收者，实施和执行请求的方法叫做行动方法。 优点和缺点 优点： 命令模式把请求一个操作的对象与知道怎么执行一个操作的对象分离开。 命令类与其他任何别的类一样，可以修改和推广。 可以把命令对象聚合在一起，合成为合成命令。 可以很容易的加入新的命令类。 缺点： 可能会导致某些系统有过多的具体命令类。 应用场景 抽象出待执行的动作以参数化对象。Command模式是回调机制的一个面向对象的替代品。 在不同的时刻指定、排列和执行请求。 支持取消操作 支持修改日志 用构建在原语操作上的高层操作构建一个系统。Command模式提供了对事务进行建模的方法。Command有一个公共的接口，使得你可以用同一种方式调用所有的事务。同时使用该模式也易于添加新事务以扩展系统。 &lt;?php //抽象命令接口 interface Command { //命令执行 public function execute(); } //宏命令（命令的组合） //宏命令接口 interface MacroCommand extends Command { //宏命令聚集管理方法，可以删除一个命令 public function remove(Command $command); //宏命令聚集管理方法，可以添加一个命令 public function add(Command $command); } //命令的实现 //复制命令 class CopyCommand implements Command { private $receiver; public function __construct(Receiver $receiver) { $this-&gt;receiver = $receiver; } public function execute() { $this-&gt;receiver-&gt;copy(); } } //粘贴命令 class PasteCommand implements Command { private $receiver; public function __construct(Receiver $receiver) { $this-&gt;receiver = $receiver; } public function execute() { $this-&gt;receiver-&gt;paste(); } } //命令接收者执行命令 class Receiver { private $name; public function __construct($name) { $this-&gt;name = $name; } public function copy() { echo $this-&gt;name .">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -20,6 +18,7 @@
 <link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/posts/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">
 <noscript>
     <style>
         #theme-toggle,
@@ -37,7 +36,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -162,6 +161,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -388,7 +389,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://zhaoguibin.me/tags/php/">php</a></li>
+      <li><a href="http://zhaoguibin.me/tags/php/">Php</a></li>
       <li><a href="http://zhaoguibin.me/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li>
     </ul>
 <nav class="paginav">

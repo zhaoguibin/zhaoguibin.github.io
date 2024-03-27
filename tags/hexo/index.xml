@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>hexo on 笔记</title>
+    <title>Hexo on 笔记</title>
     <link>http://zhaoguibin.me/tags/hexo/</link>
-    <description>Recent content in hexo on 笔记</description>
+    <description>Recent content in Hexo on 笔记</description>
     <image>
       <title>笔记</title>
       <url>http://zhaoguibin.me/images/papermod-cover.png</url>

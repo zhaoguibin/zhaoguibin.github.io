@@ -10,9 +10,7 @@
 <meta name="description" content="wget 指定本定文件夹和保存为特定名称 1. 在shell 中执行以下命令 wget -P /root/test &#34;http://www.baidu.com/index.html&#34; 会把 index.html 文件保存到 &#34;/root/test&#34; 目录下. 2. 执行 wget -O &#34;baidu.html&#34; &#34;http://www.baidu.com/index.html&#34; 会把 index.hmtl 保存到当前目录, 命令为 &#34;baidu.html&#34;. 3. 执行 wget -P /root/test -O &#34;baidu.html&#34; &#34;http://www.baidu.com/index.html&#34; 的结果和 2 相同, 并不会保存到 &#34;/root/test&#34; 目录下. 在linux命令下如何访问一个url？ 1.elinks - lynx-like替代角色模式WWW的浏览器 例如： elinks --dump http://www.baidu.com 2.wget 这个会将访问的首页下载到本地 [root@el5-mq2 ~]# wget http://www.baidu.com --2011-10-17 16:30:10-- http://www.baidu.com/ Resolving www.baidu.com... 119.75.218.45, 119.75.217.56 Connecting to www.baidu.com|119.75.218.45|:80... connected. HTTP request sent, awaiting response... 200 OK Length: 8403 (8.">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -20,6 +18,7 @@
 <link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/posts/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD/">
 <noscript>
     <style>
         #theme-toggle,
@@ -37,7 +36,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -162,6 +161,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -230,7 +231,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://zhaoguibin.me/tags/linux/">linux</a></li>
+      <li><a href="http://zhaoguibin.me/tags/linux/">Linux</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://zhaoguibin.me/posts/%E5%9C%A8%E5%AE%89%E8%A3%85mysqli%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0error-ext-mysqlnd-mysql-float-to-double-h-no-such-file-or-directory/">

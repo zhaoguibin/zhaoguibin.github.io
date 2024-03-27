@@ -16,9 +16,7 @@ php的应用主要在于数据库应用，所以一个应用中会存在大量�
 构造函数需要标记为private（访问控制：防止外部代码使用new操作符创建对象），单例类不能在其他类中实例化，只能被其自身实例化。 拥有一个保存类的实例的静态成员变量。 拥有一个访问这个实例的公共的静态方法（常用getInstance()方法进行实例化单例类，通过instanceof操作符可以检测到类是否已经被实例化） 简称 三私一公： 私有化构造方法：不让在外部产生多个对象 私有化克隆方法：不允许对象被克隆产生新对象 私有化静态属性：运行进入类内部产生对象 公有化静态方法：保存已经产生的对象 &lt;?php //单例 class Uni{ //创建静态私有的变量保存该类对象 static private $instance; //参数 private $config; //防止直接创建对象 private function __construct($config){ $this -&gt; config = $config; echo &#34;我被实例化了&#34;; } //防止克隆对象 private function __clone(){ } static public function getInstance($config){ //判断$instance是否是Uni的对象 //没有则创建 if (!self::$instance instanceof self) { self::$instance = new self($config); } return self::$instance; } public function getName(){ echo $this -&gt; config; } } $db1 = Uni::getInstance(1); $db1 -&gt; getName(); echo &#34;&lt;br&gt;&#34;; $db2 = Uni::getInstance(4); $db2 -&gt; getName(); /** *运行结果： *我被实例化了1 *1 *$db1创建对象后，参数是1 *$db2没有创建对象，而是直接使用$instance保存的唯一对象，所以输出的参数并没有变为4； */ ">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -26,6 +24,7 @@ php的应用主要在于数据库应用，所以一个应用中会存在大量�
 <link rel="mask-icon" href="http://zhaoguibin.me/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
 <noscript>
     <style>
         #theme-toggle,
@@ -43,7 +42,7 @@ php的应用主要在于数据库应用，所以一个应用中会存在大量�
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -180,6 +179,8 @@ php的应用主要在于数据库应用，所以一个应用中会存在大量�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -298,7 +299,7 @@ php的应用主要在于数据库应用，所以一个应用中会存在大量�
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://zhaoguibin.me/tags/php/">php</a></li>
+      <li><a href="http://zhaoguibin.me/tags/php/">Php</a></li>
       <li><a href="http://zhaoguibin.me/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li>
     </ul>
 <nav class="paginav">

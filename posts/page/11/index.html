@@ -10,7 +10,7 @@
 <meta name="description" content="Posts - 笔记">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://zhaoguibin.me/posts/index.xml">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/posts/">
 <noscript>
     <style>
         #theme-toggle,
@@ -36,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -120,6 +121,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -155,6 +158,47 @@
     </a>
   </h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">nginx-fastcgi-param解释
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;#脚本文件请求的路径 fastcgi_param QUERY_STRING $query_string; #请求的参数;如?app=123 fastcgi_param REQUEST_METHOD $request_method; #请求的动作(GET,POST) fastcgi_param CONTENT_TYPE $content_type; #请求头中的Content-Type字段 fastcgi_param CONTENT_LENGTH $content_length; #请求头中的Content-length字段。 fastcgi_param SCRIPT_NAME $fastcgi_script_name; #脚本名称 fastcgi_param REQUEST_URI $request_uri; #请求的地址不带参数 fastcgi_param DOCUMENT_URI $document_uri; #与$uri相同。 fastcgi_param DOCUMENT_ROOT $document_root; #网站的根目录。在server配置中root指令中指定的值 fastcgi_param SERVER_PROTOCOL $server_protocol; #请求使用的协议，通常是HTTP/1.0或HTTP/1.1。 fastcgi_param GATEWAY_INTERFACE CGI/1.1; #cgi 版本 fastcgi_param SERVER_SOFTWARE nginx/$nginx_version; #nginx 版本号，可修改、隐藏 fastcgi_param REMOTE_ADDR $remote_addr; #客户端IP fastcgi_param REMOTE_PORT $remote_port; #客户端端口 fastcgi_param SERVER_ADDR $server_addr; #服务器IP地址 fastcgi_param SERVER_PORT $server_port; #服务器端口 fastcgi_param SERVER_NAME $server_name; #服务器名，域名在server配置中指定的server_name #fastcgi_param PATH_INFO $path_info; #可自定义变量 #PHP only, required if PHP was built with --enable-force-cgi-redirect #fastcgi_param REDIRECT_STATUS 200; 在php可打印出上面的服务环境变量 如：echo $_SERVER[&#39;REMOTE_ADDR&#39;] </p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:03:17 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to nginx-fastcgi-param解释" href="http://zhaoguibin.me/posts/nginx-fastcgi-param%E8%A7%A3%E9%87%8A/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">nginx-alert-kill-646-1-failed-3-No-such-process-解决方法
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>./nginx -s reload nginx: [alert] kill(1708, 1) failed (3: No such process) /opt/local/nginx/sbin/nginx -c /opt/local/nginx/conf/nginx.conf /opt/local/nginx/sbin/nginx -s reload PS:
+假设你的nginx的目录是：/usr/opt/nginx/sbin/nginx 假设nginx的配置目录是： /usr/opt/nginx/conf/nginx.conf 重启的方法是：/usr/opt/nginx/sbin/nginx -c /usr/opt/nginx/conf/nginx.conf
+参数-c 指定了配置文件的路径，如果不指定该参数，则nginx会默认加载其按照目录的conf目录下的nginx.conf. 平滑重启： 1、检查修改后的配置文件是否正确： /usr/opt/nginx/sbin/nginx -t -c
+/usr/opt/nginx/conf/nginx.conf 2、kill -HUP Nginx主进程号。示例如下：
+kill -HUP cat/usr/local/webserver/nginx/logs/nginx.pid 主要参数介绍如下：-c 为Nginx 指定一个配置文件，来代替缺省的。-t 不运行，而仅仅测试配置文件。</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 17:00:05 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to nginx-alert-kill-646-1-failed-3-No-such-process-解决方法" href="http://zhaoguibin.me/posts/nginx-alert-kill-646-1-failed-3-no-such-process-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">MySQL-ERROR-Table-mysql-user-doesn-t-exist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1、现象描述 [root@centos65 scripts]# service mysqld start Starting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.pid).[FAILED] 查看错误日志
+[root@centos65 scripts]# tail /var/log/mysqld.log InnoDB: Apply batch completed 2014-12-08 11:01:37 15721 [Note] InnoDB: 128 rollback segment(s) are active. 2014-12-08 11:01:37 15721 [Note] InnoDB: Waiting for purge to start 2014-12-08 11:01:37 15721 [Note] InnoDB: 5.6.12 started; log sequence number 1600607 2014-12-08 11:01:37 15721 [Note] Server hostname (bind-address): &#39;*&#39;; port: 3306 2014-12-08 11:01:37 15721 [Note] IPv6 is available....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-03 16:55:56 +0000 UTC'>December 3, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to MySQL-ERROR-Table-mysql-user-doesn-t-exist" href="http://zhaoguibin.me/posts/mysql-error-table-mysql-user-doesn-t-exist/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -287,65 +331,12 @@ vim /etc/my.cnf 在 [mysqld] 添加
   <footer class="entry-footer"><span title='2017-12-02 15:12:36 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to Mysql双主同步" href="http://zhaoguibin.me/posts/mysql%E5%8F%8C%E4%B8%BB%E5%90%8C%E6%AD%A5/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">MySQL使用Symbolic-Links以支持数据分区存储
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>MySQL数据库及表(仅MyISAM)支持符号链接(symbolic link)，即数据库或表可以存储在my.cnf中指定datadir之外的分区或目录。 要支持符号链接，需要在配置中设置symbolic-links=1(较新的版本为默认开启)
-假设my.cnf有设置data目录:
-datadir=/data1/mysql/data/ 而在另一个分区目录下保存有数据数据库TestDB:
-/data2/mysql/data/TestDB 那么可以这样使得同一个MySQL实例能同时管理TestDB:
-ln -s /data2/mysql/data/TestDB /data1/mysql/data/ 所有文件相关权限设置正确后，MySQL就可以管理TestDB了。 值得注意的是，TestDB最好只能为一个MySQL服务来操作，否则会出现意想不到的问题。使用symbolic link的一个好处是当一个磁盘或分区空间不够时，可以将数据存储到其他的磁盘或分区。</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 15:09:45 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to MySQL使用Symbolic-Links以支持数据分区存储" href="http://zhaoguibin.me/posts/mysql%E4%BD%BF%E7%94%A8symbolic-links%E4%BB%A5%E6%94%AF%E6%8C%81%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">centos7编译安装nginx
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>ps : nginx安装在/opt/local/nginx里
-1.安装编译安装依赖的类库和包
-如果需要编译MySQL和PHP，就安装这些
-yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c&#43;&#43; gtk&#43;-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc&#43;&#43;-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison 如果只编译nginx，就安装这些
-yum install gcc gcc-c&#43;&#43; autoconf automake zlib zlib-devel openssl openssl-devel pcre-devel 2.编译安装pcre
-PS：Pcre版本不能太高，8最好，要不编译不能通过
-mkdir /usr/local/pcre #创建安装目录 tar zxvf pcre-8....</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 15:05:34 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to centos7编译安装nginx" href="http://zhaoguibin.me/posts/centos7%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">centos6-5开启-关闭端口
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>列出所有端口
-netstat -ntlp 1、开启端口（以80端口为例）
-方法一：
-/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT 写入修改 /etc/init.d/iptables save 保存修改 service iptables restart 重启防火墙，修改生效 方法二：
-vi /etc/sysconfig/iptables 打开配置文件加入如下语句: -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT 重启防火墙，修改完成 2、关闭端口
-方法一：
-/sbin/iptables -I INPUT -p tcp --dport 80 -j DROP 写入修改 /etc/init.d/iptables save 保存修改 service iptables restart 重启防火墙，修改生效 方法二：
-vi /etc/sysconfig/iptables 打开配置文件加入如下语句: -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j DROP 重启防火墙，修改完成 3、查看端口状态...</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-02 15:03:33 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to centos6-5开启-关闭端口" href="http://zhaoguibin.me/posts/centos6-5%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="http://zhaoguibin.me/posts/page/10/">
-      «&nbsp;Prev&nbsp;10/14
+      «&nbsp;Prev&nbsp;10/15
     </a>
-    <a class="next" href="http://zhaoguibin.me/posts/page/12/">Next&nbsp;12/14&nbsp;»
+    <a class="next" href="http://zhaoguibin.me/posts/page/12/">Next&nbsp;12/15&nbsp;»
     </a>
   </nav>
 </footer>

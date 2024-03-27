@@ -10,7 +10,7 @@
 <meta name="description" content="Posts - 笔记">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://zhaoguibin.me/posts/index.xml">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/posts/">
 <noscript>
     <style>
         #theme-toggle,
@@ -36,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -120,6 +121,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -155,6 +158,47 @@
     </a>
   </h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">golang两个线程交替打印1-100的奇数偶数
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>启动两个线程, 一个输出 1,3,5,7…99, 另一个输出 2,4,6,8…100 最后 STDOUT 中按序输出 1,2,3,4,5…100
+package main import ( &#34;fmt&#34; &#34;time&#34; ) var pool = 100 //奇数 func oddNum(c chan int) { for i := 1; i &lt;= pool; i&#43;&#43; { c &lt;- i if i%2 == 1 { fmt.Println(i) } } } //偶数 func even(c chan int) { for i := 1; i &lt;= pool; i&#43;&#43; { &lt;-c if i%2 == 0 { fmt.Println(i) } } } func main() { c := make(chan int) go oddNum(c) go even(c) time....</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-01-31 13:39:38 +0000 UTC'>January 31, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to golang两个线程交替打印1-100的奇数偶数" href="http://zhaoguibin.me/posts/golang%E4%B8%A4%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B01-100%E7%9A%84%E5%A5%87%E6%95%B0%E5%81%B6%E6%95%B0/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">golang抓取知乎图片
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>代码github地址 https://github.com/zhaoguibin/zhihu_pic
+需要安装 gjson go get -u github.com/tidwall/gjson package main import ( &#34;bytes&#34; &#34;fmt&#34; &#34;io&#34; &#34;io/ioutil&#34; &#34;net/http&#34; &#34;os&#34; &#34;regexp&#34; &#34;strings&#34; &#34;github.com/tidwall/gjson&#34; &#34;bufio&#34; &#34;strconv&#34; &#34;time&#34; ) var quit = make(chan int) func main() { url := urlExists() dirName := strconv.FormatInt(time.Now().Unix(), 10) imgDir := &#34;./&#34; &#43; dirName &#43; &#34;/&#34; _, errs := pathExists(imgDir) if errs != nil { fmt.Printf(&#34;创建文件失败&#34;) return } getImgURL(url, imgDir) } //获取图片地址 func getImgURL(url, imgDir string) { //提交请求 reqest, err := http....</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-01-26 10:56:31 +0000 UTC'>January 26, 2019</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to golang抓取知乎图片" href="http://zhaoguibin.me/posts/golang%E6%8A%93%E5%8F%96%E7%9F%A5%E4%B9%8E%E5%9B%BE%E7%89%87/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Virtualbox 共享文件夹 cannot create symlink error
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>npm操作虚拟机共享文件夹里的文件时出现 npm Error: EROFS: read-only file system, symlink的报错信息。
+解决方法 原来VirtualBox从安全角度出发，限制了软链接的创建，需要打开相应的Feature。以下为详细步骤：
+关闭 VirtualBox。 将VirtualBox安装目录的路径加入系统环境变量PATH中。 打开命令行窗口，执行如下命令： VBoxManage setextradata YOURVMNAME VBoxInternal2/SharedFoldersEnableSymlinksCreate/YOURSHAREFOLDERNAME 1 其中：YOURVMNAME为虚拟机中linux系统的名称 YOURSHAREFOLDERNAME 为共享的目录名称
+“以管理者身份运行” VirtualBox　即可！ </p>
+  </div>
+  <footer class="entry-footer"><span title='2019-01-26 10:29:46 +0000 UTC'>January 26, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Virtualbox 共享文件夹 cannot create symlink error" href="http://zhaoguibin.me/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9-cannot-create-symlink-error/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -243,52 +287,12 @@ consumer.properites #消费者配置，这个配置文件用于配置于2.5节�
   <footer class="entry-footer"><span title='2018-09-30 14:41:06 +0000 UTC'>September 30, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to Kafka安装" href="http://zhaoguibin.me/posts/kafka%E5%AE%89%E8%A3%85/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Linux安装jdk
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>到oracle官网下载二进制压缩文件
-1.解压 2.编辑/etc/profile，添加以下配置 export JAVA_HOME=/opt/src/jdk1.8.0_171 export JRE_HOME=/opt/src/jdk1.8.0_171/jre export PATH=$PATH:/opt/src/jdk1.8.0_171/bin export CLASSPATH=./:/opt/src/jdk1.8.0_171/lib:/opt/src/jdk1.8.0_171/jre/lib 3.刷新配置 source /etc/profile 4.查看配置是否生效 java -version 5.出现以下信息就安装成功了 java version &#34;1.8.0_171&#34; Java(TM) SE Runtime Environment (build 1.8.0_171-b11) Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode) </p>
-  </div>
-  <footer class="entry-footer"><span title='2018-09-30 13:46:57 +0000 UTC'>September 30, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to Linux安装jdk" href="http://zhaoguibin.me/posts/linux%E5%AE%89%E8%A3%85jdk/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">docker保存对容器的修改
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>docker commit 容器ID 要保存的镜像名称 </p>
-  </div>
-  <footer class="entry-footer"><span title='2018-09-30 13:45:16 +0000 UTC'>September 30, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to docker保存对容器的修改" href="http://zhaoguibin.me/posts/docker%E4%BF%9D%E5%AD%98%E5%AF%B9%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">docker 不能运行 systemctl
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>docker centos7运行systemctl start nginx 报错：
-Failed to get D-BUS connection: Operation no permitted 解决方法：
-在启动容器的时候添加上-d参数就可以了
-docker run -itd --privileged -p 3306:3306 -v /opt/data/:/opt/mysql/data 镜像ID /usr/sbin/init docker exec -it 容器ID /bin/bash </p>
-  </div>
-  <footer class="entry-footer"><span title='2018-09-30 13:39:07 +0000 UTC'>September 30, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to docker 不能运行 systemctl" href="http://zhaoguibin.me/posts/docker-%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C-systemctl/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="http://zhaoguibin.me/posts/page/3/">
-      «&nbsp;Prev&nbsp;3/14
+      «&nbsp;Prev&nbsp;3/15
     </a>
-    <a class="next" href="http://zhaoguibin.me/posts/page/5/">Next&nbsp;5/14&nbsp;»
+    <a class="next" href="http://zhaoguibin.me/posts/page/5/">Next&nbsp;5/15&nbsp;»
     </a>
   </nav>
 </footer>

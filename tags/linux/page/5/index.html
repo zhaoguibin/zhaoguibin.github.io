@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>linux | 笔记</title>
+<title>Linux | 笔记</title>
 <meta name="keywords" content="">
 <meta name="description" content="笔记">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/tags/linux/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://zhaoguibin.me/tags/linux/index.xml">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/tags/linux/">
 <noscript>
     <style>
         #theme-toggle,
@@ -36,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -55,7 +56,7 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="linux" />
+</noscript><meta property="og:title" content="Linux" />
 <meta property="og:description" content="笔记" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://zhaoguibin.me/tags/linux/" /><meta property="og:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
@@ -63,7 +64,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
 
-<meta name="twitter:title" content="linux"/>
+<meta name="twitter:title" content="Linux"/>
 <meta name="twitter:description" content="笔记"/>
 
 </head>
@@ -105,6 +106,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -129,7 +132,7 @@
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="http://zhaoguibin.me/">Home</a>&nbsp;»&nbsp;<a href="http://zhaoguibin.me/tags/">Tags</a></div>
   <h1>
-    linux
+    Linux
     <a href="/tags/linux/index.xml" title="RSS" aria-label="RSS">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" height="23">
@@ -140,6 +143,26 @@
     </a>
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">centos6.5编译安装LNMP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>一、环境准备 1、操作系统安装：CentOS 6.5 64位最小化安装。 2、配置好IP、DNS、网关、主机名 3、配置防火墙，开启80、3306端口 /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT /etc/rc.d/init.d/iptables save /etc/init.d/iptables restart 这样就搞定了，查看效果
+/etc/init.d/iptables status /etc/init.d/iptables restart #最后重启防火墙使配置生效 PS：
+Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：
+#开启端口 firewall-cmd --zone=public --add-port=80/tcp --permanent #重启防火墙 firewall-cmd --reload 命令含义：
+–zone #作用域
+–add-port=80/tcp #添加端口，格式为：端口/通讯协议
+–permanent #永久生效，没有此参数重启后失效
+4、关闭SELinux 查看selinux状态：
+/usr/sbin/sestatus -v SELinux status: disabled //禁用selinux getenforce Disabled //禁用selinux getenforce Enforcing //启动 关闭selinux方法： setenforce 0 #设置SELinux 成为permissive模式 setenforce 1 #设置SELinux 成为enforcing模式 第二种方法： vim /etc/selinux/config 编辑文件...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-02 11:01:15 +0000 UTC'>December 2, 2017</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to centos6.5编译安装LNMP" href="http://zhaoguibin.me/posts/centos6.5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85lnmp/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">

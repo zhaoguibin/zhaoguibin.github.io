@@ -10,7 +10,7 @@
 <meta name="description" content="Posts - 笔记">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://zhaoguibin.me/posts/index.xml">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/posts/">
 <noscript>
     <style>
         #theme-toggle,
@@ -36,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -120,6 +121,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -155,6 +158,45 @@
     </a>
   </h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">mysql添加索引命令
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1.PRIMARY KEY（主键索引） mysql&gt;ALTER TABLE `table_name` ADD PRIMARY KEY (`column`) 2.UNIQUE(唯一索引) mysql&gt;ALTER TABLE `table_name` ADD UNIQUE (`column` ) 3.INDEX(普通索引) mysql&gt;ALTER TABLE `table_name` ADD INDEX index_name (`column`) 4.FULLTEXT(全文索引) mysql&gt;ALTER TABLE `table_name` ADD FULLTEXT (`column`) 5.多列索引 mysql&gt;ALTER TABLE `table_name` ADD INDEX index_name (`column1`, `column2`, `column3`) </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-20 14:45:13 +0000 UTC'>January 20, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to mysql添加索引命令" href="http://zhaoguibin.me/posts/mysql%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95%E5%91%BD%E4%BB%A4/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">mysql查询出的数据插入另一个表
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. INSERT INTO 表名1(字段列表1) SELECT 字段列表2 FROM 表名2 WHERE 条件表达式; 2. INSERT INTO 表名1(字段列表1) select * from (select 字段 from *) 临时表名 INSERT INTO 要插入数据的表 (字段1,字段2,....) SELECT * FROM (查询数据的sql语句) 临时表名 2-例子： INSERT INTO purchaseandsale_export (`name`) SELECT * FROM (SELECT name FROM `worker`) temp </p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-20 14:43:37 +0000 UTC'>January 20, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to mysql查询出的数据插入另一个表" href="http://zhaoguibin.me/posts/mysql%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mysqli statement execute error  Statement violates GTID consistency CREATE TABLE ...
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>解决：
+在my.cnf 中将
+gtid_mode = ON enforce_gtid_consistency = ON 改为
+gtid_mode = OFFenforce_gtid_consistency = OFF 要两个参数一起改,然后重启mysql，问题解决</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-01-20 14:40:42 +0000 UTC'>January 20, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Mysqli statement execute error  Statement violates GTID consistency CREATE TABLE ..." href="http://zhaoguibin.me/posts/mysqli-statement-execute-error--statement-violates-gtid-consistency-create-table-...-/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -265,59 +307,12 @@ WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net
   <footer class="entry-footer"><span title='2018-01-05 21:22:14 +0000 UTC'>January 5, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
   <a class="entry-link" aria-label="post link to php导出CSV" href="http://zhaoguibin.me/posts/php%E5%AF%BC%E5%87%BAcsv/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">虚拟机克隆centos出现“Device eth0 does not seem to be present”解决办法
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>在virtualBox中克隆出新的CentOS虚拟机时，出现如下问题：
-service network restart Shutting down loopback insterface: [ OK ] Bringing up loopback insterface: [ OK ] Bringing up interface eth0: Device eth0 does not seem to be present,delaying initialization. [FAILED] 用ifconfig查看发现缺少eth0，只有lo；用ifconfig -a查看发现多出了eth1的信息。
-解决办法1：
-mv /etc/sysconfig/network-scripts/ifcfg-eth0 /etcsysconfig/network-scripts/ifcfg-eth1 将eth0的mac地址改为eth1的mac地址，同时改变其DEVICE名称为eth1，再重启网络即可。
-解决办法2：
-rm -rf /etc/udev/rules.d/70-persistent-net.rules reboot 总之，只要保证/etc/sysconfig/network-scripts/ifcfg-eth0 与/etc/udev/rules.d/70-persistent-net.rules的信息一致即可，即网卡地址与网卡编号一致，这样service network restart 就可以配置成功。</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-01-05 21:12:38 +0000 UTC'>January 5, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to 虚拟机克隆centos出现“Device eth0 does not seem to be present”解决办法" href="http://zhaoguibin.me/posts/device-eth0-does-not-seem-to-be-present%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Laravel运行出错RuntimeException No application encryption key has been specified.
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>在项目根目录放置.env文件
-APP_NAME=Laravel APP_ENV=local APP_KEY= APP_DEBUG=true APP_LOG_LEVEL=debug APP_URL=http://localhost DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=homestead DB_USERNAME=homestead DB_PASSWORD=secret BROADCAST_DRIVER=log CACHE_DRIVER=file SESSION_DRIVER=file SESSION_LIFETIME=120 QUEUE_DRIVER=sync REDIS_HOST=127.0.0.1 REDIS_PASSWORD=null REDIS_PORT=6379 MAIL_DRIVER=smtp MAIL_HOST=smtp.mailtrap.io MAIL_PORT=2525 MAIL_USERNAME=null MAIL_PASSWORD=null MAIL_ENCRYPTION=null PUSHER_APP_ID= PUSHER_APP_KEY= PUSHER_APP_SECRET= 在项目目录下运行:
-php artisan key:generate 该命令会生成APP_KEY并写入到.env文件中，重新运行</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-01-05 20:58:37 +0000 UTC'>January 5, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to Laravel运行出错RuntimeException No application encryption key has been specified." href="http://zhaoguibin.me/posts/laravel%E8%BF%90%E8%A1%8C%E5%87%BA%E9%94%99runtimeexception-no-application-encryption-key-has-been-specified./"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Laravel访问出错错误信息：`Warning require(vendorautoload.php) failed to open stream No such file or dire
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Warning: require(/opt/project/erp_api/public/../vendor/autoload.php): failed to open stream: No such file or directory in /opt/project/erp_api/public/index.php on line 24
-Fatal error: require(): Failed opening required ‘/opt/project/erp_api/public/../vendor/autoload.php’ (include_path=’.:’) in /opt/project/erp_api/public/index.php on line 24
-原因：网站根目录下缺少vendor这个存放laraver依赖包的目录
-解决方法：使用composer install进行安装
-（没有安装过的情况下，以前安装过的话使用：composer update）</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-01-05 20:55:18 +0000 UTC'>January 5, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
-  <a class="entry-link" aria-label="post link to Laravel访问出错错误信息：`Warning require(vendorautoload.php) failed to open stream No such file or dire" href="http://zhaoguibin.me/posts/laravel%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AFwarning-requirevendorautoload.php-failed-to-open-stream-no-such-file-or-dire/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="http://zhaoguibin.me/posts/page/6/">
-      «&nbsp;Prev&nbsp;6/14
+      «&nbsp;Prev&nbsp;6/15
     </a>
-    <a class="next" href="http://zhaoguibin.me/posts/page/8/">Next&nbsp;8/14&nbsp;»
+    <a class="next" href="http://zhaoguibin.me/posts/page/8/">Next&nbsp;8/15&nbsp;»
     </a>
   </nav>
 </footer>

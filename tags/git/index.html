@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>git | 笔记</title>
+<title>Git | 笔记</title>
 <meta name="keywords" content="">
 <meta name="description" content="笔记">
 <meta name="author" content="ZhaoGuibin">
 <link rel="canonical" href="http://zhaoguibin.me/tags/git/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.992a00f8084499f09735e47b38e064f4f753a5bd701c7c3e4903bb2b84ef2e3b.css" integrity="sha256-mSoA&#43;AhEmfCXNeR7OOBk9PdTpb1wHHw&#43;SQO7K4TvLjs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5808ef06ea07837faec0302cd32de32901cde29a20f23e11d65db5e1339352ff.css" integrity="sha256-WAjvBuoHg3&#43;uwDAs0y3jKQHN4pog8j4R1l214TOTUv8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://zhaoguibin.me/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://zhaoguibin.me/assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://zhaoguibin.me/assets/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://zhaoguibin.me/tags/git/index.xml">
+<link rel="alternate" hreflang="en" href="http://zhaoguibin.me/tags/git/">
 <noscript>
     <style>
         #theme-toggle,
@@ -36,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -55,7 +56,7 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="git" />
+</noscript><meta property="og:title" content="Git" />
 <meta property="og:description" content="笔记" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://zhaoguibin.me/tags/git/" /><meta property="og:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
@@ -63,7 +64,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://zhaoguibin.me/images/papermod-cover.png"/>
 
-<meta name="twitter:title" content="git"/>
+<meta name="twitter:title" content="Git"/>
 <meta name="twitter:description" content="笔记"/>
 
 </head>
@@ -105,6 +106,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -129,7 +132,7 @@
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="http://zhaoguibin.me/">Home</a>&nbsp;»&nbsp;<a href="http://zhaoguibin.me/tags/">Tags</a></div>
   <h1>
-    git
+    Git
     <a href="/tags/git/index.xml" title="RSS" aria-label="RSS">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" height="23">
@@ -140,6 +143,35 @@
     </a>
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Github通过sshkey的方式拉取代码报错kex_exchange_identification
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Git生成密钥 设定Git的username和email git config --global user.name &#34;你的用户名&#34; git config --global user.email &#34;你的邮箱&#34; 创建SSH key cd ~/.ssh ssh-keygen -t rsa -C &#34;你的邮箱&#34; 会出现以下的提示 Generating public/private rsa key pair. Enter file in which to save the key (~/.ssh/id_rsa): 一路回车默认就可以了，这样你的公钥和私钥就同时保存在了~/.ssh/下了。
+获取SSH key cat id_rsa.pub Github添加SSH key 以上都配置了还不行就执行这一步 将 Github 的连接端口从 22 改为 443 即可 编辑 ~/.ssh/config 文件（没有就新增），windows在用户目录下的.ssh目录，添加如下内容
+Host github.com HostName ssh.github.com User git Port 443 验证： ssh -T git@github.com 输出
+Enter passphrase for key &#39;~/....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-03-26 21:31:13 +0000 UTC'>March 26, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to Github通过sshkey的方式拉取代码报错kex_exchange_identification" href="http://zhaoguibin.me/posts/github%E9%80%9A%E8%BF%87sshkey%E7%9A%84%E6%96%B9%E5%BC%8F%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81%E6%8A%A5%E9%94%99kex_exchange_identification/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">ios上使用iSH的git同步iRime
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安装软件 安装好以下软件：git、vim、openssh
+apk add git vim openssh 打开ish设置 设置git git config --global user.name &#34;你注册GitHub账号的名字&#34; git config --global user.email &#34;你注册GitHub账号用的邮箱&#34; 查看公钥 cat ~/.ssh/id_ed25519.pub 如果没有就生成公钥 ssh-keygen -t ed25519 -C &#34;&lt;注释内容&gt;&#34; 再次查看显示公钥,公钥添加到GitHub的SSH keys cat ~/.ssh/id_ed25519.pub 挂载文件夹 会弹出文件夹选择框，选择你要挂载的目录，比如下载目录，确定后即挂载到 /mnt 目录中
+mount -t ios . dir_name git设置 #禁用安全目录 git config --global --add safe.directory /path </p>
+  </div>
+  <footer class="entry-footer"><span title='2024-03-26 20:15:37 +0000 UTC'>March 26, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZhaoGuibin</footer>
+  <a class="entry-link" aria-label="post link to ios上使用iSH的git同步iRime" href="http://zhaoguibin.me/posts/ios%E4%B8%8A%E4%BD%BF%E7%94%A8ish%E7%9A%84git%E5%90%8C%E6%AD%A5irime/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">

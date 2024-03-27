@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on 笔记</title>
     <link>http://zhaoguibin.me/posts/</link>
@@ -11,8 +11,34 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Feb 2024 12:11:23 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Mar 2024 21:51:55 +0000</lastBuildDate>
     <atom:link href="http://zhaoguibin.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alpine Linux 更改时区</title>
+      <link>http://zhaoguibin.me/posts/alpine-linux-%E6%9B%B4%E6%94%B9%E6%97%B6%E5%8C%BA/</link>
+      <pubDate>Tue, 26 Mar 2024 21:51:55 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/alpine-linux-%E6%9B%B4%E6%94%B9%E6%97%B6%E5%8C%BA/</guid>
+      <description>查看时区 date -R 安装tzdata依赖 apk add --no-cache tzdata 查看tzdata包含的时区 ls /usr/share/zoneinfo 输出 ls /usr/share/zoneinfo Africa CET Egypt GMT+0 Iran MST7MDT Poland UTC zone.tab America CST6CDT Eire GMT-0 Israel Mexico Portugal Universal zone1970.tab Antarctica Canada Etc GMT0 Jamaica NZ ROC W-SU Arctic Chile Europe Greenwich Japan NZ-CHAT ROK WET Asia Cuba Factory HST Kwajalein Navajo Singapore Zulu Atlantic EET GB Hongkong Libya PRC Turkey iso3166.tab Australia EST GB-Eire Iceland MET PST8PDT UCT posixrules Brazil EST5EDT GMT Indian MST Pacific US right 复制时区文件 如果localtime文件已经存在，可以先备份后删除。</description>
+    </item>
+    <item>
+      <title>Github通过sshkey的方式拉取代码报错kex_exchange_identification</title>
+      <link>http://zhaoguibin.me/posts/github%E9%80%9A%E8%BF%87sshkey%E7%9A%84%E6%96%B9%E5%BC%8F%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81%E6%8A%A5%E9%94%99kex_exchange_identification/</link>
+      <pubDate>Tue, 26 Mar 2024 21:31:13 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/github%E9%80%9A%E8%BF%87sshkey%E7%9A%84%E6%96%B9%E5%BC%8F%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81%E6%8A%A5%E9%94%99kex_exchange_identification/</guid>
+      <description>Git生成密钥 设定Git的username和email git config --global user.name &amp;#34;你的用户名&amp;#34; git config --global user.email &amp;#34;你的邮箱&amp;#34; 创建SSH key cd ~/.ssh ssh-keygen -t rsa -C &amp;#34;你的邮箱&amp;#34; 会出现以下的提示 Generating public/private rsa key pair. Enter file in which to save the key (~/.ssh/id_rsa): 一路回车默认就可以了，这样你的公钥和私钥就同时保存在了~/.ssh/下了。
+获取SSH key cat id_rsa.pub Github添加SSH key 以上都配置了还不行就执行这一步 将 Github 的连接端口从 22 改为 443 即可 编辑 ~/.ssh/config 文件（没有就新增），windows在用户目录下的.ssh目录，添加如下内容
+Host github.com HostName ssh.github.com User git Port 443 验证： ssh -T git@github.com 输出
+Enter passphrase for key &amp;#39;~/.</description>
+    </item>
+    <item>
+      <title>ios上使用iSH的git同步iRime</title>
+      <link>http://zhaoguibin.me/posts/ios%E4%B8%8A%E4%BD%BF%E7%94%A8ish%E7%9A%84git%E5%90%8C%E6%AD%A5irime/</link>
+      <pubDate>Tue, 26 Mar 2024 20:15:37 +0000</pubDate>
+      <guid>http://zhaoguibin.me/posts/ios%E4%B8%8A%E4%BD%BF%E7%94%A8ish%E7%9A%84git%E5%90%8C%E6%AD%A5irime/</guid>
+      <description>安装软件 安装好以下软件：git、vim、openssh
+apk add git vim openssh 打开ish设置 设置git git config --global user.name &amp;#34;你注册GitHub账号的名字&amp;#34; git config --global user.email &amp;#34;你注册GitHub账号用的邮箱&amp;#34; 查看公钥 cat ~/.ssh/id_ed25519.pub 如果没有就生成公钥 ssh-keygen -t ed25519 -C &amp;#34;&amp;lt;注释内容&amp;gt;&amp;#34; 再次查看显示公钥,公钥添加到GitHub的SSH keys cat ~/.ssh/id_ed25519.pub 挂载文件夹 会弹出文件夹选择框，选择你要挂载的目录，比如下载目录，确定后即挂载到 /mnt 目录中
+mount -t ios . dir_name git设置 #禁用安全目录 git config --global --add safe.directory /path </description>
+    </item>
     <item>
       <title>mac使用fswatch监控文件夹修改并执行shell脚本</title>
       <link>http://zhaoguibin.me/posts/mac%E4%BD%BF%E7%94%A8fswatch%E7%9B%91%E6%8E%A7%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BF%AE%E6%94%B9%E5%B9%B6%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC/</link>
@@ -543,9 +569,9 @@ WMIC Product list msiexec /x {IdentifyingNumbe} </description>
     </item>
     <item>
       <title>yum  update和yum  upgrade区别</title>
-      <link>http://zhaoguibin.me/posts/yum-update%E5%92%8Cyum-upgrade%E5%8C%BA%E5%88%AB/</link>
+      <link>http://zhaoguibin.me/posts/yum--update%E5%92%8Cyum--upgrade%E5%8C%BA%E5%88%AB/</link>
       <pubDate>Tue, 01 May 2018 16:10:19 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/yum-update%E5%92%8Cyum-upgrade%E5%8C%BA%E5%88%AB/</guid>
+      <guid>http://zhaoguibin.me/posts/yum--update%E5%92%8Cyum--upgrade%E5%8C%BA%E5%88%AB/</guid>
       <description>yum -y update #升级所有包同时也升级软件和系统内核 yum -y upgrade #只升级所有包，不升级软件和系统内核 </description>
     </item>
     <item>
@@ -671,9 +697,9 @@ re-run VBoxLinuxAdditions.run. </description>
     </item>
     <item>
       <title>Mysqli statement execute error  Statement violates GTID consistency CREATE TABLE ...</title>
-      <link>http://zhaoguibin.me/posts/mysqli-statement-execute-error-statement-violates-gtid-consistency-create-table-...-/</link>
+      <link>http://zhaoguibin.me/posts/mysqli-statement-execute-error--statement-violates-gtid-consistency-create-table-...-/</link>
       <pubDate>Sat, 20 Jan 2018 14:40:42 +0000</pubDate>
-      <guid>http://zhaoguibin.me/posts/mysqli-statement-execute-error-statement-violates-gtid-consistency-create-table-...-/</guid>
+      <guid>http://zhaoguibin.me/posts/mysqli-statement-execute-error--statement-violates-gtid-consistency-create-table-...-/</guid>
       <description>解决：
 在my.cnf 中将
 gtid_mode = ON enforce_gtid_consistency = ON 改为
